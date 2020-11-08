@@ -1,12 +1,17 @@
 package com.reetam.borealis.entity;
 
+import com.mojang.datafixers.optics.Wander;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.FlyingEntity;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
+import net.minecraft.entity.ai.controller.LookController;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.passive.IFlyingAnimal;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.item.ItemStack;
@@ -14,8 +19,13 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.Items;
 import net.minecraft.pathfinding.FlyingPathNavigator;
 import net.minecraft.pathfinding.PathNavigator;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+
+import javax.annotation.Nullable;
+import java.util.EnumSet;
 
 public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
 
@@ -23,24 +33,27 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
 
     public HummingbirdEntity(EntityType<? extends HummingbirdEntity> type, World worldIn) {
         super(type, worldIn);
-        this.moveController = new FlyingMovementController(this, 10, false);
+        this.moveController = new FlyingMovementController(this, 20, true);
+        this.setNoGravity(true);
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new PanicGoal(this, 2.5D));
+        this.goalSelector.addGoal(1, new PanicGoal(this, 2.5D));
 //        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
 //        this.goalSelector.addGoal(3, new TemptGoal(this, 1.25D, Ingredient.fromItems(Items.HONEY_BOTTLE.getItem()), false));
 //        this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.25D));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomFlyingGoal(this, 1.0D));
-        this.goalSelector.addGoal(1, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(5, new HummingbirdEntity.WanderGoal());
+        this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
     }
 
     public static AttributeModifierMap.MutableAttribute registerAttributes() {
         return AnimalEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 20.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3D)
-                .createMutableAttribute(Attributes.FLYING_SPEED, 0.3D);
+                .createMutableAttribute(Attributes.MAX_HEALTH, 10.0D)
+                .createMutableAttribute(Attributes.FLYING_SPEED, (double)0.6F)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.3F)
+                .createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D);
+
     }
 
     protected PathNavigator createNavigator(World worldIn) {
@@ -64,5 +77,54 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
     @Override
     public void livingTick() {
         super.livingTick();
+    }
+
+    public boolean onLivingFall(float distance, float damageMultiplier) {
+        return false;
+    }
+
+    protected void updateFallState(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
+    }
+
+    /**COPIED FROM BEE CLASS**/
+    class WanderGoal extends Goal {
+        WanderGoal() {
+            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+        }
+
+        /**
+         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
+         * method as well.
+         */
+        public boolean shouldExecute() {
+            return HummingbirdEntity.this.navigator.noPath() && HummingbirdEntity.this.rand.nextInt(10) == 0;
+        }
+
+        /**
+         * Returns whether an in-progress EntityAIBase should continue executing
+         */
+        public boolean shouldContinueExecuting() {
+            return HummingbirdEntity.this.navigator.hasPath();
+        }
+
+        /**
+         * Execute a one shot task or start executing a continuous task
+         */
+        public void startExecuting() {
+            Vector3d vector3d = this.getRandomLocation();
+            if (vector3d != null) {
+                HummingbirdEntity.this.navigator.setPath(HummingbirdEntity.this.navigator.getPathToPos(new BlockPos(vector3d), 1), 1.0D);
+            }
+
+        }
+
+        @Nullable
+        private Vector3d getRandomLocation() {
+            Vector3d vector3d = HummingbirdEntity.this.getLook(0.0F);
+
+            int i = 8;
+            Vector3d vector3d2 = RandomPositionGenerator.findAirTarget(HummingbirdEntity.this, 8, 7, vector3d, ((float)Math.PI / 2F), 2, 1);
+            return vector3d2 != null ? vector3d2 : RandomPositionGenerator.findGroundTarget(HummingbirdEntity.this, 8, 4, -2, vector3d, (double)((float)Math.PI / 2F));
+        }
     }
 }
