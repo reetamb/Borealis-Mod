@@ -11,7 +11,7 @@ public class BorealisItem extends Item {
 
     public BorealisItem() {
         super(new Properties()
-                .group(BorealisItemGroups.BLOCKS_GROUP));
+                .group(BorealisItemGroups.ITEMS_GROUP));
     }
 
     public BorealisItem(Rarity rarity) {

@@ -22,8 +22,11 @@ public class BorealisBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BorealisMod.MODID);
 
-    public static final RegistryObject<Block> soapstone = registerBlock("soapstone", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
-    public static final RegistryObject<Block> polished_soapstone = registerBlock("polished_soapstone", () -> new Block(AbstractBlock.Properties.from(Blocks.SMOOTH_STONE)));
+    public static final RegistryObject<Block> slate = registerBlock("slate", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
+    public static final RegistryObject<Block> polished_slate = registerBlock("polished_slate", () -> new Block(AbstractBlock.Properties.from(Blocks.SMOOTH_STONE)));
+    public static final RegistryObject<Block> kyanite_ore = registerBlock("kyanite_ore", () -> new Block(OreBlock.Properties.from(Blocks.EMERALD_ORE)));
+    public static final RegistryObject<Block> slate_bricks = registerBlock("slate_bricks", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE_BRICKS)));
+
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);
         BorealisItems.ITEMS.register(name, item.apply(register));

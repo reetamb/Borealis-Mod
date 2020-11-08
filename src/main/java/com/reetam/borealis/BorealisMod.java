@@ -2,6 +2,7 @@ package com.reetam.borealis;
 
 import com.google.common.collect.ImmutableMap;
 import com.reetam.borealis.item.BorealisItem;
+import com.reetam.borealis.client.ClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ComposterBlock;
@@ -28,8 +29,10 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import com.reetam.borealis.registry.*;
@@ -45,9 +48,12 @@ public class BorealisMod {
     public BorealisMod() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        bus.addListener(this::setup);
+        bus.addListener(this::clientSetup);
+
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 
-//        UGEntityTypes.ENTITIES.register(bus);
+        BorealisEntities.ENTITIES.register(bus);
         BorealisBlocks.BLOCKS.register(bus);
         BorealisItems.ITEMS.register(bus);
 //        UGFeatures.FEATURES.register(bus);
@@ -58,5 +64,19 @@ public class BorealisMod {
 //        UGParticleTypes.PARTICLES.register(bus);
 //        UGTileEntities.TEs.register(bus);
 //        UGStructures.STRUCTURES.register(bus);
+    }
+
+    public void clientSetup(FMLClientSetupEvent event) {
+//        ClientStuff.registerBlockRenderers();
+        ClientProxy.registerEntityRenderers();
+//        ClientStuff.registerBlockColors();
+//        ClientStuff.registerItemColors();
+//
+//        DimensionRenderInfo.field_239208_a_.put(new ResourceLocation(MODID, "undergarden"), new UGDimensionRenderInfo());
+//        //TODO: OthersideDRI
+    }
+
+    public void setup(FMLCommonSetupEvent event) {
+        BorealisEntities.entityAttributes();
     }
 }

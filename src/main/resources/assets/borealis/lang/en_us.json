@@ -1,5 +1,10 @@
 {
   "itemGroup.borealis_blocks": "Borealis Blocks",
-  "block.borealis.soapstone": "Soapstone",
-  "block.borealis.polished_soapstone": "Polished Soapstone"
+  "itemGroup.borealis_items": "Borealis Items",
+  "block.borealis.slate": "Slate",
+  "block.borealis.polished_slate": "Polished Slate",
+  "block.borealis.kyanite_ore": "Kyanite Ore",
+  "block.borealis.slate_bricks": "Slate Bricks",
+  "item.borealis.kyanite_crystal": "Kyanite Crystal",
+  "entity.borealis.hummingbird": "Hummingbird"
 }

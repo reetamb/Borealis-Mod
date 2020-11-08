@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "borealis:block/polished_soapstone"
+    "all": "borealis:block/slate"
   }
 }
