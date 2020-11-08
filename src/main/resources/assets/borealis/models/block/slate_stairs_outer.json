@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "borealis:block/slate",
+    "top": "borealis:block/slate",
+    "side": "borealis:block/slate"
+  }
+}

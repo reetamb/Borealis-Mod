@@ -1,10 +1,26 @@
 {
   "itemGroup.borealis_blocks": "Borealis Blocks",
   "itemGroup.borealis_items": "Borealis Items",
+
   "block.borealis.slate": "Slate",
   "block.borealis.polished_slate": "Polished Slate",
-  "block.borealis.kyanite_ore": "Kyanite Ore",
   "block.borealis.slate_bricks": "Slate Bricks",
+
+  "block.borealis.kyanite_ore": "Kyanite Ore",
+
+  "block.borealis.slate_stairs": "Slate Stairs",
+  "block.borealis.polished_slate_stairs": "Polished Slate Stairs",
+  "block.borealis.slate_brick_stairs": "Slate Brick Stairs",
+
+  "block.borealis.slate_slab": "Slate Slab",
+  "block.borealis.polished_slate_slab": "Polished Slate Slab",
+  "block.borealis.slate_brick_slab": "Slate Brick Slab",
+
+  "block.borealis.slate_wall": "Slate Wall",
+  "block.borealis.polished_slate_wall": "Polished Slate Wall",
+  "block.borealis.slate_brick_wall": "Slate Brick Wall",
+
   "item.borealis.kyanite_crystal": "Kyanite Crystal",
+
   "entity.borealis.hummingbird": "Hummingbird"
 }
