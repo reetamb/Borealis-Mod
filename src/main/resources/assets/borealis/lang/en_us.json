@@ -2,25 +2,23 @@
   "itemGroup.borealis_blocks": "Borealis Blocks",
   "itemGroup.borealis_items": "Borealis Items",
 
-  "block.borealis.soapstone": "soapstone",
-  "block.borealis.polished_soapstone": "Polished soapstone",
-  "block.borealis.soapstone_bricks": "soapstone Bricks",
-
-  "block.borealis.kyanite_ore": "Kyanite Ore",
-
-  "block.borealis.soapstone_stairs": "soapstone Stairs",
-  "block.borealis.polished_soapstone_stairs": "Polished soapstone Stairs",
-  "block.borealis.soapstone_brick_stairs": "soapstone Brick Stairs",
-
-  "block.borealis.soapstone_slab": "soapstone Slab",
-  "block.borealis.polished_soapstone_slab": "Polished soapstone Slab",
-  "block.borealis.soapstone_brick_slab": "soapstone Brick Slab",
-
-  "block.borealis.soapstone_wall": "soapstone Wall",
-  "block.borealis.polished_soapstone_wall": "Polished soapstone Wall",
-  "block.borealis.soapstone_brick_wall": "soapstone Brick Wall",
+  "block.borealis.soapstone": "Soapstone",
+  "block.borealis.polished_soapstone": "Polished Soapstone",
+  "block.borealis.soapstone_bricks": "Soapstone Bricks",
+  "block.borealis.soapstone_stairs": "Soapstone Stairs",
+  "block.borealis.polished_soapstone_stairs": "Polished Soapstone Stairs",
+  "block.borealis.soapstone_brick_stairs": "Soapstone Brick Stairs",
+  "block.borealis.soapstone_slab": "Soapstone Slab",
+  "block.borealis.polished_soapstone_slab": "Polished Soapstone Slab",
+  "block.borealis.soapstone_brick_slab": "Soapstone Brick Slab",
+  "block.borealis.soapstone_wall": "Soapstone Wall",
+  "block.borealis.polished_soapstone_wall": "Polished Soapstone Wall",
+  "block.borealis.soapstone_brick_wall": "Soapstone Brick Wall",
+  "block.borealis.soapstone_button": "Soapstone Button",
+  "block.borealis.soapstone_pressure_plate": "Soapstone Pressure Plate",
 
   "item.borealis.kyanite_crystal": "Kyanite Crystal",
+  "block.borealis.kyanite_ore": "Kyanite Ore",
 
   "entity.borealis.hummingbird": "Hummingbird"
 }
