@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "borealis:block/polished_slate",
-    "top": "borealis:block/polished_slate",
-    "side": "borealis:block/polished_slate"
-  }
-}

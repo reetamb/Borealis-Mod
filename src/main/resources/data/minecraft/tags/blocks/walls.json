@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "borealis:slate_wall",
-    "borealis:slate_brick_wall",
-    "borealis:polished_slate_wall"
+    "borealis:soapstone_wall",
+    "borealis:soapstone_brick_wall",
+    "borealis:polished_soapstone_wall"
   ]
 }

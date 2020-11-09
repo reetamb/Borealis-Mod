@@ -2,23 +2,23 @@
   "itemGroup.borealis_blocks": "Borealis Blocks",
   "itemGroup.borealis_items": "Borealis Items",
 
-  "block.borealis.slate": "Slate",
-  "block.borealis.polished_slate": "Polished Slate",
-  "block.borealis.slate_bricks": "Slate Bricks",
+  "block.borealis.soapstone": "soapstone",
+  "block.borealis.polished_soapstone": "Polished soapstone",
+  "block.borealis.soapstone_bricks": "soapstone Bricks",
 
   "block.borealis.kyanite_ore": "Kyanite Ore",
 
-  "block.borealis.slate_stairs": "Slate Stairs",
-  "block.borealis.polished_slate_stairs": "Polished Slate Stairs",
-  "block.borealis.slate_brick_stairs": "Slate Brick Stairs",
+  "block.borealis.soapstone_stairs": "soapstone Stairs",
+  "block.borealis.polished_soapstone_stairs": "Polished soapstone Stairs",
+  "block.borealis.soapstone_brick_stairs": "soapstone Brick Stairs",
 
-  "block.borealis.slate_slab": "Slate Slab",
-  "block.borealis.polished_slate_slab": "Polished Slate Slab",
-  "block.borealis.slate_brick_slab": "Slate Brick Slab",
+  "block.borealis.soapstone_slab": "soapstone Slab",
+  "block.borealis.polished_soapstone_slab": "Polished soapstone Slab",
+  "block.borealis.soapstone_brick_slab": "soapstone Brick Slab",
 
-  "block.borealis.slate_wall": "Slate Wall",
-  "block.borealis.polished_slate_wall": "Polished Slate Wall",
-  "block.borealis.slate_brick_wall": "Slate Brick Wall",
+  "block.borealis.soapstone_wall": "soapstone Wall",
+  "block.borealis.polished_soapstone_wall": "Polished soapstone Wall",
+  "block.borealis.soapstone_brick_wall": "soapstone Brick Wall",
 
   "item.borealis.kyanite_crystal": "Kyanite Crystal",
 

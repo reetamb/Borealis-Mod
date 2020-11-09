@@ -22,23 +22,38 @@ public class BorealisBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BorealisMod.MODID);
 
-    public static final RegistryObject<Block> slate = registerBlock("slate", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
-    public static final RegistryObject<Block> polished_slate = registerBlock("polished_slate", () -> new Block(AbstractBlock.Properties.from(Blocks.SMOOTH_STONE)));
+    public static final RegistryObject<Block> soapstone = registerBlock("soapstone", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
+    public static final RegistryObject<Block> polished_soapstone = registerBlock("polished_soapstone", () -> new Block(AbstractBlock.Properties.from(Blocks.SMOOTH_STONE)));
+    public static final RegistryObject<Block> soapstone_bricks = registerBlock("soapstone_bricks", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<StairsBlock> soapstone_stairs = registerBlock("soapstone_stairs", () -> new StairsBlock(() -> BorealisBlocks.soapstone.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.soapstone.get()).notSolid()));
+    public static final RegistryObject<StairsBlock> polished_soapstone_stairs = registerBlock("polished_soapstone_stairs", () -> new StairsBlock(() -> BorealisBlocks.polished_soapstone.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.polished_soapstone.get()).notSolid()));
+    public static final RegistryObject<StairsBlock> soapstone_brick_stairs = registerBlock("soapstone_brick_stairs", () -> new StairsBlock(() -> BorealisBlocks.soapstone_bricks.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.soapstone_bricks.get()).notSolid()));
+    public static final RegistryObject<SlabBlock> soapstone_slab = registerBlock("soapstone_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone.get()).notSolid()));
+    public static final RegistryObject<SlabBlock> polished_soapstone_slab = registerBlock("polished_soapstone_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.polished_soapstone.get()).notSolid()));
+    public static final RegistryObject<SlabBlock> soapstone_brick_slab = registerBlock("soapstone_brick_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone_bricks.get()).notSolid()));
+    public static final RegistryObject<WallBlock> soapstone_wall = registerBlock("soapstone_wall", () -> new WallBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone.get()).notSolid()));
+    public static final RegistryObject<WallBlock> polished_soapstone_wall = registerBlock("polished_soapstone_wall", () -> new WallBlock(AbstractBlock.Properties.from(BorealisBlocks.polished_soapstone.get()).notSolid()));
+    public static final RegistryObject<WallBlock> soapstone_brick_wall = registerBlock("soapstone_brick_wall", () -> new WallBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone_bricks.get()).notSolid()));
+    public static final RegistryObject<WoodButtonBlock> soapstone_button = registerBlock("soapstone_button", () -> new WoodButtonBlock(AbstractBlock.Properties.from(BorealisBlocks.polished_soapstone.get()).notSolid().doesNotBlockMovement()));
+    public static final RegistryObject<PressurePlateBlock> soapstone_pressure_plate = registerBlock("soapstone_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.polished_soapstone.get()).notSolid().doesNotBlockMovement()));
+
+
+    public static final RegistryObject<Block> brumal_planks = registerBlock("brumal_planks", () -> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<RotatedPillarBlock> brumal_log = registerBlock("brumal_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_LOG)));
+    public static final RegistryObject<RotatedPillarBlock> brumal_wood = registerBlock("brumal_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_WOOD)));
+    public static final RegistryObject<RotatedPillarBlock> stripped_brumal_log = registerBlock("stripped_brumal_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STRIPPED_OAK_LOG)));
+    public static final RegistryObject<RotatedPillarBlock> stripped_brumal_wood = registerBlock("stripped_brumal_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STRIPPED_OAK_WOOD)));
+    public static final RegistryObject<Block> brumal_leaves = registerBlock("brumal_leaves", () -> new LeavesBlock(AbstractBlock.Properties.from(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<StairsBlock> brumal_stairs = registerBlock("brumal_stairs", () -> new StairsBlock(() -> BorealisBlocks.brumal_planks.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid()));
+    public static final RegistryObject<SlabBlock> brumal_slab = registerBlock("brumal_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid()));
+    public static final RegistryObject<FenceBlock> brumal_fence = registerBlock("brumal_fence", () -> new FenceBlock(AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid()));
+    public static final RegistryObject<FenceGateBlock> brumal_fence_gate = registerBlock("brumal_fence_gate", () -> new FenceGateBlock(AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid()));
+    public static final RegistryObject<DoorBlock> brumal_door = registerBlock("brumal_door", () -> new DoorBlock(AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid()));
+    public static final RegistryObject<TrapDoorBlock> brumal_trapdoor = registerBlock("brumal_trapdoor", () -> new TrapDoorBlock(AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid()));
+    public static final RegistryObject<WoodButtonBlock> brumal_button = registerBlock("brumal_button", () -> new WoodButtonBlock(AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid().doesNotBlockMovement()));
+    public static final RegistryObject<PressurePlateBlock> brumal_pressure_plate = registerBlock("brumal_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid().doesNotBlockMovement()));
+
     public static final RegistryObject<Block> kyanite_ore = registerBlock("kyanite_ore", () -> new Block(OreBlock.Properties.from(Blocks.EMERALD_ORE)));
-    public static final RegistryObject<Block> slate_bricks = registerBlock("slate_bricks", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE_BRICKS)));
-
-    public static final RegistryObject<StairsBlock> slate_stairs = registerBlock("slate_stairs", () -> new StairsBlock(() -> BorealisBlocks.slate.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.slate.get()).notSolid()));
-    public static final RegistryObject<StairsBlock> polished_slate_stairs = registerBlock("polished_slate_stairs", () -> new StairsBlock(() -> BorealisBlocks.polished_slate.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.polished_slate.get()).notSolid()));
-    public static final RegistryObject<StairsBlock> slate_brick_stairs = registerBlock("slate_brick_stairs", () -> new StairsBlock(() -> BorealisBlocks.slate_bricks.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.slate_bricks.get()).notSolid()));
-
-    public static final RegistryObject<SlabBlock> slate_slab = registerBlock("slate_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.slate.get()).notSolid()));
-    public static final RegistryObject<SlabBlock> polished_slate_slab = registerBlock("polished_slate_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.polished_slate.get()).notSolid()));
-    public static final RegistryObject<SlabBlock> slate_brick_slab = registerBlock("slate_brick_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.slate_bricks.get()).notSolid()));
-
-    public static final RegistryObject<WallBlock> slate_wall = registerBlock("slate_wall", () -> new WallBlock(AbstractBlock.Properties.from(BorealisBlocks.slate.get()).notSolid()));
-    public static final RegistryObject<WallBlock> polished_slate_wall = registerBlock("polished_slate_wall", () -> new WallBlock(AbstractBlock.Properties.from(BorealisBlocks.polished_slate.get()).notSolid()));
-    public static final RegistryObject<WallBlock> slate_brick_wall = registerBlock("slate_brick_wall", () -> new WallBlock(AbstractBlock.Properties.from(BorealisBlocks.slate_bricks.get()).notSolid()));
-
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);

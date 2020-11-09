@@ -8,7 +8,7 @@ public class BorealisItemGroups {
     public static final ItemGroup BLOCKS_GROUP = new ItemGroup("borealis_blocks") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(BorealisBlocks.slate.get());
+            return new ItemStack(BorealisBlocks.soapstone.get());
         }
     };
     public static final ItemGroup ITEMS_GROUP = new ItemGroup("borealis_items") {

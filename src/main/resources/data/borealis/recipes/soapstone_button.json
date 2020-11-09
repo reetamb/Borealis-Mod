@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "borealis:polished_soapstone"
+    }
+  ],
+  "result": {
+    "item": "borealis:soapstone_button"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "borealis:soapstone"
+  },
+  "result": "borealis:polished_soapstone",
+  "count": 1
+}

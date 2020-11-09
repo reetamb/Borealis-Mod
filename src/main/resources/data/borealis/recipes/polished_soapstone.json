@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "borealis:soapstone"
+    }
+  },
+  "result": {
+    "item": "borealis:polished_soapstone",
+    "count": 4
+  }
+}

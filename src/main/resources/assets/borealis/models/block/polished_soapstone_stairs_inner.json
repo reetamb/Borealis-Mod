@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "borealis:block/polished_soapstone",
+    "top": "borealis:block/polished_soapstone",
+    "side": "borealis:block/polished_soapstone"
+  }
+}
