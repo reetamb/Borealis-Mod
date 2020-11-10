@@ -31,52 +31,20 @@ public class ClientProxy {
         RenderTypeLookup.setRenderLayer(block.get(), render);
     }
 
-//    public static void registerBlockRenderers() {
-//        RenderType cutout = RenderType.getCutout();
-//        RenderType mipped = RenderType.getCutoutMipped();
-//        RenderType translucent = RenderType.getTranslucent();
-//
-//        render(UGBlocks.deepturf_block, mipped);
-//        render(UGBlocks.deepturf, cutout);
-//        render(UGBlocks.shimmerweed, cutout);
-//        render(UGBlocks.smogstem_sapling, cutout);
-//        render(UGBlocks.wigglewood_sapling, cutout);
-//        render(UGBlocks.indigo_mushroom, cutout);
-//        render(UGBlocks.veil_mushroom, cutout);
-//        render(UGBlocks.ink_mushroom, cutout);
-//        render(UGBlocks.blood_mushroom, cutout);
-//        render(UGBlocks.underbean_bush, cutout);
-//        render(UGBlocks.ditchbulb_plant, cutout);
-//        render(UGBlocks.tall_deepturf, cutout);
-//        render(UGBlocks.tall_shimmerweed, cutout);
-//        render(UGBlocks.cloggrum_bars, cutout);
-//        render(UGBlocks.glowing_kelp, cutout);
-//        render(UGBlocks.glowing_kelp_plant, cutout);
-//        render(UGBlocks.undergarden_portal, translucent);
-//        render(UGBlocks.goo, translucent);
-//        render(UGBlocks.smogstem_door, cutout);
-//        render(UGBlocks.wigglewood_door, cutout);
-//        render(UGBlocks.smogstem_trapdoor, cutout);
-//        render(UGBlocks.wigglewood_trapdoor, cutout);
-//        render(UGBlocks.ashen_deepturf, cutout);
-//        render(UGBlocks.blisterberry_bush, cutout);
-//        render(UGBlocks.gloomgourd_stem, cutout);
-//        render(UGBlocks.gloomgourd_stem_attached, cutout);
-//        render(UGBlocks.shard_torch, cutout);
-//        render(UGBlocks.shard_wall_torch, cutout);
-//        render(UGBlocks.droopvine_top, cutout);
-//        render(UGBlocks.droopvine, cutout);
-//        render(UGBlocks.gronglet, cutout);
-//        render(UGBlocks.grongle_door, cutout);
-//        render(UGBlocks.grongle_trapdoor, cutout);
-//        render(UGBlocks.virulent_mix, translucent);
-//        render(UGBlocks.seeping_ink, cutout);
-//        render(UGBlocks.mushroom_veil, cutout);
-//        render(UGBlocks.mushroom_veil_top, cutout);
-//
+    public static void registerBlockRenderers() {
+        RenderType cutout = RenderType.getCutout();
+        RenderType mipped = RenderType.getCutoutMipped();
+        RenderType translucent = RenderType.getTranslucent();
+
+
+        render(BorealisBlocks.brumal_door, cutout);
+        render(BorealisBlocks.brumal_trapdoor, cutout);
+
+
+//        render(BorealisBlocks.deepturf_block, mipped);
 //        RenderTypeLookup.setRenderLayer(UGFluids.virulent_mix_source.get(), translucent);
 //        RenderTypeLookup.setRenderLayer(UGFluids.virulent_mix_flowing.get(), translucent);
-//    }
+    }
 
     public static void registerEntityRenderers() {
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();

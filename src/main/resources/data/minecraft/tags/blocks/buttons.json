@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "borealis:soapstone_button"
+    "borealis:soapstone_button",
+    "borealis:brumal_button"
   ]
 }

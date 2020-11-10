@@ -67,7 +67,7 @@ public class BorealisMod {
     }
 
     public void clientSetup(FMLClientSetupEvent event) {
-//        ClientStuff.registerBlockRenderers();
+        ClientProxy.registerBlockRenderers();
         ClientProxy.registerEntityRenderers();
 //        ClientStuff.registerBlockColors();
 //        ClientStuff.registerItemColors();

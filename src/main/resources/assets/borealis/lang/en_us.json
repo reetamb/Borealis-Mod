@@ -17,6 +17,22 @@
   "block.borealis.soapstone_button": "Soapstone Button",
   "block.borealis.soapstone_pressure_plate": "Soapstone Pressure Plate",
 
+  "block.borealis.brumal_log": "Brumal Log",
+  "block.borealis.brumal_planks": "Brumal Planks",
+  "block.borealis.brumal_wood": "Brumal Wood",
+  "block.borealis.stripped_brumal_log": "Stripped Brumal Log",
+  "block.borealis.stripped_brumal_wood": "Stripped Brumal Wood",
+  "block.borealis.brumal_stairs": "Brumal Stairs",
+  "block.borealis.brumal_slab": "Brumal Slab",
+  "block.borealis.brumal_door": "Brumal Door",
+  "block.borealis.brumal_trapdoor": "Brumal Trapdoor",
+  "block.borealis.brumal_fence": "Brumal Fence",
+  "block.borealis.brumal_fence_gate": "Brumal Fence Gate",
+  "block.borealis.brumal_button": "Brumal Button",
+  "block.borealis.brumal_pressure_plate": "Brumal Pressure Plate",
+  "block.borealis.brumal_leaves": "Brumal Leaves",
+  "block.borealis.brumal_sapling": "Brumal Sapling",
+
   "item.borealis.kyanite_crystal": "Kyanite Crystal",
   "block.borealis.kyanite_ore": "Kyanite Ore",
 

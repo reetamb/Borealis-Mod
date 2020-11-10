@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "borealis:soapstone_pressure_plate"
+    "borealis:soapstone_pressure_plate",
+    "borealis:brumal_pressure_plate"
   ]
 }
