@@ -38,7 +38,7 @@
         },
         "sampling": {
           "xz_scale": 2,
-          "xz_factor": 80,
+          "xz_factor": 100,
           "y_scale": 1,
           "y_factor": 160
         },
@@ -56,7 +56,7 @@
     "biome_source": {
       "seed": 0,
       "type": "minecraft:fixed",
-      "biome": "borealis:test"
+      "biome": "borealis:eerie_pines"
     }
   }
 }

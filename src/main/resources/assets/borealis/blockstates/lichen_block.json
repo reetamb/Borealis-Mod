@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "borealis:block/lichen_block"
+      },
+      {
+        "model": "borealis:block/lichen_block",
+        "y": 90
+      },
+      {
+        "model": "borealis:block/lichen_block",
+        "y": 180
+      },
+      {
+        "model": "borealis:block/lichen_block",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "borealis:block/lichen_block_snow"
+    }
+  }
+}

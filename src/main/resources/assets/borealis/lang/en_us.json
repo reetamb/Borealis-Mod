@@ -36,5 +36,8 @@
   "item.borealis.kyanite_crystal": "Kyanite Crystal",
   "block.borealis.kyanite_ore": "Kyanite Ore",
 
+  "block.borealis.permafrost": "Permafrost",
+  "block.borealis.lichen_block": "Lichen Block",
+
   "entity.borealis.hummingbird": "Hummingbird"
 }

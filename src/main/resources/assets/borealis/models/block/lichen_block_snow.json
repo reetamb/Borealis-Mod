@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "borealis:block/lichen_block_top",
+    "bottom": "borealis:block/permafrost",
+    "side": "borealis:block/lichen_block_snow",
+    "particle": "borealis:block/permafrost"
+  }
+}

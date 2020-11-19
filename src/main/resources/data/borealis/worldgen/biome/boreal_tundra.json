@@ -2,17 +2,17 @@
   "precipitation": "snow",
   "category": "none",
   "depth": 0.125,
-  "scale": 0.05,
+  "scale": 0.005,
   "temperature": 0.0,
   "temperature_modifier": "none",
   "downfall": 0.5,
   "effects": {
-    "fog_color": 7895692,
-    "foliage_color": 7895692,
-    "grass_color": 7895692,
-    "sky_color": 7895692,
-    "water_color": 4159204,
-    "water_fog_color": 329011,
+    "fog_color": 10136810,
+    "foliage_color": 11913978,
+    "grass_color": 11913978,
+    "sky_color": 10136810,
+    "water_color": 10136810,
+    "water_fog_color": 10136810,
     "grass_color_modifier": "none",
     "particle": {
       "options": {
@@ -25,13 +25,13 @@
     "type": "default",
     "config": {
       "top_material": {
-        "Name": "minecraft:grass_block",
+        "Name": "borealis:lichen_block",
         "Properties": {
           "snowy": "false"
         }
       },
       "under_material": {
-        "Name": "minecraft:dirt"
+        "Name": "borealis:permafrost"
       },
       "underwater_material": {
         "Name": "borealis:soapstone"

@@ -13,6 +13,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import com.reetam.borealis.BorealisMod;
+import com.reetam.borealis.block.*;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -54,6 +55,9 @@ public class BorealisBlocks {
     public static final RegistryObject<PressurePlateBlock> brumal_pressure_plate = registerBlock("brumal_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid().doesNotBlockMovement()));
 
     public static final RegistryObject<Block> kyanite_ore = registerBlock("kyanite_ore", () -> new Block(OreBlock.Properties.from(Blocks.EMERALD_ORE)));
+
+    public static final RegistryObject<Block> lichen_block = registerBlock("lichen_block", () -> new LichenBlock(AbstractBlock.Properties.from(Blocks.GRASS_BLOCK).harvestTool(ToolType.SHOVEL)));
+    public static final RegistryObject<Block> permafrost = registerBlock("permafrost", () -> new PermafrostBlock(AbstractBlock.Properties.from(lichen_block.get()).sound(SoundType.GROUND)));
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);
