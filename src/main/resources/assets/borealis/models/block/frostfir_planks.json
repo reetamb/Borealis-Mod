@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "borealis:block/brumal_planks"
+    "all": "borealis:block/frostfir_planks"
   }
 }

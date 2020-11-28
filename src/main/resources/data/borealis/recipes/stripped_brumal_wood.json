@@ -7,11 +7,11 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:stripped_acacia_log"
+      "item": "minecraft:stripped_brumal_log"
     }
   },
   "result": {
-    "item": "minecraft:stripped_acacia_wood",
+    "item": "minecraft:stripped_brumal_wood",
     "count": 3
   }
 }

@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:stripped_acacia_log"
+          "name": "borealis:brumal_log"
         }
       ],
       "conditions": [

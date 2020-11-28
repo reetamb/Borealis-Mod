@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "borealis:block/brumal_sapling"
+    "cross": "borealis:block/frostfir_sapling"
   }
 }
