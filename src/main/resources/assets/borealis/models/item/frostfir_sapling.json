@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "borealis:block/brumal_sapling"
+    "layer0": "borealis:block/frostfir_sapling"
   }
 }

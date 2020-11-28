@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "borealis:brumal_pressure_plate"
+          "name": "borealis:frostfir_pressure_plate"
         }
       ],
       "conditions": [

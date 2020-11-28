@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "borealis:item/brumal_door"
+    "layer0": "borealis:item/frostfir_door"
   }
 }

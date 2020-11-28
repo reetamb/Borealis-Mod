@@ -8,14 +8,14 @@
   ],
   "key": {
     "#": {
-      "item": "borealis:brumal_planks"
+      "item": "borealis:frostfir_planks"
     },
     "X": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "borealis:brumal_sign",
+    "item": "borealis:frostfir_sign",
     "count": 3
   }
 }

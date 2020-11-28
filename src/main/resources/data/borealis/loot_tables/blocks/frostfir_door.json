@@ -9,13 +9,13 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "borealis:brumal_door",
+              "block": "borealis:frostfir_door",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "borealis:brumal_door"
+          "name": "borealis:frostfir_door"
         }
       ],
       "conditions": [

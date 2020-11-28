@@ -6,11 +6,11 @@
   ],
   "key": {
     "#": {
-      "item": "borealis:brumal_planks"
+      "item": "borealis:frostfir_planks"
     }
   },
   "result": {
-    "item": "borealis:brumal_slab",
+    "item": "borealis:frostfir_slab",
     "count": 6
   }
 }

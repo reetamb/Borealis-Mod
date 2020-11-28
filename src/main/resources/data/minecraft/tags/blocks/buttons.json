@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "borealis:soapstone_button",
-    "borealis:brumal_button"
+    "borealis:brumal_button",
+    "borealis:frostfir_button"
   ]
 }

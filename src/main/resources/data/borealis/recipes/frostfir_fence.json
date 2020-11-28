@@ -10,11 +10,11 @@
       "item": "minecraft:stick"
     },
     "W": {
-      "item": "borealis:brumal_planks"
+      "item": "borealis:frostfir_planks"
     }
   },
   "result": {
-    "item": "borealis:brumal_fence",
+    "item": "borealis:frostfir_fence",
     "count": 3
   }
 }

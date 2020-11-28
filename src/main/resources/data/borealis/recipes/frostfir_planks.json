@@ -3,11 +3,11 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "borealis:brumal_logs"
+      "tag": "borealis:frostfir_logs"
     }
   ],
   "result": {
-    "item": "borealis:brumal_planks",
+    "item": "borealis:frostfir_planks",
     "count": 4
   }
 }

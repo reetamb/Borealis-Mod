@@ -6,10 +6,10 @@
   ],
   "key": {
     "#": {
-      "item": "borealis:brumal_planks"
+      "item": "borealis:frostfir_planks"
     }
   },
   "result": {
-    "item": "borealis:brumal_pressure_plate"
+    "item": "borealis:frostfir_pressure_plate"
   }
 }

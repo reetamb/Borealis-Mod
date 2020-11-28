@@ -7,11 +7,11 @@
   ],
   "key": {
     "#": {
-      "item": "borealis:brumal_log"
+      "item": "borealis:frostfir_log"
     }
   },
   "result": {
-    "item": "borealis:brumal_wood",
+    "item": "borealis:frostfir_wood",
     "count": 3
   }
 }

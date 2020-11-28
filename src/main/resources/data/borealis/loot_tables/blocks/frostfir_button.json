@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "borealis:brumal_button"
+          "name": "borealis:frostfir_button"
         }
       ],
       "conditions": [

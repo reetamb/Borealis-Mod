@@ -10,10 +10,10 @@
       "item": "minecraft:stick"
     },
     "W": {
-      "item": "borealis:brumal_planks"
+      "item": "borealis:frostfir_planks"
     }
   },
   "result": {
-    "item": "borealis:brumal_fence_gate"
+    "item": "borealis:frostfir_fence_gate"
   }
 }

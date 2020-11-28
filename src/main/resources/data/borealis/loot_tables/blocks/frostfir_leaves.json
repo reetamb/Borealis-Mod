@@ -35,7 +35,7 @@
                   ]
                 }
               ],
-              "name": "borealis:brumal_leaves"
+              "name": "borealis:frostfir_leaves"
             },
             {
               "type": "minecraft:item",
@@ -54,7 +54,7 @@
                   ]
                 }
               ],
-              "name": "borealis:brumal_sapling"
+              "name": "borealis:frostfir_sapling"
             }
           ]
         }

@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "borealis:brumal_fence_gate"
+          "name": "borealis:frostfir_fence_gate"
         }
       ],
       "conditions": [

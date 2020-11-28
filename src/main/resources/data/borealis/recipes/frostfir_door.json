@@ -8,11 +8,11 @@
   ],
   "key": {
     "#": {
-      "item": "borealis:brumal_planks"
+      "item": "borealis:frostfir_planks"
     }
   },
   "result": {
-    "item": "borealis:brumal_door",
+    "item": "borealis:frostfir_door",
     "count": 3
   }
 }
