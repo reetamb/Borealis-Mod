@@ -1,13 +1,8 @@
 package com.reetam.borealis.registry;
 
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.HugeFungusConfig;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -18,6 +13,7 @@ import com.reetam.borealis.block.*;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.ArrayList;
 
 public class BorealisBlocks {
 
@@ -53,6 +49,22 @@ public class BorealisBlocks {
     public static final RegistryObject<TrapDoorBlock> brumal_trapdoor = registerBlock("brumal_trapdoor", () -> new TrapDoorBlock(AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid()));
     public static final RegistryObject<WoodButtonBlock> brumal_button = registerBlock("brumal_button", () -> new WoodButtonBlock(AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid().doesNotBlockMovement()));
     public static final RegistryObject<PressurePlateBlock> brumal_pressure_plate = registerBlock("brumal_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.brumal_planks.get()).notSolid().doesNotBlockMovement()));
+
+    //    public static final RegistryObject<SaplingBlock> frostfir_sapling = registerBlock("frostfir_sapling", () -> new BorealisSaplingBlock(new FrostfirTree()));
+    public static final RegistryObject<Block> frostfir_planks = registerBlock("frostfir_planks", () -> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<RotatedPillarBlock> frostfir_log = registerBlock("frostfir_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_LOG)));
+    public static final RegistryObject<RotatedPillarBlock> frostfir_wood = registerBlock("frostfir_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_WOOD)));
+    public static final RegistryObject<RotatedPillarBlock> stripped_frostfir_log = registerBlock("stripped_frostfir_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STRIPPED_OAK_LOG)));
+    public static final RegistryObject<RotatedPillarBlock> stripped_frostfir_wood = registerBlock("stripped_frostfir_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STRIPPED_OAK_WOOD)));
+    public static final RegistryObject<Block> frostfir_leaves = registerBlock("frostfir_leaves", () -> new LeavesBlock(AbstractBlock.Properties.from(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<StairsBlock> frostfir_stairs = registerBlock("frostfir_stairs", () -> new StairsBlock(() -> BorealisBlocks.frostfir_planks.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<SlabBlock> frostfir_slab = registerBlock("frostfir_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<FenceBlock> frostfir_fence = registerBlock("frostfir_fence", () -> new FenceBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<FenceGateBlock> frostfir_fence_gate = registerBlock("frostfir_fence_gate", () -> new FenceGateBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<DoorBlock> frostfir_door = registerBlock("frostfir_door", () -> new DoorBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<TrapDoorBlock> frostfir_trapdoor = registerBlock("frostfir_trapdoor", () -> new TrapDoorBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<WoodButtonBlock> frostfir_button = registerBlock("frostfir_button", () -> new WoodButtonBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid().doesNotBlockMovement()));
+    public static final RegistryObject<PressurePlateBlock> frostfir_pressure_plate = registerBlock("frostfir_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid().doesNotBlockMovement()));
 
     public static final RegistryObject<Block> kyanite_ore = registerBlock("kyanite_ore", () -> new Block(OreBlock.Properties.from(Blocks.EMERALD_ORE)));
 

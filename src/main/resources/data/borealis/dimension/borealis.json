@@ -55,8 +55,54 @@
     },
     "biome_source": {
       "seed": 0,
-      "type": "minecraft:fixed",
-      "biome": "borealis:eerie_pines"
+      "type": "minecraft:multi_noise",
+      "preset": "borealis",
+      "biomes": [
+        {
+          "biome": "borealis:boreal_tundra",
+          "parameters": {
+            "altitude": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0,
+            "temperature": 0.0,
+            "humidity": 0.0
+          }
+        },
+        {
+          "biome": "borealis:frostfir_woods",
+          "parameters": {
+            "altitude": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0,
+            "temperature": 0.0,
+            "humidity": 0.0
+          }
+        }
+      ],
+      "altitude_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1, 1
+        ]
+      },
+      "weirdness_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1, 1
+        ]
+      },
+      "temperature_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1, 1
+        ]
+      },
+      "humidity_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1, 1
+        ]
+      }
     }
   }
 }
