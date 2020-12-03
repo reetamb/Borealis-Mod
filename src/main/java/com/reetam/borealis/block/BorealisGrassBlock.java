@@ -14,8 +14,6 @@ import com.reetam.borealis.registry.BorealisBlocks;
 
 import java.util.Random;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 public class BorealisGrassBlock extends SpreadableSnowyDirtBlock {
 
     public BorealisGrassBlock(Properties builder) {

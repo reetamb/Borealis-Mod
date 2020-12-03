@@ -25,10 +25,7 @@
     "type": "default",
     "config": {
       "top_material": {
-        "Name": "borealis:lichen_block",
-        "Properties": {
-          "snowy": "false"
-        }
+        "Name": "minecraft:packed_ice"
       },
       "under_material": {
         "Name": "borealis:permafrost"
@@ -49,9 +46,7 @@
     [],
     [],
     [],
-    [
-      "borealis:frostfir_tree"
-    ],
+    [],
     [
       "minecraft:freeze_top_layer"
     ]

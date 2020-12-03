@@ -5,6 +5,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.trunkplacer.GiantTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.Placement;
@@ -25,8 +26,8 @@ public class BorealisFeatures {
         
             register("frostfir_tree", borealis_tree.get().withConfiguration(
                     (new BaseTreeFeatureConfig.Builder(
-                            new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().getDefaultState()),
-                            new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState()),
+                            new SimpleBlockStateProvider(BorealisBlocks.frostfir_log.get().getDefaultState()),
+                            new SimpleBlockStateProvider(BorealisBlocks.frostfir_leaves.get().getDefaultState()),
                             new SpruceFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
                             new StraightTrunkPlacer(10, 2, 2),
                             new TwoLayerFeature(1, 0, 1)))

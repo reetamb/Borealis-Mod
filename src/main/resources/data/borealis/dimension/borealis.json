@@ -56,7 +56,6 @@
     "biome_source": {
       "seed": 0,
       "type": "minecraft:multi_noise",
-      "preset": "borealis",
       "biomes": [
         {
           "biome": "borealis:boreal_tundra",
@@ -64,18 +63,18 @@
             "altitude": 0.0,
             "weirdness": 0.0,
             "offset": 0.0,
-            "temperature": 0.0,
+            "temperature": -0.25,
             "humidity": 0.0
           }
         },
         {
           "biome": "borealis:frostfir_woods",
           "parameters": {
-            "altitude": 0.0,
+            "altitude": 0.25,
             "weirdness": 0.0,
             "offset": 0.0,
-            "temperature": 0.0,
-            "humidity": 0.0
+            "temperature": -0.5,
+            "humidity": 0.25
           }
         }
       ],

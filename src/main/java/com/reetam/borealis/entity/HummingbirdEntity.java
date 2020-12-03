@@ -1,17 +1,13 @@
 package com.reetam.borealis.entity;
 
-import com.mojang.datafixers.optics.Wander;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
-import net.minecraft.entity.ai.controller.LookController;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.passive.IFlyingAnimal;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.item.ItemStack;
@@ -29,7 +25,7 @@ import java.util.EnumSet;
 
 public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
 
-    public float wingstate;
+    //public float wingstate;
 
     public HummingbirdEntity(EntityType<? extends HummingbirdEntity> type, World worldIn) {
         super(type, worldIn);
@@ -50,8 +46,8 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
     public static AttributeModifierMap.MutableAttribute registerAttributes() {
         return AnimalEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 10.0D)
-                .createMutableAttribute(Attributes.FLYING_SPEED, (double)0.6F)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.3F)
+                .createMutableAttribute(Attributes.FLYING_SPEED, 0.6F)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3F)
                 .createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D);
 
     }
@@ -92,24 +88,14 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
             this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
         }
 
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
         public boolean shouldExecute() {
             return HummingbirdEntity.this.navigator.noPath() && HummingbirdEntity.this.rand.nextInt(10) == 0;
         }
 
-        /**
-         * Returns whether an in-progress EntityAIBase should continue executing
-         */
         public boolean shouldContinueExecuting() {
             return HummingbirdEntity.this.navigator.hasPath();
         }
 
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
         public void startExecuting() {
             Vector3d vector3d = this.getRandomLocation();
             if (vector3d != null) {
@@ -122,9 +108,8 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
         private Vector3d getRandomLocation() {
             Vector3d vector3d = HummingbirdEntity.this.getLook(0.0F);
 
-            int i = 8;
             Vector3d vector3d2 = RandomPositionGenerator.findAirTarget(HummingbirdEntity.this, 8, 7, vector3d, ((float)Math.PI / 2F), 2, 1);
-            return vector3d2 != null ? vector3d2 : RandomPositionGenerator.findGroundTarget(HummingbirdEntity.this, 8, 4, -2, vector3d, (double)((float)Math.PI / 2F));
+            return vector3d2 != null ? vector3d2 : RandomPositionGenerator.findGroundTarget(HummingbirdEntity.this, 8, 4, -2, vector3d, ((float)Math.PI / 2F));
         }
     }
 }

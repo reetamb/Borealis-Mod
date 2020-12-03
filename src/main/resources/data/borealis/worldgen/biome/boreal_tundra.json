@@ -49,7 +49,9 @@
     [],
     [],
     [],
-    [],
+    [
+      "borealis:boreal_features"
+    ],
     [
       "minecraft:freeze_top_layer"
     ]
