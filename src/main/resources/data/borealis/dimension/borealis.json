@@ -76,6 +76,16 @@
             "temperature": -0.5,
             "humidity": 0.25
           }
+        },
+        {
+          "biome": "borealis:frozen_glacier",
+          "parameters": {
+            "altitude": 0.0,
+            "weirdness": 0.125,
+            "offset": 0.0,
+            "temperature": -0.5,
+            "humidity": -0.125
+          }
         }
       ],
       "altitude_noise": {
