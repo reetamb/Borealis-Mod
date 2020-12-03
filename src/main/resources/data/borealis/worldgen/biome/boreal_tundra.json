@@ -45,7 +45,9 @@
     [
       "minecraft:lake_water"
     ],
-    [],
+    [
+      "borealis:slate_boulder"
+    ],
     [],
     [],
     [],

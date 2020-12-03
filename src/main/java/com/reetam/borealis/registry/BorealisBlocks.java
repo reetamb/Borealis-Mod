@@ -34,6 +34,8 @@ public class BorealisBlocks {
     public static final RegistryObject<WoodButtonBlock> soapstone_button = registerBlock("soapstone_button", () -> new WoodButtonBlock(AbstractBlock.Properties.from(BorealisBlocks.polished_soapstone.get()).notSolid().doesNotBlockMovement()));
     public static final RegistryObject<PressurePlateBlock> soapstone_pressure_plate = registerBlock("soapstone_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.polished_soapstone.get()).notSolid().doesNotBlockMovement()));
 
+    public static final RegistryObject<Block> slate = registerBlock("slate", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
+
     //    public static final RegistryObject<SaplingBlock> brumal_sapling = registerBlock("brumal_sapling", () -> new BorealisSaplingBlock(new BrumalTree()));
     public static final RegistryObject<Block> brumal_planks = registerBlock("brumal_planks", () -> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)));
     public static final RegistryObject<RotatedPillarBlock> brumal_log = registerBlock("brumal_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_LOG)));
