@@ -23,7 +23,7 @@ public class BorealisMod {
 
         bus.addListener(this::setup);
         bus.addListener(this::clientSetup);
-//        bus.addListener(this::gatherData);
+        bus.addListener(this::gatherData);
 
         BorealisEntities.ENTITIES.register(bus);
         BorealisBlocks.BLOCKS.register(bus);
@@ -44,12 +44,12 @@ public class BorealisMod {
 
     }
 
-//    public void gatherData(GatherDataEvent event) {
-//        DataGenerator generator = event.getGenerator();
-//
-//        if (event.includeClient()) {
-//            generator.addProvider(new BorealisBlockstates(generator, event.getExistingFileHelper()));
-//            generator.addProvider(new BorealisItemModels(generator, event.getExistingFileHelper()));
-//        }
-//    }
+    public void gatherData(GatherDataEvent event) {
+        DataGenerator generator = event.getGenerator();
+
+        if (event.includeClient()) {
+            generator.addProvider(new BorealisItemModels(generator, event.getExistingFileHelper()));
+            generator.addProvider(new BorealisBlockstates(generator, event.getExistingFileHelper()));
+        }
+    }
 }

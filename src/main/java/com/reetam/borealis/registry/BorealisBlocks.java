@@ -10,6 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
 
+import java.rmi.registry.Registry;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -37,6 +38,8 @@ public class BorealisBlocks {
     public static final RegistryObject<PressurePlateBlock> soapstone_pressure_plate = registerBlock("soapstone_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.polished_soapstone.get()).notSolid().doesNotBlockMovement()));
 
     public static final RegistryObject<Block> slate = registerBlock("slate", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
+    public static final RegistryObject<RotatedPillarBlock> slate_pillar = registerBlock("slate_pillar", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STONE)));
+    public static final RegistryObject<RotatedPillarBlock> chiseled_slate_pillar = registerBlock("chiseled_slate_pillar", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STONE)));
 
     //    public static final RegistryObject<SaplingBlock> brumal_sapling = registerBlock("brumal_sapling", () -> new BorealisSaplingBlock(new BrumalTree()));
     public static final RegistryObject<Block> brumal_planks = registerBlock("brumal_planks", () -> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)));

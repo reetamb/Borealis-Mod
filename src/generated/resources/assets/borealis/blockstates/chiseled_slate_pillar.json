@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "borealis:block/chiseled_slate_pillar_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "borealis:block/chiseled_slate_pillar"
+    },
+    "axis=z": {
+      "model": "borealis:block/chiseled_slate_pillar_horizontal",
+      "x": 90
+    }
+  }
+}

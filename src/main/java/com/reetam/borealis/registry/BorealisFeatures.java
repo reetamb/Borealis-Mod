@@ -5,7 +5,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.trunkplacer.GiantTrunkPlacer;
+import net.minecraft.world.gen.feature.ChorusPlantFeature;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.Placement;
@@ -21,6 +21,8 @@ public class BorealisFeatures {
 
     public static final RegistryObject<Feature<BaseTreeFeatureConfig>> borealis_tree = FEATURES.register(
             "borealis_tree", () -> new BorealisTreeFeature(BaseTreeFeatureConfig.CODEC));
+    public static final RegistryObject<Feature<NoFeatureConfig>> brumal_tree = FEATURES.register(
+            "brumal_tree", () -> new BrumalTreeFeature(NoFeatureConfig.field_236558_a_));
 
     public static void registerConfiguredFeatures() {
         
@@ -32,6 +34,9 @@ public class BorealisFeatures {
                             new StraightTrunkPlacer(10, 2, 2),
                             new TwoLayerFeature(1, 0, 1)))
                             .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(8))));
+
+            register("brumal_tree", brumal_tree.get().withConfiguration(
+                    IFeatureConfig.NO_FEATURE_CONFIG)./*range(256).func_242731_b(100).*/chance(6));
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {
