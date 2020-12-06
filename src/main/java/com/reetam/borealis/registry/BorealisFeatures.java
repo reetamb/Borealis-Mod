@@ -36,7 +36,10 @@ public class BorealisFeatures {
                             .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(8))));
 
             register("brumal_tree", brumal_tree.get().withConfiguration(
-                    IFeatureConfig.NO_FEATURE_CONFIG)./*range(256).func_242731_b(100).*/chance(6));
+                    IFeatureConfig.NO_FEATURE_CONFIG).chance(6));
+
+        register("brumal_tree_common", brumal_tree.get().withConfiguration(
+                IFeatureConfig.NO_FEATURE_CONFIG).chance(1));
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {

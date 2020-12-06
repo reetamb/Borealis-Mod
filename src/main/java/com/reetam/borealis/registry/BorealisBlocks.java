@@ -22,6 +22,8 @@ public class BorealisBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BorealisMod.MODID);
 
+    public static final RegistryObject<Block> borealis_portal = BLOCKS.register("borealis_portal", BorealisPortalBlock::new);
+
     public static final RegistryObject<Block> soapstone = registerBlock("soapstone", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
     public static final RegistryObject<Block> polished_soapstone = registerBlock("polished_soapstone", () -> new Block(AbstractBlock.Properties.from(Blocks.SMOOTH_STONE)));
     public static final RegistryObject<Block> soapstone_bricks = registerBlock("soapstone_bricks", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE_BRICKS)));
