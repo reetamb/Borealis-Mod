@@ -1,5 +1,6 @@
 package com.reetam.borealis.block;
 
+import com.reetam.borealis.registry.BorealisSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,13 +13,10 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
+import net.minecraft.block.NetherPortalBlock;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.*;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -49,6 +47,33 @@ public class BorealisPortalBlock extends Block {
                 .noDrops()
         );
         setDefaultState(stateContainer.getBaseState().with(AXIS, Direction.Axis.X));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+        if (rand.nextInt(100) == 0) {
+            worldIn.playSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, BorealisSounds.BOREALIS_PORTAL_CHIME, SoundCategory.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
+        }
+
+        for(int i = 0; i < 8; ++i) {
+            double d0 = (double)pos.getX() + rand.nextDouble();
+            double d1 = (double)pos.getY() + rand.nextDouble();
+            double d2 = (double)pos.getZ() + rand.nextDouble();
+            double d3 = (rand.nextFloat()-0.5)/(rand.nextInt(8)+3);
+            double d4 = 0.1;
+            double d5 = (rand.nextFloat()-0.5)/(rand.nextInt(8)+3);
+            int j = rand.nextInt(2) * 2 - 1;
+            if (!worldIn.getBlockState(pos.west()).isIn(this) && !worldIn.getBlockState(pos.east()).isIn(this)) {
+                d0 = (double)pos.getX() + 0.5D + 0.25D * (double)j;
+                d3 = (rand.nextFloat() / 6) * j;
+            } else {
+                d2 = (double)pos.getZ() + 0.5D + 0.25D * (double)j;
+                d5 = (rand.nextFloat() / 6) * j;
+            }
+
+            worldIn.addParticle(ParticleTypes.CLOUD, d0, d1, d2, d3, d4, d5);
+        }
+
     }
 
     @Override

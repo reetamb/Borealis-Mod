@@ -39,6 +39,8 @@ public class ClientProxy {
 
 
         render(BorealisBlocks.lichen_block, mipped);
+
+        render(BorealisBlocks.borealis_portal, translucent);
     }
 
     public static void registerEntityRenderers() {

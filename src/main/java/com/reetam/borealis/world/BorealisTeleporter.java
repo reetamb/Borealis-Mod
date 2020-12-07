@@ -1,3 +1,6 @@
+/**
+    Credit: Quek04 https://github.com/quek04/The-Undergarden/blob/1.16/src/main/java/quek/undergarden/world/UGTeleporter.java
+**/
 package com.reetam.borealis.world;
 
 import com.google.common.collect.Maps;

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "borealis:block/borealis_portal_ns"
+    },
+    "axis=z": {
+      "model": "borealis:block/borealis_portal_ew"
+    }
+  }
+}

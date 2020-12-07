@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "borealis:block/pumice"
+      },
+      {
+        "model": "borealis:block/pumice_mirrored"
+      },
+      {
+        "model": "borealis:block/pumice",
+        "y": 180
+      },
+      {
+        "model": "borealis:block/pumice_mirrored",
+        "y": 180
+      }
+    ]
+  }
+}
