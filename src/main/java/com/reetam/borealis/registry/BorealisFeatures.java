@@ -6,8 +6,6 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
-import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.Placement;
@@ -25,9 +23,10 @@ public class BorealisFeatures {
             "borealis_tree", () -> new BorealisTreeFeature(BaseTreeFeatureConfig.CODEC));
     public static final RegistryObject<Feature<NoFeatureConfig>> brumal_tree = FEATURES.register(
             "brumal_tree", () -> new BrumalTreeFeature(NoFeatureConfig.field_236558_a_));
+    public static final RegistryObject<Feature<ColumnConfig>> glacial_spire = FEATURES.register(
+            "glacial_spire", () -> new GlacialSpireFeature(ColumnConfig.CODEC));
 
     public static void registerConfiguredFeatures() {
-            final RuleTest permafrost_tester = new BlockMatchRuleTest(BorealisBlocks.permafrost.get());
 
             register("frostfir_tree", borealis_tree.get().withConfiguration(
                     (new BaseTreeFeatureConfig.Builder(
@@ -45,6 +44,9 @@ public class BorealisFeatures {
                         IFeatureConfig.NO_FEATURE_CONFIG).chance(1));
 
             register("permafrost_rubble_patch", Feature.NETHERRACK_REPLACE_BLOBS.withConfiguration(new BlobReplacementConfig(BorealisBlocks.permafrost.get().getDefaultState(), BorealisBlocks.permafrost_rubble.get().getDefaultState(), FeatureSpread.func_242253_a(3, 4))).range(128).square().func_242731_b(25));
+
+            register("small_glacial_spire", glacial_spire.get().withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(1, 3))).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(4))));
+            register("large_glacial_spire", glacial_spire.get().withConfiguration(new ColumnConfig(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(5, 5))).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(2))));
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {
