@@ -21,6 +21,8 @@
   "block.borealis.slate_pillar": "Slate Pillar",
   "block.borealis.chiseled_slate_pillar": "Chiseled Slate Pillar",
 
+  "block.borealis.pumice": "Pumice",
+
   "block.borealis.brumal_log": "Brumal Log",
   "block.borealis.brumal_planks": "Brumal Planks",
   "block.borealis.brumal_wood": "Brumal Wood",
@@ -58,6 +60,7 @@
 
   "block.borealis.permafrost": "Permafrost",
   "block.borealis.lichen_block": "Lichen Block",
+  "block.borealis.permafrost_rubble": "Permafrost Rubble",
 
   "entity.borealis.hummingbird": "Hummingbird"
 }
