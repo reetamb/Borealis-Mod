@@ -68,7 +68,7 @@ public class BrumalTreeFeature extends Feature<NoFeatureConfig> {
 
         IntegrityProcessor integrityprocessor = new IntegrityProcessor(1.0F);
         placementsettings.clearProcessors().addProcessor(integrityprocessor);
-        if (reader.getBlockState(blockpos1).getBlock() != BorealisBlocks.lichen_block.get() && reader.getBlockState(blockpos1).getBlock() != BorealisBlocks.permafrost.get()) {
+        if (reader.getBlockState(blockpos1).getBlock() != BorealisBlocks.lichen_block.get() && reader.getBlockState(blockpos1).getBlock() != BorealisBlocks.permafrost.get() && blockpos1.getY() >= 10) {
             template.func_237146_a_(reader, blockpos1, blockpos1, placementsettings, rand, 4);
         }
         return true;

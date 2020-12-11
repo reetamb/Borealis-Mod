@@ -45,7 +45,9 @@
     [],
     [],
     [],
-    [],
+    [
+      "borealis:permafrost_rubble_patch"
+    ],
     [],
     [
       "minecraft:freeze_top_layer"

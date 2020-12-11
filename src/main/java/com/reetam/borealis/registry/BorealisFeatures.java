@@ -5,7 +5,9 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.ChorusPlantFeature;
+import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
+import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.Placement;
@@ -25,7 +27,8 @@ public class BorealisFeatures {
             "brumal_tree", () -> new BrumalTreeFeature(NoFeatureConfig.field_236558_a_));
 
     public static void registerConfiguredFeatures() {
-        
+            final RuleTest permafrost_tester = new BlockMatchRuleTest(BorealisBlocks.permafrost.get());
+
             register("frostfir_tree", borealis_tree.get().withConfiguration(
                     (new BaseTreeFeatureConfig.Builder(
                             new SimpleBlockStateProvider(BorealisBlocks.frostfir_log.get().getDefaultState()),
@@ -38,8 +41,10 @@ public class BorealisFeatures {
             register("brumal_tree", brumal_tree.get().withConfiguration(
                     IFeatureConfig.NO_FEATURE_CONFIG).chance(6));
 
-        register("brumal_tree_common", brumal_tree.get().withConfiguration(
-                IFeatureConfig.NO_FEATURE_CONFIG).chance(1));
+            register("brumal_tree_common", brumal_tree.get().withConfiguration(
+                        IFeatureConfig.NO_FEATURE_CONFIG).chance(1));
+
+            register("permafrost_rubble_patch", Feature.NETHERRACK_REPLACE_BLOBS.withConfiguration(new BlobReplacementConfig(BorealisBlocks.permafrost.get().getDefaultState(), BorealisBlocks.permafrost_rubble.get().getDefaultState(), FeatureSpread.func_242253_a(3, 4))).range(128).square().func_242731_b(25));
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {
