@@ -24,15 +24,13 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 public class BrumalTreeFeature extends Feature<NoFeatureConfig> {
-    private static final ResourceLocation MEDIUM_BRUMAL_TREE_01 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/medium_brumal_tree_1");
-    private static final ResourceLocation MEDIUM_BRUMAL_TREE_02 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/medium_brumal_tree_2");
-    private static final ResourceLocation MEDIUM_BRUMAL_TREE_03 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/medium_brumal_tree_3");
-    private static final ResourceLocation[] MEDIUM_BRUMAL_TREES = new ResourceLocation[]{MEDIUM_BRUMAL_TREE_01, MEDIUM_BRUMAL_TREE_02, MEDIUM_BRUMAL_TREE_03};
-
-    private static final ResourceLocation SMALL_BRUMAL_TREE_01 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/small_brumal_tree_1");
-    private static final ResourceLocation SMALL_BRUMAL_TREE_02 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/small_brumal_tree_2");
-    private static final ResourceLocation SMALL_BRUMAL_TREE_03 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/small_brumal_tree_3");
-    private static final ResourceLocation[] SMALL_BRUMAL_TREES = new ResourceLocation[]{SMALL_BRUMAL_TREE_01, SMALL_BRUMAL_TREE_02, SMALL_BRUMAL_TREE_03};
+    private static final ResourceLocation SMALL_BRUMAL_TREE_01 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/SMALL_brumal_tree_1");
+    private static final ResourceLocation SMALL_BRUMAL_TREE_02 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/SMALL_brumal_tree_2");
+    private static final ResourceLocation SMALL_BRUMAL_TREE_03 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/SMALL_brumal_tree_3");
+    private static final ResourceLocation SMALL_BRUMAL_TREE_04 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/small_brumal_tree_1");
+    private static final ResourceLocation SMALL_BRUMAL_TREE_05 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/small_brumal_tree_2");
+    private static final ResourceLocation SMALL_BRUMAL_TREE_06 = new ResourceLocation(BorealisMod.MODID, "brumal_tree/small_brumal_tree_3");
+    private static final ResourceLocation[] SMALL_BRUMAL_TREES = new ResourceLocation[]{SMALL_BRUMAL_TREE_01, SMALL_BRUMAL_TREE_02, SMALL_BRUMAL_TREE_03, SMALL_BRUMAL_TREE_04, SMALL_BRUMAL_TREE_05, SMALL_BRUMAL_TREE_06};
 
     public BrumalTreeFeature(Codec<NoFeatureConfig> p_i231955_1_) {
         super(p_i231955_1_);
@@ -44,11 +42,7 @@ public class BrumalTreeFeature extends Feature<NoFeatureConfig> {
         TemplateManager templatemanager = reader.getWorld().getServer().getTemplateManager();
 
         Template template;
-        if (rand.nextInt(1) == 0) {
-            template = templatemanager.getTemplateDefaulted(MEDIUM_BRUMAL_TREES[rand.nextInt(MEDIUM_BRUMAL_TREES.length)]);
-        } else {
-            template = templatemanager.getTemplateDefaulted(SMALL_BRUMAL_TREES[rand.nextInt(SMALL_BRUMAL_TREES.length)]);
-        }
+        template = templatemanager.getTemplateDefaulted(SMALL_BRUMAL_TREES[rand.nextInt(SMALL_BRUMAL_TREES.length)]);
         ChunkPos chunkpos = new ChunkPos(pos);
         MutableBoundingBox mutableboundingbox = new MutableBoundingBox(chunkpos.getXStart(), 0, chunkpos.getZStart(), chunkpos.getXEnd(), 256, chunkpos.getZEnd());
         PlacementSettings placementsettings = (new PlacementSettings()).setRotation(rotation).setBoundingBox(mutableboundingbox).setRandom(rand).addProcessor(BlockIgnoreStructureProcessor.AIR_AND_STRUCTURE_BLOCK);
