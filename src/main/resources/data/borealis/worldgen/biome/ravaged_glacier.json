@@ -44,7 +44,10 @@
     ],
     [],
     [],
-    [],
+    [
+      "borealis:glacial_ridge",
+      "borealis:glacial_spike"
+    ],
     [
       "borealis:permafrost_rubble_patch"
     ],

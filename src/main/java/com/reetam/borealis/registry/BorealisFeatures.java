@@ -10,6 +10,7 @@ import net.minecraft.world.gen.foliageplacer.BushFoliagePlacer;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraftforge.common.util.TextTable;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -24,6 +25,8 @@ public class BorealisFeatures {
             "borealis_tree", () -> new BorealisTreeFeature(BaseTreeFeatureConfig.CODEC));
     public static final RegistryObject<Feature<NoFeatureConfig>> brumal_tree = FEATURES.register(
             "brumal_tree", () -> new BrumalTreeFeature(NoFeatureConfig.field_236558_a_));
+    public static final RegistryObject<Feature<ColumnConfig>> glacial_ridge = FEATURES.register(
+            "glacial_ridge", () -> new GlacialRidgeFeature(ColumnConfig.CODEC));
     public static final RegistryObject<Feature<NoFeatureConfig>> glacial_spike = FEATURES.register(
             "glacial_spike", () -> new GlacialSpikeFeature(NoFeatureConfig.field_236558_a_));
 
@@ -60,7 +63,11 @@ public class BorealisFeatures {
                                     FeatureSpread.func_242253_a(3, 4))).range(128)
                             .square().func_242731_b(25));
 
-            register("glacial_spike", glacial_spike.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+            register("glacial_ridge", glacial_ridge.get().withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(2)))
+                    .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(6))));
+
+            register("glacial_spike", glacial_spike.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+                    .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(3))));
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {
