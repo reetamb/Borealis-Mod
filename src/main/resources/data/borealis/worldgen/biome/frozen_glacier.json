@@ -43,11 +43,10 @@
       "minecraft:lake_water"
     ],
     [],
-    [
-      "borealis:small_glacial_spires",
-      "borealis:large_glacial_spires"
-    ],
     [],
+    [
+      "borealis:glacial_spike"
+    ],
     [
       "borealis:permafrost_rubble_patch"
     ],

@@ -3,9 +3,10 @@ package com.reetam.borealis.registry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.foliageplacer.BushFoliagePlacer;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.Placement;
@@ -23,8 +24,8 @@ public class BorealisFeatures {
             "borealis_tree", () -> new BorealisTreeFeature(BaseTreeFeatureConfig.CODEC));
     public static final RegistryObject<Feature<NoFeatureConfig>> brumal_tree = FEATURES.register(
             "brumal_tree", () -> new BrumalTreeFeature(NoFeatureConfig.field_236558_a_));
-    public static final RegistryObject<Feature<ColumnConfig>> glacial_spire = FEATURES.register(
-            "glacial_spire", () -> new GlacialSpireFeature(ColumnConfig.CODEC));
+    public static final RegistryObject<Feature<NoFeatureConfig>> glacial_spike = FEATURES.register(
+            "glacial_spike", () -> new GlacialSpikeFeature(NoFeatureConfig.field_236558_a_));
 
     public static void registerConfiguredFeatures() {
 
@@ -37,16 +38,29 @@ public class BorealisFeatures {
                             new TwoLayerFeature(1, 0, 1)))
                             .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(8))));
 
+            register("geyser", borealis_tree.get().withConfiguration(
+                    (new BaseTreeFeatureConfig.Builder(
+                            new SimpleBlockStateProvider(BorealisBlocks.pumice_geyser.get().getDefaultState()),
+                            new SimpleBlockStateProvider(BorealisBlocks.pumice.get().getDefaultState()),
+                            new BushFoliagePlacer(FeatureSpread.func_242252_a(1), FeatureSpread.func_242252_a(1), 2),
+                            new StraightTrunkPlacer(1, 0, 0),
+                            new TwoLayerFeature(0, 0, 0)))
+                            .func_236702_a_(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
+
             register("brumal_tree", brumal_tree.get().withConfiguration(
                     IFeatureConfig.NO_FEATURE_CONFIG).chance(6));
 
             register("brumal_tree_common", brumal_tree.get().withConfiguration(
                         IFeatureConfig.NO_FEATURE_CONFIG).chance(1));
 
-            register("permafrost_rubble_patch", Feature.NETHERRACK_REPLACE_BLOBS.withConfiguration(new BlobReplacementConfig(BorealisBlocks.permafrost.get().getDefaultState(), BorealisBlocks.permafrost_rubble.get().getDefaultState(), FeatureSpread.func_242253_a(3, 4))).range(128).square().func_242731_b(25));
+            register("permafrost_rubble_patch",
+                    Feature.NETHERRACK_REPLACE_BLOBS.withConfiguration(
+                            new BlobReplacementConfig(BorealisBlocks.permafrost.get().getDefaultState(),
+                                    BorealisBlocks.permafrost_rubble.get().getDefaultState(),
+                                    FeatureSpread.func_242253_a(3, 4))).range(128)
+                            .square().func_242731_b(25));
 
-            register("small_glacial_spire", glacial_spire.get().withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(1, 3))).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(4))));
-            register("large_glacial_spire", glacial_spire.get().withConfiguration(new ColumnConfig(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(5, 5))).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(2))));
+            register("glacial_spike", glacial_spike.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {

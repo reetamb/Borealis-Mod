@@ -45,6 +45,7 @@ public class BorealisBlocks {
     public static final RegistryObject<RotatedPillarBlock> chiseled_slate_pillar = registerBlock("chiseled_slate_pillar", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STONE)));
 
     public static final RegistryObject<Block> pumice = registerBlock("pumice", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
+    public static final RegistryObject<Block> pumice_geyser = registerBlock("pumice_geyser", PumiceGeyserBlock::new);
 
     //    public static final RegistryObject<SaplingBlock> brumal_sapling = registerBlock("brumal_sapling", () -> new BorealisSaplingBlock(new BrumalTree()));
     public static final RegistryObject<Block> brumal_planks = registerBlock("brumal_planks", () -> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)));

@@ -48,7 +48,7 @@ public class BorealisTreeFeature extends Feature<BaseTreeFeatureConfig> {
     }
 
     public static boolean isLeaves(IWorldGenerationBaseReader world, BlockPos pos) {
-        return world.hasBlockState(pos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES));
+        return world.hasBlockState(pos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getBlock() == BorealisBlocks.pumice.get());
     }
 
     private static boolean isLichen(IWorldGenerationBaseReader world, BlockPos pos) {

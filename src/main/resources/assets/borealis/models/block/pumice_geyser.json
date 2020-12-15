@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "borealis:block/pumice",
+    "south": "borealis:block/pumice",
+    "north": "borealis:block/pumice",
+    "east": "borealis:block/pumice",
+    "west": "borealis:block/pumice",
+    "up": "borealis:block/pumice_geyser",
+    "down": "borealis:block/pumice"
+  }
+}

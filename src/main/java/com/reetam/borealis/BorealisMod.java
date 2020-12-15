@@ -29,6 +29,7 @@ public class BorealisMod {
         BorealisBlocks.BLOCKS.register(bus);
         BorealisItems.ITEMS.register(bus);
         BorealisFeatures.FEATURES.register(bus);
+        BorealisSounds.SOUND_EVENTS.register(bus);
     }
 
     public void clientSetup(FMLClientSetupEvent event) {
