@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#","#","#",
+    "#","O","#",
+    "#","#","#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:snowball"
+    },
+    "O": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "result": {
+    "item": "borealis:slate_pillar",
+    "count": 2
+  }
+}

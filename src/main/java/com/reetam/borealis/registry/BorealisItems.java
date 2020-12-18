@@ -12,5 +12,7 @@ public class BorealisItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BorealisMod.MODID);
 
     public static final RegistryObject<Item> kyanite_crystal = ITEMS.register("kyanite_crystal", BorealisItem::new);
-    public static final RegistryObject<Item> dry_ice = ITEMS.register("dry_ice", DryIceItem::new);
+    public static final RegistryObject<Item> moon_pearl = ITEMS.register("moon_pearl", MoonPearlItem::new);
+    public static final RegistryObject<Item> hot_spring_water_bucket = ITEMS.register("hot_spring_water_bucket", () -> new BucketItem(
+            BorealisFluids.hot_spring_water_source, (new Item.Properties()).group(BorealisItemGroups.ITEMS_GROUP).maxStackSize(1)));
 }

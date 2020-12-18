@@ -11,8 +11,8 @@
     "foliage_color": 11913978,
     "grass_color": 10931454,
     "sky_color": 10136810,
-    "water_color": 10136810,
-    "water_fog_color": 10136810,
+    "water_color": 5683175,
+    "water_fog_color": 5683175,
     "grass_color_modifier": "none",
     "particle": {
       "options": {
@@ -51,7 +51,9 @@
     ],
     [],
     [],
-    [],
+    [
+      "borealis:cloud"
+    ],
     [
       "borealis:boreal_features"
     ],

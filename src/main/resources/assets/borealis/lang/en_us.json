@@ -22,6 +22,7 @@
   "block.borealis.chiseled_slate_pillar": "Chiseled Slate Pillar",
 
   "block.borealis.pumice": "Pumice",
+  "block.borealis.pumice_geyser": "Pumice Geyser",
 
   "block.borealis.brumal_log": "Brumal Log",
   "block.borealis.brumal_planks": "Brumal Planks",
@@ -62,5 +63,8 @@
   "block.borealis.lichen_block": "Lichen Block",
   "block.borealis.permafrost_rubble": "Permafrost Rubble",
 
-  "entity.borealis.hummingbird": "Hummingbird"
+  "entity.borealis.hummingbird": "Hummingbird",
+
+  "item.borealis.moon_pearl": "Lunar Pearl",
+  "item.borealis.hot_spring_water_bucket": "Hot Spring Water Bucket"
 }

@@ -1,27 +1,29 @@
 package com.reetam.borealis.registry;
 
 import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.ToolType;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
 
-import java.rmi.registry.Registry;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.ArrayList;
-
-import net.minecraft.world.gen.feature.FossilsFeature;
 
 public class BorealisBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BorealisMod.MODID);
+
+    public static final RegistryObject<FlowingFluidBlock> hot_spring_water = BLOCKS.register("hot_spring_water", () -> new HotSpringWaterBlock(
+            BorealisFluids.hot_spring_water_source, AbstractBlock.Properties.create(Material.WATER)));
 
     public static final RegistryObject<Block> borealis_portal = BLOCKS.register("borealis_portal", BorealisPortalBlock::new);
 
@@ -84,6 +86,8 @@ public class BorealisBlocks {
     public static final RegistryObject<Block> lichen_block = registerBlock("lichen_block", () -> new LichenBlock(AbstractBlock.Properties.from(Blocks.GRASS_BLOCK).harvestTool(ToolType.SHOVEL)));
     public static final RegistryObject<Block> permafrost = registerBlock("permafrost", () -> new PermafrostBlock(AbstractBlock.Properties.from(lichen_block.get()).sound(SoundType.GROUND)));
     public static final RegistryObject<Block> permafrost_rubble = registerBlock("permafrost_rubble", () -> new Block(AbstractBlock.Properties.from(Blocks.COARSE_DIRT).harvestTool(ToolType.SHOVEL)));
+
+    public static final RegistryObject<Block> cloud = registerBlock("cloud", () -> new CloudBlock(AbstractBlock.Properties.from(Blocks.WHITE_WOOL)));
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);

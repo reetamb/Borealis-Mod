@@ -1,6 +1,7 @@
 /**
     Credit: Quek04 https://github.com/quek04/The-Undergarden/blob/1.16/src/main/java/quek/undergarden/world/UGTeleporter.java
-**/
+    If his stuff wasn't open source, surely I would Die.
+ **/
 package com.reetam.borealis.world;
 
 import com.google.common.collect.Maps;

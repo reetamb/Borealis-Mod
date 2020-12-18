@@ -1,12 +1,15 @@
 package com.reetam.borealis.registry;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.foliageplacer.BushFoliagePlacer;
+import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.Placement;
@@ -63,11 +66,28 @@ public class BorealisFeatures {
                                     FeatureSpread.func_242253_a(3, 4))).range(128)
                             .square().func_242731_b(25));
 
+            register("cloud",
+                    Feature.ORE.withConfiguration(
+                            new OreFeatureConfig(new BlockMatchRuleTest(Blocks.AIR),
+                                    BorealisBlocks.cloud.get().getDefaultState(), 33))
+                            .range(12).square().func_242731_b(10));
+
             register("glacial_ridge", glacial_ridge.get().withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(2)))
                     .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(6))));
 
             register("glacial_spike", glacial_spike.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
                     .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(3))));
+
+            register("hot_spring", Feature.DELTA_FEATURE.withConfiguration(
+                    new BasaltDeltasFeature(
+                            BorealisBlocks.hot_spring_water.get().getDefaultState(),
+                            BorealisBlocks.pumice.get().getDefaultState(),
+                            FeatureSpread.func_242253_a(2, 3),
+                            FeatureSpread.func_242253_a(0, 4)))
+                    .withPlacement(
+                            Placement.RANGE.configure(new TopSolidRangeConfig(64, 0, 128))
+                    .square().func_242731_b(16)));
+
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {

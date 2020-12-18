@@ -15,9 +15,9 @@ import com.reetam.borealis.registry.BorealisItemGroups;
 
 import net.minecraft.item.Item.Properties;
 
-public class DryIceItem extends Item {
+public class MoonPearlItem extends Item {
 
-    public DryIceItem() {
+    public MoonPearlItem() {
         super(new Properties()
                 .group(BorealisItemGroups.ITEMS_GROUP)
                 .maxStackSize(1)
