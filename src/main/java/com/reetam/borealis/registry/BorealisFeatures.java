@@ -1,5 +1,7 @@
 package com.reetam.borealis.registry;
 
+import com.reetam.borealis.world.gen.foliageplacer.PalmFoliagePlacer;
+import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -13,7 +15,6 @@ import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.Placement;
-import net.minecraftforge.common.util.TextTable;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -53,18 +54,44 @@ public class BorealisFeatures {
                             new TwoLayerFeature(0, 0, 0)))
                             .func_236702_a_(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
-            register("brumal_tree", brumal_tree.get().withConfiguration(
-                    IFeatureConfig.NO_FEATURE_CONFIG).chance(6));
+//            register("brumal_tree", brumal_tree.get().withConfiguration(
+//                    IFeatureConfig.NO_FEATURE_CONFIG).chance(6));
+//
+//            register("brumal_tree_common", brumal_tree.get().withConfiguration(
+//                        IFeatureConfig.NO_FEATURE_CONFIG).chance(1));
+            register("brumal_tree", borealis_tree.get().withConfiguration(
+                    (new BaseTreeFeatureConfig.Builder(
+                            new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().getDefaultState()),
+                            new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState()),
+                            new PalmFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
+                            new RootedTrunkPlacer(4, 2, 2, 1, 1),
+                            new TwoLayerFeature(1, 0, 1)))
+                            .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
-            register("brumal_tree_common", brumal_tree.get().withConfiguration(
-                        IFeatureConfig.NO_FEATURE_CONFIG).chance(1));
+            register("brumal_tree_common", borealis_tree.get().withConfiguration(
+                    (new BaseTreeFeatureConfig.Builder(
+                            new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().getDefaultState()),
+                            new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState()),
+                            new PalmFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
+                            new RootedTrunkPlacer(4, 2, 2, 1, 1),
+                            new TwoLayerFeature(1, 0, 1)))
+                            .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(2))));
+
+            register("tall_brumal_tree", borealis_tree.get().withConfiguration(
+                    (new BaseTreeFeatureConfig.Builder(
+                            new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().getDefaultState()),
+                            new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState()),
+                            new PalmFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
+                            new RootedTrunkPlacer(8, 2, 2),
+                            new TwoLayerFeature(1, 0, 1)))
+                            .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
             register("permafrost_rubble_patch",
-                    Feature.NETHERRACK_REPLACE_BLOBS.withConfiguration(
-                            new BlobReplacementConfig(BorealisBlocks.permafrost.get().getDefaultState(),
-                                    BorealisBlocks.permafrost_rubble.get().getDefaultState(),
-                                    FeatureSpread.func_242253_a(3, 4))).range(128)
-                            .square().func_242731_b(25));
+                        Feature.NETHERRACK_REPLACE_BLOBS.withConfiguration(
+                                new BlobReplacementConfig(BorealisBlocks.permafrost.get().getDefaultState(),
+                                        BorealisBlocks.permafrost_rubble.get().getDefaultState(),
+                                        FeatureSpread.func_242253_a(3, 4))).range(128)
+                                .square().func_242731_b(25));
 
             register("cloud",
                     Feature.ORE.withConfiguration(

@@ -45,9 +45,7 @@
     [
       "minecraft:lake_water"
     ],
-    [
-      "borealis:brumal_tree_common"
-    ],
+    [],
     [],
     [],
     [
@@ -55,7 +53,9 @@
     ],
     [
       "borealis:geyser",
-      "borealis:hot_spring"
+      "borealis:hot_spring",
+      "borealis:brumal_tree_common",
+      "borealis:tall_brumal_tree"
     ],
     [
       "minecraft:freeze_top_layer"
