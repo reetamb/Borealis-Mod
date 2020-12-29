@@ -9,7 +9,7 @@
   "effects": {
     "fog_color": 10136810,
     "foliage_color": 11913978,
-    "grass_color": 3257520,
+    "grass_color": 10931454,
     "sky_color": 10136810,
     "water_color": 5683175,
     "water_fog_color": 5683175,
@@ -53,10 +53,12 @@
     ],
     [
       "borealis:hot_spring",
-      "borealis:brumal_tree_common",
-      "borealis:tall_brumal_tree"
+      "borealis:hot_spring_common",
+      "borealis:hot_spring_pond"
     ],
-    []
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ],
   "starts": [],
   "spawners": {

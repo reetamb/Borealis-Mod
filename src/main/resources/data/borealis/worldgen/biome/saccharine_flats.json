@@ -43,7 +43,6 @@
     [],
     [],
     [
-      "minecraft:lake_water"
     ],
     [],
     [],
@@ -54,9 +53,7 @@
     [
       "borealis:cotton_tree"
     ],
-    [
-      "minecraft:freeze_top_layer"
-    ]
+    []
   ],
   "starts": [],
   "spawners": {

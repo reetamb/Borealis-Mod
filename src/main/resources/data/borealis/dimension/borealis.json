@@ -70,7 +70,7 @@
         {
           "biome": "borealis:frostfir_woods",
           "parameters": {
-            "altitude": 0.0,
+            "altitude": 0.25,
             "weirdness": 0.0,
             "offset": 0.0,
             "temperature": -0.5,
@@ -114,6 +114,16 @@
             "weirdness": 0.0,
             "offset": 0.0,
             "temperature": 0.125,
+            "humidity": 0.25
+          }
+        },
+        {
+          "biome": "borealis:hot_springs",
+          "parameters": {
+            "altitude": 0.0,
+            "weirdness": -0.125,
+            "offset": 0.0,
+            "temperature": 0.25,
             "humidity": 0.25
           }
         }

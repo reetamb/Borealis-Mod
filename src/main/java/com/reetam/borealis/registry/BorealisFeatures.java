@@ -12,6 +12,7 @@ import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.foliageplacer.BushFoliagePlacer;
+import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
@@ -87,22 +88,21 @@ public class BorealisFeatures {
                             new TwoLayerFeature(1, 0, 1)))
                             .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
-        register("cotton_tree", borealis_tree.get().withConfiguration(
-                (new BaseTreeFeatureConfig.Builder(
-                        new SimpleBlockStateProvider(BorealisBlocks.saccharine_log.get().getDefaultState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.saccharine_leaves.get().getDefaultState()),
-                        new AspenFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
-                        new StraightTrunkPlacer(8, 2, 2),
-                        new TwoLayerFeature(1, 0, 1)))
-                        .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
+            register("cotton_tree", borealis_tree.get().withConfiguration(
+                    (new BaseTreeFeatureConfig.Builder(
+                            new SimpleBlockStateProvider(BorealisBlocks.saccharine_log.get().getDefaultState()),
+                            new SimpleBlockStateProvider(BorealisBlocks.saccharine_leaves.get().getDefaultState()),
+                            new AspenFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
+                            new StraightTrunkPlacer(8, 2, 2),
+                            new TwoLayerFeature(1, 0, 1)))
+                            .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
-
-        register("permafrost_rubble_patch",
-                        Feature.NETHERRACK_REPLACE_BLOBS.withConfiguration(
-                                new BlobReplacementConfig(BorealisBlocks.permafrost.get().getDefaultState(),
-                                        BorealisBlocks.permafrost_rubble.get().getDefaultState(),
-                                        FeatureSpread.func_242253_a(3, 4))).range(128)
-                                .square().func_242731_b(25));
+            register("permafrost_rubble_patch",
+                            Feature.NETHERRACK_REPLACE_BLOBS.withConfiguration(
+                                    new BlobReplacementConfig(BorealisBlocks.permafrost.get().getDefaultState(),
+                                            BorealisBlocks.permafrost_rubble.get().getDefaultState(),
+                                            FeatureSpread.func_242253_a(3, 4))).range(128)
+                                    .square().func_242731_b(25));
 
             register("cloud",
                     Feature.ORE.withConfiguration(
@@ -126,6 +126,19 @@ public class BorealisFeatures {
                             Placement.RANGE.configure(new TopSolidRangeConfig(64, 0, 128))
                     .square().func_242731_b(16)));
 
+            register("hot_spring_common", Feature.DELTA_FEATURE.withConfiguration(
+                    new BasaltDeltasFeature(
+                            BorealisBlocks.hot_spring_water.get().getDefaultState(),
+                            BorealisBlocks.pumice.get().getDefaultState(),
+                            FeatureSpread.func_242253_a(6, 8),
+                            FeatureSpread.func_242253_a(0, 4)))
+                    .withPlacement(
+                            Placement.RANGE.configure(new TopSolidRangeConfig(64, 0, 128))
+                                    .square().func_242731_b(16)));
+
+            register("hot_spring_pond", Feature.LAKE.withConfiguration(
+                    new BlockStateFeatureConfig(BorealisBlocks.hot_spring_water.get().getDefaultState()))
+                    .withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(2))));
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {
