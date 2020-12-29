@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "borealis:block/saccharine_slab"
+    },
+    "type=double": {
+      "model": "borealis:block/saccharine_planks"
+    },
+    "type=top": {
+      "model": "borealis:block/saccharine_slab_top"
+    }
+  }
+}

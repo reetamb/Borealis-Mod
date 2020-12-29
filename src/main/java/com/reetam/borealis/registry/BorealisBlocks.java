@@ -81,6 +81,22 @@ public class BorealisBlocks {
     public static final RegistryObject<WoodButtonBlock> frostfir_button = registerBlock("frostfir_button", () -> new WoodButtonBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid().doesNotBlockMovement()));
     public static final RegistryObject<PressurePlateBlock> frostfir_pressure_plate = registerBlock("frostfir_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid().doesNotBlockMovement()));
 
+    //    public static final RegistryObject<SaplingBlock> frostfir_sapling = registerBlock("saccharine_sapling", () -> new BorealisSaplingBlock(new FrostfirTree()));
+    public static final RegistryObject<Block> saccharine_planks = registerBlock("saccharine_planks", () -> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<RotatedPillarBlock> saccharine_log = registerBlock("saccharine_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_LOG)));
+    public static final RegistryObject<RotatedPillarBlock> saccharine_wood = registerBlock("saccharine_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_WOOD)));
+    public static final RegistryObject<RotatedPillarBlock> stripped_saccharine_log = registerBlock("stripped_saccharine_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STRIPPED_OAK_LOG)));
+    public static final RegistryObject<RotatedPillarBlock> stripped_saccharine_wood = registerBlock("stripped_saccharine_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STRIPPED_OAK_WOOD)));
+    public static final RegistryObject<Block> saccharine_leaves = registerBlock("saccharine_leaves", () -> new LeavesBlock(AbstractBlock.Properties.from(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<StairsBlock> saccharine_stairs = registerBlock("saccharine_stairs", () -> new StairsBlock(() -> BorealisBlocks.frostfir_planks.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<SlabBlock> saccharine_slab = registerBlock("saccharine_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<FenceBlock> saccharine_fence = registerBlock("saccharine_fence", () -> new FenceBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<FenceGateBlock> saccharine_fence_gate = registerBlock("saccharine_fence_gate", () -> new FenceGateBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<DoorBlock> saccharine_door = registerBlock("saccharine_door", () -> new DoorBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<TrapDoorBlock> saccharine_trapdoor = registerBlock("saccharine_trapdoor", () -> new TrapDoorBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid()));
+    public static final RegistryObject<WoodButtonBlock> saccharine_button = registerBlock("saccharine_button", () -> new WoodButtonBlock(AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid().doesNotBlockMovement()));
+    public static final RegistryObject<PressurePlateBlock> saccharine_pressure_plate = registerBlock("saccharine_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid().doesNotBlockMovement()));
+
     public static final RegistryObject<Block> kyanite_ore = registerBlock("kyanite_ore", () -> new Block(OreBlock.Properties.from(Blocks.EMERALD_ORE)));
 
     public static final RegistryObject<Block> lichen_block = registerBlock("lichen_block", () -> new LichenBlock(AbstractBlock.Properties.from(Blocks.GRASS_BLOCK).harvestTool(ToolType.SHOVEL)));

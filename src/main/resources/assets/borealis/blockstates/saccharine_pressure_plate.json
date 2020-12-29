@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "borealis:block/saccharine_pressure_plate"
+    },
+    "powered=true": {
+      "model": "borealis:block/saccharine_pressure_plate_down"
+    }
+  }
+}

@@ -56,6 +56,22 @@
   "block.borealis.frostfir_leaves": "Frostfir Leaves",
   "block.borealis.frostfir_sapling": "Frostfir Sapling",
 
+  "block.borealis.saccharine_log": "Saccharine Log",
+  "block.borealis.saccharine_planks": "Saccharine Planks",
+  "block.borealis.saccharine_wood": "Saccharine Wood",
+  "block.borealis.stripped_saccharine_log": "Stripped Saccharine Log",
+  "block.borealis.stripped_saccharine_wood": "Stripped Saccharine Wood",
+  "block.borealis.saccharine_stairs": "Saccharine Stairs",
+  "block.borealis.saccharine_slab": "Saccharine Slab",
+  "block.borealis.saccharine_door": "Saccharine Door",
+  "block.borealis.saccharine_trapdoor": "Saccharine Trapdoor",
+  "block.borealis.saccharine_fence": "Saccharine Fence",
+  "block.borealis.saccharine_fence_gate": "Saccharine Fence Gate",
+  "block.borealis.saccharine_button": "Saccharine Button",
+  "block.borealis.saccharine_pressure_plate": "Saccharine Pressure Plate",
+  "block.borealis.saccharine_leaves": "Saccharine Leaves",
+  "block.borealis.saccharine_sapling": "Saccharine Sapling",
+
   "item.borealis.kyanite_crystal": "Kyanite Crystal",
   "block.borealis.kyanite_ore": "Kyanite Ore",
 

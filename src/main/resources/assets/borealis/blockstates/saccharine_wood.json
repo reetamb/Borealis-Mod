@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "borealis:block/saccharine_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "borealis:block/saccharine_wood"
+    },
+    "axis=z": {
+      "model": "borealis:block/saccharine_wood",
+      "x": 90
+    }
+  }
+}

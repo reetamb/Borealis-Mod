@@ -41,6 +41,8 @@ public class ClientProxy {
         render(BorealisBlocks.brumal_trapdoor, cutout);
         render(BorealisBlocks.frostfir_door, cutout);
         render(BorealisBlocks.frostfir_trapdoor, cutout);
+        render(BorealisBlocks.saccharine_door, cutout);
+        render(BorealisBlocks.saccharine_trapdoor, cutout);
 
 
         render(BorealisBlocks.lichen_block, mipped);

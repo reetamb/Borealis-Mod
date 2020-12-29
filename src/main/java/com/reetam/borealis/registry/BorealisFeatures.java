@@ -1,5 +1,6 @@
 package com.reetam.borealis.registry;
 
+import com.reetam.borealis.world.gen.foliageplacer.AspenFoliagePlacer;
 import com.reetam.borealis.world.gen.foliageplacer.PalmFoliagePlacer;
 import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
 import net.minecraft.block.Blocks;
@@ -86,7 +87,17 @@ public class BorealisFeatures {
                             new TwoLayerFeature(1, 0, 1)))
                             .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
-            register("permafrost_rubble_patch",
+        register("cotton_tree", borealis_tree.get().withConfiguration(
+                (new BaseTreeFeatureConfig.Builder(
+                        new SimpleBlockStateProvider(BorealisBlocks.saccharine_log.get().getDefaultState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.saccharine_leaves.get().getDefaultState()),
+                        new AspenFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
+                        new StraightTrunkPlacer(8, 2, 2),
+                        new TwoLayerFeature(1, 0, 1)))
+                        .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
+
+
+        register("permafrost_rubble_patch",
                         Feature.NETHERRACK_REPLACE_BLOBS.withConfiguration(
                                 new BlobReplacementConfig(BorealisBlocks.permafrost.get().getDefaultState(),
                                         BorealisBlocks.permafrost_rubble.get().getDefaultState(),
