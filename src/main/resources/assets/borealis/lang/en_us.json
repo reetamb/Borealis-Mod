@@ -78,10 +78,14 @@
   "block.borealis.permafrost": "Permafrost",
   "block.borealis.lichen_block": "Lichen Block",
   "block.borealis.permafrost_rubble": "Permafrost Rubble",
+  "block.borealis.cloud": "Cloud",
 
   "entity.borealis.hummingbird": "Hummingbird",
+  "item.borealis.hummingbird_spawn_egg": "Hummingbird Spawn Egg",
+
+  "entity.borealis.takahe": "Takahe",
+  "item.borealis.takahe_spawn_egg": "Takahe Spawn Egg",
 
   "item.borealis.moon_pearl": "Lunar Pearl",
-  "item.borealis.hot_spring_water_bucket": "Hot Spring Water Bucket",
-  "item.borealis.hummingbird_spawn_egg": "Hummingbird Spawn Egg"
+  "item.borealis.hot_spring_water_bucket": "Hot Spring Water Bucket"
 }

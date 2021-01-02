@@ -2,7 +2,6 @@ package com.reetam.borealis.client.model;// Made with Blockbench 3.5.4
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
 
-
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;

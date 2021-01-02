@@ -2,6 +2,7 @@ package com.reetam.borealis.client;
 
 import com.reetam.borealis.block.BorealisPortalBlock;
 import com.reetam.borealis.client.renderer.entity.HummingbirdRenderer;
+import com.reetam.borealis.client.renderer.entity.TakaheRenderer;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisFluids;
 import net.minecraft.block.Block;
@@ -58,6 +59,7 @@ public class ClientProxy {
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
         RenderingRegistry.registerEntityRenderingHandler(BorealisEntities.HUMMINGBIRD.get(), HummingbirdRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(BorealisEntities.TAKAHE.get(), TakaheRenderer::new);
     }
 
     public static void registerBlockColors() {
