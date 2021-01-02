@@ -53,7 +53,6 @@ public class BorealisMod {
     public void setup(FMLCommonSetupEvent event) {
         BorealisEntities.entityAttributes();
         BorealisFeatures.registerConfiguredFeatures();
-
     }
 
     public void gatherData(GatherDataEvent event) {

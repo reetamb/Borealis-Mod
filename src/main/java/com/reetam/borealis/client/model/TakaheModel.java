@@ -1,5 +1,4 @@
-package com.reetam.borealis.client.model;
-// Made with Blockbench 3.5.4
+package com.reetam.borealis.client.model;// Made with Blockbench 3.5.4
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
 
@@ -24,28 +23,30 @@ public class TakaheModel<T extends Entity> extends EntityModel<T> {
 		beak = new ModelRenderer(this);
 		beak.setRotationPoint(0.0F, 19.0F, 4.0F);
 		setRotationAngle(beak, 0.3491F, 0.0F, 0.0F);
-		beak.setTextureOffset(0, 21).addBox(-1.5F, -11.7265F, -11.1062F, 3.0F, 4.0F, 4.0F, 0.0F, false);
+		beak.setTextureOffset(0, 18).addBox(-1.5F, -11.7265F, -11.1062F, 3.0F, 4.0F, 4.0F, 0.0F, false);
 
 		head = new ModelRenderer(this);
 		head.setRotationPoint(0.0F, 24.0F, 0.0F);
 		head.setTextureOffset(15, 18).addBox(-2.0F, -13.75F, -6.7F, 4.0F, 5.0F, 4.0F, 0.0F, false);
+		head.setTextureOffset(0, 33).addBox(-2.5F, -14.75F, -7.25F, 5.0F, 1.0F, 5.0F, 0.0F, false);
+		head.setTextureOffset(0, 26).addBox(-1.5F, -18.75F, -6.25F, 3.0F, 4.0F, 3.0F, 0.0F, false);
 
 		body = new ModelRenderer(this);
 		body.setRotationPoint(0.0F, 11.0F, -2.0F);
 		setRotationAngle(body, -0.3491F, 0.0F, 0.0F);
-		body.setTextureOffset(0, 0).addBox(-4.0F, -0.46F, -0.9799F, 8.0F, 8.0F, 10.0F, 0.0F, false);
-		body.setTextureOffset(28, 2).addBox(3.9F, -0.4944F, 0.9848F, 1.0F, 7.0F, 8.0F, 0.0F, false);
-		body.setTextureOffset(28, 2).addBox(-5.0F, -0.4944F, 0.9848F, 1.0F, 7.0F, 8.0F, 0.0F, true);
+		body.setTextureOffset(0, 0).addBox(-3.5F, -0.46F, -0.9799F, 7.0F, 8.0F, 10.0F, 0.0F, false);
+		body.setTextureOffset(28, 2).addBox(3.4F, -0.4944F, 0.9848F, 1.0F, 7.0F, 8.0F, 0.0F, false);
+		body.setTextureOffset(28, 2).addBox(-4.5F, -0.4944F, 0.9848F, 1.0F, 7.0F, 8.0F, 0.0F, true);
 
 		rightLeg = new ModelRenderer(this);
 		rightLeg.setRotationPoint(0.0F, 19.0F, 1.0F);
 		rightLeg.setTextureOffset(0, 0).addBox(-3.0F, 0.0F, -1.0F, 2.0F, 5.0F, 2.0F, 0.0F, false);
-		rightLeg.setTextureOffset(0, 18).addBox(-4.0F, 5.0F, -3.95F, 4.0F, 0.0F, 3.0F, 0.0F, false);
+		rightLeg.setTextureOffset(24, 18).addBox(-4.0F, 5.0F, -3.95F, 4.0F, 0.0F, 3.0F, 0.0F, false);
 
 		leftLeg = new ModelRenderer(this);
 		leftLeg.setRotationPoint(2.0F, 20.0F, 1.0F);
 		leftLeg.setTextureOffset(26, 0).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 5.0F, 2.0F, 0.0F, false);
-		leftLeg.setTextureOffset(4, 18).addBox(-2.0F, 4.0F, -4.0F, 4.0F, 0.0F, 3.0F, 0.0F, false);
+		leftLeg.setTextureOffset(24, 21).addBox(-2.0F, 4.0F, -4.0F, 4.0F, 0.0F, 3.0F, 0.0F, false);
 	}
 
 	@Override

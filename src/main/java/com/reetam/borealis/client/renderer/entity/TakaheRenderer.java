@@ -3,6 +3,7 @@ package com.reetam.borealis.client.renderer.entity;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.client.model.HummingbirdModel;
 import com.reetam.borealis.client.model.TakaheModel;
+import com.reetam.borealis.client.renderer.layer.TakaheHatLayer;
 import com.reetam.borealis.entity.HummingbirdEntity;
 import com.reetam.borealis.entity.TakaheEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
@@ -17,7 +18,8 @@ public class TakaheRenderer extends MobRenderer<TakaheEntity, TakaheModel<Takahe
     private static final ResourceLocation TEXTURE = new ResourceLocation(BorealisMod.MODID, "textures/entity/takahe.png");
 
     public TakaheRenderer(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new TakaheModel<>(), 1F);
+        super(renderManagerIn, new TakaheModel<>(), 0.7F);
+        this.addLayer(new TakaheHatLayer<>(this));
     }
 
     @Override

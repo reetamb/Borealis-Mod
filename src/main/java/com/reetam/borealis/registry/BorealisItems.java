@@ -18,4 +18,4 @@ public class BorealisItems {
             BorealisFluids.hot_spring_water_source, (new Item.Properties()).group(BorealisItemGroups.ITEMS_GROUP).maxStackSize(1)));
     public static final RegistryObject<SpawnEggItem> hummingbird_spawn_egg = ITEMS.register("hummingbird_spawn_egg", () -> new SpawnEggItem(BorealisEntities.hummingbird, 0x9CE542, 0xFF446D, new Item.Properties().group(ItemGroup.MISC)));
     public static final RegistryObject<SpawnEggItem> takahe_spawn_egg = ITEMS.register("takahe_spawn_egg", () -> new SpawnEggItem(BorealisEntities.takahe, 0x2F329F, 0x518A65, new Item.Properties().group(ItemGroup.MISC)));
-}
+    public static final RegistryObject<Item> hat = ITEMS.register("hat", () -> new HatItem(new Item.Properties().group(BorealisItemGroups.ITEMS_GROUP).maxStackSize(1)));}

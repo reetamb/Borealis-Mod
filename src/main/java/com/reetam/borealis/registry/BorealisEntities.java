@@ -1,6 +1,7 @@
 package com.reetam.borealis.registry;
 
 import com.reetam.borealis.client.renderer.entity.TakaheRenderer;
+import jdk.nashorn.internal.objects.Global;
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
@@ -19,9 +20,9 @@ public class BorealisEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, BorealisMod.MODID);
 
     public static final EntityType<HummingbirdEntity> hummingbird = EntityType.Builder.<HummingbirdEntity>create(HummingbirdEntity::new, EntityClassification.MISC)
-            .size(0.9F, 0.8F).trackingRange(10).build("hummingbird");
+            .size(0.9F, 0.9F).trackingRange(10).build("hummingbird");
     public static final EntityType<TakaheEntity> takahe = EntityType.Builder.<TakaheEntity>create(TakaheEntity::new, EntityClassification.MISC)
-            .size(1.8F, 0.8F).trackingRange(10).build("takahe");
+            .size(0.8F, 0.8F).trackingRange(10).build("takahe");
 
     public static final RegistryObject<EntityType<HummingbirdEntity>> HUMMINGBIRD = ENTITIES.register(
             "hummingbird", () -> hummingbird);

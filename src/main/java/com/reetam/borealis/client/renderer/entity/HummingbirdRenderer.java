@@ -15,7 +15,7 @@ public class HummingbirdRenderer extends MobRenderer<HummingbirdEntity, Hummingb
     private static final ResourceLocation TEXTURE = new ResourceLocation(BorealisMod.MODID, "textures/entity/hummingbird.png");
 
     public HummingbirdRenderer(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new HummingbirdModel<>(), 1F);
+        super(renderManagerIn, new HummingbirdModel<>(), 0.8F);
     }
 
     @Override
