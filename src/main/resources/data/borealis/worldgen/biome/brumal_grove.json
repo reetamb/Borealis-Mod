@@ -56,7 +56,9 @@
       "borealis:brumal_tree_common",
       "borealis:tall_brumal_tree"
     ],
-    []
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ],
   "starts": [],
   "spawners": {

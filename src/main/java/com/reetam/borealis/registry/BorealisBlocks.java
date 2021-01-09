@@ -1,23 +1,21 @@
 package com.reetam.borealis.registry;
 
+import com.reetam.borealis.BorealisMod;
+import com.reetam.borealis.block.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
-import net.minecraft.fluid.FlowingFluid;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.ToolType;
-import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.block.*;
 
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+@SuppressWarnings("unused")
 public class BorealisBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BorealisMod.MODID);
@@ -45,6 +43,10 @@ public class BorealisBlocks {
     public static final RegistryObject<Block> slate = registerBlock("slate", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
     public static final RegistryObject<RotatedPillarBlock> slate_pillar = registerBlock("slate_pillar", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STONE)));
     public static final RegistryObject<RotatedPillarBlock> chiseled_slate_pillar = registerBlock("chiseled_slate_pillar", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STONE)));
+
+    public static final RegistryObject<Block> porcelain = registerBlock("porcelain", () -> new Block(AbstractBlock.Properties.from(Blocks.TERRACOTTA).sound(SoundType.BASALT)));
+    public static final RegistryObject<Block> porcelain_tile = registerBlock("porcelain_tile", () -> new Block(AbstractBlock.Properties.from(Blocks.TERRACOTTA).sound(SoundType.BASALT)));
+    public static final RegistryObject<GlazedTerracottaBlock> chiseled_porcelain_tile = registerBlock("chiseled_porcelain_tile", () -> new GlazedTerracottaBlock(AbstractBlock.Properties.from(Blocks.TERRACOTTA).sound(SoundType.BASALT)));
 
     public static final RegistryObject<Block> pumice = registerBlock("pumice", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
     public static final RegistryObject<Block> pumice_geyser = registerBlock("pumice_geyser", PumiceGeyserBlock::new);

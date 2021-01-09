@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "borealis:block/chiseled_slate_pillar_end",
+    "side": "borealis:block/chiseled_slate_pillar_side"
+  }
+}
