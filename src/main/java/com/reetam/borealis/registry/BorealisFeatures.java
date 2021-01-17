@@ -1,5 +1,6 @@
 package com.reetam.borealis.registry;
 
+import com.google.common.collect.ImmutableList;
 import com.reetam.borealis.world.gen.foliageplacer.AspenFoliagePlacer;
 import com.reetam.borealis.world.gen.foliageplacer.PalmFoliagePlacer;
 import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
@@ -111,6 +112,12 @@ public class BorealisFeatures {
                                     BorealisBlocks.cloud.get().getDefaultState(), 33))
                             .range(12).square().func_242731_b(10));
 
+            register("porcelain",
+                    Feature.ORE.withConfiguration(
+                            new OreFeatureConfig(new BlockMatchRuleTest(BorealisBlocks.permafrost.get()),
+                                    BorealisBlocks.porcelain.get().getDefaultState(), 33))
+                            .range(256).square().func_242731_b(2));
+
             register("glacial_ridge", glacial_ridge.get().withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(2)))
                     .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(6))));
 
@@ -139,7 +146,8 @@ public class BorealisFeatures {
 
             register("hot_spring_pond", Feature.LAKE.withConfiguration(
                     new BlockStateFeatureConfig(BorealisBlocks.hot_spring_water.get().getDefaultState()))
-                    .withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(2))));
+                    .withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(1))));
+
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {

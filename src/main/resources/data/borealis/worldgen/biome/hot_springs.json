@@ -49,12 +49,12 @@
     [],
     [],
     [
-      "borealis:cloud"
+      "borealis:cloud",
+      "borealis:porcelain"
     ],
     [
-      "borealis:hot_spring",
-      "borealis:hot_spring_common",
-      "borealis:hot_spring_pond"
+      "borealis:hot_spring_pond",
+      "borealis:geyser"
     ],
     [
       "minecraft:freeze_top_layer"
