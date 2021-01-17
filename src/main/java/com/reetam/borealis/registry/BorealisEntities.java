@@ -28,9 +28,11 @@ public class BorealisEntities {
             "hummingbird", () -> hummingbird);
     public static final  RegistryObject<EntityType<TakaheEntity>> TAKAHE = ENTITIES.register(
             "takahe", () -> takahe);
-//    public static void spawnPlacements() {
-//        EntitySpawnPlacementRegistry.register(HUMMINGBIRD.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HummingbirdEntity::new);
-//    }
+
+    public static void spawnPlacements() {
+        EntitySpawnPlacementRegistry.register(HUMMINGBIRD.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HummingbirdEntity::canHummingbirdSpawn);
+        EntitySpawnPlacementRegistry.register(TAKAHE.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, TakaheEntity::canTakaheSpawn);
+    }
 
     public static void entityAttributes() {
         GlobalEntityTypeAttributes.put(HUMMINGBIRD.get(), HummingbirdEntity.registerAttributes().create());

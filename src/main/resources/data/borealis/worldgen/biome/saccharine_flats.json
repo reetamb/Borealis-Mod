@@ -58,7 +58,14 @@
   "starts": [],
   "spawners": {
     "monster": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "borealis:hummingbird",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
     "ambient": [],
     "water_creature": [],
     "water_ambient": [],

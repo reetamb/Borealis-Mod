@@ -63,12 +63,19 @@
   "starts": [],
   "spawners": {
     "monster": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "borealis:takahe",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
     "ambient": [],
     "water_creature": [],
     "water_ambient": [],
     "misc": []
   },
-  "player_spawn_friendly": false,
+  "player_spawn_friendly": true,
   "spawn_costs": {}
 }

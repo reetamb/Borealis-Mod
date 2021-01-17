@@ -1,8 +1,11 @@
 package com.reetam.borealis.entity;
 
+import com.reetam.borealis.registry.BorealisBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
@@ -17,10 +20,13 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class TakaheEntity extends AnimalEntity {
     private static final DataParameter<Boolean> HAT = EntityDataManager.createKey(
@@ -54,6 +60,15 @@ public class TakaheEntity extends AnimalEntity {
     public void setHat(boolean hat) {
         this.getDataManager().set(HAT, hat);
     }
+    public void writeAdditional(CompoundNBT compound) {
+        super.writeAdditional(compound);
+        compound.putBoolean("HasHat", this.getHat());
+    }
+
+    public void readAdditional(CompoundNBT compound) {
+        super.readAdditional(compound);
+        this.setHat(compound.getBoolean("HasHat"));
+    }
 
     @Override
     protected void registerGoals() {
@@ -64,13 +79,7 @@ public class TakaheEntity extends AnimalEntity {
         this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
     }
 
-    public void writeAdditional(CompoundNBT compound) {
-        super.writeAdditional(compound);
-        compound.putBoolean("HasHat", this.getHat());
-    }
-
-    public void readAdditional(CompoundNBT compound) {
-        super.readAdditional(compound);
-        this.setHat(compound.getBoolean("HasHat"));
+    public static boolean canTakaheSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
+        return worldIn.getBlockState(pos.down()).getBlock() == BorealisBlocks.lichen_block.get();
     }
 }

@@ -5,6 +5,7 @@ import com.reetam.borealis.client.renderer.BorealisSkyRenderer;
 import com.reetam.borealis.client.renderer.fluid.FluidRenderer;
 import com.reetam.borealis.data.BorealisLootTables;
 import com.reetam.borealis.registry.*;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.math.vector.Vector3d;
@@ -54,18 +55,16 @@ public class BorealisMod {
 
             @Override
             public boolean func_230493_a_(int x, int y) {
-                return false;
-            }
-
-            @Override
-            public ISkyRenderHandler getSkyRenderHandler() {
-                return new BorealisSkyRenderer();
+//                assert Minecraft.getInstance().world != null;
+//                return Minecraft.getInstance().world.isNightTime();
+                return true;
             }
         });
     }
 
     public void setup(FMLCommonSetupEvent event) {
         BorealisEntities.entityAttributes();
+        BorealisEntities.spawnPlacements();
         BorealisFeatures.registerConfiguredFeatures();
     }
 
