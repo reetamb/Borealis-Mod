@@ -37,6 +37,8 @@ public class BorealisFeatures {
             "glacial_ridge", () -> new GlacialRidgeFeature(ColumnConfig.CODEC));
     public static final RegistryObject<Feature<NoFeatureConfig>> glacial_spike = FEATURES.register(
             "glacial_spike", () -> new GlacialSpikeFeature(NoFeatureConfig.field_236558_a_));
+    public static final RegistryObject<Feature<NoFeatureConfig>> hot_spring = FEATURES.register(
+            "hot_spring", () -> new HotSpringFeature(NoFeatureConfig.field_236558_a_));
 
     public static void registerConfiguredFeatures() {
 
@@ -124,25 +126,8 @@ public class BorealisFeatures {
             register("glacial_spike", glacial_spike.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
                     .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(3))));
 
-            register("hot_spring", Feature.DELTA_FEATURE.withConfiguration(
-                    new BasaltDeltasFeature(
-                            BorealisBlocks.hot_spring_water.get().getDefaultState(),
-                            BorealisBlocks.pumice.get().getDefaultState(),
-                            FeatureSpread.func_242253_a(2, 3),
-                            FeatureSpread.func_242253_a(0, 4)))
-                    .withPlacement(
-                            Placement.RANGE.configure(new TopSolidRangeConfig(64, 0, 128))
-                    .square().func_242731_b(16)));
-
-            register("hot_spring_common", Feature.DELTA_FEATURE.withConfiguration(
-                    new BasaltDeltasFeature(
-                            BorealisBlocks.hot_spring_water.get().getDefaultState(),
-                            BorealisBlocks.pumice.get().getDefaultState(),
-                            FeatureSpread.func_242253_a(6, 8),
-                            FeatureSpread.func_242253_a(0, 4)))
-                    .withPlacement(
-                            Placement.RANGE.configure(new TopSolidRangeConfig(64, 0, 128))
-                                    .square().func_242731_b(16)));
+            register("hot_spring", hot_spring.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+                    .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
             register("hot_spring_pond", Feature.LAKE.withConfiguration(
                     new BlockStateFeatureConfig(BorealisBlocks.hot_spring_water.get().getDefaultState()))

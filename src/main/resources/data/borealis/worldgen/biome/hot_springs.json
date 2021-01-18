@@ -53,8 +53,8 @@
       "borealis:porcelain"
     ],
     [
-      "borealis:hot_spring_pond",
-      "borealis:geyser"
+      "borealis:geyser",
+      "borealis:hot_spring"
     ],
     [
       "minecraft:freeze_top_layer"
