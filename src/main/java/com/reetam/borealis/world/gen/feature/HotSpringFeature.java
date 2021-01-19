@@ -28,21 +28,6 @@ public class HotSpringFeature extends Feature<NoFeatureConfig> {
         if (reader.getBlockState(pos.down()).isTransparent()) {
             return false;
         } else {
-//            for (int x = pos.getX()-width; x < pos.getX()+width; x++) {
-//                for (int z = pos.getZ()-width; z < pos.getZ()+width; z++) {
-//                    for (int y = pos.getY(); y > pos.getY()-width; y--) {
-//                        pos1 = new BlockPos(x, y, z);
-//                        if (reader.getBlockState(pos1.down()).isIn(Tags.Blocks.DIRT) || reader.getBlockState(pos1.down()).getBlock() == Blocks.SNOW) {
-//                            reader.setBlockState(pos1.down(), BorealisBlocks.hot_spring_water.get().getDefaultState(), 19);
-//                            if (reader.getBlockState(pos1).getBlock() != BorealisBlocks.hot_spring_water.get()) {
-//                                reader.setBlockState(pos1, Blocks.AIR.getDefaultState(), 19);
-//                            }
-//                        } else if (reader.getBlockState(pos1.down()).isIn(Tags.Blocks.COBBLESTONE)) {
-//                            reader.setBlockState(pos1.down(), BorealisBlocks.porcelain.get().getDefaultState(), 19);
-//                        }
-//                    }
-//                }
-//            }
             for (int x = -width; x < width; x++) {
                 for (int z = -width; z < width; z++) {
                     for (int y = -width; y < width; y++) {
