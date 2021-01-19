@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "borealis:brumal_log",
+    "borealis:brumal_wood",
+    "borealis:stripped_brumal_log",
+    "borealis:stripped_brumal_wood",
+    "borealis:frostfir_log",
+    "borealis:frostfir_wood",
+    "borealis:stripped_frostfir_log",
+    "borealis:stripped_frostfir_wood",
+    "borealis:saccharine_log",
+    "borealis:saccharine_wood",
+    "borealis:stripped_saccharine_log",
+    "borealis:stripped_saccharine_wood"
+  ]
+}
