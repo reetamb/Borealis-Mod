@@ -21,11 +21,11 @@ import net.minecraft.world.server.ServerWorld;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class TakaheEntity extends AnimalEntity {
-    private static final DataParameter<Boolean> HAT = EntityDataManager.createKey(
+public class MismicMuskoxEntity extends AnimalEntity {
+    private static final DataParameter<Boolean> CARPET = EntityDataManager.createKey(
             MismicMuskoxEntity.class, DataSerializers.BOOLEAN);
 
-    public TakaheEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
+    public MismicMuskoxEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
@@ -44,23 +44,23 @@ public class TakaheEntity extends AnimalEntity {
     @Override
     protected void registerData() {
         super.registerData();
-        this.dataManager.register(HAT, false);
+        this.dataManager.register(CARPET, false);
     }
 
-    public boolean getHat() {
-        return this.dataManager.get(HAT);
+    public boolean getCarpet() {
+        return this.dataManager.get(CARPET);
     }
-    public void setHat(boolean hat) {
-        this.getDataManager().set(HAT, hat);
+    public void setCarpet(boolean carpet) {
+        this.getDataManager().set(CARPET, carpet);
     }
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
-        compound.putBoolean("HasHat", this.getHat());
+        compound.putBoolean("HasCarpet", this.getCarpet());
     }
 
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
-        this.setHat(compound.getBoolean("HasHat"));
+        this.setCarpet(compound.getBoolean("HasCarpet"));
     }
 
     @Override
@@ -72,7 +72,7 @@ public class TakaheEntity extends AnimalEntity {
         this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
     }
 
-    public static boolean canTakaheSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
+    public static boolean canMuskoxSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
         return worldIn.getBlockState(pos.down()).getBlock() == BorealisBlocks.lichen_block.get();
     }
 }

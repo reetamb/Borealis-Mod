@@ -16,7 +16,7 @@ public class TakaheRenderer extends MobRenderer<TakaheEntity, TakaheModel<Takahe
     private static final ResourceLocation TEXTURE = new ResourceLocation(BorealisMod.MODID, "textures/entity/takahe.png");
 
     public TakaheRenderer(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new TakaheModel<>(), 0.7F);
+        super(renderManagerIn, new TakaheModel<>(), 0.5F);
         this.addLayer(new TakaheHatLayer<>(this));
     }
 

@@ -1,14 +1,12 @@
 package com.reetam.borealis.item;
 
 import com.reetam.borealis.entity.TakaheEntity;
-import net.minecraft.entity.IEquipable;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
 
 public class HatItem extends Item {
     public HatItem(Item.Properties builder) {
