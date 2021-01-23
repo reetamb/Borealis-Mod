@@ -1,7 +1,9 @@
 package com.reetam.borealis.block;
 
+import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -43,4 +45,15 @@ public class PumiceGeyserBlock extends Block {
         super.onEntityWalk(worldIn, pos, entityIn);
     }
 
+    @Override
+    public boolean ticksRandomly(BlockState state) {
+        return true;
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
+        if (worldIn.getBlockState(pos.up()).getBlock() == Blocks.SNOW) {
+            worldIn.setBlockState(pos.up(), Blocks.AIR.getDefaultState(), 19);
+        }
+    }
 }
