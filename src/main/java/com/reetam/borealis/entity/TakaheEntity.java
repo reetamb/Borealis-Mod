@@ -73,7 +73,7 @@ public class TakaheEntity extends AnimalEntity {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new SwimGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, 1.4D));
+        this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.addGoal(7, new LookRandomlyGoal(this));

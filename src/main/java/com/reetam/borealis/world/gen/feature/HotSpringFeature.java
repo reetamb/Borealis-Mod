@@ -1,6 +1,8 @@
 package com.reetam.borealis.world.gen.feature;
 
 import com.mojang.serialization.Codec;
+
+import java.util.Arrays;
 import java.util.Random;
 
 import com.reetam.borealis.registry.BorealisBlocks;
@@ -23,8 +25,14 @@ public class HotSpringFeature extends Feature<NoFeatureConfig> {
 
     public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         pos = new BlockPos(pos.getX(), reader.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()), pos.getZ());
+        BlockState[] states = new BlockState[]{
+                BorealisBlocks.porcelain.get().getDefaultState(),
+                BorealisBlocks.pumice.get().getDefaultState()
+        };
+        BlockState state = states[rand.nextInt(2)];
+
         BlockPos pos1;
-        int width = rand.nextInt(2)+1;
+        int width = rand.nextInt(2)+2;
         if (reader.getBlockState(pos.down()).isTransparent()) {
             return false;
         } else {
@@ -35,10 +43,19 @@ public class HotSpringFeature extends Feature<NoFeatureConfig> {
                         float formula = (float) (Math.pow(x, 2) + +Math.pow(y, 2) + Math.pow(z, 2));
 
                         if (formula <= Math.pow(width, 2)) {
-                            if (reader.getBlockState(pos1).isIn(Tags.Blocks.DIRT) || reader.getBlockState(pos1).getBlock() == BorealisBlocks.porcelain.get()) {
-                                reader.setBlockState(pos1, BorealisBlocks.hot_spring_water.get().getDefaultState(), 1);
-                            } else if (reader.getBlockState(pos1).isIn(Tags.Blocks.COBBLESTONE)) {
-                                reader.setBlockState(pos1.down(), BorealisBlocks.porcelain.get().getDefaultState(), 19);
+                            if (Arrays.asList(states).contains(reader.getBlockState(pos1)) ||  reader.getBlockState(pos1).isIn(Tags.Blocks.DIRT) || reader.getBlockState(pos1).isIn(Tags.Blocks.STONE)) {
+                                reader.setBlockState(pos1, BorealisBlocks.hot_spring_water.get().getDefaultState(), 19);
+                                if (reader.getBlockState(pos1.down()).getBlock() != BorealisBlocks.hot_spring_water.get()) {
+                                    reader.setBlockState(pos1.down(), state, 19);
+                                } if (reader.getBlockState(pos1.west()).getBlock() != BorealisBlocks.hot_spring_water.get()) {
+                                    reader.setBlockState(pos1.west(), state, 19);
+                                } if (reader.getBlockState(pos1.east()).getBlock() != BorealisBlocks.hot_spring_water.get()) {
+                                    reader.setBlockState(pos1.east(), state, 19);
+                                } if (reader.getBlockState(pos1.south()).getBlock() != BorealisBlocks.hot_spring_water.get()) {
+                                    reader.setBlockState(pos1.south(), state, 19);
+                                } if (reader.getBlockState(pos1.north()).getBlock() != BorealisBlocks.hot_spring_water.get()) {
+                                    reader.setBlockState(pos1.north(), state, 19);
+                                }
                             }
                         }
                     }
