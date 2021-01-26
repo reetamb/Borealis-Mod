@@ -65,7 +65,7 @@ public class BorealisFeatures {
         register("brumal_tree", borealis_tree.get().withConfiguration(
                 (new BaseTreeFeatureConfig.Builder(
                         new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().getDefaultState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState().with(BlockStateProperties.PERSISTENT, Boolean.valueOf(false))),
+                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1)),
                         new PalmFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
                         new RootedTrunkPlacer(4, 2, 2, 1, 1),
                         new TwoLayerFeature(1, 0, 1)))
@@ -74,7 +74,7 @@ public class BorealisFeatures {
         register("brumal_tree_common", borealis_tree.get().withConfiguration(
                 (new BaseTreeFeatureConfig.Builder(
                         new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().getDefaultState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState().with(BlockStateProperties.PERSISTENT, Boolean.valueOf(false))),
+                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1)),
                         new PalmFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
                         new RootedTrunkPlacer(4, 2, 2, 1, 1),
                         new TwoLayerFeature(1, 0, 1)))
@@ -83,7 +83,7 @@ public class BorealisFeatures {
         register("tall_brumal_tree", borealis_tree.get().withConfiguration(
                 (new BaseTreeFeatureConfig.Builder(
                         new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().getDefaultState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState().with(BlockStateProperties.PERSISTENT, Boolean.valueOf(false))),
+                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1)),
                         new PalmFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
                         new RootedTrunkPlacer(8, 2, 2),
                         new TwoLayerFeature(1, 0, 1)))
@@ -110,12 +110,6 @@ public class BorealisFeatures {
                         new OreFeatureConfig(new BlockMatchRuleTest(Blocks.AIR),
                                 BorealisBlocks.cloud.get().getDefaultState(), 33))
                         .range(12).square().func_242731_b(10));
-
-        register("porcelain",
-                Feature.ORE.withConfiguration(
-                        new OreFeatureConfig(new BlockMatchRuleTest(BorealisBlocks.permafrost.get()),
-                                BorealisBlocks.porcelain.get().getDefaultState(), 33))
-                        .range(256).square().func_242731_b(2));
 
         register("glacial_ridge", glacial_ridge.get().withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(2)))
                 .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(6))));

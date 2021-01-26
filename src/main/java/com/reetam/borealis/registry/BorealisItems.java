@@ -1,6 +1,7 @@
 package com.reetam.borealis.registry;
 
 import com.reetam.borealis.entity.HummingbirdEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,4 +30,20 @@ public class BorealisItems {
                     0x294F8D, 0x88D2C6,
                     new Item.Properties().group(ItemGroup.MISC)));
 
-    public static final RegistryObject<Item> hat = ITEMS.register("hat", () -> new HatItem(new Item.Properties().group(BorealisItemGroups.ITEMS_GROUP).maxStackSize(1)));}
+    public static final RegistryObject<Item> hat = ITEMS.register("hat", () -> new HatItem(new Item.Properties().group(BorealisItemGroups.ITEMS_GROUP).maxStackSize(1)));
+
+    public static final RegistryObject<Item> tanzanite = ITEMS.register("tanzanite", BorealisItem::new);
+
+    public static final RegistryObject<ArmorItem> tanzanite_helmet = ITEMS.register("tanzanite_helmet",
+            () -> new ArmorItem(BorealisArmorTiers.TANZANITE, EquipmentSlotType.HEAD,
+                    new Item.Properties().group(BorealisItemGroups.ITEMS_GROUP)));
+    public static final RegistryObject<ArmorItem> tanzanite_chestplate = ITEMS.register("tanzanite_chestplate",
+            () -> new ArmorItem(BorealisArmorTiers.TANZANITE, EquipmentSlotType.CHEST,
+                    new Item.Properties().group(BorealisItemGroups.ITEMS_GROUP)));
+    public static final RegistryObject<ArmorItem> tanzanite_leggings = ITEMS.register("tanzanite_leggings",
+            () -> new ArmorItem(BorealisArmorTiers.TANZANITE, EquipmentSlotType.LEGS,
+                    new Item.Properties().group(BorealisItemGroups.ITEMS_GROUP)));
+    public static final RegistryObject<ArmorItem> tanzanite_boots = ITEMS.register("tanzanite_boots",
+            () -> new ArmorItem(BorealisArmorTiers.TANZANITE, EquipmentSlotType.FEET,
+                    new Item.Properties().group(BorealisItemGroups.ITEMS_GROUP)));
+}
