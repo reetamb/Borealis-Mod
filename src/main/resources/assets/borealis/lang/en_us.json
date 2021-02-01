@@ -86,11 +86,24 @@
 
   "entity.borealis.hummingbird": "Hummingbird",
   "item.borealis.hummingbird_spawn_egg": "Hummingbird Spawn Egg",
-
   "entity.borealis.takahe": "Takahe",
   "item.borealis.takahe_spawn_egg": "Takahe Spawn Egg",
+  "entity.borealis.mismic_muskox": "Mismic Muskox",
+  "item.borealis.mismic_muskox_spawn_egg": "Mismic Muskox Spawn Egg",
 
   "item.borealis.moon_pearl": "Lunar Pearl",
   "item.borealis.hot_spring_water_bucket": "Hot Spring Water Bucket",
-  "item.borealis.hat": "Hat"
+  "item.borealis.hat": "Hat",
+
+  "item.borealis.tanzanite_helmet": "Tanzanite Helmet",
+  "item.borealis.tanzanite_chestplate": "Tanzanite Chestplate",
+  "item.borealis.tanzanite_leggings": "Tanzanite Leggings",
+  "item.borealis.tanzanite_boots": "Tanzanite Boots",
+  "item.borealis.tanzanite_sword": "Tanzanite Sword",
+  "item.borealis.tanzanite_axe": "Tanzanite Axe",
+  "item.borealis.tanzanite_pickaxe": "Tanzanite Pickaxe",
+  "item.borealis.tanzanite_shovel": "Tanzanite Shovel",
+  "item.borealis.tanzanite_hoe": "Tanzanite Hoe"
+
+
 }
