@@ -1,5 +1,6 @@
 package com.reetam.borealis.item;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.Rarity;
@@ -28,19 +29,29 @@ public class MoonPearlItem extends Item {
 
     @Override
     public ActionResultType onItemUse(ItemUseContext context) {
-        if(context.getPlayer() != null) {
-            if(context.getPlayer().world.getDimensionKey() == BorealisDimensions.borealis_w || context.getPlayer().world.getDimensionKey() == World.OVERWORLD) {
-                for(Direction direction : Direction.Plane.VERTICAL) {
-                    BlockPos framePos = context.getPos().offset(direction);
-                    if(((BorealisPortalBlock) BorealisBlocks.borealis_portal.get()).trySpawnPortal(context.getWorld(), framePos)) {
-                        context.getItem().damageItem(1, context.getPlayer(), (playerEntity) -> playerEntity.sendBreakAnimation(context.getHand()));
-                        return ActionResultType.CONSUME;
+
+        World world = context.getWorld();
+        BlockPos pos = context.getPos();
+        if (world.getBlockState(pos).getBlock() == Blocks.SNOW) {
+            if ( (world.getBlockState(pos.west()).getBlock() == Blocks.SNOW) &&
+                    (world.getBlockState(pos.north()).getBlock() == Blocks.SNOW) &&
+                    (world.getBlockState(pos.south()).getBlock() == Blocks.SNOW) &&
+                    (world.getBlockState(pos.east()).getBlock() == Blocks.SNOW)) {
+                if ( (world.getBlockState(pos.west(2)).getBlock() == Blocks.PACKED_ICE) &&
+                        (world.getBlockState(pos.north(2)).getBlock() == Blocks.PACKED_ICE) &&
+                        (world.getBlockState(pos.south(2)).getBlock() == Blocks.PACKED_ICE) &&
+                        (world.getBlockState(pos.east(2)).getBlock() == Blocks.PACKED_ICE)) {
+                    if ( (world.getBlockState(pos.west().north()).getBlock() == Blocks.PACKED_ICE) &&
+                            (world.getBlockState(pos.north().east()).getBlock() == Blocks.PACKED_ICE) &&
+                            (world.getBlockState(pos.south().west()).getBlock() == Blocks.PACKED_ICE) &&
+                            (world.getBlockState(pos.east().south()).getBlock() == Blocks.PACKED_ICE)) {
+                        ((BorealisPortalBlock) BorealisBlocks.borealis_portal.get()).makePortal(world, pos);
+                        world.setRainStrength(1.0F);
                     }
-                    else return ActionResultType.FAIL;
                 }
             }
         }
-        return ActionResultType.FAIL;
-    }
 
+        return ActionResultType.func_233537_a_(world.isRemote());
+    }
 }

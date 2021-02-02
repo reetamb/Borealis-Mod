@@ -30,7 +30,6 @@ public class BorealisItems {
                     new Item.Properties().group(ItemGroup.MISC)));
 
     public static final RegistryObject<Item> hat = ITEMS.register("hat", () -> new HatItem(new Item.Properties().group(BorealisItemGroups.ITEMS_GROUP).maxStackSize(1)));
-    public static final RegistryObject<Item> test_item = ITEMS.register("test_item", () -> new TestItem(new Item.Properties().group(BorealisItemGroups.ITEMS_GROUP).maxStackSize(1)));
 
     public static final RegistryObject<Item> tanzanite = ITEMS.register("tanzanite", BorealisItem::new);
 

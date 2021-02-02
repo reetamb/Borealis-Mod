@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "borealis:block/borealis_portal"
+    }
+  }
+}

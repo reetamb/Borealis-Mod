@@ -10,6 +10,7 @@ logoBlur=false
 credits="QUEK HAS HELPED ME SOOOOOO MCUH I'D BE DEAD WITHOUT HIM, THANKS SCREEM ALSO FOR TEXTURES I CANT TEXTURE SO THANKS"
 authors="reetam"
 description='''Welcome to Borealis, the winter wonderland of the sky.'''
+
 [[dependencies.borealis]]
     modId="forge"
     mandatory=true
@@ -19,6 +20,6 @@ description='''Welcome to Borealis, the winter wonderland of the sky.'''
 [[dependencies.borealis]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.3,1.16.4]"
+    versionRange="[1.16.3,1.16.5]"
     ordering="NONE"
     side="BOTH"

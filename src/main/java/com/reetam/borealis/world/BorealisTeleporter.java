@@ -1,298 +1,413 @@
 /**
-    Credit: Quek04 https://github.com/quek04/The-Undergarden/blob/1.16/src/main/java/quek/undergarden/world/UGTeleporter.java
-    If his stuff wasn't open source, surely I would Die.
+    Credit https://github.com/TeamTwilight/twilightforest/blob/1.16.x/src/main/java/twilightforest/world/TFTeleporter.java
+    License GNU LGPL
  **/
 package com.reetam.borealis.world;
 
 import com.google.common.collect.Maps;
+import com.reetam.borealis.block.BorealisPortalBlock;
+import com.reetam.borealis.registry.BorealisBlocks;
 import it.unimi.dsi.fastutil.objects.Object2LongMap;
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PortalInfo;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.ColumnPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.DimensionType;
-import net.minecraft.world.border.WorldBorder;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.server.TicketType;
 import net.minecraftforge.common.util.ITeleporter;
-import com.reetam.borealis.block.BorealisPortalBlock;
-import com.reetam.borealis.registry.BorealisBlocks;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class BorealisTeleporter implements ITeleporter {
 
-    protected final Map<ColumnPos, PortalPosition> destinationCoordinateCache = Maps.newHashMapWithExpectedSize(4096);
-    private final Object2LongMap<ColumnPos> columnMap = new Object2LongOpenHashMap<>();
-
-    public boolean placeInPortal(ServerWorld world, Entity entity, float yaw) {
-        PortalInfo pattern = this.placeInExistingPortal(world, entity, new BlockPos(entity.getPosition()));
-        return pattern != null;
-    }
-
-    @Nullable
-    public PortalInfo placeInExistingPortal(ServerWorld world, Entity entity, BlockPos pos) {
-        boolean isFrame = true;
-        BlockPos blockpos = null;
-        ColumnPos columnpos = new ColumnPos(pos);
-        if (!(entity instanceof PlayerEntity) && this.columnMap.containsKey(columnpos)) {
-            return null;
-        } else {
-            BorealisTeleporter.PortalPosition position = this.destinationCoordinateCache.get(columnpos);
-            if (position != null) {
-                blockpos = position.pos;
-                position.lastUpdateTime = world.getGameTime();
-                isFrame = false;
-            } else {
-                double d0 = Double.MAX_VALUE;
-
-                for(int eX = -128; eX <= 128; ++eX) {
-                    BlockPos blockpos2;
-                    for(int eZ = -128; eZ <= 128; ++eZ) {
-                        for(BlockPos blockpos1 = pos.add(eX, world.getHeight() - 1 - pos.getY(), eZ); blockpos1.getY() >= 0; blockpos1 = blockpos2) {
-                            blockpos2 = blockpos1.down();
-                            if (world.getBlockState(blockpos1).getBlock() == BorealisBlocks.borealis_portal.get()) {
-                                for(blockpos2 = blockpos1.down(); world.getBlockState(blockpos2).getBlock() == BorealisBlocks.borealis_portal.get(); blockpos2 = blockpos2.down()) {
-                                    blockpos1 = blockpos2;
-                                }
-
-                                double distance = blockpos1.distanceSq(pos);
-                                if (d0 < 0.0D || distance < d0) {
-                                    d0 = distance;
-                                    blockpos = blockpos1;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (blockpos == null) {
-                long factor = world.getGameTime();
-                this.columnMap.put(columnpos, factor);
-                return null;
-            }
-            else {
-                if (isFrame) {
-                    this.destinationCoordinateCache.put(columnpos, new BorealisTeleporter.PortalPosition(blockpos, world.getGameTime()));
-                    world.getChunkProvider().registerTicket(TicketType.PORTAL, new ChunkPos(blockpos), 3, new BlockPos(columnpos.x, blockpos.getY(), columnpos.z));
-                }
-
-                return new PortalInfo(new Vector3d(blockpos.getX(), blockpos.getY(), blockpos.getZ()), entity.getMotion(), entity.rotationYaw, entity.rotationPitch);
-            }
-        }
-    }
-
-    /**
-     * Create a portal at the teleport location.
-     */
-    public void makePortal(ServerWorld world, Entity entity) {
-        Random random = new Random(world.getSeed());
-        double d0 = -1.0D;
-        int entityX = MathHelper.floor(entity.getPosX());
-        int entityY = MathHelper.floor(entity.getPosY());
-        int entityZ = MathHelper.floor(entity.getPosZ());
-        int xPos = entityX;
-        int yPos = entityY;
-        int zPos = entityZ;
-        int baseAxis = 0;
-        int randAxis = random.nextInt(4);
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
-
-        for (int startX = entityX - 16; startX <= entityX + 16; ++startX) {
-            double ePosX = (double) startX + 0.5D - entity.getPosX();
-
-            for (int startZ = entityZ - 16; startZ <= entityZ + 16; ++startZ) {
-                double ePosZ = (double) startZ + 0.5D - entity.getPosZ();
-
-                searchpos:
-                for (int startY = world.getHeight() - 1; startY >= 0; --startY) {
-                    if (world.isAirBlock(mutable.setPos(startX, startY, startZ))) {
-                        while (startY > 0 && world.isAirBlock(mutable.setPos(startX, startY - 1, startZ))) {
-                            --startY;
-                        }
-
-                        for (int k3 = randAxis; k3 < randAxis + 4; ++k3) {
-                            int l3 = k3 % 2;
-                            int i4 = 1 - l3;
-                            if (k3 % 4 >= 2) {
-                                l3 = -l3;
-                                i4 = -i4;
-                            }
-
-                            for (int j4 = 0; j4 < 3; ++j4) {
-                                for (int k4 = 0; k4 < 4; ++k4) {
-                                    for (int portalHeight = -1; portalHeight < 4; ++portalHeight) {
-                                        int sPosX = startX + (k4 - 1) * l3 + j4 * i4;
-                                        int sPosY = startY + portalHeight;
-                                        int sPosZ = startZ + (k4 - 1) * i4 - j4 * l3;
-                                        mutable.setPos(sPosX, sPosY, sPosZ);
-                                        if (portalHeight < 0 && !world.getBlockState(mutable).getMaterial().isSolid() || portalHeight >= 0 && !world.isAirBlock(mutable)) {
-                                            continue searchpos;
-                                        }
-                                    }
-                                }
-                            }
-
-                            double ePosY = (double) startY + 0.5D - entity.getPosY();
-                            double eArea = ePosX * ePosX + ePosY * ePosY + ePosZ * ePosZ;
-                            if (d0 < 0.0D || eArea < d0) {
-                                d0 = eArea;
-                                xPos = startX;
-                                yPos = startY;
-                                zPos = startZ;
-                                baseAxis = k3 % 4;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if (d0 < 0.0D) {
-            for (int startX2 = entityX - 16; startX2 <= entityX + 16; ++startX2) {
-                double ePosX2 = (double) startX2 + 0.5D - entity.getPosX();
-
-                for (int startZ2 = entityZ - 16; startZ2 <= entityZ + 16; ++startZ2) {
-                    double ePosZ2 = (double) startZ2 + 0.5D - entity.getPosZ();
-
-                    label214:
-                    for (int startY2 = world.getHeight() - 1; startY2 >= 0; --startY2) {
-                        if (world.isAirBlock(mutable.setPos(startX2, startY2, startZ2))) {
-                            while (startY2 > 0 && world.isAirBlock(mutable.setPos(startX2, startY2 - 1, startZ2))) {
-                                --startY2;
-                            }
-
-                            for (int l7 = randAxis; l7 < randAxis + 2; ++l7) {
-                                int l8 = l7 % 2;
-                                int k9 = 1 - l8;
-
-                                for (int i10 = 0; i10 < 4; ++i10) {
-                                    for (int portalHeight2 = -1; portalHeight2 < 4; ++portalHeight2) {
-                                        int sPosX2 = startX2 + (i10 - 1) * l8;
-                                        int sPosY2 = startY2 + portalHeight2;
-                                        int sPosZ2 = startZ2 + (i10 - 1) * k9;
-                                        mutable.setPos(sPosX2, sPosY2, sPosZ2);
-                                        if (portalHeight2 < 0 && !world.getBlockState(mutable).getMaterial().isSolid() || portalHeight2 >= 0 && !world.isAirBlock(mutable)) {
-                                            continue label214;
-                                        }
-                                    }
-                                }
-
-                                double ePosY2 = (double) startY2 + 0.5D - entity.getPosY();
-                                double eArea2 = ePosX2 * ePosX2 + ePosY2 * ePosY2 + ePosZ2 * ePosZ2;
-                                if (d0 < 0.0D || eArea2 < d0) {
-                                    d0 = eArea2;
-                                    xPos = startX2;
-                                    yPos = startY2;
-                                    zPos = startZ2;
-                                    baseAxis = l7 % 2;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        int baseX = xPos;
-        int baseY = yPos;
-        int baseZ = zPos;
-        int xAxis = baseAxis % 2;
-        int zAxis = 1 - xAxis;
-        if (baseAxis % 4 >= 2) {
-            xAxis = -xAxis;
-            zAxis = -zAxis;
-        }
-
-        if (d0 < 0.0D) {
-            yPos = MathHelper.clamp(yPos, 70, world.getHeight() - 10);
-            baseY = yPos;
-
-            for (int j7 = -1; j7 <= 1; ++j7) {
-                for (int i8 = 1; i8 < 3; ++i8) {
-                    for (int i9 = -1; i9 < 3; ++i9) {
-                        int frameX = baseX + (i8 - 1) * xAxis + j7 * zAxis;
-                        int frameY = baseY + i9;
-                        int frameZ = baseZ + (i8 - 1) * zAxis - j7 * xAxis;
-                        boolean flag = i9 < 0;
-                        mutable.setPos(frameX, frameY, frameZ);
-                        world.setBlockState(mutable, flag ? Blocks.PACKED_ICE.getDefaultState() : Blocks.AIR.getDefaultState());
-                    }
-                }
-            }
-        }
-
-        for (int fWidth = -1; fWidth < 3; ++fWidth) {
-            for (int fHeight = -1; fHeight < 4; ++fHeight) {
-                if (fWidth == -1 || fWidth == 2 || fHeight == -1 || fHeight == 3) {
-                    mutable.setPos(baseX + fWidth * xAxis, baseY + fHeight, baseZ + fWidth * zAxis);
-                    world.setBlockState(mutable, Blocks.PACKED_ICE.getDefaultState(), 3);
-                }
-            }
-        }
-
-        BlockState portal = BorealisBlocks.borealis_portal.get().getDefaultState().with(BorealisPortalBlock.AXIS, xAxis == 0 ? Direction.Axis.Z : Direction.Axis.X);
-
-        for (int pWidth = 0; pWidth < 2; ++pWidth) {
-            for (int pHeight = 0; pHeight < 3; ++pHeight) {
-                mutable.setPos(baseX + pWidth * xAxis, baseY + pHeight, baseZ + pWidth * zAxis);
-                world.setBlockState(mutable, portal, 18);
-            }
-        }
-
-    }
+    private static final Map<ResourceLocation, Map<ColumnPos, PortalPosition>> destinationCoordinateCache = new HashMap<>();
+    private static final Object2LongMap<ColumnPos> columnMap = new Object2LongOpenHashMap<>();
 
     @Nullable
     @Override
-    public PortalInfo getPortalInfo(Entity entity, ServerWorld destWorld, Function<ServerWorld, PortalInfo> defaultPortalInfo) {
-        WorldBorder worldborder = destWorld.getWorldBorder();
-        double d0 = Math.max(-2.9999872E7D, worldborder.minX() + 16.0D);
-        double d1 = Math.max(-2.9999872E7D, worldborder.minZ() + 16.0D);
-        double d2 = Math.min(2.9999872E7D, worldborder.maxX() - 16.0D);
-        double d3 = Math.min(2.9999872E7D, worldborder.maxZ() - 16.0D);
-        double d4 = DimensionType.getCoordinateDifference(entity.world.getDimensionType(), destWorld.getDimensionType());
-        BlockPos blockpos1 = new BlockPos(MathHelper.clamp(entity.getPosX() * d4, d0, d2), entity.getPosY(), MathHelper.clamp(entity.getPosZ() * d4, d1, d3));
-        if (!placeInPortal(destWorld, entity, entity.rotationYaw)) {
-            makePortal(destWorld, entity);
-            placeInPortal(destWorld, entity, entity.rotationYaw);
+    public PortalInfo getPortalInfo(Entity entity, ServerWorld dest, Function<ServerWorld, PortalInfo> defaultPortalInfo) {
+        PortalInfo pos;
+        if ((pos = placeInExistingPortal(dest, entity, entity.getPosition(), entity instanceof PlayerEntity)) == null) {
+            pos = moveToSafeCoords(dest, entity);
+            makePortal(entity, dest, pos.pos);
+            pos = placeInExistingPortal(dest, entity, new BlockPos(pos.pos), entity instanceof PlayerEntity);
         }
-        return this.placeInExistingPortal(destWorld, entity, blockpos1);
+        return pos;
+    }
+
+    @Nullable
+    private static PortalInfo placeInExistingPortal(ServerWorld world, Entity entity, BlockPos pos, boolean isPlayer) {
+        int i = 200; // scan radius up to 200, and also un-inline this variable back into below
+        boolean flag = true;
+        BlockPos blockpos = BlockPos.ZERO;
+        ColumnPos columnPos = new ColumnPos(pos);
+
+        if (!isPlayer && columnMap.containsKey(columnPos)) {
+            return null;
+        } else {
+            PortalPosition portalPosition = destinationCoordinateCache.containsKey(world.getDimensionKey().getLocation()) ? destinationCoordinateCache.get(world.getDimensionKey().getLocation()).get(columnPos) : null;
+            if (portalPosition != null) {
+                blockpos = portalPosition.pos;
+                portalPosition.lastUpdateTime = world.getGameTime();
+                flag = false;
+            } else {
+                //BlockPos blockpos3 = new BlockPos(entity);
+                double d0 = Double.MAX_VALUE;
+
+                for (int i1 = -i; i1 <= i; ++i1) {
+                    BlockPos blockpos2;
+
+                    for (int j1 = -i; j1 <= i; ++j1) {
+
+                        // skip positions outside current world border (MC-114796)
+                        if (!world.getWorldBorder().contains(pos.add(i1, 0, j1))) {
+                            continue;
+                        }
+
+                        // skip chunks that aren't generated
+                        ChunkPos chunkPos = new ChunkPos(pos.add(i1, 0, j1));
+                        if (!world.getChunkProvider().chunkManager.func_241090_h_(chunkPos)) {
+                            continue;
+                        }
+
+                        // explicitly fetch chunk so it can be unloaded if needed
+                        Chunk chunk = world.getChunk(chunkPos.x, chunkPos.z);
+
+                        for (BlockPos blockpos1 = pos.add(i1, getScanHeight(world, pos) - pos.getY(), j1); blockpos1.getY() >= 0; blockpos1 = blockpos2) {
+                            blockpos2 = blockpos1.down();
+
+                            // don't lookup state if inner condition would fail
+                            if (d0 >= 0.0D && blockpos1.distanceSq(pos) >= d0) {
+                                continue;
+                            }
+
+                            // use our portal block
+                            if (isPortal(chunk.getBlockState(blockpos1))) {
+                                for (blockpos2 = blockpos1.down(); isPortal(chunk.getBlockState(blockpos2)); blockpos2 = blockpos2.down()) {
+                                    blockpos1 = blockpos2;
+                                }
+
+                                double d1 = blockpos1.distanceSq(pos);
+                                if (d0 < 0.0D || d1 < d0) {
+                                    d0 = d1;
+                                    blockpos = blockpos1;
+                                    // restrict search radius to new distance
+                                    i = MathHelper.ceil(MathHelper.sqrt(d1));
+                                }
+                            }
+                        }
+
+                        // mark unwatched chunks for unload
+                        //						if (!this.world.getPlayerChunkMap().contains(chunkPos.x, chunkPos.z)) {
+                        //							this.world.getChunkProvider().queueUnload(chunk);
+                        //						}
+                    }
+                }
+            }
+        }
+
+        if (blockpos.equals(BlockPos.ZERO)) {
+            long factor = world.getGameTime() + 300L;
+            columnMap.put(columnPos, factor);
+            return null;
+        } else {
+            if (flag) {
+                destinationCoordinateCache.putIfAbsent(world.getDimensionKey().getLocation(), Maps.newHashMapWithExpectedSize(4096));
+                destinationCoordinateCache.get(world.getDimensionKey().getLocation()).put(columnPos, new PortalPosition(blockpos, world.getGameTime()));
+                world.getChunkProvider().registerTicket(TicketType.PORTAL, new ChunkPos(blockpos), 3, new BlockPos(columnPos.x, blockpos.getY(), columnPos.z));
+            }
+
+            // replace with our own placement logic
+            BlockPos[] portalBorder = getBoundaryPositions(world, blockpos).toArray(new BlockPos[0]);
+            BlockPos borderPos = portalBorder[0/*random.nextInt(portalBorder.length)*/];
+
+            double portalX = borderPos.getX() + 0.5;
+            double portalY = borderPos.getY() + 1.0;
+            double portalZ = borderPos.getZ() + 0.5;
+
+            return makePortalInfo(entity, portalX, portalY, portalZ);
+        }
+    }
+
+    private static int getScanHeight(ServerWorld world, BlockPos pos) {
+        return getScanHeight(world, pos.getX(), pos.getZ());
+    }
+
+    private static int getScanHeight(ServerWorld world, int x, int z) {
+        int worldHeight = world.getHeight() - 1;
+        int chunkHeight = world.getChunk(x >> 4, z >> 4).getTopFilledSegment() + 15;
+        return Math.min(worldHeight, chunkHeight);
+    }
+
+    private static boolean isPortal(BlockState state) {
+        return state.getBlock() == BorealisBlocks.borealis_portal.get();
+    }
+
+    // from the start point, builds a set of all directly adjacent non-portal blocks
+    private static Set<BlockPos> getBoundaryPositions(ServerWorld world, BlockPos start) {
+        Set<BlockPos> result = new HashSet<>(), checked = new HashSet<>();
+        checked.add(start);
+        checkAdjacent(world, start, checked, result);
+        return result;
+    }
+
+    private static void checkAdjacent(ServerWorld world, BlockPos pos, Set<BlockPos> checked, Set<BlockPos> result) {
+        for (Direction facing : Direction.Plane.HORIZONTAL) {
+            BlockPos offset = pos.offset(facing);
+            if (!checked.add(offset))
+                continue;
+            if (isPortalAt(world, offset)) {
+                checkAdjacent(world, offset, checked, result);
+            } else {
+                result.add(offset);
+            }
+        }
+    }
+
+    private static boolean isPortalAt(ServerWorld world, BlockPos pos) {
+        return isPortal(world.getBlockState(pos));
+    }
+
+    private static PortalInfo moveToSafeCoords(ServerWorld world, Entity entity) {
+
+        BlockPos pos = entity.getPosition();
+        if (isSafeAround(world, pos, entity)) {
+            return makePortalInfo(entity, entity.getPositionVec());
+        }
+
+        BlockPos safeCoords = findSafeCoords(world, 200, pos, entity);
+        if (safeCoords != null) {
+            return makePortalInfo(entity, safeCoords.getX(), entity.getPosY(), safeCoords.getZ());
+        }
+
+        safeCoords = findSafeCoords(world, 400, pos, entity);
+
+        if (safeCoords != null) {
+            return makePortalInfo(entity, safeCoords.getX(), entity.getPosY(), safeCoords.getZ());
+        }
+
+        return makePortalInfo(entity, entity.getPositionVec());
+    }
+
+    public static boolean isSafeAround(World world, BlockPos pos, Entity entity) {
+
+        if (!isSafe(world, pos, entity)) {
+            return false;
+        }
+
+        for (Direction facing : Direction.Plane.HORIZONTAL) {
+            if (!isSafe(world, pos.offset(facing, 16), entity)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static boolean isSafe(World world, BlockPos pos, Entity entity) {
+        return checkPos(world, pos);
+    }
+
+    private static boolean checkPos(World world, BlockPos pos) {
+        return world.getWorldBorder().contains(pos);
+    }
+
+    @Nullable
+    private static BlockPos findSafeCoords(ServerWorld world, int range, BlockPos pos, Entity entity) {
+        int attempts = range / 8;
+        for (int i = 0; i < attempts; i++) {
+            BlockPos dPos = new BlockPos(
+                    pos.getX() /*+ random.nextInt(range) - random.nextInt(range)*/, 100, pos.getZ() /*+ random.nextInt(range) - random.nextInt(range)*/);
+
+            if (isSafeAround(world, dPos, entity)) {
+                return dPos;
+            }
+        }
+        return null;
+    }
+
+    private static void makePortal(Entity entity, ServerWorld world, Vector3d pos) {
+        // ensure area is populated first
+        loadSurroundingArea(world, pos);
+
+        BlockPos spot = findPortalCoords(world, pos, blockPos -> isPortalAt(world, blockPos));
+        String name = entity.getName().toString();
+
+        if (spot != null) {
+            cachePortalCoords(world, pos, spot);
+            return;
+        }
+
+        spot = findPortalCoords(world, pos, blockpos -> isIdealForPortal(world, blockpos));
+
+        if (spot != null) {
+            cachePortalCoords(world, pos, makePortalAt(world, spot));
+            return;
+        }
+
+        spot = findPortalCoords(world, pos, blockPos -> isOkayForPortal(world, blockPos));
+
+        if (spot != null) {
+            cachePortalCoords(world, pos, makePortalAt(world, spot));
+            return;
+        }
+
+        // well I don't think we can actually just return and fail here
+
+        // adjust the portal height based on what world we're traveling to
+        double yFactor = getYFactor(world);
+        // modified copy of base Teleporter method:
+        cachePortalCoords(world, pos, makePortalAt(world, new BlockPos(entity.getPosX(), (entity.getPosY() * yFactor) - 1.0, entity.getPosZ())));
+    }
+
+    private static void loadSurroundingArea(ServerWorld world, Vector3d pos) {
+
+        int x = MathHelper.floor(pos.x) >> 4;
+        int z = MathHelper.floor(pos.y) >> 4;
+
+        for (int dx = -2; dx <= 2; dx++) {
+            for (int dz = -2; dz <= 2; dz++) {
+                world.getChunk(x + dx, z + dz);
+            }
+        }
+    }
+
+    @Nullable
+    private static BlockPos findPortalCoords(ServerWorld world, Vector3d loc, Predicate<BlockPos> predicate) {
+        // adjust the height based on what world we're traveling to
+        double yFactor = getYFactor(world);
+        // modified copy of base Teleporter method:
+        int entityX = MathHelper.floor(loc.x);
+        int entityZ = MathHelper.floor(loc.z);
+
+        BlockPos.Mutable pos = new BlockPos.Mutable();
+
+        double spotWeight = -1D;
+        BlockPos spot = null;
+
+        int range = 16;
+        for (int rx = entityX - range; rx <= entityX + range; rx++) {
+            double xWeight = (rx + 0.5D) - loc.x;
+            for (int rz = entityZ - range; rz <= entityZ + range; rz++) {
+                double zWeight = (rz + 0.5D) - loc.z;
+
+                for (int ry = getScanHeight(world, rx, rz); ry >= 0; ry--) {
+
+                    if (!world.isAirBlock(pos.setPos(rx, ry, rz))) {
+                        continue;
+                    }
+
+                    while (ry > 0 && world.isAirBlock(pos.setPos(rx, ry - 1, rz))) {
+                        ry--;
+                    }
+
+                    double yWeight = (ry + 0.5D) - loc.y * yFactor;
+                    double rPosWeight = xWeight * xWeight + yWeight * yWeight + zWeight * zWeight;
+
+                    if (spotWeight < 0.0D || rPosWeight < spotWeight) {
+                        // check from the "in ground" pos
+                        if (predicate.test(pos)) {
+                            spotWeight = rPosWeight;
+                            spot = pos.toImmutable();
+                        }
+                    }
+                }
+            }
+        }
+
+        return spot;
+    }
+
+    private static double getYFactor(ServerWorld world) {
+        return world.getDimensionKey().getLocation().equals(World.OVERWORLD.getLocation()) ? 2.0 : 0.5;
+    }
+
+    private static void cachePortalCoords(ServerWorld world, Vector3d loc, BlockPos pos) {
+        int x = MathHelper.floor(loc.x), z = MathHelper.floor(loc.z);
+        destinationCoordinateCache.putIfAbsent(world.getDimensionKey().getLocation(), Maps.newHashMapWithExpectedSize(4096));
+        destinationCoordinateCache.get(world.getDimensionKey().getLocation()).put(new ColumnPos(x, z), new PortalPosition(pos, world.getGameTime()));
+    }
+
+    private static boolean isIdealForPortal(ServerWorld world, BlockPos pos) {
+        for (int potentialZ = 0; potentialZ < 4; potentialZ++) {
+            for (int potentialX = 0; potentialX < 4; potentialX++) {
+                for (int potentialY = 0; potentialY < 4; potentialY++) {
+                    BlockPos tPos = pos.add(potentialX - 1, potentialY, potentialZ - 1);
+                    Material material = world.getBlockState(tPos).getMaterial();
+                    if (potentialY == 0 && material != Material.ORGANIC || potentialY >= 1 && !material.isReplaceable()) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    private static BlockPos makePortalAt(World world, BlockPos pos) {
+        if (world.getBlockState(pos).isAir()) {
+            pos = new BlockPos(pos.getX(), 100, pos.getZ());
+        } else {
+            pos = new BlockPos(pos.getX(), world.getHeight(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()), pos.getZ());
+        }
+        ((BorealisPortalBlock) BorealisBlocks.borealis_portal.get()).makePortal(world, pos);
+        return pos;
+    }
+
+    private static boolean isOkayForPortal(ServerWorld world, BlockPos pos) {
+        for (int potentialZ = 0; potentialZ < 4; potentialZ++) {
+            for (int potentialX = 0; potentialX < 4; potentialX++) {
+                for (int potentialY = 0; potentialY < 4; potentialY++) {
+                    BlockPos tPos = pos.add(potentialX - 1, potentialY, potentialZ - 1);
+                    Material material = world.getBlockState(tPos).getMaterial();
+                    if (potentialY == 0 && !material.isSolid() && !material.isLiquid() || potentialY >= 1 && !material.isReplaceable()) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    private static PortalInfo makePortalInfo(Entity entity, double x, double y, double z) {
+        return makePortalInfo(entity, new Vector3d(x, y, z));
+    }
+
+    private static PortalInfo makePortalInfo(Entity entity, Vector3d pos) {
+        return new PortalInfo(pos, Vector3d.ZERO, entity.rotationYaw, entity.rotationPitch);
     }
 
     @Override
     public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
-        Entity newEntity = repositionEntity.apply(false);
-
-        if (!placeInPortal(destWorld, newEntity, newEntity.rotationYaw)) {
-            makePortal(destWorld, newEntity);
-            placeInPortal(destWorld, newEntity, newEntity.rotationYaw);
-        }
-
-        return newEntity;
-    }
-
-    @Override
-    public boolean isVanilla() {
-        return false;
+        entity.fallDistance = 0;
+        return repositionEntity.apply(false);
     }
 
     static class PortalPosition {
         public final BlockPos pos;
-        public long lastUpdateTime;
+        long lastUpdateTime;
 
-        public PortalPosition(BlockPos pos, long time) {
+        PortalPosition(BlockPos pos, long time) {
             this.pos = pos;
             this.lastUpdateTime = time;
         }
