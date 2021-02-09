@@ -3,6 +3,7 @@ package com.reetam.borealis.registry;
 import com.google.common.collect.ImmutableList;
 import com.reetam.borealis.world.gen.foliageplacer.AspenFoliagePlacer;
 import com.reetam.borealis.world.gen.foliageplacer.PalmFoliagePlacer;
+import com.reetam.borealis.world.gen.trunkplacer.HelixTrunkPlacer;
 import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -50,6 +51,15 @@ public class BorealisFeatures {
                         new SimpleBlockStateProvider(BorealisBlocks.frostfir_leaves.get().getDefaultState()),
                         new SpruceFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
                         new StraightTrunkPlacer(10, 2, 2),
+                        new TwoLayerFeature(1, 0, 1)))
+                        .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(8))));
+
+        register("helix_tree", borealis_tree.get().withConfiguration(
+                (new BaseTreeFeatureConfig.Builder(
+                        new SimpleBlockStateProvider(BorealisBlocks.saccharine_log.get().getDefaultState()),
+                        new SimpleBlockStateProvider(Blocks.AIR.getDefaultState()),
+                        new SpruceFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
+                        new HelixTrunkPlacer(10, 2, 2),
                         new TwoLayerFeature(1, 0, 1)))
                         .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(8))));
 

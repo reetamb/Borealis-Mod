@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.world.gen.foliageplacer.AspenFoliagePlacer;
 import com.reetam.borealis.world.gen.foliageplacer.PalmFoliagePlacer;
+import com.reetam.borealis.world.gen.trunkplacer.HelixTrunkPlacer;
 import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -22,6 +23,7 @@ public class BorealisTreePlacers {
     public static final RegistryObject<FoliagePlacerType<FoliagePlacer>> ASPEN_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("aspen_foliage_placer", () -> new FoliagePlacerType(AspenFoliagePlacer.field_236790_a_));
 
     public static final TrunkPlacerType<RootedTrunkPlacer> ROOTED_TRUNK_PLACER = register("rooted_trunk_placer", RootedTrunkPlacer.CODEC);
+    public static final TrunkPlacerType<HelixTrunkPlacer> HELIX_TRUNK_PLACER = register("helix_trunk_placer", HelixTrunkPlacer.CODEC);
 
 
     private static <P extends AbstractTrunkPlacer> TrunkPlacerType<P> register(String name, Codec<P> codec) {
