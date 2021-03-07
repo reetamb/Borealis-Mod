@@ -23,7 +23,7 @@ import java.util.Random;
 
 public class TakaheEntity extends AnimalEntity {
     private static final DataParameter<Boolean> HAT = EntityDataManager.createKey(
-            MismicMuskoxEntity.class, DataSerializers.BOOLEAN);
+            TakaheEntity.class, DataSerializers.BOOLEAN);
 
     public TakaheEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);

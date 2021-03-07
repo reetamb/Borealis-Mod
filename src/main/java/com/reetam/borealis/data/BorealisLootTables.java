@@ -98,7 +98,7 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.soapstone_pressure_plate);
             dropSelf(BorealisBlocks.slate);
             dropSelf(BorealisBlocks.slate_pillar);
-            dropSelf(BorealisBlocks.chiseled_slate_pillar);
+            dropSelf(BorealisBlocks.slate_tiles);
             dropSelf(BorealisBlocks.pumice);
             dropSelf(BorealisBlocks.pumice_geyser);
             dropSelf(BorealisBlocks.brumal_planks);

@@ -42,7 +42,7 @@ public class BorealisBlocks {
 
     public static final RegistryObject<Block> slate = registerBlock("slate", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
     public static final RegistryObject<RotatedPillarBlock> slate_pillar = registerBlock("slate_pillar", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STONE)));
-    public static final RegistryObject<RotatedPillarBlock> chiseled_slate_pillar = registerBlock("chiseled_slate_pillar", () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STONE)));
+    public static final RegistryObject<Block> slate_tiles = registerBlock("slate_tiles", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
 
     public static final RegistryObject<Block> porcelain = registerBlock("porcelain", () -> new Block(AbstractBlock.Properties.from(Blocks.TERRACOTTA).sound(SoundType.BASALT)));
     public static final RegistryObject<Block> porcelain_tile = registerBlock("porcelain_tile", () -> new Block(AbstractBlock.Properties.from(Blocks.TERRACOTTA).sound(SoundType.BASALT)));

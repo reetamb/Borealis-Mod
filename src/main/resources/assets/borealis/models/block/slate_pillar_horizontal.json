@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
-    "end": "borealis:block/slate_pillar_top",
-    "side": "borealis:block/slate_pillar_end"
+    "end": "borealis:block/slate_pillar_end",
+    "side": "borealis:block/slate_pillar_side"
   }
 }
