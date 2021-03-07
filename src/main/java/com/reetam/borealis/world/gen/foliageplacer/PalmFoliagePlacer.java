@@ -31,44 +31,23 @@ public class PalmFoliagePlacer extends FoliagePlacer {
         return BorealisTreePlacers.PALM_FOLIAGE_PLACER.get();
     }
 
-    protected void func_230372_a_(IWorldGenerationReader reader, Random random, BaseTreeFeatureConfig config, int p_230372_4_, FoliagePlacer.Foliage foliage, int p_230372_6_, int p_230372_7_, Set<BlockPos> p_230372_8_, int p_230372_9_, MutableBoundingBox p_230372_10_) {
+    protected void func_230372_a_(IWorldGenerationReader reader, Random random, BaseTreeFeatureConfig config, int p_230372_4_, FoliagePlacer.Foliage foliage, int foliageBottomHeight, int p_230372_7_, Set<BlockPos> p_230372_8_, int foliageTopHeight, MutableBoundingBox boundingBox) {
         BlockPos blockpos = foliage.func_236763_a_();
-        int stacks = config.trunkPlacer.func_236917_a_(random) / 2 - 1;
 
-        reader.setBlockState(blockpos, config.leavesProvider.getBlockState(random, blockpos), 19);
+        this.func_236753_a_(reader, random, config, blockpos, 1, p_230372_8_, foliageTopHeight, foliage.func_236765_c_(), boundingBox);
+        this.func_236753_a_(reader, random, config, blockpos, 2, p_230372_8_, foliageTopHeight-1, foliage.func_236765_c_(), boundingBox);
 
-        // this can be done more efficiently but for some reason ITS NOT WORKING so im doing it the dumb way for now
-        reader.setBlockState(blockpos.west(), config.leavesProvider.getBlockState(random, blockpos), 19);
-        reader.setBlockState(blockpos.north(), config.leavesProvider.getBlockState(random, blockpos), 19);
-        reader.setBlockState(blockpos.east(), config.leavesProvider.getBlockState(random, blockpos), 19);
-        reader.setBlockState(blockpos.south(), config.leavesProvider.getBlockState(random, blockpos), 19);
-        for (int i = 0; i < stacks; i++) {
-            reader.setBlockState(blockpos.west(i+1).down(i), config.leavesProvider.getBlockState(random, blockpos), 19);
-            reader.setBlockState(blockpos.west(i+1).down(i+1), config.leavesProvider.getBlockState(random, blockpos), 19);
+        this.func_236753_a_(reader, random, config, blockpos.west(2), 1, p_230372_8_, foliageTopHeight-1, foliage.func_236765_c_(), boundingBox);
+        this.func_236753_a_(reader, random, config, blockpos.north(2), 1, p_230372_8_, foliageTopHeight-1, foliage.func_236765_c_(), boundingBox);
+        this.func_236753_a_(reader, random, config, blockpos.east(2), 1, p_230372_8_, foliageTopHeight-1, foliage.func_236765_c_(), boundingBox);
+        this.func_236753_a_(reader, random, config, blockpos.south(2), 1, p_230372_8_, foliageTopHeight-1, foliage.func_236765_c_(), boundingBox);
 
-            reader.setBlockState(blockpos.north(i+1).down(i), config.leavesProvider.getBlockState(random, blockpos), 19);
-            reader.setBlockState(blockpos.north(i+1).down(i+1), config.leavesProvider.getBlockState(random, blockpos), 19);
-
-            reader.setBlockState(blockpos.east(i+1).down(i), config.leavesProvider.getBlockState(random, blockpos), 19);
-            reader.setBlockState(blockpos.east(i+1).down(i+1), config.leavesProvider.getBlockState(random, blockpos), 19);
-
-            reader.setBlockState(blockpos.south(i+1).down(i), config.leavesProvider.getBlockState(random, blockpos), 19);
-            reader.setBlockState(blockpos.south(i+1).down(i+1), config.leavesProvider.getBlockState(random, blockpos), 19);
-        }
-
+        this.func_236753_a_(reader, random, config, blockpos.west(3), 1, p_230372_8_, foliageTopHeight-2, foliage.func_236765_c_(), boundingBox);
+        this.func_236753_a_(reader, random, config, blockpos.north(3), 1, p_230372_8_, foliageTopHeight-2, foliage.func_236765_c_(), boundingBox);
+        this.func_236753_a_(reader, random, config, blockpos.east(3), 1, p_230372_8_, foliageTopHeight-2, foliage.func_236765_c_(), boundingBox);
+        this.func_236753_a_(reader, random, config, blockpos.south(3), 1, p_230372_8_, foliageTopHeight-2, foliage.func_236765_c_(), boundingBox);
     }
-//    private static BlockPos direct(BlockPos blockpos, int ind, int amount) {
-//        if (ind == 0) {
-//            blockpos = blockpos.west(ind);
-//        } else if (ind == 1) {
-//            blockpos = blockpos.north(ind);
-//        } else if (ind == 2) {
-//            blockpos = blockpos.east(ind);
-//        } else if (ind == 3) {
-//            blockpos = blockpos.south(ind);
-//        }
-//        return blockpos;
-//    }
+
     public int func_230374_a_(Random p_230374_1_, int p_230374_2_, BaseTreeFeatureConfig p_230374_3_) {
         return Math.max(4, p_230374_2_ - this.field_236791_b_.func_242259_a(p_230374_1_));
     }

@@ -31,7 +31,7 @@ public class BorealisFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, BorealisMod.MODID);
 
     public static final RegistryObject<Feature<BaseTreeFeatureConfig>> borealis_tree = FEATURES.register(
-            "borealis_tree", () -> new BorealisTreeFeature(BaseTreeFeatureConfig.CODEC));
+            "borealis_tree", () -> new TreeFeature(BaseTreeFeatureConfig.CODEC));
     public static final RegistryObject<Feature<ColumnConfig>> glacial_ridge = FEATURES.register(
             "glacial_ridge", () -> new GlacialRidgeFeature(ColumnConfig.CODEC));
     public static final RegistryObject<Feature<NoFeatureConfig>> glacial_spike = FEATURES.register(
@@ -75,27 +75,18 @@ public class BorealisFeatures {
         register("brumal_tree", borealis_tree.get().withConfiguration(
                 (new BaseTreeFeatureConfig.Builder(
                         new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().getDefaultState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1)),
+                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState()),
                         new PalmFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
-                        new RootedTrunkPlacer(4, 2, 2, 1, 1),
-                        new TwoLayerFeature(1, 0, 1)))
-                        .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
-
-        register("brumal_tree_common", borealis_tree.get().withConfiguration(
-                (new BaseTreeFeatureConfig.Builder(
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().getDefaultState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1)),
-                        new PalmFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
-                        new RootedTrunkPlacer(4, 2, 2, 1, 1),
+                        new RootedTrunkPlacer(5, 2, 2),
                         new TwoLayerFeature(1, 0, 1)))
                         .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(2))));
 
         register("tall_brumal_tree", borealis_tree.get().withConfiguration(
                 (new BaseTreeFeatureConfig.Builder(
                         new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().getDefaultState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1)),
+                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().getDefaultState()),
                         new PalmFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
-                        new RootedTrunkPlacer(8, 2, 2),
+                        new RootedTrunkPlacer(10, 2, 2),
                         new TwoLayerFeature(1, 0, 1)))
                         .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 

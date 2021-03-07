@@ -20,7 +20,6 @@ import java.util.Random;
 import java.util.Set;
 
 public class RootedTrunkPlacer extends AbstractTrunkPlacer {
-    boolean provided = false;
     int providedRootHeight;
     int providedRootSplay;
 
@@ -29,13 +28,6 @@ public class RootedTrunkPlacer extends AbstractTrunkPlacer {
 
     public RootedTrunkPlacer(int baseHeight, int firstRandHeight, int secondRandHeight) {
         super(baseHeight, firstRandHeight, secondRandHeight);
-    }
-
-    public RootedTrunkPlacer(int baseHeight, int firstRandHeight, int secondRandHeight, int rootHeightIn, int rootSplayIn) {
-        super(baseHeight, firstRandHeight, secondRandHeight);
-        provided = true;
-        providedRootHeight = rootHeightIn;
-        providedRootSplay = rootSplayIn;
     }
 
     @Override
@@ -47,15 +39,9 @@ public class RootedTrunkPlacer extends AbstractTrunkPlacer {
     public List<FoliagePlacer.Foliage> func_230382_a_(IWorldGenerationReader reader, Random rand, int y, BlockPos pos, Set<BlockPos> posSet, MutableBoundingBox boundingBox, BaseTreeFeatureConfig config) {
         int treeBaseHeight = config.trunkPlacer.func_236917_a_(rand);
 
-        int rootHeight = rand.nextInt(2) + 2;
-        int rootSplay = rootHeight - 1;
+        int rootHeight = rand.nextInt(2) + MathHelper.floor(treeBaseHeight / 5) + 1;
+        int rootSplay = 2;
         BlockPos pos1 = pos;
-
-        if (provided) {
-            rootHeight = providedRootHeight;
-            rootSplay = providedRootSplay;
-        }
-
 
         for (int i = 0; i < treeBaseHeight; i++) {
             if (i < rootHeight) {
@@ -63,7 +49,7 @@ public class RootedTrunkPlacer extends AbstractTrunkPlacer {
                 reader.setBlockState(pos1.north(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
                 reader.setBlockState(pos1.east(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
                 reader.setBlockState(pos1.south(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
-            } else if (i >= rootHeight && rootSplay > 0) {
+            } else if (rootSplay > 0) {
                 rootSplay--;
                 reader.setBlockState(pos1.west(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
                 reader.setBlockState(pos1.north(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
