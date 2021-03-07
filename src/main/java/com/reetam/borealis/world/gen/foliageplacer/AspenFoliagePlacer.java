@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.reetam.borealis.registry.BorealisTreePlacers;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
@@ -36,22 +37,13 @@ public class AspenFoliagePlacer extends FoliagePlacer {
     }
     protected void func_230372_a_(IWorldGenerationReader reader, Random random, BaseTreeFeatureConfig config, int p_230372_4_, FoliagePlacer.Foliage foliage, int foliageBottomHeight, int p_230372_7_, Set<BlockPos> p_230372_8_, int foliageTopHeight, MutableBoundingBox boundingBox) {
         BlockPos blockpos = foliage.func_236763_a_();
-        int i = 1;
-        float j = 0;
+        int i = 0;
+        int j;
 
         for(int l = foliageTopHeight; l >= -foliageBottomHeight; --l) {
-            this.func_236753_a_(reader, random, config, blockpos, i, p_230372_8_, l, foliage.func_236765_c_(), boundingBox);
-            if (Math.abs(-foliageBottomHeight - l) < 2) {
-                i -= 1;
-            } else if (Math.abs(-foliageBottomHeight - l) < ((foliageTopHeight+foliageBottomHeight)/2 + 2)) {
-                i += 0;
-            } else {
-                j += 0.34;
-                if (j >= 1) {
-                    i++;
-                    j = 0;
-                }
-            }
+            j = MathHelper.ceil(-Math.abs(0.5*(i-4)))+2;
+            this.func_236753_a_(reader, random, config, blockpos, j, p_230372_8_, l, foliage.func_236765_c_(), boundingBox);
+            i++;
         }
     }
 
