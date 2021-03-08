@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "borealis:block/saccharine_log_side",
+    "end": "borealis:block/saccharine_log_end"
+  }
+}

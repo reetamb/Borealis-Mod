@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "side": "borealis:block/frostfir_planks",
+    "bottom": "borealis:block/frostfir_planks",
+    "top": "borealis:block/frostfir_planks"
+  }
+}

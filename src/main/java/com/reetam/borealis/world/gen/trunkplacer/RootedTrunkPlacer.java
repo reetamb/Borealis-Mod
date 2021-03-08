@@ -45,18 +45,18 @@ public class RootedTrunkPlacer extends AbstractTrunkPlacer {
 
         for (int i = 0; i < treeBaseHeight; i++) {
             if (i < rootHeight) {
-                reader.setBlockState(pos1.west(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
-                reader.setBlockState(pos1.north(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
-                reader.setBlockState(pos1.east(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
-                reader.setBlockState(pos1.south(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
+                func_236911_a_(reader, rand, pos1.west(rootSplay), posSet, boundingBox, config);
+                func_236911_a_(reader, rand, pos1.north(rootSplay), posSet, boundingBox, config);
+                func_236911_a_(reader, rand, pos1.east(rootSplay), posSet, boundingBox, config);
+                func_236911_a_(reader, rand, pos1.south(rootSplay), posSet, boundingBox, config);
             } else if (rootSplay > 0) {
                 rootSplay--;
-                reader.setBlockState(pos1.west(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
-                reader.setBlockState(pos1.north(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
-                reader.setBlockState(pos1.east(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
-                reader.setBlockState(pos1.south(rootSplay), config.trunkProvider.getBlockState(rand, pos1), 19);
+                func_236911_a_(reader, rand, pos1.west(rootSplay), posSet, boundingBox, config);
+                func_236911_a_(reader, rand, pos1.north(rootSplay), posSet, boundingBox, config);
+                func_236911_a_(reader, rand, pos1.east(rootSplay), posSet, boundingBox, config);
+                func_236911_a_(reader, rand, pos1.south(rootSplay), posSet, boundingBox, config);
             } else {
-                reader.setBlockState(pos1, config.trunkProvider.getBlockState(rand, pos1), 19);
+                func_236911_a_(reader, rand, pos1, posSet, boundingBox, config);
             }
             pos1 = pos1.up(1);
         }

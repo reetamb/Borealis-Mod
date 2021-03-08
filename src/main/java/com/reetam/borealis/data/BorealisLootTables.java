@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 import com.reetam.borealis.block.*;
 import com.reetam.borealis.data.provider.BorealisLootTableProvider;
+import com.reetam.borealis.item.BorealisItem;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisItems;
@@ -82,6 +83,8 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.porcelain_tile);
             dropSelf(BorealisBlocks.chiseled_porcelain_tile);
             dropWithFortune(BorealisBlocks.kyanite_ore, BorealisItems.kyanite_crystal);
+            dropWithFortune(BorealisBlocks.tanzanite_ore, BorealisItems.tanzanite);
+            dropSelf(BorealisBlocks.tanzanite_block);
             dropSelf(BorealisBlocks.soapstone);
             dropSelf(BorealisBlocks.polished_soapstone);
             dropSelf(BorealisBlocks.soapstone_bricks);

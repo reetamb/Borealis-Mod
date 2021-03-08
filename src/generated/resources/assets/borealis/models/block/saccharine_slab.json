@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "side": "borealis:block/saccharine_planks",
+    "bottom": "borealis:block/saccharine_planks",
+    "top": "borealis:block/saccharine_planks"
+  }
+}

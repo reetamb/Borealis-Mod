@@ -46,7 +46,7 @@ public class BorealisBlocks {
 
     public static final RegistryObject<Block> porcelain = registerBlock("porcelain", () -> new Block(AbstractBlock.Properties.from(Blocks.TERRACOTTA).sound(SoundType.BASALT)));
     public static final RegistryObject<Block> porcelain_tile = registerBlock("porcelain_tile", () -> new Block(AbstractBlock.Properties.from(Blocks.TERRACOTTA).sound(SoundType.BASALT)));
-    public static final RegistryObject<GlazedTerracottaBlock> chiseled_porcelain_tile = registerBlock("chiseled_porcelain_tile", () -> new GlazedTerracottaBlock(AbstractBlock.Properties.from(Blocks.TERRACOTTA).sound(SoundType.BASALT)));
+    public static final RegistryObject<Block> chiseled_porcelain_tile = registerBlock("chiseled_porcelain_tile", () -> new Block(AbstractBlock.Properties.from(Blocks.TERRACOTTA).sound(SoundType.BASALT)));
 
     public static final RegistryObject<Block> pumice = registerBlock("pumice", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
     public static final RegistryObject<Block> pumice_geyser = registerBlock("pumice_geyser", PumiceGeyserBlock::new);
@@ -100,6 +100,8 @@ public class BorealisBlocks {
     public static final RegistryObject<PressurePlateBlock> saccharine_pressure_plate = registerBlock("saccharine_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.frostfir_planks.get()).notSolid().doesNotBlockMovement()));
 
     public static final RegistryObject<Block> kyanite_ore = registerBlock("kyanite_ore", () -> new Block(OreBlock.Properties.from(Blocks.EMERALD_ORE)));
+    public static final RegistryObject<Block> tanzanite_ore = registerBlock("tanzanite_ore", () -> new Block(OreBlock.Properties.from(Blocks.DIAMOND_ORE)));
+    public static final RegistryObject<Block> tanzanite_block = registerBlock("tanzanite_block", () -> new Block(AbstractBlock.Properties.from(Blocks.DIAMOND_BLOCK)));
 
     public static final RegistryObject<Block> lichen_block = registerBlock("lichen_block", () -> new LichenBlock(AbstractBlock.Properties.from(Blocks.GRASS_BLOCK).harvestTool(ToolType.SHOVEL)));
     public static final RegistryObject<Block> permafrost = registerBlock("permafrost", () -> new PermafrostBlock(AbstractBlock.Properties.from(lichen_block.get()).sound(SoundType.GROUND)));

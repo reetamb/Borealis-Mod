@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "side": "borealis:block/polished_soapstone",
+    "bottom": "borealis:block/polished_soapstone",
+    "top": "borealis:block/polished_soapstone"
+  }
+}

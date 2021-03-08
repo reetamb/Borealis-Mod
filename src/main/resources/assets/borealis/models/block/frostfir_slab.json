@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "borealis:block/frostfir_planks",
-    "top": "borealis:block/frostfir_planks",
-    "side": "borealis:block/frostfir_planks"
-  }
-}
