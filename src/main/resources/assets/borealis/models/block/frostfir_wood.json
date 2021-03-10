@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "borealis:block/frostfir_log",
-    "side": "borealis:block/frostfir_log"
-  }
-}

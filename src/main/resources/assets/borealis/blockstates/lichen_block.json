@@ -1,6 +1,6 @@
 {
   "variants": {
-    "snowy=false": [
+    "snowy=false,sugary=false": [
       {
         "model": "borealis:block/lichen_block"
       },
@@ -17,7 +17,13 @@
         "y": 270
       }
     ],
-    "snowy=true": {
+    "snowy=true,sugary=false": {
+      "model": "borealis:block/lichen_block_snow"
+    },
+    "snowy=false,sugary=true": {
+      "model": "borealis:block/lichen_block_sugar_snow"
+    },
+    "snowy=true,sugary=true": {
       "model": "borealis:block/lichen_block_snow"
     }
   }

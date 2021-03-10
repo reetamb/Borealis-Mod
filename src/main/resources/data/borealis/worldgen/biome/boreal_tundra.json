@@ -27,7 +27,8 @@
       "top_material": {
         "Name": "borealis:lichen_block",
         "Properties": {
-          "snowy": "false"
+          "snowy": "false",
+          "sugary": "false"
         }
       },
       "under_material": {
@@ -46,7 +47,7 @@
       "minecraft:lake_water"
     ],
     [
-      "borealis:slate_boulder",
+      "borealis:slate_boulder"
     ],
     [],
     [],

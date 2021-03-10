@@ -108,6 +108,7 @@ public class BorealisBlocks {
     public static final RegistryObject<Block> permafrost_rubble = registerBlock("permafrost_rubble", () -> new Block(AbstractBlock.Properties.from(Blocks.COARSE_DIRT).harvestTool(ToolType.SHOVEL)));
 
     public static final RegistryObject<Block> cloud = registerBlock("cloud", () -> new CloudBlock(AbstractBlock.Properties.from(Blocks.WHITE_WOOL)));
+    public static final RegistryObject<Block> sugar_snow = registerBlock("sugar_snow", () -> new SugarSnowBlock(AbstractBlock.Properties.from(Blocks.SNOW)));
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);

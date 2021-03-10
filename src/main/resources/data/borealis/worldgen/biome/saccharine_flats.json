@@ -27,7 +27,8 @@
       "top_material": {
         "Name": "borealis:lichen_block",
         "Properties": {
-          "snowy": "false"
+          "snowy": "false",
+          "sugary": "false"
         }
       },
       "under_material": {
@@ -57,7 +58,9 @@
       "borealis:cotton_tree",
       "borealis:helix_tree"
     ],
-    []
+    [
+      "borealis:sprinkle_top_layer"
+    ]
   ],
   "starts": [],
   "spawners": {

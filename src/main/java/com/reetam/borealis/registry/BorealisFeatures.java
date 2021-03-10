@@ -1,12 +1,12 @@
 package com.reetam.borealis.registry;
 
-import com.google.common.collect.ImmutableList;
+import com.reetam.borealis.BorealisMod;
+import com.reetam.borealis.world.gen.feature.*;
 import com.reetam.borealis.world.gen.foliageplacer.AspenFoliagePlacer;
+import com.reetam.borealis.world.gen.foliageplacer.HelixFoliagePlacer;
 import com.reetam.borealis.world.gen.foliageplacer.PalmFoliagePlacer;
-import com.reetam.borealis.world.gen.trunkplacer.HelixTrunkPlacer;
 import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
 import net.minecraft.block.Blocks;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -15,16 +15,13 @@ import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.foliageplacer.BushFoliagePlacer;
-import net.minecraft.world.gen.placement.ChanceConfig;
-import net.minecraft.world.gen.placement.TopSolidRangeConfig;
-import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
+import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.world.gen.feature.*;
 
 
 public class BorealisFeatures {
@@ -42,6 +39,9 @@ public class BorealisFeatures {
             "claw", () -> new ClawFeature(BlockStateFeatureConfig.field_236455_a_));
     public static final RegistryObject<Feature<BlockStateFeatureConfig>> shrub = FEATURES.register(
             "shrub", () -> new ShrubFeature(BlockStateFeatureConfig.field_236455_a_));
+    public static final RegistryObject<Feature<NoFeatureConfig>> sugar_snow = FEATURES.register(
+            "sprinkle_top_layer", () -> new SugarSnowFeature(NoFeatureConfig.field_236558_a_));
+
 
     public static void registerConfiguredFeatures() {
 
@@ -57,11 +57,11 @@ public class BorealisFeatures {
         register("helix_tree", borealis_tree.get().withConfiguration(
                 (new BaseTreeFeatureConfig.Builder(
                         new SimpleBlockStateProvider(BorealisBlocks.saccharine_log.get().getDefaultState()),
-                        new SimpleBlockStateProvider(Blocks.AIR.getDefaultState()),
-                        new SpruceFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
-                        new HelixTrunkPlacer(10, 2, 2),
+                        new SimpleBlockStateProvider(BorealisBlocks.saccharine_leaves.get().getDefaultState()),
+                        new HelixFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
+                        new StraightTrunkPlacer(10, 2, 2),
                         new TwoLayerFeature(1, 0, 1)))
-                        .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
+                .setIgnoreVines().build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
         register("geyser", borealis_tree.get().withConfiguration(
                 (new BaseTreeFeatureConfig.Builder(
@@ -129,6 +129,11 @@ public class BorealisFeatures {
         register("hot_spring_pond", Feature.LAKE.withConfiguration(
                 new BlockStateFeatureConfig(BorealisBlocks.hot_spring_water.get().getDefaultState()))
                 .withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(1))));
+
+        register(
+                "sprinkle_top_layer", sugar_snow.get().withConfiguration(
+                        IFeatureConfig.NO_FEATURE_CONFIG));
+
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {

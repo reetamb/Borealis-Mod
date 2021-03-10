@@ -161,7 +161,12 @@ public class BorealisLootTables extends LootTableProvider {
                                     .addEntry(ItemLootEntry.builder(Items.CHARCOAL).acceptCondition(RandomChance.builder((float) 0.2)))
                                     .addEntry(ItemLootEntry.builder(Items.POISONOUS_POTATO).acceptCondition(RandomChance.builder((float) 0.02)))));
             dropWithSilk(BorealisBlocks.cloud, BorealisBlocks.cloud);
-
+            this.registerLootTable(BorealisBlocks.sugar_snow.get(),
+                    new LootTable.Builder()
+                            .addLootPool(new LootPool.Builder()
+                                .addEntry(ItemLootEntry.builder(Items.SUGAR).acceptCondition(RandomChance.builder(1.0F)))
+                                .addEntry(ItemLootEntry.builder(Items.SNOWBALL).acceptCondition(RandomChance.builder(1.0F)))
+                            ));
         }
 
         @Override

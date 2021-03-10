@@ -1,12 +1,14 @@
 package com.reetam.borealis.block;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SnowBlock;
-import net.minecraft.block.SpreadableSnowyDirtBlock;
+import net.minecraft.block.*;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.lighting.LightEngine;
 import net.minecraft.world.server.ServerWorld;
@@ -16,8 +18,11 @@ import java.util.Random;
 
 public class BorealisGrassBlock extends SpreadableSnowyDirtBlock {
 
+    public static final BooleanProperty SUGARY = BooleanProperty.create("sugary");
+
     public BorealisGrassBlock(Properties builder) {
         super(builder);
+        this.setDefaultState(this.stateContainer.getBaseState().with(SNOWY, Boolean.FALSE).with(SUGARY, Boolean.FALSE));
     }
 
     private static boolean isSnowyConditions(BlockState state, IWorldReader world, BlockPos pos) {
@@ -52,5 +57,24 @@ public class BorealisGrassBlock extends SpreadableSnowyDirtBlock {
                 }
             }
         }
+    }
+
+    @Override
+    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        //boolean flag = world
+        return facing != Direction.UP ?
+                super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos) :
+                stateIn.with(SNOWY, facingState.isIn(Blocks.SNOW_BLOCK) || facingState.isIn(Blocks.SNOW)).with(SUGARY, facingState.isIn(BorealisBlocks.sugar_snow.get()));
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        BlockState blockstate = context.getWorld().getBlockState(context.getPos().up());
+        return this.getDefaultState().with(SNOWY, blockstate.isIn(Blocks.SNOW_BLOCK) || blockstate.isIn(Blocks.SNOW)).with(SUGARY, blockstate.isIn(BorealisBlocks.sugar_snow.get()));
+    }
+
+    @Override
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(SNOWY, SUGARY);
     }
 }
