@@ -28,7 +28,7 @@ public class BorealisGrassBlock extends SpreadableSnowyDirtBlock {
     private static boolean isSnowyConditions(BlockState state, IWorldReader world, BlockPos pos) {
         BlockPos blockpos = pos.up();
         BlockState blockstate = world.getBlockState(blockpos);
-        if (blockstate.getBlock() == Blocks.SNOW && blockstate.get(SnowBlock.LAYERS) == 1) {
+        if ((blockstate.getBlock() == Blocks.SNOW && blockstate.get(SnowBlock.LAYERS) == 1 ) || blockstate.getBlock() == BorealisBlocks.sugar_snow.get()) {
             return true;
         } else {
             int i = LightEngine.func_215613_a(world, state, pos, blockstate, blockpos, Direction.UP, blockstate.getOpacity(world, blockpos));

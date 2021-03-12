@@ -2,6 +2,7 @@ package com.reetam.borealis.client.renderer.entity;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.client.model.TakaheModel;
+import com.reetam.borealis.client.renderer.layer.TakaheCrestLayer;
 import com.reetam.borealis.client.renderer.layer.TakaheHatLayer;
 import com.reetam.borealis.entity.TakaheEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
@@ -18,6 +19,7 @@ public class TakaheRenderer extends MobRenderer<TakaheEntity, TakaheModel<Takahe
     public TakaheRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new TakaheModel<>(), 0.5F);
         this.addLayer(new TakaheHatLayer<>(this));
+        this.addLayer(new TakaheCrestLayer<>(this));
     }
 
     @Override

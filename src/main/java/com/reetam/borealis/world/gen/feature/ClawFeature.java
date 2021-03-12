@@ -18,32 +18,32 @@ public class ClawFeature extends CoralShapeFeature {
         super(config);
     }
 
-    protected boolean func_204623_a(IWorld p_204623_1_, Random p_204623_2_, BlockPos p_204623_3_, BlockState p_204623_4_) {
-        if (!this.func_204624_b(p_204623_1_, p_204623_2_, p_204623_3_, p_204623_4_)) {
+    protected boolean func_204623_a(IWorld world, Random rand, BlockPos pos, BlockState state) {
+        if (!this.func_204624_b(world, rand, pos, state) || world.getBlockState(pos.down()).getBlock().isTransparent(world.getBlockState(pos.down()))) {
             return false;
         } else {
-            Direction direction = Direction.Plane.HORIZONTAL.random(p_204623_2_);
-            int i = p_204623_2_.nextInt(2) + 2;
+            Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+            int i = rand.nextInt(2) + 2;
             List<Direction> list = Lists.newArrayList(direction, direction.rotateY(), direction.rotateYCCW());
-            Collections.shuffle(list, p_204623_2_);
+            Collections.shuffle(list, rand);
 
             for(Direction direction1 : list.subList(0, i)) {
-                BlockPos.Mutable blockpos$mutable = p_204623_3_.toMutable();
-                int j = p_204623_2_.nextInt(2) + 1;
+                BlockPos.Mutable blockpos$mutable = pos.toMutable();
+                int j = rand.nextInt(2) + 1;
                 blockpos$mutable.move(direction1);
                 int k;
                 Direction direction2;
                 if (direction1 == direction) {
                     direction2 = direction;
-                    k = p_204623_2_.nextInt(3) + 2;
+                    k = rand.nextInt(3) + 2;
                 } else {
                     blockpos$mutable.move(Direction.UP);
                     Direction[] adirection = new Direction[]{direction1, Direction.UP};
-                    direction2 = Util.getRandomObject(adirection, p_204623_2_);
-                    k = p_204623_2_.nextInt(3) + 3;
+                    direction2 = Util.getRandomObject(adirection, rand);
+                    k = rand.nextInt(3) + 3;
                 }
 
-                for(int l = 0; l < j && this.func_204624_b(p_204623_1_, p_204623_2_, blockpos$mutable, p_204623_4_); ++l) {
+                for(int l = 0; l < j && this.func_204624_b(world, rand, blockpos$mutable, state); ++l) {
                     blockpos$mutable.move(direction2);
                 }
 
@@ -52,11 +52,11 @@ public class ClawFeature extends CoralShapeFeature {
 
                 for(int i1 = 0; i1 < k; ++i1) {
                     blockpos$mutable.move(direction);
-                    if (!this.func_204624_b(p_204623_1_, p_204623_2_, blockpos$mutable, p_204623_4_)) {
+                    if (!this.func_204624_b(world, rand, blockpos$mutable, state)) {
                         break;
                     }
 
-                    if (p_204623_2_.nextFloat() < 0.25F) {
+                    if (rand.nextFloat() < 0.25F) {
                         blockpos$mutable.move(Direction.UP);
                     }
                 }

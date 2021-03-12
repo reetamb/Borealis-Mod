@@ -165,8 +165,7 @@ public class BorealisLootTables extends LootTableProvider {
                     new LootTable.Builder()
                             .addLootPool(new LootPool.Builder()
                                 .addEntry(ItemLootEntry.builder(Items.SUGAR).acceptCondition(RandomChance.builder(1.0F)))
-                                .addEntry(ItemLootEntry.builder(Items.SNOWBALL).acceptCondition(RandomChance.builder(1.0F)))
-                            ));
+                                .addEntry(ItemLootEntry.builder(Items.SNOWBALL).acceptCondition(RandomChance.builder(1.0F)))));
         }
 
         @Override

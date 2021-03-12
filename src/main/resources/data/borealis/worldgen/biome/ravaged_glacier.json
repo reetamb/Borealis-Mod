@@ -49,12 +49,12 @@
       "borealis:glacial_spike"
     ],
     [
-      "borealis:permafrost_rubble_patch",
-      "borealis:cloud"
+      "borealis:permafrost_rubble_patch"
     ],
     [],
     [
-      "minecraft:freeze_top_layer"
+      "minecraft:freeze_top_layer",
+      "borealis:cloud"
     ]
   ],
   "starts": [],

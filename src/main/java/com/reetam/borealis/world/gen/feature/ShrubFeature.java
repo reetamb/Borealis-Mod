@@ -19,12 +19,12 @@ public class ShrubFeature extends CoralShapeFeature {
         super(p_i231942_1_);
     }
 
-    protected boolean func_204623_a(IWorld p_204623_1_, Random p_204623_2_, BlockPos p_204623_3_, BlockState p_204623_4_) {
-        BlockPos.Mutable blockpos$mutable = p_204623_3_.toMutable();
-        int i = p_204623_2_.nextInt(3) + 1;
+    protected boolean func_204623_a(IWorld world, Random rand, BlockPos pos, BlockState state) {
+        BlockPos.Mutable blockpos$mutable = pos.toMutable();
+        int i = rand.nextInt(3) + 1;
 
         for(int j = 0; j < i; ++j) {
-            if (!this.func_204624_b(p_204623_1_, p_204623_2_, blockpos$mutable, p_204623_4_)) {
+            if (!this.func_204624_b(world, rand, blockpos$mutable, state) || world.getBlockState(pos.down()).getBlock().isTransparent(world.getBlockState(pos.down()))) {
                 return true;
             }
 
@@ -32,20 +32,20 @@ public class ShrubFeature extends CoralShapeFeature {
         }
 
         BlockPos blockpos = blockpos$mutable.toImmutable();
-        int k = p_204623_2_.nextInt(3) + 2;
+        int k = rand.nextInt(3) + 2;
         List<Direction> list = Lists.newArrayList(Direction.Plane.HORIZONTAL);
-        Collections.shuffle(list, p_204623_2_);
+        Collections.shuffle(list, rand);
 
         for(Direction direction : list.subList(0, k)) {
             blockpos$mutable.setPos(blockpos);
             blockpos$mutable.move(direction);
-            int l = p_204623_2_.nextInt(5) + 2;
+            int l = rand.nextInt(5) + 2;
             int i1 = 0;
 
-            for(int j1 = 0; j1 < l && this.func_204624_b(p_204623_1_, p_204623_2_, blockpos$mutable, p_204623_4_); ++j1) {
+            for(int j1 = 0; j1 < l && this.func_204624_b(world, rand, blockpos$mutable, state); ++j1) {
                 ++i1;
                 blockpos$mutable.move(Direction.UP);
-                if (j1 == 0 || i1 >= 2 && p_204623_2_.nextFloat() < 0.25F) {
+                if (j1 == 0 || i1 >= 2 && rand.nextFloat() < 0.25F) {
                     blockpos$mutable.move(direction);
                     i1 = 0;
                 }

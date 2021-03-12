@@ -51,14 +51,13 @@
     ],
     [],
     [],
-    [
-      "borealis:cloud"
-    ],
+    [],
     [
       "borealis:boreal_features"
     ],
     [
-      "minecraft:freeze_top_layer"
+      "minecraft:freeze_top_layer",
+      "borealis:cloud"
     ]
   ],
   "starts": [],

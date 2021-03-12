@@ -3,6 +3,7 @@ package com.reetam.borealis.world.gen.trunkplacer;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisTreePlacers;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
@@ -20,8 +21,6 @@ import java.util.Random;
 import java.util.Set;
 
 public class RootedTrunkPlacer extends AbstractTrunkPlacer {
-    int providedRootHeight;
-    int providedRootSplay;
 
     public static final Codec<RootedTrunkPlacer> CODEC = RecordCodecBuilder.create((me) ->
             func_236915_a_(me).apply(me, RootedTrunkPlacer::new));
@@ -43,6 +42,17 @@ public class RootedTrunkPlacer extends AbstractTrunkPlacer {
         int rootSplay = 2;
         BlockPos pos1 = pos;
 
+        for (int i = 1; i <= rootSplay; i++) {
+            reader.setBlockState(pos1.down().north(i), BorealisBlocks.lichen_block.get().getDefaultState(), 19);
+            reader.setBlockState(pos1.down().east(i), BorealisBlocks.lichen_block.get().getDefaultState(), 19);
+            reader.setBlockState(pos1.down().south(i), BorealisBlocks.lichen_block.get().getDefaultState(), 19);
+            reader.setBlockState(pos1.down().west(i), BorealisBlocks.lichen_block.get().getDefaultState(), 19);
+
+            reader.setBlockState(pos1.down(2).north(i), BorealisBlocks.permafrost.get().getDefaultState(), 19);
+            reader.setBlockState(pos1.down(2).east(i), BorealisBlocks.permafrost.get().getDefaultState(), 19);
+            reader.setBlockState(pos1.down(2).south(i), BorealisBlocks.permafrost.get().getDefaultState(), 19);
+            reader.setBlockState(pos1.down(2).west(i), BorealisBlocks.permafrost.get().getDefaultState(), 19);
+        }
         for (int i = 0; i < treeBaseHeight; i++) {
             if (i < rootHeight) {
                 func_236911_a_(reader, rand, pos1.west(rootSplay), posSet, boundingBox, config);

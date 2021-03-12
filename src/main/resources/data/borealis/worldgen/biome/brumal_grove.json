@@ -49,15 +49,14 @@
     [],
     [],
     [],
-    [
-      "borealis:cloud"
-    ],
+    [],
     [
       "borealis:brumal_tree",
       "borealis:tall_brumal_tree"
     ],
     [
-      "minecraft:freeze_top_layer"
+      "minecraft:freeze_top_layer",
+      "borealis:cloud"
     ]
   ],
   "starts": [],
