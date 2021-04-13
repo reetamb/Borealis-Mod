@@ -32,8 +32,10 @@ public class PumiceGeyserBlock extends Block {
 
     @Override
     public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        for (int i = 0; i < 10; i++) {
-            worldIn.addParticle(ParticleTypes.CLOUD, pos.getX()+0.5, pos.up().getY()+rand.nextFloat()-0.5, pos.getZ()+0.5, 0, rand.nextFloat()/3+0.15, 0);
+        if (worldIn.getBlockState(pos.up()).isAir()) {
+            for (int i = 0; i < 10; i++) {
+                worldIn.addParticle(ParticleTypes.CLOUD, pos.getX()+0.5, pos.up().getY()+rand.nextFloat()-0.5, pos.getZ()+0.5, 0, rand.nextFloat()/3+0.15, 0);
+            }
         }
     }
 

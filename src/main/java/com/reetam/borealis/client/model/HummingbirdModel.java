@@ -1,7 +1,4 @@
 package com.reetam.borealis.client.model;
-// Made with Blockbench 3.5.4
-// Exported for Minecraft version 1.15
-// Paste this class into your mod and generate all required imports
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -11,40 +8,46 @@ import net.minecraft.entity.Entity;
 
 public class HummingbirdModel<T extends Entity> extends EntityModel<T> {
 	private final ModelRenderer body;
-	private final ModelRenderer wings;
+	private final ModelRenderer wingLeft;
+	private final ModelRenderer wingRight;
 	private final ModelRenderer tail;
 
 	public HummingbirdModel() {
 		textureWidth = 64;
-		textureHeight = 64;
+		textureHeight = 32;
 
 		body = new ModelRenderer(this);
-		body.setRotationPoint(3.0F, 24.0F, -3.0F);
+		body.setRotationPoint(0.0F, 24.0F, 4.0F);
 		setRotationAngle(body, 0.0873F, 0.0F, 0.0F);
-		body.setTextureOffset(24, 0).addBox(-4.0F, -11.6934F, -4.8824F, 2.0F, 2.0F, 6.0F, 0.0F, false);
-		body.setTextureOffset(0, 0).addBox(-6.0F, -14.0F, 0.0F, 6.0F, 14.0F, 6.0F, 0.0F, false);
+		body.setTextureOffset(44, 2).addBox(-1.0F, -14.0F, -15.0F, 2.0F, 2.0F, 8.0F, 0.0F, false);
+		body.setTextureOffset(0, 0).addBox(-4.0F, -16.0F, -8.0F, 8.0F, 16.0F, 8.0F, 0.0F, false);
 
-		wings = new ModelRenderer(this);
-		wings.setRotationPoint(-9.0F, -6.0038F, 0.0F);
-		body.addChild(wings);
-		wings.setTextureOffset(0, 20).addBox(1.99F, -4.0076F, 3.8257F, 1.0F, 6.0F, 12.0F, 0.0F, true);
-		wings.setTextureOffset(0, 20).addBox(9.01F, -4.0076F, 3.8257F, 1.0F, 6.0F, 12.0F, 0.0F, false);
+		wingLeft = new ModelRenderer(this);
+		wingLeft.setRotationPoint(4.0F, 13.0F, 3.0F);
+		wingLeft.setTextureOffset(32, 0).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 2.0F, 8.0F, 0.0F, false);
+		wingLeft.setTextureOffset(0, 4).addBox(0.1F, -1.0F, -1.0F, 0.0F, 8.0F, 20.0F, 0.0F, false);
+
+		wingRight = new ModelRenderer(this);
+		wingRight.setRotationPoint(-4.0F, 13.0F, 3.0F);
+		wingRight.setTextureOffset(32, 0).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 2.0F, 8.0F, 0.0F, true);
+		wingRight.setTextureOffset(0, 4).addBox(-0.1F, -1.0F, -1.0F, 0.0F, 8.0F, 20.0F, 0.0F, true);
 
 		tail = new ModelRenderer(this);
-		tail.setRotationPoint(3.0F, 22.0F, -3.0F);
-		setRotationAngle(tail, -0.1745F, 0.0F, 0.0F);
-		tail.setTextureOffset(24, 8).addBox(-6.5F, -0.1875F, 5.7744F, 7.0F, 1.0F, 7.0F, 0.0F, false);
-		tail.setTextureOffset(24, 16).addBox(-5.5F, -0.1875F, 5.7744F, 5.0F, 1.0F, 3.0F, 0.0F, false);
+		tail.setRotationPoint(0.0F, 24.0F, 4.0F);
+		setRotationAngle(tail, -0.5236F, 0.0F, 0.0F);
+		tail.setTextureOffset(22, 14).addBox(-6.0F, 0.0F, 0.0F, 12.0F, 0.0F, 10.0F, 0.0F, false);
 	}
 
 	@Override
-	public void setRotationAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
-		setRotationAngle(wings, (float) (0.08 + Math.sin(5 * entity.ticksExisted) / 2), 0.0F, 0.0F);
+	public void setRotationAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+		//previously the render function, render code was moved to a method below
 	}
 
 	@Override
 	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
+		wingLeft.render(matrixStack, buffer, packedLight, packedOverlay);
+		wingRight.render(matrixStack, buffer, packedLight, packedOverlay);
 		tail.render(matrixStack, buffer, packedLight, packedOverlay);
 	}
 

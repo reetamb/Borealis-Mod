@@ -16,7 +16,6 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.foliageplacer.BushFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
-import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.minecraftforge.fml.RegistryObject;
@@ -41,6 +40,8 @@ public class BorealisFeatures {
             "shrub", () -> new ShrubFeature(BlockStateFeatureConfig.field_236455_a_));
     public static final RegistryObject<Feature<NoFeatureConfig>> sugar_snow = FEATURES.register(
             "sprinkle_top_layer", () -> new SugarSnowFeature(NoFeatureConfig.field_236558_a_));
+    public static final RegistryObject<Feature<NoFeatureConfig>> spike_trail = FEATURES.register(
+            "spike_trail", () -> new SpikeTrailFeature(NoFeatureConfig.field_236558_a_));
 
 
     public static void registerConfiguredFeatures() {
@@ -70,7 +71,7 @@ public class BorealisFeatures {
                         new BushFoliagePlacer(FeatureSpread.func_242252_a(1), FeatureSpread.func_242252_a(1), 2),
                         new StraightTrunkPlacer(1, 0, 0),
                         new TwoLayerFeature(0, 0, 0)))
-                        .func_236702_a_(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(2))));
+                        .func_236702_a_(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build()).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(4))));
 
         register("brumal_tree", borealis_tree.get().withConfiguration(
                 (new BaseTreeFeatureConfig.Builder(
@@ -124,16 +125,14 @@ public class BorealisFeatures {
                 .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
         register("hot_spring", hot_spring.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-                .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
-
-        register("hot_spring_pond", Feature.LAKE.withConfiguration(
-                new BlockStateFeatureConfig(BorealisBlocks.hot_spring_water.get().getDefaultState()))
-                .withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(1))));
+                .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1)).chance(2)));
 
         register(
                 "sprinkle_top_layer", sugar_snow.get().withConfiguration(
                         IFeatureConfig.NO_FEATURE_CONFIG));
 
+        register("spike_trail", spike_trail.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+                .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {

@@ -1,0 +1,48 @@
+package com.reetam.borealis.world.gen.feature;
+
+import com.mojang.serialization.Codec;
+import com.reetam.borealis.registry.BorealisBlocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+
+import java.util.Random;
+
+public class SpikeTrailFeature extends Feature<NoFeatureConfig> {
+    public SpikeTrailFeature(Codec<NoFeatureConfig> p_i231962_1_) {
+        super(p_i231962_1_);
+    }
+
+    public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+        int xdir = rand.nextInt(3) - 1;
+        int zdir = rand.nextInt(3) - 1;
+        for (int i = 0; i < rand.nextInt(5)+5; i++) {
+            pos = toGround(reader, pos);
+            if (!reader.getBlockState(pos).isTransparent()) {
+                spikeAt(reader, pos);
+            }
+            pos = pos.west((rand.nextInt(3)+1)*xdir+1);
+            pos = pos.north((rand.nextInt(3)+1)*zdir+1);
+        }
+        return true;
+    }
+
+    private void spikeAt(ISeedReader reader, BlockPos pos) {
+        reader.setBlockState(pos, BorealisBlocks.pumice.get().getDefaultState(), 19);
+
+        reader.setBlockState(toGround(reader, pos.west()), BorealisBlocks.pumice.get().getDefaultState(), 19);
+        reader.setBlockState(toGround(reader, pos.north()), BorealisBlocks.pumice.get().getDefaultState(), 19);
+        reader.setBlockState(toGround(reader, pos.east()), BorealisBlocks.pumice.get().getDefaultState(), 19);
+        reader.setBlockState(toGround(reader, pos.south()), BorealisBlocks.pumice.get().getDefaultState(), 19);
+
+        reader.setBlockState(pos.up(), BorealisBlocks.pumice.get().getDefaultState(), 19);
+        reader.setBlockState(pos.up(2), BorealisBlocks.pumice_geyser.get().getDefaultState(), 19);
+    }
+
+    private BlockPos toGround(ISeedReader reader, BlockPos pos) {
+        return new BlockPos(pos.getX(), reader.getHeight(Heightmap.Type.OCEAN_FLOOR, pos.getX(), pos.getZ()), pos.getZ());
+    }
+}

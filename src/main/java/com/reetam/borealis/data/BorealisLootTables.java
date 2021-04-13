@@ -148,6 +148,7 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.saccharine_pressure_plate);
             dropWithSilk(BorealisBlocks.lichen_block, BorealisBlocks.permafrost);
             dropSelf(BorealisBlocks.permafrost);
+            dropSelf(BorealisBlocks.travertine);
             this.registerLootTable(BorealisBlocks.permafrost_rubble.get(),
                     new LootTable.Builder()
                             .addLootPool(new LootPool.Builder()

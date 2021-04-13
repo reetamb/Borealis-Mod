@@ -2,7 +2,7 @@
   "precipitation": "snow",
   "category": "none",
   "depth": 0.125,
-  "scale": 0.005,
+  "scale": 0.007,
   "temperature": 0.0,
   "temperature_modifier": "none",
   "downfall": 0.5,
@@ -25,14 +25,10 @@
     "type": "default",
     "config": {
       "top_material": {
-        "Name": "borealis:lichen_block",
-        "Properties": {
-          "snowy": "false",
-          "sugary": "false"
-        }
+        "Name": "borealis:pumice"
       },
       "under_material": {
-        "Name": "borealis:permafrost"
+        "Name": "borealis:pumice"
       },
       "underwater_material": {
         "Name": "borealis:soapstone"
@@ -49,13 +45,14 @@
     [],
     [],
     [],
-    [],
     [
-      "borealis:geyser",
       "borealis:hot_spring"
     ],
     [
-      "minecraft:freeze_top_layer",
+      "borealis:geyser",
+      "borealis:spike_trail"
+    ],
+    [
       "borealis:cloud"
     ]
   ],

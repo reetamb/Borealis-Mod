@@ -46,6 +46,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         log(BorealisBlocks.slate_pillar, "slate_pillar");
         block(BorealisBlocks.slate_tiles);
         block(BorealisBlocks.pumice);
+        block(BorealisBlocks.travertine);
         //block(BorealisBlocks.lichen_block);
         block(BorealisBlocks.permafrost);
         block(BorealisBlocks.permafrost_rubble);
