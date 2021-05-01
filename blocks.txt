@@ -71,6 +71,7 @@ BorealisBlocks.permafrost_rubble
 BorealisBlocks.cloud
 BorealisBlocks.tanzanite_block
 BorealisBlocks.tanzanite_ore
+BorealisBlocks.sugar_snow
 
 BorealisItems.kyanite_crystal
 BorealisItems.moon_pearl
