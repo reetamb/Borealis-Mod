@@ -2,8 +2,8 @@
   "precipitation": "snow",
   "category": "none",
   "depth": 0.125,
-  "scale": 0.007,
-  "temperature": 0.0,
+  "scale": 0.01,
+  "temperature": 0.25,
   "temperature_modifier": "none",
   "downfall": 0.5,
   "effects": {
@@ -13,13 +13,7 @@
     "sky_color": 10136810,
     "water_color": 5683175,
     "water_fog_color": 5683175,
-    "grass_color_modifier": "none",
-    "particle": {
-      "options": {
-        "type": "white_ash"
-      },
-      "probability": 0.1
-    }
+    "grass_color_modifier": "none"
   },
   "surface_builder": {
     "type": "default",

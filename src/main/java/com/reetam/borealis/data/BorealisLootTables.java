@@ -79,9 +79,6 @@ public class BorealisLootTables extends LootTableProvider {
         protected void addTables() {
             dropSelf(BorealisBlocks.soapstone);
             dropSelf(BorealisBlocks.polished_soapstone);
-            dropSelf(BorealisBlocks.porcelain);
-            dropSelf(BorealisBlocks.porcelain_tile);
-            dropSelf(BorealisBlocks.chiseled_porcelain_tile);
             dropWithFortune(BorealisBlocks.kyanite_ore, BorealisItems.kyanite_crystal);
             dropWithFortune(BorealisBlocks.tanzanite_ore, BorealisItems.tanzanite);
             dropSelf(BorealisBlocks.tanzanite_block);

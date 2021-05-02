@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "borealis:frostfir_log",
+    "borealis:frostfir_wood",
+    "borealis:stripped_frostfir_log",
+    "borealis:stripped_frostfir_wood"
+  ]
+}

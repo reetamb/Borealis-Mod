@@ -39,7 +39,7 @@ public class SugarSnowFeature extends Feature<NoFeatureConfig> {
                     reader.setBlockState(blockpos$mutable, BorealisBlocks.sugar_snow.get().getDefaultState(), 2);
                     BlockState blockstate = reader.getBlockState(blockpos$mutable1);
                     if (blockstate.hasProperty(BorealisGrassBlock.SUGARY)) {
-                        reader.setBlockState(blockpos$mutable1, blockstate.with(BorealisGrassBlock.SUGARY, Boolean.valueOf(true)), 2);
+                        reader.setBlockState(blockpos$mutable1, blockstate.with(BorealisGrassBlock.SUGARY, Boolean.TRUE), 2);
                     }
                 }
             }

@@ -3,8 +3,7 @@ package com.reetam.borealis;
 import com.reetam.borealis.client.ClientProxy;
 import com.reetam.borealis.client.renderer.BorealisSkyRenderer;
 import com.reetam.borealis.client.renderer.fluid.FluidRenderer;
-import com.reetam.borealis.data.BorealisBlockStates;
-import com.reetam.borealis.data.BorealisLootTables;
+import com.reetam.borealis.data.*;
 import com.reetam.borealis.registry.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.DimensionRenderInfo;
@@ -77,9 +76,13 @@ public class BorealisMod {
 
         if (event.includeClient()) {
             generator.addProvider(new BorealisBlockStates(generator, helper));
+            generator.addProvider(new BorealisItemModels(generator, helper));
         }
         if (event.includeServer()) {
             generator.addProvider(new BorealisLootTables(generator));
+            BorealisBlockTags tags = new BorealisBlockTags(generator, helper);
+            generator.addProvider(tags);
+            generator.addProvider(new BorealisItemTags(generator, tags, helper));
         }
     }
 }

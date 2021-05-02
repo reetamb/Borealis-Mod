@@ -54,6 +54,6 @@ public class SugarSnowBlock extends Block {
 
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         BlockState blockstate = worldIn.getBlockState(pos.down());
-        return !blockstate.getBlock().isTransparent(blockstate);
+        return !blockstate.isTransparent() && !blockstate.isAir();
     }
 }

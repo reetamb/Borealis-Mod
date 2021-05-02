@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "borealis:brumal_button",
+    "borealis:frostfir_button",
+    "borealis:saccharine_button"
+  ]
+}

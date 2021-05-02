@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "borealis:saccharine_log",
+    "borealis:saccharine_wood",
+    "borealis:stripped_saccharine_log",
+    "borealis:stripped_saccharine_wood"
+  ]
+}

@@ -1,8 +1,5 @@
 BorealisBlocks.soapstone
 BorealisBlocks.polished_soapstone
-BorealisBlocks.porcelain
-BorealisBlocks.porcelain_tile
-BorealisBlocks.chiseled_porcelain_tile
 BorealisBlocks.kyanite_ore
 BorealisBlocks.soapstone
 BorealisBlocks.polished_soapstone
@@ -89,3 +86,5 @@ BorealisItems.tanzanite_axe
 BorealisItems.tanzanite_pickaxe
 BorealisItems.tanzanite_shovel
 BorealisItems.tanzanite_hoe
+   
+
