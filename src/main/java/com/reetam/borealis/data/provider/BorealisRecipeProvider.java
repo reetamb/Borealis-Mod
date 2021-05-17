@@ -47,7 +47,7 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .addCriterion(has(blockIn), hasItem(blockIn.get()));
     }
     public ShapedRecipeBuilder slab(Supplier<? extends Block> blockIn, Supplier<? extends Block> slabOut) {
-        return ShapedRecipeBuilder.shapedRecipe(slabOut.get(), 4)
+        return ShapedRecipeBuilder.shapedRecipe(slabOut.get(), 6)
                 .patternLine("###")
                 .key('#', blockIn.get())
                 .addCriterion(has(blockIn), hasItem(blockIn.get()));
@@ -94,10 +94,17 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .key('#', plankIn.get())
                 .addCriterion(has(plankIn), hasItem(plankIn.get()));
     }
-    public ShapedRecipeBuilder stone(Supplier<? extends Block> stoneIn, Supplier<? extends Block> woodOut) {
-        return ShapedRecipeBuilder.shapedRecipe(woodOut.get(), 4)
+    public ShapedRecipeBuilder stone(Supplier<? extends Block> stoneIn, Supplier<? extends Block> stoneOut) {
+        return ShapedRecipeBuilder.shapedRecipe(stoneOut.get(), 4)
                 .patternLine("##")
                 .patternLine("##")
+                .key('#', stoneIn.get())
+                .addCriterion(has(stoneIn), hasItem(stoneIn.get()));
+    }
+    public ShapedRecipeBuilder wall(Supplier<? extends Block> stoneIn, Supplier<? extends Block> wallOut) {
+        return ShapedRecipeBuilder.shapedRecipe(wallOut.get(), 6)
+                .patternLine("###")
+                .patternLine("###")
                 .key('#', stoneIn.get())
                 .addCriterion(has(stoneIn), hasItem(stoneIn.get()));
     }

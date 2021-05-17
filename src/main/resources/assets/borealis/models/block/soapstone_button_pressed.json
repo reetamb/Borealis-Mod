@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button_pressed",
   "textures": {
-    "texture": "borealis:block/polished_soapstone"
+    "texture": "borealis:block/soapstone"
   }
 }

@@ -5,11 +5,11 @@
   ],
   "key": {
     "#": {
-      "item": "borealis:saccharine_planks"
+      "item": "borealis:soapstone_bricks"
     }
   },
   "result": {
-    "item": "borealis:saccharine_slab",
+    "item": "borealis:soapstone_brick_slab",
     "count": 6
   }
 }

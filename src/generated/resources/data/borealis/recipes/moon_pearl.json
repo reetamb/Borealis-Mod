@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "0#0",
+    "000"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "#": {
+      "item": "minecraft:snowball"
+    }
+  },
+  "result": {
+    "item": "borealis:moon_pearl"
+  }
+}

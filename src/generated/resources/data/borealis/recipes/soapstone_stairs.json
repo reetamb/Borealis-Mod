@@ -1,15 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
+    "  #",
+    " ##",
     "###"
   ],
   "key": {
     "#": {
-      "item": "borealis:saccharine_planks"
+      "item": "borealis:soapstone"
     }
   },
   "result": {
-    "item": "borealis:saccharine_slab",
-    "count": 6
+    "item": "borealis:soapstone_stairs",
+    "count": 4
   }
 }

@@ -94,6 +94,11 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 BorealisBlocks.saccharine_door,
                 BorealisBlocks.saccharine_trapdoor
         );
+        doStone(consumer, BorealisBlocks.soapstone, BorealisBlocks.soapstone_stairs, BorealisBlocks.soapstone_slab, BorealisBlocks.soapstone_wall);
+        doStone(consumer, BorealisBlocks.soapstone_bricks, BorealisBlocks.soapstone_brick_stairs, BorealisBlocks.soapstone_brick_slab, BorealisBlocks.soapstone_brick_wall);
+        doStone(consumer, BorealisBlocks.soapstone_tiles, BorealisBlocks.soapstone_tile_stairs, BorealisBlocks.soapstone_tile_slab, BorealisBlocks.soapstone_tile_wall);
+        stone(BorealisBlocks.soapstone, BorealisBlocks.soapstone_bricks).build(consumer);
+        stone(BorealisBlocks.soapstone_bricks, BorealisBlocks.soapstone_tiles).build(consumer);
         bulkStonecutting(consumer, BorealisBlocks.soapstone, soapstone_stonecuts);
         bulkStonecutting(consumer, BorealisBlocks.soapstone_bricks, brick_stonecuts);
         bulkStonecutting(consumer, BorealisBlocks.soapstone_tiles, tile_stonecuts);
@@ -103,21 +108,21 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 .patternLine("###")
                 .key('#', Blocks.BLACK_WOOL)
                 .key('0', Blocks.WHITE_WOOL)
-                .addCriterion("has_" + Blocks.BLACK_WOOL.getRegistryName().getPath(), hasItem(Blocks.BLACK_WOOL));
+                .addCriterion("has_" + Blocks.BLACK_WOOL.getRegistryName().getPath(), hasItem(Blocks.BLACK_WOOL)).build(consumer);
         ShapedRecipeBuilder.shapedRecipe(BorealisItems.moon_pearl.get())
                 .patternLine("000")
                 .patternLine("0#0")
                 .patternLine("000")
                 .key('0', Items.LAPIS_LAZULI)
                 .key('#', Items.SNOWBALL)
-                .addCriterion("has_" + Items.LAPIS_LAZULI, hasItem(Items.LAPIS_LAZULI));
+                .addCriterion("has_" + Items.LAPIS_LAZULI, hasItem(Items.LAPIS_LAZULI)).build(consumer);
         ShapedRecipeBuilder.shapedRecipe(BorealisBlocks.slate_pillar.get())
                 .patternLine("#")
                 .patternLine("#")
                 .patternLine("#")
                 .key('#', BorealisBlocks.slate.get())
                 .addCriterion(has(BorealisBlocks.slate), hasItem(BorealisBlocks.slate.get()));
-        stone(BorealisBlocks.slate, BorealisBlocks.slate_tiles);
+        stone(BorealisBlocks.slate, BorealisBlocks.slate_tiles).build(consumer);
         bulkStonecutting(consumer, BorealisBlocks.slate, slate_stonecuts);
     }
 
@@ -137,5 +142,11 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         plate(plankIn, plateIn).build(consumer, name(plateIn));
         door(plankIn, doorIn).build(consumer, name(doorIn));
         trapdoor(plankIn, trapdoorIn).build(consumer, name(trapdoorIn));
+    }
+
+    public void doStone(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> wallIn) {
+        stairs(stoneIn, stairsIn).build(consumer, name(stairsIn));
+        slab(stoneIn, slabIn).build(consumer, name(slabIn));
+        wall(stoneIn, wallIn).build(consumer, name(wallIn));
     }
 }
