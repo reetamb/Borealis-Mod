@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "borealis:brumal_door"
+    ]
+  },
+  "criteria": {
+    "has_brumal_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "borealis:brumal_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "borealis:brumal_door"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_brumal_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -83,6 +83,7 @@ public class BorealisMod {
             BorealisBlockTags tags = new BorealisBlockTags(generator, helper);
             generator.addProvider(tags);
             generator.addProvider(new BorealisItemTags(generator, tags, helper));
+            generator.addProvider(new BorealisRecipes(generator));
         }
     }
 }

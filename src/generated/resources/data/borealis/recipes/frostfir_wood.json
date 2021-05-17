@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "borealis:frostfir_log"
+    }
+  },
+  "result": {
+    "item": "borealis:frostfir_wood",
+    "count": 3
+  }
+}

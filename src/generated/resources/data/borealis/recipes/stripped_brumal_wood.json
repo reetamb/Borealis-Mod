@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "borealis:stripped_brumal_log"
+    }
+  },
+  "result": {
+    "item": "borealis:stripped_brumal_wood",
+    "count": 3
+  }
+}

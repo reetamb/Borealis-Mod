@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "borealis:frostfir_fence_gate"
+    ]
+  },
+  "criteria": {
+    "has_frostfir_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "borealis:frostfir_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "borealis:frostfir_fence_gate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_frostfir_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

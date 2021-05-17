@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "borealis:saccharine_log"
+    }
+  ],
+  "result": {
+    "item": "borealis:saccharine_planks",
+    "count": 4
+  }
+}

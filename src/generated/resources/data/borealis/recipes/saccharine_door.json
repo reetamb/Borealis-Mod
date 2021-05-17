@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "borealis:saccharine_planks"
+    }
+  },
+  "result": {
+    "item": "borealis:saccharine_door",
+    "count": 3
+  }
+}

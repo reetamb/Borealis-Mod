@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "borealis:frostfir_planks"
+    }
+  },
+  "result": {
+    "item": "borealis:frostfir_trapdoor",
+    "count": 2
+  }
+}

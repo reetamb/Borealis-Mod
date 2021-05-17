@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "borealis:saccharine_planks"
+    ]
+  },
+  "criteria": {
+    "has_saccharine_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "borealis:saccharine_log"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "borealis:saccharine_planks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_saccharine_log",
+      "has_the_recipe"
+    ]
+  ]
+}
