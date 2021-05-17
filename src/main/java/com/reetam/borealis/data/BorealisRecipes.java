@@ -1,6 +1,5 @@
 package com.reetam.borealis.data;
 
-import com.reetam.borealis.block.BorealisPortalBlock;
 import com.reetam.borealis.data.provider.BorealisRecipeProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
@@ -23,6 +22,30 @@ public class BorealisRecipes extends BorealisRecipeProvider {
 
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+        Block[] soapstone_stonecuts = new Block[]{
+                BorealisBlocks.soapstone_bricks.get(),
+                BorealisBlocks.soapstone_tiles.get(),
+                BorealisBlocks.soapstone_stairs.get(),
+                BorealisBlocks.soapstone_slab.get(),
+                BorealisBlocks.soapstone_wall.get(),
+                BorealisBlocks.soapstone_button.get(),
+                BorealisBlocks.soapstone_pressure_plate.get()
+        };
+        Block[] brick_stonecuts = new Block[]{
+                BorealisBlocks.soapstone_tiles.get(),
+                BorealisBlocks.soapstone_brick_stairs.get(),
+                BorealisBlocks.soapstone_brick_slab.get(),
+                BorealisBlocks.soapstone_brick_wall.get()
+        };
+        Block[] tile_stonecuts = new Block[]{
+                BorealisBlocks.soapstone_tile_stairs.get(),
+                BorealisBlocks.soapstone_tile_slab.get(),
+                BorealisBlocks.soapstone_tile_wall.get()
+        };
+        Block[] slate_stonecuts = new Block[]{
+                BorealisBlocks.slate_pillar.get(),
+                BorealisBlocks.slate_tiles.get()
+        };
         bulkWood(
                 consumer,
                 BorealisBlocks.brumal_log,
@@ -71,6 +94,9 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 BorealisBlocks.saccharine_door,
                 BorealisBlocks.saccharine_trapdoor
         );
+        bulkStonecutting(consumer, BorealisBlocks.soapstone, soapstone_stonecuts);
+        bulkStonecutting(consumer, BorealisBlocks.soapstone_bricks, brick_stonecuts);
+        bulkStonecutting(consumer, BorealisBlocks.soapstone_tiles, tile_stonecuts);
         ShapedRecipeBuilder.shapedRecipe(BorealisItems.hat.get())
                 .patternLine(" # ")
                 .patternLine(" 0 ")
@@ -92,6 +118,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 .key('#', BorealisBlocks.slate.get())
                 .addCriterion(has(BorealisBlocks.slate), hasItem(BorealisBlocks.slate.get()));
         stone(BorealisBlocks.slate, BorealisBlocks.slate_tiles);
+        bulkStonecutting(consumer, BorealisBlocks.slate, slate_stonecuts);
     }
 
     public void bulkWood(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn) {

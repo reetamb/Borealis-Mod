@@ -32,7 +32,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.soapstone_tile_slab);
         itemBlock(BorealisBlocks.soapstone_brick_slab);
         wallInventory("soapstone_wall", modLoc("block/soapstone"));
-        wallInventory("polished_soapstone_wall", modLoc("block/polished_soapstone"));
+        wallInventory("soapstone_tile_wall", modLoc("block/soapstone_tiles"));
         wallInventory("soapstone_brick_wall", modLoc("block/soapstone_bricks"));
         itemBlock(BorealisBlocks.soapstone_button, "soapstone_button_inventory");
         itemBlock(BorealisBlocks.soapstone_pressure_plate);

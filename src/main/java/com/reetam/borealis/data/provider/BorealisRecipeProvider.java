@@ -2,18 +2,33 @@ package com.reetam.borealis.data.provider;
 
 import com.reetam.borealis.BorealisMod;
 import net.minecraft.block.Block;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.RecipeProvider;
-import net.minecraft.data.ShapedRecipeBuilder;
-import net.minecraft.data.ShapelessRecipeBuilder;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.data.*;
 import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 
+import java.util.ArrayList;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class BorealisRecipeProvider extends RecipeProvider {
     public BorealisRecipeProvider(DataGenerator generatorIn) {
         super(generatorIn);
+    }
+
+    public ArrayList<SingleItemRecipeBuilder> bulkStonecutting(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Block[] outputs) {
+        ArrayList<SingleItemRecipeBuilder> recipes = new ArrayList<>();
+        for (Block output : outputs) {
+            SingleItemRecipeBuilder recipe = SingleItemRecipeBuilder.stonecuttingRecipe(
+                    Ingredient.fromItems(stoneIn.get()),
+                    output,
+                    output instanceof SlabBlock ? 2 : 1
+            ).addCriterion(has(stoneIn), hasItem(stoneIn.get()));
+            recipe.build(consumer, name(output.getRegistryName().toString().substring(BorealisMod.MODID.length()+1) + "_from_" + stoneIn.get().getRegistryName().toString().substring(BorealisMod.MODID.length()+1) + "_stonecutting"));
+            recipes.add(recipe);
+        }
+        return recipes;
     }
 
     public ShapedRecipeBuilder wood(Supplier<? extends Block> logIn, Supplier<? extends Block> woodOut) {
@@ -87,11 +102,14 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .addCriterion(has(stoneIn), hasItem(stoneIn.get()));
     }
 
+    protected ResourceLocation name(String name) {
+        return new ResourceLocation(BorealisMod.MODID, name);
+    }
+
     protected ResourceLocation name(Supplier<? extends Block> block) {
         return block.get().getRegistryName();
     }
     protected String has(Supplier<? extends Block> block) {
         return "has_" + block.get().getRegistryName().getPath();
     }
-    //TODO: Create bulk recipe builders for stone
 }

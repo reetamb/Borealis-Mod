@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "borealis:soapstone_wall",
-    "borealis:polished_soapstone_wall",
+    "borealis:soapstone_tile_wall",
     "borealis:soapstone_brick_wall"
   ]
 }

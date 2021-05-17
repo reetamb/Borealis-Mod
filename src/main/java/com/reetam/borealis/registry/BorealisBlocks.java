@@ -15,7 +15,6 @@ import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-@SuppressWarnings("unused")
 public class BorealisBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BorealisMod.MODID);
@@ -27,16 +26,16 @@ public class BorealisBlocks {
 
     public static final RegistryObject<Block> soapstone = registerBlock("soapstone", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE)));
     public static final RegistryObject<Block> soapstone_bricks = registerBlock("soapstone_bricks", () -> new Block(AbstractBlock.Properties.from(Blocks.STONE_BRICKS)));
-    public static final RegistryObject<Block> soapstone_tiles = registerBlock("polished_soapstone", () -> new Block(AbstractBlock.Properties.from(Blocks.SMOOTH_STONE)));
+    public static final RegistryObject<Block> soapstone_tiles = registerBlock("soapstone_tiles", () -> new Block(AbstractBlock.Properties.from(Blocks.SMOOTH_STONE)));
     public static final RegistryObject<StairsBlock> soapstone_stairs = registerBlock("soapstone_stairs", () -> new StairsBlock(() -> BorealisBlocks.soapstone.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.soapstone.get()).notSolid()));
     public static final RegistryObject<StairsBlock> soapstone_brick_stairs = registerBlock("soapstone_brick_stairs", () -> new StairsBlock(() -> BorealisBlocks.soapstone_bricks.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.soapstone_bricks.get()).notSolid()));
-    public static final RegistryObject<StairsBlock> soapstone_tile_stairs = registerBlock("polished_soapstone_stairs", () -> new StairsBlock(() -> BorealisBlocks.soapstone_tiles.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.soapstone_tiles.get()).notSolid()));
+    public static final RegistryObject<StairsBlock> soapstone_tile_stairs = registerBlock("soapstone_tile_stairs", () -> new StairsBlock(() -> BorealisBlocks.soapstone_tiles.get().getDefaultState(), AbstractBlock.Properties.from(BorealisBlocks.soapstone_tiles.get()).notSolid()));
     public static final RegistryObject<SlabBlock> soapstone_slab = registerBlock("soapstone_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone.get()).notSolid()));
     public static final RegistryObject<SlabBlock> soapstone_brick_slab = registerBlock("soapstone_brick_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone_bricks.get()).notSolid()));
-    public static final RegistryObject<SlabBlock> soapstone_tile_slab = registerBlock("polished_soapstone_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone_tiles.get()).notSolid()));
+    public static final RegistryObject<SlabBlock> soapstone_tile_slab = registerBlock("soapstone_tile_slab", () -> new SlabBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone_tiles.get()).notSolid()));
     public static final RegistryObject<WallBlock> soapstone_wall = registerBlock("soapstone_wall", () -> new WallBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone.get()).notSolid()));
     public static final RegistryObject<WallBlock> soapstone_brick_wall = registerBlock("soapstone_brick_wall", () -> new WallBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone_bricks.get()).notSolid()));
-    public static final RegistryObject<WallBlock> soapstone_tile_wall = registerBlock("polished_soapstone_wall", () -> new WallBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone_tiles.get()).notSolid()));
+    public static final RegistryObject<WallBlock> soapstone_tile_wall = registerBlock("soapstone_tile_wall", () -> new WallBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone_tiles.get()).notSolid()));
     public static final RegistryObject<WoodButtonBlock> soapstone_button = registerBlock("soapstone_button", () -> new WoodButtonBlock(AbstractBlock.Properties.from(BorealisBlocks.soapstone_tiles.get()).notSolid().doesNotBlockMovement()));
     public static final RegistryObject<PressurePlateBlock> soapstone_pressure_plate = registerBlock("soapstone_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.from(BorealisBlocks.soapstone_tiles.get()).notSolid().doesNotBlockMovement()));
 

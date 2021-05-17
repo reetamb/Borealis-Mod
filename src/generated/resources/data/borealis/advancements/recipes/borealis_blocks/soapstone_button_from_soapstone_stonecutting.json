@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "borealis:soapstone_button_from_soapstone_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_soapstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "borealis:soapstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "borealis:soapstone_button_from_soapstone_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_soapstone",
+      "has_the_recipe"
+    ]
+  ]
+}

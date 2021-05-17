@@ -31,7 +31,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         slab(BorealisBlocks.soapstone_tile_slab, BorealisBlocks.soapstone_tiles);
         slab(BorealisBlocks.soapstone_brick_slab, BorealisBlocks.soapstone_bricks);
         wallBlock(BorealisBlocks.soapstone_wall.get(), modLoc("block/soapstone"));
-        wallBlock(BorealisBlocks.soapstone_tile_wall.get(), modLoc("block/polished_soapstone"));
+        wallBlock(BorealisBlocks.soapstone_tile_wall.get(), modLoc("block/soapstone_tiles"));
         wallBlock(BorealisBlocks.soapstone_brick_wall.get(), modLoc("block/soapstone_bricks"));
         //block(BorealisBlocks.soapstone_button);
         //block(BorealisBlocks.soapstone_pressure_plate);
