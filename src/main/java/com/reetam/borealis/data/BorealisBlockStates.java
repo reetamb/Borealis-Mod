@@ -2,12 +2,8 @@ package com.reetam.borealis.data;
 
 import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.StairsBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
-import java.util.function.Supplier;
 
 public class BorealisBlockStates extends BorealisBlockStateProvider {
 
@@ -23,19 +19,19 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         block(BorealisBlocks.soapstone);
-        block(BorealisBlocks.polished_soapstone);
+        block(BorealisBlocks.soapstone_tiles);
         block(BorealisBlocks.soapstone_bricks);
         block(BorealisBlocks.kyanite_ore);
         block(BorealisBlocks.tanzanite_ore);
         block(BorealisBlocks.tanzanite_block);
         stairs(BorealisBlocks.soapstone_stairs, BorealisBlocks.soapstone);
-        stairs(BorealisBlocks.polished_soapstone_stairs, BorealisBlocks.polished_soapstone);
+        stairs(BorealisBlocks.soapstone_tile_stairs, BorealisBlocks.soapstone_tiles);
         stairs(BorealisBlocks.soapstone_brick_stairs, BorealisBlocks.soapstone_bricks);
         slab(BorealisBlocks.soapstone_slab, BorealisBlocks.soapstone);
-        slab(BorealisBlocks.polished_soapstone_slab, BorealisBlocks.polished_soapstone);
+        slab(BorealisBlocks.soapstone_tile_slab, BorealisBlocks.soapstone_tiles);
         slab(BorealisBlocks.soapstone_brick_slab, BorealisBlocks.soapstone_bricks);
         wallBlock(BorealisBlocks.soapstone_wall.get(), modLoc("block/soapstone"));
-        wallBlock(BorealisBlocks.polished_soapstone_wall.get(), modLoc("block/polished_soapstone"));
+        wallBlock(BorealisBlocks.soapstone_tile_wall.get(), modLoc("block/polished_soapstone"));
         wallBlock(BorealisBlocks.soapstone_brick_wall.get(), modLoc("block/soapstone_bricks"));
         //block(BorealisBlocks.soapstone_button);
         //block(BorealisBlocks.soapstone_pressure_plate);

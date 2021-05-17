@@ -1,6 +1,5 @@
 package com.reetam.borealis.data;
 
-import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.data.provider.BorealisItemModelProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
@@ -21,16 +20,16 @@ public class BorealisItemModels extends BorealisItemModelProvider {
     @Override
     protected void registerModels() {
         itemBlock(BorealisBlocks.soapstone);
-        itemBlock(BorealisBlocks.polished_soapstone);
+        itemBlock(BorealisBlocks.soapstone_tiles);
         itemBlock(BorealisBlocks.kyanite_ore);
         itemBlock(BorealisBlocks.soapstone);
-        itemBlock(BorealisBlocks.polished_soapstone);
+        itemBlock(BorealisBlocks.soapstone_tiles);
         itemBlock(BorealisBlocks.soapstone_bricks);
         itemBlock(BorealisBlocks.soapstone_stairs);
-        itemBlock(BorealisBlocks.polished_soapstone_stairs);
+        itemBlock(BorealisBlocks.soapstone_tile_stairs);
         itemBlock(BorealisBlocks.soapstone_brick_stairs);
         itemBlock(BorealisBlocks.soapstone_slab);
-        itemBlock(BorealisBlocks.polished_soapstone_slab);
+        itemBlock(BorealisBlocks.soapstone_tile_slab);
         itemBlock(BorealisBlocks.soapstone_brick_slab);
         wallInventory("soapstone_wall", modLoc("block/soapstone"));
         wallInventory("polished_soapstone_wall", modLoc("block/polished_soapstone"));

@@ -99,7 +99,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.soapstone_pressure_plate.get());
         tag(BlockTags.WALLS)
                 .add(BorealisBlocks.soapstone_wall.get())
-                .add(BorealisBlocks.polished_soapstone_wall.get())
+                .add(BorealisBlocks.soapstone_tile_wall.get())
                 .add(BorealisBlocks.soapstone_brick_wall.get());
         tag(BlockTags.LEAVES)
                 .add(BorealisBlocks.brumal_leaves.get())

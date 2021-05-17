@@ -16,8 +16,6 @@ public class BorealisRecipeProvider extends RecipeProvider {
         super(generatorIn);
     }
 
-
-
     public ShapedRecipeBuilder wood(Supplier<? extends Block> logIn, Supplier<? extends Block> woodOut) {
         return ShapedRecipeBuilder.shapedRecipe(woodOut.get(), 3)
                 .patternLine("##")
@@ -80,6 +78,13 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .patternLine("###")
                 .key('#', plankIn.get())
                 .addCriterion(has(plankIn), hasItem(plankIn.get()));
+    }
+    public ShapedRecipeBuilder stone(Supplier<? extends Block> stoneIn, Supplier<? extends Block> woodOut) {
+        return ShapedRecipeBuilder.shapedRecipe(woodOut.get(), 4)
+                .patternLine("##")
+                .patternLine("##")
+                .key('#', stoneIn.get())
+                .addCriterion(has(stoneIn), hasItem(stoneIn.get()));
     }
 
     protected ResourceLocation name(Supplier<? extends Block> block) {

@@ -3,10 +3,14 @@ package com.reetam.borealis.data;
 import com.reetam.borealis.block.BorealisPortalBlock;
 import com.reetam.borealis.data.provider.BorealisRecipeProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
+import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
+import net.minecraft.item.Items;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -67,6 +71,27 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 BorealisBlocks.saccharine_door,
                 BorealisBlocks.saccharine_trapdoor
         );
+        ShapedRecipeBuilder.shapedRecipe(BorealisItems.hat.get())
+                .patternLine(" # ")
+                .patternLine(" 0 ")
+                .patternLine("###")
+                .key('#', Blocks.BLACK_WOOL)
+                .key('0', Blocks.WHITE_WOOL)
+                .addCriterion("has_" + Blocks.BLACK_WOOL.getRegistryName().getPath(), hasItem(Blocks.BLACK_WOOL));
+        ShapedRecipeBuilder.shapedRecipe(BorealisItems.moon_pearl.get())
+                .patternLine("000")
+                .patternLine("0#0")
+                .patternLine("000")
+                .key('0', Items.LAPIS_LAZULI)
+                .key('#', Items.SNOWBALL)
+                .addCriterion("has_" + Items.LAPIS_LAZULI, hasItem(Items.LAPIS_LAZULI));
+        ShapedRecipeBuilder.shapedRecipe(BorealisBlocks.slate_pillar.get())
+                .patternLine("#")
+                .patternLine("#")
+                .patternLine("#")
+                .key('#', BorealisBlocks.slate.get())
+                .addCriterion(has(BorealisBlocks.slate), hasItem(BorealisBlocks.slate.get()));
+        stone(BorealisBlocks.slate, BorealisBlocks.slate_tiles);
     }
 
     public void bulkWood(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn) {

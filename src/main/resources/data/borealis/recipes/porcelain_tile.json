@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "borealis:porcelain"
-  },
-  "result": "borealis:porcelain_tile",
-  "experience": 0.35,
-  "cookingtime": 200
-}
