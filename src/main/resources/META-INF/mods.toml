@@ -7,7 +7,7 @@ version="${file.jarVersion}"
 displayName="Borealis"
 logoFile="logo.png"
 logoBlur=false
-credits="QUEK HAS HELPED ME SOOOOOO MCUH I'D BE DEAD WITHOUT HIM, THANKS SCREEM ALSO FOR TEXTURES I CANT TEXTURE SO THANKS"
+credits="Thanks to Quek04 for framework code, Screem for a few textures, and ShrekRightTesticle for ideas"
 authors="reetam"
 description='''Welcome to Borealis, the winter wonderland of the sky.'''
 
