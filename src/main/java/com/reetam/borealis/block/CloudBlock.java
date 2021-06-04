@@ -11,16 +11,16 @@ import net.minecraft.world.World;
 public class CloudBlock extends Block {
 
     public CloudBlock(AbstractBlock.Properties properties) {
-        super(properties.doesNotBlockMovement());
+        super(properties.noCollission());
     }
 
     @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.setMotionMultiplier(state, new Vector3d(1.25, 0.01, 1.25));
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+        entityIn.makeStuckInBlock(state, new Vector3d(1.25, 0.01, 1.25));
     }
 
     @Override
-    public boolean isTransparent(BlockState state) {
+    public boolean useShapeForLightOcclusion(BlockState state) {
         return true;
     }
 }

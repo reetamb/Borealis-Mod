@@ -20,18 +20,18 @@ public class MoonPearlItem extends Item {
 
     public MoonPearlItem() {
         super(new Properties()
-                .group(BorealisItemGroups.ITEMS_GROUP)
-                .maxStackSize(1)
-                .maxDamage(1)
+                .tab(BorealisItemGroups.ITEMS_GROUP)
+                .stacksTo(1)
+                .durability(1)
                 .rarity(Rarity.RARE)
         );
     }
 
     @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
+    public ActionResultType useOn(ItemUseContext context) {
 
-        World world = context.getWorld();
-        BlockPos pos = context.getPos();
+        World world = context.getLevel();
+        BlockPos pos = context.getClickedPos();
         if (world.getBlockState(pos).getBlock() == Blocks.SNOW) {
             if ( (world.getBlockState(pos.west()).getBlock() == Blocks.SNOW) &&
                     (world.getBlockState(pos.north()).getBlock() == Blocks.SNOW) &&
@@ -46,12 +46,12 @@ public class MoonPearlItem extends Item {
                             (world.getBlockState(pos.south().west()).getBlock() == Blocks.PACKED_ICE) &&
                             (world.getBlockState(pos.east().south()).getBlock() == Blocks.PACKED_ICE)) {
                         ((BorealisPortalBlock) BorealisBlocks.borealis_portal.get()).makePortal(world, pos);
-                        world.setRainStrength(1.0F);
+                        world.setRainLevel(1.0F);
                     }
                 }
             }
         }
 
-        return ActionResultType.func_233537_a_(world.isRemote());
+        return ActionResultType.sidedSuccess(world.isClientSide());
     }
 }

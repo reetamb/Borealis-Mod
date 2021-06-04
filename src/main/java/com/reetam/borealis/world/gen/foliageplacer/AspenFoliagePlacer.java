@@ -16,38 +16,38 @@ import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.FoliagePlacerType;
 
 public class AspenFoliagePlacer extends FoliagePlacer {
-    public static final Codec<AspenFoliagePlacer> field_236790_a_ = RecordCodecBuilder.create((p_242836_0_) -> {
-        return func_242830_b(p_242836_0_).and(FeatureSpread.func_242254_a(0, 16, 8).fieldOf("trunk_height").forGetter((p_242835_0_) -> {
-            return p_242835_0_.field_236791_b_;
+    public static final Codec<AspenFoliagePlacer> CODEC = RecordCodecBuilder.create((p_242836_0_) -> {
+        return foliagePlacerParts(p_242836_0_).and(FeatureSpread.codec(0, 16, 8).fieldOf("trunk_height").forGetter((p_242835_0_) -> {
+            return p_242835_0_.trunkHeight;
         })).apply(p_242836_0_, AspenFoliagePlacer::new);
     });
-    private final FeatureSpread field_236791_b_;
+    private final FeatureSpread trunkHeight;
 
     public AspenFoliagePlacer(FeatureSpread p_i242003_1_, FeatureSpread p_i242003_2_, FeatureSpread p_i242003_3_) {
         super(p_i242003_1_, p_i242003_2_);
-        this.field_236791_b_ = p_i242003_3_;
+        this.trunkHeight = p_i242003_3_;
     }
 
-    public int func_230374_a_(Random p_230374_1_, int p_230374_2_, BaseTreeFeatureConfig p_230374_3_) {
-        return Math.max(4, p_230374_2_ - this.field_236791_b_.func_242259_a(p_230374_1_));
+    public int foliageHeight(Random p_230374_1_, int p_230374_2_, BaseTreeFeatureConfig p_230374_3_) {
+        return Math.max(4, p_230374_2_ - this.trunkHeight.sample(p_230374_1_));
     }
 
-    protected FoliagePlacerType<?> func_230371_a_() {
+    protected FoliagePlacerType<?> type() {
         return BorealisTreePlacers.ASPEN_FOLIAGE_PLACER.get();
     }
-    protected void func_230372_a_(IWorldGenerationReader reader, Random random, BaseTreeFeatureConfig config, int p_230372_4_, FoliagePlacer.Foliage foliage, int foliageBottomHeight, int p_230372_7_, Set<BlockPos> p_230372_8_, int foliageTopHeight, MutableBoundingBox boundingBox) {
-        BlockPos blockpos = foliage.func_236763_a_();
+    protected void createFoliage(IWorldGenerationReader reader, Random random, BaseTreeFeatureConfig config, int p_230372_4_, FoliagePlacer.Foliage foliage, int foliageBottomHeight, int p_230372_7_, Set<BlockPos> p_230372_8_, int foliageTopHeight, MutableBoundingBox boundingBox) {
+        BlockPos blockpos = foliage.foliagePos();
         int i = 0;
         int j;
 
         for(int l = foliageTopHeight; l >= -foliageBottomHeight; --l) {
             j = MathHelper.ceil(-Math.abs(0.5*(i-4)))+2;
-            this.func_236753_a_(reader, random, config, blockpos, j, p_230372_8_, l, foliage.func_236765_c_(), boundingBox);
+            this.placeLeavesRow(reader, random, config, blockpos, j, p_230372_8_, l, foliage.doubleTrunk(), boundingBox);
             i++;
         }
     }
 
-    protected boolean func_230373_a_(Random p_230373_1_, int p_230373_2_, int p_230373_3_, int p_230373_4_, int p_230373_5_, boolean p_230373_6_) {
+    protected boolean shouldSkipLocation(Random p_230373_1_, int p_230373_2_, int p_230373_3_, int p_230373_4_, int p_230373_5_, boolean p_230373_6_) {
         return p_230373_2_ == p_230373_5_ && p_230373_4_ == p_230373_5_ && p_230373_5_ > 0;
     }
 }

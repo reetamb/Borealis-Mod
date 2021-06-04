@@ -18,14 +18,14 @@ public class FrostfirTree extends Tree {
 
     @Nullable
     @Override
-    public ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean largeHive) {
-        return BorealisFeatures.borealis_tree.get().withConfiguration(
+    public ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random randomIn, boolean largeHive) {
+        return BorealisFeatures.borealis_tree.get().configured(
                 (new BaseTreeFeatureConfig.Builder(
-                        new SimpleBlockStateProvider(BorealisBlocks.frostfir_log.get().getDefaultState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.frostfir_leaves.get().getDefaultState()),
-                        new SpruceFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(2)),
+                        new SimpleBlockStateProvider(BorealisBlocks.frostfir_log.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.frostfir_leaves.get().defaultBlockState()),
+                        new SpruceFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), FeatureSpread.fixed(2)),
                         new StraightTrunkPlacer(10, 2, 2),
                         new TwoLayerFeature(1, 0, 1)))
-                        .setIgnoreVines().build());
+                        .ignoreVines().build());
     }
 }

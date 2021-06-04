@@ -20,10 +20,12 @@ import java.util.Collection;
 import java.util.Random;
 import java.util.function.Supplier;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class HotSpringWaterBlock extends FlowingFluidBlock {
 
     public HotSpringWaterBlock(Supplier<? extends FlowingFluid> supplier, Properties properties) {
-        super(supplier, properties.doesNotBlockMovement().hardnessAndResistance(100).noDrops());
+        super(supplier, properties.noCollission().strength(100).noDrops());
     }
 
     @Override
@@ -32,14 +34,14 @@ public class HotSpringWaterBlock extends FlowingFluidBlock {
     }
 
     @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity) {
             LivingEntity livingEntityIn = (LivingEntity) entityIn;
-            Collection<EffectInstance> activeEffects = livingEntityIn.getActivePotionEffects();
+            Collection<EffectInstance> activeEffects = livingEntityIn.getActiveEffects();
             ArrayList<EffectInstance> activeEffectsArray = new ArrayList<>(activeEffects);
             for (EffectInstance effectInstance : activeEffectsArray) {
-                if (effectInstance.getPotion().getEffectType() == EffectType.HARMFUL) {
-                    livingEntityIn.removePotionEffect(effectInstance.getPotion());
+                if (effectInstance.getEffect().getCategory() == EffectType.HARMFUL) {
+                    livingEntityIn.removeEffect(effectInstance.getEffect());
                 }
             }
         }

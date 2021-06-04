@@ -30,14 +30,14 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
 
     public HummingbirdEntity(EntityType<? extends HummingbirdEntity> type, World worldIn) {
         super(type, worldIn);
-        this.moveController = new HummingbirdEntity.MoveHelperController(this);
+        this.moveControl = new HummingbirdEntity.MoveHelperController(this);
         this.setNoGravity(true);
 
     }
 
     @Override
-    public ILivingEntityData onInitialSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-        return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
+    public ILivingEntityData finalizeSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
+        return super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
     @Override
@@ -51,38 +51,38 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
     }
 
     public static AttributeModifierMap.MutableAttribute registerAttributes() {
-        return AnimalEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 10.0D)
-                .createMutableAttribute(Attributes.FLYING_SPEED, 0.6F)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3F)
-                .createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D);
+        return AnimalEntity.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 10.0D)
+                .add(Attributes.FLYING_SPEED, 0.6F)
+                .add(Attributes.MOVEMENT_SPEED, 0.3F)
+                .add(Attributes.FOLLOW_RANGE, 48.0D);
 
     }
 
     public static boolean canHummingbirdSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
-        return worldIn.getBlockState(pos.down()).getBlock() == Blocks.AIR && (pos.getY() >= 100 && pos.getY() < 120);
+        return worldIn.getBlockState(pos.below()).getBlock() == Blocks.AIR && (pos.getY() >= 100 && pos.getY() < 120);
     }
 
-    protected PathNavigator createNavigator(World worldIn) {
+    protected PathNavigator createNavigation(World worldIn) {
         FlyingPathNavigator flyingpathnavigator = new FlyingPathNavigator(this, worldIn);
         flyingpathnavigator.setCanOpenDoors(false);
-        flyingpathnavigator.setCanSwim(true);
-        flyingpathnavigator.setCanEnterDoors(true);
+        flyingpathnavigator.setCanFloat(true);
+        flyingpathnavigator.setCanPassDoors(true);
         return flyingpathnavigator;
     }
 
     @Nullable
     @Override
-    public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
+    public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
         return null;
     }
 
     @Override
-    public void livingTick() {
-        super.livingTick();
+    public void aiStep() {
+        super.aiStep();
     }
 
-    public boolean onLivingFall(float distance, float damageMultiplier) {
+    public boolean causeFallDamage(float distance, float damageMultiplier) {
         return false;
     }
 
@@ -91,21 +91,21 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
 
         public RandomFlyGoal(HummingbirdEntity hummingbird) {
             this.parentEntity = hummingbird;
-            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
         }
 
         /**
          * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
          * method as well.
          */
-        public boolean shouldExecute() {
-            MovementController movementcontroller = this.parentEntity.getMoveHelper();
-            if (!movementcontroller.isUpdating()) {
+        public boolean canUse() {
+            MovementController movementcontroller = this.parentEntity.getMoveControl();
+            if (!movementcontroller.hasWanted()) {
                 return true;
             } else {
-                double d0 = movementcontroller.getX() - this.parentEntity.getPosX();
-                double d1 = movementcontroller.getY() - this.parentEntity.getPosY();
-                double d2 = movementcontroller.getZ() - this.parentEntity.getPosZ();
+                double d0 = movementcontroller.getWantedX() - this.parentEntity.getX();
+                double d1 = movementcontroller.getWantedY() - this.parentEntity.getY();
+                double d2 = movementcontroller.getWantedZ() - this.parentEntity.getZ();
                 double d3 = d0 * d0 + d1 * d1 + d2 * d2;
                 return d3 < 1.0D || d3 > 100.0D;
             }
@@ -114,19 +114,19 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
         /**
          * Returns whether an in-progress EntityAIBase should continue executing
          */
-        public boolean shouldContinueExecuting() {
+        public boolean canContinueToUse() {
             return false;
         }
 
         /**
          * Execute a one shot task or start executing a continuous task
          */
-        public void startExecuting() {
-            Random random = this.parentEntity.getRNG();
-            double d0 = this.parentEntity.getPosX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
-            double d1 = this.parentEntity.getPosY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 1.5F);
-            double d2 = this.parentEntity.getPosZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
-            this.parentEntity.getMoveHelper().setMoveTo(d0, d1, d2, 3.0D);
+        public void start() {
+            Random random = this.parentEntity.getRandom();
+            double d0 = this.parentEntity.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
+            double d1 = this.parentEntity.getY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 1.5F);
+            double d2 = this.parentEntity.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
+            this.parentEntity.getMoveControl().setWantedPosition(d0, d1, d2, 3.0D);
         }
     }
 
@@ -140,28 +140,28 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
         }
 
         public void tick() {
-            if (this.action == MovementController.Action.MOVE_TO) {
+            if (this.operation == MovementController.Action.MOVE_TO) {
                 if (this.courseChangeCooldown-- <= 0) {
-                    this.courseChangeCooldown += this.parentEntity.getRNG().nextInt(5) + 2;
-                    Vector3d vector3d = new Vector3d(this.posX - this.parentEntity.getPosX(), this.posY - this.parentEntity.getPosY(), this.posZ - this.parentEntity.getPosZ());
+                    this.courseChangeCooldown += this.parentEntity.getRandom().nextInt(5) + 2;
+                    Vector3d vector3d = new Vector3d(this.wantedX - this.parentEntity.getX(), this.wantedY - this.parentEntity.getY(), this.wantedZ - this.parentEntity.getZ());
                     double d0 = vector3d.length();
                     vector3d = vector3d.normalize();
-                    if (this.func_220673_a(vector3d, MathHelper.ceil(d0))) {
-                        this.parentEntity.setMotion(this.parentEntity.getMotion().add(vector3d.scale(0.1D)));
+                    if (this.canReach(vector3d, MathHelper.ceil(d0))) {
+                        this.parentEntity.setDeltaMovement(this.parentEntity.getDeltaMovement().add(vector3d.scale(0.1D)));
                     } else {
-                        this.action = MovementController.Action.WAIT;
+                        this.operation = MovementController.Action.WAIT;
                     }
                 }
 
             }
         }
 
-        private boolean func_220673_a(Vector3d p_220673_1_, int p_220673_2_) {
+        private boolean canReach(Vector3d p_220673_1_, int p_220673_2_) {
             AxisAlignedBB axisalignedbb = this.parentEntity.getBoundingBox();
 
             for(int i = 1; i < p_220673_2_; ++i) {
-                axisalignedbb = axisalignedbb.offset(p_220673_1_);
-                if (!this.parentEntity.world.hasNoCollisions(this.parentEntity, axisalignedbb)) {
+                axisalignedbb = axisalignedbb.move(p_220673_1_);
+                if (!this.parentEntity.level.noCollision(this.parentEntity, axisalignedbb)) {
                     return false;
                 }
             }
@@ -175,14 +175,14 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
 
         public LookAroundGoal(HummingbirdEntity hummingbird) {
             this.parentEntity = hummingbird;
-            this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
+            this.setFlags(EnumSet.of(Goal.Flag.LOOK));
         }
 
         /**
          * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
          * method as well.
          */
-        public boolean shouldExecute() {
+        public boolean canUse() {
             return true;
         }
 
@@ -190,18 +190,18 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
          * Keep ticking a continuous task that has already been started
          */
         public void tick() {
-            if (this.parentEntity.getAttackTarget() == null) {
-                Vector3d vector3d = this.parentEntity.getMotion();
-                this.parentEntity.rotationYaw = -((float)MathHelper.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
-                this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
+            if (this.parentEntity.getTarget() == null) {
+                Vector3d vector3d = this.parentEntity.getDeltaMovement();
+                this.parentEntity.yRot = -((float)MathHelper.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
+                this.parentEntity.yBodyRot = this.parentEntity.yRot;
             } else {
-                LivingEntity livingentity = this.parentEntity.getAttackTarget();
+                LivingEntity livingentity = this.parentEntity.getTarget();
                 double d0 = 64.0D;
-                if (livingentity.getDistanceSq(this.parentEntity) < 4096.0D) {
-                    double d1 = livingentity.getPosX() - this.parentEntity.getPosX();
-                    double d2 = livingentity.getPosZ() - this.parentEntity.getPosZ();
-                    this.parentEntity.rotationYaw = -((float)MathHelper.atan2(d1, d2)) * (180F / (float)Math.PI);
-                    this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
+                if (livingentity.distanceToSqr(this.parentEntity) < 4096.0D) {
+                    double d1 = livingentity.getX() - this.parentEntity.getX();
+                    double d2 = livingentity.getZ() - this.parentEntity.getZ();
+                    this.parentEntity.yRot = -((float)MathHelper.atan2(d1, d2)) * (180F / (float)Math.PI);
+                    this.parentEntity.yBodyRot = this.parentEntity.yRot;
                 }
             }
 

@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class TakaheEntity extends AnimalEntity {
-    private static final DataParameter<Boolean> HAT = EntityDataManager.createKey(
+    private static final DataParameter<Boolean> HAT = EntityDataManager.defineId(
             TakaheEntity.class, DataSerializers.BOOLEAN);
 
     public TakaheEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
@@ -31,35 +31,35 @@ public class TakaheEntity extends AnimalEntity {
 
     @Nullable
     @Override
-    public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
+    public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
         return null;
     }
 
     public static AttributeModifierMap.MutableAttribute registerAttributes() {
-        return AnimalEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 10.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2F);
+        return AnimalEntity.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 10.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0.2F);
     }
 
     @Override
-    protected void registerData() {
-        super.registerData();
-        this.dataManager.register(HAT, false);
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(HAT, false);
     }
 
     public boolean getHat() {
-        return this.dataManager.get(HAT);
+        return this.entityData.get(HAT);
     }
     public void setHat(boolean hat) {
-        this.getDataManager().set(HAT, hat);
+        this.getEntityData().set(HAT, hat);
     }
-    public void writeAdditional(CompoundNBT compound) {
-        super.writeAdditional(compound);
+    public void addAdditionalSaveData(CompoundNBT compound) {
+        super.addAdditionalSaveData(compound);
         compound.putBoolean("HasHat", this.getHat());
     }
 
-    public void readAdditional(CompoundNBT compound) {
-        super.readAdditional(compound);
+    public void readAdditionalSaveData(CompoundNBT compound) {
+        super.readAdditionalSaveData(compound);
         this.setHat(compound.getBoolean("HasHat"));
     }
 
@@ -73,6 +73,6 @@ public class TakaheEntity extends AnimalEntity {
     }
 
     public static boolean canTakaheSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
-        return worldIn.getBlockState(pos.down()).getBlock() == BorealisBlocks.lichen_block.get();
+        return worldIn.getBlockState(pos.below()).getBlock() == BorealisBlocks.lichen_block.get();
     }
 }

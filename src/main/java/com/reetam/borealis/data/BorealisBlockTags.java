@@ -28,7 +28,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
     }
 
     @Override
-    protected void registerTags() {
+    protected void addTags() {
         //mod
         tag(BorealisTags.Blocks.BASE_STONE_BOREALIS)
                 .add(BorealisBlocks.soapstone.get())
@@ -135,6 +135,6 @@ public class BorealisBlockTags extends BlockTagsProvider {
     }
 
     protected TagsProvider.Builder<Block> tag(ITag.INamedTag<Block> tag) {
-        return super.getOrCreateBuilder(tag);
+        return super.tag(tag);
     }
 }

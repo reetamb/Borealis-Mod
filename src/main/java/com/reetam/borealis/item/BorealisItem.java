@@ -11,12 +11,12 @@ public class BorealisItem extends Item {
 
     public BorealisItem() {
         super(new Properties()
-                .group(BorealisItemGroups.ITEMS_GROUP));
+                .tab(BorealisItemGroups.ITEMS_GROUP));
     }
 
     public BorealisItem(Rarity rarity) {
         super(new Properties()
-                .group(BorealisItemGroups.BLOCKS_GROUP)
+                .tab(BorealisItemGroups.BLOCKS_GROUP)
                 .rarity(rarity)
         );
     }
@@ -24,6 +24,6 @@ public class BorealisItem extends Item {
     public BorealisItem(Food food) {
         super(new Properties()
                 .food(food)
-                .group(BorealisItemGroups.BLOCKS_GROUP));
+                .tab(BorealisItemGroups.BLOCKS_GROUP));
     }
 }

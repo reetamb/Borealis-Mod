@@ -27,7 +27,7 @@ public class BorealisItemTags extends ItemTagsProvider {
     }
 
     @Override
-    protected void registerTags() {
+    protected void addTags() {
         //mod
         copy(BorealisTags.Blocks.BRUMAL_LOGS, BorealisTags.Items.BRUMAL_LOGS);
         copy(BorealisTags.Blocks.FROSTFIR_LOGS, BorealisTags.Items.FROSTFIR_LOGS);
@@ -108,6 +108,6 @@ public class BorealisItemTags extends ItemTagsProvider {
     }
 
     protected TagsProvider.Builder<Item> tag(ITag.INamedTag<Item> tag) {
-        return super.getOrCreateBuilder(tag);
+        return super.tag(tag);
     }
 }

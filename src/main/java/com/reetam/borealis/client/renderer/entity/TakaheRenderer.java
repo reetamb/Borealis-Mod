@@ -23,7 +23,7 @@ public class TakaheRenderer extends MobRenderer<TakaheEntity, TakaheModel<Takahe
     }
 
     @Override
-    public ResourceLocation getEntityTexture(TakaheEntity entity) {
+    public ResourceLocation getTextureLocation(TakaheEntity entity) {
         return TEXTURE;
     }
 }

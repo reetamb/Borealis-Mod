@@ -16,15 +16,15 @@ public class HatItem extends Item {
     /**
      * Returns true if the item can be used on the given entity, e.g. shears on sheep.
      */
-    public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity playerIn, LivingEntity target, Hand hand) {
+    public ActionResultType interactLivingEntity(ItemStack stack, PlayerEntity playerIn, LivingEntity target, Hand hand) {
         if (target instanceof TakaheEntity && target.isAlive()) {
             TakaheEntity takahe = (TakaheEntity) target;
             if (!takahe.getHat()) {
-                if (!playerIn.world.isRemote) {
+                if (!playerIn.level.isClientSide) {
                     takahe.setHat(true);
                     stack.shrink(1);
                 }
-                return ActionResultType.func_233537_a_(playerIn.world.isRemote);
+                return ActionResultType.sidedSuccess(playerIn.level.isClientSide);
             }
         }
         return ActionResultType.PASS;

@@ -19,30 +19,30 @@ public class ShrubFeature extends CoralShapeFeature {
         super(p_i231942_1_);
     }
 
-    protected boolean func_204623_a(IWorld world, Random rand, BlockPos pos, BlockState state) {
-        BlockPos.Mutable blockpos$mutable = pos.toMutable();
+    protected boolean placeFeature(IWorld world, Random rand, BlockPos pos, BlockState state) {
+        BlockPos.Mutable blockpos$mutable = pos.mutable();
         int i = rand.nextInt(3) + 1;
 
         for(int j = 0; j < i; ++j) {
-            if (!this.func_204624_b(world, rand, blockpos$mutable, state) || world.getBlockState(pos.down()).getBlock().isTransparent(world.getBlockState(pos.down()))) {
+            if (!this.placeCoralBlock(world, rand, blockpos$mutable, state) || world.getBlockState(pos.below()).getBlock().useShapeForLightOcclusion(world.getBlockState(pos.below()))) {
                 return true;
             }
 
             blockpos$mutable.move(Direction.UP);
         }
 
-        BlockPos blockpos = blockpos$mutable.toImmutable();
+        BlockPos blockpos = blockpos$mutable.immutable();
         int k = rand.nextInt(3) + 2;
         List<Direction> list = Lists.newArrayList(Direction.Plane.HORIZONTAL);
         Collections.shuffle(list, rand);
 
         for(Direction direction : list.subList(0, k)) {
-            blockpos$mutable.setPos(blockpos);
+            blockpos$mutable.set(blockpos);
             blockpos$mutable.move(direction);
             int l = rand.nextInt(5) + 2;
             int i1 = 0;
 
-            for(int j1 = 0; j1 < l && this.func_204624_b(world, rand, blockpos$mutable, state); ++j1) {
+            for(int j1 = 0; j1 < l && this.placeCoralBlock(world, rand, blockpos$mutable, state); ++j1) {
                 ++i1;
                 blockpos$mutable.move(Direction.UP);
                 if (j1 == 0 || i1 >= 2 && rand.nextFloat() < 0.25F) {

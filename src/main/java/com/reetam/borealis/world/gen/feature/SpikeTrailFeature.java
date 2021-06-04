@@ -16,12 +16,12 @@ public class SpikeTrailFeature extends Feature<NoFeatureConfig> {
         super(p_i231962_1_);
     }
 
-    public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         int xdir = rand.nextInt(3) - 1;
         int zdir = rand.nextInt(3) - 1;
         for (int i = 0; i < rand.nextInt(5)+5; i++) {
             pos = toGround(reader, pos);
-            if (!reader.getBlockState(pos).isTransparent()) {
+            if (!reader.getBlockState(pos).useShapeForLightOcclusion()) {
                 spikeAt(reader, pos);
             }
             pos = pos.west((rand.nextInt(3)+1)*xdir+1);
@@ -31,15 +31,15 @@ public class SpikeTrailFeature extends Feature<NoFeatureConfig> {
     }
 
     private void spikeAt(ISeedReader reader, BlockPos pos) {
-        reader.setBlockState(pos, BorealisBlocks.pumice.get().getDefaultState(), 19);
+        reader.setBlock(pos, BorealisBlocks.pumice.get().defaultBlockState(), 19);
 
-        reader.setBlockState(toGround(reader, pos.west()), BorealisBlocks.pumice.get().getDefaultState(), 19);
-        reader.setBlockState(toGround(reader, pos.north()), BorealisBlocks.pumice.get().getDefaultState(), 19);
-        reader.setBlockState(toGround(reader, pos.east()), BorealisBlocks.pumice.get().getDefaultState(), 19);
-        reader.setBlockState(toGround(reader, pos.south()), BorealisBlocks.pumice.get().getDefaultState(), 19);
+        reader.setBlock(toGround(reader, pos.west()), BorealisBlocks.pumice.get().defaultBlockState(), 19);
+        reader.setBlock(toGround(reader, pos.north()), BorealisBlocks.pumice.get().defaultBlockState(), 19);
+        reader.setBlock(toGround(reader, pos.east()), BorealisBlocks.pumice.get().defaultBlockState(), 19);
+        reader.setBlock(toGround(reader, pos.south()), BorealisBlocks.pumice.get().defaultBlockState(), 19);
 
-        reader.setBlockState(pos.up(), BorealisBlocks.pumice.get().getDefaultState(), 19);
-        reader.setBlockState(pos.up(2), BorealisBlocks.pumice_geyser.get().getDefaultState(), 19);
+        reader.setBlock(pos.above(), BorealisBlocks.pumice.get().defaultBlockState(), 19);
+        reader.setBlock(pos.above(2), BorealisBlocks.pumice_geyser.get().defaultBlockState(), 19);
     }
 
     private BlockPos toGround(ISeedReader reader, BlockPos pos) {

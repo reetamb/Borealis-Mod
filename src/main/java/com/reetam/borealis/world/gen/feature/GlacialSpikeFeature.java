@@ -18,17 +18,17 @@ public class GlacialSpikeFeature extends Feature<NoFeatureConfig> {
         super(p_i231962_1_);
     }
 
-    public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         pos = new BlockPos(pos.getX(), reader.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()), pos.getZ());
 
-        pos = pos.up(rand.nextInt(4));
+        pos = pos.above(rand.nextInt(4));
         int i = rand.nextInt(4) + 7;
         int j = i / 4 + rand.nextInt(2);
         if (j > 1 && rand.nextInt(60) == 0) {
-            pos = pos.up(10 + rand.nextInt(30));
+            pos = pos.above(10 + rand.nextInt(30));
         }
 
-        if (reader.getBlockState(pos.down().down()).getBlock() != Blocks.PACKED_ICE) {
+        if (reader.getBlockState(pos.below().below()).getBlock() != Blocks.PACKED_ICE) {
             return false;
         } else {
             for (int k = 0; k < i; ++k) {
@@ -41,17 +41,17 @@ public class GlacialSpikeFeature extends Feature<NoFeatureConfig> {
                     for (int j1 = -l; j1 <= l; ++j1) {
                         float f2 = (float) MathHelper.abs(j1) - 0.25F;
                         if ((i1 == 0 && j1 == 0 || !(f1 * f1 + f2 * f2 > f * f)) && (i1 != -l && i1 != l && j1 != -l && j1 != l || !(rand.nextFloat() > 0.75F))) {
-                            BlockState blockstate = reader.getBlockState(pos.add(i1, k, j1));
+                            BlockState blockstate = reader.getBlockState(pos.offset(i1, k, j1));
                             Block block = blockstate.getBlock();
-                            if (blockstate.isAir(reader, pos.add(i1, k, j1)) || isDirt(block) || block == Blocks.SNOW_BLOCK || block == Blocks.ICE) {
-                                this.setBlockState(reader, pos.add(i1, k, j1), Blocks.PACKED_ICE.getDefaultState());
+                            if (blockstate.isAir(reader, pos.offset(i1, k, j1)) || isDirt(block) || block == Blocks.SNOW_BLOCK || block == Blocks.ICE) {
+                                this.setBlock(reader, pos.offset(i1, k, j1), Blocks.PACKED_ICE.defaultBlockState());
                             }
 
                             if (k != 0 && l > 1) {
-                                blockstate = reader.getBlockState(pos.add(i1, -k, j1));
+                                blockstate = reader.getBlockState(pos.offset(i1, -k, j1));
                                 block = blockstate.getBlock();
-                                if (blockstate.isAir(reader, pos.add(i1, -k, j1)) || isDirt(block) || block == Blocks.SNOW_BLOCK || block == Blocks.ICE) {
-                                    this.setBlockState(reader, pos.add(i1, -k, j1), Blocks.PACKED_ICE.getDefaultState());
+                                if (blockstate.isAir(reader, pos.offset(i1, -k, j1)) || isDirt(block) || block == Blocks.SNOW_BLOCK || block == Blocks.ICE) {
+                                    this.setBlock(reader, pos.offset(i1, -k, j1), Blocks.PACKED_ICE.defaultBlockState());
                                 }
                             }
                         }

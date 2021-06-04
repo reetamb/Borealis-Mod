@@ -9,8 +9,8 @@ import com.reetam.borealis.BorealisMod;
 
 public class BorealisDimensions {
 
-    public static final RegistryKey<DimensionType> borealis = RegistryKey.getOrCreateKey(Registry.DIMENSION_TYPE_KEY, name("borealis"));
-    public static final RegistryKey<World> borealis_w = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, name("borealis"));
+    public static final RegistryKey<DimensionType> borealis = RegistryKey.create(Registry.DIMENSION_TYPE_REGISTRY, name("borealis"));
+    public static final RegistryKey<World> borealis_w = RegistryKey.create(Registry.DIMENSION_REGISTRY, name("borealis"));
 
     private static ResourceLocation name(String name) {
         return new ResourceLocation(BorealisMod.MODID, name);

@@ -13,14 +13,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class MismicMuskoxGlowLayer<T extends MismicMuskoxEntity, M extends MismicMuskoxModel<T>> extends AbstractEyesLayer<T, M> {
 
-    private static final RenderType TEXTURE = RenderType.getEyes(new ResourceLocation(BorealisMod.MODID, "textures/entity/mismic_muskox_glow.png"));
+    private static final RenderType TEXTURE = RenderType.eyes(new ResourceLocation(BorealisMod.MODID, "textures/entity/mismic_muskox_glow.png"));
 
     public MismicMuskoxGlowLayer(IEntityRenderer<T, M> rendererIn) {
         super(rendererIn);
     }
 
     @Override
-    public RenderType getRenderType() {
+    public RenderType renderType() {
         return TEXTURE;
     }
 }

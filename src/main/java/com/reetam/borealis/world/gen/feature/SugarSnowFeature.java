@@ -22,7 +22,7 @@ public class SugarSnowFeature extends Feature<NoFeatureConfig> {
         super(p_i231993_1_);
     }
 
-    public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
         BlockPos.Mutable blockpos$mutable1 = new BlockPos.Mutable();
 
@@ -31,15 +31,15 @@ public class SugarSnowFeature extends Feature<NoFeatureConfig> {
                 int k = pos.getX() + i;
                 int l = pos.getZ() + j;
                 int i1 = reader.getHeight(Heightmap.Type.MOTION_BLOCKING, k, l);
-                blockpos$mutable.setPos(k, i1, l);
-                blockpos$mutable1.setPos(blockpos$mutable).move(Direction.DOWN, 1);
+                blockpos$mutable.set(k, i1, l);
+                blockpos$mutable1.set(blockpos$mutable).move(Direction.DOWN, 1);
                 Biome biome = reader.getBiome(blockpos$mutable);
 
-                if (biome.doesSnowGenerate(reader, blockpos$mutable)) {
-                    reader.setBlockState(blockpos$mutable, BorealisBlocks.sugar_snow.get().getDefaultState(), 2);
+                if (biome.shouldSnow(reader, blockpos$mutable)) {
+                    reader.setBlock(blockpos$mutable, BorealisBlocks.sugar_snow.get().defaultBlockState(), 2);
                     BlockState blockstate = reader.getBlockState(blockpos$mutable1);
                     if (blockstate.hasProperty(BorealisGrassBlock.SUGARY)) {
-                        reader.setBlockState(blockpos$mutable1, blockstate.with(BorealisGrassBlock.SUGARY, Boolean.TRUE), 2);
+                        reader.setBlock(blockpos$mutable1, blockstate.setValue(BorealisGrassBlock.SUGARY, Boolean.TRUE), 2);
                     }
                 }
             }

@@ -10,7 +10,7 @@ import net.minecraft.util.LazyValue;
 
 public enum BorealisToolTiers implements IItemTier {
     TANZANITE(4, 1052, 7.0F, 3.0F, 20, () -> {
-        return Ingredient.fromItems(BorealisItems.tanzanite.get());
+        return Ingredient.of(BorealisItems.tanzanite.get());
     });
 
     private final int harvestLevel;
@@ -29,27 +29,27 @@ public enum BorealisToolTiers implements IItemTier {
         this.repairMaterial = new LazyValue<>(repairMaterialIn);
     }
 
-    public int getMaxUses() {
+    public int getUses() {
         return this.maxUses;
     }
 
-    public float getEfficiency() {
+    public float getSpeed() {
         return this.efficiency;
     }
 
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return this.attackDamage;
     }
 
-    public int getHarvestLevel() {
+    public int getLevel() {
         return this.harvestLevel;
     }
 
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
-    public Ingredient getRepairMaterial() {
-        return this.repairMaterial.getValue();
+    public Ingredient getRepairIngredient() {
+        return this.repairMaterial.get();
     }
 }

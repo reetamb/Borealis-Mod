@@ -20,42 +20,44 @@ import net.minecraft.world.server.ServerWorld;
 import java.util.Random;
 
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class PumiceGeyserBlock extends Block {
 
     Random random = new Random();
 
     public PumiceGeyserBlock() {
-        super(Properties.create(Material.ROCK)
-                .hardnessAndResistance(0.5F)
+        super(Properties.of(Material.STONE)
+                .strength(0.5F)
         );
     }
 
     @Override
     public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        if (worldIn.getBlockState(pos.up()).isAir()) {
+        if (worldIn.getBlockState(pos.above()).isAir()) {
             for (int i = 0; i < 10; i++) {
-                worldIn.addParticle(ParticleTypes.CLOUD, pos.getX()+0.5, pos.up().getY()+rand.nextFloat()-0.5, pos.getZ()+0.5, 0, rand.nextFloat()/3+0.15, 0);
+                worldIn.addParticle(ParticleTypes.CLOUD, pos.getX()+0.5, pos.above().getY()+rand.nextFloat()-0.5, pos.getZ()+0.5, 0, rand.nextFloat()/3+0.15, 0);
             }
         }
     }
 
-    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
+    public void stepOn(World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity) {
-            entityIn.setMotion(new Vector3d(entityIn.getMotion().getX(), entityIn.getMotion().getY() + random.nextInt(5), entityIn.getMotion().getZ()));
+            entityIn.setDeltaMovement(new Vector3d(entityIn.getDeltaMovement().x(), entityIn.getDeltaMovement().y() + random.nextInt(5), entityIn.getDeltaMovement().z()));
         }
 
-        super.onEntityWalk(worldIn, pos, entityIn);
+        super.stepOn(worldIn, pos, entityIn);
     }
 
     @Override
-    public boolean ticksRandomly(BlockState state) {
+    public boolean isRandomlyTicking(BlockState state) {
         return true;
     }
 
     @Override
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (worldIn.getBlockState(pos.up()).getBlock() == Blocks.SNOW) {
-            worldIn.setBlockState(pos.up(), Blocks.AIR.getDefaultState(), 19);
+        if (worldIn.getBlockState(pos.above()).getBlock() == Blocks.SNOW) {
+            worldIn.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), 19);
         }
     }
 }

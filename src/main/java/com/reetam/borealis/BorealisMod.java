@@ -49,14 +49,14 @@ public class BorealisMod {
         ClientProxy.registerBlockColors();
         ClientProxy.registerItemColors();
 
-        DimensionRenderInfo.field_239208_a_.put(BorealisDimensions.borealis.getLocation(), new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NONE, false, true) {
+        DimensionRenderInfo.EFFECTS.put(BorealisDimensions.borealis.location(), new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NONE, false, true) {
             @Override
-            public Vector3d func_230494_a_(Vector3d vector3d, float sun) {
+            public Vector3d getBrightnessDependentFogColor(Vector3d vector3d, float sun) {
                 return vector3d;
             }
 
             @Override
-            public boolean func_230493_a_(int x, int y) {
+            public boolean isFoggyAt(int x, int y) {
 //                assert Minecraft.getInstance().world != null;
 //                return Minecraft.getInstance().world.isNightTime();
                 return true;

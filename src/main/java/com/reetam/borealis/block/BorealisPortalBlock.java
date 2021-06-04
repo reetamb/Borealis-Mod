@@ -33,15 +33,17 @@ import com.reetam.borealis.world.BorealisTeleporter;
 import javax.annotation.Nullable;
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class BorealisPortalBlock extends Block {
 
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
+    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
 
     public BorealisPortalBlock() {
-        super(Properties.create(Material.PORTAL)
-                .hardnessAndResistance(-1F)
-                .doesNotBlockMovement()
-                .setLightLevel((state) -> 10)
+        super(Properties.of(Material.PORTAL)
+                .strength(-1F)
+                .noCollission()
+                .lightLevel((state) -> 10)
                 .noDrops()
         );
     }
@@ -49,7 +51,7 @@ public class BorealisPortalBlock extends Block {
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
         if (rand.nextInt(100) == 0) {
-            worldIn.playSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, BorealisSounds.BOREALIS_PORTAL_CHIME, SoundCategory.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
+            worldIn.playLocalSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, BorealisSounds.BOREALIS_PORTAL_CHIME, SoundCategory.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
         }
 
         double d0 = (double)pos.getX() + rand.nextDouble();
@@ -59,7 +61,7 @@ public class BorealisPortalBlock extends Block {
         double d4 = 0.1;
         double d5 = (rand.nextFloat()-0.5)/(rand.nextInt(8)+3);
         int j = rand.nextInt(2) * 2 - 1;
-        if (!worldIn.getBlockState(pos.west()).isIn(this) && !worldIn.getBlockState(pos.east()).isIn(this)) {
+        if (!worldIn.getBlockState(pos.west()).is(this) && !worldIn.getBlockState(pos.east()).is(this)) {
             d0 = (double)pos.getX() + 0.5D + 0.25D * (double)j;
             d3 = (rand.nextFloat() / 6) * j;
         } else {
@@ -77,41 +79,41 @@ public class BorealisPortalBlock extends Block {
     }
 
     public boolean makePortal(IWorld worldIn, BlockPos pos) {
-        worldIn.setBlockState(pos, BorealisBlocks.borealis_portal.get().getDefaultState(), 18);
+        worldIn.setBlock(pos, BorealisBlocks.borealis_portal.get().defaultBlockState(), 18);
 
-        worldIn.setBlockState(pos.west(), BorealisBlocks.borealis_portal.get().getDefaultState(), 18);
-        worldIn.setBlockState(pos.east(), BorealisBlocks.borealis_portal.get().getDefaultState(), 18);
-        worldIn.setBlockState(pos.south(), BorealisBlocks.borealis_portal.get().getDefaultState(), 18);
-        worldIn.setBlockState(pos.north(), BorealisBlocks.borealis_portal.get().getDefaultState(), 18);
+        worldIn.setBlock(pos.west(), BorealisBlocks.borealis_portal.get().defaultBlockState(), 18);
+        worldIn.setBlock(pos.east(), BorealisBlocks.borealis_portal.get().defaultBlockState(), 18);
+        worldIn.setBlock(pos.south(), BorealisBlocks.borealis_portal.get().defaultBlockState(), 18);
+        worldIn.setBlock(pos.north(), BorealisBlocks.borealis_portal.get().defaultBlockState(), 18);
 
-        if (worldIn.getBlockState(pos.west().down()).isAir()) {
-            worldIn.setBlockState(pos.west().down(), Blocks.PACKED_ICE.getDefaultState(), 18);
+        if (worldIn.getBlockState(pos.west().below()).isAir()) {
+            worldIn.setBlock(pos.west().below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
         }
-        if (worldIn.getBlockState(pos.east().down()).isAir()) {
-            worldIn.setBlockState(pos.east().down(), Blocks.PACKED_ICE.getDefaultState(), 18);
+        if (worldIn.getBlockState(pos.east().below()).isAir()) {
+            worldIn.setBlock(pos.east().below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
         }
-        if (worldIn.getBlockState(pos.south().down()).isAir()) {
-            worldIn.setBlockState(pos.south().down(), Blocks.PACKED_ICE.getDefaultState(), 18);
+        if (worldIn.getBlockState(pos.south().below()).isAir()) {
+            worldIn.setBlock(pos.south().below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
         }
-        if (worldIn.getBlockState(pos.north().down()).isAir()) {
-            worldIn.setBlockState(pos.north().down(), Blocks.PACKED_ICE.getDefaultState(), 18);
+        if (worldIn.getBlockState(pos.north().below()).isAir()) {
+            worldIn.setBlock(pos.north().below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
         }
-        if (worldIn.getBlockState(pos.down()).isAir()) {
-            worldIn.setBlockState(pos.down(), Blocks.PACKED_ICE.getDefaultState(), 18);
+        if (worldIn.getBlockState(pos.below()).isAir()) {
+            worldIn.setBlock(pos.below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
         }
-        if (worldIn.getBlockState(pos.down(2)).isAir()) {
-            worldIn.setBlockState(pos.down(2), Blocks.PACKED_ICE.getDefaultState(), 18);
+        if (worldIn.getBlockState(pos.below(2)).isAir()) {
+            worldIn.setBlock(pos.below(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
         }
 
-        worldIn.setBlockState(pos.west(2), Blocks.PACKED_ICE.getDefaultState(), 18);
-        worldIn.setBlockState(pos.north(2), Blocks.PACKED_ICE.getDefaultState(), 18);
-        worldIn.setBlockState(pos.east(2), Blocks.PACKED_ICE.getDefaultState(), 18);
-        worldIn.setBlockState(pos.south(2), Blocks.PACKED_ICE.getDefaultState(), 18);
+        worldIn.setBlock(pos.west(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
+        worldIn.setBlock(pos.north(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
+        worldIn.setBlock(pos.east(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
+        worldIn.setBlock(pos.south(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
 
-        worldIn.setBlockState(pos.west().north(), Blocks.PACKED_ICE.getDefaultState(), 18);
-        worldIn.setBlockState(pos.north().east(), Blocks.PACKED_ICE.getDefaultState(), 18);
-        worldIn.setBlockState(pos.east().south(), Blocks.PACKED_ICE.getDefaultState(), 18);
-        worldIn.setBlockState(pos.south().west(), Blocks.PACKED_ICE.getDefaultState(), 18);
+        worldIn.setBlock(pos.west().north(), Blocks.PACKED_ICE.defaultBlockState(), 18);
+        worldIn.setBlock(pos.north().east(), Blocks.PACKED_ICE.defaultBlockState(), 18);
+        worldIn.setBlock(pos.east().south(), Blocks.PACKED_ICE.defaultBlockState(), 18);
+        worldIn.setBlock(pos.south().west(), Blocks.PACKED_ICE.defaultBlockState(), 18);
 
         return true;
     }
@@ -158,26 +160,26 @@ public class BorealisPortalBlock extends Block {
 //    }
 
     @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entity) {
-        if(!entity.isPassenger() && !entity.isBeingRidden() && entity.isNonBoss()) {
-            if(entity.func_242280_ah()) {
-                entity.func_242279_ag();
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entity) {
+        if(!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions()) {
+            if(entity.isOnPortalCooldown()) {
+                entity.setPortalCooldown();
             }
             else {
-                if(!entity.world.isRemote && !pos.equals(entity.field_242271_ac)) {
-                    entity.field_242271_ac = pos.toImmutable();
+                if(!entity.level.isClientSide && !pos.equals(entity.portalEntrancePos)) {
+                    entity.portalEntrancePos = pos.immutable();
                 }
-                World entityWorld = entity.world;
+                World entityWorld = entity.level;
                 if(entityWorld != null) {
                     MinecraftServer minecraftserver = entityWorld.getServer();
-                    RegistryKey<World> destination = entity.world.getDimensionKey() == BorealisDimensions.borealis_w ? World.OVERWORLD : BorealisDimensions.borealis_w;
+                    RegistryKey<World> destination = entity.level.dimension() == BorealisDimensions.borealis_w ? World.OVERWORLD : BorealisDimensions.borealis_w;
                     if(minecraftserver != null) {
-                        ServerWorld destinationWorld = minecraftserver.getWorld(destination);
-                        if(destinationWorld != null && minecraftserver.getAllowNether() && !entity.isPassenger()) {
-                            entity.world.getProfiler().startSection("borealis_portal");
-                            entity.func_242279_ag();
+                        ServerWorld destinationWorld = minecraftserver.getLevel(destination);
+                        if(destinationWorld != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {
+                            entity.level.getProfiler().push("borealis_portal");
+                            entity.setPortalCooldown();
                             entity.changeDimension(destinationWorld, new BorealisTeleporter());
-                            entity.world.getProfiler().endSection();
+                            entity.level.getProfiler().pop();
                         }
                     }
                 }
@@ -186,7 +188,7 @@ public class BorealisPortalBlock extends Block {
     }
 
     @Override
-    public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(IBlockReader worldIn, BlockPos pos, BlockState state) {
         return ItemStack.EMPTY;
     }
 

@@ -20,7 +20,7 @@ archivesBaseName = 'borealis-'+project.mc_version
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'snapshot', version: project.mappings
+    mappings channel: 'official', version: project.mc_version
 
     runs {
         client {

@@ -23,7 +23,7 @@ public class MismicMuskoxRenderer extends MobRenderer<MismicMuskoxEntity, Mismic
     }
 
     @Override
-    public ResourceLocation getEntityTexture(MismicMuskoxEntity entity) {
+    public ResourceLocation getTextureLocation(MismicMuskoxEntity entity) {
         return TEXTURE;
     }
 }

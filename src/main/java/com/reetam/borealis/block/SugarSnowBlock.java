@@ -17,7 +17,7 @@ import net.minecraft.world.server.ServerWorld;
 import java.util.Random;
 
 public class SugarSnowBlock extends Block {
-    private final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
+    private final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
 
     public SugarSnowBlock(AbstractBlock.Properties properties) {
         super(properties);
@@ -32,28 +32,28 @@ public class SugarSnowBlock extends Block {
         return VoxelShapes.empty();
     }
 
-    public VoxelShape getCollisionShape(BlockState state, IBlockReader reader, BlockPos pos) {
+    public VoxelShape getBlockSupportShape(BlockState state, IBlockReader reader, BlockPos pos) {
         return SHAPE;
     }
 
-    public VoxelShape getRayTraceShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getVisualShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
         return SHAPE;
     }
 
-    public boolean isTransparent(BlockState state) {
+    public boolean useShapeForLightOcclusion(BlockState state) {
         return true;
     }
 
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (worldIn.getLightFor(LightType.BLOCK, pos) > 11) {
-            spawnDrops(state, worldIn, pos);
+        if (worldIn.getBrightness(LightType.BLOCK, pos) > 11) {
+            dropResources(state, worldIn, pos);
             worldIn.removeBlock(pos, false);
         }
 
     }
 
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockState blockstate = worldIn.getBlockState(pos.down());
-        return !blockstate.isTransparent() && !blockstate.isAir();
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockState blockstate = worldIn.getBlockState(pos.below());
+        return !blockstate.useShapeForLightOcclusion() && !blockstate.isAir();
     }
 }

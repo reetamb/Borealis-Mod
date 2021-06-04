@@ -17,27 +17,27 @@ public class HotSpringFeature extends Feature<NoFeatureConfig> {
             super(p_i231962_1_);
         }
 
-        public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-            pos = new BlockPos(pos.getX(), reader.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()), pos.getZ()).down();
+        public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+            pos = new BlockPos(pos.getX(), reader.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()), pos.getZ()).below();
 
-        BlockState state = BorealisBlocks.travertine.get().getDefaultState();
+        BlockState state = BorealisBlocks.travertine.get().defaultBlockState();
 
         int size = rand.nextInt(4) + 2;
         int yOffset = rand.nextInt(2);
 
         if (size >= 4) {
-            pos = pos.add(Math.round(rand.nextFloat()-0.5F * 8), 0, Math.round(rand.nextFloat()-0.5F * 8));
-            BlockPos pos1 = new BlockPos(pos.getX(), reader.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()), pos.getZ()).down();
-            diskAt(reader, pos1.down(), state, size-2);
+            pos = pos.offset(Math.round(rand.nextFloat()-0.5F * 8), 0, Math.round(rand.nextFloat()-0.5F * 8));
+            BlockPos pos1 = new BlockPos(pos.getX(), reader.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()), pos.getZ()).below();
+            diskAt(reader, pos1.below(), state, size-2);
             diskAt(reader, pos1, state, size-1);
-            diskAt(reader, pos1.up(), state, size-2);
+            diskAt(reader, pos1.above(), state, size-2);
 
-            diskAt(reader, pos1.up(), BorealisBlocks.hot_spring_water.get().getDefaultState(), size-3);
-            diskAt(reader, pos1, BorealisBlocks.hot_spring_water.get().getDefaultState(), size-2);
+            diskAt(reader, pos1.above(), BorealisBlocks.hot_spring_water.get().defaultBlockState(), size-3);
+            diskAt(reader, pos1, BorealisBlocks.hot_spring_water.get().defaultBlockState(), size-2);
         } else {
-            diskAt(reader, pos.down().up(yOffset), state, size);
-            diskAt(reader, pos.up(yOffset), state, size);
-            diskAt(reader, pos.up(yOffset), BorealisBlocks.hot_spring_water.get().getDefaultState(), size-1);
+            diskAt(reader, pos.below().above(yOffset), state, size);
+            diskAt(reader, pos.above(yOffset), state, size);
+            diskAt(reader, pos.above(yOffset), BorealisBlocks.hot_spring_water.get().defaultBlockState(), size-1);
         }
 
         return true;
@@ -50,7 +50,7 @@ public class HotSpringFeature extends Feature<NoFeatureConfig> {
                 int z1 = z - pos.getZ();
                 if (x1 * x1 + z1 * z1 <= (radius * (radius-1))) {
                     BlockPos blockpos = new BlockPos(x, pos.getY(), z);
-                    reader.setBlockState(blockpos, state, 2);
+                    reader.setBlock(blockpos, state, 2);
                 }
             }
         }

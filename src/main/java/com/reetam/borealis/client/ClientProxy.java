@@ -34,9 +34,9 @@ public class ClientProxy {
     }
 
     public static void registerBlockRenderers() {
-        RenderType cutout = RenderType.getCutout();
-        RenderType mipped = RenderType.getCutoutMipped();
-        RenderType translucent = RenderType.getTranslucent();
+        RenderType cutout = RenderType.cutout();
+        RenderType mipped = RenderType.cutoutMipped();
+        RenderType translucent = RenderType.translucent();
 
 
         render(BorealisBlocks.brumal_door, cutout);
@@ -68,7 +68,7 @@ public class ClientProxy {
         BlockColors colors = Minecraft.getInstance().getBlockColors();
 
         colors.register((state, world, pos, tint) ->
-                        world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : new Color(181, 202, 250).getRGB(),
+                        world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : new Color(181, 202, 250).getRGB(),
                 BorealisBlocks.lichen_block.get()
         );
     }
@@ -77,7 +77,7 @@ public class ClientProxy {
         BlockColors bColors = Minecraft.getInstance().getBlockColors();
         ItemColors iColors = Minecraft.getInstance().getItemColors();
 
-        iColors.register((stack, tint) -> bColors.getColor(((BlockItem) stack.getItem()).getBlock().getDefaultState(), null, null, 0),
+        iColors.register((stack, tint) -> bColors.getColor(((BlockItem) stack.getItem()).getBlock().defaultBlockState(), null, null, 0),
                 BorealisBlocks.lichen_block.get()
         );
 

@@ -21,7 +21,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
     }
 
     @Override
-    protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
         Block[] soapstone_stonecuts = new Block[]{
                 BorealisBlocks.soapstone_bricks.get(),
                 BorealisBlocks.soapstone_tiles.get(),
@@ -97,56 +97,56 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         doStone(consumer, BorealisBlocks.soapstone, BorealisBlocks.soapstone_stairs, BorealisBlocks.soapstone_slab, BorealisBlocks.soapstone_wall);
         doStone(consumer, BorealisBlocks.soapstone_bricks, BorealisBlocks.soapstone_brick_stairs, BorealisBlocks.soapstone_brick_slab, BorealisBlocks.soapstone_brick_wall);
         doStone(consumer, BorealisBlocks.soapstone_tiles, BorealisBlocks.soapstone_tile_stairs, BorealisBlocks.soapstone_tile_slab, BorealisBlocks.soapstone_tile_wall);
-        stone(BorealisBlocks.soapstone, BorealisBlocks.soapstone_bricks).build(consumer);
-        stone(BorealisBlocks.soapstone_bricks, BorealisBlocks.soapstone_tiles).build(consumer);
+        stone(BorealisBlocks.soapstone, BorealisBlocks.soapstone_bricks).save(consumer);
+        stone(BorealisBlocks.soapstone_bricks, BorealisBlocks.soapstone_tiles).save(consumer);
         bulkStonecutting(consumer, BorealisBlocks.soapstone, soapstone_stonecuts);
         bulkStonecutting(consumer, BorealisBlocks.soapstone_bricks, brick_stonecuts);
         bulkStonecutting(consumer, BorealisBlocks.soapstone_tiles, tile_stonecuts);
-        ShapedRecipeBuilder.shapedRecipe(BorealisItems.hat.get())
-                .patternLine(" # ")
-                .patternLine(" 0 ")
-                .patternLine("###")
-                .key('#', Blocks.BLACK_WOOL)
-                .key('0', Blocks.WHITE_WOOL)
-                .addCriterion("has_" + Blocks.BLACK_WOOL.getRegistryName().getPath(), hasItem(Blocks.BLACK_WOOL)).build(consumer);
-        ShapedRecipeBuilder.shapedRecipe(BorealisItems.moon_pearl.get())
-                .patternLine("000")
-                .patternLine("0#0")
-                .patternLine("000")
-                .key('0', Items.LAPIS_LAZULI)
-                .key('#', Items.SNOWBALL)
-                .addCriterion("has_" + Items.LAPIS_LAZULI, hasItem(Items.LAPIS_LAZULI)).build(consumer);
-        ShapedRecipeBuilder.shapedRecipe(BorealisBlocks.slate_pillar.get())
-                .patternLine("#")
-                .patternLine("#")
-                .patternLine("#")
-                .key('#', BorealisBlocks.slate.get())
-                .addCriterion(has(BorealisBlocks.slate), hasItem(BorealisBlocks.slate.get()));
-        stone(BorealisBlocks.slate, BorealisBlocks.slate_tiles).build(consumer);
+        ShapedRecipeBuilder.shaped(BorealisItems.hat.get())
+                .pattern(" # ")
+                .pattern(" 0 ")
+                .pattern("###")
+                .define('#', Blocks.BLACK_WOOL)
+                .define('0', Blocks.WHITE_WOOL)
+                .unlockedBy("has_" + Blocks.BLACK_WOOL.getRegistryName().getPath(), has(Blocks.BLACK_WOOL)).save(consumer);
+        ShapedRecipeBuilder.shaped(BorealisItems.moon_pearl.get())
+                .pattern("000")
+                .pattern("0#0")
+                .pattern("000")
+                .define('0', Items.LAPIS_LAZULI)
+                .define('#', Items.SNOWBALL)
+                .unlockedBy("has_" + Items.LAPIS_LAZULI, has(Items.LAPIS_LAZULI)).save(consumer);
+        ShapedRecipeBuilder.shaped(BorealisBlocks.slate_pillar.get())
+                .pattern("#")
+                .pattern("#")
+                .pattern("#")
+                .define('#', BorealisBlocks.slate.get())
+                .unlockedBy(has(BorealisBlocks.slate), has(BorealisBlocks.slate.get()));
+        stone(BorealisBlocks.slate, BorealisBlocks.slate_tiles).save(consumer);
         bulkStonecutting(consumer, BorealisBlocks.slate, slate_stonecuts);
     }
 
     public void bulkWood(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn) {
-        ShapelessRecipeBuilder.shapelessRecipe(plankIn.get(), 4)
-                .addIngredient(logIn.get())
-                .addCriterion(has(logIn), hasItem(logIn.get()))
-                .build(consumer, name(plankIn));
+        ShapelessRecipeBuilder.shapeless(plankIn.get(), 4)
+                .requires(logIn.get())
+                .unlockedBy(has(logIn), has(logIn.get()))
+                .save(consumer, name(plankIn));
 
-        wood(logIn, woodIn).build(consumer, name(woodIn));
-        wood(stripLogIn, stripWoodIn).build(consumer, name(stripWoodIn));
-        stairs(plankIn, stairsIn).build(consumer, name(stairsIn));
-        slab(plankIn, slabIn).build(consumer, name(slabIn));
-        fence(plankIn, fenceIn).build(consumer, name(fenceIn));
-        gate(plankIn, gateIn).build(consumer, name(gateIn));
-        button(plankIn, buttonIn).build(consumer, name(buttonIn));
-        plate(plankIn, plateIn).build(consumer, name(plateIn));
-        door(plankIn, doorIn).build(consumer, name(doorIn));
-        trapdoor(plankIn, trapdoorIn).build(consumer, name(trapdoorIn));
+        wood(logIn, woodIn).save(consumer, name(woodIn));
+        wood(stripLogIn, stripWoodIn).save(consumer, name(stripWoodIn));
+        stairs(plankIn, stairsIn).save(consumer, name(stairsIn));
+        slab(plankIn, slabIn).save(consumer, name(slabIn));
+        fence(plankIn, fenceIn).save(consumer, name(fenceIn));
+        gate(plankIn, gateIn).save(consumer, name(gateIn));
+        button(plankIn, buttonIn).save(consumer, name(buttonIn));
+        plate(plankIn, plateIn).save(consumer, name(plateIn));
+        door(plankIn, doorIn).save(consumer, name(doorIn));
+        trapdoor(plankIn, trapdoorIn).save(consumer, name(trapdoorIn));
     }
 
     public void doStone(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> wallIn) {
-        stairs(stoneIn, stairsIn).build(consumer, name(stairsIn));
-        slab(stoneIn, slabIn).build(consumer, name(slabIn));
-        wall(stoneIn, wallIn).build(consumer, name(wallIn));
+        stairs(stoneIn, stairsIn).save(consumer, name(stairsIn));
+        slab(stoneIn, slabIn).save(consumer, name(slabIn));
+        wall(stoneIn, wallIn).save(consumer, name(wallIn));
     }
 }

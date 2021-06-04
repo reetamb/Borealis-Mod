@@ -16,15 +16,15 @@ public abstract class CoralShapeFeature extends Feature<BlockStateFeatureConfig>
         super(p_i231940_1_);
     }
 
-    public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, BlockStateFeatureConfig config) {
+    public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, BlockStateFeatureConfig config) {
         BlockState blockstate = config.state;
-        return this.func_204623_a(reader, rand, pos, blockstate);
+        return this.placeFeature(reader, rand, pos, blockstate);
     }
 
-    protected abstract boolean func_204623_a(IWorld world, Random rand, BlockPos pos, BlockState state);
+    protected abstract boolean placeFeature(IWorld world, Random rand, BlockPos pos, BlockState state);
 
-    protected boolean func_204624_b(IWorld world, Random rand, BlockPos pos, BlockState state) {
-        world.setBlockState(pos, state, 3);
+    protected boolean placeCoralBlock(IWorld world, Random rand, BlockPos pos, BlockState state) {
+        world.setBlock(pos, state, 3);
 
 //        for(Direction direction : Direction.Plane.HORIZONTAL) {
 //            if (rand.nextFloat() < 0.2F) {

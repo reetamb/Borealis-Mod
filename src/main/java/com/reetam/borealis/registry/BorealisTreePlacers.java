@@ -19,14 +19,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BorealisTreePlacers {
     public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACERS = DeferredRegister.create(ForgeRegistries.FOLIAGE_PLACER_TYPES, BorealisMod.MODID);
 
-    public static final RegistryObject<FoliagePlacerType<FoliagePlacer>> PALM_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("palm_foliage_placer", () -> new FoliagePlacerType(PalmFoliagePlacer.field_236790_a_));
-    public static final RegistryObject<FoliagePlacerType<FoliagePlacer>> ASPEN_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("aspen_foliage_placer", () -> new FoliagePlacerType(AspenFoliagePlacer.field_236790_a_));
-    public static final RegistryObject<FoliagePlacerType<FoliagePlacer>> HELIX_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("helix_foliage_placer", () -> new FoliagePlacerType(HelixFoliagePlacer.field_236790_a_));
+    public static final RegistryObject<FoliagePlacerType<FoliagePlacer>> PALM_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("palm_foliage_placer", () -> new FoliagePlacerType(PalmFoliagePlacer.CODEC));
+    public static final RegistryObject<FoliagePlacerType<FoliagePlacer>> ASPEN_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("aspen_foliage_placer", () -> new FoliagePlacerType(AspenFoliagePlacer.CODEC));
+    public static final RegistryObject<FoliagePlacerType<FoliagePlacer>> HELIX_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("helix_foliage_placer", () -> new FoliagePlacerType(HelixFoliagePlacer.CODEC));
 
     public static final TrunkPlacerType<RootedTrunkPlacer> ROOTED_TRUNK_PLACER = register("rooted_trunk_placer", RootedTrunkPlacer.CODEC);
 
     private static <P extends AbstractTrunkPlacer> TrunkPlacerType<P> register(String name, Codec<P> codec) {
-        return Registry.register(Registry.TRUNK_REPLACER, new ResourceLocation(BorealisMod.MODID, name), new TrunkPlacerType<>(codec));
+        return Registry.register(Registry.TRUNK_PLACER_TYPES, new ResourceLocation(BorealisMod.MODID, name), new TrunkPlacerType<>(codec));
     }
 }
 

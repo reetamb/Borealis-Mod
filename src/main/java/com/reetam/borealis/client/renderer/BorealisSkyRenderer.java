@@ -36,82 +36,82 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
 
     @Override
     public void render(int ticks, float partialTicks, MatrixStack matrix, ClientWorld world, Minecraft mc) {
-        WorldRenderer renderer = mc.worldRenderer;
+        WorldRenderer renderer = mc.levelRenderer;
 
         RenderSystem.disableTexture();
-        Vector3d skycol = world.getSkyColor(mc.gameRenderer.getActiveRenderInfo().getBlockPos(), partialTicks);
+        Vector3d skycol = world.getSkyColor(mc.gameRenderer.getMainCamera().getBlockPosition(), partialTicks);
         float sRed = (float) skycol.x;
         float sGreen = (float) skycol.y;
         float sBlue = (float) skycol.z;
-        FogRenderer.applyFog();
-        BufferBuilder bufferbuilder = Tessellator.getInstance().getBuffer();
+        FogRenderer.levelFogColor();
+        BufferBuilder bufferbuilder = Tessellator.getInstance().getBuilder();
         RenderSystem.depthMask(false);
         RenderSystem.enableFog();
         RenderSystem.color3f(sRed, sGreen, sBlue);
-        renderer.skyVBO.bindBuffer();
+        renderer.skyBuffer.bind();
         this.vertexBufferFormat.setupBufferState(0L);
-        renderer.skyVBO.draw(matrix.getLast().getMatrix(), 7);
-        VertexBuffer.unbindBuffer();
+        renderer.skyBuffer.draw(matrix.last().pose(), 7);
+        VertexBuffer.unbind();
         this.vertexBufferFormat.clearBufferState();
         RenderSystem.disableFog();
         RenderSystem.disableAlphaTest();
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
-        float[] setcol = world.func_239132_a_().func_230492_a_(world.func_242415_f(partialTicks), partialTicks);
+        float[] setcol = world.effects().getSunriseColor(world.getTimeOfDay(partialTicks), partialTicks);
         if (setcol != null) {
             RenderSystem.disableTexture();
             RenderSystem.shadeModel(7425);
-            matrix.push();
-            matrix.rotate(Vector3f.XP.rotationDegrees(90.0F));
-            float f3 = MathHelper.sin(world.getCelestialAngleRadians(partialTicks)) < 0.0F ? 180.0F : 0.0F;
-            matrix.rotate(Vector3f.ZP.rotationDegrees(f3));
-            matrix.rotate(Vector3f.ZP.rotationDegrees(90.0F));
+            matrix.pushPose();
+            matrix.mulPose(Vector3f.XP.rotationDegrees(90.0F));
+            float f3 = MathHelper.sin(world.getSunAngle(partialTicks)) < 0.0F ? 180.0F : 0.0F;
+            matrix.mulPose(Vector3f.ZP.rotationDegrees(f3));
+            matrix.mulPose(Vector3f.ZP.rotationDegrees(90.0F));
             float ssRed = setcol[0];
             float ssGreen = setcol[1];
             float ssBlue = setcol[2];
-            Matrix4f matrix4f = matrix.getLast().getMatrix();
+            Matrix4f matrix4f = matrix.last().pose();
             bufferbuilder.begin(6, DefaultVertexFormats.POSITION_COLOR);
-            bufferbuilder.pos(matrix4f, 0.0F, 100.0F, 0.0F).color(ssRed, ssGreen, ssBlue, setcol[3]).endVertex();
+            bufferbuilder.vertex(matrix4f, 0.0F, 100.0F, 0.0F).color(ssRed, ssGreen, ssBlue, setcol[3]).endVertex();
 
             for (int j = 0; j <= 16; ++j) {
                 float f7 = (float) j * ((float) Math.PI * 2F) / 16.0F;
                 float f8 = MathHelper.sin(f7);
                 float f9 = MathHelper.cos(f7);
-                bufferbuilder.pos(matrix4f, f8 * 120.0F, f9 * 120.0F, -f9 * 40.0F * setcol[3]).color(setcol[0], setcol[1], setcol[2], 0.0F).endVertex();
+                bufferbuilder.vertex(matrix4f, f8 * 120.0F, f9 * 120.0F, -f9 * 40.0F * setcol[3]).color(setcol[0], setcol[1], setcol[2], 0.0F).endVertex();
             }
 
-            bufferbuilder.finishDrawing();
-            WorldVertexBufferUploader.draw(bufferbuilder);
-            matrix.pop();
+            bufferbuilder.end();
+            WorldVertexBufferUploader.end(bufferbuilder);
+            matrix.popPose();
             RenderSystem.shadeModel(7424);
         }
 
         RenderSystem.enableTexture();
         RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-        matrix.push();
-        matrix.rotate(Vector3f.YP.rotationDegrees(-90.0F));
-        matrix.rotate(Vector3f.XP.rotationDegrees(world.func_242415_f(partialTicks) * 360.0F));
-        Matrix4f matrix4f1 = matrix.getLast().getMatrix();
+        matrix.pushPose();
+        matrix.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
+        matrix.mulPose(Vector3f.XP.rotationDegrees(world.getTimeOfDay(partialTicks) * 360.0F));
+        Matrix4f matrix4f1 = matrix.last().pose();
 
         //Sun
         float f12 = 30.0F;
-        renderer.textureManager.bindTexture(SUN_TEXTURES);
+        renderer.textureManager.bind(SUN_TEXTURES);
         bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
-        bufferbuilder.pos(matrix4f1, -f12, 100.0F, -f12).tex(0.0F, 0.0F).endVertex();
-        bufferbuilder.pos(matrix4f1, f12, 100.0F, -f12).tex(1.0F, 0.0F).endVertex();
-        bufferbuilder.pos(matrix4f1, f12, 100.0F, f12).tex(1.0F, 1.0F).endVertex();
-        bufferbuilder.pos(matrix4f1, -f12, 100.0F, f12).tex(0.0F, 1.0F).endVertex();
-        bufferbuilder.finishDrawing();
-        WorldVertexBufferUploader.draw(bufferbuilder);
+        bufferbuilder.vertex(matrix4f1, -f12, 100.0F, -f12).uv(0.0F, 0.0F).endVertex();
+        bufferbuilder.vertex(matrix4f1, f12, 100.0F, -f12).uv(1.0F, 0.0F).endVertex();
+        bufferbuilder.vertex(matrix4f1, f12, 100.0F, f12).uv(1.0F, 1.0F).endVertex();
+        bufferbuilder.vertex(matrix4f1, -f12, 100.0F, f12).uv(0.0F, 1.0F).endVertex();
+        bufferbuilder.end();
+        WorldVertexBufferUploader.end(bufferbuilder);
 
         RenderSystem.disableTexture();
         float f10 = this.getStarBrightness(world, partialTicks);
         if (f10 > 0.0F) {
             RenderSystem.color4f(f10, f10, f10, f10);
-            this.starVBO.bindBuffer();
+            this.starVBO.bind();
             this.vertexBufferFormat.setupBufferState(0L);
-            this.starVBO.draw(matrix.getLast().getMatrix(), 7);
-            VertexBuffer.unbindBuffer();
+            this.starVBO.draw(matrix.last().pose(), 7);
+            VertexBuffer.unbind();
             this.vertexBufferFormat.clearBufferState();
         }
 
@@ -119,19 +119,19 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
         RenderSystem.disableBlend();
         RenderSystem.enableAlphaTest();
         RenderSystem.enableFog();
-        matrix.pop();
+        matrix.popPose();
         RenderSystem.disableTexture();
         RenderSystem.color3f(0.0F, 0.0F, 0.0F);
-        double x = mc.player.getEyePosition(partialTicks).y - world.getWorldInfo().getVoidFogHeight();
+        double x = mc.player.getEyePosition(partialTicks).y - world.getLevelData().getHorizonHeight();
         if (x < 0.0D) {
-            matrix.push();
+            matrix.pushPose();
             matrix.translate(0.0D, 12.0D, 0.0D);
-            renderer.sky2VBO.bindBuffer();
+            renderer.darkBuffer.bind();
             this.vertexBufferFormat.setupBufferState(0L);
-            renderer.sky2VBO.draw(matrix.getLast().getMatrix(), 7);
-            VertexBuffer.unbindBuffer();
+            renderer.darkBuffer.draw(matrix.last().pose(), 7);
+            VertexBuffer.unbind();
             this.vertexBufferFormat.clearBufferState();
-            matrix.pop();
+            matrix.popPose();
         }
 
         RenderSystem.color3f(sRed * 0.2F + 0.04F, sGreen * 0.2F + 0.04F, sBlue * 0.2F + 0.04F);
@@ -142,7 +142,7 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
 
     private void generateStars() {
         Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder bufferbuilder = tessellator.getBuffer();
+        BufferBuilder bufferbuilder = tessellator.getBuilder();
         if (this.starVBO != null) {
             this.starVBO.close();
         }
@@ -186,12 +186,12 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
                     double d24 = 0.0D * d12 - d21 * d13;
                     double d25 = d24 * d9 - d22 * d10;
                     double d26 = d22 * d9 + d24 * d10;
-                    bufferbuilder.pos(xPos + d25, yPos + d23, zPos + d26).endVertex();
+                    bufferbuilder.vertex(xPos + d25, yPos + d23, zPos + d26).endVertex();
                 }
             }
         }
 
-        bufferbuilder.finishDrawing();
+        bufferbuilder.end();
         this.starVBO.upload(bufferbuilder);
     }
 

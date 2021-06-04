@@ -16,12 +16,12 @@ public class BorealisEntities {
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, BorealisMod.MODID);
 
-    public static final EntityType<HummingbirdEntity> hummingbird = EntityType.Builder.<HummingbirdEntity>create(HummingbirdEntity::new, EntityClassification.CREATURE)
-            .size(0.9F, 0.9F).trackingRange(10).build("hummingbird");
-    public static final EntityType<TakaheEntity> takahe = EntityType.Builder.<TakaheEntity>create(TakaheEntity::new, EntityClassification.CREATURE)
-            .size(0.8F, 0.8F).trackingRange(10).build("takahe");
-    public static final EntityType<MismicMuskoxEntity> mismic_muskox = EntityType.Builder.<MismicMuskoxEntity>create(MismicMuskoxEntity::new, EntityClassification.CREATURE)
-            .size(1.0F, 1.4F).trackingRange(10).build("mismic_muskox");
+    public static final EntityType<HummingbirdEntity> hummingbird = EntityType.Builder.<HummingbirdEntity>of(HummingbirdEntity::new, EntityClassification.CREATURE)
+            .sized(0.9F, 0.9F).clientTrackingRange(10).build("hummingbird");
+    public static final EntityType<TakaheEntity> takahe = EntityType.Builder.<TakaheEntity>of(TakaheEntity::new, EntityClassification.CREATURE)
+            .sized(0.8F, 0.8F).clientTrackingRange(10).build("takahe");
+    public static final EntityType<MismicMuskoxEntity> mismic_muskox = EntityType.Builder.<MismicMuskoxEntity>of(MismicMuskoxEntity::new, EntityClassification.CREATURE)
+            .sized(1.0F, 1.4F).clientTrackingRange(10).build("mismic_muskox");
 
     public static final RegistryObject<EntityType<HummingbirdEntity>> HUMMINGBIRD = ENTITIES.register(
             "hummingbird", () -> hummingbird);
@@ -37,8 +37,8 @@ public class BorealisEntities {
     }
 
     public static void entityAttributes() {
-        GlobalEntityTypeAttributes.put(HUMMINGBIRD.get(), HummingbirdEntity.registerAttributes().create());
-        GlobalEntityTypeAttributes.put(TAKAHE.get(), TakaheEntity.registerAttributes().create());
-        GlobalEntityTypeAttributes.put(MISMIC_MUSKOX.get(), MismicMuskoxEntity.registerAttributes().create());
+        GlobalEntityTypeAttributes.put(HUMMINGBIRD.get(), HummingbirdEntity.registerAttributes().build());
+        GlobalEntityTypeAttributes.put(TAKAHE.get(), TakaheEntity.registerAttributes().build());
+        GlobalEntityTypeAttributes.put(MISMIC_MUSKOX.get(), MismicMuskoxEntity.registerAttributes().build());
     }
 }
