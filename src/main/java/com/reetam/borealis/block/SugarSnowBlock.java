@@ -4,6 +4,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -52,8 +53,20 @@ public class SugarSnowBlock extends Block {
 
     }
 
-    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockState blockstate = worldIn.getBlockState(pos.below());
-        return !blockstate.useShapeForLightOcclusion() && !blockstate.isAir();
+    public boolean canSurvive(BlockState state, IWorldReader world, BlockPos pos) {
+        BlockState blockstate = world.getBlockState(pos.below());
+        if (!blockstate.is(Blocks.ICE) && !blockstate.is(Blocks.PACKED_ICE) && !blockstate.is(Blocks.BARRIER)) {
+            if (!blockstate.is(Blocks.HONEY_BLOCK) && !blockstate.is(Blocks.SOUL_SAND)) {
+                return Block.isFaceFull(blockstate.getCollisionShape(world, pos.below()), Direction.UP) || blockstate.getBlock() == this;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public boolean canBeReplaced(BlockState state, BlockItemUseContext context) {
+        return context.getItemInHand().getItem() != this.asItem();
     }
 }

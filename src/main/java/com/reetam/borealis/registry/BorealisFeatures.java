@@ -51,7 +51,7 @@ public class BorealisFeatures {
                         new SimpleBlockStateProvider(BorealisBlocks.frostfir_log.get().defaultBlockState()),
                         new SimpleBlockStateProvider(BorealisBlocks.frostfir_leaves.get().defaultBlockState()),
                         new SpruceFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), FeatureSpread.fixed(2)),
-                        new StraightTrunkPlacer(10, 2, 2),
+                        new StraightTrunkPlacer(8, 2, 2),
                         new TwoLayerFeature(1, 0, 1)))
                         .ignoreVines().build()).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(8))));
 
@@ -64,21 +64,12 @@ public class BorealisFeatures {
                         new TwoLayerFeature(1, 0, 1)))
                 .ignoreVines().build()).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1))));
 
-        register("geyser", borealis_tree.get().configured(
-                (new BaseTreeFeatureConfig.Builder(
-                        new SimpleBlockStateProvider(BorealisBlocks.pumice_geyser.get().defaultBlockState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.pumice.get().defaultBlockState()),
-                        new BushFoliagePlacer(FeatureSpread.fixed(1), FeatureSpread.fixed(1), 2),
-                        new StraightTrunkPlacer(1, 0, 0),
-                        new TwoLayerFeature(0, 0, 0)))
-                        .heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build()).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
-
         register("brumal_tree", borealis_tree.get().configured(
                 (new BaseTreeFeatureConfig.Builder(
                         new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().defaultBlockState()),
                         new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().defaultBlockState()),
                         new PalmFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), FeatureSpread.fixed(2)),
-                        new RootedTrunkPlacer(5, 2, 2),
+                        new RootedTrunkPlacer(4, 2, 2),
                         new TwoLayerFeature(1, 0, 1)))
                         .ignoreVines().build()).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(2))));
 
@@ -87,7 +78,7 @@ public class BorealisFeatures {
                         new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().defaultBlockState()),
                         new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().defaultBlockState()),
                         new PalmFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), FeatureSpread.fixed(2)),
-                        new RootedTrunkPlacer(10, 2, 2),
+                        new RootedTrunkPlacer(6, 2, 2),
                         new TwoLayerFeature(1, 0, 1)))
                         .ignoreVines().build()).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1))));
 
@@ -96,7 +87,7 @@ public class BorealisFeatures {
                         new SimpleBlockStateProvider(BorealisBlocks.saccharine_log.get().defaultBlockState()),
                         new SimpleBlockStateProvider(BorealisBlocks.saccharine_leaves.get().defaultBlockState()),
                         new AspenFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), FeatureSpread.fixed(2)),
-                        new StraightTrunkPlacer(8, 2, 2),
+                        new StraightTrunkPlacer(5, 2, 2),
                         new TwoLayerFeature(1, 0, 1)))
                         .ignoreVines().build()).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1))));
 
@@ -105,7 +96,7 @@ public class BorealisFeatures {
                                 new BlobReplacementConfig(BorealisBlocks.permafrost.get().defaultBlockState(),
                                         BorealisBlocks.permafrost_rubble.get().defaultBlockState(),
                                         FeatureSpread.of(3, 4))).range(128)
-                                .squared().count(25));
+                                .squared().count(10));
 
         register("cloud",
                 Feature.ORE.configured(
@@ -119,20 +110,15 @@ public class BorealisFeatures {
         register("glacial_spike", glacial_spike.get().configured(IFeatureConfig.NONE)
                 .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(3))));
 
-        register("sugar_claw", claw.get().configured(new BlockStateFeatureConfig(BorealisBlocks.saccharine_wood.get().defaultBlockState()))
-                .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1))));
-        register("sugar_shrub", shrub.get().configured(new BlockStateFeatureConfig(BorealisBlocks.saccharine_wood.get().defaultBlockState()))
-                .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1))));
-
         register("hot_spring", hot_spring.get().configured(IFeatureConfig.NONE)
-                .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1)).chance(2)));
+                .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(2)).chance(2)));
 
-        register(
-                "sprinkle_top_layer", sugar_snow.get().configured(
-                        IFeatureConfig.NONE));
+        register("sprinkle_top_layer", sugar_snow.get().configured(IFeatureConfig.NONE));
 
         register("spike_trail", spike_trail.get().configured(IFeatureConfig.NONE)
                 .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1))));
+
+        // add cyanocoral features to hot springs to act as a shrub-like space filler
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {

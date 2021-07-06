@@ -19,13 +19,11 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.*;
-import net.minecraft.loot.conditions.ILootCondition;
-import net.minecraft.loot.conditions.KilledByPlayer;
-import net.minecraft.loot.conditions.MatchTool;
-import net.minecraft.loot.conditions.RandomChance;
+import net.minecraft.loot.conditions.*;
 import net.minecraft.loot.functions.ExplosionDecay;
 import net.minecraft.loot.functions.LootingEnchantBonus;
 import net.minecraft.loot.functions.SetCount;
+import net.minecraft.loot.functions.Smelt;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 
@@ -38,7 +36,6 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@SuppressWarnings("unused")
 public class BorealisLootTables extends LootTableProvider {
 
     private static final ILootCondition.IBuilder SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1))));
@@ -61,7 +58,7 @@ public class BorealisLootTables extends LootTableProvider {
 
     @Override
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
-        return ImmutableList.of(Pair.of(Blocks::new, LootParameterSets.BLOCK)/*, Pair.of(Entities::new, LootParameterSets.ENTITY)*/);
+        return ImmutableList.of(Pair.of(Blocks::new, LootParameterSets.BLOCK), Pair.of(Entities::new, LootParameterSets.ENTITY));
     }
 
     @Override
@@ -192,6 +189,17 @@ public class BorealisLootTables extends LootTableProvider {
                                             .apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F))))
                                     .add(ItemLootEntry.lootTableItem(Items.CHICKEN)
                                         .apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F))))
+                            ));
+            this.add(
+                    BorealisEntities.MISMIC_MUSKOX.get(),
+                    LootTable.lootTable().withPool
+                            (LootPool.lootPool().setRolls(ConstantRange.exactly(1))
+                                    .add(ItemLootEntry.lootTableItem(net.minecraft.block.Blocks.WHITE_WOOL.asItem())
+                                            .apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F))))
+                                    .add(ItemLootEntry.lootTableItem(Items.BEEF)
+                                            .apply(SetCount.setCount(RandomValueRange.between(1.0F, 3.0F)))
+                                            .apply(Smelt.smelted().when(EntityHasProperty.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE)))
+                                            .apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F))))
                             ));
         }
 

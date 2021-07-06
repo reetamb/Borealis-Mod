@@ -1,5 +1,6 @@
 package com.reetam.borealis.data;
 
+import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.data.provider.BorealisRecipeProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
@@ -131,6 +132,10 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 .requires(logIn.get())
                 .unlockedBy(has(logIn), has(logIn.get()))
                 .save(consumer, name(plankIn));
+        ShapelessRecipeBuilder.shapeless(plankIn.get(), 4)
+                .requires(woodIn.get())
+                .unlockedBy(has(woodIn), has(woodIn.get()))
+                .save(consumer, name(plankIn).toString().substring(BorealisMod.MODID.length()+1) + "_from_" + name(woodIn).toString().substring(BorealisMod.MODID.length()+1));
 
         wood(logIn, woodIn).save(consumer, name(woodIn));
         wood(stripLogIn, stripWoodIn).save(consumer, name(stripWoodIn));
