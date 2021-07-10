@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:brumal_planks_from_brumal_wood"
+      "borealis:frostfir_planks_from_frostfir_wood"
     ]
   },
   "criteria": {
-    "has_brumal_wood": {
+    "has_frostfir_wood": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "borealis:brumal_wood"
+            "item": "borealis:frostfir_wood"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:brumal_planks_from_brumal_wood"
+        "recipe": "borealis:frostfir_planks_from_frostfir_wood"
       }
     }
   },
   "requirements": [
     [
-      "has_brumal_wood",
+      "has_frostfir_wood",
       "has_the_recipe"
     ]
   ]

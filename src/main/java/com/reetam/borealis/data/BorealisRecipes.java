@@ -135,7 +135,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         ShapelessRecipeBuilder.shapeless(plankIn.get(), 4)
                 .requires(woodIn.get())
                 .unlockedBy(has(woodIn), has(woodIn.get()))
-                .save(consumer, name(plankIn).toString().substring(BorealisMod.MODID.length()+1) + "_from_" + name(woodIn).toString().substring(BorealisMod.MODID.length()+1));
+                .save(consumer, name(plankIn) + "_from_" + name(woodIn).toString().substring(BorealisMod.MODID.length()+1));
 
         wood(logIn, woodIn).save(consumer, name(woodIn));
         wood(stripLogIn, stripWoodIn).save(consumer, name(stripWoodIn));

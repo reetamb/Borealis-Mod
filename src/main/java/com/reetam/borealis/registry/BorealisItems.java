@@ -63,10 +63,10 @@ public class BorealisItems {
                     new Item.Properties().tab(Groups.BOREALIS_ITEMS)));
     
     public static class Groups {
-        public static final ItemGroup BOREALIS_ITEMS = new ItemGroup("kyanite") {
+        public static final ItemGroup BOREALIS_ITEMS = new ItemGroup("borealis") {
             @Override
             public ItemStack makeIcon() {
-                return new ItemStack(BorealisBlocks.soapstone.get());
+                return new ItemStack(BorealisItems.kyanite_crystal.get());
             }
         };
     }

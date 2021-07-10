@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:saccharine_planks_from_saccharine_wood"
+      "borealis:brumal_planks_from_brumal_wood"
     ]
   },
   "criteria": {
-    "has_saccharine_wood": {
+    "has_brumal_wood": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "borealis:saccharine_wood"
+            "item": "borealis:brumal_wood"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:saccharine_planks_from_saccharine_wood"
+        "recipe": "borealis:brumal_planks_from_brumal_wood"
       }
     }
   },
   "requirements": [
     [
-      "has_saccharine_wood",
+      "has_brumal_wood",
       "has_the_recipe"
     ]
   ]
