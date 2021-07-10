@@ -1,7 +1,7 @@
 {   "parent": "block/thin_block",
     "textures": {
-        "particle": "borealis:block/sugar_snow",
-        "texture": "borealis:block/sugar_snow"
+        "particle": "borealis:block/sugar_snow_block",
+        "texture": "borealis:block/sugar_snow_block"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

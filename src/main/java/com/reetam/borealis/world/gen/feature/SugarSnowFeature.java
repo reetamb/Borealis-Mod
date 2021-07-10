@@ -1,13 +1,9 @@
 package com.reetam.borealis.world.gen.feature;
 
 import com.mojang.serialization.Codec;
-import java.util.Random;
-
-import com.reetam.borealis.block.BorealisGrassBlock;
+import com.reetam.borealis.block.PermafrostBlock;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SnowyDirtBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -16,6 +12,8 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+
+import java.util.Random;
 
 public class SugarSnowFeature extends Feature<NoFeatureConfig> {
     public SugarSnowFeature(Codec<NoFeatureConfig> p_i231993_1_) {
@@ -35,12 +33,8 @@ public class SugarSnowFeature extends Feature<NoFeatureConfig> {
                 blockpos$mutable1.set(blockpos$mutable).move(Direction.DOWN, 1);
                 Biome biome = reader.getBiome(blockpos$mutable);
 
-                if (biome.shouldSnow(reader, blockpos$mutable)) {
+                if (biome.shouldSnow(reader, blockpos$mutable) && biome.getRegistryName().toString().contains("saccharine_hills")) {
                     reader.setBlock(blockpos$mutable, BorealisBlocks.sugar_snow.get().defaultBlockState(), 2);
-                    BlockState blockstate = reader.getBlockState(blockpos$mutable1);
-                    if (blockstate.hasProperty(BorealisGrassBlock.SUGARY)) {
-                        reader.setBlock(blockpos$mutable1, blockstate.setValue(BorealisGrassBlock.SUGARY, Boolean.TRUE), 2);
-                    }
                 }
             }
         }

@@ -1,0 +1,18 @@
+{
+  "type": "borealis:deep_top",
+  "config": {
+    "top_material": {
+      "Name": "borealis:living_snow_block"
+    },
+    "under_material": {
+      "Name": "borealis:permafrost",
+      "Properties": {
+        "snowy": "false",
+        "sugary": "false"
+      }
+    },
+    "underwater_material": {
+      "Name": "borealis:permafrost_rubble"
+    }
+  }
+}

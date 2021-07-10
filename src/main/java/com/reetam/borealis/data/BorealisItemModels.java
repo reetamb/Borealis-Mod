@@ -84,7 +84,8 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.saccharine_trapdoor, "saccharine_trapdoor_bottom");
         itemBlock(BorealisBlocks.saccharine_button, "saccharine_button_inventory");
         itemBlock(BorealisBlocks.saccharine_pressure_plate);
-        itemBlock(BorealisBlocks.lichen_block);
+        itemBlock(BorealisBlocks.living_snow_block);
+        itemBlock(BorealisBlocks.sugar_snow_block);
         itemBlock(BorealisBlocks.permafrost);
         itemBlock(BorealisBlocks.permafrost_rubble);
         itemBlock(BorealisBlocks.cloud);

@@ -40,14 +40,13 @@ public class BorealisMod {
         BorealisItems.ITEMS.register(bus);
         BorealisFeatures.FEATURES.register(bus);
         BorealisSounds.SOUND_EVENTS.register(bus);
-        BorealisTreePlacers.FOLIAGE_PLACERS.register(bus);
+        BorealisFeatures.TreePlacers.FOLIAGE_PLACERS.register(bus);
+        BorealisFeatures.SurfaceBuilders.SURFACE_BUILDERS.register(bus);
     }
 
     public void clientSetup(FMLClientSetupEvent event) {
         ClientProxy.registerBlockRenderers();
         ClientProxy.registerEntityRenderers();
-        ClientProxy.registerBlockColors();
-        ClientProxy.registerItemColors();
 
         DimensionRenderInfo.EFFECTS.put(BorealisDimensions.borealis.location(), new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NONE, false, true) {
             @Override

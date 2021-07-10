@@ -2,9 +2,8 @@ package com.reetam.borealis.world.gen.foliageplacer;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.reetam.borealis.registry.BorealisTreePlacers;
+import com.reetam.borealis.registry.BorealisFeatures;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
@@ -34,7 +33,7 @@ public class HelixFoliagePlacer extends FoliagePlacer {
     }
 
     protected FoliagePlacerType<?> type() {
-        return BorealisTreePlacers.HELIX_FOLIAGE_PLACER.get();
+        return BorealisFeatures.TreePlacers.HELIX_FOLIAGE_PLACER.get();
     }
     protected void createFoliage(IWorldGenerationReader reader, Random random, BaseTreeFeatureConfig config, int p_230372_4_, FoliagePlacer.Foliage foliage, int foliageBottomHeight, int p_230372_7_, Set<BlockPos> p_230372_8_, int foliageTopHeight, MutableBoundingBox boundingBox) {
         BlockPos blockpos = foliage.foliagePos();

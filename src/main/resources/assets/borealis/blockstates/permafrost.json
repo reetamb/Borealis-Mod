@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "snowy=false,sugary=false": {
+      "model": "borealis:block/permafrost"
+    },
+    "snowy=true,sugary=false": {
+      "model": "borealis:block/snowy_permafrost"
+    },
+    "snowy=false,sugary=true": {
+      "model": "borealis:block/sugary_permafrost"
+    },
+    "snowy=true,sugary=true": {
+      "model": "borealis:block/sugary_permafrost"
+    }
+  }
+}

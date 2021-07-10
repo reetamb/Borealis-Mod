@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "borealis:lichen_block"
+              "name": "borealis:living_snow_block"
             },
             {
               "type": "minecraft:item",
@@ -33,7 +33,7 @@
                   "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "borealis:permafrost"
+              "name": "minecraft:snow_block"
             }
           ]
         }

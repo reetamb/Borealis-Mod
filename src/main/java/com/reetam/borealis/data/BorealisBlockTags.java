@@ -56,6 +56,13 @@ public class BorealisBlockTags extends BlockTagsProvider {
         tag(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)
                 .add(Blocks.SNOW)
                 .add(BorealisBlocks.sugar_snow.get());
+        tag(BorealisTags.Blocks.SNOWY_BLOCKS)
+                .add(Blocks.SNOW)
+                .add(Blocks.SNOW_BLOCK)
+                .add(BorealisBlocks.living_snow_block.get());
+        tag(BorealisTags.Blocks.SUGARY_BLOCKS)
+                .add(BorealisBlocks.sugar_snow.get())
+                .add(BorealisBlocks.sugar_snow_block.get());
         //vanilla
         tag(BlockTags.PLANKS)
                 .add(BorealisBlocks.brumal_planks.get())
@@ -90,7 +97,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .addTag(BorealisTags.Blocks.FROSTFIR_LOGS)
                 .addTag(BorealisTags.Blocks.SACCHARINE_LOGS);
         tag(BlockTags.ENDERMAN_HOLDABLE)
-                .add(BorealisBlocks.lichen_block.get());
+                .add(BorealisBlocks.living_snow_block.get())
+                .add(BorealisBlocks.sugar_snow_block.get());
         tag(BlockTags.WOODEN_PRESSURE_PLATES)
                 .add(BorealisBlocks.brumal_pressure_plate.get())
                 .add(BorealisBlocks.frostfir_pressure_plate.get())
@@ -118,7 +126,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.soapstone.get())
                 .add(BorealisBlocks.slate.get());
         tag(Tags.Blocks.DIRT)
-                .add(BorealisBlocks.lichen_block.get())
+                .add(BorealisBlocks.living_snow_block.get())
+                .add(BorealisBlocks.sugar_snow_block.get())
                 .add(BorealisBlocks.permafrost.get())
                 .add(BorealisBlocks.permafrost_rubble.get());
         tag(Tags.Blocks.FENCE_GATES_WOODEN)

@@ -98,7 +98,7 @@
           }
         },
         {
-          "biome": "borealis:saccharine_flats",
+          "biome": "borealis:saccharine_hills",
           "parameters": {
             "altitude": 0.1,
             "weirdness": 0.25,

@@ -2,6 +2,7 @@ package com.reetam.borealis.data;
 
 import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -40,8 +41,8 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.slate_tiles);
         block(BorealisBlocks.pumice);
         block(BorealisBlocks.travertine);
-        //block(BorealisBlocks.lichen_block);
-        block(BorealisBlocks.permafrost);
+        block(BorealisBlocks.living_snow_block);
+        block(BorealisBlocks.sugar_snow_block);
         block(BorealisBlocks.permafrost_rubble);
         block(BorealisBlocks.cloud);
         wood();

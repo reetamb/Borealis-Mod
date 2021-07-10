@@ -5,7 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.Random;
 import java.util.Set;
 
-import com.reetam.borealis.registry.BorealisTreePlacers;
+import com.reetam.borealis.registry.BorealisFeatures;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.gen.IWorldGenerationReader;
@@ -28,7 +28,7 @@ public class PalmFoliagePlacer extends FoliagePlacer {
     }
 
     protected FoliagePlacerType<?> type() {
-        return BorealisTreePlacers.PALM_FOLIAGE_PLACER.get();
+        return BorealisFeatures.TreePlacers.PALM_FOLIAGE_PLACER.get();
     }
 
     protected void createFoliage(IWorldGenerationReader reader, Random random, BaseTreeFeatureConfig config, int p_230372_4_, FoliagePlacer.Foliage foliage, int foliageBottomHeight, int p_230372_7_, Set<BlockPos> p_230372_8_, int foliageTopHeight, MutableBoundingBox boundingBox) {

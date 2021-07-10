@@ -17,6 +17,7 @@ import net.minecraft.data.loot.EntityLootTables;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.*;
 import net.minecraft.loot.conditions.*;
@@ -135,7 +136,8 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.saccharine_trapdoor);
             dropSelf(BorealisBlocks.saccharine_button);
             dropSelf(BorealisBlocks.saccharine_pressure_plate);
-            dropWithSilk(BorealisBlocks.lichen_block, BorealisBlocks.permafrost);
+            dropWithSilk(BorealisBlocks.living_snow_block, () -> net.minecraft.block.Blocks.SNOW_BLOCK);
+            dropSelf(BorealisBlocks.sugar_snow_block);
             dropSelf(BorealisBlocks.permafrost);
             dropSelf(BorealisBlocks.travertine);
             this.add(BorealisBlocks.permafrost_rubble.get(),

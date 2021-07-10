@@ -35,7 +35,6 @@ public class ClientProxy {
 
     public static void registerBlockRenderers() {
         RenderType cutout = RenderType.cutout();
-        RenderType mipped = RenderType.cutoutMipped();
         RenderType translucent = RenderType.translucent();
 
 
@@ -46,9 +45,6 @@ public class ClientProxy {
         render(BorealisBlocks.saccharine_door, cutout);
         render(BorealisBlocks.saccharine_trapdoor, cutout);
 
-
-        render(BorealisBlocks.lichen_block, mipped);
-
         render(BorealisBlocks.hot_spring_water, translucent);
         RenderTypeLookup.setRenderLayer(BorealisFluids.hot_spring_water_flowing.get(), translucent);
         RenderTypeLookup.setRenderLayer(BorealisFluids.hot_spring_water_source.get(), translucent);
@@ -57,36 +53,8 @@ public class ClientProxy {
     }
 
     public static void registerEntityRenderers() {
-        ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-
         RenderingRegistry.registerEntityRenderingHandler(BorealisEntities.HUMMINGBIRD.get(), HummingbirdRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(BorealisEntities.TAKAHE.get(), TakaheRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(BorealisEntities.MISMIC_MUSKOX.get(), MismicMuskoxRenderer::new);
-    }
-
-    public static void registerBlockColors() {
-        BlockColors colors = Minecraft.getInstance().getBlockColors();
-
-        colors.register((state, world, pos, tint) ->
-                        world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : new Color(181, 202, 250).getRGB(),
-                BorealisBlocks.lichen_block.get()
-        );
-    }
-
-    public static void registerItemColors() {
-        BlockColors bColors = Minecraft.getInstance().getBlockColors();
-        ItemColors iColors = Minecraft.getInstance().getItemColors();
-
-        iColors.register((stack, tint) -> bColors.getColor(((BlockItem) stack.getItem()).getBlock().defaultBlockState(), null, null, 0),
-                BorealisBlocks.lichen_block.get()
-        );
-
-        iColors.register((stack, tint) -> {
-                    if(tint == 0) {
-                        return new Color(181, 202, 250).getRGB();
-                    }
-                    return -1;
-                }
-        );
     }
 }

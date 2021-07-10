@@ -4,12 +4,10 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.BorealisBlocks;
-import com.reetam.borealis.registry.BorealisTreePlacers;
-import net.minecraft.block.BlockState;
+import com.reetam.borealis.registry.BorealisFeatures;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IBlockReader;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
@@ -31,7 +29,7 @@ public class RootedTrunkPlacer extends AbstractTrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-        return BorealisTreePlacers.ROOTED_TRUNK_PLACER;
+        return BorealisFeatures.TreePlacers.ROOTED_TRUNK_PLACER;
     }
 
     @Override
@@ -43,10 +41,10 @@ public class RootedTrunkPlacer extends AbstractTrunkPlacer {
         BlockPos pos1 = pos;
 
         for (int i = 1; i <= rootSplay; i++) {
-            reader.setBlock(pos1.below().north(i), BorealisBlocks.lichen_block.get().defaultBlockState(), 19);
-            reader.setBlock(pos1.below().east(i), BorealisBlocks.lichen_block.get().defaultBlockState(), 19);
-            reader.setBlock(pos1.below().south(i), BorealisBlocks.lichen_block.get().defaultBlockState(), 19);
-            reader.setBlock(pos1.below().west(i), BorealisBlocks.lichen_block.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below().north(i), BorealisBlocks.living_snow_block.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below().east(i), BorealisBlocks.living_snow_block.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below().south(i), BorealisBlocks.living_snow_block.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below().west(i), BorealisBlocks.living_snow_block.get().defaultBlockState(), 19);
 
             reader.setBlock(pos1.below(2).north(i), BorealisBlocks.permafrost.get().defaultBlockState(), 19);
             reader.setBlock(pos1.below(2).east(i), BorealisBlocks.permafrost.get().defaultBlockState(), 19);

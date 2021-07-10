@@ -99,12 +99,12 @@ public class BorealisBlocks {
     public static final RegistryObject<Block> tanzanite_ore = registerBlock("tanzanite_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
     public static final RegistryObject<Block> tanzanite_block = registerBlock("tanzanite_block", () -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
 
-    public static final RegistryObject<Block> lichen_block = registerBlock("lichen_block", () -> new LichenBlock(AbstractBlock.Properties.copy(Blocks.GRASS_BLOCK).harvestTool(ToolType.SHOVEL)));
-    public static final RegistryObject<Block> permafrost = registerBlock("permafrost", () -> new PermafrostBlock(AbstractBlock.Properties.copy(lichen_block.get()).sound(SoundType.GRAVEL)));
+    public static final RegistryObject<Block> permafrost = registerBlock("permafrost", () -> new PermafrostBlock(AbstractBlock.Properties.copy(Blocks.DIRT).sound(SoundType.GRAVEL)));
     public static final RegistryObject<Block> permafrost_rubble = registerBlock("permafrost_rubble", () -> new Block(AbstractBlock.Properties.copy(Blocks.COARSE_DIRT).harvestTool(ToolType.SHOVEL)));
-
-    public static final RegistryObject<Block> cloud = registerBlock("cloud", () -> new CloudBlock(AbstractBlock.Properties.copy(Blocks.WHITE_WOOL)));
+    public static final RegistryObject<Block> living_snow_block = registerBlock("living_snow_block", () -> new LivingSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW_BLOCK)));
+    public static final RegistryObject<Block> sugar_snow_block = registerBlock("sugar_snow_block", () -> new LivingSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW_BLOCK)));
     public static final RegistryObject<Block> sugar_snow = registerBlock("sugar_snow", () -> new SugarSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW)));
+    public static final RegistryObject<Block> cloud = registerBlock("cloud", () -> new CloudBlock(AbstractBlock.Properties.copy(Blocks.WHITE_WOOL)));
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);
@@ -117,6 +117,6 @@ public class BorealisBlocks {
     }
 
     private static <T extends Block> Supplier<BlockItem> registerBlockItem(final RegistryObject<T> block) {
-        return () -> new BlockItem(Objects.requireNonNull(block.get()), new Item.Properties().tab(BorealisItemGroups.BLOCKS_GROUP));
+        return () -> new BlockItem(Objects.requireNonNull(block.get()), new Item.Properties().tab(BorealisItems.Groups.BOREALIS_ITEMS));
     }
 }

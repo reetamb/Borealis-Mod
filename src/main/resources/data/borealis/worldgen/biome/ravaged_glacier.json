@@ -28,7 +28,11 @@
         "Name": "minecraft:packed_ice"
       },
       "under_material": {
-        "Name": "borealis:permafrost"
+        "Name": "borealis:permafrost",
+        "Properties": {
+          "snowy": "false",
+          "sugary": "false"
+        }
       },
       "underwater_material": {
         "Name": "borealis:soapstone"

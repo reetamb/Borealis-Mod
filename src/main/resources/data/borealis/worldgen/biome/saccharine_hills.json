@@ -21,24 +21,7 @@
       "probability": 0.1
     }
   },
-  "surface_builder": {
-    "type": "default",
-    "config": {
-      "top_material": {
-        "Name": "borealis:lichen_block",
-        "Properties": {
-          "snowy": "false",
-          "sugary": "false"
-        }
-      },
-      "under_material": {
-        "Name": "borealis:permafrost"
-      },
-      "underwater_material": {
-        "Name": "borealis:soapstone"
-      }
-    }
-  },
+  "surface_builder": "borealis:deep_sugar_snow",
   "carvers": {},
   "features": [
     [],
