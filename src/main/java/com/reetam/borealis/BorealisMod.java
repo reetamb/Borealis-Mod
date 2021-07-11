@@ -67,6 +67,7 @@ public class BorealisMod {
         BorealisEntities.entityAttributes();
         BorealisEntities.spawnPlacements();
         BorealisFeatures.registerConfiguredFeatures();
+        BorealisDimensions.registerDimensionGenerators();
     }
 
     public void gatherData(GatherDataEvent event) {

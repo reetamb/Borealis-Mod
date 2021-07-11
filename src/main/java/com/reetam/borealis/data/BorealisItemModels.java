@@ -101,14 +101,5 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         egg(BorealisItems.mismic_muskox_spawn_egg);
         normalItem(BorealisItems.hat);
         normalItem(BorealisItems.tanzanite);
-        normalItem(BorealisItems.tanzanite_helmet);
-        normalItem(BorealisItems.tanzanite_chestplate);
-        normalItem(BorealisItems.tanzanite_leggings);
-        normalItem(BorealisItems.tanzanite_boots);
-        toolItem(BorealisItems.tanzanite_sword);
-        toolItem(BorealisItems.tanzanite_axe);
-        toolItem(BorealisItems.tanzanite_pickaxe);
-        toolItem(BorealisItems.tanzanite_shovel);
-        toolItem(BorealisItems.tanzanite_hoe);
     }
 }

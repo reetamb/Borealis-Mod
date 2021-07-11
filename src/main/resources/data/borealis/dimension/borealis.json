@@ -1,8 +1,7 @@
 {
   "type": "borealis:borealis",
   "generator": {
-    "type": "minecraft:noise",
-    "seed": 0,
+    "type": "borealis:chunk_generator",
     "settings": {
       "bedrock_roof_position": -10,
       "bedrock_floor_position": -10,
@@ -54,8 +53,7 @@
       }
     },
     "biome_source": {
-      "seed": 0,
-      "type": "minecraft:multi_noise",
+      "type": "borealis:biome_provider",
       "biomes": [
         {
           "biome": "borealis:boreal_tundra",
