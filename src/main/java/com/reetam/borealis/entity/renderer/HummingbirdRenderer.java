@@ -1,4 +1,4 @@
-package com.reetam.borealis.client.renderer.entity;
+package com.reetam.borealis.entity.renderer;
 
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.client.model.HummingbirdModel;
+import com.reetam.borealis.entity.model.HummingbirdModel;
 import com.reetam.borealis.entity.HummingbirdEntity;
 
 @OnlyIn(Dist.CLIENT)

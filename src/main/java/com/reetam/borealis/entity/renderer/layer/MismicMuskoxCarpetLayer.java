@@ -1,8 +1,8 @@
-package com.reetam.borealis.client.renderer.layer;
+package com.reetam.borealis.entity.renderer.layer;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.client.model.MismicMuskoxModel;
+import com.reetam.borealis.entity.model.MismicMuskoxModel;
 import com.reetam.borealis.entity.MismicMuskoxEntity;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.IEntityRenderer;

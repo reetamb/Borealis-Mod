@@ -15,11 +15,7 @@ import java.util.function.Supplier;
 
 public class BorealisTiers {
 
-    public enum Armor implements IArmorMaterial {
-
-        TANZANITE(BorealisMod.MODID + ":tanzanite", 33, new int[]{2, 5, 7, 2}, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> {
-            return Ingredient.of(BorealisItems.tanzanite.get());
-        });
+    public enum Armor implements IArmorMaterial {;
 
         private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
         private final String name;
@@ -79,10 +75,7 @@ public class BorealisTiers {
         }
     }
 
-    public enum Tools implements IItemTier {
-        TANZANITE(4, 1052, 7.0F, 3.0F, 20, () -> {
-            return Ingredient.of(BorealisItems.tanzanite.get());
-        });
+    public enum Tools implements IItemTier {;
 
         private final int harvestLevel;
         private final int maxUses;

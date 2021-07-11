@@ -1,9 +1,9 @@
-package com.reetam.borealis.client.renderer.entity;
+package com.reetam.borealis.entity.renderer;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.client.model.TakaheModel;
-import com.reetam.borealis.client.renderer.layer.TakaheCrestLayer;
-import com.reetam.borealis.client.renderer.layer.TakaheHatLayer;
+import com.reetam.borealis.entity.model.TakaheModel;
+import com.reetam.borealis.entity.renderer.layer.TakaheCrestLayer;
+import com.reetam.borealis.entity.renderer.layer.TakaheHatLayer;
 import com.reetam.borealis.entity.TakaheEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;

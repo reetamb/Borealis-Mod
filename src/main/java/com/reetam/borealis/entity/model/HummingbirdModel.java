@@ -1,4 +1,4 @@
-package com.reetam.borealis.client.model;
+package com.reetam.borealis.entity.model;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;

@@ -1,9 +1,9 @@
-package com.reetam.borealis.client.renderer.entity;
+package com.reetam.borealis.entity.renderer;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.client.model.MismicMuskoxModel;
-import com.reetam.borealis.client.renderer.layer.MismicMuskoxCarpetLayer;
-import com.reetam.borealis.client.renderer.layer.MismicMuskoxGlowLayer;
+import com.reetam.borealis.entity.model.MismicMuskoxModel;
+import com.reetam.borealis.entity.renderer.layer.MismicMuskoxCarpetLayer;
+import com.reetam.borealis.entity.renderer.layer.MismicMuskoxGlowLayer;
 import com.reetam.borealis.entity.MismicMuskoxEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;

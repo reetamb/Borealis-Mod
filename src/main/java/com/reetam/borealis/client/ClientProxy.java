@@ -1,28 +1,19 @@
 package com.reetam.borealis.client;
 
-import com.reetam.borealis.block.BorealisPortalBlock;
-import com.reetam.borealis.client.renderer.entity.HummingbirdRenderer;
-import com.reetam.borealis.client.renderer.entity.MismicMuskoxRenderer;
-import com.reetam.borealis.client.renderer.entity.TakaheRenderer;
+import com.reetam.borealis.entity.renderer.HummingbirdRenderer;
+import com.reetam.borealis.entity.renderer.MismicMuskoxRenderer;
+import com.reetam.borealis.entity.renderer.TakaheRenderer;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisFluids;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.color.BlockColors;
-import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.item.BlockItem;
-import net.minecraft.world.biome.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RenderBlockOverlayEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import com.reetam.borealis.registry.BorealisBlocks;
 
-import java.awt.*;
 import java.util.function.Supplier;
 
 @OnlyIn(Dist.CLIENT)

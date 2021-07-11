@@ -32,35 +32,6 @@ public class BorealisItems {
     public static final RegistryObject<Item> hat = ITEMS.register("hat", () -> new HatItem(new Item.Properties().tab(Groups.BOREALIS_ITEMS).stacksTo(1)));
 
     public static final RegistryObject<Item> tanzanite = ITEMS.register("tanzanite", BaseItem::new);
-
-    public static final RegistryObject<ArmorItem> tanzanite_helmet = ITEMS.register("tanzanite_helmet",
-            () -> new ArmorItem(BorealisTiers.Armor.TANZANITE, EquipmentSlotType.HEAD,
-                    new Item.Properties().tab(Groups.BOREALIS_ITEMS)));
-    public static final RegistryObject<ArmorItem> tanzanite_chestplate = ITEMS.register("tanzanite_chestplate",
-            () -> new ArmorItem(BorealisTiers.Armor.TANZANITE, EquipmentSlotType.CHEST,
-                    new Item.Properties().tab(Groups.BOREALIS_ITEMS)));
-    public static final RegistryObject<ArmorItem> tanzanite_leggings = ITEMS.register("tanzanite_leggings",
-            () -> new ArmorItem(BorealisTiers.Armor.TANZANITE, EquipmentSlotType.LEGS,
-                    new Item.Properties().tab(Groups.BOREALIS_ITEMS)));
-    public static final RegistryObject<ArmorItem> tanzanite_boots = ITEMS.register("tanzanite_boots",
-            () -> new ArmorItem(BorealisTiers.Armor.TANZANITE, EquipmentSlotType.FEET,
-                    new Item.Properties().tab(Groups.BOREALIS_ITEMS)));
-
-    public static final RegistryObject<SwordItem> tanzanite_sword = ITEMS.register("tanzanite_sword",
-            () -> new SwordItem(BorealisTiers.Tools.TANZANITE, 2, -2.4F,
-                    new Item.Properties().tab(Groups.BOREALIS_ITEMS)));
-    public static final RegistryObject<AxeItem> tanzanite_axe = ITEMS.register("tanzanite_axe",
-            () -> new AxeItem(BorealisTiers.Tools.TANZANITE, 5.5F, -3.0F,
-                    new Item.Properties().tab(Groups.BOREALIS_ITEMS)));
-    public static final RegistryObject<PickaxeItem> tanzanite_pickaxe = ITEMS.register("tanzanite_pickaxe",
-            () -> new PickaxeItem(BorealisTiers.Tools.TANZANITE, 1, -2.9F,
-                    new Item.Properties().tab(Groups.BOREALIS_ITEMS)));
-    public static final RegistryObject<ShovelItem> tanzanite_shovel = ITEMS.register("tanzanite_shovel",
-            () -> new ShovelItem(BorealisTiers.Tools.TANZANITE, 1.5F, -3.0F,
-                    new Item.Properties().tab(Groups.BOREALIS_ITEMS)));
-    public static final RegistryObject<HoeItem> tanzanite_hoe = ITEMS.register("tanzanite_hoe",
-            () -> new HoeItem(BorealisTiers.Tools.TANZANITE, -3, 0.0F,
-                    new Item.Properties().tab(Groups.BOREALIS_ITEMS)));
     
     public static class Groups {
         public static final ItemGroup BOREALIS_ITEMS = new ItemGroup("borealis") {

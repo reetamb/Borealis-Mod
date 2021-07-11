@@ -1,6 +1,5 @@
 package com.reetam.borealis.registry;
 
-import com.reetam.borealis.client.model.MismicMuskoxModel;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
