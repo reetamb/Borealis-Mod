@@ -1,0 +1,10 @@
+{
+  "blocks.borealis_portal": {
+    "sounds": [
+      {
+        "name": "borealis:blocks/borealis_portal",
+        "stream": false
+      }
+    ]
+  }
+}

@@ -1,15 +1,19 @@
 package com.reetam.borealis.client;
 
+import com.reetam.borealis.block.tileentities.TanzaniteBlockTileEntity;
 import com.reetam.borealis.entity.renderer.HummingbirdRenderer;
 import com.reetam.borealis.entity.renderer.MismicMuskoxRenderer;
 import com.reetam.borealis.entity.renderer.TakaheRenderer;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisFluids;
+import com.reetam.borealis.registry.BorealisTileEntities;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import com.reetam.borealis.registry.BorealisBlocks;
@@ -41,6 +45,7 @@ public class ClientProxy {
         RenderTypeLookup.setRenderLayer(BorealisFluids.hot_spring_water_source.get(), translucent);
         render(BorealisBlocks.borealis_portal, translucent);
         render(BorealisBlocks.cloud, translucent);
+        render(BorealisBlocks.tanzanite_block, translucent);
     }
 
     public static void registerEntityRenderers() {

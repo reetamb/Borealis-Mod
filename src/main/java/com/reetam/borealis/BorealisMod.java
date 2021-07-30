@@ -36,6 +36,7 @@ public class BorealisMod {
 
         BorealisEntities.ENTITIES.register(bus);
         BorealisBlocks.BLOCKS.register(bus);
+        BorealisTileEntities.TILE_ENTITIES.register(bus);
         BorealisFluids.FLUIDS.register(bus);
         BorealisItems.ITEMS.register(bus);
         BorealisFeatures.FEATURES.register(bus);

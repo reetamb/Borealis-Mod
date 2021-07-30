@@ -97,7 +97,7 @@ public class BorealisBlocks {
 
     public static final RegistryObject<Block> kyanite_ore = registerBlock("kyanite_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.EMERALD_ORE)));
     public static final RegistryObject<Block> tanzanite_ore = registerBlock("tanzanite_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
-    public static final RegistryObject<Block> tanzanite_block = registerBlock("tanzanite_block", () -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
+    public static final RegistryObject<Block> tanzanite_block = registerBlock("tanzanite_block", () -> new TanzaniteBlock(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
 
     public static final RegistryObject<Block> permafrost = registerBlock("permafrost", () -> new PermafrostBlock(AbstractBlock.Properties.copy(Blocks.DIRT).sound(SoundType.GRAVEL)));
     public static final RegistryObject<Block> permafrost_rubble = registerBlock("permafrost_rubble", () -> new Block(AbstractBlock.Properties.copy(Blocks.COARSE_DIRT).harvestTool(ToolType.SHOVEL)));

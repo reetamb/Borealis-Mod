@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "activated=false": {
+      "model": "borealis:block/tanzanite_block"
+    },
+    "activated=true": {
+      "model": "borealis:block/tanzanite_block_activated"
+    }
+  }
+}
