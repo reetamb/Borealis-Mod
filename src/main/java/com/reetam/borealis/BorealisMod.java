@@ -78,6 +78,7 @@ public class BorealisMod {
         if (event.includeClient()) {
             generator.addProvider(new BorealisBlockStates(generator, helper));
             generator.addProvider(new BorealisItemModels(generator, helper));
+            generator.addProvider(new BorealisLang(generator));
         }
         if (event.includeServer()) {
             generator.addProvider(new BorealisLootTables(generator));

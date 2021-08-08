@@ -1,90 +1,78 @@
-BorealisBlocks.soapstone
-BorealisBlocks.polished_soapstone
-BorealisBlocks.kyanite_ore
-BorealisBlocks.soapstone
-BorealisBlocks.polished_soapstone
-BorealisBlocks.soapstone_bricks
-BorealisBlocks.soapstone_stairs
-BorealisBlocks.polished_soapstone_stairs
-BorealisBlocks.soapstone_brick_stairs
-BorealisBlocks.soapstone_slab
-BorealisBlocks.polished_soapstone_slab
-BorealisBlocks.soapstone_brick_slab
-BorealisBlocks.soapstone_wall
-BorealisBlocks.polished_soapstone_wall
-BorealisBlocks.soapstone_brick_wall
-BorealisBlocks.soapstone_button
-BorealisBlocks.soapstone_pressure_plate
-BorealisBlocks.slate
-BorealisBlocks.slate_pillar
-BorealisBlocks.slate_tiles
-BorealisBlocks.pumice
-BorealisBlocks.pumice_geyser
-BorealisBlocks.brumal_planks
-BorealisBlocks.brumal_log
-BorealisBlocks.brumal_wood
-BorealisBlocks.stripped_brumal_log
-BorealisBlocks.stripped_brumal_wood
-BorealisBlocks.brumal_leaves
-BorealisBlocks.brumal_stairs
-BorealisBlocks.brumal_slab
-BorealisBlocks.brumal_fence
-BorealisBlocks.brumal_fence_gate
-BorealisBlocks.brumal_door
-BorealisBlocks.brumal_trapdoor
-BorealisBlocks.brumal_button
-BorealisBlocks.brumal_pressure_plate
-BorealisBlocks.frostfir_planks
-BorealisBlocks.frostfir_log
-BorealisBlocks.frostfir_wood
-BorealisBlocks.stripped_frostfir_log
-BorealisBlocks.stripped_frostfir_wood
-BorealisBlocks.frostfir_leaves
-BorealisBlocks.frostfir_stairs
-BorealisBlocks.frostfir_slab
-BorealisBlocks.frostfir_fence
-BorealisBlocks.frostfir_fence_gate
-BorealisBlocks.frostfir_door
-BorealisBlocks.frostfir_trapdoor
-BorealisBlocks.frostfir_button
-BorealisBlocks.frostfir_pressure_plate
-BorealisBlocks.saccharine_planks
-BorealisBlocks.saccharine_log
-BorealisBlocks.saccharine_wood
-BorealisBlocks.stripped_saccharine_log
-BorealisBlocks.saccharine_leaves
-BorealisBlocks.saccharine_stairs
-BorealisBlocks.saccharine_slab
-BorealisBlocks.stripped_saccharine_wood
-BorealisBlocks.saccharine_fence
-BorealisBlocks.saccharine_fence_gate
-BorealisBlocks.saccharine_door
-BorealisBlocks.saccharine_trapdoor
-BorealisBlocks.saccharine_button
-BorealisBlocks.saccharine_pressure_plate
-BorealisBlocks.lichen_block
-BorealisBlocks.permafrost
-BorealisBlocks.permafrost_rubble
-BorealisBlocks.cloud
-BorealisBlocks.tanzanite_block
-BorealisBlocks.tanzanite_ore
-BorealisBlocks.sugar_snow
-
-BorealisItems.kyanite_crystal
-BorealisItems.moon_pearl
-BorealisItems.hot_spring_water_bucket
-BorealisItems.hummingbird_spawn_egg
-BorealisItems.takahe_spawn_egg
-BorealisItems.mismic_muskox_spawn_egg
-BorealisItems.hat
-BorealisItems.tanzanite_helmet
-BorealisItems.tanzanite_chestplate
-BorealisItems.tanzanite_leggings
-BorealisItems.tanzanite_boots
-BorealisItems.tanzanite_sword
-BorealisItems.tanzanite_axe
-BorealisItems.tanzanite_pickaxe
-BorealisItems.tanzanite_shovel
-BorealisItems.tanzanite_hoe
-   
-
+addBlock(BorealisBlocks.soapstone, );
+addBlock(BorealisBlocks.polished_soapstone, );
+addBlock(BorealisBlocks.kyanite_ore, );
+addBlock(BorealisBlocks.soapstone, );
+addBlock(BorealisBlocks.polished_soapstone, );
+addBlock(BorealisBlocks.soapstone_bricks, );
+addBlock(BorealisBlocks.soapstone_stairs, );
+addBlock(BorealisBlocks.polished_soapstone_stairs, );
+addBlock(BorealisBlocks.soapstone_brick_stairs, );
+addBlock(BorealisBlocks.soapstone_slab, );
+addBlock(BorealisBlocks.polished_soapstone_slab, );
+addBlock(BorealisBlocks.soapstone_brick_slab, );
+addBlock(BorealisBlocks.soapstone_wall, );
+addBlock(BorealisBlocks.polished_soapstone_wall, );
+addBlock(BorealisBlocks.soapstone_brick_wall, );
+addBlock(BorealisBlocks.soapstone_button, );
+addBlock(BorealisBlocks.soapstone_pressure_plate, );
+addBlock(BorealisBlocks.slate, );
+addBlock(BorealisBlocks.slate_pillar, );
+addBlock(BorealisBlocks.slate_tiles, );
+addBlock(BorealisBlocks.pumice, );
+addBlock(BorealisBlocks.pumice_geyser, );
+addBlock(BorealisBlocks.brumal_planks, );
+addBlock(BorealisBlocks.brumal_log, );
+addBlock(BorealisBlocks.brumal_wood, );
+addBlock(BorealisBlocks.stripped_brumal_log, );
+addBlock(BorealisBlocks.stripped_brumal_wood, );
+addBlock(BorealisBlocks.brumal_leaves, );
+addBlock(BorealisBlocks.brumal_stairs, );
+addBlock(BorealisBlocks.brumal_slab, );
+addBlock(BorealisBlocks.brumal_fence, );
+addBlock(BorealisBlocks.brumal_fence_gate, );
+addBlock(BorealisBlocks.brumal_door, );
+addBlock(BorealisBlocks.brumal_trapdoor, );
+addBlock(BorealisBlocks.brumal_button, );
+addBlock(BorealisBlocks.brumal_pressure_plate, );
+addBlock(BorealisBlocks.frostfir_planks, );
+addBlock(BorealisBlocks.frostfir_log, );
+addBlock(BorealisBlocks.frostfir_wood, );
+addBlock(BorealisBlocks.stripped_frostfir_log, );
+addBlock(BorealisBlocks.stripped_frostfir_wood, );
+addBlock(BorealisBlocks.frostfir_leaves, );
+addBlock(BorealisBlocks.frostfir_stairs, );
+addBlock(BorealisBlocks.frostfir_slab, );
+addBlock(BorealisBlocks.frostfir_fence, );
+addBlock(BorealisBlocks.frostfir_fence_gate, );
+addBlock(BorealisBlocks.frostfir_door, );
+addBlock(BorealisBlocks.frostfir_trapdoor, );
+addBlock(BorealisBlocks.frostfir_button, );
+addBlock(BorealisBlocks.frostfir_pressure_plate, );
+addBlock(BorealisBlocks.saccharine_planks, );
+addBlock(BorealisBlocks.saccharine_log, );
+addBlock(BorealisBlocks.saccharine_wood, );
+addBlock(BorealisBlocks.stripped_saccharine_log, );
+addBlock(BorealisBlocks.saccharine_leaves, );
+addBlock(BorealisBlocks.saccharine_stairs, );
+addBlock(BorealisBlocks.saccharine_slab, );
+addBlock(BorealisBlocks.stripped_saccharine_wood, );
+addBlock(BorealisBlocks.saccharine_fence, );
+addBlock(BorealisBlocks.saccharine_fence_gate, );
+addBlock(BorealisBlocks.saccharine_door, );
+addBlock(BorealisBlocks.saccharine_trapdoor, );
+addBlock(BorealisBlocks.saccharine_button, );
+addBlock(BorealisBlocks.saccharine_pressure_plate, );
+addBlock(BorealisBlocks.lichen_block, );
+addBlock(BorealisBlocks.permafrost, );
+addBlock(BorealisBlocks.permafrost_rubble, );
+addBlock(BorealisBlocks.cloud, );
+addBlock(BorealisBlocks.tanzanite_block, );
+addBlock(BorealisBlocks.tanzanite_ore, );
+addBlock(BorealisBlocks.sugar_snow, );
+addBlock(BorealisItems.kyanite_crystal, );
+addBlock(BorealisItems.moon_pearl, );
+addBlock(BorealisItems.hot_spring_water_bucket, );
+addBlock(BorealisItems.hummingbird_spawn_egg, );
+addBlock(BorealisItems.takahe_spawn_egg, );
+addBlock(BorealisItems.mismic_muskox_spawn_egg, );
+addBlock(BorealisItems.hat, );
