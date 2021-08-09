@@ -34,20 +34,20 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.SOAPSTONE.get())
                 .add(BorealisBlocks.SLATE.get());
         tag(BorealisTags.Blocks.BRUMAL_LOGS)
-                .add(BorealisBlocks.brumal_log.get())
-                .add(BorealisBlocks.brumal_wood.get())
-                .add(BorealisBlocks.stripped_brumal_log.get())
-                .add(BorealisBlocks.stripped_brumal_wood.get());
+                .add(BorealisBlocks.BRUMAL_LOG.get())
+                .add(BorealisBlocks.BRUMAL_WOOD.get())
+                .add(BorealisBlocks.STRIPPED_BRUMAL_LOG.get())
+                .add(BorealisBlocks.STRIPPED_BRUMAL_WOOD.get());
         tag(BorealisTags.Blocks.FROSTFIR_LOGS)
-                .add(BorealisBlocks.frostfir_log.get())
-                .add(BorealisBlocks.frostfir_wood.get())
-                .add(BorealisBlocks.stripped_frostfir_log.get())
-                .add(BorealisBlocks.stripped_frostfir_wood.get());
+                .add(BorealisBlocks.FROSTFIR_LOG.get())
+                .add(BorealisBlocks.FROSTFIR_WOOD.get())
+                .add(BorealisBlocks.STRIPPED_FROSTFIR_LOG.get())
+                .add(BorealisBlocks.STRIPPED_FROSTFIR_WOOD.get());
         tag(BorealisTags.Blocks.SACCHARINE_LOGS)
-                .add(BorealisBlocks.saccharine_log.get())
+                .add(BorealisBlocks.SACCHARINE_LOG.get())
                 .add(BorealisBlocks.saccharine_wood.get())
-                .add(BorealisBlocks.stripped_saccharine_log.get())
-                .add(BorealisBlocks.stripped_saccharine_wood.get());
+                .add(BorealisBlocks.STRIPPED_SACCHARINE_LOG.get())
+                .add(BorealisBlocks.STRIPPED_SACCHARINE_WOOD.get());
         tag(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)
                 .add(Blocks.ICE)
                 .add(Blocks.PACKED_ICE)
@@ -65,33 +65,33 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get());
         //vanilla
         tag(BlockTags.SAPLINGS)
-                .add(BorealisBlocks.brumal_sapling.get())
-                .add(BorealisBlocks.frostfir_sapling.get())
-                .add(BorealisBlocks.saccharine_sapling.get());
+                .add(BorealisBlocks.BRUMAL_SAPLING.get())
+                .add(BorealisBlocks.FROSTFIR_SAPLING.get())
+                .add(BorealisBlocks.SACCHARINE_SAPLING.get());
         tag(BlockTags.PLANKS)
-                .add(BorealisBlocks.brumal_planks.get())
-                .add(BorealisBlocks.frostfir_planks.get())
-                .add(BorealisBlocks.saccharine_planks.get());
+                .add(BorealisBlocks.BRUMAL_PLANKS.get())
+                .add(BorealisBlocks.FROSTFIR_PLANKS.get())
+                .add(BorealisBlocks.SACCHARINE_PLANKS.get());
         tag(BlockTags.WOODEN_BUTTONS)
-                .add(BorealisBlocks.brumal_button.get())
-                .add(BorealisBlocks.frostfir_button.get())
-                .add(BorealisBlocks.saccharine_button.get());
+                .add(BorealisBlocks.BRUMAL_BUTTON.get())
+                .add(BorealisBlocks.FROSTFIR_BUTTON.get())
+                .add(BorealisBlocks.SACCHARINE_BUTTON.get());
         tag(BlockTags.WOODEN_DOORS)
-                .add(BorealisBlocks.brumal_door.get())
-                .add(BorealisBlocks.frostfir_door.get())
-                .add(BorealisBlocks.saccharine_door.get());
+                .add(BorealisBlocks.BRUMAL_DOOR.get())
+                .add(BorealisBlocks.FROSTFIR_DOOR.get())
+                .add(BorealisBlocks.SACCHARINE_DOOR.get());
         tag(BlockTags.WOODEN_STAIRS)
-                .add(BorealisBlocks.brumal_stairs.get())
-                .add(BorealisBlocks.frostfir_stairs.get())
-                .add(BorealisBlocks.saccharine_stairs.get());
+                .add(BorealisBlocks.BRUMAL_STAIRS.get())
+                .add(BorealisBlocks.FROSTFIR_STAIRS.get())
+                .add(BorealisBlocks.SACCHARINE_STAIRS.get());
         tag(BlockTags.WOODEN_SLABS)
-                .add(BorealisBlocks.brumal_slab.get())
-                .add(BorealisBlocks.frostfir_slab.get())
-                .add(BorealisBlocks.saccharine_slab.get());
+                .add(BorealisBlocks.BRUMAL_SLAB.get())
+                .add(BorealisBlocks.FROSTFIR_SLAB.get())
+                .add(BorealisBlocks.SACCHARINE_SLAB.get());
         tag(BlockTags.WOODEN_FENCES)
-                .add(BorealisBlocks.brumal_fence.get())
-                .add(BorealisBlocks.frostfir_fence.get())
-                .add(BorealisBlocks.saccharine_fence.get());
+                .add(BorealisBlocks.BRUMAL_FENCE.get())
+                .add(BorealisBlocks.FROSTFIR_FENCE.get())
+                .add(BorealisBlocks.SACCHARINE_FENCE.get());
         tag(BlockTags.LOGS_THAT_BURN)
                 .addTag(BorealisTags.Blocks.BRUMAL_LOGS)
                 .addTag(BorealisTags.Blocks.FROSTFIR_LOGS)
@@ -104,9 +104,9 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.LIVING_SNOW_BLOCK.get())
                 .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get());
         tag(BlockTags.WOODEN_PRESSURE_PLATES)
-                .add(BorealisBlocks.brumal_pressure_plate.get())
-                .add(BorealisBlocks.frostfir_pressure_plate.get())
-                .add(BorealisBlocks.saccharine_pressure_plate.get());
+                .add(BorealisBlocks.BRUMAL_PRESSURE_PLATE.get())
+                .add(BorealisBlocks.FROSTFIR_PRESSURE_PLATE.get())
+                .add(BorealisBlocks.SACCHARINE_PRESSURE_PLATE.get());
         tag(BlockTags.STONE_PRESSURE_PLATES)
                 .add(BorealisBlocks.SOAPSTONE_PRESSURE_PLATE.get());
         tag(BlockTags.WALLS)
@@ -114,17 +114,33 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.SOAPSTONE_TILE_WALL.get())
                 .add(BorealisBlocks.SOAPSTONE_BRICK_WALL.get());
         tag(BlockTags.LEAVES)
-                .add(BorealisBlocks.brumal_leaves.get())
-                .add(BorealisBlocks.frostfir_leaves.get())
-                .add(BorealisBlocks.saccharine_leaves.get());
+                .add(BorealisBlocks.BRUMAL_LEAVES.get())
+                .add(BorealisBlocks.FROSTFIR_LEAVES.get())
+                .add(BorealisBlocks.SACCHARINE_LEAVES.get());
         tag(BlockTags.WOODEN_TRAPDOORS)
-                .add(BorealisBlocks.brumal_trapdoor.get())
-                .add(BorealisBlocks.frostfir_trapdoor.get())
-                .add(BorealisBlocks.saccharine_trapdoor.get());
+                .add(BorealisBlocks.BRUMAL_TRAPDOOR.get())
+                .add(BorealisBlocks.FROSTFIR_TRAPDOOR.get())
+                .add(BorealisBlocks.SACCHARINE_TRAPDOOR.get());
         tag(BlockTags.FENCE_GATES)
-                .add(BorealisBlocks.brumal_fence_gate.get())
-                .add(BorealisBlocks.frostfir_fence_gate.get())
-                .add(BorealisBlocks.saccharine_fence_gate.get());
+                .add(BorealisBlocks.BRUMAL_FENCE_GATE.get())
+                .add(BorealisBlocks.FROSTFIR_FENCE_GATE.get())
+                .add(BorealisBlocks.SACCHARINE_FENCE_GATE.get());
+        tag(BlockTags.STANDING_SIGNS)
+                .add(BorealisBlocks.BRUMAL_SIGN.get())
+                .add(BorealisBlocks.FROSTFIR_SIGN.get())
+                .add(BorealisBlocks.SACCHARINE_SIGN.get());
+        tag(BlockTags.WALL_SIGNS)
+                .add(BorealisBlocks.BRUMAL_WALL_SIGN.get())
+                .add(BorealisBlocks.FROSTFIR_WALL_SIGN.get())
+                .add(BorealisBlocks.SACCHARINE_WALL_SIGN.get());
+        tag(BlockTags.SIGNS)
+                .add(BorealisBlocks.BRUMAL_SIGN.get())
+                .add(BorealisBlocks.FROSTFIR_SIGN.get())
+                .add(BorealisBlocks.SACCHARINE_SIGN.get())
+                .add(BorealisBlocks.BRUMAL_WALL_SIGN.get())
+                .add(BorealisBlocks.FROSTFIR_WALL_SIGN.get())
+                .add(BorealisBlocks.SACCHARINE_WALL_SIGN.get());
+
         //forge
         tag(Tags.Blocks.COBBLESTONE)
                 .add(BorealisBlocks.SOAPSTONE.get())
@@ -135,13 +151,13 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.PERMAFROST.get())
                 .add(BorealisBlocks.PERMAFROST_RUBBLE.get());
         tag(Tags.Blocks.FENCE_GATES_WOODEN)
-                .add(BorealisBlocks.brumal_fence_gate.get())
-                .add(BorealisBlocks.frostfir_fence_gate.get())
-                .add(BorealisBlocks.saccharine_fence_gate.get());
+                .add(BorealisBlocks.BRUMAL_FENCE_GATE.get())
+                .add(BorealisBlocks.FROSTFIR_FENCE_GATE.get())
+                .add(BorealisBlocks.SACCHARINE_FENCE_GATE.get());
         tag(Tags.Blocks.FENCES_WOODEN)
-                .add(BorealisBlocks.brumal_fence.get())
-                .add(BorealisBlocks.frostfir_fence.get())
-                .add(BorealisBlocks.saccharine_fence.get());
+                .add(BorealisBlocks.BRUMAL_FENCE.get())
+                .add(BorealisBlocks.FROSTFIR_FENCE.get())
+                .add(BorealisBlocks.SACCHARINE_FENCE.get());
         tag(Tags.Blocks.STONE)
                 .add(BorealisBlocks.SOAPSTONE.get())
                 .add(BorealisBlocks.SLATE.get());

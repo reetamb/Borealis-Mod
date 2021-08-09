@@ -1,6 +1,7 @@
 package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
+import com.reetam.borealis.block.tileentities.BorealisSignTileEntity;
 import com.reetam.borealis.block.tileentities.TanzaniteBlockTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -15,7 +16,17 @@ public class BorealisTileEntities {
             "tanzanite_block",
             () -> TileEntityType.Builder.of(
                     TanzaniteBlockTileEntity::new,
-                    BorealisBlocks.TANZANITE_BLOCK.get())
-                    .build(null));
-
+                    BorealisBlocks.TANZANITE_BLOCK.get()
+            ).build(null));
+    public static final RegistryObject<TileEntityType<BorealisSignTileEntity>> BOREALIS_SIGN = TILE_ENTITIES.register(
+            "borealis_sign",
+            () -> TileEntityType.Builder.of(
+                    BorealisSignTileEntity::new,
+                    BorealisBlocks.BRUMAL_SIGN.get(),
+                    BorealisBlocks.BRUMAL_WALL_SIGN.get(),
+                    BorealisBlocks.FROSTFIR_SIGN.get(),
+                    BorealisBlocks.FROSTFIR_WALL_SIGN.get(),
+                    BorealisBlocks.SACCHARINE_SIGN.get(),
+                    BorealisBlocks.SACCHARINE_WALL_SIGN.get()
+            ).build(null));
 }

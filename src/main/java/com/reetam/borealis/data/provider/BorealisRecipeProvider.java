@@ -1,6 +1,7 @@
 package com.reetam.borealis.data.provider;
 
 import com.reetam.borealis.BorealisMod;
+import net.minecraft.block.AbstractSignBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
@@ -9,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import java.util.ArrayList;
@@ -118,6 +120,16 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .pattern("###")
                 .define('#', plankIn.get())
                 .unlockedBy("in_water", insideOf(Blocks.WATER));
+    }
+
+    public ShapedRecipeBuilder sign(Supplier<? extends Block> planksIn, Supplier<? extends AbstractSignBlock> signOut) {
+        return ShapedRecipeBuilder.shaped(signOut.get(), 3)
+                .pattern("###")
+                .pattern("###")
+                .pattern(" / ")
+                .define('#', planksIn.get())
+                .define('/', Tags.Items.RODS_WOODEN)
+                .unlockedBy(has(planksIn), has(planksIn.get()));
     }
 
     protected ResourceLocation name(String name) {

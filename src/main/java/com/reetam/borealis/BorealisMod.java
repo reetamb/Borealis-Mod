@@ -5,12 +5,15 @@ import com.reetam.borealis.client.renderer.fluid.FluidRenderer;
 import com.reetam.borealis.data.*;
 import com.reetam.borealis.registry.*;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Atlases;
+import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
 import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -57,13 +60,21 @@ public class BorealisMod {
                return Minecraft.getInstance().level.isNight();
             }
         });
+
+        event.enqueueWork(() -> {
+            Atlases.addWoodType(BorealisBlocks.BRUMAL_WOODTYPE);
+            Atlases.addWoodType(BorealisBlocks.FROSTFIR_WOODTYPE);
+            Atlases.addWoodType(BorealisBlocks.SACCHARINE_WOODTYPE);
+        });
+        ClientRegistry.bindTileEntityRenderer(BorealisTileEntities.BOREALIS_SIGN.get(), SignTileEntityRenderer::new);
     }
 
     public void setup(FMLCommonSetupEvent event) {
-        BorealisEntities.entityAttributes();
-        BorealisEntities.spawnPlacements();
+        BorealisEntities.registerEntityAttributes();
+        BorealisEntities.registerSpawnPlacements();
         BorealisFeatures.registerConfiguredFeatures();
         BorealisDimensions.registerDimensionGenerators();
+        BorealisBlocks.registerWoodTypes();
     }
 
     public void gatherData(GatherDataEvent event) {

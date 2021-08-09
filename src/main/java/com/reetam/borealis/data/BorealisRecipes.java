@@ -4,6 +4,7 @@ import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.data.provider.BorealisRecipeProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
+import net.minecraft.block.AbstractSignBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
@@ -50,54 +51,57 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         };
         bulkWood(
                 consumer,
-                BorealisBlocks.brumal_log,
-                BorealisBlocks.brumal_planks,
-                BorealisBlocks.brumal_wood,
-                BorealisBlocks.stripped_brumal_log,
-                BorealisBlocks.stripped_brumal_wood,
-                BorealisBlocks.brumal_stairs,
-                BorealisBlocks.brumal_slab,
-                BorealisBlocks.brumal_fence,
-                BorealisBlocks.brumal_fence_gate,
-                BorealisBlocks.brumal_button,
-                BorealisBlocks.brumal_pressure_plate,
-                BorealisBlocks.brumal_door,
-                BorealisBlocks.brumal_trapdoor,
-                BorealisItems.BRUMAL_BOAT
+                BorealisBlocks.BRUMAL_LOG,
+                BorealisBlocks.BRUMAL_PLANKS,
+                BorealisBlocks.BRUMAL_WOOD,
+                BorealisBlocks.STRIPPED_BRUMAL_LOG,
+                BorealisBlocks.STRIPPED_BRUMAL_WOOD,
+                BorealisBlocks.BRUMAL_STAIRS,
+                BorealisBlocks.BRUMAL_SLAB,
+                BorealisBlocks.BRUMAL_FENCE,
+                BorealisBlocks.BRUMAL_FENCE_GATE,
+                BorealisBlocks.BRUMAL_BUTTON,
+                BorealisBlocks.BRUMAL_PRESSURE_PLATE,
+                BorealisBlocks.BRUMAL_DOOR,
+                BorealisBlocks.BRUMAL_TRAPDOOR,
+                BorealisItems.BRUMAL_BOAT,
+                BorealisBlocks.BRUMAL_SIGN
         );
         bulkWood(
                 consumer,
-                BorealisBlocks.frostfir_log,
-                BorealisBlocks.frostfir_planks,
-                BorealisBlocks.frostfir_wood,
-                BorealisBlocks.stripped_frostfir_log,
-                BorealisBlocks.stripped_frostfir_wood,
-                BorealisBlocks.frostfir_stairs,
-                BorealisBlocks.frostfir_slab,
-                BorealisBlocks.frostfir_fence,
-                BorealisBlocks.frostfir_fence_gate,
-                BorealisBlocks.frostfir_button,
-                BorealisBlocks.frostfir_pressure_plate,
-                BorealisBlocks.frostfir_door,
-                BorealisBlocks.frostfir_trapdoor,
-                BorealisItems.FROSTFIR_BOAT
+                BorealisBlocks.FROSTFIR_LOG,
+                BorealisBlocks.FROSTFIR_PLANKS,
+                BorealisBlocks.FROSTFIR_WOOD,
+                BorealisBlocks.STRIPPED_FROSTFIR_LOG,
+                BorealisBlocks.STRIPPED_FROSTFIR_WOOD,
+                BorealisBlocks.FROSTFIR_STAIRS,
+                BorealisBlocks.FROSTFIR_SLAB,
+                BorealisBlocks.FROSTFIR_FENCE,
+                BorealisBlocks.FROSTFIR_FENCE_GATE,
+                BorealisBlocks.FROSTFIR_BUTTON,
+                BorealisBlocks.FROSTFIR_PRESSURE_PLATE,
+                BorealisBlocks.FROSTFIR_DOOR,
+                BorealisBlocks.FROSTFIR_TRAPDOOR,
+                BorealisItems.FROSTFIR_BOAT,
+                BorealisBlocks.FROSTFIR_SIGN
         );
         bulkWood(
                 consumer,
-                BorealisBlocks.saccharine_log,
-                BorealisBlocks.saccharine_planks,
+                BorealisBlocks.SACCHARINE_LOG,
+                BorealisBlocks.SACCHARINE_PLANKS,
                 BorealisBlocks.saccharine_wood,
-                BorealisBlocks.stripped_saccharine_log,
-                BorealisBlocks.stripped_saccharine_wood,
-                BorealisBlocks.saccharine_stairs,
-                BorealisBlocks.saccharine_slab,
-                BorealisBlocks.saccharine_fence,
-                BorealisBlocks.saccharine_fence_gate,
-                BorealisBlocks.saccharine_button,
-                BorealisBlocks.saccharine_pressure_plate,
-                BorealisBlocks.saccharine_door,
-                BorealisBlocks.saccharine_trapdoor,
-                BorealisItems.SACCHARINE_BOAT
+                BorealisBlocks.STRIPPED_SACCHARINE_LOG,
+                BorealisBlocks.STRIPPED_SACCHARINE_WOOD,
+                BorealisBlocks.SACCHARINE_STAIRS,
+                BorealisBlocks.SACCHARINE_SLAB,
+                BorealisBlocks.SACCHARINE_FENCE,
+                BorealisBlocks.SACCHARINE_FENCE_GATE,
+                BorealisBlocks.SACCHARINE_BUTTON,
+                BorealisBlocks.SACCHARINE_PRESSURE_PLATE,
+                BorealisBlocks.SACCHARINE_DOOR,
+                BorealisBlocks.SACCHARINE_TRAPDOOR,
+                BorealisItems.SACCHARINE_BOAT,
+                BorealisBlocks.SACCHARINE_SIGN
         );
         doStone(consumer, BorealisBlocks.SOAPSTONE, BorealisBlocks.SOAPSTONE_STAIRS, BorealisBlocks.SOAPSTONE_SLAB, BorealisBlocks.SOAPSTONE_WALL);
         doStone(consumer, BorealisBlocks.SOAPSTONE_BRICKS, BorealisBlocks.SOAPSTONE_BRICK_STAIRS, BorealisBlocks.SOAPSTONE_BRICK_SLAB, BorealisBlocks.SOAPSTONE_BRICK_WALL);
@@ -131,7 +135,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         bulkStonecutting(consumer, BorealisBlocks.SLATE, slate_stonecuts);
     }
 
-    public void bulkWood(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn, Supplier<? extends Item> boatIn) {
+    public void bulkWood(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn, Supplier<? extends Item> boatIn, Supplier<? extends AbstractSignBlock> signIn) {
         ShapelessRecipeBuilder.shapeless(plankIn.get(), 4)
                 .requires(logIn.get())
                 .unlockedBy(has(logIn), has(logIn.get()))
@@ -152,6 +156,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         door(plankIn, doorIn).save(consumer, name(doorIn));
         trapdoor(plankIn, trapdoorIn).save(consumer, name(trapdoorIn));
         boat(plankIn, boatIn).save(consumer, name(boatIn));
+        sign(plankIn, signIn).save(consumer, name(signIn));
     }
 
     public void doStone(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> wallIn) {

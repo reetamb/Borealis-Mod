@@ -20,7 +20,7 @@ public class HotSpringFeature extends Feature<NoFeatureConfig> {
         public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
             pos = new BlockPos(pos.getX(), reader.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()), pos.getZ()).below();
 
-        BlockState state = BorealisBlocks.travertine.get().defaultBlockState();
+        BlockState state = BorealisBlocks.TRAVERTINE.get().defaultBlockState();
 
         int size = rand.nextInt(4) + 2;
         int yOffset = rand.nextInt(2);

@@ -66,8 +66,8 @@ public class BorealisFeatures {
 
         public static final ConfiguredFeature<BaseTreeFeatureConfig, ?> BRUMAL_TREE = Feature.TREE.configured(
                 new BaseTreeFeatureConfig.Builder(
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().defaultBlockState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.BRUMAL_LOG.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.BRUMAL_LEAVES.get().defaultBlockState()),
                         new PalmFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), FeatureSpread.fixed(2)),
                         new RootedTrunkPlacer(4, 2, 2),
                         new TwoLayerFeature(1, 0, 1))
@@ -75,8 +75,8 @@ public class BorealisFeatures {
 
         public static final ConfiguredFeature<BaseTreeFeatureConfig, ?> TALL_BRUMAL_TREE = Feature.TREE.configured(
                 new BaseTreeFeatureConfig.Builder(
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_log.get().defaultBlockState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.brumal_leaves.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.BRUMAL_LOG.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.BRUMAL_LEAVES.get().defaultBlockState()),
                         new PalmFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), FeatureSpread.fixed(2)),
                         new RootedTrunkPlacer(6, 2, 2),
                         new TwoLayerFeature(1, 0, 1))
@@ -84,8 +84,8 @@ public class BorealisFeatures {
 
         public static final ConfiguredFeature<BaseTreeFeatureConfig, ?> FROSTFIR_TREE = Feature.TREE.configured(
                 new BaseTreeFeatureConfig.Builder(
-                        new SimpleBlockStateProvider(BorealisBlocks.frostfir_log.get().defaultBlockState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.frostfir_leaves.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.FROSTFIR_LOG.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.FROSTFIR_LEAVES.get().defaultBlockState()),
                         new SpruceFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), FeatureSpread.fixed(2)),
                         new StraightTrunkPlacer(8, 2, 2),
                         new TwoLayerFeature(1, 0, 1))
@@ -93,8 +93,8 @@ public class BorealisFeatures {
 
         public static final ConfiguredFeature<BaseTreeFeatureConfig, ?> HELIX_TREE = Feature.TREE.configured(
                 new BaseTreeFeatureConfig.Builder(
-                        new SimpleBlockStateProvider(BorealisBlocks.saccharine_log.get().defaultBlockState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.saccharine_leaves.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
                         new HelixFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), FeatureSpread.fixed(2)),
                         new StraightTrunkPlacer(10, 2, 2),
                         new TwoLayerFeature(1, 0, 1))
@@ -102,8 +102,8 @@ public class BorealisFeatures {
 
         public static final ConfiguredFeature<BaseTreeFeatureConfig, ?> COTTON_TREE = Feature.TREE.configured(
                 new BaseTreeFeatureConfig.Builder(
-                        new SimpleBlockStateProvider(BorealisBlocks.saccharine_log.get().defaultBlockState()),
-                        new SimpleBlockStateProvider(BorealisBlocks.saccharine_leaves.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
+                        new SimpleBlockStateProvider(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
                         new AspenFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), FeatureSpread.fixed(2)),
                         new StraightTrunkPlacer(5, 2, 2),
                         new TwoLayerFeature(1, 0, 1))

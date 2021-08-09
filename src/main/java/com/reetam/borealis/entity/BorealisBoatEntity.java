@@ -80,9 +80,9 @@ public class BorealisBoatEntity extends BoatEntity {
     }
 
     public enum Type {
-        BRUMAL(BorealisBlocks.brumal_planks.get(), "brumal"),
-        FROSTFIR(BorealisBlocks.frostfir_planks.get(), "frostfir"),
-        SACCHARINE(BorealisBlocks.saccharine_planks.get(), "saccharine")
+        BRUMAL(BorealisBlocks.BRUMAL_PLANKS.get(), "brumal"),
+        FROSTFIR(BorealisBlocks.FROSTFIR_PLANKS.get(), "frostfir"),
+        SACCHARINE(BorealisBlocks.SACCHARINE_PLANKS.get(), "saccharine")
         ;
 
         private final String name;

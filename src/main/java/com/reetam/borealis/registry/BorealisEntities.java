@@ -32,13 +32,13 @@ public class BorealisEntities {
     public static final  RegistryObject<EntityType<MismicMuskoxEntity>> MISMIC_MUSKOX = ENTITIES.register(
             "mismic_muskox", () -> MISMIC_MUSKOX_TYPE);
 
-    public static void spawnPlacements() {
+    public static void registerSpawnPlacements() {
         EntitySpawnPlacementRegistry.register(HUMMINGBIRD.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HummingbirdEntity::canHummingbirdSpawn);
         EntitySpawnPlacementRegistry.register(TAKAHE.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, TakaheEntity::canTakaheSpawn);
         EntitySpawnPlacementRegistry.register(MISMIC_MUSKOX.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MismicMuskoxEntity::canMuskoxSpawn);
     }
 
-    public static void entityAttributes() {
+    public static void registerEntityAttributes() {
         GlobalEntityTypeAttributes.put(HUMMINGBIRD.get(), HummingbirdEntity.registerAttributes().build());
         GlobalEntityTypeAttributes.put(TAKAHE.get(), TakaheEntity.registerAttributes().build());
         GlobalEntityTypeAttributes.put(MISMIC_MUSKOX.get(), MismicMuskoxEntity.registerAttributes().build());
