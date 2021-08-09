@@ -64,6 +64,10 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.sugar_snow.get())
                 .add(BorealisBlocks.sugar_snow_block.get());
         //vanilla
+        tag(BlockTags.SAPLINGS)
+                .add(BorealisBlocks.brumal_sapling.get())
+                .add(BorealisBlocks.frostfir_sapling.get())
+                .add(BorealisBlocks.saccharine_sapling.get());
         tag(BlockTags.PLANKS)
                 .add(BorealisBlocks.brumal_planks.get())
                 .add(BorealisBlocks.frostfir_planks.get())

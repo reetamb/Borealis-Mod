@@ -99,7 +99,7 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.brumal_wood);
             dropSelf(BorealisBlocks.stripped_brumal_log);
             dropSelf(BorealisBlocks.stripped_brumal_wood);
-            dropSelf(BorealisBlocks.brumal_leaves);
+            this.add(BorealisBlocks.brumal_leaves.get(), (leaves) -> createLeavesDrops(leaves, BorealisBlocks.brumal_sapling.get(), DEFAULT_SAPLING_DROP_RATES));
             dropSelf(BorealisBlocks.brumal_stairs);
             dropSelf(BorealisBlocks.brumal_slab);
             dropSelf(BorealisBlocks.brumal_fence);
@@ -108,12 +108,13 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.brumal_trapdoor);
             dropSelf(BorealisBlocks.brumal_button);
             dropSelf(BorealisBlocks.brumal_pressure_plate);
+            dropSelf(BorealisBlocks.brumal_sapling);
             dropSelf(BorealisBlocks.frostfir_planks);
             dropSelf(BorealisBlocks.frostfir_log);
             dropSelf(BorealisBlocks.frostfir_wood);
             dropSelf(BorealisBlocks.stripped_frostfir_log);
             dropSelf(BorealisBlocks.stripped_frostfir_wood);
-            dropSelf(BorealisBlocks.frostfir_leaves);
+            this.add(BorealisBlocks.frostfir_leaves.get(), (leaves) -> createLeavesDrops(leaves, BorealisBlocks.frostfir_sapling.get(), DEFAULT_SAPLING_DROP_RATES));
             dropSelf(BorealisBlocks.frostfir_stairs);
             dropSelf(BorealisBlocks.frostfir_slab);
             dropSelf(BorealisBlocks.frostfir_fence);
@@ -122,11 +123,12 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.frostfir_trapdoor);
             dropSelf(BorealisBlocks.frostfir_button);
             dropSelf(BorealisBlocks.frostfir_pressure_plate);
+            dropSelf(BorealisBlocks.frostfir_sapling);
             dropSelf(BorealisBlocks.saccharine_planks);
             dropSelf(BorealisBlocks.saccharine_log);
             dropSelf(BorealisBlocks.saccharine_wood);
             dropSelf(BorealisBlocks.stripped_saccharine_log);
-            dropSelf(BorealisBlocks.saccharine_leaves);
+            this.add(BorealisBlocks.saccharine_leaves.get(), (leaves) -> createLeavesDrops(leaves, BorealisBlocks.saccharine_sapling.get(), DEFAULT_SAPLING_DROP_RATES));
             dropSelf(BorealisBlocks.saccharine_stairs);
             dropSelf(BorealisBlocks.saccharine_slab);
             dropSelf(BorealisBlocks.stripped_saccharine_wood);
@@ -136,6 +138,7 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.saccharine_trapdoor);
             dropSelf(BorealisBlocks.saccharine_button);
             dropSelf(BorealisBlocks.saccharine_pressure_plate);
+            dropSelf(BorealisBlocks.saccharine_sapling);
             dropWithSilk(BorealisBlocks.living_snow_block, () -> net.minecraft.block.Blocks.SNOW_BLOCK);
             dropSelf(BorealisBlocks.sugar_snow_block);
             dropSelf(BorealisBlocks.permafrost);

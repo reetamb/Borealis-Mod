@@ -49,6 +49,7 @@ public class BorealisLang extends BorealisLangProvider {
         assumeBlockItem(BorealisBlocks.brumal_trapdoor);
         assumeBlockItem(BorealisBlocks.brumal_button);
         assumeBlockItem(BorealisBlocks.brumal_pressure_plate);
+        assumeBlockItem(BorealisBlocks.brumal_sapling);
         assumeBlockItem(BorealisBlocks.frostfir_planks);
         assumeBlockItem(BorealisBlocks.frostfir_log);
         assumeBlockItem(BorealisBlocks.frostfir_wood);
@@ -63,6 +64,7 @@ public class BorealisLang extends BorealisLangProvider {
         assumeBlockItem(BorealisBlocks.frostfir_trapdoor);
         assumeBlockItem(BorealisBlocks.frostfir_button);
         assumeBlockItem(BorealisBlocks.frostfir_pressure_plate);
+        assumeBlockItem(BorealisBlocks.frostfir_sapling);
         assumeBlockItem(BorealisBlocks.saccharine_planks);
         assumeBlockItem(BorealisBlocks.saccharine_log);
         assumeBlockItem(BorealisBlocks.saccharine_wood);
@@ -77,6 +79,7 @@ public class BorealisLang extends BorealisLangProvider {
         assumeBlockItem(BorealisBlocks.saccharine_trapdoor);
         assumeBlockItem(BorealisBlocks.saccharine_button);
         assumeBlockItem(BorealisBlocks.saccharine_pressure_plate);
+        assumeBlockItem(BorealisBlocks.saccharine_sapling);
         assumeBlockItem(BorealisBlocks.permafrost);
         assumeBlockItem(BorealisBlocks.permafrost_rubble);
         assumeBlockItem(BorealisBlocks.cloud);

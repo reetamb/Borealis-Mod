@@ -33,8 +33,6 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         wallBlock(BorealisBlocks.soapstone_wall.get(), modLoc("block/soapstone"));
         wallBlock(BorealisBlocks.soapstone_tile_wall.get(), modLoc("block/soapstone_tiles"));
         wallBlock(BorealisBlocks.soapstone_brick_wall.get(), modLoc("block/soapstone_bricks"));
-        //block(BorealisBlocks.soapstone_button);
-        //block(BorealisBlocks.soapstone_pressure_plate);
         block(BorealisBlocks.slate);
         log(BorealisBlocks.slate_pillar, "slate_pillar");
         block(BorealisBlocks.slate_tiles);
@@ -60,8 +58,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         fenceGateBlock(BorealisBlocks.brumal_fence_gate.get(), modLoc("block/brumal_planks"));
         door(BorealisBlocks.brumal_door, "brumal");
         trapdoor(BorealisBlocks.brumal_trapdoor, "brumal");
-//        block(BorealisBlocks.brumal_button);
-//        block(BorealisBlocks.brumal_pressure_plate);
+        crossBlock(BorealisBlocks.brumal_sapling);
         block(BorealisBlocks.frostfir_planks);
         log(BorealisBlocks.frostfir_log, "frostfir_log");
         wood(BorealisBlocks.frostfir_wood, BorealisBlocks.frostfir_log);
@@ -74,8 +71,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         fenceGateBlock(BorealisBlocks.frostfir_fence_gate.get(), modLoc("block/frostfir_planks"));
         door(BorealisBlocks.frostfir_door, "frostfir");
         trapdoor(BorealisBlocks.frostfir_trapdoor, "frostfir");
-//        block(BorealisBlocks.frostfir_button);
-//        block(BorealisBlocks.frostfir_pressure_plate);
+        crossBlock(BorealisBlocks.frostfir_sapling);
         block(BorealisBlocks.saccharine_planks);
         log(BorealisBlocks.saccharine_log, "saccharine_log");
         wood(BorealisBlocks.saccharine_wood, BorealisBlocks.saccharine_log);
@@ -88,7 +84,6 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         fenceGateBlock(BorealisBlocks.saccharine_fence_gate.get(), modLoc("block/saccharine_planks"));
         door(BorealisBlocks.saccharine_door, "saccharine");
         trapdoor(BorealisBlocks.saccharine_trapdoor, "saccharine");
-//        block(BorealisBlocks.saccharine_button);
-//        block(BorealisBlocks.saccharine_pressure_plate);
+        crossBlock(BorealisBlocks.saccharine_sapling);
     }
 }

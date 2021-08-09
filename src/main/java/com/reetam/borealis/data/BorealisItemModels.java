@@ -56,6 +56,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.brumal_trapdoor, "brumal_trapdoor_bottom");
         itemBlock(BorealisBlocks.brumal_button, "brumal_button_inventory");
         itemBlock(BorealisBlocks.brumal_pressure_plate);
+        itemBlockFlat(BorealisBlocks.brumal_sapling);
         itemBlock(BorealisBlocks.frostfir_planks);
         itemBlock(BorealisBlocks.frostfir_log);
         itemBlock(BorealisBlocks.frostfir_wood);
@@ -70,6 +71,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.frostfir_trapdoor, "frostfir_trapdoor_bottom");
         itemBlock(BorealisBlocks.frostfir_button, "frostfir_button_inventory");
         itemBlock(BorealisBlocks.frostfir_pressure_plate);
+        itemBlockFlat(BorealisBlocks.frostfir_sapling);
         itemBlock(BorealisBlocks.saccharine_planks);
         itemBlock(BorealisBlocks.saccharine_log);
         itemBlock(BorealisBlocks.saccharine_wood);
@@ -84,6 +86,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.saccharine_trapdoor, "saccharine_trapdoor_bottom");
         itemBlock(BorealisBlocks.saccharine_button, "saccharine_button_inventory");
         itemBlock(BorealisBlocks.saccharine_pressure_plate);
+        itemBlockFlat(BorealisBlocks.saccharine_sapling);
         itemBlock(BorealisBlocks.living_snow_block);
         itemBlock(BorealisBlocks.sugar_snow_block);
         itemBlock(BorealisBlocks.permafrost);

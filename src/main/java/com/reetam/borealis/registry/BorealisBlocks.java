@@ -2,6 +2,9 @@ package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
+import com.reetam.borealis.world.gen.tree.BrumalTree;
+import com.reetam.borealis.world.gen.tree.FrostfirTree;
+import com.reetam.borealis.world.gen.tree.SaccharineTree;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
@@ -47,7 +50,7 @@ public class BorealisBlocks {
     public static final RegistryObject<Block> pumice_geyser = registerBlock("pumice_geyser", PumiceGeyserBlock::new);
     public static final RegistryObject<Block> travertine = registerBlock("travertine", () -> new Block(AbstractBlock.Properties.copy(Blocks.BASALT)));
 
-    //    public static final RegistryObject<SaplingBlock> brumal_sapling = registerBlock("brumal_sapling", () -> new BorealisSaplingBlock(new BrumalTree()));
+    public static final RegistryObject<SaplingBlock> brumal_sapling = registerBlock("brumal_sapling", () -> new BorealisSaplingBlock(new BrumalTree()));
     public static final RegistryObject<Block> brumal_planks = registerBlock("brumal_planks", () -> new Block(AbstractBlock.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<RotatedPillarBlock> brumal_log = registerBlock("brumal_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_LOG)));
     public static final RegistryObject<RotatedPillarBlock> brumal_wood = registerBlock("brumal_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_WOOD)));
@@ -63,7 +66,7 @@ public class BorealisBlocks {
     public static final RegistryObject<WoodButtonBlock> brumal_button = registerBlock("brumal_button", () -> new WoodButtonBlock(AbstractBlock.Properties.copy(BorealisBlocks.brumal_planks.get()).noOcclusion().noCollission()));
     public static final RegistryObject<PressurePlateBlock> brumal_pressure_plate = registerBlock("brumal_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.copy(BorealisBlocks.brumal_planks.get()).noOcclusion().noCollission()));
 
-    //    public static final RegistryObject<SaplingBlock> frostfir_sapling = registerBlock("frostfir_sapling", () -> new BorealisSaplingBlock(new FrostfirTree()));
+    public static final RegistryObject<SaplingBlock> frostfir_sapling = registerBlock("frostfir_sapling", () -> new BorealisSaplingBlock(new FrostfirTree()));
     public static final RegistryObject<Block> frostfir_planks = registerBlock("frostfir_planks", () -> new Block(AbstractBlock.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<RotatedPillarBlock> frostfir_log = registerBlock("frostfir_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_LOG)));
     public static final RegistryObject<RotatedPillarBlock> frostfir_wood = registerBlock("frostfir_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_WOOD)));
@@ -79,7 +82,7 @@ public class BorealisBlocks {
     public static final RegistryObject<WoodButtonBlock> frostfir_button = registerBlock("frostfir_button", () -> new WoodButtonBlock(AbstractBlock.Properties.copy(BorealisBlocks.frostfir_planks.get()).noOcclusion().noCollission()));
     public static final RegistryObject<PressurePlateBlock> frostfir_pressure_plate = registerBlock("frostfir_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.copy(BorealisBlocks.frostfir_planks.get()).noOcclusion().noCollission()));
 
-    //    public static final RegistryObject<SaplingBlock> frostfir_sapling = registerBlock("saccharine_sapling", () -> new BorealisSaplingBlock(new FrostfirTree()));
+    public static final RegistryObject<SaplingBlock> saccharine_sapling = registerBlock("saccharine_sapling", () -> new BorealisSaplingBlock(new SaccharineTree()));
     public static final RegistryObject<Block> saccharine_planks = registerBlock("saccharine_planks", () -> new Block(AbstractBlock.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<RotatedPillarBlock> saccharine_log = registerBlock("saccharine_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_LOG)));
     public static final RegistryObject<RotatedPillarBlock> saccharine_wood = registerBlock("saccharine_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_WOOD)));

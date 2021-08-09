@@ -34,6 +34,10 @@ public class BorealisItemTags extends ItemTagsProvider {
         copy(BorealisTags.Blocks.SACCHARINE_LOGS, BorealisTags.Items.SACCHARINE_LOGS);
 
         //vanilla
+        tag(ItemTags.SAPLINGS)
+                .add(BorealisBlocks.brumal_sapling.get().asItem())
+                .add(BorealisBlocks.frostfir_sapling.get().asItem())
+                .add(BorealisBlocks.saccharine_sapling.get().asItem());
         tag(ItemTags.PLANKS)
                 .add(BorealisBlocks.brumal_planks.get().asItem())
                 .add(BorealisBlocks.frostfir_planks.get().asItem())

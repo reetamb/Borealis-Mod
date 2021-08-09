@@ -8,11 +8,11 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class FrostfirTree extends Tree {
+public class SaccharineTree extends Tree {
 
     @Nullable
     @Override
     protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random rand, boolean largeHive) {
-        return BorealisFeatures.Configured.FROSTFIR_TREE;
+        return BorealisFeatures.Configured.HELIX_TREE;
     }
 }
