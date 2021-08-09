@@ -1,9 +1,7 @@
 package com.reetam.borealis.world.gen.feature;
 
 import com.mojang.serialization.Codec;
-import com.reetam.borealis.block.PermafrostBlock;
 import com.reetam.borealis.registry.BorealisBlocks;
-import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -34,7 +32,7 @@ public class SugarSnowFeature extends Feature<NoFeatureConfig> {
                 Biome biome = reader.getBiome(blockpos$mutable);
 
                 if (biome.shouldSnow(reader, blockpos$mutable) && biome.getRegistryName().toString().contains("saccharine_hills")) {
-                    reader.setBlock(blockpos$mutable, BorealisBlocks.sugar_snow.get().defaultBlockState(), 2);
+                    reader.setBlock(blockpos$mutable, BorealisBlocks.SUGAR_SNOW.get().defaultBlockState(), 2);
                 }
             }
         }

@@ -56,7 +56,7 @@ public class DeepTopSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> 
                 activeBlock = config.getTopMaterial();
             } else if (depth >= 2 && depth <= middleBlockExtraDepth + 1) {
 
-                if (config.getUnderMaterial().is(BorealisBlocks.permafrost.get()) && depth == 2) {
+                if (config.getUnderMaterial().is(BorealisBlocks.PERMAFROST.get()) && depth == 2) {
                     if (previousBlock.is(BorealisTags.Blocks.SNOWY_BLOCKS)) {
                         activeBlock = config.getUnderMaterial().setValue(PermafrostBlock.SNOWY, true);
                     } else if (previousBlock.is(BorealisTags.Blocks.SUGARY_BLOCKS)) {

@@ -2,7 +2,6 @@ package com.reetam.borealis.data;
 
 import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -19,29 +18,29 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        block(BorealisBlocks.soapstone);
-        block(BorealisBlocks.soapstone_tiles);
-        block(BorealisBlocks.soapstone_bricks);
-        block(BorealisBlocks.kyanite_ore);
-        block(BorealisBlocks.tanzanite_ore);
-        stairs(BorealisBlocks.soapstone_stairs, BorealisBlocks.soapstone);
-        stairs(BorealisBlocks.soapstone_tile_stairs, BorealisBlocks.soapstone_tiles);
-        stairs(BorealisBlocks.soapstone_brick_stairs, BorealisBlocks.soapstone_bricks);
-        slab(BorealisBlocks.soapstone_slab, BorealisBlocks.soapstone);
-        slab(BorealisBlocks.soapstone_tile_slab, BorealisBlocks.soapstone_tiles);
-        slab(BorealisBlocks.soapstone_brick_slab, BorealisBlocks.soapstone_bricks);
-        wallBlock(BorealisBlocks.soapstone_wall.get(), modLoc("block/soapstone"));
-        wallBlock(BorealisBlocks.soapstone_tile_wall.get(), modLoc("block/soapstone_tiles"));
-        wallBlock(BorealisBlocks.soapstone_brick_wall.get(), modLoc("block/soapstone_bricks"));
-        block(BorealisBlocks.slate);
-        log(BorealisBlocks.slate_pillar, "slate_pillar");
-        block(BorealisBlocks.slate_tiles);
-        block(BorealisBlocks.pumice);
+        block(BorealisBlocks.SOAPSTONE);
+        block(BorealisBlocks.SOAPSTONE_TILES);
+        block(BorealisBlocks.SOAPSTONE_BRICKS);
+        block(BorealisBlocks.KYANITE_ORE);
+        block(BorealisBlocks.TANZANITE_ORE);
+        stairs(BorealisBlocks.SOAPSTONE_STAIRS, BorealisBlocks.SOAPSTONE);
+        stairs(BorealisBlocks.SOAPSTONE_TILE_STAIRS, BorealisBlocks.SOAPSTONE_TILES);
+        stairs(BorealisBlocks.SOAPSTONE_BRICK_STAIRS, BorealisBlocks.SOAPSTONE_BRICKS);
+        slab(BorealisBlocks.SOAPSTONE_SLAB, BorealisBlocks.SOAPSTONE);
+        slab(BorealisBlocks.SOAPSTONE_TILE_SLAB, BorealisBlocks.SOAPSTONE_TILES);
+        slab(BorealisBlocks.SOAPSTONE_BRICK_SLAB, BorealisBlocks.SOAPSTONE_BRICKS);
+        wallBlock(BorealisBlocks.SOAPSTONE_WALL.get(), modLoc("block/soapstone"));
+        wallBlock(BorealisBlocks.SOAPSTONE_TILE_WALL.get(), modLoc("block/soapstone_tiles"));
+        wallBlock(BorealisBlocks.SOAPSTONE_BRICK_WALL.get(), modLoc("block/soapstone_bricks"));
+        block(BorealisBlocks.SLATE);
+        log(BorealisBlocks.SLATE_PILLAR, "slate_pillar");
+        block(BorealisBlocks.SLATE_TILES);
+        block(BorealisBlocks.PUMICE);
         block(BorealisBlocks.travertine);
-        block(BorealisBlocks.living_snow_block);
-        block(BorealisBlocks.sugar_snow_block);
-        block(BorealisBlocks.permafrost_rubble);
-        block(BorealisBlocks.cloud);
+        block(BorealisBlocks.LIVING_SNOW_BLOCK);
+        block(BorealisBlocks.SUGAR_SNOW_BLOCK);
+        block(BorealisBlocks.PERMAFROST_RUBBLE);
+        block(BorealisBlocks.CLOUD);
         wood();
     }
 

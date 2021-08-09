@@ -9,9 +9,7 @@ import com.reetam.borealis.block.BorealisPortalBlock;
 import com.reetam.borealis.registry.BorealisBlocks;
 import it.unimi.dsi.fastutil.objects.Object2LongMap;
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.PortalInfo;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -34,7 +32,6 @@ import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -161,7 +158,7 @@ public class BorealisTeleporter implements ITeleporter {
     }
 
     private static boolean isPortal(BlockState state) {
-        return state.getBlock() == BorealisBlocks.borealis_portal.get();
+        return state.getBlock() == BorealisBlocks.BOREALIS_PORTAL.get();
     }
 
     // from the start point, builds a set of all directly adjacent non-portal blocks
@@ -370,7 +367,7 @@ public class BorealisTeleporter implements ITeleporter {
         } else {
             pos = new BlockPos(pos.getX(), world.getHeight(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()), pos.getZ());
         }
-        ((BorealisPortalBlock) BorealisBlocks.borealis_portal.get()).makePortal(world, pos);
+        ((BorealisPortalBlock) BorealisBlocks.BOREALIS_PORTAL.get()).makePortal(world, pos);
         return pos;
     }
 

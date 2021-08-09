@@ -2,11 +2,14 @@ package com.reetam.borealis.data.provider;
 
 import com.reetam.borealis.BorealisMod;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.data.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -109,13 +112,22 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .unlockedBy(has(stoneIn), has(stoneIn.get()));
     }
 
+    public ShapedRecipeBuilder boat(Supplier<? extends Block> plankIn, Supplier<? extends Item> boatOut) {
+        return ShapedRecipeBuilder.shaped(boatOut.get(), 1)
+                .pattern("# #")
+                .pattern("###")
+                .define('#', plankIn.get())
+                .unlockedBy("in_water", insideOf(Blocks.WATER));
+    }
+
     protected ResourceLocation name(String name) {
         return new ResourceLocation(BorealisMod.MODID, name);
     }
 
-    protected ResourceLocation name(Supplier<? extends Block> block) {
+    protected ResourceLocation name(Supplier<? extends ForgeRegistryEntry<?>> block) {
         return block.get().getRegistryName();
     }
+
     protected String has(Supplier<? extends Block> block) {
         return "has_" + block.get().getRegistryName().getPath();
     }

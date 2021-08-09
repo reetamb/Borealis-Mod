@@ -32,12 +32,12 @@ public class HotSpringFeature extends Feature<NoFeatureConfig> {
             diskAt(reader, pos1, state, size-1);
             diskAt(reader, pos1.above(), state, size-2);
 
-            diskAt(reader, pos1.above(), BorealisBlocks.hot_spring_water.get().defaultBlockState(), size-3);
-            diskAt(reader, pos1, BorealisBlocks.hot_spring_water.get().defaultBlockState(), size-2);
+            diskAt(reader, pos1.above(), BorealisBlocks.HOT_SPRING_WATER.get().defaultBlockState(), size-3);
+            diskAt(reader, pos1, BorealisBlocks.HOT_SPRING_WATER.get().defaultBlockState(), size-2);
         } else {
             diskAt(reader, pos.below().above(yOffset), state, size);
             diskAt(reader, pos.above(yOffset), state, size);
-            diskAt(reader, pos.above(yOffset), BorealisBlocks.hot_spring_water.get().defaultBlockState(), size-1);
+            diskAt(reader, pos.above(yOffset), BorealisBlocks.HOT_SPRING_WATER.get().defaultBlockState(), size-1);
         }
 
         return true;

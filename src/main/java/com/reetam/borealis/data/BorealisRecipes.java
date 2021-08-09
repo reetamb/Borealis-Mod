@@ -10,6 +10,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 
 import java.util.function.Consumer;
@@ -24,28 +25,28 @@ public class BorealisRecipes extends BorealisRecipeProvider {
     @Override
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
         Block[] soapstone_stonecuts = new Block[]{
-                BorealisBlocks.soapstone_bricks.get(),
-                BorealisBlocks.soapstone_tiles.get(),
-                BorealisBlocks.soapstone_stairs.get(),
-                BorealisBlocks.soapstone_slab.get(),
-                BorealisBlocks.soapstone_wall.get(),
-                BorealisBlocks.soapstone_button.get(),
-                BorealisBlocks.soapstone_pressure_plate.get()
+                BorealisBlocks.SOAPSTONE_BRICKS.get(),
+                BorealisBlocks.SOAPSTONE_TILES.get(),
+                BorealisBlocks.SOAPSTONE_STAIRS.get(),
+                BorealisBlocks.SOAPSTONE_SLAB.get(),
+                BorealisBlocks.SOAPSTONE_WALL.get(),
+                BorealisBlocks.SOAPSTONE_BUTTON.get(),
+                BorealisBlocks.SOAPSTONE_PRESSURE_PLATE.get()
         };
         Block[] brick_stonecuts = new Block[]{
-                BorealisBlocks.soapstone_tiles.get(),
-                BorealisBlocks.soapstone_brick_stairs.get(),
-                BorealisBlocks.soapstone_brick_slab.get(),
-                BorealisBlocks.soapstone_brick_wall.get()
+                BorealisBlocks.SOAPSTONE_TILES.get(),
+                BorealisBlocks.SOAPSTONE_BRICK_STAIRS.get(),
+                BorealisBlocks.SOAPSTONE_BRICK_SLAB.get(),
+                BorealisBlocks.SOAPSTONE_BRICK_WALL.get()
         };
         Block[] tile_stonecuts = new Block[]{
-                BorealisBlocks.soapstone_tile_stairs.get(),
-                BorealisBlocks.soapstone_tile_slab.get(),
-                BorealisBlocks.soapstone_tile_wall.get()
+                BorealisBlocks.SOAPSTONE_TILE_STAIRS.get(),
+                BorealisBlocks.SOAPSTONE_TILE_SLAB.get(),
+                BorealisBlocks.SOAPSTONE_TILE_WALL.get()
         };
         Block[] slate_stonecuts = new Block[]{
-                BorealisBlocks.slate_pillar.get(),
-                BorealisBlocks.slate_tiles.get()
+                BorealisBlocks.SLATE_PILLAR.get(),
+                BorealisBlocks.SLATE_TILES.get()
         };
         bulkWood(
                 consumer,
@@ -61,7 +62,8 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 BorealisBlocks.brumal_button,
                 BorealisBlocks.brumal_pressure_plate,
                 BorealisBlocks.brumal_door,
-                BorealisBlocks.brumal_trapdoor
+                BorealisBlocks.brumal_trapdoor,
+                BorealisItems.BRUMAL_BOAT
         );
         bulkWood(
                 consumer,
@@ -77,7 +79,8 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 BorealisBlocks.frostfir_button,
                 BorealisBlocks.frostfir_pressure_plate,
                 BorealisBlocks.frostfir_door,
-                BorealisBlocks.frostfir_trapdoor
+                BorealisBlocks.frostfir_trapdoor,
+                BorealisItems.FROSTFIR_BOAT
         );
         bulkWood(
                 consumer,
@@ -93,41 +96,42 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 BorealisBlocks.saccharine_button,
                 BorealisBlocks.saccharine_pressure_plate,
                 BorealisBlocks.saccharine_door,
-                BorealisBlocks.saccharine_trapdoor
+                BorealisBlocks.saccharine_trapdoor,
+                BorealisItems.SACCHARINE_BOAT
         );
-        doStone(consumer, BorealisBlocks.soapstone, BorealisBlocks.soapstone_stairs, BorealisBlocks.soapstone_slab, BorealisBlocks.soapstone_wall);
-        doStone(consumer, BorealisBlocks.soapstone_bricks, BorealisBlocks.soapstone_brick_stairs, BorealisBlocks.soapstone_brick_slab, BorealisBlocks.soapstone_brick_wall);
-        doStone(consumer, BorealisBlocks.soapstone_tiles, BorealisBlocks.soapstone_tile_stairs, BorealisBlocks.soapstone_tile_slab, BorealisBlocks.soapstone_tile_wall);
-        stone(BorealisBlocks.soapstone, BorealisBlocks.soapstone_bricks).save(consumer);
-        stone(BorealisBlocks.soapstone_bricks, BorealisBlocks.soapstone_tiles).save(consumer);
-        bulkStonecutting(consumer, BorealisBlocks.soapstone, soapstone_stonecuts);
-        bulkStonecutting(consumer, BorealisBlocks.soapstone_bricks, brick_stonecuts);
-        bulkStonecutting(consumer, BorealisBlocks.soapstone_tiles, tile_stonecuts);
-        ShapedRecipeBuilder.shaped(BorealisItems.hat.get())
+        doStone(consumer, BorealisBlocks.SOAPSTONE, BorealisBlocks.SOAPSTONE_STAIRS, BorealisBlocks.SOAPSTONE_SLAB, BorealisBlocks.SOAPSTONE_WALL);
+        doStone(consumer, BorealisBlocks.SOAPSTONE_BRICKS, BorealisBlocks.SOAPSTONE_BRICK_STAIRS, BorealisBlocks.SOAPSTONE_BRICK_SLAB, BorealisBlocks.SOAPSTONE_BRICK_WALL);
+        doStone(consumer, BorealisBlocks.SOAPSTONE_TILES, BorealisBlocks.SOAPSTONE_TILE_STAIRS, BorealisBlocks.SOAPSTONE_TILE_SLAB, BorealisBlocks.SOAPSTONE_TILE_WALL);
+        stone(BorealisBlocks.SOAPSTONE, BorealisBlocks.SOAPSTONE_BRICKS).save(consumer);
+        stone(BorealisBlocks.SOAPSTONE_BRICKS, BorealisBlocks.SOAPSTONE_TILES).save(consumer);
+        bulkStonecutting(consumer, BorealisBlocks.SOAPSTONE, soapstone_stonecuts);
+        bulkStonecutting(consumer, BorealisBlocks.SOAPSTONE_BRICKS, brick_stonecuts);
+        bulkStonecutting(consumer, BorealisBlocks.SOAPSTONE_TILES, tile_stonecuts);
+        ShapedRecipeBuilder.shaped(BorealisItems.HAT.get())
                 .pattern(" # ")
                 .pattern(" 0 ")
                 .pattern("###")
                 .define('#', Blocks.BLACK_WOOL)
                 .define('0', Blocks.WHITE_WOOL)
                 .unlockedBy("has_" + Blocks.BLACK_WOOL.getRegistryName().getPath(), has(Blocks.BLACK_WOOL)).save(consumer);
-        ShapedRecipeBuilder.shaped(BorealisItems.moon_pearl.get())
+        ShapedRecipeBuilder.shaped(BorealisItems.MOON_PEARL.get())
                 .pattern("000")
                 .pattern("0#0")
                 .pattern("000")
                 .define('0', Items.LAPIS_LAZULI)
                 .define('#', Items.SNOWBALL)
                 .unlockedBy("has_" + Items.LAPIS_LAZULI, has(Items.LAPIS_LAZULI)).save(consumer);
-        ShapedRecipeBuilder.shaped(BorealisBlocks.slate_pillar.get())
+        ShapedRecipeBuilder.shaped(BorealisBlocks.SLATE_PILLAR.get())
                 .pattern("#")
                 .pattern("#")
                 .pattern("#")
-                .define('#', BorealisBlocks.slate.get())
-                .unlockedBy(has(BorealisBlocks.slate), has(BorealisBlocks.slate.get()));
-        stone(BorealisBlocks.slate, BorealisBlocks.slate_tiles).save(consumer);
-        bulkStonecutting(consumer, BorealisBlocks.slate, slate_stonecuts);
+                .define('#', BorealisBlocks.SLATE.get())
+                .unlockedBy(has(BorealisBlocks.SLATE), has(BorealisBlocks.SLATE.get()));
+        stone(BorealisBlocks.SLATE, BorealisBlocks.SLATE_TILES).save(consumer);
+        bulkStonecutting(consumer, BorealisBlocks.SLATE, slate_stonecuts);
     }
 
-    public void bulkWood(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn) {
+    public void bulkWood(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn, Supplier<? extends Item> boatIn) {
         ShapelessRecipeBuilder.shapeless(plankIn.get(), 4)
                 .requires(logIn.get())
                 .unlockedBy(has(logIn), has(logIn.get()))
@@ -147,6 +151,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         plate(plankIn, plateIn).save(consumer, name(plateIn));
         door(plankIn, doorIn).save(consumer, name(doorIn));
         trapdoor(plankIn, trapdoorIn).save(consumer, name(trapdoorIn));
+        boat(plankIn, boatIn).save(consumer, name(boatIn));
     }
 
     public void doStone(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> wallIn) {

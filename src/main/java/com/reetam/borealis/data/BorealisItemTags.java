@@ -2,6 +2,7 @@ package com.reetam.borealis.data;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.BorealisTags;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
@@ -47,7 +48,7 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisBlocks.frostfir_button.get().asItem())
                 .add(BorealisBlocks.saccharine_button.get().asItem());
         tag(ItemTags.BUTTONS)
-                .add(BorealisBlocks.soapstone_button.get().asItem());
+                .add(BorealisBlocks.SOAPSTONE_BUTTON.get().asItem());
         tag(ItemTags.WOODEN_DOORS)
                 .add(BorealisBlocks.brumal_door.get().asItem())
                 .add(BorealisBlocks.frostfir_door.get().asItem())
@@ -77,8 +78,8 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisBlocks.frostfir_pressure_plate.get().asItem())
                 .add(BorealisBlocks.saccharine_pressure_plate.get().asItem());
         tag(ItemTags.WALLS)
-                .add(BorealisBlocks.soapstone_wall.get().asItem())
-                .add(BorealisBlocks.soapstone_brick_wall.get().asItem());
+                .add(BorealisBlocks.SOAPSTONE_WALL.get().asItem())
+                .add(BorealisBlocks.SOAPSTONE_BRICK_WALL.get().asItem());
         tag(ItemTags.LEAVES)
                 .add(BorealisBlocks.brumal_leaves.get().asItem())
                 .add(BorealisBlocks.frostfir_leaves.get().asItem())
@@ -88,16 +89,20 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisBlocks.frostfir_trapdoor.get().asItem())
                 .add(BorealisBlocks.saccharine_trapdoor.get().asItem());
         tag(ItemTags.STONE_TOOL_MATERIALS)
-                .add(BorealisBlocks.soapstone.get().asItem())
-                .add(BorealisBlocks.slate.get().asItem());
+                .add(BorealisBlocks.SOAPSTONE.get().asItem())
+                .add(BorealisBlocks.SLATE.get().asItem());
         tag(ItemTags.STONE_CRAFTING_MATERIALS)
-                .add(BorealisBlocks.soapstone.get().asItem())
-                .add(BorealisBlocks.slate.get().asItem());
+                .add(BorealisBlocks.SOAPSTONE.get().asItem())
+                .add(BorealisBlocks.SLATE.get().asItem());
+        tag(ItemTags.BOATS)
+                .add(BorealisItems.BRUMAL_BOAT.get())
+                .add(BorealisItems.FROSTFIR_BOAT.get())
+                .add(BorealisItems.SACCHARINE_BOAT.get());
 
-//forge
+        //forge
         tag(Tags.Items.COBBLESTONE)
-                .add(BorealisBlocks.soapstone.get().asItem())
-                .add(BorealisBlocks.slate.get().asItem());
+                .add(BorealisBlocks.SOAPSTONE.get().asItem())
+                .add(BorealisBlocks.SLATE.get().asItem());
         tag(Tags.Items.FENCE_GATES_WOODEN)
                 .add(BorealisBlocks.brumal_fence_gate.get().asItem())
                 .add(BorealisBlocks.frostfir_fence_gate.get().asItem())
@@ -107,8 +112,8 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisBlocks.frostfir_fence.get().asItem())
                 .add(BorealisBlocks.saccharine_fence.get().asItem());
         tag(Tags.Items.STONE)
-                .add(BorealisBlocks.soapstone.get().asItem())
-                .add(BorealisBlocks.slate.get().asItem());
+                .add(BorealisBlocks.SOAPSTONE.get().asItem())
+                .add(BorealisBlocks.SLATE.get().asItem());
     }
 
     protected TagsProvider.Builder<Item> tag(ITag.INamedTag<Item> tag) {

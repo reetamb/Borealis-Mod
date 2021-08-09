@@ -25,6 +25,6 @@ public class BorealisFluids {
                     new ResourceLocation(BorealisMod.MODID, "fluid/hot_spring_water_still"),
                     new ResourceLocation(BorealisMod.MODID, "fluid/hot_spring_water_flow")).overlay(
                     new ResourceLocation(BorealisMod.MODID, "fluid/hot_spring_water_overlay")))
-            .bucket(BorealisItems.hot_spring_water_bucket)
-            .block(BorealisBlocks.hot_spring_water);
+            .bucket(BorealisItems.HOT_SPRING_WATER_BUCKET)
+            .block(BorealisBlocks.HOT_SPRING_WATER);
 }

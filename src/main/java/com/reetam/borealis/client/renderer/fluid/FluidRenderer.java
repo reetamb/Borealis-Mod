@@ -15,9 +15,6 @@ import net.minecraft.util.math.vector.Matrix4f;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderBlockOverlayEvent;
-import net.minecraftforge.fml.RegistryObject;
-
-import javax.annotation.Nullable;
 
 
 @OnlyIn(Dist.CLIENT)
@@ -27,9 +24,9 @@ public class FluidRenderer {
     private static final ResourceLocation TEXTURE_HOT_SPRING_UNDERWATER = new ResourceLocation(BorealisMod.MODID + ":textures/fluid/hot_spring_water_overlay.png");
 
     public static void fluidOverlay(RenderBlockOverlayEvent event) {
-        if (event.getPlayer().level.getBlockState(event.getBlockPos()).getBlock() == BorealisBlocks.hot_spring_water.get()) {
+        if (event.getPlayer().level.getBlockState(event.getBlockPos()).getBlock() == BorealisBlocks.HOT_SPRING_WATER.get()) {
             Minecraft minecraftIn = Minecraft.getInstance();
-            minecraftIn.getTextureManager().bind(getOverlayTexture(BorealisBlocks.hot_spring_water.get()));
+            minecraftIn.getTextureManager().bind(getOverlayTexture(BorealisBlocks.HOT_SPRING_WATER.get()));
             BufferBuilder bufferbuilder = Tessellator.getInstance().getBuilder();
             float f = event.getPlayer().getBrightness();
             RenderSystem.enableBlend();

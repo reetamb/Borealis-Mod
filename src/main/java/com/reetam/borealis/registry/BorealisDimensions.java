@@ -11,8 +11,8 @@ import com.reetam.borealis.BorealisMod;
 
 public class BorealisDimensions {
 
-    public static final RegistryKey<DimensionType> borealis = RegistryKey.create(Registry.DIMENSION_TYPE_REGISTRY, name("borealis"));
-    public static final RegistryKey<World> borealis_w = RegistryKey.create(Registry.DIMENSION_REGISTRY, name("borealis"));
+    public static final RegistryKey<DimensionType> BOREALIS_TYPE = RegistryKey.create(Registry.DIMENSION_TYPE_REGISTRY, name("borealis"));
+    public static final RegistryKey<World> BOREALIS = RegistryKey.create(Registry.DIMENSION_REGISTRY, name("borealis"));
 
     public static void registerDimensionGenerators() {
         Registry.register(Registry.CHUNK_GENERATOR, name("chunk_generator"), BorealisChunkGenerator.CODEC);

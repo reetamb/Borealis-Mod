@@ -31,15 +31,15 @@ public class SpikeTrailFeature extends Feature<NoFeatureConfig> {
     }
 
     private void spikeAt(ISeedReader reader, BlockPos pos) {
-        reader.setBlock(pos, BorealisBlocks.pumice.get().defaultBlockState(), 19);
+        reader.setBlock(pos, BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
 
-        reader.setBlock(toGround(reader, pos.west()), BorealisBlocks.pumice.get().defaultBlockState(), 19);
-        reader.setBlock(toGround(reader, pos.north()), BorealisBlocks.pumice.get().defaultBlockState(), 19);
-        reader.setBlock(toGround(reader, pos.east()), BorealisBlocks.pumice.get().defaultBlockState(), 19);
-        reader.setBlock(toGround(reader, pos.south()), BorealisBlocks.pumice.get().defaultBlockState(), 19);
+        reader.setBlock(toGround(reader, pos.west()), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
+        reader.setBlock(toGround(reader, pos.north()), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
+        reader.setBlock(toGround(reader, pos.east()), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
+        reader.setBlock(toGround(reader, pos.south()), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
 
-        reader.setBlock(pos.above(), BorealisBlocks.pumice.get().defaultBlockState(), 19);
-        reader.setBlock(pos.above(2), BorealisBlocks.pumice_geyser.get().defaultBlockState(), 19);
+        reader.setBlock(pos.above(), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
+        reader.setBlock(pos.above(2), BorealisBlocks.PUMICE_GEYSER.get().defaultBlockState(), 19);
     }
 
     private BlockPos toGround(ISeedReader reader, BlockPos pos) {

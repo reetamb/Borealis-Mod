@@ -40,7 +40,7 @@ public class MoonPearlItem extends Item {
                             (world.getBlockState(pos.north().east()).getBlock() == Blocks.PACKED_ICE) &&
                             (world.getBlockState(pos.south().west()).getBlock() == Blocks.PACKED_ICE) &&
                             (world.getBlockState(pos.east().south()).getBlock() == Blocks.PACKED_ICE)) {
-                        ((BorealisPortalBlock) BorealisBlocks.borealis_portal.get()).makePortal(world, pos);
+                        ((BorealisPortalBlock) BorealisBlocks.BOREALIS_PORTAL.get()).makePortal(world, pos);
                         world.setRainLevel(1.0F);
                     }
                 }

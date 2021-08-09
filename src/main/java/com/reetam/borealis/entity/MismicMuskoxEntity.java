@@ -73,6 +73,6 @@ public class MismicMuskoxEntity extends AnimalEntity {
     }
 
     public static boolean canMuskoxSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
-        return worldIn.getBlockState(pos.below()).getBlock() == BorealisBlocks.living_snow_block.get();
+        return worldIn.getBlockState(pos.below()).getBlock() == BorealisBlocks.LIVING_SNOW_BLOCK.get();
     }
 }

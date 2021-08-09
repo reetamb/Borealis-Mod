@@ -15,19 +15,22 @@ public class BorealisEntities {
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, BorealisMod.MODID);
 
-    public static final EntityType<HummingbirdEntity> hummingbird = EntityType.Builder.<HummingbirdEntity>of(HummingbirdEntity::new, EntityClassification.CREATURE)
+    public static final EntityType<HummingbirdEntity> HUMMINGBIRD_TYPE = EntityType.Builder.<HummingbirdEntity>of(HummingbirdEntity::new, EntityClassification.CREATURE)
             .sized(0.9F, 0.9F).clientTrackingRange(10).build("hummingbird");
-    public static final EntityType<TakaheEntity> takahe = EntityType.Builder.<TakaheEntity>of(TakaheEntity::new, EntityClassification.CREATURE)
+    public static final EntityType<TakaheEntity> TAKAHE_TYPE = EntityType.Builder.<TakaheEntity>of(TakaheEntity::new, EntityClassification.CREATURE)
             .sized(0.8F, 0.8F).clientTrackingRange(10).build("takahe");
-    public static final EntityType<MismicMuskoxEntity> mismic_muskox = EntityType.Builder.<MismicMuskoxEntity>of(MismicMuskoxEntity::new, EntityClassification.CREATURE)
+    public static final EntityType<MismicMuskoxEntity> MISMIC_MUSKOX_TYPE = EntityType.Builder.<MismicMuskoxEntity>of(MismicMuskoxEntity::new, EntityClassification.CREATURE)
             .sized(1.0F, 1.4F).clientTrackingRange(10).build("mismic_muskox");
+    public static final EntityType<BorealisBoatEntity> BOAT_TYPE = EntityType.Builder.<BorealisBoatEntity>of(BorealisBoatEntity::new, EntityClassification.MISC)
+            .sized(1.375F, 0.5625F).clientTrackingRange(10).build("boat");
+    public static final RegistryObject<EntityType<BorealisBoatEntity>> BOAT = ENTITIES.register("boat", () -> BOAT_TYPE);
 
     public static final RegistryObject<EntityType<HummingbirdEntity>> HUMMINGBIRD = ENTITIES.register(
-            "hummingbird", () -> hummingbird);
+            "hummingbird", () -> HUMMINGBIRD_TYPE);
     public static final  RegistryObject<EntityType<TakaheEntity>> TAKAHE = ENTITIES.register(
-            "takahe", () -> takahe);
+            "takahe", () -> TAKAHE_TYPE);
     public static final  RegistryObject<EntityType<MismicMuskoxEntity>> MISMIC_MUSKOX = ENTITIES.register(
-            "mismic_muskox", () -> mismic_muskox);
+            "mismic_muskox", () -> MISMIC_MUSKOX_TYPE);
 
     public static void spawnPlacements() {
         EntitySpawnPlacementRegistry.register(HUMMINGBIRD.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HummingbirdEntity::canHummingbirdSpawn);

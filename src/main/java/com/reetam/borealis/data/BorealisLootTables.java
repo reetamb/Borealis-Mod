@@ -17,7 +17,6 @@ import net.minecraft.data.loot.EntityLootTables;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.*;
 import net.minecraft.loot.conditions.*;
@@ -70,30 +69,30 @@ public class BorealisLootTables extends LootTableProvider {
 
         @Override
         protected void addTables() {
-            dropSelf(BorealisBlocks.soapstone);
-            dropSelf(BorealisBlocks.soapstone_tiles);
-            dropWithFortune(BorealisBlocks.kyanite_ore, BorealisItems.kyanite_crystal);
-            dropWithFortune(BorealisBlocks.tanzanite_ore, BorealisItems.tanzanite);
-            dropSelf(BorealisBlocks.tanzanite_block);
-            dropSelf(BorealisBlocks.soapstone);
-            dropSelf(BorealisBlocks.soapstone_tiles);
-            dropSelf(BorealisBlocks.soapstone_bricks);
-            dropSelf(BorealisBlocks.soapstone_stairs);
-            dropSelf(BorealisBlocks.soapstone_tile_stairs);
-            dropSelf(BorealisBlocks.soapstone_brick_stairs);
-            dropSelf(BorealisBlocks.soapstone_slab);
-            dropSelf(BorealisBlocks.soapstone_tile_slab);
-            dropSelf(BorealisBlocks.soapstone_brick_slab);
-            dropSelf(BorealisBlocks.soapstone_wall);
-            dropSelf(BorealisBlocks.soapstone_tile_wall);
-            dropSelf(BorealisBlocks.soapstone_brick_wall);
-            dropSelf(BorealisBlocks.soapstone_button);
-            dropSelf(BorealisBlocks.soapstone_pressure_plate);
-            dropSelf(BorealisBlocks.slate);
-            dropSelf(BorealisBlocks.slate_pillar);
-            dropSelf(BorealisBlocks.slate_tiles);
-            dropSelf(BorealisBlocks.pumice);
-            dropSelf(BorealisBlocks.pumice_geyser);
+            dropSelf(BorealisBlocks.SOAPSTONE);
+            dropSelf(BorealisBlocks.SOAPSTONE_TILES);
+            dropWithFortune(BorealisBlocks.KYANITE_ORE, BorealisItems.KYANITE_CRYSTAL);
+            dropWithFortune(BorealisBlocks.TANZANITE_ORE, BorealisItems.TANZANITE);
+            dropSelf(BorealisBlocks.TANZANITE_BLOCK);
+            dropSelf(BorealisBlocks.SOAPSTONE);
+            dropSelf(BorealisBlocks.SOAPSTONE_TILES);
+            dropSelf(BorealisBlocks.SOAPSTONE_BRICKS);
+            dropSelf(BorealisBlocks.SOAPSTONE_STAIRS);
+            dropSelf(BorealisBlocks.SOAPSTONE_TILE_STAIRS);
+            dropSelf(BorealisBlocks.SOAPSTONE_BRICK_STAIRS);
+            dropSelf(BorealisBlocks.SOAPSTONE_SLAB);
+            dropSelf(BorealisBlocks.SOAPSTONE_TILE_SLAB);
+            dropSelf(BorealisBlocks.SOAPSTONE_BRICK_SLAB);
+            dropSelf(BorealisBlocks.SOAPSTONE_WALL);
+            dropSelf(BorealisBlocks.SOAPSTONE_TILE_WALL);
+            dropSelf(BorealisBlocks.SOAPSTONE_BRICK_WALL);
+            dropSelf(BorealisBlocks.SOAPSTONE_BUTTON);
+            dropSelf(BorealisBlocks.SOAPSTONE_PRESSURE_PLATE);
+            dropSelf(BorealisBlocks.SLATE);
+            dropSelf(BorealisBlocks.SLATE_PILLAR);
+            dropSelf(BorealisBlocks.SLATE_TILES);
+            dropSelf(BorealisBlocks.PUMICE);
+            dropSelf(BorealisBlocks.PUMICE_GEYSER);
             dropSelf(BorealisBlocks.brumal_planks);
             dropSelf(BorealisBlocks.brumal_log);
             dropSelf(BorealisBlocks.brumal_wood);
@@ -139,11 +138,11 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.saccharine_button);
             dropSelf(BorealisBlocks.saccharine_pressure_plate);
             dropSelf(BorealisBlocks.saccharine_sapling);
-            dropWithSilk(BorealisBlocks.living_snow_block, () -> net.minecraft.block.Blocks.SNOW_BLOCK);
-            dropSelf(BorealisBlocks.sugar_snow_block);
-            dropSelf(BorealisBlocks.permafrost);
+            dropWithSilk(BorealisBlocks.LIVING_SNOW_BLOCK, () -> net.minecraft.block.Blocks.SNOW_BLOCK);
+            dropSelf(BorealisBlocks.SUGAR_SNOW_BLOCK);
+            dropSelf(BorealisBlocks.PERMAFROST);
             dropSelf(BorealisBlocks.travertine);
-            this.add(BorealisBlocks.permafrost_rubble.get(),
+            this.add(BorealisBlocks.PERMAFROST_RUBBLE.get(),
                     new LootTable.Builder()
                             .withPool(new LootPool.Builder()
                                     .add(ItemLootEntry.lootTableItem(Items.FLINT).when(RandomChance.randomChance((float) 0.2)))
@@ -155,8 +154,8 @@ public class BorealisLootTables extends LootTableProvider {
                                     .add(ItemLootEntry.lootTableItem(Items.COAL).when(RandomChance.randomChance((float) 0.2)))
                                     .add(ItemLootEntry.lootTableItem(Items.CHARCOAL).when(RandomChance.randomChance((float) 0.2)))
                                     .add(ItemLootEntry.lootTableItem(Items.POISONOUS_POTATO).when(RandomChance.randomChance((float) 0.02)))));
-            dropWithSilk(BorealisBlocks.cloud, BorealisBlocks.cloud);
-            this.add(BorealisBlocks.sugar_snow.get(),
+            dropWithSilk(BorealisBlocks.CLOUD, BorealisBlocks.CLOUD);
+            this.add(BorealisBlocks.SUGAR_SNOW.get(),
                     new LootTable.Builder()
                             .withPool(new LootPool.Builder()
                                 .add(ItemLootEntry.lootTableItem(Items.SUGAR).when(RandomChance.randomChance(1.0F)))

@@ -22,32 +22,32 @@ public class BorealisBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BorealisMod.MODID);
 
-    public static final RegistryObject<FlowingFluidBlock> hot_spring_water = BLOCKS.register("hot_spring_water", () -> new HotSpringWaterBlock(
+    public static final RegistryObject<FlowingFluidBlock> HOT_SPRING_WATER = BLOCKS.register("hot_spring_water", () -> new HotSpringWaterBlock(
             BorealisFluids.hot_spring_water_source, AbstractBlock.Properties.of(Material.WATER)));
 
-    public static final RegistryObject<Block> borealis_portal = BLOCKS.register("borealis_portal", BorealisPortalBlock::new);
+    public static final RegistryObject<Block> BOREALIS_PORTAL = BLOCKS.register("borealis_portal", BorealisPortalBlock::new);
 
-    public static final RegistryObject<Block> soapstone = registerBlock("soapstone", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> soapstone_bricks = registerBlock("soapstone_bricks", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE_BRICKS)));
-    public static final RegistryObject<Block> soapstone_tiles = registerBlock("soapstone_tiles", () -> new Block(AbstractBlock.Properties.copy(Blocks.SMOOTH_STONE)));
-    public static final RegistryObject<StairsBlock> soapstone_stairs = registerBlock("soapstone_stairs", () -> new StairsBlock(() -> BorealisBlocks.soapstone.get().defaultBlockState(), AbstractBlock.Properties.copy(BorealisBlocks.soapstone.get()).noOcclusion()));
-    public static final RegistryObject<StairsBlock> soapstone_brick_stairs = registerBlock("soapstone_brick_stairs", () -> new StairsBlock(() -> BorealisBlocks.soapstone_bricks.get().defaultBlockState(), AbstractBlock.Properties.copy(BorealisBlocks.soapstone_bricks.get()).noOcclusion()));
-    public static final RegistryObject<StairsBlock> soapstone_tile_stairs = registerBlock("soapstone_tile_stairs", () -> new StairsBlock(() -> BorealisBlocks.soapstone_tiles.get().defaultBlockState(), AbstractBlock.Properties.copy(BorealisBlocks.soapstone_tiles.get()).noOcclusion()));
-    public static final RegistryObject<SlabBlock> soapstone_slab = registerBlock("soapstone_slab", () -> new SlabBlock(AbstractBlock.Properties.copy(BorealisBlocks.soapstone.get()).noOcclusion()));
-    public static final RegistryObject<SlabBlock> soapstone_brick_slab = registerBlock("soapstone_brick_slab", () -> new SlabBlock(AbstractBlock.Properties.copy(BorealisBlocks.soapstone_bricks.get()).noOcclusion()));
-    public static final RegistryObject<SlabBlock> soapstone_tile_slab = registerBlock("soapstone_tile_slab", () -> new SlabBlock(AbstractBlock.Properties.copy(BorealisBlocks.soapstone_tiles.get()).noOcclusion()));
-    public static final RegistryObject<WallBlock> soapstone_wall = registerBlock("soapstone_wall", () -> new WallBlock(AbstractBlock.Properties.copy(BorealisBlocks.soapstone.get()).noOcclusion()));
-    public static final RegistryObject<WallBlock> soapstone_brick_wall = registerBlock("soapstone_brick_wall", () -> new WallBlock(AbstractBlock.Properties.copy(BorealisBlocks.soapstone_bricks.get()).noOcclusion()));
-    public static final RegistryObject<WallBlock> soapstone_tile_wall = registerBlock("soapstone_tile_wall", () -> new WallBlock(AbstractBlock.Properties.copy(BorealisBlocks.soapstone_tiles.get()).noOcclusion()));
-    public static final RegistryObject<WoodButtonBlock> soapstone_button = registerBlock("soapstone_button", () -> new WoodButtonBlock(AbstractBlock.Properties.copy(BorealisBlocks.soapstone_tiles.get()).noOcclusion().noCollission()));
-    public static final RegistryObject<PressurePlateBlock> soapstone_pressure_plate = registerBlock("soapstone_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.copy(BorealisBlocks.soapstone_tiles.get()).noOcclusion().noCollission()));
+    public static final RegistryObject<Block> SOAPSTONE = registerBlock("soapstone", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> SOAPSTONE_BRICKS = registerBlock("soapstone_bricks", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> SOAPSTONE_TILES = registerBlock("soapstone_tiles", () -> new Block(AbstractBlock.Properties.copy(Blocks.SMOOTH_STONE)));
+    public static final RegistryObject<StairsBlock> SOAPSTONE_STAIRS = registerBlock("soapstone_stairs", () -> new StairsBlock(() -> BorealisBlocks.SOAPSTONE.get().defaultBlockState(), AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE.get()).noOcclusion()));
+    public static final RegistryObject<StairsBlock> SOAPSTONE_BRICK_STAIRS = registerBlock("soapstone_brick_stairs", () -> new StairsBlock(() -> BorealisBlocks.SOAPSTONE_BRICKS.get().defaultBlockState(), AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE_BRICKS.get()).noOcclusion()));
+    public static final RegistryObject<StairsBlock> SOAPSTONE_TILE_STAIRS = registerBlock("soapstone_tile_stairs", () -> new StairsBlock(() -> BorealisBlocks.SOAPSTONE_TILES.get().defaultBlockState(), AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE_TILES.get()).noOcclusion()));
+    public static final RegistryObject<SlabBlock> SOAPSTONE_SLAB = registerBlock("soapstone_slab", () -> new SlabBlock(AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE.get()).noOcclusion()));
+    public static final RegistryObject<SlabBlock> SOAPSTONE_BRICK_SLAB = registerBlock("soapstone_brick_slab", () -> new SlabBlock(AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE_BRICKS.get()).noOcclusion()));
+    public static final RegistryObject<SlabBlock> SOAPSTONE_TILE_SLAB = registerBlock("soapstone_tile_slab", () -> new SlabBlock(AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE_TILES.get()).noOcclusion()));
+    public static final RegistryObject<WallBlock> SOAPSTONE_WALL = registerBlock("soapstone_wall", () -> new WallBlock(AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE.get()).noOcclusion()));
+    public static final RegistryObject<WallBlock> SOAPSTONE_BRICK_WALL = registerBlock("soapstone_brick_wall", () -> new WallBlock(AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE_BRICKS.get()).noOcclusion()));
+    public static final RegistryObject<WallBlock> SOAPSTONE_TILE_WALL = registerBlock("soapstone_tile_wall", () -> new WallBlock(AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE_TILES.get()).noOcclusion()));
+    public static final RegistryObject<WoodButtonBlock> SOAPSTONE_BUTTON = registerBlock("soapstone_button", () -> new WoodButtonBlock(AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE_TILES.get()).noOcclusion().noCollission()));
+    public static final RegistryObject<PressurePlateBlock> SOAPSTONE_PRESSURE_PLATE = registerBlock("soapstone_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.copy(BorealisBlocks.SOAPSTONE_TILES.get()).noOcclusion().noCollission()));
 
-    public static final RegistryObject<Block> slate = registerBlock("slate", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<RotatedPillarBlock> slate_pillar = registerBlock("slate_pillar", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> slate_tiles = registerBlock("slate_tiles", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> SLATE = registerBlock("slate", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<RotatedPillarBlock> SLATE_PILLAR = registerBlock("slate_pillar", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> SLATE_TILES = registerBlock("slate_tiles", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE)));
 
-    public static final RegistryObject<Block> pumice = registerBlock("pumice", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> pumice_geyser = registerBlock("pumice_geyser", PumiceGeyserBlock::new);
+    public static final RegistryObject<Block> PUMICE = registerBlock("pumice", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> PUMICE_GEYSER = registerBlock("pumice_geyser", PumiceGeyserBlock::new);
     public static final RegistryObject<Block> travertine = registerBlock("travertine", () -> new Block(AbstractBlock.Properties.copy(Blocks.BASALT)));
 
     public static final RegistryObject<SaplingBlock> brumal_sapling = registerBlock("brumal_sapling", () -> new BorealisSaplingBlock(new BrumalTree()));
@@ -98,16 +98,16 @@ public class BorealisBlocks {
     public static final RegistryObject<WoodButtonBlock> saccharine_button = registerBlock("saccharine_button", () -> new WoodButtonBlock(AbstractBlock.Properties.copy(BorealisBlocks.frostfir_planks.get()).noOcclusion().noCollission()));
     public static final RegistryObject<PressurePlateBlock> saccharine_pressure_plate = registerBlock("saccharine_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.copy(BorealisBlocks.frostfir_planks.get()).noOcclusion().noCollission()));
 
-    public static final RegistryObject<Block> kyanite_ore = registerBlock("kyanite_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.EMERALD_ORE)));
-    public static final RegistryObject<Block> tanzanite_ore = registerBlock("tanzanite_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
-    public static final RegistryObject<Block> tanzanite_block = registerBlock("tanzanite_block", () -> new TanzaniteBlock(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
+    public static final RegistryObject<Block> KYANITE_ORE = registerBlock("kyanite_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.EMERALD_ORE)));
+    public static final RegistryObject<Block> TANZANITE_ORE = registerBlock("tanzanite_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
+    public static final RegistryObject<Block> TANZANITE_BLOCK = registerBlock("tanzanite_block", () -> new TanzaniteBlock(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
 
-    public static final RegistryObject<Block> permafrost = registerBlock("permafrost", () -> new PermafrostBlock(AbstractBlock.Properties.copy(Blocks.DIRT).sound(SoundType.GRAVEL)));
-    public static final RegistryObject<Block> permafrost_rubble = registerBlock("permafrost_rubble", () -> new Block(AbstractBlock.Properties.copy(Blocks.COARSE_DIRT).harvestTool(ToolType.SHOVEL)));
-    public static final RegistryObject<Block> living_snow_block = registerBlock("living_snow_block", () -> new LivingSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW_BLOCK)));
-    public static final RegistryObject<Block> sugar_snow_block = registerBlock("sugar_snow_block", () -> new LivingSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW_BLOCK)));
-    public static final RegistryObject<Block> sugar_snow = registerBlock("sugar_snow", () -> new SugarSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW)));
-    public static final RegistryObject<Block> cloud = registerBlock("cloud", () -> new CloudBlock(AbstractBlock.Properties.copy(Blocks.WHITE_WOOL)));
+    public static final RegistryObject<Block> PERMAFROST = registerBlock("permafrost", () -> new PermafrostBlock(AbstractBlock.Properties.copy(Blocks.DIRT).sound(SoundType.GRAVEL)));
+    public static final RegistryObject<Block> PERMAFROST_RUBBLE = registerBlock("permafrost_rubble", () -> new Block(AbstractBlock.Properties.copy(Blocks.COARSE_DIRT).harvestTool(ToolType.SHOVEL)));
+    public static final RegistryObject<Block> LIVING_SNOW_BLOCK = registerBlock("living_snow_block", () -> new LivingSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW_BLOCK)));
+    public static final RegistryObject<Block> SUGAR_SNOW_BLOCK = registerBlock("sugar_snow_block", () -> new LivingSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW_BLOCK)));
+    public static final RegistryObject<Block> SUGAR_SNOW = registerBlock("sugar_snow", () -> new SugarSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW)));
+    public static final RegistryObject<Block> CLOUD = registerBlock("cloud", () -> new CloudBlock(AbstractBlock.Properties.copy(Blocks.WHITE_WOOL)));
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);

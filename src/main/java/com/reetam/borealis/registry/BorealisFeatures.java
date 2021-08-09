@@ -111,15 +111,15 @@ public class BorealisFeatures {
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_RUBBLE_PATCH = Feature.REPLACE_BLOBS.configured(
                 new BlobReplacementConfig(
-                        BorealisBlocks.permafrost.get().defaultBlockState(),
-                        BorealisBlocks.permafrost_rubble.get().defaultBlockState(),
+                        BorealisBlocks.PERMAFROST.get().defaultBlockState(),
+                        BorealisBlocks.PERMAFROST_RUBBLE.get().defaultBlockState(),
                         FeatureSpread.of(3, 4))).range(128)
                 .squared().count(10);
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_CLOUD = Feature.ORE.configured(
                 new OreFeatureConfig(
                         new BlockMatchRuleTest(Blocks.AIR),
-                        BorealisBlocks.cloud.get().defaultBlockState(), 33))
+                        BorealisBlocks.CLOUD.get().defaultBlockState(), 33))
                 .range(12).squared().count(10);
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_FROSTFIR_TREE = FROSTFIR_TREE.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(8)));

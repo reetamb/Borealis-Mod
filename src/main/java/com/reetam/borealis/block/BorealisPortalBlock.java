@@ -4,17 +4,12 @@ import com.reetam.borealis.registry.BorealisSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.state.EnumProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.*;
-import net.minecraft.block.NetherPortalBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.*;
 import net.minecraft.world.IBlockReader;
@@ -23,17 +18,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.eventbus.api.Cancelable;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisDimensions;
 import com.reetam.borealis.world.BorealisTeleporter;
 
-import javax.annotation.Nullable;
 import java.util.Random;
-
-import net.minecraft.block.AbstractBlock.Properties;
 
 public class BorealisPortalBlock extends Block {
 
@@ -79,12 +68,12 @@ public class BorealisPortalBlock extends Block {
     }
 
     public boolean makePortal(IWorld worldIn, BlockPos pos) {
-        worldIn.setBlock(pos, BorealisBlocks.borealis_portal.get().defaultBlockState(), 18);
+        worldIn.setBlock(pos, BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
 
-        worldIn.setBlock(pos.west(), BorealisBlocks.borealis_portal.get().defaultBlockState(), 18);
-        worldIn.setBlock(pos.east(), BorealisBlocks.borealis_portal.get().defaultBlockState(), 18);
-        worldIn.setBlock(pos.south(), BorealisBlocks.borealis_portal.get().defaultBlockState(), 18);
-        worldIn.setBlock(pos.north(), BorealisBlocks.borealis_portal.get().defaultBlockState(), 18);
+        worldIn.setBlock(pos.west(), BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
+        worldIn.setBlock(pos.east(), BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
+        worldIn.setBlock(pos.south(), BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
+        worldIn.setBlock(pos.north(), BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
 
         if (worldIn.getBlockState(pos.west().below()).isAir()) {
             worldIn.setBlock(pos.west().below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
@@ -172,7 +161,7 @@ public class BorealisPortalBlock extends Block {
                 World entityWorld = entity.level;
                 if(entityWorld != null) {
                     MinecraftServer minecraftserver = entityWorld.getServer();
-                    RegistryKey<World> destination = entity.level.dimension() == BorealisDimensions.borealis_w ? World.OVERWORLD : BorealisDimensions.borealis_w;
+                    RegistryKey<World> destination = entity.level.dimension() == BorealisDimensions.BOREALIS ? World.OVERWORLD : BorealisDimensions.BOREALIS;
                     if(minecraftserver != null) {
                         ServerWorld destinationWorld = minecraftserver.getLevel(destination);
                         if(destinationWorld != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {

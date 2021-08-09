@@ -31,8 +31,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
     protected void addTags() {
         //mod
         tag(BorealisTags.Blocks.BASE_STONE_BOREALIS)
-                .add(BorealisBlocks.soapstone.get())
-                .add(BorealisBlocks.slate.get());
+                .add(BorealisBlocks.SOAPSTONE.get())
+                .add(BorealisBlocks.SLATE.get());
         tag(BorealisTags.Blocks.BRUMAL_LOGS)
                 .add(BorealisBlocks.brumal_log.get())
                 .add(BorealisBlocks.brumal_wood.get())
@@ -55,14 +55,14 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(Blocks.SNOW_BLOCK);
         tag(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)
                 .add(Blocks.SNOW)
-                .add(BorealisBlocks.sugar_snow.get());
+                .add(BorealisBlocks.SUGAR_SNOW.get());
         tag(BorealisTags.Blocks.SNOWY_BLOCKS)
                 .add(Blocks.SNOW)
                 .add(Blocks.SNOW_BLOCK)
-                .add(BorealisBlocks.living_snow_block.get());
+                .add(BorealisBlocks.LIVING_SNOW_BLOCK.get());
         tag(BorealisTags.Blocks.SUGARY_BLOCKS)
-                .add(BorealisBlocks.sugar_snow.get())
-                .add(BorealisBlocks.sugar_snow_block.get());
+                .add(BorealisBlocks.SUGAR_SNOW.get())
+                .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get());
         //vanilla
         tag(BlockTags.SAPLINGS)
                 .add(BorealisBlocks.brumal_sapling.get())
@@ -101,18 +101,18 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .addTag(BorealisTags.Blocks.FROSTFIR_LOGS)
                 .addTag(BorealisTags.Blocks.SACCHARINE_LOGS);
         tag(BlockTags.ENDERMAN_HOLDABLE)
-                .add(BorealisBlocks.living_snow_block.get())
-                .add(BorealisBlocks.sugar_snow_block.get());
+                .add(BorealisBlocks.LIVING_SNOW_BLOCK.get())
+                .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get());
         tag(BlockTags.WOODEN_PRESSURE_PLATES)
                 .add(BorealisBlocks.brumal_pressure_plate.get())
                 .add(BorealisBlocks.frostfir_pressure_plate.get())
                 .add(BorealisBlocks.saccharine_pressure_plate.get());
         tag(BlockTags.STONE_PRESSURE_PLATES)
-                .add(BorealisBlocks.soapstone_pressure_plate.get());
+                .add(BorealisBlocks.SOAPSTONE_PRESSURE_PLATE.get());
         tag(BlockTags.WALLS)
-                .add(BorealisBlocks.soapstone_wall.get())
-                .add(BorealisBlocks.soapstone_tile_wall.get())
-                .add(BorealisBlocks.soapstone_brick_wall.get());
+                .add(BorealisBlocks.SOAPSTONE_WALL.get())
+                .add(BorealisBlocks.SOAPSTONE_TILE_WALL.get())
+                .add(BorealisBlocks.SOAPSTONE_BRICK_WALL.get());
         tag(BlockTags.LEAVES)
                 .add(BorealisBlocks.brumal_leaves.get())
                 .add(BorealisBlocks.frostfir_leaves.get())
@@ -127,13 +127,13 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.saccharine_fence_gate.get());
         //forge
         tag(Tags.Blocks.COBBLESTONE)
-                .add(BorealisBlocks.soapstone.get())
-                .add(BorealisBlocks.slate.get());
+                .add(BorealisBlocks.SOAPSTONE.get())
+                .add(BorealisBlocks.SLATE.get());
         tag(Tags.Blocks.DIRT)
-                .add(BorealisBlocks.living_snow_block.get())
-                .add(BorealisBlocks.sugar_snow_block.get())
-                .add(BorealisBlocks.permafrost.get())
-                .add(BorealisBlocks.permafrost_rubble.get());
+                .add(BorealisBlocks.LIVING_SNOW_BLOCK.get())
+                .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get())
+                .add(BorealisBlocks.PERMAFROST.get())
+                .add(BorealisBlocks.PERMAFROST_RUBBLE.get());
         tag(Tags.Blocks.FENCE_GATES_WOODEN)
                 .add(BorealisBlocks.brumal_fence_gate.get())
                 .add(BorealisBlocks.frostfir_fence_gate.get())
@@ -143,8 +143,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.frostfir_fence.get())
                 .add(BorealisBlocks.saccharine_fence.get());
         tag(Tags.Blocks.STONE)
-                .add(BorealisBlocks.soapstone.get())
-                .add(BorealisBlocks.slate.get());
+                .add(BorealisBlocks.SOAPSTONE.get())
+                .add(BorealisBlocks.SLATE.get());
     }
 
     protected TagsProvider.Builder<Block> tag(ITag.INamedTag<Block> tag) {

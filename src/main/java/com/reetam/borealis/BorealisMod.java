@@ -46,7 +46,7 @@ public class BorealisMod {
         ClientProxy.registerBlockRenderers();
         ClientProxy.registerEntityRenderers();
 
-        DimensionRenderInfo.EFFECTS.put(BorealisDimensions.borealis.location(), new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NONE, false, true) {
+        DimensionRenderInfo.EFFECTS.put(BorealisDimensions.BOREALIS_TYPE.location(), new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NONE, false, true) {
             @Override
             public Vector3d getBrightnessDependentFogColor(Vector3d vector3d, float sun) {
                 return vector3d;

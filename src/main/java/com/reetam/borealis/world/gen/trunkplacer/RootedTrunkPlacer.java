@@ -41,15 +41,15 @@ public class RootedTrunkPlacer extends AbstractTrunkPlacer {
         BlockPos pos1 = pos;
 
         for (int i = 1; i <= rootSplay; i++) {
-            reader.setBlock(pos1.below().north(i), BorealisBlocks.living_snow_block.get().defaultBlockState(), 19);
-            reader.setBlock(pos1.below().east(i), BorealisBlocks.living_snow_block.get().defaultBlockState(), 19);
-            reader.setBlock(pos1.below().south(i), BorealisBlocks.living_snow_block.get().defaultBlockState(), 19);
-            reader.setBlock(pos1.below().west(i), BorealisBlocks.living_snow_block.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below().north(i), BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below().east(i), BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below().south(i), BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below().west(i), BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), 19);
 
-            reader.setBlock(pos1.below(2).north(i), BorealisBlocks.permafrost.get().defaultBlockState(), 19);
-            reader.setBlock(pos1.below(2).east(i), BorealisBlocks.permafrost.get().defaultBlockState(), 19);
-            reader.setBlock(pos1.below(2).south(i), BorealisBlocks.permafrost.get().defaultBlockState(), 19);
-            reader.setBlock(pos1.below(2).west(i), BorealisBlocks.permafrost.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below(2).north(i), BorealisBlocks.PERMAFROST.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below(2).east(i), BorealisBlocks.PERMAFROST.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below(2).south(i), BorealisBlocks.PERMAFROST.get().defaultBlockState(), 19);
+            reader.setBlock(pos1.below(2).west(i), BorealisBlocks.PERMAFROST.get().defaultBlockState(), 19);
         }
         for (int i = 0; i < treeBaseHeight; i++) {
             if (i < rootHeight) {

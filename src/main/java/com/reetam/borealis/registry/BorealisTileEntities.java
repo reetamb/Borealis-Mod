@@ -15,7 +15,7 @@ public class BorealisTileEntities {
             "tanzanite_block",
             () -> TileEntityType.Builder.of(
                     TanzaniteBlockTileEntity::new,
-                    BorealisBlocks.tanzanite_block.get())
+                    BorealisBlocks.TANZANITE_BLOCK.get())
                     .build(null));
 
 }
