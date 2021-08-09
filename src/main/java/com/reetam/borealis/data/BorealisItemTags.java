@@ -99,9 +99,9 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisItems.FROSTFIR_BOAT.get())
                 .add(BorealisItems.SACCHARINE_BOAT.get());
         tag(ItemTags.SIGNS)
-                .add(BorealisBlocks.BRUMAL_SIGN.get().asItem())
-                .add(BorealisBlocks.FROSTFIR_SIGN.get().asItem())
-                .add(BorealisBlocks.SACCHARINE_SIGN.get().asItem());
+                .add(BorealisItems.BRUMAL_SIGN.get())
+                .add(BorealisItems.FROSTFIR_SIGN.get())
+                .add(BorealisItems.SACCHARINE_SIGN.get());
 
         //forge
         tag(Tags.Items.COBBLESTONE)

@@ -55,7 +55,7 @@ public class BorealisBlocks {
     public static final WoodType FROSTFIR_WOODTYPE = WoodType.create(new ResourceLocation(BorealisMod.MODID, "frostfir").toString());
     public static final WoodType SACCHARINE_WOODTYPE = WoodType.create(new ResourceLocation(BorealisMod.MODID, "saccharine").toString());
 
-    public static final RegistryObject<StandingSignBlock> BRUMAL_SIGN = registerBlock("brumal_sign", () -> new BorealisStandingSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_SIGN), BRUMAL_WOODTYPE));
+    public static final RegistryObject<StandingSignBlock> BRUMAL_SIGN = BLOCKS.register("brumal_sign", () -> new BorealisStandingSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_SIGN), BRUMAL_WOODTYPE));
     public static final RegistryObject<WallSignBlock> BRUMAL_WALL_SIGN = BLOCKS.register("brumal_wall_sign", () -> new BorealisWallSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_WALL_SIGN), BRUMAL_WOODTYPE));
     public static final RegistryObject<SaplingBlock> BRUMAL_SAPLING = registerBlock("brumal_sapling", () -> new BorealisSaplingBlock(new BrumalTree()));
     public static final RegistryObject<Block> BRUMAL_PLANKS = registerBlock("brumal_planks", () -> new Block(AbstractBlock.Properties.copy(Blocks.OAK_PLANKS)));
@@ -73,7 +73,7 @@ public class BorealisBlocks {
     public static final RegistryObject<WoodButtonBlock> BRUMAL_BUTTON = registerBlock("brumal_button", () -> new WoodButtonBlock(AbstractBlock.Properties.copy(BorealisBlocks.BRUMAL_PLANKS.get()).noOcclusion().noCollission()));
     public static final RegistryObject<PressurePlateBlock> BRUMAL_PRESSURE_PLATE = registerBlock("brumal_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.copy(BorealisBlocks.BRUMAL_PLANKS.get()).noOcclusion().noCollission()));
 
-    public static final RegistryObject<StandingSignBlock> FROSTFIR_SIGN = registerBlock("frostfir_sign", () -> new BorealisStandingSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_SIGN), FROSTFIR_WOODTYPE));
+    public static final RegistryObject<StandingSignBlock> FROSTFIR_SIGN = BLOCKS.register("frostfir_sign", () -> new BorealisStandingSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_SIGN), FROSTFIR_WOODTYPE));
     public static final RegistryObject<WallSignBlock> FROSTFIR_WALL_SIGN = BLOCKS.register("frostfir_wall_sign", () -> new BorealisWallSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_WALL_SIGN), FROSTFIR_WOODTYPE));
     public static final RegistryObject<SaplingBlock> FROSTFIR_SAPLING = registerBlock("frostfir_sapling", () -> new BorealisSaplingBlock(new FrostfirTree()));
     public static final RegistryObject<Block> FROSTFIR_PLANKS = registerBlock("frostfir_planks", () -> new Block(AbstractBlock.Properties.copy(Blocks.OAK_PLANKS)));
@@ -91,7 +91,7 @@ public class BorealisBlocks {
     public static final RegistryObject<WoodButtonBlock> FROSTFIR_BUTTON = registerBlock("frostfir_button", () -> new WoodButtonBlock(AbstractBlock.Properties.copy(BorealisBlocks.FROSTFIR_PLANKS.get()).noOcclusion().noCollission()));
     public static final RegistryObject<PressurePlateBlock> FROSTFIR_PRESSURE_PLATE = registerBlock("frostfir_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.copy(BorealisBlocks.FROSTFIR_PLANKS.get()).noOcclusion().noCollission()));
 
-    public static final RegistryObject<StandingSignBlock> SACCHARINE_SIGN = registerBlock("saccharine_sign", () -> new BorealisStandingSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_SIGN), SACCHARINE_WOODTYPE));
+    public static final RegistryObject<StandingSignBlock> SACCHARINE_SIGN = BLOCKS.register("saccharine_sign", () -> new BorealisStandingSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_SIGN), SACCHARINE_WOODTYPE));
     public static final RegistryObject<WallSignBlock> SACCHARINE_WALL_SIGN = BLOCKS.register("saccharine_wall_sign", () -> new BorealisWallSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_WALL_SIGN), SACCHARINE_WOODTYPE));
     public static final RegistryObject<SaplingBlock> SACCHARINE_SAPLING = registerBlock("saccharine_sapling", () -> new BorealisSaplingBlock(new SaccharineTree()));
     public static final RegistryObject<Block> SACCHARINE_PLANKS = registerBlock("saccharine_planks", () -> new Block(AbstractBlock.Properties.copy(Blocks.OAK_PLANKS)));

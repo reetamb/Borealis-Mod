@@ -58,7 +58,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.BRUMAL_BUTTON, "brumal_button_inventory");
         itemBlock(BorealisBlocks.BRUMAL_PRESSURE_PLATE);
         itemBlockFlat(BorealisBlocks.BRUMAL_SAPLING);
-        normalItem(() -> BorealisBlocks.BRUMAL_SIGN.get().asItem());
+        normalItem(BorealisItems.BRUMAL_SIGN);
 
         itemBlock(BorealisBlocks.FROSTFIR_PLANKS);
         itemBlock(BorealisBlocks.FROSTFIR_LOG);
@@ -75,7 +75,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.FROSTFIR_BUTTON, "frostfir_button_inventory");
         itemBlock(BorealisBlocks.FROSTFIR_PRESSURE_PLATE);
         itemBlockFlat(BorealisBlocks.FROSTFIR_SAPLING);
-        normalItem(() -> BorealisBlocks.FROSTFIR_SIGN.get().asItem());
+        normalItem(BorealisItems.FROSTFIR_SIGN);
 
         itemBlock(BorealisBlocks.SACCHARINE_PLANKS);
         itemBlock(BorealisBlocks.SACCHARINE_LOG);
@@ -92,7 +92,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.SACCHARINE_BUTTON, "saccharine_button_inventory");
         itemBlock(BorealisBlocks.SACCHARINE_PRESSURE_PLATE);
         itemBlockFlat(BorealisBlocks.SACCHARINE_SAPLING);
-        normalItem(() -> BorealisBlocks.SACCHARINE_SIGN.get().asItem());
+        normalItem(BorealisItems.SACCHARINE_SIGN);
 
         itemBlock(BorealisBlocks.LIVING_SNOW_BLOCK);
         itemBlock(BorealisBlocks.SUGAR_SNOW_BLOCK);

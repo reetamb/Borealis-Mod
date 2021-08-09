@@ -21,6 +21,10 @@ public class BorealisItems {
     public static final RegistryObject<Item> FROSTFIR_BOAT = ITEMS.register("frostfir_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.FROSTFIR, (new Item.Properties()).tab(Groups.BOREALIS_ITEMS).stacksTo(1)));
     public static final RegistryObject<Item> SACCHARINE_BOAT = ITEMS.register("saccharine_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.SACCHARINE, (new Item.Properties()).tab(Groups.BOREALIS_ITEMS).stacksTo(1)));
 
+    public static final RegistryObject<SignItem> BRUMAL_SIGN = ITEMS.register("brumal_sign", () -> new SignItem((new Item.Properties()).stacksTo(16).tab(ItemGroup.TAB_DECORATIONS), BorealisBlocks.BRUMAL_SIGN.get(), BorealisBlocks.BRUMAL_WALL_SIGN.get()));
+    public static final RegistryObject<SignItem> FROSTFIR_SIGN = ITEMS.register("frostfir_sign", () -> new SignItem((new Item.Properties()).stacksTo(16).tab(ItemGroup.TAB_DECORATIONS), BorealisBlocks.FROSTFIR_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_SIGN.get()));
+    public static final RegistryObject<SignItem> SACCHARINE_SIGN = ITEMS.register("saccharine_sign", () -> new SignItem((new Item.Properties()).stacksTo(16).tab(ItemGroup.TAB_DECORATIONS), BorealisBlocks.SACCHARINE_SIGN.get(), BorealisBlocks.SACCHARINE_WALL_SIGN.get()));
+
     public static final RegistryObject<SpawnEggItem> HUMMINGBIRD_SPAWN_EGG = ITEMS.register(
             "hummingbird_spawn_egg", () -> new SpawnEggItem(BorealisEntities.HUMMINGBIRD_TYPE,
                     0x9CE542, 0xFF446D,

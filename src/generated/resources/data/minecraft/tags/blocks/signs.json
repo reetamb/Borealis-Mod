@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "borealis:brumal_sign",
+    "borealis:frostfir_sign",
+    "borealis:saccharine_sign",
+    "borealis:brumal_wall_sign",
+    "borealis:frostfir_wall_sign",
+    "borealis:saccharine_wall_sign"
+  ]
+}
