@@ -103,11 +103,11 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
             if (!movementcontroller.hasWanted()) {
                 return true;
             } else {
-                double d0 = movementcontroller.getWantedX() - this.parentEntity.getX();
-                double d1 = movementcontroller.getWantedY() - this.parentEntity.getY();
-                double d2 = movementcontroller.getWantedZ() - this.parentEntity.getZ();
-                double d3 = d0 * d0 + d1 * d1 + d2 * d2;
-                return d3 < 1.0D || d3 > 100.0D;
+                double dx = movementcontroller.getWantedX() - this.parentEntity.getX();
+                double dy = movementcontroller.getWantedY() - this.parentEntity.getY();
+                double dz = movementcontroller.getWantedZ() - this.parentEntity.getZ();
+                double dist = dx * dx + dy * dy + dz * dz;
+                return dist < 1.0D || dist > 100.0D;
             }
         }
 
@@ -123,10 +123,10 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
          */
         public void start() {
             Random random = this.parentEntity.getRandom();
-            double d0 = this.parentEntity.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
-            double d1 = this.parentEntity.getY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 1.5F);
-            double d2 = this.parentEntity.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
-            this.parentEntity.getMoveControl().setWantedPosition(d0, d1, d2, 3.0D);
+            double dx = this.parentEntity.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
+            double dy = this.parentEntity.getY() + (double)((random.nextFloat() * 2.0F - 1.0F));
+            double dz = this.parentEntity.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
+            this.parentEntity.getMoveControl().setWantedPosition(dx, dy, dz, 3.0D);
         }
     }
 
@@ -142,12 +142,12 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
         public void tick() {
             if (this.operation == MovementController.Action.MOVE_TO) {
                 if (this.courseChangeCooldown-- <= 0) {
-                    this.courseChangeCooldown += this.parentEntity.getRandom().nextInt(5) + 2;
-                    Vector3d vector3d = new Vector3d(this.wantedX - this.parentEntity.getX(), this.wantedY - this.parentEntity.getY(), this.wantedZ - this.parentEntity.getZ());
-                    double d0 = vector3d.length();
-                    vector3d = vector3d.normalize();
-                    if (this.canReach(vector3d, MathHelper.ceil(d0))) {
-                        this.parentEntity.setDeltaMovement(this.parentEntity.getDeltaMovement().add(vector3d.scale(0.1D)));
+                    this.courseChangeCooldown += 3 * (this.parentEntity.getRandom().nextInt(5) + 2);
+                    Vector3d movePath = new Vector3d(this.wantedX - this.parentEntity.getX(), this.wantedY - this.parentEntity.getY(), this.wantedZ - this.parentEntity.getZ());
+                    double pathLength = movePath.length();
+                    movePath = movePath.normalize();
+                    if (this.canReach(movePath, MathHelper.ceil(pathLength))) {
+                        this.parentEntity.setDeltaMovement(this.parentEntity.getDeltaMovement().add(movePath.scale(0.22D)));
                     } else {
                         this.operation = MovementController.Action.WAIT;
                     }
