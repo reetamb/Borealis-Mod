@@ -129,7 +129,7 @@ public class BorealisLootTables extends LootTableProvider {
             dropOther(BorealisBlocks.FROSTFIR_WALL_SIGN, () -> BorealisBlocks.FROSTFIR_SIGN.get().asItem());
             dropSelf(BorealisBlocks.SACCHARINE_PLANKS);
             dropSelf(BorealisBlocks.SACCHARINE_LOG);
-            dropSelf(BorealisBlocks.saccharine_wood);
+            dropSelf(BorealisBlocks.SACCHARINE_WOOD);
             dropSelf(BorealisBlocks.STRIPPED_SACCHARINE_LOG);
             this.add(BorealisBlocks.SACCHARINE_LEAVES.get(), (leaves) -> createLeavesDrops(leaves, BorealisBlocks.SACCHARINE_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES));
             dropSelf(BorealisBlocks.SACCHARINE_STAIRS);

@@ -69,7 +69,7 @@ public class BorealisLang extends BorealisLangProvider {
         assumeBlockItem(BorealisBlocks.FROSTFIR_SIGN);
         assumeBlockItem(BorealisBlocks.SACCHARINE_PLANKS);
         assumeBlockItem(BorealisBlocks.SACCHARINE_LOG);
-        assumeBlockItem(BorealisBlocks.saccharine_wood);
+        assumeBlockItem(BorealisBlocks.SACCHARINE_WOOD);
         assumeBlockItem(BorealisBlocks.STRIPPED_SACCHARINE_LOG);
         assumeBlockItem(BorealisBlocks.SACCHARINE_LEAVES);
         assumeBlockItem(BorealisBlocks.SACCHARINE_STAIRS);

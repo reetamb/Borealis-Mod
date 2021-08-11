@@ -1,4 +1,4 @@
-package com.reetam.borealis.mixin.common;
+package com.reetam.borealis.setup.mixin;
 
 import com.reetam.borealis.world.SeedHolder;
 import net.minecraft.util.registry.SimpleRegistry;

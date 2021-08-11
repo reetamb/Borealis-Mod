@@ -89,7 +89,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 consumer,
                 BorealisBlocks.SACCHARINE_LOG,
                 BorealisBlocks.SACCHARINE_PLANKS,
-                BorealisBlocks.saccharine_wood,
+                BorealisBlocks.SACCHARINE_WOOD,
                 BorealisBlocks.STRIPPED_SACCHARINE_LOG,
                 BorealisBlocks.STRIPPED_SACCHARINE_WOOD,
                 BorealisBlocks.SACCHARINE_STAIRS,

@@ -79,7 +79,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
 
         itemBlock(BorealisBlocks.SACCHARINE_PLANKS);
         itemBlock(BorealisBlocks.SACCHARINE_LOG);
-        itemBlock(BorealisBlocks.saccharine_wood);
+        itemBlock(BorealisBlocks.SACCHARINE_WOOD);
         itemBlock(BorealisBlocks.STRIPPED_SACCHARINE_LOG);
         itemBlock(BorealisBlocks.SACCHARINE_LEAVES);
         itemBlock(BorealisBlocks.SACCHARINE_STAIRS);

@@ -1,5 +1,6 @@
 package com.reetam.borealis.registry;
 
+import com.google.common.collect.Maps;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
 import com.reetam.borealis.world.gen.tree.BrumalTree;
@@ -7,6 +8,7 @@ import com.reetam.borealis.world.gen.tree.FrostfirTree;
 import com.reetam.borealis.world.gen.tree.SaccharineTree;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -58,6 +60,7 @@ public class BorealisBlocks {
     public static final RegistryObject<StandingSignBlock> BRUMAL_SIGN = BLOCKS.register("brumal_sign", () -> new BorealisStandingSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_SIGN), BRUMAL_WOODTYPE));
     public static final RegistryObject<WallSignBlock> BRUMAL_WALL_SIGN = BLOCKS.register("brumal_wall_sign", () -> new BorealisWallSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_WALL_SIGN), BRUMAL_WOODTYPE));
     public static final RegistryObject<SaplingBlock> BRUMAL_SAPLING = registerBlock("brumal_sapling", () -> new BorealisSaplingBlock(new BrumalTree()));
+    public static final RegistryObject<FlowerPotBlock> POTTED_BRUMAL_SAPLING = BLOCKS.register("potted_brumal_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BRUMAL_SAPLING, AbstractBlock.Properties.copy(Blocks.FLOWER_POT)));
     public static final RegistryObject<Block> BRUMAL_PLANKS = registerBlock("brumal_planks", () -> new Block(AbstractBlock.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<RotatedPillarBlock> BRUMAL_LOG = registerBlock("brumal_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_LOG)));
     public static final RegistryObject<RotatedPillarBlock> BRUMAL_WOOD = registerBlock("brumal_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_WOOD)));
@@ -76,6 +79,7 @@ public class BorealisBlocks {
     public static final RegistryObject<StandingSignBlock> FROSTFIR_SIGN = BLOCKS.register("frostfir_sign", () -> new BorealisStandingSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_SIGN), FROSTFIR_WOODTYPE));
     public static final RegistryObject<WallSignBlock> FROSTFIR_WALL_SIGN = BLOCKS.register("frostfir_wall_sign", () -> new BorealisWallSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_WALL_SIGN), FROSTFIR_WOODTYPE));
     public static final RegistryObject<SaplingBlock> FROSTFIR_SAPLING = registerBlock("frostfir_sapling", () -> new BorealisSaplingBlock(new FrostfirTree()));
+    public static final RegistryObject<FlowerPotBlock> POTTED_FROSTFIR_SAPLING = BLOCKS.register("potted_frostfir_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FROSTFIR_SAPLING, AbstractBlock.Properties.copy(Blocks.FLOWER_POT)));
     public static final RegistryObject<Block> FROSTFIR_PLANKS = registerBlock("frostfir_planks", () -> new Block(AbstractBlock.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<RotatedPillarBlock> FROSTFIR_LOG = registerBlock("frostfir_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_LOG)));
     public static final RegistryObject<RotatedPillarBlock> FROSTFIR_WOOD = registerBlock("frostfir_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_WOOD)));
@@ -94,9 +98,10 @@ public class BorealisBlocks {
     public static final RegistryObject<StandingSignBlock> SACCHARINE_SIGN = BLOCKS.register("saccharine_sign", () -> new BorealisStandingSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_SIGN), SACCHARINE_WOODTYPE));
     public static final RegistryObject<WallSignBlock> SACCHARINE_WALL_SIGN = BLOCKS.register("saccharine_wall_sign", () -> new BorealisWallSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_WALL_SIGN), SACCHARINE_WOODTYPE));
     public static final RegistryObject<SaplingBlock> SACCHARINE_SAPLING = registerBlock("saccharine_sapling", () -> new BorealisSaplingBlock(new SaccharineTree()));
+    public static final RegistryObject<FlowerPotBlock> POTTED_SACCHARINE_SAPLING = BLOCKS.register("potted_saccharine_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SACCHARINE_SAPLING, AbstractBlock.Properties.copy(Blocks.FLOWER_POT)));
     public static final RegistryObject<Block> SACCHARINE_PLANKS = registerBlock("saccharine_planks", () -> new Block(AbstractBlock.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<RotatedPillarBlock> SACCHARINE_LOG = registerBlock("saccharine_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_LOG)));
-    public static final RegistryObject<RotatedPillarBlock> saccharine_wood = registerBlock("saccharine_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_WOOD)));
+    public static final RegistryObject<RotatedPillarBlock> SACCHARINE_WOOD = registerBlock("saccharine_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.OAK_WOOD)));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_SACCHARINE_LOG = registerBlock("stripped_saccharine_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.STRIPPED_OAK_LOG)));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_SACCHARINE_WOOD = registerBlock("stripped_saccharine_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.STRIPPED_OAK_WOOD)));
     public static final RegistryObject<Block> SACCHARINE_LEAVES = registerBlock("saccharine_leaves", () -> new LeavesBlock(AbstractBlock.Properties.copy(Blocks.OAK_LEAVES)));
@@ -138,5 +143,33 @@ public class BorealisBlocks {
         WoodType.register(BorealisBlocks.BRUMAL_WOODTYPE);
         WoodType.register(BorealisBlocks.FROSTFIR_WOODTYPE);
         WoodType.register(BorealisBlocks.SACCHARINE_WOODTYPE);
+    }
+
+    public static void registerFlowerPots() {
+        FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
+
+        pot.addPlant(BRUMAL_SAPLING.getId(), POTTED_BRUMAL_SAPLING);
+        pot.addPlant(FROSTFIR_SAPLING.getId(), POTTED_FROSTFIR_SAPLING);
+        pot.addPlant(SACCHARINE_SAPLING.getId(), POTTED_SACCHARINE_SAPLING);
+    }
+
+    public static void registerAxeStrips() {
+        AxeItem.STRIPABLES = Maps.newHashMap(AxeItem.STRIPABLES);
+
+        AxeItem.STRIPABLES.put(BRUMAL_LOG.get(), STRIPPED_BRUMAL_LOG.get());
+        AxeItem.STRIPABLES.put(BRUMAL_WOOD.get(), STRIPPED_BRUMAL_WOOD.get());
+        AxeItem.STRIPABLES.put(FROSTFIR_LOG.get(), STRIPPED_FROSTFIR_LOG.get());
+        AxeItem.STRIPABLES.put(FROSTFIR_WOOD.get(), STRIPPED_FROSTFIR_WOOD.get());
+        AxeItem.STRIPABLES.put(SACCHARINE_LOG.get(), STRIPPED_SACCHARINE_LOG.get());
+        AxeItem.STRIPABLES.put(SACCHARINE_WOOD.get(), STRIPPED_SACCHARINE_WOOD.get());
+    }
+
+    public static void registerComposts() {
+        ComposterBlock.add(0.3F, BorealisBlocks.BRUMAL_LEAVES.get());
+        ComposterBlock.add(0.3F, BorealisBlocks.FROSTFIR_LEAVES.get());
+        ComposterBlock.add(0.3F, BorealisBlocks.SACCHARINE_LEAVES.get());
+        ComposterBlock.add(0.3F, BorealisBlocks.BRUMAL_SAPLING.get());
+        ComposterBlock.add(0.3F, BorealisBlocks.FROSTFIR_SAPLING.get());
+        ComposterBlock.add(0.3F, BorealisBlocks.SACCHARINE_SAPLING.get());
     }
 }

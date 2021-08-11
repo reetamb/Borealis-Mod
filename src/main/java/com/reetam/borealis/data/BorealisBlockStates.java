@@ -73,7 +73,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         crossBlock(BorealisBlocks.FROSTFIR_SAPLING);
         block(BorealisBlocks.SACCHARINE_PLANKS);
         log(BorealisBlocks.SACCHARINE_LOG, "saccharine_log");
-        wood(BorealisBlocks.saccharine_wood, BorealisBlocks.SACCHARINE_LOG);
+        wood(BorealisBlocks.SACCHARINE_WOOD, BorealisBlocks.SACCHARINE_LOG);
         log(BorealisBlocks.STRIPPED_SACCHARINE_LOG, "stripped_saccharine_log");
         wood(BorealisBlocks.STRIPPED_SACCHARINE_WOOD, BorealisBlocks.STRIPPED_SACCHARINE_LOG);
         block(BorealisBlocks.SACCHARINE_LEAVES);

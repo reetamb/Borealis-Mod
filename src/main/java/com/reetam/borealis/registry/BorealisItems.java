@@ -1,7 +1,16 @@
 package com.reetam.borealis.registry;
 
 import com.reetam.borealis.entity.BorealisBoatEntity;
+import net.minecraft.block.DispenserBlock;
+import net.minecraft.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.dispenser.IBlockSource;
+import net.minecraft.dispenser.IDispenseItemBehavior;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.item.*;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -57,5 +66,39 @@ public class BorealisItems {
             super(new Properties()
                     .tab(BorealisItems.Groups.BOREALIS_ITEMS));
         }
+    }
+
+    public static void registerDispenserBehaviors() {
+        final DefaultDispenseItemBehavior eggBehavior = new DefaultDispenseItemBehavior() {
+            public ItemStack execute(IBlockSource source, ItemStack stack) {
+                Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
+                EntityType<?> type = ((SpawnEggItem)stack.getItem()).getType(stack.getTag());
+                type.spawn(source.getLevel(), stack, null, source.getPos().relative(direction), SpawnReason.DISPENSER, direction != Direction.UP, false);
+                stack.shrink(1);
+                return stack;
+            }
+        };
+
+        IDispenseItemBehavior bucketBehavior = new DefaultDispenseItemBehavior() {
+            private final DefaultDispenseItemBehavior defaultBehavior = new DefaultDispenseItemBehavior();
+
+            public ItemStack execute(IBlockSource source, ItemStack stack) {
+                BucketItem bucketitem = (BucketItem)stack.getItem();
+                BlockPos blockpos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
+                World world = source.getLevel();
+                if (bucketitem.emptyBucket(null, world, blockpos, null)) {
+                    bucketitem.checkExtraContent(world, stack, blockpos);
+                    return new ItemStack(Items.BUCKET);
+                } else {
+                    return this.defaultBehavior.dispense(source, stack);
+                }
+            }
+        };
+
+        DispenserBlock.registerBehavior(HUMMINGBIRD_SPAWN_EGG.get(), eggBehavior);
+        DispenserBlock.registerBehavior(TAKAHE_SPAWN_EGG.get(), eggBehavior);
+        DispenserBlock.registerBehavior(MISMIC_MUSKOX_SPAWN_EGG.get(), eggBehavior);
+
+        DispenserBlock.registerBehavior(HOT_SPRING_WATER_BUCKET.get(), bucketBehavior);
     }
 }

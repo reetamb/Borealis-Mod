@@ -45,7 +45,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.STRIPPED_FROSTFIR_WOOD.get());
         tag(BorealisTags.Blocks.SACCHARINE_LOGS)
                 .add(BorealisBlocks.SACCHARINE_LOG.get())
-                .add(BorealisBlocks.saccharine_wood.get())
+                .add(BorealisBlocks.SACCHARINE_WOOD.get())
                 .add(BorealisBlocks.STRIPPED_SACCHARINE_LOG.get())
                 .add(BorealisBlocks.STRIPPED_SACCHARINE_WOOD.get());
         tag(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)

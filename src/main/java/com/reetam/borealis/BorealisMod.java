@@ -4,6 +4,7 @@ import com.reetam.borealis.client.ClientProxy;
 import com.reetam.borealis.client.renderer.fluid.FluidRenderer;
 import com.reetam.borealis.data.*;
 import com.reetam.borealis.registry.*;
+import com.reetam.borealis.setup.EventHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
@@ -29,10 +30,10 @@ public class BorealisMod {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 
-        bus.addListener(this::setup);
+        bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         bus.addListener(this::gatherData);
-        forgeBus.addListener(FluidRenderer::fluidOverlay);
+        EventHandler.addEvents(forgeBus);
 
         BorealisEntities.ENTITIES.register(bus);
         BorealisBlocks.BLOCKS.register(bus);
@@ -48,33 +49,21 @@ public class BorealisMod {
     public void clientSetup(FMLClientSetupEvent event) {
         ClientProxy.registerBlockRenderers();
         ClientProxy.registerEntityRenderers();
+        ClientProxy.registerDimensionRenderers();
+        ClientProxy.registerTileEntityRenderers();
 
-        DimensionRenderInfo.EFFECTS.put(BorealisDimensions.BOREALIS_TYPE.location(), new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NONE, false, true) {
-            @Override
-            public Vector3d getBrightnessDependentFogColor(Vector3d vector3d, float sun) {
-                return vector3d;
-            }
-
-            @Override
-            public boolean isFoggyAt(int x, int y) {
-               return Minecraft.getInstance().level.isNight();
-            }
-        });
-
-        event.enqueueWork(() -> {
-            Atlases.addWoodType(BorealisBlocks.BRUMAL_WOODTYPE);
-            Atlases.addWoodType(BorealisBlocks.FROSTFIR_WOODTYPE);
-            Atlases.addWoodType(BorealisBlocks.SACCHARINE_WOODTYPE);
-        });
-        ClientRegistry.bindTileEntityRenderer(BorealisTileEntities.BOREALIS_SIGN.get(), SignTileEntityRenderer::new);
+        event.enqueueWork(ClientProxy::registerWoodTypes);
     }
 
-    public void setup(FMLCommonSetupEvent event) {
+    public void commonSetup(FMLCommonSetupEvent event) {
         BorealisEntities.registerEntityAttributes();
         BorealisEntities.registerSpawnPlacements();
         BorealisFeatures.registerConfiguredFeatures();
         BorealisDimensions.registerDimensionGenerators();
+        BorealisBlocks.registerFlowerPots();
         BorealisBlocks.registerWoodTypes();
+        BorealisBlocks.registerComposts();
+        BorealisItems.registerDispenserBehaviors();
     }
 
     public void gatherData(GatherDataEvent event) {
