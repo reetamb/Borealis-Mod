@@ -36,10 +36,16 @@ public class ClientProxy {
 
         render(BorealisBlocks.BRUMAL_DOOR, cutout);
         render(BorealisBlocks.BRUMAL_TRAPDOOR, cutout);
+        render(BorealisBlocks.BRUMAL_SAPLING, cutout);
+        render(BorealisBlocks.POTTED_BRUMAL_SAPLING, cutout);
         render(BorealisBlocks.FROSTFIR_DOOR, cutout);
         render(BorealisBlocks.FROSTFIR_TRAPDOOR, cutout);
+        render(BorealisBlocks.FROSTFIR_SAPLING, cutout);
+        render(BorealisBlocks.POTTED_FROSTFIR_SAPLING, cutout);
         render(BorealisBlocks.SACCHARINE_DOOR, cutout);
         render(BorealisBlocks.SACCHARINE_TRAPDOOR, cutout);
+        render(BorealisBlocks.SACCHARINE_SAPLING, cutout);
+        render(BorealisBlocks.POTTED_SACCHARINE_SAPLING, cutout);
 
         render(BorealisBlocks.HOT_SPRING_WATER, translucent);
         RenderTypeLookup.setRenderLayer(BorealisFluids.hot_spring_water_flowing.get(), translucent);
@@ -47,12 +53,6 @@ public class ClientProxy {
         render(BorealisBlocks.BOREALIS_PORTAL, translucent);
         render(BorealisBlocks.CLOUD, translucent);
         render(BorealisBlocks.TANZANITE_BLOCK, translucent);
-        render(BorealisBlocks.BRUMAL_SAPLING, translucent);
-        render(BorealisBlocks.FROSTFIR_SAPLING, translucent);
-        render(BorealisBlocks.SACCHARINE_SAPLING, translucent);
-        render(BorealisBlocks.POTTED_BRUMAL_SAPLING, translucent);
-        render(BorealisBlocks.POTTED_FROSTFIR_SAPLING, translucent);
-        render(BorealisBlocks.POTTED_SACCHARINE_SAPLING, translucent);
     }
 
     public static void registerEntityRenderers() {

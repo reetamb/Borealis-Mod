@@ -37,6 +37,8 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.SLATE_TILES);
         block(BorealisBlocks.PUMICE);
         block(BorealisBlocks.TRAVERTINE);
+        block(BorealisBlocks.PETRIFIED_WOOD);
+        block(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
         block(BorealisBlocks.LIVING_SNOW_BLOCK);
         block(BorealisBlocks.SUGAR_SNOW_BLOCK);
         block(BorealisBlocks.PERMAFROST_RUBBLE);

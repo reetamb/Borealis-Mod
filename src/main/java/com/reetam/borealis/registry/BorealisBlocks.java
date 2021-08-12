@@ -10,6 +10,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ToolType;
@@ -24,6 +25,10 @@ import java.util.function.Supplier;
 public class BorealisBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BorealisMod.MODID);
+
+    public static final WoodType BRUMAL_WOODTYPE = WoodType.create(new ResourceLocation(BorealisMod.MODID, "brumal").toString());
+    public static final WoodType FROSTFIR_WOODTYPE = WoodType.create(new ResourceLocation(BorealisMod.MODID, "frostfir").toString());
+    public static final WoodType SACCHARINE_WOODTYPE = WoodType.create(new ResourceLocation(BorealisMod.MODID, "saccharine").toString());
 
     public static final RegistryObject<FlowingFluidBlock> HOT_SPRING_WATER = BLOCKS.register("hot_spring_water", () -> new HotSpringWaterBlock(
             BorealisFluids.hot_spring_water_source, AbstractBlock.Properties.of(Material.WATER)));
@@ -53,9 +58,8 @@ public class BorealisBlocks {
     public static final RegistryObject<Block> PUMICE_GEYSER = registerBlock("pumice_geyser", PumiceGeyserBlock::new);
     public static final RegistryObject<Block> TRAVERTINE = registerBlock("travertine", () -> new Block(AbstractBlock.Properties.copy(Blocks.BASALT)));
 
-    public static final WoodType BRUMAL_WOODTYPE = WoodType.create(new ResourceLocation(BorealisMod.MODID, "brumal").toString());
-    public static final WoodType FROSTFIR_WOODTYPE = WoodType.create(new ResourceLocation(BorealisMod.MODID, "frostfir").toString());
-    public static final WoodType SACCHARINE_WOODTYPE = WoodType.create(new ResourceLocation(BorealisMod.MODID, "saccharine").toString());
+    public static final RegistryObject<Block> PETRIFIED_WOOD = registerBlock("petrified_wood", () -> new Block(AbstractBlock.Properties.copy(Blocks.COBBLESTONE)));
+    public static final RegistryObject<Block> PETRIFIED_WOOD_BRICKS = registerBlock("petrified_wood_bricks", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE)));
 
     public static final RegistryObject<StandingSignBlock> BRUMAL_SIGN = BLOCKS.register("brumal_sign", () -> new BorealisStandingSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_SIGN), BRUMAL_WOODTYPE));
     public static final RegistryObject<WallSignBlock> BRUMAL_WALL_SIGN = BLOCKS.register("brumal_wall_sign", () -> new BorealisWallSignBlock(AbstractBlock.Properties.copy(Blocks.OAK_WALL_SIGN), BRUMAL_WOODTYPE));
@@ -162,6 +166,12 @@ public class BorealisBlocks {
         AxeItem.STRIPABLES.put(FROSTFIR_WOOD.get(), STRIPPED_FROSTFIR_WOOD.get());
         AxeItem.STRIPABLES.put(SACCHARINE_LOG.get(), STRIPPED_SACCHARINE_LOG.get());
         AxeItem.STRIPABLES.put(SACCHARINE_WOOD.get(), STRIPPED_SACCHARINE_WOOD.get());
+    }
+
+    public static void registerHoeTills() {
+        HoeItem.TILLABLES = Maps.newHashMap(HoeItem.TILLABLES);
+
+        HoeItem.TILLABLES.put(PERMAFROST_RUBBLE.get(), PERMAFROST.get().defaultBlockState());
     }
 
     public static void registerComposts() {

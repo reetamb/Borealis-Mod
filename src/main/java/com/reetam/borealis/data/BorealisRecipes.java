@@ -132,6 +132,16 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 .define('#', BorealisBlocks.SLATE.get())
                 .unlockedBy(has(BorealisBlocks.SLATE), has(BorealisBlocks.SLATE.get()));
         stone(BorealisBlocks.SLATE, BorealisBlocks.SLATE_TILES).save(consumer);
+        ShapelessRecipeBuilder.shapeless(BorealisBlocks.PETRIFIED_WOOD_BRICKS.get(), 4)
+                .requires(BorealisBlocks.PETRIFIED_WOOD.get())
+                .unlockedBy(has(BorealisBlocks.PETRIFIED_WOOD), has(BorealisBlocks.PETRIFIED_WOOD.get()))
+                .save(consumer, name(BorealisBlocks.PETRIFIED_WOOD));
+        ShapedRecipeBuilder.shaped(Blocks.CRAFTING_TABLE, 1)
+                .pattern("##")
+                .pattern("##")
+                .define('#', BorealisBlocks.PETRIFIED_WOOD_BRICKS.get())
+                .unlockedBy(has(BorealisBlocks.PETRIFIED_WOOD_BRICKS), has(BorealisBlocks.PETRIFIED_WOOD_BRICKS.get()))
+                .save(consumer, name("crafting_table_from_petrified_planks"));
         bulkStonecutting(consumer, BorealisBlocks.SLATE, slate_stonecuts);
     }
 

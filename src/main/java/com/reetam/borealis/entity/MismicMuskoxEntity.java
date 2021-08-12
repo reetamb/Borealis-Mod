@@ -29,6 +29,15 @@ public class MismicMuskoxEntity extends AnimalEntity {
         super(type, worldIn);
     }
 
+    @Override
+    protected void registerGoals() {
+        this.goalSelector.addGoal(0, new SwimGoal(this));
+        this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
+        this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 6.0F));
+        this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
+    }
+
     @Nullable
     @Override
     public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
@@ -46,7 +55,6 @@ public class MismicMuskoxEntity extends AnimalEntity {
         super.defineSynchedData();
         this.entityData.define(CARPET, false);
     }
-
     public boolean getCarpet() {
         return this.entityData.get(CARPET);
     }
@@ -57,19 +65,9 @@ public class MismicMuskoxEntity extends AnimalEntity {
         super.addAdditionalSaveData(compound);
         compound.putBoolean("HasCarpet", this.getCarpet());
     }
-
     public void readAdditionalSaveData(CompoundNBT compound) {
         super.readAdditionalSaveData(compound);
         this.setCarpet(compound.getBoolean("HasCarpet"));
-    }
-
-    @Override
-    protected void registerGoals() {
-        this.goalSelector.addGoal(0, new SwimGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-        this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 6.0F));
-        this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
     }
 
     public static boolean canMuskoxSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {

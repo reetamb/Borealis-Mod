@@ -42,6 +42,8 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.PUMICE);
         itemBlock(BorealisBlocks.PUMICE_GEYSER);
         itemBlock(BorealisBlocks.TRAVERTINE);
+        itemBlock(BorealisBlocks.PETRIFIED_WOOD);
+        itemBlock(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
 
         itemBlock(BorealisBlocks.BRUMAL_PLANKS);
         itemBlock(BorealisBlocks.BRUMAL_LOG);

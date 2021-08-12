@@ -62,6 +62,8 @@ public class BorealisMod {
         BorealisDimensions.registerDimensionGenerators();
         BorealisBlocks.registerFlowerPots();
         BorealisBlocks.registerWoodTypes();
+        BorealisBlocks.registerAxeStrips();
+        BorealisBlocks.registerHoeTills();
         BorealisBlocks.registerComposts();
         BorealisItems.registerDispenserBehaviors();
     }

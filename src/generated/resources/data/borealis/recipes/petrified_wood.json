@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "borealis:petrified_wood"
+    }
+  ],
+  "result": {
+    "item": "borealis:petrified_wood_bricks",
+    "count": 4
+  }
+}

@@ -93,6 +93,8 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.SLATE_TILES);
             dropSelf(BorealisBlocks.PUMICE);
             dropSelf(BorealisBlocks.PUMICE_GEYSER);
+            dropSelf(BorealisBlocks.PETRIFIED_WOOD);
+            dropSelf(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
             dropSelf(BorealisBlocks.BRUMAL_PLANKS);
             dropSelf(BorealisBlocks.BRUMAL_LOG);
             dropSelf(BorealisBlocks.BRUMAL_WOOD);
@@ -108,6 +110,7 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.BRUMAL_BUTTON);
             dropSelf(BorealisBlocks.BRUMAL_PRESSURE_PLATE);
             dropSelf(BorealisBlocks.BRUMAL_SAPLING);
+            dropPottedContents(BorealisBlocks.POTTED_BRUMAL_SAPLING.get());
             dropSelf(BorealisBlocks.BRUMAL_SIGN);
             dropOther(BorealisBlocks.BRUMAL_WALL_SIGN, () -> BorealisBlocks.BRUMAL_SIGN.get().asItem());
             dropSelf(BorealisBlocks.FROSTFIR_PLANKS);
@@ -125,6 +128,7 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.FROSTFIR_BUTTON);
             dropSelf(BorealisBlocks.FROSTFIR_PRESSURE_PLATE);
             dropSelf(BorealisBlocks.FROSTFIR_SAPLING);
+            dropPottedContents(BorealisBlocks.POTTED_FROSTFIR_SAPLING.get());
             dropSelf(BorealisBlocks.FROSTFIR_SIGN);
             dropOther(BorealisBlocks.FROSTFIR_WALL_SIGN, () -> BorealisBlocks.FROSTFIR_SIGN.get().asItem());
             dropSelf(BorealisBlocks.SACCHARINE_PLANKS);
@@ -142,6 +146,7 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.SACCHARINE_BUTTON);
             dropSelf(BorealisBlocks.SACCHARINE_PRESSURE_PLATE);
             dropSelf(BorealisBlocks.SACCHARINE_SAPLING);
+            dropPottedContents(BorealisBlocks.POTTED_SACCHARINE_SAPLING.get());
             dropSelf(BorealisBlocks.SACCHARINE_SIGN);
             dropOther(BorealisBlocks.SACCHARINE_WALL_SIGN, () -> BorealisBlocks.SACCHARINE_SIGN.get().asItem());
             dropWithSilk(BorealisBlocks.LIVING_SNOW_BLOCK, () -> net.minecraft.block.Blocks.SNOW_BLOCK);
@@ -151,15 +156,17 @@ public class BorealisLootTables extends LootTableProvider {
             this.add(BorealisBlocks.PERMAFROST_RUBBLE.get(),
                     new LootTable.Builder()
                             .withPool(new LootPool.Builder()
-                                    .add(ItemLootEntry.lootTableItem(Items.FLINT).when(RandomChance.randomChance((float) 0.2)))
-                                    .add(ItemLootEntry.lootTableItem(Items.STICK).when(RandomChance.randomChance((float) 0.5)))
-                                    .add(ItemLootEntry.lootTableItem(Items.IRON_NUGGET).when(RandomChance.randomChance((float) 0.05)))
-                                    .add(ItemLootEntry.lootTableItem(Items.ARROW).when(RandomChance.randomChance((float) 0.2)))
-                                    .add(ItemLootEntry.lootTableItem(Items.FEATHER).when(RandomChance.randomChance((float) 0.5)))
-                                    .add(ItemLootEntry.lootTableItem(Items.STRING).when(RandomChance.randomChance((float) 0.1)))
-                                    .add(ItemLootEntry.lootTableItem(Items.COAL).when(RandomChance.randomChance((float) 0.2)))
-                                    .add(ItemLootEntry.lootTableItem(Items.CHARCOAL).when(RandomChance.randomChance((float) 0.2)))
-                                    .add(ItemLootEntry.lootTableItem(Items.POISONOUS_POTATO).when(RandomChance.randomChance((float) 0.02)))));
+                                    .add(ItemLootEntry.lootTableItem(Items.FLINT).when(RandomChance.randomChance(0.2F)))
+                                    .add(ItemLootEntry.lootTableItem(Items.STICK).when(RandomChance.randomChance( 0.5F)))
+                                    .add(ItemLootEntry.lootTableItem(Items.IRON_NUGGET).when(RandomChance.randomChance(0.3F)))
+                                    .add(ItemLootEntry.lootTableItem(Items.IRON_INGOT).when(RandomChance.randomChance(0.03F)))
+                                    .add(ItemLootEntry.lootTableItem(BorealisBlocks.PETRIFIED_WOOD.get().asItem()).when(RandomChance.randomChance(0.25F)))
+                                    .add(ItemLootEntry.lootTableItem(Items.ARROW).when(RandomChance.randomChance(0.2F)))
+                                    .add(ItemLootEntry.lootTableItem(Items.FEATHER).when(RandomChance.randomChance(0.5F)))
+                                    .add(ItemLootEntry.lootTableItem(Items.STRING).when(RandomChance.randomChance(0.1F)))
+                                    .add(ItemLootEntry.lootTableItem(Items.COAL).when(RandomChance.randomChance(0.2F)))
+                                    .add(ItemLootEntry.lootTableItem(Items.CHARCOAL).when(RandomChance.randomChance(0.2F)))
+                                    .add(ItemLootEntry.lootTableItem(Items.POISONOUS_POTATO).when(RandomChance.randomChance(0.01F)))));
             dropWithSilk(BorealisBlocks.CLOUD, BorealisBlocks.CLOUD);
             this.add(BorealisBlocks.SUGAR_SNOW.get(),
                     new LootTable.Builder()

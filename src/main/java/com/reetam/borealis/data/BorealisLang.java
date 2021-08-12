@@ -35,6 +35,8 @@ public class BorealisLang extends BorealisLangProvider {
         assumeBlockItem(BorealisBlocks.SLATE_TILES);
         assumeBlockItem(BorealisBlocks.PUMICE);
         assumeBlockItem(BorealisBlocks.PUMICE_GEYSER);
+        assumeBlockItem(BorealisBlocks.PETRIFIED_WOOD);
+        assumeBlockItem(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
         assumeBlockItem(BorealisBlocks.BRUMAL_PLANKS);
         assumeBlockItem(BorealisBlocks.BRUMAL_LOG);
         assumeBlockItem(BorealisBlocks.BRUMAL_WOOD);
