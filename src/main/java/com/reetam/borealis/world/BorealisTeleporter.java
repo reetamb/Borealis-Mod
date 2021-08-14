@@ -1,7 +1,3 @@
-/**
-    Credit https://github.com/TeamTwilight/twilightforest/blob/1.16.x/src/main/java/twilightforest/world/TFTeleporter.java
-    License GNU LGPL
- **/
 package com.reetam.borealis.world;
 
 import com.google.common.collect.Maps;
@@ -36,6 +32,9 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+// Credit https://github.com/TeamTwilight/twilightforest/blob/1.16.x/src/main/java/twilightforest/world/TFTeleporter.java
+// License GNU LGPL
+
 public class BorealisTeleporter implements ITeleporter {
 
     private static final Map<ResourceLocation, Map<ColumnPos, PortalPosition>> destinationCoordinateCache = new HashMap<>();
@@ -55,7 +54,7 @@ public class BorealisTeleporter implements ITeleporter {
 
     @Nullable
     private static PortalInfo placeInExistingPortal(ServerWorld world, Entity entity, BlockPos pos, boolean isPlayer) {
-        int i = 200; // scan radius up to 200, and also un-inline this variable back into below
+        int i = 200;
         boolean flag = true;
         BlockPos blockpos = BlockPos.ZERO;
         ColumnPos columnPos = new ColumnPos(pos);
@@ -69,7 +68,6 @@ public class BorealisTeleporter implements ITeleporter {
                 portalPosition.lastUpdateTime = world.getGameTime();
                 flag = false;
             } else {
-                //BlockPos blockpos3 = new BlockPos(entity);
                 double d0 = Double.MAX_VALUE;
 
                 for (int i1 = -i; i1 <= i; ++i1) {
@@ -77,29 +75,24 @@ public class BorealisTeleporter implements ITeleporter {
 
                     for (int j1 = -i; j1 <= i; ++j1) {
 
-                        // skip positions outside current world border (MC-114796)
                         if (!world.getWorldBorder().isWithinBounds(pos.offset(i1, 0, j1))) {
                             continue;
                         }
 
-                        // skip chunks that aren't generated
                         ChunkPos chunkPos = new ChunkPos(pos.offset(i1, 0, j1));
                         if (!world.getChunkSource().chunkMap.isExistingChunkFull(chunkPos)) {
                             continue;
                         }
 
-                        // explicitly fetch chunk so it can be unloaded if needed
                         Chunk chunk = world.getChunk(chunkPos.x, chunkPos.z);
 
                         for (BlockPos blockpos1 = pos.offset(i1, getScanHeight(world, pos) - pos.getY(), j1); blockpos1.getY() >= 0; blockpos1 = blockpos2) {
                             blockpos2 = blockpos1.below();
 
-                            // don't lookup state if inner condition would fail
                             if (d0 >= 0.0D && blockpos1.distSqr(pos) >= d0) {
                                 continue;
                             }
 
-                            // use our portal block
                             if (isPortal(chunk.getBlockState(blockpos1))) {
                                 for (blockpos2 = blockpos1.below(); isPortal(chunk.getBlockState(blockpos2)); blockpos2 = blockpos2.below()) {
                                     blockpos1 = blockpos2;
@@ -109,16 +102,10 @@ public class BorealisTeleporter implements ITeleporter {
                                 if (d0 < 0.0D || d1 < d0) {
                                     d0 = d1;
                                     blockpos = blockpos1;
-                                    // restrict search radius to new distance
                                     i = MathHelper.ceil(MathHelper.sqrt(d1));
                                 }
                             }
                         }
-
-                        // mark unwatched chunks for unload
-                        //						if (!this.world.getPlayerChunkMap().contains(chunkPos.x, chunkPos.z)) {
-                        //							this.world.getChunkProvider().queueUnload(chunk);
-                        //						}
                     }
                 }
             }
@@ -135,9 +122,8 @@ public class BorealisTeleporter implements ITeleporter {
                 world.getChunkSource().addRegionTicket(TicketType.PORTAL, new ChunkPos(blockpos), 3, new BlockPos(columnPos.x, blockpos.getY(), columnPos.z));
             }
 
-            // replace with our own placement logic
             BlockPos[] portalBorder = getBoundaryPositions(world, blockpos).toArray(new BlockPos[0]);
-            BlockPos borderPos = portalBorder[0/*random.nextInt(portalBorder.length)*/];
+            BlockPos borderPos = portalBorder[0];
 
             double portalX = borderPos.getX() + 0.5;
             double portalY = borderPos.getY() + 1.0;
@@ -161,7 +147,6 @@ public class BorealisTeleporter implements ITeleporter {
         return state.getBlock() == BorealisBlocks.BOREALIS_PORTAL.get();
     }
 
-    // from the start point, builds a set of all directly adjacent non-portal blocks
     private static Set<BlockPos> getBoundaryPositions(ServerWorld world, BlockPos start) {
         Set<BlockPos> result = new HashSet<>(), checked = new HashSet<>();
         checked.add(start);
@@ -235,7 +220,7 @@ public class BorealisTeleporter implements ITeleporter {
         int attempts = range / 8;
         for (int i = 0; i < attempts; i++) {
             BlockPos dPos = new BlockPos(
-                    pos.getX() /*+ random.nextInt(range) - random.nextInt(range)*/, 100, pos.getZ() /*+ random.nextInt(range) - random.nextInt(range)*/);
+                    pos.getX(), 100, pos.getZ());
 
             if (isSafeAround(world, dPos, entity)) {
                 return dPos;
@@ -245,7 +230,6 @@ public class BorealisTeleporter implements ITeleporter {
     }
 
     private static void makePortal(Entity entity, ServerWorld world, Vector3d pos) {
-        // ensure area is populated first
         loadSurroundingArea(world, pos);
 
         BlockPos spot = findPortalCoords(world, pos, blockPos -> isPortalAt(world, blockPos));
@@ -270,11 +254,7 @@ public class BorealisTeleporter implements ITeleporter {
             return;
         }
 
-        // well I don't think we can actually just return and fail here
-
-        // adjust the portal height based on what world we're traveling to
         double yFactor = getYFactor(world);
-        // modified copy of base Teleporter method:
         cachePortalCoords(world, pos, makePortalAt(world, new BlockPos(entity.getX(), (entity.getY() * yFactor) - 1.0, entity.getZ())));
     }
 
@@ -292,9 +272,7 @@ public class BorealisTeleporter implements ITeleporter {
 
     @Nullable
     private static BlockPos findPortalCoords(ServerWorld world, Vector3d loc, Predicate<BlockPos> predicate) {
-        // adjust the height based on what world we're traveling to
         double yFactor = getYFactor(world);
-        // modified copy of base Teleporter method:
         int entityX = MathHelper.floor(loc.x);
         int entityZ = MathHelper.floor(loc.z);
 
@@ -323,7 +301,6 @@ public class BorealisTeleporter implements ITeleporter {
                     double rPosWeight = xWeight * xWeight + yWeight * yWeight + zWeight * zWeight;
 
                     if (spotWeight < 0.0D || rPosWeight < spotWeight) {
-                        // check from the "in ground" pos
                         if (predicate.test(pos)) {
                             spotWeight = rPosWeight;
                             spot = pos.immutable();

@@ -32,7 +32,6 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
         super(type, worldIn);
         this.moveControl = new HummingbirdEntity.MoveHelperController(this);
         this.setNoGravity(true);
-
     }
 
     @Override
@@ -43,9 +42,6 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new PanicGoal(this, 2.5D));
-//        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-//        this.goalSelector.addGoal(3, new TemptGoal(this, 1.25D, Ingredient.fromItems(Items.HONEY_BOTTLE.getItem()), false));
-//        this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.25D));
         this.goalSelector.addGoal(5, new HummingbirdEntity.RandomFlyGoal(this));
         this.goalSelector.addGoal(2, new HummingbirdEntity.LookAroundGoal(this));
     }
@@ -152,7 +148,6 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
                         this.operation = MovementController.Action.WAIT;
                     }
                 }
-
             }
         }
 
