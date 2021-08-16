@@ -41,6 +41,8 @@ public class BorealisFeatures {
             "sprinkle_top_layer", () -> new SugarSnowFeature(NoFeatureConfig.CODEC));
     public static final RegistryObject<Feature<NoFeatureConfig>> SPIKE_TRAIL = FEATURES.register(
             "spike_trail", () -> new SpikeTrailFeature(NoFeatureConfig.CODEC));
+    public static final RegistryObject<Feature<NoFeatureConfig>> SPIRAL_CLOUD = FEATURES.register(
+            "spiral_cloud", () -> new SpiralCloudFeature(NoFeatureConfig.CODEC));
 
     public static class TreePlacers {
         public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACERS = DeferredRegister.create(ForgeRegistries.FOLIAGE_PLACER_TYPES, BorealisMod.MODID);
@@ -122,6 +124,7 @@ public class BorealisFeatures {
                         BorealisBlocks.CLOUD.get().defaultBlockState(), 33))
                 .range(12).squared().count(10);
 
+
         public static final ConfiguredFeature<?, ?> CONFIGURED_FROSTFIR_TREE = FROSTFIR_TREE.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(8)));
         public static final ConfiguredFeature<?, ?> CONFIGURED_HELIX_TREE = HELIX_TREE.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1)));
         public static final ConfiguredFeature<?, ?> CONFIGURED_BRUMAL_TREE = BRUMAL_TREE.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(2)));
@@ -137,10 +140,13 @@ public class BorealisFeatures {
                 .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(3)));
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_HOT_SPRING = HOT_SPRING.get().configured(IFeatureConfig.NONE)
-                .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(2)).chance(2));
+                .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1)));
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_SPIKE_TRAIL = SPIKE_TRAIL.get().configured(IFeatureConfig.NONE)
                 .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1)));
+
+        public static final ConfiguredFeature<?, ?> CONFIGURED_SPIRAL_CLOUD = SPIRAL_CLOUD.get().configured(IFeatureConfig.NONE)
+                .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1)).chance(8));
     }
 
     public static void registerConfiguredFeatures() {
@@ -156,6 +162,7 @@ public class BorealisFeatures {
         register("hot_spring", Configured.CONFIGURED_HOT_SPRING);
         register("sprinkle_top_layer", SUGAR_SNOW.get().configured(IFeatureConfig.NONE));
         register("spike_trail", Configured.CONFIGURED_SPIKE_TRAIL);
+        register("spiral_cloud", Configured.CONFIGURED_SPIRAL_CLOUD);
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {

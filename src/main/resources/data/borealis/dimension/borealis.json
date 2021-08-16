@@ -106,7 +106,7 @@
           }
         },
         {
-          "biome": "borealis:hot_springs",
+          "biome": "borealis:hot_spring_islands",
           "parameters": {
             "altitude": 0.0,
             "weirdness": 0.25,
