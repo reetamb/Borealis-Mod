@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import java.util.Random;
 import javax.annotation.Nullable;
+
+import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -16,7 +18,7 @@ import net.minecraft.world.gen.feature.ColumnConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 public class GlacialRidgeFeature extends Feature<ColumnConfig> {
-    private static final ImmutableList<Block> CANNOT_PLACE_ON = ImmutableList.of(Blocks.WATER);
+    private static final ImmutableList<Block> CANNOT_PLACE_ON = ImmutableList.of(Blocks.WATER, BorealisBlocks.CLOUD.get());
 
     public GlacialRidgeFeature(Codec<ColumnConfig> codec) {
         super(codec);

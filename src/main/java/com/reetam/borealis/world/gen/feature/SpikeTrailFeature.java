@@ -43,6 +43,6 @@ public class SpikeTrailFeature extends Feature<NoFeatureConfig> {
     }
 
     private BlockPos toGround(ISeedReader reader, BlockPos pos) {
-        return new BlockPos(pos.getX(), reader.getHeight(Heightmap.Type.OCEAN_FLOOR, pos.getX(), pos.getZ()), pos.getZ());
+        return new BlockPos(pos.getX(), reader.getHeight(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()), pos.getZ());
     }
 }

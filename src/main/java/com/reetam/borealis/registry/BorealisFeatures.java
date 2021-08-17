@@ -18,6 +18,7 @@ import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.foliageplacer.FoliagePlacerType;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
@@ -43,6 +44,9 @@ public class BorealisFeatures {
             "spike_trail", () -> new SpikeTrailFeature(NoFeatureConfig.CODEC));
     public static final RegistryObject<Feature<NoFeatureConfig>> SPIRAL_CLOUD = FEATURES.register(
             "spiral_cloud", () -> new SpiralCloudFeature(NoFeatureConfig.CODEC));
+    public static final RegistryObject<Feature<NoFeatureConfig>> CLOUD = FEATURES.register(
+            "cloud", () -> new CloudFeature(NoFeatureConfig.CODEC)
+    );
 
     public static class TreePlacers {
         public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACERS = DeferredRegister.create(ForgeRegistries.FOLIAGE_PLACER_TYPES, BorealisMod.MODID);
@@ -118,20 +122,11 @@ public class BorealisFeatures {
                         FeatureSpread.of(3, 4))).range(128)
                 .squared().count(10);
 
-        public static final ConfiguredFeature<?, ?> CONFIGURED_CLOUD = Feature.ORE.configured(
-                new OreFeatureConfig(
-                        new BlockMatchRuleTest(Blocks.AIR),
-                        BorealisBlocks.CLOUD.get().defaultBlockState(), 33))
-                .range(12).squared().count(10);
-
-
         public static final ConfiguredFeature<?, ?> CONFIGURED_FROSTFIR_TREE = FROSTFIR_TREE.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(8)));
         public static final ConfiguredFeature<?, ?> CONFIGURED_HELIX_TREE = HELIX_TREE.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1)));
         public static final ConfiguredFeature<?, ?> CONFIGURED_BRUMAL_TREE = BRUMAL_TREE.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(2)));
         public static final ConfiguredFeature<?, ?> CONFIGURED_TALL_BRUMAL_TREE = TALL_BRUMAL_TREE.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1)));
         public static final ConfiguredFeature<?, ?> CONFIGURED_COTTON_TREE = COTTON_TREE.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1)));
-
-
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_GLACIAL_RIDGE = GLACIAL_RIDGE.get().configured(new ColumnConfig(FeatureSpread.fixed(2), FeatureSpread.fixed(2)))
                 .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(6)));
@@ -147,6 +142,10 @@ public class BorealisFeatures {
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_SPIRAL_CLOUD = SPIRAL_CLOUD.get().configured(IFeatureConfig.NONE)
                 .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1)).chance(8));
+
+        public static final ConfiguredFeature<?, ?> CONFIGURED_CLOUD = CLOUD.get().configured(IFeatureConfig.NONE)
+                .decorated(Placement.RANGE.configured(new TopSolidRangeConfig(4, 0, 12))
+                .count(4));
     }
 
     public static void registerConfiguredFeatures() {

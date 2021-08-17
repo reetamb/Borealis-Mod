@@ -26,7 +26,7 @@ public class HotSpringFeature extends Feature<NoFeatureConfig> {
         boolean[] booleans = new boolean[2048];
         int n = random.nextInt(4) + 4;
 
-        for(int m = 0; m < n; ++m) {
+        for(int m = 0; m < n; ++m) { // make random amount of pond shapes
             // get random noise
             double d0 = random.nextDouble() * 6.0D + 3.0D;
             double d1 = random.nextDouble() * 4.0D + 2.0D;
@@ -54,7 +54,7 @@ public class HotSpringFeature extends Feature<NoFeatureConfig> {
                     for(int y1 = 0; y1 < 8; ++y1) {
                         if (booleans[(x1 * 16 + z1) * 8 + y1]) {
                             if (y1 < 4) { // don't bother with creating air overhead since this doesn't generate in the ground
-                                // place water according to shape dictate by booleans array
+                                // place water according to shape dictated by booleans array
                                 reader.setBlock(pos.offset(x1, y1, z1), BorealisBlocks.HOT_SPRING_WATER.get().defaultBlockState(), 2);
                                 for (Direction direction : Direction.values()) {
                                     if (direction != Direction.UP) {

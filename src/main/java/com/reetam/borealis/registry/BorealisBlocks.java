@@ -127,7 +127,7 @@ public class BorealisBlocks {
     public static final RegistryObject<Block> LIVING_SNOW_BLOCK = registerBlock("living_snow_block", () -> new LivingSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW_BLOCK)));
     public static final RegistryObject<Block> SUGAR_SNOW_BLOCK = registerBlock("sugar_snow_block", () -> new LivingSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW_BLOCK)));
     public static final RegistryObject<Block> SUGAR_SNOW = registerBlock("sugar_snow", () -> new SugarSnowBlock(AbstractBlock.Properties.copy(Blocks.SNOW)));
-    public static final RegistryObject<Block> CLOUD = registerBlock("cloud", () -> new CloudBlock(AbstractBlock.Properties.copy(Blocks.WHITE_WOOL)));
+    public static final RegistryObject<Block> CLOUD = registerBlock("cloud", () -> new CloudBlock(AbstractBlock.Properties.of(Material.WEB).sound(SoundType.WOOL).strength(0.4F).noCollission()));
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);
