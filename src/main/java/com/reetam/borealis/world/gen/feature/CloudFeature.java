@@ -5,6 +5,7 @@ import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
+import net.minecraft.world.LightType;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -23,19 +24,22 @@ public class CloudFeature extends Feature<NoFeatureConfig> {
         BlockState state = BorealisBlocks.CLOUD.get().defaultBlockState();
         pos = pos.offset(rand.nextInt(16) - 8, 0, rand.nextInt(16) - 8);
 
-        for (int i = 0; i < rand.nextInt(3) + 1; i++) {
-            makeDisk(reader, state, rand, pos.below(), size - 1);
-            makeDisk(reader, state, rand, pos, size);
-            makeDisk(reader, state, rand, pos.above(), size);
-            makeDisk(reader, state, rand, pos.above(2), size - 2);
-            if (size - 4 > 1) {
-                makeDisk(reader, state, rand, pos.above(3), size - 4);
+        if (reader.dimensionType().hasSkyLight()) {
+            if (reader.getBrightness(LightType.SKY, pos) != 15 || rand.nextInt(10) == 0) {
+                for (int i = 0; i < rand.nextInt(6) + 1; i++) {
+                    makeDisk(reader, state, rand, pos.below(), size - 1);
+                    makeDisk(reader, state, rand, pos, size);
+                    makeDisk(reader, state, rand, pos.above(), size);
+                    makeDisk(reader, state, rand, pos.above(2), size - 2);
+                    if (size - 4 > 1) {
+                        makeDisk(reader, state, rand, pos.above(3), size - 4);
+                    }
+
+                    pos = pos.offset(rand.nextInt(8) - 4, rand.nextInt(4) - 2, rand.nextInt(8) - 4);
+                    size -= rand.nextInt(2) + 2;
+                }
             }
-
-            pos = pos.offset(rand.nextInt(8) - 4, rand.nextInt(4) - 2, rand.nextInt(8) - 4);
-            size -= rand.nextInt(2) + 2;
         }
-
         return true;
     }
 
