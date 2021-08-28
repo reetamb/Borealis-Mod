@@ -1,6 +1,6 @@
 package com.reetam.borealis.setup.mixin;
 
-import com.reetam.borealis.world.SeedHolder;
+import com.reetam.borealis.world.seed.SeedHolder;
 import net.minecraft.util.registry.SimpleRegistry;
 import net.minecraft.world.Dimension;
 import net.minecraft.world.gen.settings.DimensionGeneratorSettings;

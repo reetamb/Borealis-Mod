@@ -1,6 +1,7 @@
 package com.reetam.borealis.client;
 
-import com.reetam.borealis.client.renderer.fluid.FluidRenderer;
+import com.reetam.borealis.client.renderer.BorealisAuroraRenderer;
+import com.reetam.borealis.client.renderer.BorealisWeatherRenderer;
 import com.reetam.borealis.entity.renderer.BorealisBoatRenderer;
 import com.reetam.borealis.entity.renderer.HummingbirdRenderer;
 import com.reetam.borealis.entity.renderer.MismicMuskoxRenderer;
@@ -16,10 +17,11 @@ import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.client.ICloudRenderHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
+import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 @OnlyIn(Dist.CLIENT)
@@ -63,7 +65,7 @@ public class ClientProxy {
     }
 
     public static void registerDimensionRenderers() {
-        DimensionRenderInfo.EFFECTS.put(BorealisDimensions.BOREALIS_TYPE.location(), new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NONE, false, true) {
+        DimensionRenderInfo borealisRenderInfo = new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NONE, false, true) {
             @Override
             public Vector3d getBrightnessDependentFogColor(Vector3d vector3d, float sun) {
                 return vector3d;
@@ -73,7 +75,20 @@ public class ClientProxy {
             public boolean isFoggyAt(int x, int y) {
                 return Minecraft.getInstance().level.isNight();
             }
-        });
+
+            @Override
+            public ICloudRenderHandler getCloudRenderHandler() {
+                return new BorealisAuroraRenderer();
+            }
+
+            @Override
+            public float getCloudHeight() {
+                return 160.0F;
+            }
+        };
+        borealisRenderInfo.setCloudRenderHandler(new BorealisAuroraRenderer());
+        DimensionRenderInfo.EFFECTS.put(BorealisDimensions.BOREALIS_TYPE.location(), borealisRenderInfo);
+
     }
 
     public static void registerTileEntityRenderers() {

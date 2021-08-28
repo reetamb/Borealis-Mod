@@ -1,4 +1,4 @@
-package com.reetam.borealis.client.renderer.fluid;
+package com.reetam.borealis.client.renderer;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.reetam.borealis.BorealisMod;
@@ -18,7 +18,7 @@ import net.minecraftforge.client.event.RenderBlockOverlayEvent;
 
 
 @OnlyIn(Dist.CLIENT)
-public class FluidRenderer {
+public class BorealisFluidRenderer {
 
     private static final ResourceLocation TEXTURE_FALLBACK_UNDERWATER = new ResourceLocation("minecraft:textures/misc/underwater.png");
     private static final ResourceLocation TEXTURE_HOT_SPRING_UNDERWATER = new ResourceLocation(BorealisMod.MODID + ":textures/fluid/hot_spring_water_overlay.png");

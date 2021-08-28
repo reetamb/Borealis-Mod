@@ -1,4 +1,4 @@
-package com.reetam.borealis.world;
+package com.reetam.borealis.world.seed;
 
 public class SeedHolder {
 

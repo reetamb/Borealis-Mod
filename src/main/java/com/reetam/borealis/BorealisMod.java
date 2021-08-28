@@ -1,20 +1,13 @@
 package com.reetam.borealis;
 
 import com.reetam.borealis.client.ClientProxy;
-import com.reetam.borealis.client.renderer.fluid.FluidRenderer;
 import com.reetam.borealis.data.*;
 import com.reetam.borealis.registry.*;
 import com.reetam.borealis.setup.EventHandler;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.Atlases;
-import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
-import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;

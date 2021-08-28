@@ -1,4 +1,4 @@
-package com.reetam.borealis.world;
+package com.reetam.borealis.world.seed;
 
 import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;

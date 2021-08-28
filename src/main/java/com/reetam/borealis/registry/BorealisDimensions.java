@@ -1,7 +1,7 @@
 package com.reetam.borealis.registry;
 
-import com.reetam.borealis.world.BorealisBiomeProvider;
-import com.reetam.borealis.world.BorealisChunkGenerator;
+import com.reetam.borealis.world.seed.BorealisBiomeProvider;
+import com.reetam.borealis.world.seed.BorealisChunkGenerator;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;

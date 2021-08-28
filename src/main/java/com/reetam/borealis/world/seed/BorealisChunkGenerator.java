@@ -1,4 +1,4 @@
-package com.reetam.borealis.world;
+package com.reetam.borealis.world.seed;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
