@@ -144,7 +144,7 @@ public class BorealisFeatures {
                 .decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1)).chance(8));
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_CLOUD = CLOUD.get().configured(IFeatureConfig.NONE)
-                .decorated(Placement.RANGE.configured(new TopSolidRangeConfig(36, 0, 18))
+                .decorated(Placement.RANGE.configured(new TopSolidRangeConfig(50, 0, 12))
                 .count(4));
     }
 

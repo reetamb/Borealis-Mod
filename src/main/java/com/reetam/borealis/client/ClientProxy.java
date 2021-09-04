@@ -1,6 +1,7 @@
 package com.reetam.borealis.client;
 
 import com.reetam.borealis.client.renderer.BorealisAuroraRenderer;
+import com.reetam.borealis.client.renderer.BorealisSkyRenderer;
 import com.reetam.borealis.client.renderer.BorealisWeatherRenderer;
 import com.reetam.borealis.entity.renderer.BorealisBoatRenderer;
 import com.reetam.borealis.entity.renderer.HummingbirdRenderer;
@@ -14,10 +15,12 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
 import net.minecraft.client.world.DimensionRenderInfo;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.ICloudRenderHandler;
+import net.minecraftforge.client.ISkyRenderHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
@@ -65,7 +68,9 @@ public class ClientProxy {
     }
 
     public static void registerDimensionRenderers() {
-        DimensionRenderInfo borealisRenderInfo = new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NONE, false, true) {
+        DimensionRenderInfo borealisRenderInfo = new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NORMAL, false, true) {
+            private final float[] sunriseCol = new float[4];
+
             @Override
             public Vector3d getBrightnessDependentFogColor(Vector3d vector3d, float sun) {
                 return vector3d;
@@ -73,12 +78,36 @@ public class ClientProxy {
 
             @Override
             public boolean isFoggyAt(int x, int y) {
-                return Minecraft.getInstance().level.isNight();
+                return false;
+            }
+
+            @Nullable
+            @Override
+            public float[] getSunriseColor(float time, float partialTicks) {
+                float f1 = MathHelper.cos(time * ((float)Math.PI * 2F)) - 0.0F;
+                if (f1 >= -0.4F && f1 <= 0.4F) {
+                    float f3 = (f1 - -0.0F) / 0.4F * 0.5F + 0.5F;
+                    float alpha = 1.0F - (1.0F - MathHelper.sin(f3 * (float)Math.PI)) * 0.99F;
+                    alpha = alpha * alpha;
+                    this.sunriseCol[0] = f3 * f3 * 0.7F + 0.1F;
+                    this.sunriseCol[1] = f3 * f3 * 0.0F + 0.2F;
+                    this.sunriseCol[2] = f3 * 0.3F + 0.5F;
+                    this.sunriseCol[3] = alpha;
+                    return this.sunriseCol;
+                } else {
+                    return null;
+                }
             }
 
             @Override
             public ICloudRenderHandler getCloudRenderHandler() {
                 return new BorealisAuroraRenderer();
+            }
+
+            @Nullable
+            @Override
+            public ISkyRenderHandler getSkyRenderHandler() {
+                return new BorealisSkyRenderer();
             }
 
             @Override
@@ -87,6 +116,7 @@ public class ClientProxy {
             }
         };
         borealisRenderInfo.setCloudRenderHandler(new BorealisAuroraRenderer());
+        borealisRenderInfo.setSkyRenderHandler(new BorealisSkyRenderer());
         DimensionRenderInfo.EFFECTS.put(BorealisDimensions.BOREALIS_TYPE.location(), borealisRenderInfo);
 
     }
