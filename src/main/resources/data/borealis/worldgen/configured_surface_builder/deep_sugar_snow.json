@@ -8,7 +8,8 @@
       "Name": "borealis:permafrost",
       "Properties": {
         "snowy": "false",
-        "sugary": "false"
+        "sugary": "false",
+        "icy": "false"
       }
     },
     "underwater_material": {

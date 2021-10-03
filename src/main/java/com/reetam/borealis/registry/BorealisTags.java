@@ -31,6 +31,7 @@ public class BorealisTags {
         public static final ITag.INamedTag<Block> PORTAL_CENTER_BLOCKS = tag("portal_center_blocks");
         public static final ITag.INamedTag<Block> SNOWY_BLOCKS = tag("snowy_blocks");
         public static final ITag.INamedTag<Block> SUGARY_BLOCKS = tag("sugary_blocks");
+        public static final ITag.INamedTag<Block> ICY_BLOCKS = tag("icy_blocks");
 
         private static ITag.INamedTag<Block> tag(String name) {
             return BlockTags.createOptional(new ResourceLocation(BorealisMod.MODID, name));

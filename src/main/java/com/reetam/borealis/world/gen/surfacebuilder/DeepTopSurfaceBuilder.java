@@ -61,6 +61,8 @@ public class DeepTopSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> 
                         activeBlock = config.getUnderMaterial().setValue(PermafrostBlock.SNOWY, true);
                     } else if (previousBlock.is(BorealisTags.Blocks.SUGARY_BLOCKS)) {
                         activeBlock = config.getUnderMaterial().setValue(PermafrostBlock.SUGARY, true);
+                    } else if (previousBlock.is(BorealisTags.Blocks.ICY_BLOCKS)) {
+                        activeBlock = config.getUnderMaterial().setValue(PermafrostBlock.ICY, true);
                     }
                 } else {
                     activeBlock = config.getUnderMaterial();

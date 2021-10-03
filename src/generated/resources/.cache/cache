@@ -514,6 +514,7 @@ cbeacd91c13e841a1a84285abae2331541bb55d3 data/borealis/recipes/soapstone_tiles_f
 b396268d8c1662e1e76b7f502eca1d8176dfb928 data/borealis/tags/blocks/base_stone_borealis.json
 362a3e1e1161113a22d91644dbc94cde78d1e7e7 data/borealis/tags/blocks/brumal_logs.json
 365149ed1092ba525a250417c050bcdcfb72599b data/borealis/tags/blocks/frostfir_logs.json
+6ee22909457fbbe6b4725478a12cbc769407a122 data/borealis/tags/blocks/icy_blocks.json
 dbe333b08ea70e35484322d4e0f198c9530620a8 data/borealis/tags/blocks/portal_center_blocks.json
 41c95b8a95d01f81a535eda4f17b38dd6d7d045f data/borealis/tags/blocks/portal_frame_blocks.json
 38c09bc68c99e5668f2a0d6c1c867e343637e145 data/borealis/tags/blocks/saccharine_logs.json

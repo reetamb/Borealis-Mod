@@ -1,16 +1,28 @@
 {
   "variants": {
-    "snowy=false,sugary=false": {
+    "snowy=false,sugary=false,icy=false": {
       "model": "borealis:block/permafrost"
     },
-    "snowy=true,sugary=false": {
+    "snowy=true,sugary=false,icy=false": {
       "model": "borealis:block/snowy_permafrost"
     },
-    "snowy=false,sugary=true": {
+    "snowy=false,sugary=true,icy=false": {
       "model": "borealis:block/sugary_permafrost"
     },
-    "snowy=true,sugary=true": {
+    "snowy=true,sugary=true,icy=false": {
       "model": "borealis:block/sugary_permafrost"
+    },
+    "snowy=false,sugary=false,icy=true": {
+      "model": "borealis:block/icy_permafrost"
+    },
+    "snowy=true,sugary=false,icy=true": {
+      "model": "borealis:block/icy_permafrost"
+    },
+    "snowy=false,sugary=true,icy=true": {
+      "model": "borealis:block/icy_permafrost"
+    },
+    "snowy=true,sugary=true,icy=true": {
+      "model": "borealis:block/icy_permafrost"
     }
   }
 }

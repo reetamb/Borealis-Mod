@@ -2,7 +2,7 @@
   "type": "borealis:deep_top",
   "config": {
     "top_material": {
-      "Name": "borealis:living_snow_block"
+      "Name": "minecraft:packed_ice"
     },
     "under_material": {
       "Name": "borealis:permafrost",

@@ -8,10 +8,13 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.TagsProvider;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.ITag;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.omg.CORBA.BAD_INV_ORDER;
 
 import javax.annotation.Nullable;
 
@@ -63,6 +66,10 @@ public class BorealisBlockTags extends BlockTagsProvider {
         tag(BorealisTags.Blocks.SUGARY_BLOCKS)
                 .add(BorealisBlocks.SUGAR_SNOW.get())
                 .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get());
+        tag(BorealisTags.Blocks.ICY_BLOCKS)
+                .add(Blocks.ICE)
+                .add(Blocks.PACKED_ICE)
+                .add(Blocks.BLUE_ICE);
         //vanilla
         tag(BlockTags.SAPLINGS)
                 .add(BorealisBlocks.BRUMAL_SAPLING.get())
@@ -140,7 +147,6 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.BRUMAL_WALL_SIGN.get())
                 .add(BorealisBlocks.FROSTFIR_WALL_SIGN.get())
                 .add(BorealisBlocks.SACCHARINE_WALL_SIGN.get());
-
         //forge
         tag(Tags.Blocks.COBBLESTONE)
                 .add(BorealisBlocks.SOAPSTONE.get())
