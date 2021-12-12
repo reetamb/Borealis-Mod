@@ -3,7 +3,7 @@ package com.reetam.borealis;
 import com.reetam.borealis.client.ClientProxy;
 import com.reetam.borealis.data.*;
 import com.reetam.borealis.registry.*;
-import com.reetam.borealis.setup.EventHandler;
+import com.reetam.borealis.setup.events.EventHandler;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
