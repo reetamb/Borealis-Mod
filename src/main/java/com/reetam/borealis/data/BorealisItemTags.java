@@ -4,13 +4,13 @@ import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.BorealisTags;
-import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.ItemTagsProvider;
-import net.minecraft.data.TagsProvider;
-import net.minecraft.item.Item;
-import net.minecraft.tags.ITag;
+import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -120,7 +120,7 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisBlocks.SLATE.get().asItem());
     }
 
-    protected TagsProvider.Builder<Item> tag(ITag.INamedTag<Item> tag) {
+    protected TagsProvider.TagAppender<Item> tag(Tag.Named<Item> tag) {
         return super.tag(tag);
     }
 }

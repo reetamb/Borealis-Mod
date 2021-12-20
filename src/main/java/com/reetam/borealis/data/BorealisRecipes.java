@@ -4,15 +4,15 @@ import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.data.provider.BorealisRecipeProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
-import net.minecraft.block.AbstractSignBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.ShapedRecipeBuilder;
-import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SignBlock;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -24,7 +24,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
     }
 
     @Override
-    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
         Block[] soapstone_stonecuts = new Block[]{
                 BorealisBlocks.SOAPSTONE_BRICKS.get(),
                 BorealisBlocks.SOAPSTONE_TILES.get(),
@@ -145,7 +145,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         bulkStonecutting(consumer, BorealisBlocks.SLATE, slate_stonecuts);
     }
 
-    public void bulkWood(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn, Supplier<? extends Item> boatIn, Supplier<? extends AbstractSignBlock> signIn) {
+    public void bulkWood(Consumer<FinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn, Supplier<? extends Item> boatIn, Supplier<? extends SignBlock> signIn) {
         ShapelessRecipeBuilder.shapeless(plankIn.get(), 4)
                 .requires(logIn.get())
                 .unlockedBy(has(logIn), has(logIn.get()))
@@ -169,7 +169,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         sign(plankIn, signIn).save(consumer, name(signIn));
     }
 
-    public void doStone(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> wallIn) {
+    public void doStone(Consumer<FinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> wallIn) {
         stairs(stoneIn, stairsIn).save(consumer, name(stairsIn));
         slab(stoneIn, slabIn).save(consumer, name(slabIn));
         wall(stoneIn, wallIn).save(consumer, name(wallIn));

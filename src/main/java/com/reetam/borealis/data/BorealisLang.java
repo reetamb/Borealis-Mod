@@ -88,8 +88,6 @@ public class BorealisLang extends BorealisLangProvider {
         assumeBlockItem(BorealisBlocks.PERMAFROST);
         assumeBlockItem(BorealisBlocks.PERMAFROST_RUBBLE);
         assumeBlockItem(BorealisBlocks.CLOUD);
-        assumeBlockItem(BorealisBlocks.TANZANITE_BLOCK);
-        assumeBlockItem(BorealisBlocks.TANZANITE_ORE);
         assumeBlockItem(BorealisBlocks.SUGAR_SNOW);
         assumeBlockItem(BorealisBlocks.LIVING_SNOW_BLOCK);
         assumeBlockItem(BorealisBlocks.SUGAR_SNOW_BLOCK);
@@ -99,7 +97,6 @@ public class BorealisLang extends BorealisLangProvider {
         assumeBlockItem(BorealisItems.HOT_SPRING_WATER_BUCKET);
         assumeBlockItem(BorealisItems.HUMMINGBIRD_SPAWN_EGG);
         assumeBlockItem(BorealisItems.TAKAHE_SPAWN_EGG);
-        assumeBlockItem(BorealisItems.MISMIC_MUSKOX_SPAWN_EGG);
         assumeBlockItem(BorealisItems.TANZANITE);
         assumeBlockItem(BorealisItems.BRUMAL_BOAT);
         assumeBlockItem(BorealisItems.FROSTFIR_BOAT);

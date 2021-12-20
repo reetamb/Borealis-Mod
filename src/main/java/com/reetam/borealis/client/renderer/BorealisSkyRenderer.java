@@ -1,22 +1,18 @@
 package com.reetam.borealis.client.renderer;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.*;
+import com.mojang.math.Matrix4f;
+import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.WorldVertexBufferUploader;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.client.renderer.vertex.VertexBuffer;
-import net.minecraft.client.renderer.vertex.VertexFormat;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Matrix4f;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.util.math.vector.Vector3f;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.ShaderInstance;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.ISkyRenderHandler;
 
 import javax.annotation.Nullable;
@@ -31,7 +27,7 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
     private VertexBuffer starBuffer;
     @Nullable
     public VertexBuffer darkBuffer;
-    private final VertexFormat skyFormat = DefaultVertexFormats.POSITION;
+    private final VertexFormat skyFormat = DefaultVertexFormat.POSITION;
 
     private static final ResourceLocation MOON_LOCATION = new ResourceLocation("textures/environment/moon_phases.png");
     private static final ResourceLocation SUN_LOCATION = new ResourceLocation("textures/environment/sun.png");
@@ -43,37 +39,37 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
     }
 
     private void createStars() {
-        Tessellator tessellator = Tessellator.getInstance();
+        Tesselator tessellator = Tesselator.getInstance();
         BufferBuilder bufferbuilder = tessellator.getBuilder();
         if (this.starBuffer != null) {
             this.starBuffer.close();
         }
 
-        this.starBuffer = new VertexBuffer(this.skyFormat);
+        this.starBuffer = new VertexBuffer();
         this.drawStars(bufferbuilder);
         bufferbuilder.end();
         this.starBuffer.upload(bufferbuilder);
     }
     private void createLightSky() {
-        Tessellator tessellator = Tessellator.getInstance();
+        Tesselator tessellator = Tesselator.getInstance();
         BufferBuilder bufferbuilder = tessellator.getBuilder();
         if (this.skyBuffer != null) {
             this.skyBuffer.close();
         }
 
-        this.skyBuffer = new VertexBuffer(this.skyFormat);
+        this.skyBuffer = new VertexBuffer();
         this.drawSkyHemisphere(bufferbuilder, 16.0F, false);
         bufferbuilder.end();
         this.skyBuffer.upload(bufferbuilder);
     }
     private void createDarkSky() {
-        Tessellator tessellator = Tessellator.getInstance();
+        Tesselator tessellator = Tesselator.getInstance();
         BufferBuilder bufferbuilder = tessellator.getBuilder();
         if (this.darkBuffer != null) {
             this.darkBuffer.close();
         }
 
-        this.darkBuffer = new VertexBuffer(this.skyFormat);
+        this.darkBuffer = new VertexBuffer();
         this.drawSkyHemisphere(bufferbuilder, -16.0F, true);
         bufferbuilder.end();
         this.darkBuffer.upload(bufferbuilder);
@@ -81,136 +77,123 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
     
     
     @Override
-    public void render(int ticks, float partialTicks, MatrixStack matrixStack, ClientWorld world, Minecraft mc) {
+    public void render(int ticks, float partialTicks, PoseStack poseStack, ClientLevel level, Minecraft mc) {
         // DAY SKY
         RenderSystem.disableTexture();
-        Vector3d vector3d = world.getSkyColor(mc.gameRenderer.getMainCamera().getBlockPosition(), partialTicks);
+        Vec3 vector3d = level.getSkyColor(mc.gameRenderer.getMainCamera().getPosition(), partialTicks);
         float f = (float)vector3d.x;
         float f1 = (float)vector3d.y;
         float f2 = (float)vector3d.z;
         FogRenderer.levelFogColor();
-        BufferBuilder bufferbuilder = Tessellator.getInstance().getBuilder();
+        BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
         RenderSystem.depthMask(false);
-        RenderSystem.enableFog();
-        RenderSystem.color3f(f, f1, f2);
-        this.skyBuffer.bind(); // this line causes an error
-        this.skyFormat.setupBufferState(0L);
-        this.skyBuffer.draw(matrixStack.last().pose(), 7);
-        VertexBuffer.unbind();
-        this.skyFormat.clearBufferState();
-
-        // MAKE SUNRISE
-        RenderSystem.disableFog();
-        RenderSystem.disableAlphaTest();
+        RenderSystem.setShaderColor(f, f1, f2, 1.0F);
+        ShaderInstance shaderinstance = RenderSystem.getShader();
+        this.skyBuffer.drawWithShader(poseStack.last().pose(), poseStack.last().pose(), shaderinstance);
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
-        float[] afloat = world.effects().getSunriseColor(world.getTimeOfDay(partialTicks), partialTicks);
+
+        // MAKE SUNRISE
+        RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
+        float[] afloat = level.effects().getSunriseColor(level.getTimeOfDay(partialTicks), partialTicks);
         if (afloat != null) {
+            RenderSystem.setShader(GameRenderer::getPositionColorShader);
             RenderSystem.disableTexture();
-            RenderSystem.shadeModel(7425);
-            matrixStack.pushPose();
-            matrixStack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
-            float f3 = MathHelper.sin(world.getSunAngle(partialTicks)) < 0.0F ? 180.0F : 0.0F;
-            matrixStack.mulPose(Vector3f.ZP.rotationDegrees(f3));
-            matrixStack.mulPose(Vector3f.ZP.rotationDegrees(90.0F));
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+            poseStack.pushPose();
+            poseStack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
+            float f3 = Math.sin(level.getSunAngle(partialTicks)) < 0.0F ? 180.0F : 0.0F;
+            poseStack.mulPose(Vector3f.ZP.rotationDegrees(f3));
+            poseStack.mulPose(Vector3f.ZP.rotationDegrees(90.0F));
             float f4 = afloat[0];
             float f5 = afloat[1];
             float f6 = afloat[2];
-            Matrix4f matrix4f = matrixStack.last().pose();
-            bufferbuilder.begin(6, DefaultVertexFormats.POSITION_COLOR);
+            Matrix4f matrix4f = poseStack.last().pose();
+            bufferbuilder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
             bufferbuilder.vertex(matrix4f, 0.0F, 100.0F, 0.0F).color(f4, f5, f6, afloat[3]).endVertex();
 
             for(int j = 0; j <= 16; ++j) {
                 float f7 = (float)j * ((float)Math.PI * 2F) / 16.0F;
-                float f8 = MathHelper.sin(f7);
-                float f9 = MathHelper.cos(f7);
+                float f8 = (float) Math.sin(f7);
+                float f9 = (float) Math.cos(f7);
                 bufferbuilder.vertex(matrix4f, f8 * 120.0F, f9 * 120.0F, -f9 * 40.0F * afloat[3]).color(afloat[0], afloat[1], afloat[2], 0.0F).endVertex();
             }
 
             bufferbuilder.end();
-            WorldVertexBufferUploader.end(bufferbuilder);
-            matrixStack.popPose();
-            RenderSystem.shadeModel(7424);
+            BufferUploader.end(bufferbuilder);
+            poseStack.popPose();
         }
 
         // MAKE SUN MOON AND STARS
         RenderSystem.enableTexture();
         RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-        matrixStack.pushPose();
-        float f11 = 1.0F - world.getRainLevel(partialTicks);
-        RenderSystem.color4f(1.0F, 1.0F, 1.0F, f11);
-        matrixStack.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
-        matrixStack.mulPose(Vector3f.XP.rotationDegrees(world.getTimeOfDay(partialTicks) * 360.0F));
-        Matrix4f matrix4f1 = matrixStack.last().pose();
+        poseStack.pushPose();
+        float f11 = 1.0F - level.getRainLevel(partialTicks);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, f11);
+        poseStack.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
+        poseStack.mulPose(Vector3f.XP.rotationDegrees(level.getTimeOfDay(partialTicks) * 360.0F));
+        Matrix4f matrix4f1 = poseStack.last().pose();
         float f12 = 30.0F;
-        mc.getTextureManager().bind(SUN_LOCATION); // sun
-        bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
+        RenderSystem.setShaderTexture(0, SUN_LOCATION); // sun
+        bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
         bufferbuilder.vertex(matrix4f1, -f12, 100.0F, -f12).uv(0.0F, 0.0F).endVertex();
         bufferbuilder.vertex(matrix4f1, f12, 100.0F, -f12).uv(1.0F, 0.0F).endVertex();
         bufferbuilder.vertex(matrix4f1, f12, 100.0F, f12).uv(1.0F, 1.0F).endVertex();
         bufferbuilder.vertex(matrix4f1, -f12, 100.0F, f12).uv(0.0F, 1.0F).endVertex();
         bufferbuilder.end();
-        WorldVertexBufferUploader.end(bufferbuilder);
+        BufferUploader.end(bufferbuilder);
         f12 = 20.0F;
-        mc.getTextureManager().bind(MOON_LOCATION); // moon
-        int k = world.getMoonPhase();
+        RenderSystem.setShaderTexture(0, MOON_LOCATION); // moon
+        int k = level.getMoonPhase();
         int l = k % 4;
         int i1 = k / 4 % 2;
         float f13 = (float)(l) / 4.0F;
         float f14 = (float)(i1) / 2.0F;
         float f15 = (float)(l + 1) / 4.0F;
         float f16 = (float)(i1 + 1) / 2.0F;
-        bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
+        bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
         bufferbuilder.vertex(matrix4f1, -f12, -100.0F, f12).uv(f15, f16).endVertex();
         bufferbuilder.vertex(matrix4f1, f12, -100.0F, f12).uv(f13, f16).endVertex();
         bufferbuilder.vertex(matrix4f1, f12, -100.0F, -f12).uv(f13, f14).endVertex();
         bufferbuilder.vertex(matrix4f1, -f12, -100.0F, -f12).uv(f15, f14).endVertex();
         bufferbuilder.end();
-        WorldVertexBufferUploader.end(bufferbuilder);
+        BufferUploader.end(bufferbuilder);
         RenderSystem.disableTexture();
-        float f10 = world.getStarBrightness(partialTicks) * f11; // stars
+        float f10 = level.getStarBrightness(partialTicks) * f11; // stars
         if (f10 > 0.0F) {
-            RenderSystem.color4f(f10, f10, f10, f10);
-            this.starBuffer.bind();
-            this.skyFormat.setupBufferState(0L);
-            this.starBuffer.draw(matrixStack.last().pose(), 7);
-            VertexBuffer.unbind();
-            this.skyFormat.clearBufferState();
+            RenderSystem.setShaderColor(f10, f10, f10, f10);
+            FogRenderer.setupNoFog();
+            this.starBuffer.drawWithShader(poseStack.last().pose(), poseStack.last().pose(), GameRenderer.getPositionShader());
+            FogRenderer.setupFog(mc.gameRenderer.getMainCamera(), FogRenderer.FogMode.FOG_SKY, mc.gameRenderer.getRenderDistance(), false);
         }
 
         // NIGHT SKY
-        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.disableBlend();
-        RenderSystem.enableAlphaTest();
-        RenderSystem.enableFog();
-        matrixStack.popPose();
+        poseStack.popPose();
         RenderSystem.disableTexture();
-        RenderSystem.color3f(0.0F, 0.0F, 0.0F);
-        double d0 = mc.player.getEyePosition(partialTicks).y - world.getLevelData().getHorizonHeight();
+        RenderSystem.setShaderColor(0.0F, 0.0F, 0.0F, 1.0F);
+        double d0 = mc.player.getEyePosition(partialTicks).y - level.getLevelData().getHorizonHeight(level);
         if (d0 < 0.0D) {
-            matrixStack.pushPose();
-            matrixStack.translate(0.0D, 12.0D, 0.0D);
-            this.darkBuffer.bind();
-            this.skyFormat.setupBufferState(0L);
-            this.darkBuffer.draw(matrixStack.last().pose(), 7);
-            VertexBuffer.unbind();
-            this.skyFormat.clearBufferState();
-            matrixStack.popPose();
+            poseStack.pushPose();
+            poseStack.translate(0.0D, 12.0D, 0.0D);
+            this.darkBuffer.drawWithShader(poseStack.last().pose(), poseStack.last().pose(), shaderinstance);
+            poseStack.popPose();
         }
 
-        if (world.effects().hasGround()) {
-            RenderSystem.color3f(f * 0.2F + 0.04F, f1 * 0.2F + 0.04F, f2 * 0.6F + 0.1F);
+        if (level.effects().hasGround()) {
+            RenderSystem.setShaderColor(f * 0.2F + 0.04F, f1 * 0.2F + 0.04F, f2 * 0.6F + 0.1F, 1.0F);
         } else {
-            RenderSystem.color3f(f, f1, f2);
+            RenderSystem.setShaderColor(f, f1, f2, 1.0F);
         }
         RenderSystem.enableTexture();
         RenderSystem.depthMask(true);
-        RenderSystem.disableFog();
     }
 
     private void drawStars(BufferBuilder bufferBuilder) {
         Random random = new Random(10842L);
-        bufferBuilder.begin(7, DefaultVertexFormats.POSITION);
+        bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
 
         for(int i = 0; i < 1500; ++i) {
             double d0 = (random.nextFloat() * 2.0F - 1.0F);
@@ -250,7 +233,7 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
         }
     }
     private void drawSkyHemisphere(BufferBuilder bufferBuilder, float lightness, boolean isDark) {
-        bufferBuilder.begin(7, DefaultVertexFormats.POSITION);
+        bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
 
         for(int k = -384; k <= 384; k += 64) {
             for(int l = -384; l <= 384; l += 64) {

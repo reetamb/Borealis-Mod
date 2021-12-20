@@ -1,15 +1,16 @@
 package com.reetam.borealis.data.provider;
 
 import com.reetam.borealis.BorealisMod;
-import net.minecraft.block.AbstractSignBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.data.*;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SignBlock;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -22,14 +23,14 @@ public class BorealisRecipeProvider extends RecipeProvider {
         super(generatorIn);
     }
 
-    public ArrayList<SingleItemRecipeBuilder> bulkStonecutting(Consumer<IFinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Block[] outputs) {
+    public ArrayList<SingleItemRecipeBuilder> bulkStonecutting(Consumer<FinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Block[] outputs) {
         ArrayList<SingleItemRecipeBuilder> recipes = new ArrayList<>();
         for (Block output : outputs) {
             SingleItemRecipeBuilder recipe = SingleItemRecipeBuilder.stonecutting(
                     Ingredient.of(stoneIn.get()),
                     output,
                     output instanceof SlabBlock ? 2 : 1
-            ).unlocks(has(stoneIn), has(stoneIn.get()));
+            ).unlockedBy(has(stoneIn), has(stoneIn.get()));
             recipe.save(consumer, name(output.getRegistryName().toString().substring(BorealisMod.MODID.length()+1) + "_from_" + stoneIn.get().getRegistryName().toString().substring(BorealisMod.MODID.length()+1) + "_stonecutting"));
             recipes.add(recipe);
         }
@@ -122,7 +123,7 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .unlockedBy("in_water", insideOf(Blocks.WATER));
     }
 
-    public ShapedRecipeBuilder sign(Supplier<? extends Block> planksIn, Supplier<? extends AbstractSignBlock> signOut) {
+    public ShapedRecipeBuilder sign(Supplier<? extends Block> planksIn, Supplier<? extends SignBlock> signOut) {
         return ShapedRecipeBuilder.shaped(signOut.get(), 3)
                 .pattern("###")
                 .pattern("###")

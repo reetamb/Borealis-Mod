@@ -1,35 +1,34 @@
 package com.reetam.borealis.entity;
 
-
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisItems;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.item.BoatEntity;
-import net.minecraft.item.Item;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.IPacket;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
-public class BorealisBoatEntity extends BoatEntity {
+public class BorealisBoatEntity extends Boat {
 
-    private static final DataParameter<Integer> BOAT_TYPE = EntityDataManager.defineId(BorealisBoatEntity.class, DataSerializers.INT);
+    private static final EntityDataAccessor<Integer> BOAT_TYPE = SynchedEntityData.defineId(BorealisBoatEntity.class, EntityDataSerializers.INT);
 
-    public BorealisBoatEntity(EntityType<? extends BoatEntity> type, World world) {
+    public BorealisBoatEntity(EntityType<? extends Boat> type, Level world) {
         super(type, world);
         this.blocksBuilding = true;
     }
 
-    public BorealisBoatEntity(World worldIn, double x, double y, double z) {
+    public BorealisBoatEntity(Level worldIn, double x, double y, double z) {
         this(BorealisEntities.BOAT.get(), worldIn);
         this.setPos(x, y, z);
-        this.setDeltaMovement(Vector3d.ZERO);
+        this.setDeltaMovement(Vec3.ZERO);
         this.xo = x;
         this.yo = y;
         this.zo = z;
@@ -63,19 +62,19 @@ public class BorealisBoatEntity extends BoatEntity {
     }
 
     @Override
-    protected void addAdditionalSaveData(CompoundNBT compound) {
+    protected void addAdditionalSaveData(CompoundTag compound) {
         compound.putString("Type", this.getBorealisBoatType().getName());
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundNBT compound) {
+    protected void readAdditionalSaveData(CompoundTag compound) {
         if (compound.contains("Type", 8)) {
             this.setBoatType(BorealisBoatEntity.Type.getTypeFromString(compound.getString("Type")));
         }
     }
 
     @Override
-    public IPacket<?> getAddEntityPacket() {
+    public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 
@@ -105,9 +104,6 @@ public class BorealisBoatEntity extends BoatEntity {
             return this.name;
         }
 
-        /**
-         * Get a boat type by it's enum ordinal
-         */
         public static BorealisBoatEntity.Type byId(int id) {
             BorealisBoatEntity.Type[] aBorealisBoatEntity$type = values();
             if (id < 0 || id >= aBorealisBoatEntity$type.length) {

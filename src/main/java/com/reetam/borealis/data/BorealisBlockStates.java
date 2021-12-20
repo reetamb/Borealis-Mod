@@ -22,7 +22,6 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.SOAPSTONE_TILES);
         block(BorealisBlocks.SOAPSTONE_BRICKS);
         block(BorealisBlocks.KYANITE_ORE);
-        block(BorealisBlocks.TANZANITE_ORE);
         stairs(BorealisBlocks.SOAPSTONE_STAIRS, BorealisBlocks.SOAPSTONE);
         stairs(BorealisBlocks.SOAPSTONE_TILE_STAIRS, BorealisBlocks.SOAPSTONE_TILES);
         stairs(BorealisBlocks.SOAPSTONE_BRICK_STAIRS, BorealisBlocks.SOAPSTONE_BRICKS);

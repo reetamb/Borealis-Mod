@@ -2,36 +2,36 @@ package com.reetam.borealis.client;
 
 import com.reetam.borealis.client.renderer.BorealisAuroraRenderer;
 import com.reetam.borealis.client.renderer.BorealisSkyRenderer;
-import com.reetam.borealis.client.renderer.BorealisWeatherRenderer;
+import com.reetam.borealis.entity.BorealisBoatEntity;
+import com.reetam.borealis.entity.model.HummingbirdModel;
+import com.reetam.borealis.entity.model.TakaheModel;
 import com.reetam.borealis.entity.renderer.BorealisBoatRenderer;
 import com.reetam.borealis.entity.renderer.HummingbirdRenderer;
-import com.reetam.borealis.entity.renderer.MismicMuskoxRenderer;
 import com.reetam.borealis.entity.renderer.TakaheRenderer;
 import com.reetam.borealis.registry.*;
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.Atlases;
+import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.renderer.DimensionSpecialEffects;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
-import net.minecraft.client.world.DimensionRenderInfo;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.ICloudRenderHandler;
 import net.minecraftforge.client.ISkyRenderHandler;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
-@OnlyIn(Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = "borealis", value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientProxy {
 
     private static void render(Supplier<? extends Block> block, RenderType render) {
-        RenderTypeLookup.setRenderLayer(block.get(), render);
+        ItemBlockRenderTypes.setRenderLayer(block.get(), render);
     }
 
     public static void registerBlockRenderers() {
@@ -52,27 +52,37 @@ public class ClientProxy {
         render(BorealisBlocks.SACCHARINE_SAPLING, cutout);
         render(BorealisBlocks.POTTED_SACCHARINE_SAPLING, cutout);
 
-        render(BorealisBlocks.HOT_SPRING_WATER, translucent);
-        RenderTypeLookup.setRenderLayer(BorealisFluids.hot_spring_water_flowing.get(), translucent);
-        RenderTypeLookup.setRenderLayer(BorealisFluids.hot_spring_water_source.get(), translucent);
+        render(BorealisBlocks.HOT_SPRING_WATER_BLOCK, translucent);
+        ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_FLOWING.get(), translucent);
+        ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_SOURCE.get(), translucent);
         render(BorealisBlocks.BOREALIS_PORTAL, translucent);
         render(BorealisBlocks.CLOUD, translucent);
-        render(BorealisBlocks.TANZANITE_BLOCK, translucent);
     }
 
-    public static void registerEntityRenderers() {
-        RenderingRegistry.registerEntityRenderingHandler(BorealisEntities.HUMMINGBIRD.get(), HummingbirdRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(BorealisEntities.TAKAHE.get(), TakaheRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(BorealisEntities.MISMIC_MUSKOX.get(), MismicMuskoxRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(BorealisEntities.BOAT.get(), BorealisBoatRenderer::new);
+    @SubscribeEvent
+    public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(BorealisEntities.HUMMINGBIRD_TYPE, HummingbirdRenderer::new);
+        event.registerEntityRenderer(BorealisEntities.TAKAHE_TYPE, TakaheRenderer::new);
+        event.registerEntityRenderer(BorealisEntities.BOAT_TYPE, BorealisBoatRenderer::new);
+        event.registerBlockEntityRenderer(BorealisBlockEntities.BOREALIS_SIGN.get(), SignRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void registerEntityLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(HummingbirdModel.LAYER_LOCATION, HummingbirdModel::createBodyLayer);
+        event.registerLayerDefinition(TakaheModel.LAYER_LOCATION, TakaheModel::createBodyLayer);
+
+        for (BorealisBoatEntity.Type boatType : BorealisBoatEntity.Type.values()) {
+            event.registerLayerDefinition(BorealisBoatRenderer.boatLayer(boatType), BoatModel::createBodyModel);
+        }
     }
 
     public static void registerDimensionRenderers() {
-        DimensionRenderInfo borealisRenderInfo = new DimensionRenderInfo(Float.NaN, false, DimensionRenderInfo.FogType.NORMAL, false, true) {
+        DimensionSpecialEffects borealisspecialEffects = new DimensionSpecialEffects(Float.NaN, false, DimensionSpecialEffects.SkyType.NORMAL, false, true) {
             private final float[] sunriseCol = new float[4];
 
             @Override
-            public Vector3d getBrightnessDependentFogColor(Vector3d vector3d, float sun) {
+            public Vec3 getBrightnessDependentFogColor(Vec3 vector3d, float sun) {
                 return vector3d;
             }
 
@@ -84,10 +94,10 @@ public class ClientProxy {
             @Nullable
             @Override
             public float[] getSunriseColor(float time, float partialTicks) {
-                float f1 = MathHelper.cos(time * ((float)Math.PI * 2F)) - 0.0F;
+                float f1 = (int) Math.cos(time * ((float)Math.PI * 2F)) - 0.0F;
                 if (f1 >= -0.4F && f1 <= 0.4F) {
                     float f3 = (f1 - -0.0F) / 0.4F * 0.5F + 0.5F;
-                    float alpha = 1.0F - (1.0F - MathHelper.sin(f3 * (float)Math.PI)) * 0.99F;
+                    float alpha = 1.0F - (1.0F - (int) Math.sin(f3 * (float)Math.PI)) * 0.99F;
                     alpha = alpha * alpha;
                     this.sunriseCol[0] = f3 * f3 * 0.7F + 0.1F;
                     this.sunriseCol[1] = f3 * f3 * 0.0F + 0.2F;
@@ -99,35 +109,25 @@ public class ClientProxy {
                 }
             }
 
-            @Override
-            public ICloudRenderHandler getCloudRenderHandler() {
-                return new BorealisAuroraRenderer();
-            }
-
-            @Nullable
-            @Override
-            public ISkyRenderHandler getSkyRenderHandler() {
-                return new BorealisSkyRenderer();
-            }
-
-            @Override
-            public float getCloudHeight() {
-                return 160.0F;
-            }
+//            @Override
+//            public ICloudRenderHandler getCloudRenderHandler() {
+//                return new BorealisAuroraRenderer();
+//            }
+//
+//            @Nullable
+//            @Override
+//            public ISkyRenderHandler getSkyRenderHandler() {
+//                return new BorealisSkyRenderer();
+//            }
+//
+//            @Override
+//            public float getCloudHeight() {
+//                return 160.0F;
+//            }
         };
-        borealisRenderInfo.setCloudRenderHandler(new BorealisAuroraRenderer());
-        borealisRenderInfo.setSkyRenderHandler(new BorealisSkyRenderer());
-        DimensionRenderInfo.EFFECTS.put(BorealisDimensions.BOREALIS_TYPE.location(), borealisRenderInfo);
+//        borealisspecialEffects.setCloudRenderHandler(new BorealisAuroraRenderer());
+//        borealisspecialEffects.setSkyRenderHandler(new BorealisSkyRenderer());
+        DimensionSpecialEffects.EFFECTS.put(BorealisDimensions.BOREALIS_TYPE.location(), borealisspecialEffects);
 
-    }
-
-    public static void registerTileEntityRenderers() {
-        ClientRegistry.bindTileEntityRenderer(BorealisTileEntities.BOREALIS_SIGN.get(), SignTileEntityRenderer::new);
-    }
-
-    public static void registerWoodTypes() {
-        Atlases.addWoodType(BorealisBlocks.BRUMAL_WOODTYPE);
-        Atlases.addWoodType(BorealisBlocks.FROSTFIR_WOODTYPE);
-        Atlases.addWoodType(BorealisBlocks.SACCHARINE_WOODTYPE);
     }
 }

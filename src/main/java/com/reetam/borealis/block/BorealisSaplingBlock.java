@@ -1,19 +1,17 @@
 package com.reetam.borealis.block;
 
-import com.reetam.borealis.registry.BorealisBlocks;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.trees.Tree;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 
 public class BorealisSaplingBlock extends SaplingBlock {
-    public BorealisSaplingBlock(Tree tree) {
+    public BorealisSaplingBlock(AbstractTreeGrower tree) {
         super(tree, Properties.of(Material.PLANT)
                 .strength(0F)
                 .randomTicks()
@@ -24,19 +22,19 @@ public class BorealisSaplingBlock extends SaplingBlock {
     }
 
     @Override
-    public void advanceTree(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
+    public void advanceTree(ServerLevel level, BlockPos pos, BlockState state, Random rand) {
         if (state.getValue(STAGE) == 0) {
-            world.setBlock(pos, state.cycle(STAGE), 4);
+            level.setBlock(pos, state.cycle(STAGE), 4);
         } else {
-            if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
-            super.advanceTree(world, pos, state, rand);
+            if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(level, rand, pos)) return;
+            super.advanceTree(level, pos, state, rand);
         }
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        super.randomTick(state, worldIn, pos, rand);
-        if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
-        this.advanceTree(worldIn, pos, state, rand);
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, Random rand) {
+        super.randomTick(state, level, pos, rand);
+        if (!level.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+        this.advanceTree(level, pos, state, rand);
     }
 }

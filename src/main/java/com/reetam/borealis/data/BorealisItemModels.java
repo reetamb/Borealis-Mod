@@ -101,8 +101,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.PERMAFROST);
         itemBlock(BorealisBlocks.PERMAFROST_RUBBLE);
         itemBlock(BorealisBlocks.CLOUD);
-        itemBlock(BorealisBlocks.TANZANITE_BLOCK);
-        itemBlock(BorealisBlocks.TANZANITE_ORE);
         itemBlock(BorealisBlocks.SUGAR_SNOW);
 
         normalItem(BorealisItems.KYANITE_CRYSTAL);
@@ -110,7 +108,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.HOT_SPRING_WATER_BUCKET);
         egg(BorealisItems.HUMMINGBIRD_SPAWN_EGG);
         egg(BorealisItems.TAKAHE_SPAWN_EGG);
-        egg(BorealisItems.MISMIC_MUSKOX_SPAWN_EGG);
         normalItem(BorealisItems.HAT);
         normalItem(BorealisItems.TANZANITE);
         normalItem(BorealisItems.BRUMAL_BOAT);

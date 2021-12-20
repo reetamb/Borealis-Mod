@@ -3,26 +3,22 @@ package com.reetam.borealis.data;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisTags;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.data.BlockTagsProvider;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.TagsProvider;
-import net.minecraft.fluid.Fluid;
+import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.tags.ITag;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.omg.CORBA.BAD_INV_ORDER;
 
 import javax.annotation.Nullable;
 
 public class BorealisBlockTags extends BlockTagsProvider {
 
-
-    public BorealisBlockTags(DataGenerator generatorIn, @Nullable ExistingFileHelper existingFileHelper) {
-        super(generatorIn, BorealisMod.MODID, existingFileHelper);
+    public BorealisBlockTags(DataGenerator generator, @Nullable ExistingFileHelper existingFileHelper) {
+        super(generator, BorealisMod.MODID, existingFileHelper);
     }
 
     @Override
@@ -169,7 +165,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.SLATE.get());
     }
 
-    protected TagsProvider.Builder<Block> tag(ITag.INamedTag<Block> tag) {
+    protected TagsProvider.TagAppender<Block> tag(Tag.Named<Block> tag) {
         return super.tag(tag);
     }
 }

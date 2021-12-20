@@ -1,19 +1,18 @@
 package com.reetam.borealis.client.renderer;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.*;
 import com.reetam.borealis.BorealisMod;
+import net.minecraft.client.CloudStatus;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.client.renderer.vertex.VertexBuffer;
-import net.minecraft.client.settings.CloudOption;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.FogRenderer;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.ShaderInstance;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.ICloudRenderHandler;
 
 public class BorealisAuroraRenderer implements ICloudRenderHandler {
@@ -21,94 +20,94 @@ public class BorealisAuroraRenderer implements ICloudRenderHandler {
     private static final ResourceLocation TEXTURE_AURORA = new ResourceLocation(BorealisMod.MODID + ":textures/environment/aurora.png");
     private VertexBuffer cloudBuffer;
     
-    private int prevCloured = Integer.MIN_VALUE;
+    private int prevCloudX = Integer.MIN_VALUE;
     private int prevCloudY = Integer.MIN_VALUE;
     private int prevCloudZ = Integer.MIN_VALUE;
-    private Vector3d prevCloudColor = Vector3d.ZERO;
+    private Vec3 prevCloudColor = Vec3.ZERO;
     private boolean generateClouds = true;
-    private CloudOption prevCloudsType;
+    private CloudStatus prevCloudsType;
 
     @Override
-    public void render(int ticks, float partialTicks, MatrixStack matrixStack, ClientWorld world, Minecraft mc, double xIn, double yIn, double zIn) {
+    public void render(int ticks, float partialTicks, PoseStack poseStack, ClientLevel level, Minecraft mc, double x, double y, double z) {
+               
         RenderSystem.disableCull();
         RenderSystem.enableBlend();
-        RenderSystem.enableAlphaTest();
         RenderSystem.enableDepthTest();
-        RenderSystem.defaultAlphaFunc();
         RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-        RenderSystem.disableFog();
         RenderSystem.depthMask(true);
 
-        double x = xIn / 4.0D + 0.33F;
-        double y = world.effects().getCloudHeight() - (float)yIn + 0.33F;
-        double z = zIn / 4.0D + 0.33F;
-        x = x - (MathHelper.floor(x / 2048.0D) * 2048);
-        z = z - (MathHelper.floor(z / 2048.0D) * 2048);
-        float f3 = (float)(x - MathHelper.floor(x));
-        float f4 = (float)(y / 4.0D - MathHelper.floor(y / 4.0D)) * 4.0F;
-        float f5 = (float)(z - MathHelper.floor(z));
-        Vector3d vector3d = new Vector3d(1.0F, 1.0F, 1.0F);
-        int i = (int)Math.floor(x);
-        int j = (int)Math.floor(y / 4.0D);
-        int k = (int)Math.floor(z);
-        if (i != this.prevCloured || j != this.prevCloudY || k != this.prevCloudZ || mc.options.getCloudsType() != this.prevCloudsType || this.prevCloudColor.distanceToSqr(vector3d) > 2.0E-4D) {
-            this.prevCloured = i;
+        float f = level.effects().getCloudHeight();
+        float f1 = 12.0F;
+        float f2 = 4.0F;
+        double d0 = 2.0E-4D;
+        double d1 = ((float)ticks + partialTicks) * 0.03F;
+        double d2 = (x + d1) / 12.0D;
+        double d3 = f - (float)y + 0.33F;
+        double d4 = z / 12.0D + (double)0.33F;
+        d2 = d2 - (double)(Mth.floor(d2 / 2048.0D) * 2048);
+        d4 = d4 - (double)(Mth.floor(d4 / 2048.0D) * 2048);
+        float f3 = (float)(d2 - (double)Mth.floor(d2));
+        float f4 = (float)(d3 / 4.0D - (double)Mth.floor(d3 / 4.0D)) * 4.0F;
+        float f5 = (float)(d4 - (double)Mth.floor(d4));
+        Vec3 vec3 = level.getCloudColor(partialTicks);
+        int i = (int)Math.floor(d2);
+        int j = (int)Math.floor(d3 / 4.0D);
+        int k = (int)Math.floor(d4);
+        if (i != this.prevCloudX || j != this.prevCloudY || k != this.prevCloudZ || mc.options.getCloudsType() != this.prevCloudsType || this.prevCloudColor.distanceToSqr(vec3) > 2.0E-4D) {
+            this.prevCloudX = i;
             this.prevCloudY = j;
             this.prevCloudZ = k;
-            this.prevCloudColor = vector3d;
+            this.prevCloudColor = vec3;
             this.prevCloudsType = mc.options.getCloudsType();
             this.generateClouds = true;
         }
 
         if (this.generateClouds) {
             this.generateClouds = false;
-            BufferBuilder bufferbuilder = Tessellator.getInstance().getBuilder();
+            BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
             if (this.cloudBuffer != null) {
                 this.cloudBuffer.close();
             }
 
-            this.cloudBuffer = new VertexBuffer(DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);
-            buildAurora(bufferbuilder, x, y, z, vector3d, world.getTimeOfDay(partialTicks));
+            this.cloudBuffer = new VertexBuffer();
+            this.buildAurora(bufferbuilder, d2, d3, d4, vec3, level.getGameTime());
             bufferbuilder.end();
             this.cloudBuffer.upload(bufferbuilder);
         }
 
-        mc.getTextureManager().bind(TEXTURE_AURORA);
-        matrixStack.pushPose();
-        matrixStack.scale(2.0F, 1.0F, 2.0F);
-        matrixStack.translate((-f3), f4, (-f5));
+        RenderSystem.setShader(GameRenderer::getPositionTexColorNormalShader);
+        RenderSystem.setShaderTexture(0, TEXTURE_AURORA);
+        FogRenderer.levelFogColor();
+        poseStack.pushPose();
+        poseStack.scale(12.0F, 1.0F, 12.0F);
+        poseStack.translate((double)(-f3), (double)f4, (double)(-f5));
         if (this.cloudBuffer != null) {
-            this.cloudBuffer.bind();
-            DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL.setupBufferState(0L);
-            int isFancyCloud = this.prevCloudsType == CloudOption.FANCY ? 0 : 1;
+            int i1 = this.prevCloudsType == CloudStatus.FANCY ? 0 : 1;
 
-            for(int l = isFancyCloud; l < 2; ++l) {
+            for(int l = i1; l < 2; ++l) {
                 if (l == 0) {
                     RenderSystem.colorMask(false, false, false, false);
                 } else {
                     RenderSystem.colorMask(true, true, true, true);
                 }
 
-                this.cloudBuffer.draw(matrixStack.last().pose(), 7);
+                ShaderInstance shaderinstance = RenderSystem.getShader();
+                this.cloudBuffer.drawWithShader(poseStack.last().pose(), poseStack.last().pose(), shaderinstance);
             }
-
-            VertexBuffer.unbind();
-            DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL.clearBufferState();
         }
 
-        matrixStack.popPose();
-        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.disableAlphaTest();
+        poseStack.popPose();
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.enableCull();
         RenderSystem.disableBlend();
     }
 
-    private void buildAurora(BufferBuilder bufferBuilder, double xIn, double yIn, double zIn, Vector3d vector, float time) {
+    private void buildAurora(BufferBuilder bufferBuilder, double xIn, double yIn, double zIn, Vec3 vector, float time) {
         final float fac0 = 0.00390625F;
         final float fac1 = 9.765625E-4F;
         
-        float fx = (float)MathHelper.floor(xIn) * fac0;
-        float fz = (float)MathHelper.floor(zIn) * fac0;
+        float fx = (float)Math.floor(xIn) * fac0;
+        float fz = (float)Math.floor(zIn) * fac0;
 
         float red = (float)vector.x;
         float green = (float)vector.y;
@@ -118,10 +117,11 @@ public class BorealisAuroraRenderer implements ICloudRenderHandler {
         float alpha = (float) (a - 2*(Math.max(a,1)-1));
 
         float height = 80.0F;
-        
-        bufferBuilder.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);
+
+        RenderSystem.setShader(GameRenderer::getPositionTexColorNormalShader);
+        bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX_COLOR_NORMAL);
         float cloudHeight = (float)Math.floor(yIn / 4.0D) * 4.0F;
-        if (this.prevCloudsType == CloudOption.FANCY) {
+        if (this.prevCloudsType == CloudStatus.FANCY) {
             for(int k0 = -3; k0 <= 4; ++k0) {
                 for(int l0 = -3; l0 <= 4; ++l0) {
                     float k1 = (float)(k0 * 8);

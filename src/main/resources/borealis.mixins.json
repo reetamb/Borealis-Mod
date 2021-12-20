@@ -2,10 +2,10 @@
   "required": true,
   "package": "com.reetam.borealis.setup.mixin",
   "minVersion": "0.8",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "refmap": "borealis.refmap.json",
   "mixins": [
-    "MixinDimensionGeneratorSettings"
+    "MixinWorldGenSettings"
   ],
   "client": [
   ],

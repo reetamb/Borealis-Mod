@@ -1,18 +1,18 @@
 package com.reetam.borealis.registry;
 
+import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.world.seed.BorealisBiomeProvider;
 import com.reetam.borealis.world.seed.BorealisChunkGenerator;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.DimensionType;
-import net.minecraft.world.World;
-import com.reetam.borealis.BorealisMod;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.dimension.DimensionType;
 
 public class BorealisDimensions {
 
-    public static final RegistryKey<DimensionType> BOREALIS_TYPE = RegistryKey.create(Registry.DIMENSION_TYPE_REGISTRY, name("borealis"));
-    public static final RegistryKey<World> BOREALIS = RegistryKey.create(Registry.DIMENSION_REGISTRY, name("borealis"));
+    public static final ResourceKey<DimensionType> BOREALIS_TYPE = ResourceKey.create(Registry.DIMENSION_TYPE_REGISTRY, name("borealis"));
+    public static final ResourceKey<Level> BOREALIS = ResourceKey.create(Registry.DIMENSION_REGISTRY, name("borealis"));
 
     public static void registerDimensionGenerators() {
         Registry.register(Registry.CHUNK_GENERATOR, name("chunk_generator"), BorealisChunkGenerator.CODEC);

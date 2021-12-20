@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[34,)"
+loaderVersion="[37,)"
 license="MIT"
 [[mods]]
 modId="borealis"
@@ -14,12 +14,12 @@ description='''Welcome to Borealis, the winter wonderland of the sky.'''
 [[dependencies.borealis]]
     modId="forge"
     mandatory=true
-    versionRange="[34.1.25,)"
+    versionRange="[37.1.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.borealis]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.3,1.16.5]"
+    versionRange="[1.17.1]"
     ordering="NONE"
     side="BOTH"

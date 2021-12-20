@@ -11,8 +11,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod(BorealisMod.MODID)
 public class BorealisMod {
@@ -30,7 +30,7 @@ public class BorealisMod {
 
         BorealisEntities.ENTITIES.register(bus);
         BorealisBlocks.BLOCKS.register(bus);
-        BorealisTileEntities.TILE_ENTITIES.register(bus);
+        BorealisBlockEntities.BLOCK_ENTITIES.register(bus);
         BorealisFluids.FLUIDS.register(bus);
         BorealisItems.ITEMS.register(bus);
         BorealisFeatures.FEATURES.register(bus);
@@ -41,15 +41,10 @@ public class BorealisMod {
 
     public void clientSetup(FMLClientSetupEvent event) {
         ClientProxy.registerBlockRenderers();
-        ClientProxy.registerEntityRenderers();
         ClientProxy.registerDimensionRenderers();
-        ClientProxy.registerTileEntityRenderers();
-
-        event.enqueueWork(ClientProxy::registerWoodTypes);
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
-        BorealisEntities.registerEntityAttributes();
         BorealisEntities.registerSpawnPlacements();
         BorealisFeatures.registerConfiguredFeatures();
         BorealisDimensions.registerDimensionGenerators();

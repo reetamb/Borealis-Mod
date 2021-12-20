@@ -1,42 +1,41 @@
 package com.reetam.borealis.entity;
 
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.controller.MovementController;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.ai.goal.PanicGoal;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.IFlyingAnimal;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.pathfinding.FlyingPathNavigator;
-import net.minecraft.pathfinding.PathNavigator;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.IServerWorld;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.PanicGoal;
+import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.FlyingAnimal;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 import java.util.Random;
 
-public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
+public class HummingbirdEntity extends Animal implements FlyingAnimal {
 
-    public HummingbirdEntity(EntityType<? extends HummingbirdEntity> type, World worldIn) {
-        super(type, worldIn);
+    public HummingbirdEntity(EntityType<? extends HummingbirdEntity> type, Level level) {
+        super(type, level);
         this.moveControl = new HummingbirdEntity.MoveHelperController(this);
         this.setNoGravity(true);
     }
 
     @Override
-    public ILivingEntityData finalizeSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-        return super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
+        return super.finalizeSpawn(level, difficulty, reason, spawnData, dataTag);
     }
 
     @Override
@@ -46,8 +45,8 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
         this.goalSelector.addGoal(2, new HummingbirdEntity.LookAroundGoal(this));
     }
 
-    public static AttributeModifierMap.MutableAttribute registerAttributes() {
-        return AnimalEntity.createMobAttributes()
+    public static AttributeSupplier.Builder registerAttributes() {
+        return Animal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 10.0D)
                 .add(Attributes.FLYING_SPEED, 0.6F)
                 .add(Attributes.MOVEMENT_SPEED, 0.3F)
@@ -55,21 +54,21 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
 
     }
 
-    public static boolean canHummingbirdSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
-        return worldIn.getBlockState(pos.below()).getBlock() == Blocks.AIR && (pos.getY() >= 100 && pos.getY() < 120);
+    public static boolean checkHummingbirdSpawnRules(EntityType<? extends Animal> animal, LevelAccessor level, MobSpawnType reason, BlockPos pos, Random random) {
+        return level.getBlockState(pos.below()).getBlock() == Blocks.AIR && (pos.getY() >= 100 && pos.getY() < 120);
     }
 
-    protected PathNavigator createNavigation(World worldIn) {
-        FlyingPathNavigator flyingpathnavigator = new FlyingPathNavigator(this, worldIn);
-        flyingpathnavigator.setCanOpenDoors(false);
-        flyingpathnavigator.setCanFloat(true);
-        flyingpathnavigator.setCanPassDoors(true);
-        return flyingpathnavigator;
+    protected PathNavigation createNavigation(Level level) {
+        FlyingPathNavigation flyingpathnavigation = new FlyingPathNavigation(this, level);
+        flyingpathnavigation.setCanOpenDoors(false);
+        flyingpathnavigation.setCanFloat(true);
+        flyingpathnavigation.setCanPassDoors(true);
+        return flyingpathnavigation;
     }
 
     @Nullable
     @Override
-    public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
+    public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob ageableMob) {
         return null;
     }
 
@@ -78,8 +77,9 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
         super.aiStep();
     }
 
-    public boolean causeFallDamage(float distance, float damageMultiplier) {
-        return false;
+    @Override
+    public boolean isFlying() {
+        return !this.onGround;
     }
 
     static class RandomFlyGoal extends Goal {
@@ -95,7 +95,7 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
          * method as well.
          */
         public boolean canUse() {
-            MovementController movementcontroller = this.parentEntity.getMoveControl();
+            MoveControl movementcontroller = this.parentEntity.getMoveControl();
             if (!movementcontroller.hasWanted()) {
                 return true;
             } else {
@@ -126,7 +126,7 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
         }
     }
 
-    static class MoveHelperController extends MovementController {
+    static class MoveHelperController extends MoveControl {
         private final HummingbirdEntity parentEntity;
         private int courseChangeCooldown;
 
@@ -136,26 +136,26 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
         }
 
         public void tick() {
-            if (this.operation == MovementController.Action.MOVE_TO) {
+            if (this.operation == MoveControl.Operation.MOVE_TO) {
                 if (this.courseChangeCooldown-- <= 0) {
                     this.courseChangeCooldown += 3 * (this.parentEntity.getRandom().nextInt(5) + 2);
-                    Vector3d movePath = new Vector3d(this.wantedX - this.parentEntity.getX(), this.wantedY - this.parentEntity.getY(), this.wantedZ - this.parentEntity.getZ());
+                    Vec3 movePath = new Vec3(this.wantedX - this.parentEntity.getX(), this.wantedY - this.parentEntity.getY(), this.wantedZ - this.parentEntity.getZ());
                     double pathLength = movePath.length();
                     movePath = movePath.normalize();
-                    if (this.canReach(movePath, MathHelper.ceil(pathLength))) {
+                    if (this.canReach(movePath, (int) Math.ceil(pathLength))) {
                         this.parentEntity.setDeltaMovement(this.parentEntity.getDeltaMovement().add(movePath.scale(0.22D)));
                     } else {
-                        this.operation = MovementController.Action.WAIT;
+                        this.operation = MoveControl.Operation.WAIT;
                     }
                 }
             }
         }
 
-        private boolean canReach(Vector3d p_220673_1_, int p_220673_2_) {
-            AxisAlignedBB axisalignedbb = this.parentEntity.getBoundingBox();
+        private boolean canReach(Vec3 motion, int tries) {
+            AABB axisalignedbb = this.parentEntity.getBoundingBox();
 
-            for(int i = 1; i < p_220673_2_; ++i) {
-                axisalignedbb = axisalignedbb.move(p_220673_1_);
+            for(int i = 1; i < tries; i++) {
+                axisalignedbb = axisalignedbb.move(motion);
                 if (!this.parentEntity.level.noCollision(this.parentEntity, axisalignedbb)) {
                     return false;
                 }
@@ -186,8 +186,8 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
          */
         public void tick() {
             if (this.parentEntity.getTarget() == null) {
-                Vector3d vector3d = this.parentEntity.getDeltaMovement();
-                this.parentEntity.yRot = -((float)MathHelper.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
+                Vec3 vector3d = this.parentEntity.getDeltaMovement();
+                this.parentEntity.yRot = -((float)Math.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
                 this.parentEntity.yBodyRot = this.parentEntity.yRot;
             } else {
                 LivingEntity livingentity = this.parentEntity.getTarget();
@@ -195,7 +195,7 @@ public class HummingbirdEntity extends AnimalEntity implements IFlyingAnimal {
                 if (livingentity.distanceToSqr(this.parentEntity) < 4096.0D) {
                     double d1 = livingentity.getX() - this.parentEntity.getX();
                     double d2 = livingentity.getZ() - this.parentEntity.getZ();
-                    this.parentEntity.yRot = -((float)MathHelper.atan2(d1, d2)) * (180F / (float)Math.PI);
+                    this.parentEntity.yRot = -((float)Math.atan2(d1, d2)) * (180F / (float)Math.PI);
                     this.parentEntity.yBodyRot = this.parentEntity.yRot;
                 }
             }

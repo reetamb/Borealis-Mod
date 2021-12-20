@@ -7,28 +7,34 @@ import com.reetam.borealis.data.provider.BorealisLootTableProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisItems;
-import net.minecraft.advancements.criterion.EnchantmentPredicate;
-import net.minecraft.advancements.criterion.ItemPredicate;
-import net.minecraft.advancements.criterion.MinMaxBounds;
-import net.minecraft.block.*;
+import net.minecraft.advancements.critereon.EnchantmentPredicate;
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.LootTableProvider;
-import net.minecraft.data.loot.EntityLootTables;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.EntityType;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.loot.*;
-import net.minecraft.loot.conditions.*;
-import net.minecraft.loot.functions.ExplosionDecay;
-import net.minecraft.loot.functions.LootingEnchantBonus;
-import net.minecraft.loot.functions.SetCount;
-import net.minecraft.loot.functions.Smelt;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.data.loot.EntityLoot;
+import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -38,12 +44,12 @@ import java.util.stream.Stream;
 
 public class BorealisLootTables extends LootTableProvider {
 
-    private static final ILootCondition.IBuilder SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1))));
-    private static final ILootCondition.IBuilder NO_SILK_TOUCH = SILK_TOUCH.invert();
-    private static final ILootCondition.IBuilder SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
-    private static final ILootCondition.IBuilder SILK_TOUCH_OR_SHEARS = SHEARS.or(SILK_TOUCH);
-    private static final ILootCondition.IBuilder NOT_SILK_TOUCH_OR_SHEARS = SILK_TOUCH_OR_SHEARS.invert();
-    private static final Set<Item> IMMUNE_TO_EXPLOSIONS = Stream.of(net.minecraft.block.Blocks.DRAGON_EGG, net.minecraft.block.Blocks.BEACON, net.minecraft.block.Blocks.CONDUIT, net.minecraft.block.Blocks.SKELETON_SKULL, net.minecraft.block.Blocks.WITHER_SKELETON_SKULL, net.minecraft.block.Blocks.PLAYER_HEAD, net.minecraft.block.Blocks.ZOMBIE_HEAD, net.minecraft.block.Blocks.CREEPER_HEAD, net.minecraft.block.Blocks.DRAGON_HEAD, net.minecraft.block.Blocks.SHULKER_BOX, net.minecraft.block.Blocks.BLACK_SHULKER_BOX, net.minecraft.block.Blocks.BLUE_SHULKER_BOX, net.minecraft.block.Blocks.BROWN_SHULKER_BOX, net.minecraft.block.Blocks.CYAN_SHULKER_BOX, net.minecraft.block.Blocks.GRAY_SHULKER_BOX, net.minecraft.block.Blocks.GREEN_SHULKER_BOX, net.minecraft.block.Blocks.LIGHT_BLUE_SHULKER_BOX, net.minecraft.block.Blocks.LIGHT_GRAY_SHULKER_BOX, net.minecraft.block.Blocks.LIME_SHULKER_BOX, net.minecraft.block.Blocks.MAGENTA_SHULKER_BOX, net.minecraft.block.Blocks.ORANGE_SHULKER_BOX, net.minecraft.block.Blocks.PINK_SHULKER_BOX, net.minecraft.block.Blocks.PURPLE_SHULKER_BOX, net.minecraft.block.Blocks.RED_SHULKER_BOX, net.minecraft.block.Blocks.WHITE_SHULKER_BOX, net.minecraft.block.Blocks.YELLOW_SHULKER_BOX).map(IItemProvider::asItem).collect(ImmutableSet.toImmutableSet());
+    private static final LootItemCondition.Builder SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))));
+    private static final LootItemCondition.Builder NO_SILK_TOUCH = SILK_TOUCH.invert();
+    private static final LootItemCondition.Builder SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
+    private static final LootItemCondition.Builder SILK_TOUCH_OR_SHEARS = SHEARS.or(SILK_TOUCH);
+    private static final LootItemCondition.Builder NOT_SILK_TOUCH_OR_SHEARS = SILK_TOUCH_OR_SHEARS.invert();
+    private static final Set<Item> IMMUNE_TO_EXPLOSIONS = Stream.of(net.minecraft.world.level.block.Blocks.DRAGON_EGG, net.minecraft.world.level.block.Blocks.BEACON, net.minecraft.world.level.block.Blocks.CONDUIT, net.minecraft.world.level.block.Blocks.SKELETON_SKULL, net.minecraft.world.level.block.Blocks.WITHER_SKELETON_SKULL, net.minecraft.world.level.block.Blocks.PLAYER_HEAD, net.minecraft.world.level.block.Blocks.ZOMBIE_HEAD, net.minecraft.world.level.block.Blocks.CREEPER_HEAD, net.minecraft.world.level.block.Blocks.DRAGON_HEAD, net.minecraft.world.level.block.Blocks.SHULKER_BOX, net.minecraft.world.level.block.Blocks.BLACK_SHULKER_BOX, net.minecraft.world.level.block.Blocks.BLUE_SHULKER_BOX, net.minecraft.world.level.block.Blocks.BROWN_SHULKER_BOX, net.minecraft.world.level.block.Blocks.CYAN_SHULKER_BOX, net.minecraft.world.level.block.Blocks.GRAY_SHULKER_BOX, net.minecraft.world.level.block.Blocks.GREEN_SHULKER_BOX, net.minecraft.world.level.block.Blocks.LIGHT_BLUE_SHULKER_BOX, net.minecraft.world.level.block.Blocks.LIGHT_GRAY_SHULKER_BOX, net.minecraft.world.level.block.Blocks.LIME_SHULKER_BOX, net.minecraft.world.level.block.Blocks.MAGENTA_SHULKER_BOX, net.minecraft.world.level.block.Blocks.ORANGE_SHULKER_BOX, net.minecraft.world.level.block.Blocks.PINK_SHULKER_BOX, net.minecraft.world.level.block.Blocks.PURPLE_SHULKER_BOX, net.minecraft.world.level.block.Blocks.RED_SHULKER_BOX, net.minecraft.world.level.block.Blocks.WHITE_SHULKER_BOX, net.minecraft.world.level.block.Blocks.YELLOW_SHULKER_BOX).map(ItemLike::asItem).collect(ImmutableSet.toImmutableSet());
     private static final float[] DEFAULT_SAPLING_DROP_RATES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
     private static final float[] RARE_SAPLING_DROP_RATES = new float[]{0.025F, 0.027777778F, 0.03125F, 0.041666668F, 0.1F};
 
@@ -57,12 +63,8 @@ public class BorealisLootTables extends LootTableProvider {
     }
 
     @Override
-    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
-        return ImmutableList.of(Pair.of(Blocks::new, LootParameterSets.BLOCK), Pair.of(Entities::new, LootParameterSets.ENTITY));
-    }
-
-    @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationTracker validationtracker) {
+    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
+        return ImmutableList.of(Pair.of(Blocks::new, LootContextParamSets.BLOCK), Pair.of(Entities::new, LootContextParamSets.ENTITY));
     }
 
     public static class Blocks extends BorealisLootTableProvider {
@@ -72,8 +74,6 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.SOAPSTONE);
             dropSelf(BorealisBlocks.SOAPSTONE_TILES);
             dropWithFortune(BorealisBlocks.KYANITE_ORE, BorealisItems.KYANITE_CRYSTAL);
-            dropWithFortune(BorealisBlocks.TANZANITE_ORE, BorealisItems.TANZANITE);
-            dropSelf(BorealisBlocks.TANZANITE_BLOCK);
             dropSelf(BorealisBlocks.SOAPSTONE);
             dropSelf(BorealisBlocks.SOAPSTONE_TILES);
             dropSelf(BorealisBlocks.SOAPSTONE_BRICKS);
@@ -149,30 +149,30 @@ public class BorealisLootTables extends LootTableProvider {
             dropPottedContents(BorealisBlocks.POTTED_SACCHARINE_SAPLING.get());
             dropSelf(BorealisBlocks.SACCHARINE_SIGN);
             dropOther(BorealisBlocks.SACCHARINE_WALL_SIGN, () -> BorealisBlocks.SACCHARINE_SIGN.get().asItem());
-            dropWithSilk(BorealisBlocks.LIVING_SNOW_BLOCK, () -> net.minecraft.block.Blocks.SNOW_BLOCK);
+            dropWithSilk(BorealisBlocks.LIVING_SNOW_BLOCK, () -> net.minecraft.world.level.block.Blocks.SNOW_BLOCK);
             dropSelf(BorealisBlocks.SUGAR_SNOW_BLOCK);
             dropSelf(BorealisBlocks.PERMAFROST);
             dropSelf(BorealisBlocks.TRAVERTINE);
             this.add(BorealisBlocks.PERMAFROST_RUBBLE.get(),
                     new LootTable.Builder()
                             .withPool(new LootPool.Builder()
-                                    .add(ItemLootEntry.lootTableItem(Items.FLINT).when(RandomChance.randomChance(0.2F)))
-                                    .add(ItemLootEntry.lootTableItem(Items.STICK).when(RandomChance.randomChance( 0.5F)))
-                                    .add(ItemLootEntry.lootTableItem(Items.IRON_NUGGET).when(RandomChance.randomChance(0.3F)))
-                                    .add(ItemLootEntry.lootTableItem(Items.IRON_INGOT).when(RandomChance.randomChance(0.03F)))
-                                    .add(ItemLootEntry.lootTableItem(BorealisBlocks.PETRIFIED_WOOD.get().asItem()).when(RandomChance.randomChance(0.25F)))
-                                    .add(ItemLootEntry.lootTableItem(Items.ARROW).when(RandomChance.randomChance(0.2F)))
-                                    .add(ItemLootEntry.lootTableItem(Items.FEATHER).when(RandomChance.randomChance(0.5F)))
-                                    .add(ItemLootEntry.lootTableItem(Items.STRING).when(RandomChance.randomChance(0.1F)))
-                                    .add(ItemLootEntry.lootTableItem(Items.COAL).when(RandomChance.randomChance(0.2F)))
-                                    .add(ItemLootEntry.lootTableItem(Items.CHARCOAL).when(RandomChance.randomChance(0.2F)))
-                                    .add(ItemLootEntry.lootTableItem(Items.POISONOUS_POTATO).when(RandomChance.randomChance(0.01F)))));
+                                    .add(LootItem.lootTableItem(Items.FLINT).when(LootItemRandomChanceCondition.randomChance(0.2F)))
+                                    .add(LootItem.lootTableItem(Items.STICK).when(LootItemRandomChanceCondition.randomChance( 0.5F)))
+                                    .add(LootItem.lootTableItem(Items.IRON_NUGGET).when(LootItemRandomChanceCondition.randomChance(0.3F)))
+                                    .add(LootItem.lootTableItem(Items.IRON_INGOT).when(LootItemRandomChanceCondition.randomChance(0.03F)))
+                                    .add(LootItem.lootTableItem(BorealisBlocks.PETRIFIED_WOOD.get().asItem()).when(LootItemRandomChanceCondition.randomChance(0.25F)))
+                                    .add(LootItem.lootTableItem(Items.ARROW).when(LootItemRandomChanceCondition.randomChance(0.2F)))
+                                    .add(LootItem.lootTableItem(Items.FEATHER).when(LootItemRandomChanceCondition.randomChance(0.5F)))
+                                    .add(LootItem.lootTableItem(Items.STRING).when(LootItemRandomChanceCondition.randomChance(0.1F)))
+                                    .add(LootItem.lootTableItem(Items.COAL).when(LootItemRandomChanceCondition.randomChance(0.2F)))
+                                    .add(LootItem.lootTableItem(Items.CHARCOAL).when(LootItemRandomChanceCondition.randomChance(0.2F)))
+                                    .add(LootItem.lootTableItem(Items.POISONOUS_POTATO).when(LootItemRandomChanceCondition.randomChance(0.01F)))));
             dropWithSilk(BorealisBlocks.CLOUD, BorealisBlocks.CLOUD);
             this.add(BorealisBlocks.SUGAR_SNOW.get(),
                     new LootTable.Builder()
                             .withPool(new LootPool.Builder()
-                                .add(ItemLootEntry.lootTableItem(Items.SUGAR).when(RandomChance.randomChance(1.0F)))
-                                .add(ItemLootEntry.lootTableItem(Items.SNOWBALL).when(RandomChance.randomChance(1.0F)))));
+                                .add(LootItem.lootTableItem(Items.SUGAR).when(LootItemRandomChanceCondition.randomChance(1.0F)))
+                                .add(LootItem.lootTableItem(Items.SNOWBALL).when(LootItemRandomChanceCondition.randomChance(1.0F)))));
         }
 
         @Override
@@ -181,42 +181,27 @@ public class BorealisLootTables extends LootTableProvider {
         }
     }
 
-    protected static <T> T withExplosionDecay(IItemProvider item, ILootFunctionConsumer<T> function) {
-        return !IMMUNE_TO_EXPLOSIONS.contains(item.asItem()) ? function.apply(ExplosionDecay.explosionDecay()) : function.unwrap();
-    }
-
-    public static class Entities extends EntityLootTables {
+    public static class Entities extends EntityLoot {
 
         @Override
         protected void addTables() {
             this.add(
                     BorealisEntities.HUMMINGBIRD.get(),
                     LootTable.lootTable().withPool
-                            (LootPool.lootPool().setRolls(ConstantRange.exactly(1))
-                                    .add(ItemLootEntry.lootTableItem(Items.FEATHER)
-                                            .apply(SetCount.setCount(RandomValueRange.between(0.0F, 2.0F)))
-                                            .apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F)))
-                                            .when(KilledByPlayer.killedByPlayer()))));
+                            (LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                                    .add(LootItem.lootTableItem(Items.FEATHER)
+                                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))
+                                            .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)))
+                                            .when(LootItemKilledByPlayerCondition.killedByPlayer()))));
             this.add(
                     BorealisEntities.TAKAHE.get(),
                     LootTable.lootTable().withPool
-                            (LootPool.lootPool().setRolls(ConstantRange.exactly(1))
-                                    .add(ItemLootEntry.lootTableItem(Items.FEATHER)
-                                            .apply(SetCount.setCount(RandomValueRange.between(0.0F, 2.0F)))
-                                            .apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F))))
-                                    .add(ItemLootEntry.lootTableItem(Items.CHICKEN)
-                                        .apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F))))
-                            ));
-            this.add(
-                    BorealisEntities.MISMIC_MUSKOX.get(),
-                    LootTable.lootTable().withPool
-                            (LootPool.lootPool().setRolls(ConstantRange.exactly(1))
-                                    .add(ItemLootEntry.lootTableItem(net.minecraft.block.Blocks.WHITE_WOOL.asItem())
-                                            .apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F))))
-                                    .add(ItemLootEntry.lootTableItem(Items.BEEF)
-                                            .apply(SetCount.setCount(RandomValueRange.between(1.0F, 3.0F)))
-                                            .apply(Smelt.smelted().when(EntityHasProperty.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE)))
-                                            .apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F))))
+                            (LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                                    .add(LootItem.lootTableItem(Items.FEATHER)
+                                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))
+                                            .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))
+                                    .add(LootItem.lootTableItem(Items.CHICKEN)
+                                        .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))
                             ));
         }
 

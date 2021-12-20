@@ -1,44 +1,44 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
+        maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
-        maven {
-            url='https://repo.spongepowered.org/repository/maven-public/'
-        }
+        //maven { url='https://repo.spongepowered.org/repository/maven-public/' }
+        maven { url = 'https://maven.parchmentmc.org' }
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
-        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        //classpath 'org.spongepowered:mixingradle:0.7.+'
+        classpath 'org.parchmentmc:librarian:1.+'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
-apply plugin: 'org.spongepowered.mixin'
+//apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 version = project.borealis_version
 group = 'com.reetam.borealis'
 archivesBaseName = 'borealis-'+project.mc_version
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
-mixin {
-    add sourceSets.main, "borealis.refmap.json"
-}
+//mixin {
+//    add sourceSets.main, "borealis.refmap.json"
+//    config 'borealis.mixins.json'
+//}
 
 minecraft {
-    mappings channel: 'official', version: project.mc_version
+    mappings channel: 'parchment', version: project.parchment_version+'-'+project.mc_version
 
     runs {
         client {
             workingDirectory project.file('run')
-            arg "-mixin.config=borealis.mixins.json"
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            //arg "-mixin.config=borealis.mixins.json"
 
-            property 'forge.logging.console.level', 'debug'
+            //property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            //property 'forge.logging.console.level', 'debug'
 
             mods {
                 borealis {
@@ -50,9 +50,10 @@ minecraft {
         server {
             workingDirectory project.file('run')
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            //arg "-mixin.config=borealis.mixins.json"
 
-            property 'forge.logging.console.level', 'debug'
+            //property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            //property 'forge.logging.console.level', 'debug'
 
             mods {
                 borealis {
@@ -64,9 +65,8 @@ minecraft {
         data {
             workingDirectory project.file('run')
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
-            property 'forge.logging.console.level', 'debug'
+            //property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            //property 'forge.logging.console.level', 'debug'
 
             args '--mod', 'borealis', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing', file('src/generated/resources/')
 
@@ -91,7 +91,7 @@ dependencies {
 
     minecraft "net.minecraftforge:forge:${project.mc_version}-${project.forge_version}"
 
-    annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
+    //annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
 }
 
 jar {
@@ -104,7 +104,7 @@ jar {
                 "Implementation-Version": "${version}",
                 "Implementation-Vendor" :"reetam",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                "MixinConfigs": "borealis.mixins.json"
+                //"MixinConfigs": "borealis.mixins.json"
         ])
     }
 }
@@ -132,5 +132,5 @@ publishing {
 }
 
 repositories {
-    maven { url='https://repo.spongepowered.org/repository/maven-public/' }
+    //maven { url='https://repo.spongepowered.org/repository/maven-public/' }
 }

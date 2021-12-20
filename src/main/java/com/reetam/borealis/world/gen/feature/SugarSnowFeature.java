@@ -2,37 +2,41 @@ package com.reetam.borealis.world.gen.feature;
 
 import com.mojang.serialization.Codec;
 import com.reetam.borealis.registry.BorealisBlocks;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.Random;
 
-public class SugarSnowFeature extends Feature<NoFeatureConfig> {
-    public SugarSnowFeature(Codec<NoFeatureConfig> p_i231993_1_) {
-        super(p_i231993_1_);
+public class SugarSnowFeature extends Feature<NoneFeatureConfiguration> {
+    public SugarSnowFeature(Codec<NoneFeatureConfiguration> codec) {
+        super(codec);
     }
 
-    public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
-        BlockPos.Mutable blockpos$mutable1 = new BlockPos.Mutable();
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
+        Random rand = context.random();
+        BlockPos pos = context.origin();
+        WorldGenLevel level = context.level();
+        
+        BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
+        BlockPos.MutableBlockPos blockpos$mutable1 = new BlockPos.MutableBlockPos();
 
         for(int i = 0; i < 16; ++i) {
             for(int j = 0; j < 16; ++j) {
                 int k = pos.getX() + i;
                 int l = pos.getZ() + j;
-                int i1 = reader.getHeight(Heightmap.Type.MOTION_BLOCKING, k, l);
+                int i1 = level.getHeight(Heightmap.Types.MOTION_BLOCKING, k, l);
                 blockpos$mutable.set(k, i1, l);
                 blockpos$mutable1.set(blockpos$mutable).move(Direction.DOWN, 1);
-                Biome biome = reader.getBiome(blockpos$mutable);
+                Biome biome = level.getBiome(blockpos$mutable);
 
-                if (biome.shouldSnow(reader, blockpos$mutable) && biome.getRegistryName().toString().contains("saccharine_hills")) {
-                    reader.setBlock(blockpos$mutable, BorealisBlocks.SUGAR_SNOW.get().defaultBlockState(), 2);
+                if (biome.shouldSnow(level, blockpos$mutable) && biome.getRegistryName().toString().contains("saccharine_hills")) {
+                    level.setBlock(blockpos$mutable, BorealisBlocks.SUGAR_SNOW.get().defaultBlockState(), 2);
                 }
             }
         }

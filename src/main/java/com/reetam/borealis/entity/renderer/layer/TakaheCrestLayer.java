@@ -1,26 +1,26 @@
 package com.reetam.borealis.entity.renderer.layer;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.entity.model.TakaheModel;
 import com.reetam.borealis.entity.TakaheEntity;
-import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.entity.IEntityRenderer;
-import net.minecraft.client.renderer.entity.layers.LayerRenderer;
-import net.minecraft.util.ResourceLocation;
+import com.reetam.borealis.entity.model.TakaheModel;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.resources.ResourceLocation;
 
-public class TakaheCrestLayer<T extends TakaheEntity, M extends TakaheModel<T>> extends LayerRenderer<T, M> {
+public class TakaheCrestLayer<T extends TakaheEntity, M extends TakaheModel<T>> extends RenderLayer<T, M> {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(BorealisMod.MODID, "textures/entity/takahe_crest.png");
 
-    public TakaheCrestLayer(IEntityRenderer<T, M> rendererIn) {
-        super(rendererIn);
+    public TakaheCrestLayer(RenderLayerParent<T, M> renderer) {
+        super(renderer);
     }
 
     @Override
-    public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (!entitylivingbaseIn.getHat()) {
-            coloredCutoutModelCopyLayerRender(this.getParentModel(), this.getParentModel(), TEXTURE, matrixStackIn, bufferIn, packedLightIn, entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, partialTicks, 1.0F, 1.0F, 1.0F);
+    public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+        if (!entity.getHat()) {
+            coloredCutoutModelCopyLayerRender(this.getParentModel(), this.getParentModel(), TEXTURE, poseStack, buffer, packedLight, entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, partialTicks, 1.0F, 1.0F, 1.0F);
         }
     }
 

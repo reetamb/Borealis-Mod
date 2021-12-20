@@ -4,17 +4,15 @@ import com.reetam.borealis.block.BorealisPortalBlock;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.BorealisTags;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.Rarity;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 
 public class MoonPearlItem extends Item {
 
@@ -28,31 +26,31 @@ public class MoonPearlItem extends Item {
     }
 
     @Override
-    public ActionResultType useOn(ItemUseContext context) {
+    public InteractionResult useOn(UseOnContext context) {
 
-        World world = context.getLevel();
+        Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
-        if (world.getBlockState(pos).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) {
-            if ((world.getBlockState(pos.west()).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) &&
-                    (world.getBlockState(pos.north()).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) &&
-                    (world.getBlockState(pos.south()).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) &&
-                    (world.getBlockState(pos.east()).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS))) {
-                if ((world.getBlockState(pos.west(2)).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
-                        (world.getBlockState(pos.north(2)).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
-                        (world.getBlockState(pos.south(2)).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
-                        (world.getBlockState(pos.east(2)).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS))) {
-                    if ((world.getBlockState(pos.west().north()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
-                            (world.getBlockState(pos.north().east()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
-                            (world.getBlockState(pos.south().west()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
-                            (world.getBlockState(pos.east().south()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS))) {
-                        ((BorealisPortalBlock) BorealisBlocks.BOREALIS_PORTAL.get()).makePortal(world, pos);
-                        world.playSound(context.getPlayer(), pos, SoundEvents.BELL_RESONATE, SoundCategory.BLOCKS, 2.5F, 1.0F);
-                        world.addParticle(ParticleTypes.EFFECT, pos.getX(), pos.getY() + 2, pos.getZ(), 0.5, 1.5, 0.5);
+        if (level.getBlockState(pos).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) {
+            if ((level.getBlockState(pos.west()).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) &&
+                    (level.getBlockState(pos.north()).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) &&
+                    (level.getBlockState(pos.south()).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) &&
+                    (level.getBlockState(pos.east()).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS))) {
+                if ((level.getBlockState(pos.west(2)).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
+                        (level.getBlockState(pos.north(2)).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
+                        (level.getBlockState(pos.south(2)).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
+                        (level.getBlockState(pos.east(2)).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS))) {
+                    if ((level.getBlockState(pos.west().north()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
+                            (level.getBlockState(pos.north().east()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
+                            (level.getBlockState(pos.south().west()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
+                            (level.getBlockState(pos.east().south()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS))) {
+                        ((BorealisPortalBlock) BorealisBlocks.BOREALIS_PORTAL.get()).makePortal(level, pos);
+                        level.playSound(context.getPlayer(), pos, SoundEvents.BELL_RESONATE, SoundSource.BLOCKS, 2.5F, 1.0F);
+                        level.addParticle(ParticleTypes.EFFECT, pos.getX(), pos.getY() + 2, pos.getZ(), 0.5, 1.5, 0.5);
                     }
                 }
             }
         }
 
-        return ActionResultType.sidedSuccess(world.isClientSide());
+        return InteractionResult.sidedSuccess(level.isClientSide());
     }
 }

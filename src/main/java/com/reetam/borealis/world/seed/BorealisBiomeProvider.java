@@ -5,10 +5,10 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.biome.provider.NetherBiomeProvider;
+import net.minecraft.core.Registry;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -17,49 +17,49 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class BorealisBiomeProvider extends NetherBiomeProvider {
+public class BorealisBiomeProvider extends MultiNoiseBiomeSource {
 
-    public static final MapCodec<NetherBiomeProvider> PACKET_CODEC = RecordCodecBuilder.mapCodec(
+    public static final MapCodec<MultiNoiseBiomeSource> PACKET_CODEC = RecordCodecBuilder.mapCodec(
             (instance) -> instance.group(
                     Codec.LONG.fieldOf("seed")
                             .orElseGet(SeedHolder::getSeed)
-                            .forGetter((netherProvider) -> netherProvider.seed),
-                    RecordCodecBuilder.<Pair<Biome.Attributes, Supplier<Biome>>>create(
+                            .forGetter((multiNoiseSource) -> multiNoiseSource.seed),
+                    RecordCodecBuilder.<Pair<Biome.ClimateParameters, Supplier<Biome>>>create(
                             (biomeAttributes) -> biomeAttributes.group(
-                                    Biome.Attributes.CODEC.fieldOf("parameters")
+                                    Biome.ClimateParameters.CODEC.fieldOf("parameters")
                                             .forGetter(Pair::getFirst),
                                     Biome.CODEC.fieldOf("biome")
                                             .forGetter(Pair::getSecond))
                                     .apply(biomeAttributes, Pair::of))
                             .listOf().fieldOf("biomes")
-                            .forGetter((netherProvider) -> netherProvider.parameters),
-                    NetherBiomeProvider.Noise.CODEC.fieldOf("temperature_noise")
-                            .forGetter((netherProvider) -> netherProvider.temperatureParams),
-                    NetherBiomeProvider.Noise.CODEC.fieldOf("humidity_noise")
-                            .forGetter((netherProvider) -> netherProvider.humidityParams),
-                    NetherBiomeProvider.Noise.CODEC.fieldOf("altitude_noise")
-                            .forGetter((netherProvider) -> netherProvider.altitudeParams),
-                    NetherBiomeProvider.Noise.CODEC.fieldOf("weirdness_noise")
-                            .forGetter((netherProvider) -> netherProvider.weirdnessParams))
-                    .apply(instance, NetherBiomeProvider::new));
+                            .forGetter((multiNoiseSource) -> multiNoiseSource.parameters),
+                    MultiNoiseBiomeSource.NoiseParameters.CODEC.fieldOf("temperature_noise")
+                            .forGetter((multiNoiseSource) -> multiNoiseSource.temperatureParams),
+                    MultiNoiseBiomeSource.NoiseParameters.CODEC.fieldOf("humidity_noise")
+                            .forGetter((multiNoiseSource) -> multiNoiseSource.humidityParams),
+                    MultiNoiseBiomeSource.NoiseParameters.CODEC.fieldOf("altitude_noise")
+                            .forGetter((multiNoiseSource) -> multiNoiseSource.altitudeParams),
+                    MultiNoiseBiomeSource.NoiseParameters.CODEC.fieldOf("weirdness_noise")
+                            .forGetter((multiNoiseSource) -> multiNoiseSource.weirdnessParams))
+                    .apply(instance, MultiNoiseBiomeSource::new));
 
-    public static final Codec<NetherBiomeProvider> CODEC = Codec.mapEither(DefaultBuilder.CODEC, PACKET_CODEC).xmap((either) ->
-            either.map(DefaultBuilder::biomeSource, Function.identity()), (netherProvider) ->
-            netherProvider.preset().map(Either::<DefaultBuilder, NetherBiomeProvider>left).orElseGet(() ->
-                    Either.right(netherProvider))).codec();
+    public static final Codec<MultiNoiseBiomeSource> CODEC = Codec.mapEither(PresetInstance.CODEC, PACKET_CODEC).xmap((either) ->
+            either.map(PresetInstance::biomeSource, Function.identity()), (multiNoiseSource) ->
+            multiNoiseSource.preset().map(Either::<PresetInstance, MultiNoiseBiomeSource>left).orElseGet(() ->
+                    Either.right(multiNoiseSource))).codec();
 
-    private BorealisBiomeProvider(long seed, List<Pair<Biome.Attributes, Supplier<Biome>>> biomeAttributes, Optional<Pair<Registry<Biome>, NetherBiomeProvider.Preset>> netherProviderPreset) {
-        super(seed, biomeAttributes, netherProviderPreset);
+    private BorealisBiomeProvider(long seed, List<Pair<Biome.ClimateParameters, Supplier<Biome>>> biomeAttributes, Optional<Pair<Registry<Biome>, MultiNoiseBiomeSource.Preset>> multiNoiseSourcePreset) {
+        super(seed, biomeAttributes, multiNoiseSourcePreset);
     }
 
     @Override
-    protected Codec<? extends BiomeProvider> codec() {
+    protected Codec<? extends BiomeSource> codec() {
         return CODEC;
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public BiomeProvider withSeed(long seed) {
+    public BiomeSource withSeed(long seed) {
         return new BorealisBiomeProvider(seed, this.parameters, this.preset);
     }
 }

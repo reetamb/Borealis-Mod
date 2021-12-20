@@ -1,14 +1,13 @@
 package com.reetam.borealis.data.provider;
 
-import net.minecraft.block.*;
+import com.reetam.borealis.BorealisMod;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ModelFile;
-
-import com.reetam.borealis.BorealisMod;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.function.Supplier;
 
@@ -50,7 +49,7 @@ public abstract class BorealisBlockStateProvider extends BlockStateProvider {
         crossBlock(block, models().cross(name(block), texture(name(block))));
     }
 
-    public void stairs(Supplier<? extends StairsBlock> block, Supplier<? extends Block> fullBlock) {
+    public void stairs(Supplier<? extends StairBlock> block, Supplier<? extends Block> fullBlock) {
         stairsBlock(block.get(), texture(name(fullBlock)));
     }
 
