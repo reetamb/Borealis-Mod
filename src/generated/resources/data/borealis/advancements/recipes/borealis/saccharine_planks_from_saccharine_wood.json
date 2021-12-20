@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "borealis:saccharine_wood"
+            "items": [
+              "borealis:saccharine_wood"
+            ]
           }
         ]
       }

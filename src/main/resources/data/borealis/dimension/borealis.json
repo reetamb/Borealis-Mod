@@ -2,58 +2,10 @@
   "type": "borealis:borealis",
   "generator": {
     "type": "borealis:chunk_generator",
-    "settings": {
-      "bedrock_roof_position": -10,
-      "bedrock_floor_position": -10,
-      "sea_level": 0,
-      "disable_mob_generation": false,
-      "default_block": {
-        "Name": "borealis:soapstone"
-      },
-      "default_fluid": {
-        "Name": "minecraft:water",
-        "Properties": {
-          "level": "0"
-        }
-      },
-      "structures": {
-        "stronghold": {
-          "distance": 0,
-          "count": 0,
-          "spread": 0
-        },
-        "structures": {}
-      },
-      "noise": {
-        "top_slide": {
-          "target": -30,
-          "size": 7,
-          "offset": 1
-        },
-        "bottom_slide": {
-          "target": -1000,
-          "size": 64,
-          "offset": -46
-        },
-        "sampling": {
-          "xz_scale": 2,
-          "xz_factor": 100,
-          "y_scale": 1,
-          "y_factor": 160
-        },
-        "size_vertical": 1,
-        "size_horizontal": 2,
-        "height": 128,
-        "density_factor": 0,
-        "density_offset": 0,
-        "random_density_offset": true,
-        "simplex_surface_noise": false,
-        "island_noise_override": false,
-        "amplified": false
-      }
-    },
+    "settings": "borealis:noise_settings",
     "biome_source": {
       "type": "borealis:biome_provider",
+      "preset": "borealis",
       "biomes": [
         {
           "biome": "borealis:boreal_tundra",
@@ -119,25 +71,29 @@
       "altitude_noise": {
         "firstOctave": -7,
         "amplitudes": [
-          1, 1
+          1,
+          1
         ]
       },
       "weirdness_noise": {
         "firstOctave": -7,
         "amplitudes": [
-          1, 1
+          1,
+          1
         ]
       },
       "temperature_noise": {
         "firstOctave": -7,
         "amplitudes": [
-          1, 1
+          1,
+          1
         ]
       },
       "humidity_noise": {
         "firstOctave": -7,
         "amplitudes": [
-          1, 1
+          1,
+          1
         ]
       }
     }

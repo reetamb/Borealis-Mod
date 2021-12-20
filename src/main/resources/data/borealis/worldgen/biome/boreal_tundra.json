@@ -29,15 +29,11 @@
     [
       "minecraft:lake_water"
     ],
-    [
-      "borealis:slate_boulder"
-    ],
     [],
     [],
     [],
-    [
-      "borealis:boreal_features"
-    ],
+    [],
+    [],
     [
       "minecraft:freeze_top_layer",
       "borealis:cloud"

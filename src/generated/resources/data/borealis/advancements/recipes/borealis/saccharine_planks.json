@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "borealis:saccharine_log"
+            "items": [
+              "borealis:saccharine_log"
+            ]
           }
         ]
       }

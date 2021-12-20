@@ -23,9 +23,9 @@ public class BorealisFluidRenderer {
 
     public static void fluidOverlay(RenderBlockOverlayEvent event) {
         if (event.getPlayer().level.getBlockState(event.getBlockPos()).getBlock() == BorealisBlocks.HOT_SPRING_WATER_BLOCK.get()) {
-            Minecraft minecraft = Minecraft.getInstance();
             RenderSystem.setShader(GameRenderer::getPositionTexColorNormalShader);
-            RenderSystem.setShaderTexture(0, getOverlayTexture(BorealisBlocks.HOT_SPRING_WATER_BLOCK.get()));
+            RenderSystem.setShaderColor(113 / 255F, 186 / 255F, 206 / 255F, 0.5F);
+            RenderSystem.setShaderTexture(7, getOverlayTexture(BorealisBlocks.HOT_SPRING_WATER_BLOCK.get()));
             BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
             float f = event.getPlayer().getBrightness();
             RenderSystem.enableBlend();

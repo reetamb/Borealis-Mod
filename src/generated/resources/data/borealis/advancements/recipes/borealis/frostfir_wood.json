@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "borealis:frostfir_log"
+            "items": [
+              "borealis:frostfir_log"
+            ]
           }
         ]
       }

@@ -30,6 +30,8 @@ public class MoonPearlItem extends Item {
 
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
+        level.playSound(context.getPlayer(), pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 2.5F, 1.0F);
+
         if (level.getBlockState(pos).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) {
             if ((level.getBlockState(pos.west()).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) &&
                     (level.getBlockState(pos.north()).is(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)) &&

@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "borealis:petrified_wood_bricks"
+            "items": [
+              "borealis:petrified_wood_bricks"
+            ]
           }
         ]
       }
