@@ -25,6 +25,7 @@ public class HotSpringFeature extends Feature<NoneFeatureConfiguration> {
         WorldGenLevel level = context.level();
 
         pos = new BlockPos(pos.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()) - 4 + rand.nextInt(8), pos.getZ());
+        if (pos.getY() < 20) return true;
 
         // CREATE POND SHAPE
         boolean[] booleans = new boolean[2048];
@@ -63,7 +64,7 @@ public class HotSpringFeature extends Feature<NoneFeatureConfiguration> {
                                 for (Direction direction : Direction.values()) {
                                     if (direction != Direction.UP) {
                                         if (level.getBlockState(pos.offset(x1, y1, z1).relative(direction, 1)) != BorealisBlocks.HOT_SPRING_WATER_BLOCK.get().defaultBlockState()) {
-                                            level.setBlock(pos.offset(x1, y1, z1).relative(direction, 1), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
+                                            this.setBlock(level, pos.offset(x1, y1, z1).relative(direction, 1), BorealisBlocks.PUMICE.get().defaultBlockState());
                                         }
                                     }
                                 }

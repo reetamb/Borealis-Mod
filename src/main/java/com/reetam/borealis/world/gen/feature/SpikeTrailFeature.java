@@ -35,15 +35,21 @@ public class SpikeTrailFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     private void spikeAt(WorldGenLevel level, BlockPos pos) {
+        if (toGround(level, pos).getY() < 20) return;
+        if (toGround(level, pos.west()).getY() < 20) return;
+        if (toGround(level, pos.north()).getY() < 20) return;
+        if (toGround(level, pos.east()).getY() < 20) return;
+        if (toGround(level, pos.south()).getY() < 20) return;
+
         level.setBlock(pos, BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
 
-        level.setBlock(toGround(level, pos.west()), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
-        level.setBlock(toGround(level, pos.north()), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
-        level.setBlock(toGround(level, pos.east()), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
-        level.setBlock(toGround(level, pos.south()), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
+        this.setBlock(level, toGround(level, pos.west()), BorealisBlocks.PUMICE.get().defaultBlockState());
+        this.setBlock(level, toGround(level, pos.north()), BorealisBlocks.PUMICE.get().defaultBlockState());
+        this.setBlock(level, toGround(level, pos.east()), BorealisBlocks.PUMICE.get().defaultBlockState());
+        this.setBlock(level, toGround(level, pos.south()), BorealisBlocks.PUMICE.get().defaultBlockState());
 
-        level.setBlock(pos.above(), BorealisBlocks.PUMICE.get().defaultBlockState(), 19);
-        level.setBlock(pos.above(2), BorealisBlocks.PUMICE_GEYSER.get().defaultBlockState(), 19);
+        this.setBlock(level, pos.above(), BorealisBlocks.PUMICE.get().defaultBlockState());
+        this.setBlock(level, pos.above(2), BorealisBlocks.PUMICE_GEYSER.get().defaultBlockState());
     }
 
     private BlockPos toGround(WorldGenLevel level, BlockPos pos) {

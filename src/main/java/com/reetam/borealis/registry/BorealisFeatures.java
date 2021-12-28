@@ -128,7 +128,7 @@ public class BorealisFeatures {
                 new ReplaceSphereConfiguration(
                         BorealisBlocks.PERMAFROST.get().defaultBlockState(),
                         BorealisBlocks.PERMAFROST_RUBBLE.get().defaultBlockState(),
-                        UniformInt.of(3, 4))).rangeUniform(VerticalAnchor.aboveBottom(64), VerticalAnchor.belowTop(64))
+                        UniformInt.of(3, 4))).rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.belowTop(64))
                 .squared().count(10);
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_FROSTFIR_TREE = FROSTFIR_TREE.decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(8);
@@ -150,10 +150,10 @@ public class BorealisFeatures {
                 .decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(1);
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_SPIRAL_CLOUD = SPIRAL_CLOUD.get().configured(FeatureConfiguration.NONE)
-                .count(2);
+                .count(1);
 
         public static final ConfiguredFeature<?, ?> CONFIGURED_CLOUD = CLOUD.get().configured(FeatureConfiguration.NONE)
-                .rangeUniform(VerticalAnchor.aboveBottom(24), VerticalAnchor.aboveBottom(60)).count(4);
+                .rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(32)).count(4);
     }
 
     public static void registerConfiguredFeatures() {

@@ -23,13 +23,15 @@ public class SpiralCloudFeature extends Feature<NoneFeatureConfiguration> {
 
         pos = new BlockPos(pos.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()) + rand.nextInt(20) + 10, pos.getZ());
 
-        int totalWidth = rand.nextInt(6) + 6;
-        int startWidth = totalWidth - 5;
+        if (pos.getY() < 32 || rand.nextBoolean()) return true;
+
+        int totalWidth = rand.nextInt(6) + 4;
+        int startWidth = totalWidth - 3;
 
         int baseYOffset = 0;
         int yOffset;
 
-        for (int i = 0; i < rand.nextInt(5) + 5; i++) {
+        for (int i = 0; i < rand.nextInt(5) + 3; i++) {
             for (int j = -totalWidth; j < totalWidth; j++) {
                 for (int k = -totalWidth; k < totalWidth; k++) {
                     int yOffsetStep = 0;
@@ -46,11 +48,11 @@ public class SpiralCloudFeature extends Feature<NoneFeatureConfiguration> {
 
                     int line = Math.abs(j*j + k*k);
                     if (line > (0.75*startWidth) + rand.nextFloat() + rand.nextInt(2) && line < (2.5*startWidth) + rand.nextFloat() + rand.nextInt(3) && rand.nextInt(10) != 0) {
-                        level.setBlock(pos.offset(j, yOffset, k), BorealisBlocks.CLOUD.get().defaultBlockState(), 19);
+                        this.setBlock(level, pos.offset(j, yOffset, k), BorealisBlocks.CLOUD.get().defaultBlockState());
                     }
                     if (line > startWidth && line < (1.75*startWidth)) {
-                        level.setBlock(pos.offset(j, yOffset + 1, k), BorealisBlocks.CLOUD.get().defaultBlockState(), 19);
-                        level.setBlock(pos.offset(j, yOffset - 1, k), BorealisBlocks.CLOUD.get().defaultBlockState(), 19);
+                        this.setBlock(level, pos.offset(j, yOffset + 1, k), BorealisBlocks.CLOUD.get().defaultBlockState());
+                        this.setBlock(level, pos.offset(j, yOffset - 1, k), BorealisBlocks.CLOUD.get().defaultBlockState());
                     }
                 }
             }

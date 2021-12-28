@@ -26,7 +26,7 @@ public class CloudFeature extends Feature<NoneFeatureConfiguration> {
         
         int size = rand.nextInt(6) + 2;
         BlockState state = BorealisBlocks.CLOUD.get().defaultBlockState();
-        pos = pos.offset(rand.nextInt(16) - 8, 0, rand.nextInt(16) - 8);
+        pos = pos.offset(rand.nextInt(8) - 4, 0, rand.nextInt(8) - 4);
 
         if (level.dimensionType().hasSkyLight()) {
             if (level.getBrightness(LightLayer.SKY, pos) != 15 || rand.nextInt(10) == 0) {
@@ -52,7 +52,7 @@ public class CloudFeature extends Feature<NoneFeatureConfiguration> {
             for (int j = -radius; j < radius; j++) {
                 float line = Math.abs(i*i + j*j);
                 if (line <= (radius + rand.nextFloat() - 0.5F)*(radius + rand.nextFloat() - 0.5F) + rand.nextFloat() - 0.5F) {
-                    level.setBlock(pos.offset(i, 0, j), state, 19);
+                    this.setBlock(level, pos.offset(i, 0, j), state);
                 }
             }
         }
