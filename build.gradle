@@ -21,7 +21,7 @@ version = project.borealis_version
 group = 'com.reetam.borealis'
 archivesBaseName = 'borealis-'+project.mc_version
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 mixin {
     add sourceSets.main, "borealis.refmap.json"

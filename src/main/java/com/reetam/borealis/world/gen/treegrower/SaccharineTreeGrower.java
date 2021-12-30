@@ -13,6 +13,6 @@ public class SaccharineTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected ConfiguredFeature<TreeConfiguration, ?> getConfiguredFeature(Random rand, boolean largeHive) {
-        return BorealisFeatures.Configured.HELIX_TREE;
+        return BorealisFeatures.Configured.CONFIGURED_HELIX_TREE;
     }
 }

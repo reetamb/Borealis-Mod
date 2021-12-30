@@ -15,9 +15,10 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class BorealisItems {
 
@@ -37,11 +38,11 @@ public class BorealisItems {
     public static final RegistryObject<SignItem> SACCHARINE_SIGN = ITEMS.register("saccharine_sign", () -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTab.TAB_DECORATIONS), BorealisBlocks.SACCHARINE_SIGN.get(), BorealisBlocks.SACCHARINE_WALL_SIGN.get()));
 
     public static final RegistryObject<SpawnEggItem> HUMMINGBIRD_SPAWN_EGG = ITEMS.register(
-            "hummingbird_spawn_egg", () -> new SpawnEggItem(BorealisEntities.HUMMINGBIRD_TYPE,
+            "hummingbird_spawn_egg", () -> new ForgeSpawnEggItem(() -> BorealisEntities.HUMMINGBIRD_TYPE,
                     0x9CE542, 0xFF446D,
                     new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<SpawnEggItem> TAKAHE_SPAWN_EGG = ITEMS.register(
-            "takahe_spawn_egg", () -> new SpawnEggItem(BorealisEntities.TAKAHE_TYPE,
+            "takahe_spawn_egg", () -> new ForgeSpawnEggItem(() -> BorealisEntities.TAKAHE_TYPE,
                     0x2F329F, 0x518A65,
                     new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 

@@ -11,15 +11,12 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-import java.util.Random;
-
 public class SugarSnowFeature extends Feature<NoneFeatureConfiguration> {
     public SugarSnowFeature(Codec<NoneFeatureConfiguration> codec) {
         super(codec);
     }
 
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-        Random rand = context.random();
         BlockPos pos = context.origin();
         WorldGenLevel level = context.level();
         

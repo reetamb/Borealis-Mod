@@ -7,14 +7,77 @@
   "noodle_caves_enabled": false,
   "disable_mob_generation": false,
   "aquifers_enabled": false,
+  "legacy_random_source": false,
   "default_block": {
     "Name": "borealis:soapstone"
   },
   "default_fluid": {
     "Name": "minecraft:water",
     "Properties": {
-    "level": "0"
+      "level": "0"
     }
+  },
+  "surface_rule": {
+    "sequence": [
+      {
+        "if_true": {
+          "offset": 0,
+          "add_surface_depth": false,
+          "add_surface_secondary_depth": false,
+          "surface_type": "floor",
+          "type": "minecraft:stone_depth"
+        },
+        "then_run": {
+          "sequence": [
+            {
+              "if_true": {
+                "offset": -1,
+                "surface_depth_multiplier": 0,
+                "add_stone_depth": false,
+                "type": "minecraft:water"
+              },
+              "then_run": {
+                "result_state": {
+                  "Name": "borealis:living_snow_block"
+                },
+                "type": "minecraft:block"
+              },
+              "type": "minecraft:condition"
+            },
+            {
+              "result_state": {
+                "Name": "borealis:living_snow_block"
+              },
+              "type": "minecraft:block"
+            }
+          ],
+          "type": "minecraft:sequence"
+        },
+        "type": "minecraft:condition"
+      },
+      {
+        "if_true": {
+          "offset": 0,
+          "add_surface_depth": true,
+          "add_surface_secondary_depth": false,
+          "surface_type": "floor",
+          "type": "minecraft:stone_depth"
+        },
+        "then_run": {
+          "result_state": {
+            "Properties": {
+              "icy": false,
+              "snowy": false,
+              "sugary": false
+            },
+            "Name": "borealis:permafrost"
+          },
+          "type": "minecraft:block"
+        },
+        "type": "minecraft:condition"
+      }
+    ],
+    "type": "minecraft:sequence"
   },
   "bedrock_roof_position": -2147483648,
   "bedrock_floor_position": -2147483648,
@@ -22,28 +85,31 @@
     "structures": {}
   },
   "noise": {
-    "min_y": 0,
-    "height": 128,
-    "size_vertical": 1,
+    "terrain_shaper": {
+      "offset": 0.0,
+      "factor": 0.0,
+      "jaggedness": 0.0
+    },
     "size_horizontal": 2,
-    "density_factor": 0.0,
-    "density_offset": 0.0,
-    "simplex_surface_noise": true,
-    "bottom_slide": {
-      "target": -30,
-      "size": 7,
-      "offset": 1
+    "size_vertical": 1,
+    "island_noise_override": true,
+    "sampling": {
+      "xz_scale": 2.0,
+      "y_scale": 1.0,
+      "xz_factor": 80.0,
+      "y_factor": 160.0
     },
     "top_slide": {
-      "target": -1000,
+      "target": -30,
       "size": 64,
       "offset": -46
     },
-    "sampling": {
-      "xz_scale": 2,
-      "y_scale": 1,
-      "xz_factor": 100,
-      "y_factor": 160
-    }
+    "bottom_slide": {
+      "target": -0.3,
+      "size": 7,
+      "offset": 1
+    },
+    "min_y": 0,
+    "height": 128
   }
 }

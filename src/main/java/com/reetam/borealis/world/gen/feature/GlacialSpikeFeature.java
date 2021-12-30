@@ -40,7 +40,7 @@ public class GlacialSpikeFeature extends Feature<NoneFeatureConfiguration> {
                 int l = (int) Math.ceil(f);
 
                 for (int i1 = -l; i1 <= l; ++i1) {
-                    float f1 = (float) (int) Math.abs(i1) - 0.25F;
+                    float f1 = (float) Math.abs(i1) - 0.25F;
 
                     for (int j1 = -l; j1 <= l; ++j1) {
                         float f2 = (float) Math.abs(j1) - 0.25F;

@@ -36,7 +36,6 @@ public class BorealisMod {
         BorealisFeatures.FEATURES.register(bus);
         BorealisSounds.SOUND_EVENTS.register(bus);
         BorealisFeatures.TreePlacers.FOLIAGE_PLACERS.register(bus);
-        BorealisFeatures.SurfaceBuilders.SURFACE_BUILDERS.register(bus);
     }
 
     public void clientSetup(FMLClientSetupEvent event) {
@@ -46,7 +45,7 @@ public class BorealisMod {
 
     public void commonSetup(FMLCommonSetupEvent event) {
         BorealisEntities.registerSpawnPlacements();
-        BorealisFeatures.registerConfiguredFeatures();
+        BorealisFeatures.registerPlacedFeatures();
         BorealisDimensions.registerDimensionGenerators();
         BorealisBlocks.registerFlowerPots();
         BorealisBlocks.registerWoodTypes();

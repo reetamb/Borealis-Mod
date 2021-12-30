@@ -34,7 +34,7 @@ public class RootedTrunkPlacer extends TrunkPlacer {
     public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, Random rand, int height, BlockPos pos, TreeConfiguration config) {
         int treeBaseHeight = config.trunkPlacer.getTreeHeight(rand);
 
-        int rootHeight = rand.nextInt(2) + (int) Math.floor(treeBaseHeight / 5) + 1;
+        int rootHeight = rand.nextInt(2) + (int) Math.floor(treeBaseHeight / 5.0) + 1;
         int rootSplay = 2;
         BlockPos pos1 = pos;
 

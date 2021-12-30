@@ -11,18 +11,18 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(modid = "borealis", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BorealisEntities {
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, BorealisMod.MODID);
 
-    public static final EntityType<HummingbirdEntity> HUMMINGBIRD_TYPE = EntityType.Builder.<HummingbirdEntity>of(HummingbirdEntity::new, MobCategory.CREATURE)
+    public static final EntityType<HummingbirdEntity> HUMMINGBIRD_TYPE = EntityType.Builder.of(HummingbirdEntity::new, MobCategory.CREATURE)
             .sized(0.9F, 0.9F).clientTrackingRange(10).build("hummingbird");
-    public static final EntityType<TakaheEntity> TAKAHE_TYPE = EntityType.Builder.<TakaheEntity>of(TakaheEntity::new, MobCategory.CREATURE)
+    public static final EntityType<TakaheEntity> TAKAHE_TYPE = EntityType.Builder.of(TakaheEntity::new, MobCategory.CREATURE)
             .sized(0.8F, 0.8F).clientTrackingRange(10).build("takahe");
     public static final EntityType<BorealisBoatEntity> BOAT_TYPE = EntityType.Builder.<BorealisBoatEntity>of(BorealisBoatEntity::new, MobCategory.MISC)
             .sized(1.375F, 0.5625F).clientTrackingRange(10).build("boat");
@@ -30,7 +30,7 @@ public class BorealisEntities {
 
     public static final RegistryObject<EntityType<HummingbirdEntity>> HUMMINGBIRD = ENTITIES.register(
             "hummingbird", () -> HUMMINGBIRD_TYPE);
-    public static final  RegistryObject<EntityType<TakaheEntity>> TAKAHE = ENTITIES.register(
+    public static final RegistryObject<EntityType<TakaheEntity>> TAKAHE = ENTITIES.register(
             "takahe", () -> TAKAHE_TYPE);
 
     public static void registerSpawnPlacements() {

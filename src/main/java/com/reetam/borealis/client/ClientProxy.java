@@ -1,7 +1,5 @@
 package com.reetam.borealis.client;
 
-import com.reetam.borealis.client.renderer.BorealisAuroraRenderer;
-import com.reetam.borealis.client.renderer.BorealisSkyRenderer;
 import com.reetam.borealis.entity.BorealisBoatEntity;
 import com.reetam.borealis.entity.model.HummingbirdModel;
 import com.reetam.borealis.entity.model.TakaheModel;
@@ -14,12 +12,9 @@ import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
-import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.ICloudRenderHandler;
-import net.minecraftforge.client.ISkyRenderHandler;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

@@ -15,20 +15,6 @@
     "water_fog_color": 5683175,
     "grass_color_modifier": "none"
   },
-  "surface_builder": {
-    "type": "default",
-    "config": {
-      "top_material": {
-        "Name": "borealis:pumice"
-      },
-      "under_material": {
-        "Name": "borealis:pumice"
-      },
-      "underwater_material": {
-        "Name": "borealis:soapstone"
-      }
-    }
-  },
   "carvers": {},
   "features": [
     [],

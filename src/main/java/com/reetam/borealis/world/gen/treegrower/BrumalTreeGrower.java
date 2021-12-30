@@ -13,6 +13,6 @@ public class BrumalTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected ConfiguredFeature<TreeConfiguration, ?> getConfiguredFeature(Random rand, boolean largeHive) {
-        return BorealisFeatures.Configured.BRUMAL_TREE;
+        return BorealisFeatures.Configured.CONFIGURED_BRUMAL_TREE;
     }
 }

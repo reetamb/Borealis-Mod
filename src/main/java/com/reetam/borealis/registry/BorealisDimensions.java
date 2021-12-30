@@ -1,7 +1,6 @@
 package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.world.seed.BorealisBiomeProvider;
 import com.reetam.borealis.world.seed.BorealisChunkGenerator;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -16,7 +15,6 @@ public class BorealisDimensions {
 
     public static void registerDimensionGenerators() {
         Registry.register(Registry.CHUNK_GENERATOR, name("chunk_generator"), BorealisChunkGenerator.CODEC);
-        Registry.register(Registry.BIOME_SOURCE, name("biome_provider"), BorealisBiomeProvider.CODEC);
     }
 
     private static ResourceLocation name(String name) {

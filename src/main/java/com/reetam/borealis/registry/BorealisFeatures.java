@@ -6,11 +6,11 @@ import com.reetam.borealis.world.gen.feature.*;
 import com.reetam.borealis.world.gen.foliageplacer.AspenFoliagePlacer;
 import com.reetam.borealis.world.gen.foliageplacer.HelixFoliagePlacer;
 import com.reetam.borealis.world.gen.foliageplacer.PalmFoliagePlacer;
-import com.reetam.borealis.world.gen.surfacebuilder.DeepTopSurfaceBuilder;
 import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
-import net.minecraft.data.worldgen.Features;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -21,17 +21,17 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
-import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
-import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderConfiguration;
-import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-
+import net.minecraftforge.registries.RegistryObject;
 
 public class BorealisFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, BorealisMod.MODID);
@@ -66,60 +66,49 @@ public class BorealisFeatures {
         }
     }
 
-    public static class SurfaceBuilders {
-        public static final DeferredRegister<SurfaceBuilder<?>> SURFACE_BUILDERS = DeferredRegister.create(ForgeRegistries.SURFACE_BUILDERS, BorealisMod.MODID);
-
-        public static final RegistryObject<DeepTopSurfaceBuilder> DEEP_TOP = SURFACE_BUILDERS.register("deep_top", () -> new DeepTopSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC));
-    }
-
     public static class Configured {
 
-        public static final ConfiguredFeature<TreeConfiguration, ?> BRUMAL_TREE = Feature.TREE.configured(
+        public static final ConfiguredFeature<TreeConfiguration, ?> CONFIGURED_BRUMAL_TREE = Feature.TREE.configured(
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        new SimpleStateProvider(BorealisBlocks.BRUMAL_LOG.get().defaultBlockState()),
+                        BlockStateProvider.simple(BorealisBlocks.BRUMAL_LOG.get().defaultBlockState()),
                         new RootedTrunkPlacer(4, 2, 2),
-                        new SimpleStateProvider(BorealisBlocks.BRUMAL_LEAVES.get().defaultBlockState()),
-                        new SimpleStateProvider(BorealisBlocks.BRUMAL_SAPLING.get().defaultBlockState()),
+                        BlockStateProvider.simple(BorealisBlocks.BRUMAL_LEAVES.get().defaultBlockState()),
                         new PalmFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                         new TwoLayersFeatureSize(1, 0, 1))
                         .ignoreVines().build());
 
-        public static final ConfiguredFeature<TreeConfiguration, ?> TALL_BRUMAL_TREE = Feature.TREE.configured(
+        public static final ConfiguredFeature<TreeConfiguration, ?> CONFIGURED_TALL_BRUMAL_TREE = Feature.TREE.configured(
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        new SimpleStateProvider(BorealisBlocks.BRUMAL_LOG.get().defaultBlockState()),
+                        BlockStateProvider.simple(BorealisBlocks.BRUMAL_LOG.get().defaultBlockState()),
                         new RootedTrunkPlacer(6, 2, 2),
-                        new SimpleStateProvider(BorealisBlocks.BRUMAL_LEAVES.get().defaultBlockState()),
-                        new SimpleStateProvider(BorealisBlocks.BRUMAL_SAPLING.get().defaultBlockState()),
+                        BlockStateProvider.simple(BorealisBlocks.BRUMAL_LEAVES.get().defaultBlockState()),
                         new PalmFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                         new TwoLayersFeatureSize(1, 0, 1))
                         .ignoreVines().build());
 
-        public static final ConfiguredFeature<TreeConfiguration, ?> FROSTFIR_TREE = Feature.TREE.configured(
+        public static final ConfiguredFeature<TreeConfiguration, ?> CONFIGURED_FROSTFIR_TREE = Feature.TREE.configured(
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        new SimpleStateProvider(BorealisBlocks.FROSTFIR_LOG.get().defaultBlockState()),
+                        BlockStateProvider.simple(BorealisBlocks.FROSTFIR_LOG.get().defaultBlockState()),
                         new StraightTrunkPlacer(8, 2, 2),
-                        new SimpleStateProvider(BorealisBlocks.FROSTFIR_LEAVES.get().defaultBlockState()),
-                        new SimpleStateProvider(BorealisBlocks.FROSTFIR_SAPLING.get().defaultBlockState()),
+                        BlockStateProvider.simple(BorealisBlocks.FROSTFIR_LEAVES.get().defaultBlockState()),
                         new SpruceFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                         new TwoLayersFeatureSize(1, 0, 1))
                         .ignoreVines().build());
 
-        public static final ConfiguredFeature<TreeConfiguration, ?> HELIX_TREE = Feature.TREE.configured(
+        public static final ConfiguredFeature<TreeConfiguration, ?> CONFIGURED_HELIX_TREE = Feature.TREE.configured(
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        new SimpleStateProvider(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
+                        BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
                         new StraightTrunkPlacer(10, 2, 2),
-                        new SimpleStateProvider(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
-                        new SimpleStateProvider(BorealisBlocks.SACCHARINE_SAPLING.get().defaultBlockState()),
+                        BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
                         new HelixFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                         new TwoLayersFeatureSize(1, 0, 1))
                         .ignoreVines().build());
 
-        public static final ConfiguredFeature<TreeConfiguration, ?> COTTON_TREE = Feature.TREE.configured(
+        public static final ConfiguredFeature<TreeConfiguration, ?> CONFIGURED_COTTON_TREE = Feature.TREE.configured(
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        new SimpleStateProvider(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
+                        BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
                         new StraightTrunkPlacer(5, 2, 2),
-                        new SimpleStateProvider(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
-                        new SimpleStateProvider(BorealisBlocks.SACCHARINE_SAPLING.get().defaultBlockState()),
+                        BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
                         new AspenFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                         new TwoLayersFeatureSize(1, 0, 1))
                         .ignoreVines().build());
@@ -128,51 +117,61 @@ public class BorealisFeatures {
                 new ReplaceSphereConfiguration(
                         BorealisBlocks.PERMAFROST.get().defaultBlockState(),
                         BorealisBlocks.PERMAFROST_RUBBLE.get().defaultBlockState(),
-                        UniformInt.of(3, 4))).rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.belowTop(64))
-                .squared().count(10);
-
-        public static final ConfiguredFeature<?, ?> CONFIGURED_FROSTFIR_TREE = FROSTFIR_TREE.decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(8);
-        public static final ConfiguredFeature<?, ?> CONFIGURED_HELIX_TREE = HELIX_TREE.decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(1);
-        public static final ConfiguredFeature<?, ?> CONFIGURED_BRUMAL_TREE = BRUMAL_TREE.decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2);
-        public static final ConfiguredFeature<?, ?> CONFIGURED_TALL_BRUMAL_TREE = TALL_BRUMAL_TREE.decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(1);
-        public static final ConfiguredFeature<?, ?> CONFIGURED_COTTON_TREE = COTTON_TREE.decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(1);
-
-        public static final ConfiguredFeature<?, ?> CONFIGURED_GLACIAL_RIDGE = GLACIAL_RIDGE.get().configured(new ColumnFeatureConfiguration(ConstantInt.of(2), ConstantInt.of(2)))
-                .decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(6);
-
-        public static final ConfiguredFeature<?, ?> CONFIGURED_GLACIAL_SPIKE = GLACIAL_SPIKE.get().configured(FeatureConfiguration.NONE)
-                .decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(3);
-
-        public static final ConfiguredFeature<?, ?> CONFIGURED_HOT_SPRING = HOT_SPRING.get().configured(FeatureConfiguration.NONE)
-                .count(1);
-
-        public static final ConfiguredFeature<?, ?> CONFIGURED_SPIKE_TRAIL = SPIKE_TRAIL.get().configured(FeatureConfiguration.NONE)
-                .decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(1);
-
-        public static final ConfiguredFeature<?, ?> CONFIGURED_SPIRAL_CLOUD = SPIRAL_CLOUD.get().configured(FeatureConfiguration.NONE)
-                .count(1);
-
-        public static final ConfiguredFeature<?, ?> CONFIGURED_CLOUD = CLOUD.get().configured(FeatureConfiguration.NONE)
-                .rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(32)).count(4);
+                        UniformInt.of(3, 4)));
     }
 
-    public static void registerConfiguredFeatures() {
-        register("frostfir_tree", Configured.CONFIGURED_FROSTFIR_TREE);
-        register("helix_tree", Configured.CONFIGURED_HELIX_TREE);
-        register("brumal_tree", Configured.CONFIGURED_BRUMAL_TREE);
-        register("tall_brumal_tree", Configured.CONFIGURED_TALL_BRUMAL_TREE);
-        register("cotton_tree", Configured.CONFIGURED_COTTON_TREE);
-        register("permafrost_rubble_patch", Configured.CONFIGURED_RUBBLE_PATCH);
-        register("cloud", Configured.CONFIGURED_CLOUD);
-        register("glacial_ridge", Configured.CONFIGURED_GLACIAL_RIDGE);
-        register("glacial_spike", Configured.CONFIGURED_GLACIAL_SPIKE);
-        register("hot_spring", Configured.CONFIGURED_HOT_SPRING);
-        register("sprinkle_top_layer", SUGAR_SNOW.get().configured(FeatureConfiguration.NONE));
-        register("spike_trail", Configured.CONFIGURED_SPIKE_TRAIL);
-        register("spiral_cloud", Configured.CONFIGURED_SPIRAL_CLOUD);
+    public static class Placed {
+        public static final PlacedFeature PLACED_FROSTFIR_TREE = Configured.CONFIGURED_FROSTFIR_TREE.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(8, 0.1F, 1)));
+        public static final PlacedFeature PLACED_HELIX_TREE = Configured.CONFIGURED_HELIX_TREE.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
+        public static final PlacedFeature PLACED_BRUMAL_TREE = Configured.CONFIGURED_BRUMAL_TREE.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.1F, 1)));
+        public static final PlacedFeature PLACED_TALL_BRUMAL_TREE = Configured.CONFIGURED_TALL_BRUMAL_TREE.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
+        public static final PlacedFeature PLACED_COTTON_TREE = Configured.CONFIGURED_COTTON_TREE.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
+
+        public static final PlacedFeature PLACED_GLACIAL_RIDGE = GLACIAL_RIDGE.get().configured(new ColumnFeatureConfiguration(ConstantInt.of(2), ConstantInt.of(2)))
+                .placed(HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(128)),
+                        InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(6));
+        public static final PlacedFeature PLACED_GLACIAL_SPIKE = GLACIAL_SPIKE.get().configured(FeatureConfiguration.NONE)
+                .placed(HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(128)),
+                        InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(6));
+        public static final PlacedFeature PLACED_RUBBLE_PATCH = Configured.CONFIGURED_RUBBLE_PATCH
+                .placed(HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(64)),
+                        InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(4));
+
+        public static final PlacedFeature PLACED_HOT_SPRING = HOT_SPRING.get().configured(FeatureConfiguration.NONE)
+                .placed(HeightRangePlacement.uniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(128)),
+                        InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(1));
+        public static final PlacedFeature PLACED_SPIKE_TRAIL = SPIKE_TRAIL.get().configured(FeatureConfiguration.NONE)
+                .placed(HeightRangePlacement.uniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(128)),
+                        InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(1));
+
+        public static final PlacedFeature PLACED_SPIRAL_CLOUD = SPIRAL_CLOUD.get().configured(FeatureConfiguration.NONE)
+                .placed(HeightRangePlacement.uniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(128)),
+                        InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(1));
+        public static final PlacedFeature PLACED_CLOUD = CLOUD.get().configured(FeatureConfiguration.NONE)
+                .placed(HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(32)),
+                        RarityFilter.onAverageOnceEvery(4));
+
+        public static final PlacedFeature PLACED_SUGAR_SNOW = SUGAR_SNOW.get().configured(FeatureConfiguration.NONE)
+                .placed(HeightRangePlacement.uniform(VerticalAnchor.absolute(16), VerticalAnchor.absolute(80)));
     }
 
-    private static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {
-        return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new ResourceLocation(BorealisMod.MODID, name), feature);
+    public static void registerPlacedFeatures() {
+        register("frostfir_tree", Placed.PLACED_FROSTFIR_TREE);
+        register("helix_tree", Placed.PLACED_HELIX_TREE);
+        register("brumal_tree", Placed.PLACED_BRUMAL_TREE);
+        register("tall_brumal_tree", Placed.PLACED_TALL_BRUMAL_TREE);
+        register("cotton_tree", Placed.PLACED_COTTON_TREE);
+        register("permafrost_rubble_patch", Placed.PLACED_RUBBLE_PATCH);
+        register("cloud", Placed.PLACED_CLOUD);
+        register("glacial_ridge", Placed.PLACED_GLACIAL_RIDGE);
+        register("glacial_spike", Placed.PLACED_GLACIAL_SPIKE);
+        register("hot_spring", Placed.PLACED_HOT_SPRING);
+        register("sprinkle_top_layer", Placed.PLACED_SUGAR_SNOW);
+        register("spike_trail", Placed.PLACED_SPIKE_TRAIL);
+        register("spiral_cloud", Placed.PLACED_SPIRAL_CLOUD);
+    }
+
+    private static PlacedFeature register(String name, PlacedFeature feature) {
+        return Registry.register(BuiltinRegistries.PLACED_FEATURE, new ResourceLocation(BorealisMod.MODID, name), feature);
     }
 }

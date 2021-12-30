@@ -173,16 +173,16 @@ public class BorealisTeleporter implements ITeleporter {
     private static PortalInfo moveToSafeCoords(ServerLevel level, Entity entity) {
 
         BlockPos pos = entity.blockPosition();
-        if (isSafeAround(level, pos, entity)) {
+        if (isSafeAround(level, pos)) {
             return makePortalInfo(entity, entity.position());
         }
 
-        BlockPos safeCoords = findSafeCoords(level, 200, pos, entity);
+        BlockPos safeCoords = findSafeCoords(level, 200, pos);
         if (safeCoords != null) {
             return makePortalInfo(entity, safeCoords.getX(), entity.getY(), safeCoords.getZ());
         }
 
-        safeCoords = findSafeCoords(level, 400, pos, entity);
+        safeCoords = findSafeCoords(level, 400, pos);
 
         if (safeCoords != null) {
             return makePortalInfo(entity, safeCoords.getX(), entity.getY(), safeCoords.getZ());
@@ -191,14 +191,14 @@ public class BorealisTeleporter implements ITeleporter {
         return makePortalInfo(entity, entity.position());
     }
 
-    public static boolean isSafeAround(Level level, BlockPos pos, Entity entity) {
+    public static boolean isSafeAround(Level level, BlockPos pos) {
 
-        if (!isSafe(level, pos, entity)) {
+        if (isUnsafe(level, pos)) {
             return false;
         }
 
         for (Direction facing : Direction.Plane.HORIZONTAL) {
-            if (!isSafe(level, pos.relative(facing, 16), entity)) {
+            if (isUnsafe(level, pos.relative(facing, 16))) {
                 return false;
             }
         }
@@ -206,7 +206,7 @@ public class BorealisTeleporter implements ITeleporter {
         return true;
     }
 
-    private static boolean isSafe(Level level, BlockPos pos, Entity entity) {
+    private static boolean isUnsafe(Level level, BlockPos pos) {
         return checkPos(level, pos);
     }
 
@@ -215,13 +215,13 @@ public class BorealisTeleporter implements ITeleporter {
     }
 
     @Nullable
-    private static BlockPos findSafeCoords(ServerLevel level, int range, BlockPos pos, Entity entity) {
+    private static BlockPos findSafeCoords(ServerLevel level, int range, BlockPos pos) {
         int attempts = range / 8;
         for (int i = 0; i < attempts; i++) {
             BlockPos dPos = new BlockPos(
                     pos.getX(), 100, pos.getZ());
 
-            if (isSafeAround(level, dPos, entity)) {
+            if (isSafeAround(level, dPos)) {
                 return dPos;
             }
         }
@@ -232,7 +232,6 @@ public class BorealisTeleporter implements ITeleporter {
         loadSurroundingArea(level, pos);
 
         BlockPos spot = findPortalCoords(level, pos, blockPos -> isPortalAt(level, blockPos));
-        String name = entity.getName().toString();
 
         if (spot != null) {
             cachePortalCoords(level, pos, spot);
