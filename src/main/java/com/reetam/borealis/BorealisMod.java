@@ -18,6 +18,11 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 public class BorealisMod {
 
     public static final String MODID = "borealis";
+    // 1.18 Port Todo:
+    // Fix noise sliders so that island tops are less flat
+    // Fix biome distribution
+    // Fix tree placers to fix tree features
+    // Fix dimension render effects
 
     public BorealisMod() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

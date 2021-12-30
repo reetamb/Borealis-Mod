@@ -10,14 +10,14 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(LevelRenderer.class)
 public class MixinLevelRenderer {
-//    @Shadow
-//    private ClientLevel level;
-//
-//    @ModifyVariable(at = @At(value = "STORE"), method = "renderSky(Lcom/mojang/blaze3d/vertex/PoseStack;F)V", ordinal = 0)
-//    private double onRenderSky(double d0) {
-//        if (this.level.dimension() == BorealisDimensions.BOREALIS) {
-//            return 1.0D;
-//        }
-//        return d0;
-//    }
+    @Shadow
+    private ClientLevel level;
+
+    @ModifyVariable(at = @At(value = "STORE"), method = "renderSky", ordinal = 0)
+    private double borealisRenderSky(double d0) {
+        if (this.level.dimension() == BorealisDimensions.BOREALIS) {
+            return 1.0D;
+        }
+        return d0;
+    }
 }

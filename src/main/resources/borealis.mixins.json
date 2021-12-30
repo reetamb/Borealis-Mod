@@ -8,6 +8,7 @@
     "MixinWorldGenSettings"
   ],
   "client": [
+    "MixinLevelRenderer"
   ],
   "injectors": {
     "defaultRequire": 1
