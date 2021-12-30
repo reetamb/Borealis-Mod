@@ -156,9 +156,9 @@ public class BorealisFeatures {
     }
 
     public static void registerPlacedFeatures() {
+        register("brumal_tree", Placed.PLACED_BRUMAL_TREE);
         register("frostfir_tree", Placed.PLACED_FROSTFIR_TREE);
         register("helix_tree", Placed.PLACED_HELIX_TREE);
-        register("brumal_tree", Placed.PLACED_BRUMAL_TREE);
         register("tall_brumal_tree", Placed.PLACED_TALL_BRUMAL_TREE);
         register("cotton_tree", Placed.PLACED_COTTON_TREE);
         register("permafrost_rubble_patch", Placed.PLACED_RUBBLE_PATCH);
