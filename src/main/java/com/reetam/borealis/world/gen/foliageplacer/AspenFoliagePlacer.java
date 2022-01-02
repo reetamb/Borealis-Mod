@@ -27,12 +27,8 @@ public class AspenFoliagePlacer extends FoliagePlacer {
         this.trunkHeight = height;
     }
 
-    public int foliageHeight(Random rand, int height, TreeConfiguration config) {
-        return Math.max(4, height - this.trunkHeight.sample(rand));
-    }
-
     protected FoliagePlacerType<?> type() {
-        return BorealisFeatures.TreePlacers.ASPEN_FOLIAGE_PLACER.get();
+        return BorealisFeatures.TreePlacers.ASPEN_FOLIAGE_PLACER;
     }
 
     protected void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, Random rand, TreeConfiguration config, int maxHeight, FoliagePlacer.FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
@@ -45,6 +41,10 @@ public class AspenFoliagePlacer extends FoliagePlacer {
             this.placeLeavesRow(level, blockSetter, rand, config, blockpos, width, l, attachment.doubleTrunk());
             i++;
         }
+    }
+
+    public int foliageHeight(Random rand, int height, TreeConfiguration config) {
+        return Math.max(4, height - this.trunkHeight.sample(rand));
     }
 
     protected boolean shouldSkipLocation(Random rand, int localX, int localY, int localZ, int range, boolean large) {

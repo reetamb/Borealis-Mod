@@ -23,7 +23,9 @@ public class SpikeTrailFeature extends Feature<NoneFeatureConfiguration> {
         
         int xdir = rand.nextInt(3) - 1;
         int zdir = rand.nextInt(3) - 1;
-        for (int i = 0; i < rand.nextInt(5)+5; i++) {
+        int count = rand.nextInt(5) + 5;
+
+        for (int i = 0; i < count; i++) {
             pos = toGround(level, pos);
             if (!level.getBlockState(pos).useShapeForLightOcclusion()) {
                 spikeAt(level, pos);

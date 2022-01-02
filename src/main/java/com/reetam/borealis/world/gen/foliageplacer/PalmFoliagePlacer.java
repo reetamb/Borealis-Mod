@@ -16,10 +16,10 @@ import java.util.function.BiConsumer;
 
 public class PalmFoliagePlacer extends FoliagePlacer {
 
-    public static final Codec<PalmFoliagePlacer> CODEC = RecordCodecBuilder.create((p_242836_0_) -> {
-        return foliagePlacerParts(p_242836_0_).and(IntProvider.codec(0, 16).fieldOf("trunk_height").forGetter((p_242835_0_) -> {
-            return p_242835_0_.trunkHeight;
-        })).apply(p_242836_0_, PalmFoliagePlacer::new);
+    public static final Codec<PalmFoliagePlacer> CODEC = RecordCodecBuilder.create((instance) -> {
+        return foliagePlacerParts(instance).and(IntProvider.codec(0, 16).fieldOf("trunk_height").forGetter((placer) -> {
+            return placer.trunkHeight;
+        })).apply(instance, PalmFoliagePlacer::new);
     });
     private final IntProvider trunkHeight;
 
@@ -29,7 +29,7 @@ public class PalmFoliagePlacer extends FoliagePlacer {
     }
 
     protected FoliagePlacerType<?> type() {
-        return BorealisFeatures.TreePlacers.PALM_FOLIAGE_PLACER.get();
+        return BorealisFeatures.TreePlacers.PALM_FOLIAGE_PLACER;
     }
 
     public void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, Random rand, TreeConfiguration config, int maxHeight, FoliagePlacer.FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
@@ -53,7 +53,7 @@ public class PalmFoliagePlacer extends FoliagePlacer {
         return Math.max(4, height - this.trunkHeight.sample(rand));
     }
 
-    protected boolean shouldSkipLocation(Random p_230373_1_, int p_230373_2_, int p_230373_3_, int p_230373_4_, int p_230373_5_, boolean p_230373_6_) {
-        return p_230373_2_ == p_230373_5_ && p_230373_4_ == p_230373_5_ && p_230373_5_ > 0;
+    protected boolean shouldSkipLocation(Random rand, int localX, int localY, int localZ, int range, boolean large) {
+        return localX == range && localZ == range && range > 0;
     }
 }

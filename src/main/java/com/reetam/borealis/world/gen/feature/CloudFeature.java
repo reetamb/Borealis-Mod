@@ -25,24 +25,21 @@ public class CloudFeature extends Feature<NoneFeatureConfiguration> {
         WorldGenLevel level = context.level();
         
         int size = rand.nextInt(6) + 2;
+        int clouds = rand.nextInt(6) + 1;
         BlockState state = BorealisBlocks.CLOUD.get().defaultBlockState();
         pos = pos.offset(rand.nextInt(8) - 4, 0, rand.nextInt(8) - 4);
 
-        if (level.dimensionType().hasSkyLight()) {
-            if (level.getBrightness(LightLayer.SKY, pos) != 15 || rand.nextInt(10) == 0) {
-                for (int i = 0; i < rand.nextInt(6) + 1; i++) {
-                    makeDisk(level, state, rand, pos.below(), size - 1);
-                    makeDisk(level, state, rand, pos, size);
-                    makeDisk(level, state, rand, pos.above(), size);
-                    makeDisk(level, state, rand, pos.above(2), size - 2);
-                    if (size - 4 > 1) {
-                        makeDisk(level, state, rand, pos.above(3), size - 4);
-                    }
-
-                    pos = pos.offset(rand.nextInt(8) - 4, rand.nextInt(4) - 2, rand.nextInt(8) - 4);
-                    size -= rand.nextInt(2) + 2;
-                }
+        for (int i = 0; i < clouds; i++) {
+            makeDisk(level, state, rand, pos.below(), size - 1);
+            makeDisk(level, state, rand, pos, size);
+            makeDisk(level, state, rand, pos.above(), size);
+            makeDisk(level, state, rand, pos.above(2), size - 2);
+            if (size - 4 > 1) {
+                makeDisk(level, state, rand, pos.above(3), size - 4);
             }
+
+            pos = pos.offset(rand.nextInt(6) - 3, rand.nextInt(4) - 2, rand.nextInt(6) - 3);
+            size -= rand.nextInt(2);
         }
         return true;
     }

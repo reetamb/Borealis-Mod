@@ -33,7 +33,7 @@ public class HelixFoliagePlacer extends FoliagePlacer {
     }
 
     protected FoliagePlacerType<?> type() {
-        return BorealisFeatures.TreePlacers.HELIX_FOLIAGE_PLACER.get();
+        return BorealisFeatures.TreePlacers.HELIX_FOLIAGE_PLACER;
     }
 
     protected void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, Random rand, TreeConfiguration config, int maxHeight, FoliagePlacer.FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
@@ -49,17 +49,13 @@ public class HelixFoliagePlacer extends FoliagePlacer {
     }
 
     private BlockPos nextLeaf(BlockPos pos, int i) {
-        switch (i%4) {
-            case 0:
-                return pos.north();
-            case 1:
-                return pos.east();
-            case 2:
-                return pos.south();
-            case 3:
-                return pos.west();
-        }
-        return pos;
+        return switch (i % 4) {
+            case 0 -> pos.north();
+            case 1 -> pos.east();
+            case 2 -> pos.south();
+            case 3 -> pos.west();
+            default -> pos;
+        };
     }
 
     protected boolean shouldSkipLocation(Random rand, int localX, int localY, int localZ, int range, boolean large) {

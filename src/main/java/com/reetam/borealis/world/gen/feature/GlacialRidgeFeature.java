@@ -10,7 +10,6 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
@@ -25,27 +24,27 @@ public class GlacialRidgeFeature extends Feature<ColumnFeatureConfiguration> {
         super(codec);
     }
 
+    /** Copy of Vanilla with block modification **/
+
     public boolean place(FeaturePlaceContext<ColumnFeatureConfiguration> context) {
-        Random rand = context.random();
-        BlockPos pos = context.origin();
-        WorldGenLevel level = context.level();
-        ColumnFeatureConfiguration config = context.config();
-        ChunkGenerator generator = context.chunkGenerator();
-        
-        int i = generator.getSeaLevel();
-        if (!canPlaceAt(level, i, pos.mutable())) {
+        int i = context.chunkGenerator().getSeaLevel();
+        BlockPos blockpos = context.origin();
+        WorldGenLevel worldgenlevel = context.level();
+        Random random = context.random();
+        ColumnFeatureConfiguration columnfeatureconfiguration = context.config();
+        if (!canPlaceAt(worldgenlevel, i, blockpos.mutable())) {
             return false;
         } else {
-            int j = config.height().sample(rand);
-            boolean flag = rand.nextFloat() < 0.9F;
+            int j = columnfeatureconfiguration.height().sample(random);
+            boolean flag = random.nextFloat() < 0.9F;
             int k = Math.min(j, flag ? 5 : 8);
             int l = flag ? 50 : 15;
             boolean flag1 = false;
 
-            for(BlockPos blockpos : BlockPos.randomBetweenClosed(rand, l, pos.getX() - k, pos.getY(), pos.getZ() - k, pos.getX() + k, pos.getY(), pos.getZ() + k)) {
-                int i1 = j - blockpos.distManhattan(pos);
+            for(BlockPos blockpos1 : BlockPos.randomBetweenClosed(random, l, blockpos.getX() - k, blockpos.getY(), blockpos.getZ() - k, blockpos.getX() + k, blockpos.getY(), blockpos.getZ() + k)) {
+                int i1 = j - blockpos1.distManhattan(blockpos);
                 if (i1 >= 0) {
-                    flag1 |= this.placeColumn(level, i, blockpos, i1, config.reach().sample(rand));
+                    flag1 |= this.placeColumn(worldgenlevel, i, blockpos1, i1, columnfeatureconfiguration.reach().sample(random));
                 }
             }
 
@@ -53,26 +52,26 @@ public class GlacialRidgeFeature extends Feature<ColumnFeatureConfiguration> {
         }
     }
 
-    private boolean placeColumn(LevelAccessor level, int seaLevel, BlockPos pos, int distance, int reach) {
+    private boolean placeColumn(LevelAccessor level, int sealevel, BlockPos pos, int distance, int reach) {
         boolean flag = false;
 
         for(BlockPos blockpos : BlockPos.betweenClosed(pos.getX() - reach, pos.getY(), pos.getZ() - reach, pos.getX() + reach, pos.getY(), pos.getZ() + reach)) {
             int i = blockpos.distManhattan(pos);
-            BlockPos blockpos1 = isAirOrLavaOcean(level, seaLevel, blockpos) ? findSurface(level, seaLevel, blockpos.mutable(), i) : findAir(level, blockpos.mutable(), i);
+            BlockPos blockpos1 = isAirOrLake(level, sealevel, blockpos) ? findSurface(level, sealevel, blockpos.mutable(), i) : findAir(level, blockpos.mutable(), i);
             if (blockpos1 != null) {
                 int j = distance - i / 2;
 
-                for(BlockPos.MutableBlockPos blockpos$mutable = blockpos1.mutable(); j >= 0; --j) {
-                    if (isAirOrLavaOcean(level, seaLevel, blockpos$mutable)) {
-                        this.setBlock(level, blockpos$mutable, Blocks.PACKED_ICE.defaultBlockState());
-                        blockpos$mutable.move(Direction.UP);
+                for(BlockPos.MutableBlockPos blockpos$mutableblockpos = blockpos1.mutable(); j >= 0; --j) {
+                    if (isAirOrLake(level, sealevel, blockpos$mutableblockpos)) {
+                        this.setBlock(level, blockpos$mutableblockpos, Blocks.PACKED_ICE.defaultBlockState());
+                        blockpos$mutableblockpos.move(Direction.UP);
                         flag = true;
                     } else {
-                        if (!level.getBlockState(blockpos$mutable).is(Blocks.PACKED_ICE)) {
+                        if (!level.getBlockState(blockpos$mutableblockpos).is(Blocks.PACKED_ICE)) {
                             break;
                         }
 
-                        blockpos$mutable.move(Direction.UP);
+                        blockpos$mutableblockpos.move(Direction.UP);
                     }
                 }
             }
@@ -82,49 +81,49 @@ public class GlacialRidgeFeature extends Feature<ColumnFeatureConfiguration> {
     }
 
     @Nullable
-    private static BlockPos findSurface(LevelAccessor level, int seaLevel, BlockPos.MutableBlockPos pos$mutable, int distance) {
-        while(pos$mutable.getY() > 1 && distance > 0) {
+    private static BlockPos findSurface(LevelAccessor level, int seaLevel, BlockPos.MutableBlockPos pos, int distance) {
+        while(pos.getY() > level.getMinBuildHeight() + 1 && distance > 0) {
             --distance;
-            if (canPlaceAt(level, seaLevel, pos$mutable)) {
-                return pos$mutable;
+            if (canPlaceAt(level, seaLevel, pos)) {
+                return pos;
             }
 
-            pos$mutable.move(Direction.DOWN);
+            pos.move(Direction.DOWN);
         }
 
         return null;
     }
 
-    private static boolean canPlaceAt(LevelAccessor level, int seaLevel, BlockPos.MutableBlockPos pos$mutable) {
-        if (!isAirOrLavaOcean(level, seaLevel, pos$mutable)) {
+    private static boolean canPlaceAt(LevelAccessor level, int seaLevel, BlockPos.MutableBlockPos pos) {
+        if (!isAirOrLake(level, seaLevel, pos)) {
             return false;
         } else {
-            BlockState blockstate = level.getBlockState(pos$mutable.move(Direction.DOWN));
-            pos$mutable.move(Direction.UP);
+            BlockState blockstate = level.getBlockState(pos.move(Direction.DOWN));
+            pos.move(Direction.UP);
             return !blockstate.isAir() && !CANNOT_PLACE_ON.contains(blockstate.getBlock());
         }
     }
 
     @Nullable
-    private static BlockPos findAir(LevelAccessor level, BlockPos.MutableBlockPos pos$mutable, int distance) {
-        while(pos$mutable.getY() < level.getMaxBuildHeight() && distance > 0) {
+    private static BlockPos findAir(LevelAccessor level, BlockPos.MutableBlockPos pos, int distance) {
+        while(pos.getY() < level.getMaxBuildHeight() && distance > 0) {
             --distance;
-            BlockState blockstate = level.getBlockState(pos$mutable);
+            BlockState blockstate = level.getBlockState(pos);
             if (CANNOT_PLACE_ON.contains(blockstate.getBlock())) {
                 return null;
             }
 
             if (blockstate.isAir()) {
-                return pos$mutable;
+                return pos;
             }
 
-            pos$mutable.move(Direction.UP);
+            pos.move(Direction.UP);
         }
 
         return null;
     }
 
-    private static boolean isAirOrLavaOcean(LevelAccessor level, int seaLevel, BlockPos pos) {
+    private static boolean isAirOrLake(LevelAccessor level, int seaLevel, BlockPos pos) {
         BlockState blockstate = level.getBlockState(pos);
         return blockstate.isAir() || blockstate.is(Blocks.WATER) && pos.getY() <= seaLevel;
     }

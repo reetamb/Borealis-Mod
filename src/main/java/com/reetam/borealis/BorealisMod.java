@@ -19,7 +19,7 @@ public class BorealisMod {
 
     public static final String MODID = "borealis";
     // 1.18 Port Todo:
-    // Fix noise sliders so that island tops are less flat
+    // FINISHED Fix noise sliders so that island tops are less flat
     // Fix biome distribution
     // Fix tree placers to fix tree features
     // Fix dimension render effects
@@ -74,6 +74,7 @@ public class BorealisMod {
             BorealisBlockTags tags = new BorealisBlockTags(generator, helper);
             generator.addProvider(tags);
             generator.addProvider(new BorealisItemTags(generator, tags, helper));
+            generator.addProvider(new BorealisFluidTags(generator, helper));
             generator.addProvider(new BorealisRecipes(generator));
         }
     }

@@ -24,7 +24,7 @@ public class HotSpringFeature extends Feature<NoneFeatureConfiguration> {
         BlockPos pos = context.origin();
         WorldGenLevel level = context.level();
 
-        pos = new BlockPos(pos.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()) - 4 + rand.nextInt(8), pos.getZ());
+        pos = new BlockPos(pos.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()) - 4 + rand.nextInt(8) * rand.nextInt(1, 3), pos.getZ());
         if (pos.getY() < 20) return true;
 
         // CREATE POND SHAPE

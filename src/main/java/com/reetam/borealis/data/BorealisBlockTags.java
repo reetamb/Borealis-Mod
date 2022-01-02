@@ -2,7 +2,10 @@ package com.reetam.borealis.data;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisTags;
+import net.minecraft.data.tags.FluidTagsProvider;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -10,6 +13,7 @@ import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -143,6 +147,9 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.BRUMAL_WALL_SIGN.get())
                 .add(BorealisBlocks.FROSTFIR_WALL_SIGN.get())
                 .add(BorealisBlocks.SACCHARINE_WALL_SIGN.get());
+        tag(BlockTags.DIRT)
+                .add(BorealisBlocks.LIVING_SNOW_BLOCK.get())
+                .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get());
         //forge
         tag(Tags.Blocks.COBBLESTONE)
                 .add(BorealisBlocks.SOAPSTONE.get())

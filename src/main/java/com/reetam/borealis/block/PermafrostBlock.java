@@ -48,6 +48,6 @@ public class PermafrostBlock extends Block {
         if (target.is(BorealisTags.Blocks.SNOWY_BLOCKS)) return this.defaultBlockState().setValue(COVER, PermafrostCover.SNOWY);
         else if (target.is(BorealisTags.Blocks.ICY_BLOCKS)) return this.defaultBlockState().setValue(COVER, PermafrostCover.ICY);
         else if (target.is(BorealisTags.Blocks.SUGARY_BLOCKS)) return this.defaultBlockState().setValue(COVER, PermafrostCover.SUGARY);
-        else return this.defaultBlockState().setValue(COVER, PermafrostCover.SNOWY);
+        else return this.defaultBlockState().setValue(COVER, PermafrostCover.CLEAR);
     }
 }

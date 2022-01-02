@@ -524,6 +524,7 @@ b396268d8c1662e1e76b7f502eca1d8176dfb928 data/forge/tags/items/cobblestone.json
 d8045619e3fb5b70987e1cdb8f2b851653ff7f12 data/forge/tags/items/fence_gates/wooden.json
 3979175ae75385d414ac8c337ae1fbd03b618328 data/forge/tags/items/fences/wooden.json
 b396268d8c1662e1e76b7f502eca1d8176dfb928 data/forge/tags/items/stone.json
+0cac5f83a39bd25df01dfcec0330ec1dd2827c99 data/minecraft/tags/blocks/dirt.json
 0cac5f83a39bd25df01dfcec0330ec1dd2827c99 data/minecraft/tags/blocks/enderman_holdable.json
 d8045619e3fb5b70987e1cdb8f2b851653ff7f12 data/minecraft/tags/blocks/fence_gates.json
 f441df6d105b9e1529bdb8d362778dc4e747c3ec data/minecraft/tags/blocks/leaves.json
@@ -543,6 +544,7 @@ cb001350eec93b0187187e177959e82c4f70c103 data/minecraft/tags/blocks/wooden_butto
 a819181d53e3ce8ac4adbf1f8cbc9fb3637ebba9 data/minecraft/tags/blocks/wooden_slabs.json
 658a75b323e56195ccaacd8052f4fda6b0bae9d9 data/minecraft/tags/blocks/wooden_stairs.json
 1156dcd915db83b37e93dcdec2ed7dfa50b11935 data/minecraft/tags/blocks/wooden_trapdoors.json
+06436518fc8419dae359f11f7e4d8436f5959a8a data/minecraft/tags/fluids/water.json
 8f78a24b3d48d32eb2caf2f931dc74ac0e7ebb7b data/minecraft/tags/items/boats.json
 9b3f9b0be4da0510dbc9c9b297b485d8028634dc data/minecraft/tags/items/buttons.json
 f441df6d105b9e1529bdb8d362778dc4e747c3ec data/minecraft/tags/items/leaves.json

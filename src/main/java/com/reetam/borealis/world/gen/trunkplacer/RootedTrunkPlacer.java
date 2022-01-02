@@ -18,8 +18,8 @@ import java.util.function.BiConsumer;
 
 public class RootedTrunkPlacer extends TrunkPlacer {
 
-    public static final Codec<RootedTrunkPlacer> CODEC = RecordCodecBuilder.create((me) ->
-            trunkPlacerParts(me).apply(me, RootedTrunkPlacer::new));
+    public static final Codec<RootedTrunkPlacer> CODEC = RecordCodecBuilder.create((instance) ->
+            trunkPlacerParts(instance).apply(instance, RootedTrunkPlacer::new));
 
     public RootedTrunkPlacer(int baseHeight, int firstRandHeight, int secondRandHeight) {
         super(baseHeight, firstRandHeight, secondRandHeight);
@@ -38,17 +38,6 @@ public class RootedTrunkPlacer extends TrunkPlacer {
         int rootSplay = 2;
         BlockPos pos1 = pos;
 
-//        for (int i = 1; i <= rootSplay; i++) { TODO: Find a better solution to floating roots
-//            level.setBlock(pos1.below().north(i), BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), 19);
-//            level.setBlock(pos1.below().east(i), BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), 19);
-//            level.setBlock(pos1.below().south(i), BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), 19);
-//            level.setBlock(pos1.below().west(i), BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), 19);
-//
-//            level.setBlock(pos1.below(2).north(i), BorealisBlocks.PERMAFROST.get().defaultBlockState(), 19);
-//            level.setBlock(pos1.below(2).east(i), BorealisBlocks.PERMAFROST.get().defaultBlockState(), 19);
-//            level.setBlock(pos1.below(2).south(i), BorealisBlocks.PERMAFROST.get().defaultBlockState(), 19);
-//            level.setBlock(pos1.below(2).west(i), BorealisBlocks.PERMAFROST.get().defaultBlockState(), 19);
-//        }
         for (int i = -3; i < treeBaseHeight; i++) {
             if (i < rootHeight) {
                 placeLog(level, blockSetter, rand, pos1.west(rootSplay), config);
