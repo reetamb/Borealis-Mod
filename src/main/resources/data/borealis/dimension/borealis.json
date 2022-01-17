@@ -9,72 +9,84 @@
         {
           "biome": "borealis:boreal_tundra",
           "parameters": {
-            "temperature": 0,
-            "humidity": 0,
-            "continentalness": 0,
-            "erosion": 0,
-            "weirdness": 0,
-            "depth": 0,
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": 0.0,
+            "erosion": 0.0,
+            "weirdness": 0.0,
+            "depth": 0.0,
             "offset": 0
           }
         },
         {
           "biome": "borealis:frostfir_woods",
           "parameters": {
-            "temperature": 0.25,
-            "humidity": 0.25,
-            "continentalness": 0,
-            "erosion": 0,
-            "weirdness": 0,
-            "depth": 0,
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": -0.5,
+            "erosion": 0.0,
+            "weirdness": 0.0,
+            "depth": 0.0,
             "offset": 0
           }
         },
         {
           "biome": "borealis:ravaged_glacier",
           "parameters": {
-            "temperature": -0.25,
-            "humidity": -0.25,
-            "continentalness": 0,
+            "temperature": 0.0,
+            "humidity": -0.125,
+            "continentalness": 0.25,
             "erosion": 0.0,
-            "weirdness": 0,
-            "depth": 0,
+            "weirdness": 0.0,
+            "depth": 0.0,
             "offset": 0
           }
         },
         {
           "biome": "borealis:brumal_grove",
           "parameters": {
-            "temperature": -0.125,
-            "humidity": -0.125,
-            "continentalness": 0,
-            "erosion": 0,
-            "weirdness": 0,
-            "depth": 0,
+            "temperature": 0.0,
+            "humidity": 0.125,
+            "continentalness": 0.5,
+            "erosion": 0.0,
+            "weirdness": 0.0,
+            "depth": 0.0,
             "offset": 0
           }
         },
         {
           "biome": "borealis:saccharine_hills",
           "parameters": {
-            "temperature": -0.25,
-            "humidity": -0.5,
-            "continentalness": 0,
+            "temperature": 0.0,
+            "humidity": 0.25,
+            "continentalness": 0.625,
             "erosion": 0.0,
-            "weirdness": 0,
-            "depth": 0,
+            "weirdness": 0.0,
+            "depth": 0.0,
             "offset": 0
           }
         },
         {
           "biome": "borealis:hot_spring_islands",
           "parameters": {
-            "temperature": 0.5,
-            "humidity": 0.5,
-            "continentalness": 0,
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": -0.25,
             "erosion": 0.0,
-            "weirdness": 0,
-            "depth": 0,
+            "weirdness": 0.0,
+            "depth": 0.0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "borealis:lost_giantwoods",
+          "parameters": {
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": -0.625,
+            "erosion": 0.0,
+            "weirdness": 0.0,
+            "depth": 0.0,
             "offset": 0
           }
         }

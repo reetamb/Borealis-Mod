@@ -24,8 +24,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaPineFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
@@ -56,8 +58,6 @@ public class BorealisFeatures {
     );
 
     public static class TreePlacers {
-        public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACERS = DeferredRegister.create(ForgeRegistries.FOLIAGE_PLACER_TYPES, BorealisMod.MODID);
-
         public static final FoliagePlacerType<PalmFoliagePlacer> PALM_FOLIAGE_PLACER = registerFoliage("palm_foliage_placer", PalmFoliagePlacer.CODEC);
         public static final FoliagePlacerType<AspenFoliagePlacer> ASPEN_FOLIAGE_PLACER = registerFoliage("aspen_foliage_placer", AspenFoliagePlacer.CODEC);
         public static final FoliagePlacerType<HelixFoliagePlacer> HELIX_FOLIAGE_PLACER = registerFoliage("helix_foliage_placer", HelixFoliagePlacer.CODEC);
@@ -102,12 +102,21 @@ public class BorealisFeatures {
                         new TwoLayersFeatureSize(1, 0, 1))
                         .ignoreVines().build());
 
+        public static final ConfiguredFeature<TreeConfiguration, ?> CONFIGURED_GIANTWOOD_TREE = Feature.TREE.configured(
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(BorealisBlocks.FROSTFIR_LOG.get().defaultBlockState()),
+                        new GiantTrunkPlacer(12, 2, 16),
+                        BlockStateProvider.simple(BorealisBlocks.FROSTFIR_LEAVES.get().defaultBlockState()),
+                        new MegaPineFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), UniformInt.of(12, 16)),
+                        new TwoLayersFeatureSize(1, 1, 2))
+                        .ignoreVines().build());
+
         public static final ConfiguredFeature<TreeConfiguration, ?> CONFIGURED_HELIX_TREE = Feature.TREE.configured(
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
                         new StraightTrunkPlacer(10, 2, 2),
                         BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
-                        new SpruceFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
+                        new HelixFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                         new TwoLayersFeatureSize(1, 0, 1))
                         .ignoreVines().build());
 
@@ -133,6 +142,10 @@ public class BorealisFeatures {
 
         public static final PlacedFeature PLACED_FROSTFIR_TREE = Configured.CONFIGURED_FROSTFIR_TREE
                 .placed(List.of(CountOnEveryLayerPlacement.of(8), BiomeFilter.biome(), PLANT));
+        public static final PlacedFeature PLACED_GREAT_FROSTFIR_TREE = Configured.CONFIGURED_FROSTFIR_TREE
+                .placed(List.of(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome(), PLANT));
+        public static final PlacedFeature PLACED_GIANTWOOD_TREE = Configured.CONFIGURED_GIANTWOOD_TREE
+                .placed(List.of(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome(), PLANT));
         public static final PlacedFeature PLACED_HELIX_TREE = Configured.CONFIGURED_HELIX_TREE
                 .placed(List.of(CountOnEveryLayerPlacement.of(1), BiomeFilter.biome(), PLANT));
         public static final PlacedFeature PLACED_BRUMAL_TREE = Configured.CONFIGURED_BRUMAL_TREE
@@ -144,17 +157,17 @@ public class BorealisFeatures {
 
         public static final PlacedFeature PLACED_GLACIAL_RIDGE = GLACIAL_RIDGE.get().configured(new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 4)))
                 .placed(HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(128)),
-                        CountOnEveryLayerPlacement.of(4));
+                        CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());
         public static final PlacedFeature PLACED_GLACIAL_SPIKE = GLACIAL_SPIKE.get().configured(FeatureConfiguration.NONE)
                 .placed(HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(128)),
-                        InSquarePlacement.spread(), CountPlacement.of(4));
+                        InSquarePlacement.spread(), CountPlacement.of(4), BiomeFilter.biome());
         public static final PlacedFeature PLACED_RUBBLE_PATCH = Configured.CONFIGURED_RUBBLE_PATCH
                 .placed(HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(64)),
                         InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(2));
 
         public static final PlacedFeature PLACED_HOT_SPRING = HOT_SPRING.get().configured(FeatureConfiguration.NONE)
                 .placed(HeightRangePlacement.uniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(128)),
-                        InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(3));
+                        InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(3), BiomeFilter.biome());
         public static final PlacedFeature PLACED_SPIKE_TRAIL = SPIKE_TRAIL.get().configured(FeatureConfiguration.NONE)
                 .placed(HeightRangePlacement.uniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(128)),
                         RarityFilter.onAverageOnceEvery(2));
@@ -173,6 +186,8 @@ public class BorealisFeatures {
     public static void registerPlacedFeatures() {
         register("brumal_tree", Placed.PLACED_BRUMAL_TREE);
         register("frostfir_tree", Placed.PLACED_FROSTFIR_TREE);
+        register("great_frostfir_tree", Placed.PLACED_GREAT_FROSTFIR_TREE);
+        register("giantwood_tree", Placed.PLACED_GIANTWOOD_TREE);
         register("helix_tree", Placed.PLACED_HELIX_TREE);
         register("tall_brumal_tree", Placed.PLACED_TALL_BRUMAL_TREE);
         register("cotton_tree", Placed.PLACED_COTTON_TREE);

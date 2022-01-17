@@ -20,8 +20,8 @@ public class BorealisMod {
     public static final String MODID = "borealis";
     // 1.18 Port Todo:
     // FINISHED Fix noise sliders so that island tops are less flat
-    // Fix biome distribution
-    // Fix tree placers to fix tree features
+    // FINISHED Fix biome distribution
+    // FINISHED Fix tree placers to fix tree features
     // Fix dimension render effects
 
     public BorealisMod() {
@@ -40,7 +40,6 @@ public class BorealisMod {
         BorealisItems.ITEMS.register(bus);
         BorealisFeatures.FEATURES.register(bus);
         BorealisSounds.SOUND_EVENTS.register(bus);
-        BorealisFeatures.TreePlacers.FOLIAGE_PLACERS.register(bus);
     }
 
     public void clientSetup(FMLClientSetupEvent event) {
