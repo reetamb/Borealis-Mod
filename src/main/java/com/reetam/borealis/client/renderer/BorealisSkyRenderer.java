@@ -34,7 +34,6 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
     public BorealisSkyRenderer() {
         createStars();
         createLightSky();
-        createDarkSky();
     }
 
     private void createStars() {
@@ -50,28 +49,15 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
         this.starBuffer.upload(bufferbuilder);
     }
     private void createLightSky() {
-        Tesselator tessellator = Tesselator.getInstance();
-        BufferBuilder bufferbuilder = tessellator.getBuilder();
+        Tesselator tesselator = Tesselator.getInstance();
+        BufferBuilder bufferbuilder = tesselator.getBuilder();
         if (this.skyBuffer != null) {
             this.skyBuffer.close();
         }
-
         this.skyBuffer = new VertexBuffer();
-        this.drawSkyHemisphere(bufferbuilder, 16.0F, false);
+        this.drawSkyHemisphere(bufferbuilder);
         bufferbuilder.end();
         this.skyBuffer.upload(bufferbuilder);
-    }
-    private void createDarkSky() {
-        Tesselator tessellator = Tesselator.getInstance();
-        BufferBuilder bufferbuilder = tessellator.getBuilder();
-        if (this.darkBuffer != null) {
-            this.darkBuffer.close();
-        }
-
-        this.darkBuffer = new VertexBuffer();
-        this.drawSkyHemisphere(bufferbuilder, -16.0F, true);
-        bufferbuilder.end();
-        this.darkBuffer.upload(bufferbuilder);
     }
     
     
@@ -89,11 +75,11 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
         RenderSystem.setShaderColor(f, f1, f2, 1.0F);
         ShaderInstance shaderinstance = RenderSystem.getShader();
         this.skyBuffer.drawWithShader(poseStack.last().pose(), poseStack.last().pose(), shaderinstance);
-        RenderSystem.enableBlend();
+        RenderSystem.disableBlend();
         RenderSystem.defaultBlendFunc();
 
         // MAKE SUNRISE
-        RenderSystem.enableBlend();
+        RenderSystem.disableBlend();
         RenderSystem.defaultBlendFunc();
         float[] afloat = level.effects().getSunriseColor(level.getTimeOfDay(partialTicks), partialTicks);
         if (afloat != null) {
@@ -164,12 +150,10 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
             RenderSystem.setShaderColor(f10, f10, f10, f10);
             FogRenderer.setupNoFog();
             this.starBuffer.drawWithShader(poseStack.last().pose(), poseStack.last().pose(), GameRenderer.getPositionShader());
-            FogRenderer.setupFog(mc.gameRenderer.getMainCamera(), FogRenderer.FogMode.FOG_SKY, mc.gameRenderer.getRenderDistance(), false);
         }
 
         // NIGHT SKY
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.disableBlend();
         poseStack.popPose();
         RenderSystem.disableTexture();
         RenderSystem.setShaderColor(0.0F, 0.0F, 0.0F, 1.0F);
@@ -231,24 +215,23 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
             }
         }
     }
-    private void drawSkyHemisphere(BufferBuilder bufferBuilder, float lightness, boolean isDark) {
+    private void drawSkyHemisphere(BufferBuilder bufferBuilder) {
         bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
 
         for(int k = -384; k <= 384; k += 64) {
             for(int l = -384; l <= 384; l += 64) {
                 float f = (float)k;
                 float f1 = (float)(k + 64);
-                if (isDark) {
+                if (false) {
                     f1 = (float)k;
                     f = (float)(k + 64);
                 }
 
-                bufferBuilder.vertex(f, lightness, l).endVertex();
-                bufferBuilder.vertex(f1, lightness, l).endVertex();
-                bufferBuilder.vertex(f1, lightness, (l + 64)).endVertex();
-                bufferBuilder.vertex(f, lightness, (l + 64)).endVertex();
+                bufferBuilder.vertex(f, (float) 16.0, l).endVertex();
+                bufferBuilder.vertex(f1, (float) 16.0, l).endVertex();
+                bufferBuilder.vertex(f1, (float) 16.0, (l + 64)).endVertex();
+                bufferBuilder.vertex(f, (float) 16.0, (l + 64)).endVertex();
             }
         }
-
     }
 }

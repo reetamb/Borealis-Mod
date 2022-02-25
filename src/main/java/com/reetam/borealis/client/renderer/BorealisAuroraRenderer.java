@@ -3,6 +3,7 @@ package com.reetam.borealis.client.renderer;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
+import com.mojang.math.Matrix4f;
 import com.reetam.borealis.BorealisMod;
 import net.minecraft.client.CloudStatus;
 import net.minecraft.client.Minecraft;
@@ -19,7 +20,7 @@ public class BorealisAuroraRenderer implements ICloudRenderHandler {
 
     private static final ResourceLocation TEXTURE_AURORA = new ResourceLocation(BorealisMod.MODID + ":textures/environment/aurora.png");
     private VertexBuffer cloudBuffer;
-    
+
     private int prevCloudX = Integer.MIN_VALUE;
     private int prevCloudY = Integer.MIN_VALUE;
     private int prevCloudZ = Integer.MIN_VALUE;
@@ -29,36 +30,36 @@ public class BorealisAuroraRenderer implements ICloudRenderHandler {
 
     @Override
     public void render(int ticks, float partialTicks, PoseStack poseStack, ClientLevel level, Minecraft mc, double x, double y, double z) {
-               
+        float cloudHeight = level.effects().getCloudHeight();
+        double scale = 6.0;
+        Matrix4f projectionMatrix = RenderSystem.getProjectionMatrix();
+
         RenderSystem.disableCull();
         RenderSystem.enableBlend();
         RenderSystem.enableDepthTest();
         RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         RenderSystem.depthMask(true);
 
-        float f = level.effects().getCloudHeight();
-        float f1 = 12.0F;
-        float f2 = 4.0F;
-        double d0 = 2.0E-4D;
-        double d1 = ((float)ticks + partialTicks) * 0.03F;
-        double d2 = (x + d1) / 12.0D;
-        double d3 = f - (float)y + 0.33F;
-        double d4 = z / 12.0D + (double)0.33F;
-        d2 = d2 - (double)(Mth.floor(d2 / 2048.0D) * 2048);
-        d4 = d4 - (double)(Mth.floor(d4 / 2048.0D) * 2048);
-        float f3 = (float)(d2 - (double)Mth.floor(d2));
-        float f4 = (float)(d3 / 4.0D - (double)Mth.floor(d3 / 4.0D)) * 4.0F;
-        float f5 = (float)(d4 - (double)Mth.floor(d4));
+        double movingX = ((float)ticks + partialTicks) * 0.03F;
+        double xPos = (x + movingX) / scale;
+        double yHeight = cloudHeight - (float)y + 0.33F;
+        double zPos = z / scale + (double)0.33F;
+        xPos -= Mth.floor(xPos / 2048.0D) * 2048;
+        zPos -= Mth.floor(zPos / 2048.0D) * 2048;
+        float dX = (float)(xPos - (double)Mth.floor(xPos));
+        float dY = (float)(yHeight / 4.0D - (double)Mth.floor(yHeight / 4.0D)) * 4.0F;
+        float dZ = (float)(zPos - (double)Mth.floor(zPos));
         Vec3 vec3 = level.getCloudColor(partialTicks);
-        int i = (int)Math.floor(d2);
-        int j = (int)Math.floor(d3 / 4.0D);
-        int k = (int)Math.floor(d4);
-        if (i != this.prevCloudX || j != this.prevCloudY || k != this.prevCloudZ || mc.options.getCloudsType() != this.prevCloudsType || this.prevCloudColor.distanceToSqr(vec3) > 2.0E-4D) {
-            this.prevCloudX = i;
-            this.prevCloudY = j;
-            this.prevCloudZ = k;
+
+        int cloudX = (int)Math.floor(xPos);
+        int cloudY = (int)Math.floor(yHeight / 4.0D);
+        int cloudZ = (int)Math.floor(zPos);
+        if (cloudX != this.prevCloudX || cloudY != this.prevCloudY || cloudZ != this.prevCloudZ || Minecraft.getInstance().options.getCloudsType() != this.prevCloudsType || this.prevCloudColor.distanceToSqr(vec3) > 2.0E-4D) {
+            this.prevCloudX = cloudX;
+            this.prevCloudY = cloudY;
+            this.prevCloudZ = cloudZ;
             this.prevCloudColor = vec3;
-            this.prevCloudsType = mc.options.getCloudsType();
+            this.prevCloudsType = Minecraft.getInstance().options.getCloudsType();
             this.generateClouds = true;
         }
 
@@ -70,7 +71,7 @@ public class BorealisAuroraRenderer implements ICloudRenderHandler {
             }
 
             this.cloudBuffer = new VertexBuffer();
-            this.buildAurora(bufferbuilder, d2, d3, d4, vec3, level.getGameTime());
+            this.buildAurora(bufferbuilder, xPos, yHeight, zPos, vec3, level.getDayTime());
             bufferbuilder.end();
             this.cloudBuffer.upload(bufferbuilder);
         }
@@ -79,8 +80,9 @@ public class BorealisAuroraRenderer implements ICloudRenderHandler {
         RenderSystem.setShaderTexture(0, TEXTURE_AURORA);
         FogRenderer.levelFogColor();
         poseStack.pushPose();
-        poseStack.scale(12.0F, 1.0F, 12.0F);
-        poseStack.translate((double)(-f3), (double)f4, (double)(-f5));
+        poseStack.scale((float) scale, 1.0F, (float) scale);
+        poseStack.translate(-dX, dY, -dZ);
+
         if (this.cloudBuffer != null) {
             int i1 = this.prevCloudsType == CloudStatus.FANCY ? 0 : 1;
 
@@ -91,8 +93,8 @@ public class BorealisAuroraRenderer implements ICloudRenderHandler {
                     RenderSystem.colorMask(true, true, true, true);
                 }
 
-                ShaderInstance shaderinstance = RenderSystem.getShader();
-                this.cloudBuffer.drawWithShader(poseStack.last().pose(), poseStack.last().pose(), shaderinstance);
+                ShaderInstance shaderInstance = RenderSystem.getShader();
+                this.cloudBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, shaderInstance);
             }
         }
 
@@ -102,12 +104,12 @@ public class BorealisAuroraRenderer implements ICloudRenderHandler {
         RenderSystem.disableBlend();
     }
 
-    private void buildAurora(BufferBuilder bufferBuilder, double xIn, double yIn, double zIn, Vec3 vector, float time) {
+    private void buildAurora(BufferBuilder bufferBuilder, double x, double y, double z, Vec3 vector, float time) {
         final float fac0 = 0.00390625F;
         final float fac1 = 9.765625E-4F;
         
-        float fx = (float)Math.floor(xIn) * fac0;
-        float fz = (float)Math.floor(zIn) * fac0;
+        float fx = (float)Math.floor(x) * fac0;
+        float fz = (float)Math.floor(z) * fac0;
 
         float red = (float)vector.x;
         float green = (float)vector.y;
@@ -120,7 +122,7 @@ public class BorealisAuroraRenderer implements ICloudRenderHandler {
 
         RenderSystem.setShader(GameRenderer::getPositionTexColorNormalShader);
         bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX_COLOR_NORMAL);
-        float cloudHeight = (float)Math.floor(yIn / 4.0D) * 4.0F;
+        float cloudHeight = (float)Math.floor(y / 4.0D) * 4.0F;
         if (this.prevCloudsType == CloudStatus.FANCY) {
             for(int k0 = -3; k0 <= 4; ++k0) {
                 for(int l0 = -3; l0 <= 4; ++l0) {
