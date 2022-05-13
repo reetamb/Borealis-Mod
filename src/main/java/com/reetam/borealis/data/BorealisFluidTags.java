@@ -7,6 +7,7 @@ import net.minecraft.data.tags.FluidTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -29,7 +30,7 @@ public class BorealisFluidTags extends FluidTagsProvider {
                 .add(BorealisFluids.HOT_SPRING_WATER_SOURCE.get());
     }
 
-    protected TagsProvider.TagAppender<Fluid> tag(Tag.Named<Fluid> tag) {
+    protected TagsProvider.TagAppender<Fluid> tag(TagKey<Fluid> tag) {
         return super.tag(tag);
     }
 }

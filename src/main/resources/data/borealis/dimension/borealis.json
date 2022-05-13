@@ -1,7 +1,9 @@
 {
   "type": "borealis:borealis",
+  "forge:use_server_seed": true,
   "generator": {
-    "type": "borealis:chunk_generator",
+    "type": "minecraft:noise",
+    "seed": 0,
     "settings": "borealis:noise_settings",
     "biome_source": {
       "type": "minecraft:multi_noise",

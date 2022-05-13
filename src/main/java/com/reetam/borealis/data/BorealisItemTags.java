@@ -10,6 +10,7 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -120,7 +121,7 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisBlocks.SLATE.get().asItem());
     }
 
-    protected TagsProvider.TagAppender<Item> tag(Tag.Named<Item> tag) {
+    protected TagsProvider.TagAppender<Item> tag(TagKey<Item> tag) {
         return super.tag(tag);
     }
 }

@@ -30,7 +30,7 @@ public class SugarSnowFeature extends Feature<NoneFeatureConfiguration> {
                 int i1 = level.getHeight(Heightmap.Types.MOTION_BLOCKING, k, l);
                 blockpos$mutable.set(k, i1, l);
                 blockpos$mutable1.set(blockpos$mutable).move(Direction.DOWN, 1);
-                Biome biome = level.getBiome(blockpos$mutable);
+                Biome biome = level.getBiome(blockpos$mutable).value();
 
                 if (biome.shouldSnow(level, blockpos$mutable) && biome.getRegistryName().toString().contains("saccharine_hills")) {
                     level.setBlock(blockpos$mutable, BorealisBlocks.SUGAR_SNOW.get().defaultBlockState(), 2);

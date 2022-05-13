@@ -6,6 +6,7 @@ import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisTags;
 import net.minecraft.data.tags.FluidTagsProvider;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -149,16 +150,13 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.SACCHARINE_WALL_SIGN.get());
         tag(BlockTags.DIRT)
                 .add(BorealisBlocks.LIVING_SNOW_BLOCK.get())
-                .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get());
+                .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get())
+                .add(BorealisBlocks.PERMAFROST.get())
+                .add(BorealisBlocks.PERMAFROST_RUBBLE.get());
         //forge
         tag(Tags.Blocks.COBBLESTONE)
                 .add(BorealisBlocks.SOAPSTONE.get())
                 .add(BorealisBlocks.SLATE.get());
-        tag(Tags.Blocks.DIRT)
-                .add(BorealisBlocks.LIVING_SNOW_BLOCK.get())
-                .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get())
-                .add(BorealisBlocks.PERMAFROST.get())
-                .add(BorealisBlocks.PERMAFROST_RUBBLE.get());
         tag(Tags.Blocks.FENCE_GATES_WOODEN)
                 .add(BorealisBlocks.BRUMAL_FENCE_GATE.get())
                 .add(BorealisBlocks.FROSTFIR_FENCE_GATE.get())
@@ -172,7 +170,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.SLATE.get());
     }
 
-    protected TagsProvider.TagAppender<Block> tag(Tag.Named<Block> tag) {
+    protected TagsProvider.TagAppender<Block> tag(TagKey<Block> tag) {
         return super.tag(tag);
     }
 }

@@ -13,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.registries.DeferredRegister;
 
 @Mod(BorealisMod.MODID)
 public class BorealisMod {
@@ -33,13 +34,19 @@ public class BorealisMod {
         bus.addListener(this::gatherData);
         EventHandler.addEvents(forgeBus);
 
-        BorealisEntities.ENTITIES.register(bus);
-        BorealisBlocks.BLOCKS.register(bus);
-        BorealisBlockEntities.BLOCK_ENTITIES.register(bus);
-        BorealisFluids.FLUIDS.register(bus);
-        BorealisItems.ITEMS.register(bus);
-        BorealisFeatures.FEATURES.register(bus);
-        BorealisSounds.SOUND_EVENTS.register(bus);
+        DeferredRegister<?>[] pleaseWork = {
+                BorealisBlocks.BLOCKS,
+                BorealisBlockEntities.BLOCK_ENTITIES,
+                BorealisFluids.FLUIDS,
+                BorealisItems.ITEMS,
+                // BorealisEntities.ENTITIES,
+                BorealisFeatures.FEATURES,
+                BorealisSounds.SOUND_EVENTS
+        };
+
+        for (DeferredRegister<?> register : pleaseWork) {
+            register.register(bus);
+        }
     }
 
     public void clientSetup(FMLClientSetupEvent event) {
@@ -49,8 +56,7 @@ public class BorealisMod {
 
     public void commonSetup(FMLCommonSetupEvent event) {
         BorealisEntities.registerSpawnPlacements();
-        BorealisFeatures.registerPlacedFeatures();
-        BorealisDimensions.registerDimensionGenerators();
+        BorealisWorldgen.registerPlacedFeatures();
         BorealisBlocks.registerFlowerPots();
         BorealisBlocks.registerWoodTypes();
         BorealisBlocks.registerAxeStrips();

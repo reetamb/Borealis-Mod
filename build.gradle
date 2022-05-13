@@ -23,11 +23,6 @@ archivesBaseName = 'borealis-'+project.mc_version
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-mixin {
-    add sourceSets.main, "borealis.refmap.json"
-    config 'borealis.mixins.json'
-}
-
 minecraft {
     mappings channel: 'parchment', version: project.parchment_version+'-'+project.mc_version
 
@@ -37,8 +32,8 @@ minecraft {
 
             arg "-mixin.config=borealis.mixins.json"
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
+            //property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            //property 'forge.logging.console.level', 'debug'
 
             mods {
                 borealis {
@@ -52,8 +47,8 @@ minecraft {
 
             arg "-mixin.config=borealis.mixins.json"
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
+            //property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            //property 'forge.logging.console.level', 'debug'
 
             mods {
                 borealis {
@@ -65,8 +60,8 @@ minecraft {
         data {
             workingDirectory project.file('run')
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
+            //property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            //property 'forge.logging.console.level', 'debug'
 
             args '--mod', 'borealis', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing', file('src/generated/resources/')
 
@@ -94,6 +89,11 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
 }
 
+mixin {
+    add sourceSets.main, "borealis.refmap.json"
+    config 'borealis.mixins.json'
+}
+
 jar {
     manifest {
         attributes([
@@ -109,28 +109,23 @@ jar {
     }
 }
 
-// Example configuration to allow publishing using the maven-publish task
-// we define a custom artifact that is sourced from the reobfJar output task
-// and then declare that to be published
-// Note you'll need to add a repository here
-def reobfFile = file("$buildDir/reobfJar/output.jar")
-def reobfArtifact = artifacts.add('default', reobfFile) {
-    type 'jar'
-    builtBy 'reobfJar'
-}
+jar.finalizedBy('reobfJar')
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifact reobfArtifact
+            artifact jar
         }
     }
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            url "file://${project.projectDir}/mcmodsrepo"
         }
     }
 }
 
 repositories {
-    maven { url='https://repo.spongepowered.org/repository/maven-public/' }
+    maven {
+        url='https://repo.spongepowered.org/repository/maven-public/'
+    }
 }

@@ -1,6 +1,7 @@
 package com.reetam.borealis.world.gen.treegrower;
 
-import com.reetam.borealis.registry.BorealisFeatures;
+import com.reetam.borealis.registry.BorealisWorldgen;
+import net.minecraft.core.Holder;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -12,7 +13,7 @@ public class SaccharineTreeGrower extends AbstractTreeGrower {
 
     @Nullable
     @Override
-    protected ConfiguredFeature<TreeConfiguration, ?> getConfiguredFeature(Random rand, boolean largeHive) {
-        return BorealisFeatures.Configured.CONFIGURED_HELIX_TREE;
+    protected Holder<ConfiguredFeature<TreeConfiguration, ?>> getConfiguredFeature(Random rand, boolean largeHive) {
+        return BorealisWorldgen.Configured.CONFIGURED_HELIX_TREE;
     }
 }

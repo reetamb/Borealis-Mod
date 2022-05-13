@@ -5,7 +5,6 @@
   "compatibilityLevel": "JAVA_16",
   "refmap": "borealis.refmap.json",
   "mixins": [
-    "MixinWorldGenSettings"
   ],
   "client": [
     "MixinLevelRenderer"
