@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "borealis:saccharine_planks"
+    },
+    "/": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    " / "
+  ],
+  "result": {
+    "count": 3,
+    "item": "borealis:saccharine_sign"
+  },
+  "show_notification": true
+}

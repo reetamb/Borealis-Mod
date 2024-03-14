@@ -1,0 +1,26 @@
+// 1.20.1	2024-03-09T00:44:01.1110554	Borealis Item Tags
+5cd9b7cd7d41b33c4e1a3212a4728db86db89edc data/borealis/tags/items/brumal_logs.json
+c9ff60fe00f35ba952c2605091e2f6efd3a3223a data/borealis/tags/items/frostfir_logs.json
+2c877ef981127c0433867ed152b728a913bb5e36 data/borealis/tags/items/saccharine_logs.json
+2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/forge/tags/items/cobblestone.json
+e6da83b22442162ec408924dfe620e3f871a0447 data/forge/tags/items/fences/wooden.json
+540e9b8dbe9a285c547d2a4d416b85968a195e29 data/forge/tags/items/fence_gates/wooden.json
+2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/forge/tags/items/stone.json
+831da234605a6877ebd5b27e9fee94f8773c81e3 data/minecraft/tags/items/boats.json
+fceefcefe923bd665fa10518b3d891811976df34 data/minecraft/tags/items/buttons.json
+3b93c7760c60cfdd93b1514f5cbd512bb20181da data/minecraft/tags/items/leaves.json
+48f71af629ac6170a6e95a5a0d9b64cc800d963a data/minecraft/tags/items/logs.json
+48f71af629ac6170a6e95a5a0d9b64cc800d963a data/minecraft/tags/items/logs_that_burn.json
+ebdb6820581dd55ff20b4d077a2bfb0acee8b339 data/minecraft/tags/items/planks.json
+08de077f368e5b46042aabca8e6788b4213e263f data/minecraft/tags/items/saplings.json
+2db83d405a8bbcbf44f65aa72ecaf8d5b9b64e6b data/minecraft/tags/items/signs.json
+2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/minecraft/tags/items/stone_crafting_materials.json
+2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/minecraft/tags/items/stone_tool_materials.json
+d64106d545b7dfaa6dc061aac59ba87bb52ce331 data/minecraft/tags/items/walls.json
+e0c6fbc56cafd4a76263c804cb120e339eb14612 data/minecraft/tags/items/wooden_buttons.json
+a7863fb80cd1c51c9118a8de396b826ffb741332 data/minecraft/tags/items/wooden_doors.json
+e6da83b22442162ec408924dfe620e3f871a0447 data/minecraft/tags/items/wooden_fences.json
+516d707974b527645119676a9244eaab5f0cb5e0 data/minecraft/tags/items/wooden_pressure_plates.json
+09eed3abe8574248b0e90d86ebf9fcd4e0d6ca60 data/minecraft/tags/items/wooden_slabs.json
+089e1d9189d92aa2b72517d84e0657b21604c54d data/minecraft/tags/items/wooden_stairs.json
+be953b8ca4e8bd6997984e8cc862bf641cc7219d data/minecraft/tags/items/wooden_trapdoors.json

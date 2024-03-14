@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:saccharine_planks_from_saccharine_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_translation{key='block.borealis.saccharine_wood', args=[]}": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "borealis:saccharine_wood"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_translation{key='block.borealis.saccharine_wood', args=[]}",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:saccharine_planks_from_saccharine_wood"
+    ]
+  },
+  "sends_telemetry_event": false
+}

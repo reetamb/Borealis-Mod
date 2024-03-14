@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "borealis:frostfir_planks"
+    }
+  ],
+  "result": {
+    "item": "borealis:frostfir_button"
+  }
+}

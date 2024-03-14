@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:soapstone_tile_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_translation{key='block.borealis.soapstone_tiles', args=[]}": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "borealis:soapstone_tiles"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_translation{key='block.borealis.soapstone_tiles', args=[]}",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:soapstone_tile_wall"
+    ]
+  },
+  "sends_telemetry_event": false
+}
