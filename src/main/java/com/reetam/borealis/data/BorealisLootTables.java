@@ -1,7 +1,5 @@
 package com.reetam.borealis.data;
 
-import com.google.common.collect.ImmutableList;
-import com.mojang.datafixers.util.Pair;
 import com.reetam.borealis.data.provider.BorealisLootTableProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
@@ -9,11 +7,13 @@ import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.loot.EntityLoot;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
@@ -23,8 +23,6 @@ import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
@@ -34,10 +32,10 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
+import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BorealisLootTables extends LootTableProvider {
 
@@ -46,19 +44,10 @@ public class BorealisLootTables extends LootTableProvider {
     private static final LootItemCondition.Builder SILK_TOUCH_OR_SHEARS = SHEARS.or(SILK_TOUCH);
     private static final float[] DEFAULT_SAPLING_DROP_RATES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
 
-    public BorealisLootTables(DataGenerator dataGeneratorIn) {
-        super(dataGeneratorIn);
+    public BorealisLootTables(PackOutput output) {
+        super(output, Set.of(), List.of());
     }
 
-    @Override
-    public String getName() {
-        return "Borealis LootTables";
-    }
-
-    @Override
-    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
-        return ImmutableList.of(Pair.of(Blocks::new, LootContextParamSets.BLOCK), Pair.of(Entities::new, LootContextParamSets.ENTITY));
-    }
 
     @Override
     protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker) {
@@ -67,9 +56,12 @@ public class BorealisLootTables extends LootTableProvider {
 
 
     public static class Blocks extends BorealisLootTableProvider {
+        protected Blocks(Set<Item> explosionResistant, FeatureFlagSet enabledFeatures) {
+            super(explosionResistant, enabledFeatures);
+        }
 
         @Override
-        protected void addTables() {
+        protected void generate() {
             dropSelf(BorealisBlocks.SOAPSTONE);
             dropSelf(BorealisBlocks.SOAPSTONE_TILES);
             dropWithFortune(BorealisBlocks.KYANITE_ORE, BorealisItems.KYANITE_CRYSTAL);
@@ -172,6 +164,10 @@ public class BorealisLootTables extends LootTableProvider {
                             .withPool(new LootPool.Builder()
                                 .add(LootItem.lootTableItem(Items.SUGAR).when(LootItemRandomChanceCondition.randomChance(1.0F)))
                                 .add(LootItem.lootTableItem(Items.SNOWBALL).when(LootItemRandomChanceCondition.randomChance(1.0F)))));
+            dropOther(BorealisBlocks.TANZANITE_ORE, BorealisItems.TANZANITE.get());
+            dropSelf(BorealisBlocks.TANZANITE_BLOCK);
+            dropSelf(BorealisBlocks.STARRY_SLATE);
+            dropSelf(BorealisBlocks.STARRY_SLATE_TILES);
         }
 
         @Override
@@ -180,10 +176,13 @@ public class BorealisLootTables extends LootTableProvider {
         }
     }
 
-    public static class Entities extends EntityLoot {
+    public static class Entities extends EntityLootSubProvider {
 
+        protected Entities(FeatureFlagSet enabledFeatures) {
+            super(enabledFeatures);
+        }
         @Override
-        protected void addTables() {
+        public void generate() {
             this.add(
                     BorealisEntities.HUMMINGBIRD.get(),
                     LootTable.lootTable().withPool
@@ -205,8 +204,8 @@ public class BorealisLootTables extends LootTableProvider {
         }
 
         @Override
-        protected Iterable<EntityType<?>> getKnownEntities() {
-            return BorealisEntities.ENTITIES.getEntries().stream().map(Supplier::get).collect(Collectors.toList());
+        protected Stream<EntityType<?>> getKnownEntityTypes() {
+            return BorealisEntities.ENTITIES.getEntries().stream().map(Supplier::get);
         }
     }
 }

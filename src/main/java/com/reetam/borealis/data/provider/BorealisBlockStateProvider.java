@@ -8,21 +8,18 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Supplier;
 
 public abstract class BorealisBlockStateProvider extends BlockStateProvider {
 
     public BorealisBlockStateProvider(DataGenerator generator, ExistingFileHelper fileHelper) {
-        super(generator, BorealisMod.MODID, fileHelper);
+        super(generator.getPackOutput(), BorealisMod.MODID, fileHelper);
     }
 
     protected ResourceLocation texture(String name) {
         return modLoc("block/" + name);
-    }
-
-    protected String name(Supplier<? extends Block> block) {
-        return block.get().getRegistryName().getPath();
     }
 
     public void block(Supplier<? extends Block> block) {
@@ -49,6 +46,13 @@ public abstract class BorealisBlockStateProvider extends BlockStateProvider {
         crossBlock(block, models().cross(name(block), texture(name(block))));
     }
 
+    private ResourceLocation key(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block);
+    }
+    private String name(Supplier<? extends Block> block) {
+        return this.key(block.get()).getPath();
+    }
+
     public void stairs(Supplier<? extends StairBlock> block, Supplier<? extends Block> fullBlock) {
         stairsBlock(block.get(), texture(name(fullBlock)));
     }
@@ -63,7 +67,7 @@ public abstract class BorealisBlockStateProvider extends BlockStateProvider {
     }
 
     private void fenceColumn(Supplier<? extends FenceBlock> block, String side) {
-        String baseName = block.get().getRegistryName().toString();
+        String baseName = block.get().getName().toString();
         fourWayBlock(block.get(),
                 models().fencePost(baseName + "_post", texture(side)),
                 models().fenceSide(baseName + "_side", texture(side)));

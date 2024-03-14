@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "borealis:slate"
   },
-  "result": "borealis:slate_pillar",
-  "count": 1
+  "result": "borealis:slate_pillar"
 }

@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.BorealisFeatures;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -27,11 +28,11 @@ public class RootedTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-        return BorealisFeatures.TreePlacers.ROOTED_TRUNK_PLACER;
+        return BorealisFeatures.TreePlacers.ROOTED_TRUNK_PLACER.get();
     }
 
     @Override
-    public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, Random rand, int height, BlockPos pos, TreeConfiguration config) {
+    public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource rand, int height, BlockPos pos, TreeConfiguration config) {
         int treeBaseHeight = config.trunkPlacer.getTreeHeight(rand);
 
         int rootHeight = rand.nextInt(2) + (int) Math.floor(treeBaseHeight / 5.0) + 1;

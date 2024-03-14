@@ -1,15 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "borealis:petrified_wood_bricks"
     }
   },
+  "pattern": [
+    "##",
+    "##"
+  ],
   "result": {
     "item": "minecraft:crafting_table"
-  }
+  },
+  "show_notification": true
 }

@@ -21,7 +21,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.SOAPSTONE);
         block(BorealisBlocks.SOAPSTONE_TILES);
         block(BorealisBlocks.SOAPSTONE_BRICKS);
-        block(BorealisBlocks.KYANITE_ORE);
+        logBlock(BorealisBlocks.KYANITE_ORE.get());
         stairs(BorealisBlocks.SOAPSTONE_STAIRS, BorealisBlocks.SOAPSTONE);
         stairs(BorealisBlocks.SOAPSTONE_TILE_STAIRS, BorealisBlocks.SOAPSTONE_TILES);
         stairs(BorealisBlocks.SOAPSTONE_BRICK_STAIRS, BorealisBlocks.SOAPSTONE_BRICKS);
@@ -41,6 +41,12 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.LIVING_SNOW_BLOCK);
         block(BorealisBlocks.SUGAR_SNOW_BLOCK);
         block(BorealisBlocks.PERMAFROST_RUBBLE);
+        buttonBlock(BorealisBlocks.SOAPSTONE_BUTTON.get(), modLoc("block/soapstone"));
+        pressurePlateBlock(BorealisBlocks.SOAPSTONE_PRESSURE_PLATE.get(), modLoc("block/soapstone"));
+        block(BorealisBlocks.TANZANITE_ORE);
+        block(BorealisBlocks.TANZANITE_BLOCK);
+        block(BorealisBlocks.STARRY_SLATE);
+        block(BorealisBlocks.STARRY_SLATE_TILES);
         block(BorealisBlocks.CLOUD);
         wood();
     }
@@ -59,6 +65,8 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         door(BorealisBlocks.BRUMAL_DOOR, "brumal");
         trapdoor(BorealisBlocks.BRUMAL_TRAPDOOR, "brumal");
         crossBlock(BorealisBlocks.BRUMAL_SAPLING);
+        buttonBlock(BorealisBlocks.BRUMAL_BUTTON.get(), modLoc("block/brumal_planks"));
+        pressurePlateBlock(BorealisBlocks.BRUMAL_PRESSURE_PLATE.get(), modLoc("block/brumal_planks"));
         block(BorealisBlocks.FROSTFIR_PLANKS);
         log(BorealisBlocks.FROSTFIR_LOG, "frostfir_log");
         wood(BorealisBlocks.FROSTFIR_WOOD, BorealisBlocks.FROSTFIR_LOG);
@@ -72,6 +80,8 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         door(BorealisBlocks.FROSTFIR_DOOR, "frostfir");
         trapdoor(BorealisBlocks.FROSTFIR_TRAPDOOR, "frostfir");
         crossBlock(BorealisBlocks.FROSTFIR_SAPLING);
+        buttonBlock(BorealisBlocks.FROSTFIR_BUTTON.get(), modLoc("block/frostfir_planks"));
+        pressurePlateBlock(BorealisBlocks.FROSTFIR_PRESSURE_PLATE.get(), modLoc("block/frostfir_planks"));
         block(BorealisBlocks.SACCHARINE_PLANKS);
         log(BorealisBlocks.SACCHARINE_LOG, "saccharine_log");
         wood(BorealisBlocks.SACCHARINE_WOOD, BorealisBlocks.SACCHARINE_LOG);
@@ -85,5 +95,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         door(BorealisBlocks.SACCHARINE_DOOR, "saccharine");
         trapdoor(BorealisBlocks.SACCHARINE_TRAPDOOR, "saccharine");
         crossBlock(BorealisBlocks.SACCHARINE_SAPLING);
+        buttonBlock(BorealisBlocks.SACCHARINE_BUTTON.get(), modLoc("block/saccharine_planks"));
+        pressurePlateBlock(BorealisBlocks.SACCHARINE_PRESSURE_PLATE.get(), modLoc("block/saccharine_planks"));
     }
 }

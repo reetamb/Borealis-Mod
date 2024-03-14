@@ -1,16 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "borealis:slate"
     }
   },
+  "pattern": [
+    "##",
+    "##"
+  ],
   "result": {
-    "item": "borealis:slate_tiles",
-    "count": 4
-  }
+    "count": 4,
+    "item": "borealis:slate_tiles"
+  },
+  "show_notification": true
 }

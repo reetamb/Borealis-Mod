@@ -2,7 +2,6 @@ package com.reetam.borealis.item;
 
 import com.reetam.borealis.block.BorealisPortalBlock;
 import com.reetam.borealis.registry.BorealisBlocks;
-import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.BorealisTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -18,7 +17,6 @@ public class MoonPearlItem extends Item {
 
     public MoonPearlItem() {
         super(new Properties()
-                .tab(BorealisItems.Groups.BOREALIS_ITEMS)
                 .stacksTo(1)
                 .durability(1)
                 .rarity(Rarity.RARE)

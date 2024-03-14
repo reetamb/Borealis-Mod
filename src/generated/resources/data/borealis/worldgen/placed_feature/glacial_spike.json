@@ -1,0 +1,15 @@
+{
+  "feature": "borealis:glacial_spike",
+  "placement": [
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 4
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

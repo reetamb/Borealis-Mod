@@ -14,6 +14,6 @@ public class BorealisSounds {
     public static final RegistryObject<SoundEvent> BOREALIS_PORTAL_CHIME = register("blocks.borealis_portal");
 
     private static RegistryObject<SoundEvent> register(String name) {
-        return SOUND_EVENTS.register(name, () -> new SoundEvent(new ResourceLocation(BorealisMod.MODID, name)));
+        return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(BorealisMod.MODID, name)));
     }
 }

@@ -1,16 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "borealis:soapstone_bricks"
     }
   },
+  "pattern": [
+    "##",
+    "##"
+  ],
   "result": {
-    "item": "borealis:soapstone_tiles",
-    "count": 4
-  }
+    "count": 4,
+    "item": "borealis:soapstone_tiles"
+  },
+  "show_notification": true
 }

@@ -17,7 +17,7 @@ public class BlockEvents extends EventHandler {
 
     @SubscribeEvent
     public void onPlayerRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        Level level = event.getWorld();
+        Level level = event.getLevel();
         ItemStack heldItem = event.getItemStack();
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);

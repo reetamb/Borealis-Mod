@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.BorealisFeatures;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,10 +29,10 @@ public class AspenFoliagePlacer extends FoliagePlacer {
     }
 
     protected FoliagePlacerType<?> type() {
-        return BorealisFeatures.TreePlacers.ASPEN_FOLIAGE_PLACER;
+        return BorealisFeatures.TreePlacers.ASPEN_FOLIAGE_PLACER.get();
     }
 
-    protected void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, Random rand, TreeConfiguration config, int maxHeight, FoliagePlacer.FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
+    protected void createFoliage(LevelSimulatedReader level, FoliageSetter blockSetter, RandomSource rand, TreeConfiguration config, int maxHeight, FoliagePlacer.FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
         BlockPos blockpos = attachment.pos();
         int i = 0;
         int width;
@@ -43,11 +44,11 @@ public class AspenFoliagePlacer extends FoliagePlacer {
         }
     }
 
-    public int foliageHeight(Random rand, int height, TreeConfiguration config) {
+    public int foliageHeight(RandomSource rand, int height, TreeConfiguration config) {
         return Math.max(4, height - this.trunkHeight.sample(rand));
     }
 
-    protected boolean shouldSkipLocation(Random rand, int localX, int localY, int localZ, int range, boolean large) {
-        return localX == range && localZ == range && range > 0;
+    protected boolean shouldSkipLocation(RandomSource rand, int localX, int localY, int localZ, int range, boolean large) {
+        return localX == range - rand.nextInt(2) && localZ == range - rand.nextInt(2) && range > 0;
     }
 }

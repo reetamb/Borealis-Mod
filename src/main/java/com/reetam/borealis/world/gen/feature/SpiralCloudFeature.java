@@ -3,6 +3,7 @@ package com.reetam.borealis.world.gen.feature;
 import com.mojang.serialization.Codec;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -17,7 +18,7 @@ public class SpiralCloudFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-        Random rand = context.random();
+        RandomSource rand = context.random();
         BlockPos pos = context.origin();
         WorldGenLevel level = context.level();
 

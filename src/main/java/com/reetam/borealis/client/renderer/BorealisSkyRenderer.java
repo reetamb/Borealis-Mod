@@ -3,8 +3,8 @@ package com.reetam.borealis.client.renderer;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Matrix4f;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
+import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
@@ -12,13 +12,13 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.client.ISkyRenderHandler;
+import org.joml.Matrix4f;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
 
-public class BorealisSkyRenderer implements ISkyRenderHandler {
+public class BorealisSkyRenderer {
 
     @Nullable
     private VertexBuffer skyBuffer;
@@ -37,16 +37,18 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
     }
 
     private void createStars() {
-        Tesselator tessellator = Tesselator.getInstance();
-        BufferBuilder bufferbuilder = tessellator.getBuilder();
+        Tesselator tesselator = Tesselator.getInstance();
+        BufferBuilder bufferbuilder = tesselator.getBuilder();
+        RenderSystem.setShader(GameRenderer::getPositionShader);
         if (this.starBuffer != null) {
             this.starBuffer.close();
         }
 
-        this.starBuffer = new VertexBuffer();
-        this.drawStars(bufferbuilder);
-        bufferbuilder.end();
-        this.starBuffer.upload(bufferbuilder);
+        this.starBuffer = new VertexBuffer(VertexBuffer.Usage.STATIC);
+        BufferBuilder.RenderedBuffer rendered = this.drawStars(bufferbuilder);
+        this.starBuffer.bind();
+        this.starBuffer.upload(rendered);
+        VertexBuffer.unbind();
     }
     private void createLightSky() {
         Tesselator tesselator = Tesselator.getInstance();
@@ -54,18 +56,13 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
         if (this.skyBuffer != null) {
             this.skyBuffer.close();
         }
-        this.skyBuffer = new VertexBuffer();
-        this.drawSkyHemisphere(bufferbuilder);
-        bufferbuilder.end();
-        this.skyBuffer.upload(bufferbuilder);
+        this.skyBuffer = new VertexBuffer(VertexBuffer.Usage.STATIC);
+        BufferBuilder.RenderedBuffer rendered = this.drawSkyHemisphere(bufferbuilder);
+        this.skyBuffer.upload(rendered);
     }
-    
-    
-    @Override
-    public void render(int ticks, float partialTicks, PoseStack poseStack, ClientLevel level, Minecraft mc) {
+    public void render(ClientLevel level, int ticks, float partialTick, PoseStack poseStack, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
         // DAY SKY
-        RenderSystem.disableTexture();
-        Vec3 vector3d = level.getSkyColor(mc.gameRenderer.getMainCamera().getPosition(), partialTicks);
+        Vec3 vector3d = level.getSkyColor(Minecraft.getInstance().gameRenderer.getMainCamera().getPosition(), partialTick);
         float f = (float)vector3d.x;
         float f1 = (float)vector3d.y;
         float f2 = (float)vector3d.z;
@@ -81,16 +78,15 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
         // MAKE SUNRISE
         RenderSystem.disableBlend();
         RenderSystem.defaultBlendFunc();
-        float[] afloat = level.effects().getSunriseColor(level.getTimeOfDay(partialTicks), partialTicks);
+        float[] afloat = level.effects().getSunriseColor(level.getTimeOfDay(partialTick), partialTick);
         if (afloat != null) {
             RenderSystem.setShader(GameRenderer::getPositionColorShader);
-            RenderSystem.disableTexture();
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             poseStack.pushPose();
-            poseStack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
-            float f3 = Math.sin(level.getSunAngle(partialTicks)) < 0.0F ? 180.0F : 0.0F;
-            poseStack.mulPose(Vector3f.ZP.rotationDegrees(f3));
-            poseStack.mulPose(Vector3f.ZP.rotationDegrees(90.0F));
+            poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+            float f3 = Math.sin(level.getSunAngle(partialTick)) < 0.0F ? 180.0F : 0.0F;
+            poseStack.mulPose(Axis.ZP.rotationDegrees(f3));
+            poseStack.mulPose(Axis.ZP.rotationDegrees(90.0F));
             float f4 = afloat[0];
             float f5 = afloat[1];
             float f6 = afloat[2];
@@ -105,19 +101,17 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
                 bufferbuilder.vertex(matrix4f, f8 * 120.0F, f9 * 120.0F, -f9 * 40.0F * afloat[3]).color(afloat[0], afloat[1], afloat[2], 0.0F).endVertex();
             }
 
-            bufferbuilder.end();
-            BufferUploader.end(bufferbuilder);
+            BufferUploader.draw(bufferbuilder.end());
             poseStack.popPose();
         }
 
         // MAKE SUN MOON AND STARS
-        RenderSystem.enableTexture();
         RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
         poseStack.pushPose();
-        float f11 = 1.0F - level.getRainLevel(partialTicks);
+        float f11 = 1.0F - level.getRainLevel(partialTick);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, f11);
-        poseStack.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
-        poseStack.mulPose(Vector3f.XP.rotationDegrees(level.getTimeOfDay(partialTicks) * 360.0F));
+        poseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
+        poseStack.mulPose(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360.0F));
         Matrix4f matrix4f1 = poseStack.last().pose();
         float f12 = 30.0F;
         RenderSystem.setShaderTexture(0, SUN_LOCATION); // sun
@@ -126,8 +120,7 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
         bufferbuilder.vertex(matrix4f1, f12, 100.0F, -f12).uv(1.0F, 0.0F).endVertex();
         bufferbuilder.vertex(matrix4f1, f12, 100.0F, f12).uv(1.0F, 1.0F).endVertex();
         bufferbuilder.vertex(matrix4f1, -f12, 100.0F, f12).uv(0.0F, 1.0F).endVertex();
-        bufferbuilder.end();
-        BufferUploader.end(bufferbuilder);
+        BufferUploader.draw(bufferbuilder.end());
         f12 = 20.0F;
         RenderSystem.setShaderTexture(0, MOON_LOCATION); // moon
         int k = level.getMoonPhase();
@@ -142,10 +135,8 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
         bufferbuilder.vertex(matrix4f1, f12, -100.0F, f12).uv(f13, f16).endVertex();
         bufferbuilder.vertex(matrix4f1, f12, -100.0F, -f12).uv(f13, f14).endVertex();
         bufferbuilder.vertex(matrix4f1, -f12, -100.0F, -f12).uv(f15, f14).endVertex();
-        bufferbuilder.end();
-        BufferUploader.end(bufferbuilder);
-        RenderSystem.disableTexture();
-        float f10 = level.getStarBrightness(partialTicks) * f11; // stars
+        BufferUploader.draw(bufferbuilder.end());
+        float f10 = level.getStarBrightness(partialTick) * f11; // stars
         if (f10 > 0.0F) {
             RenderSystem.setShaderColor(f10, f10, f10, f10);
             FogRenderer.setupNoFog();
@@ -155,9 +146,8 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
         // NIGHT SKY
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         poseStack.popPose();
-        RenderSystem.disableTexture();
         RenderSystem.setShaderColor(0.0F, 0.0F, 0.0F, 1.0F);
-        double d0 = mc.player.getEyePosition(partialTicks).y - level.getLevelData().getHorizonHeight(level);
+        double d0 = Minecraft.getInstance().player.getEyePosition(partialTick).y - level.getLevelData().getHorizonHeight(level);
         if (d0 < 0.0D) {
             poseStack.pushPose();
             poseStack.translate(0.0D, 12.0D, 0.0D);
@@ -170,11 +160,10 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
         } else {
             RenderSystem.setShaderColor(f, f1, f2, 1.0F);
         }
-        RenderSystem.enableTexture();
         RenderSystem.depthMask(true);
     }
 
-    private void drawStars(BufferBuilder bufferBuilder) {
+    private BufferBuilder.RenderedBuffer drawStars(BufferBuilder bufferBuilder) {
         Random random = new Random(10842L);
         bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
 
@@ -214,8 +203,9 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
                 }
             }
         }
+        return bufferBuilder.end();
     }
-    private void drawSkyHemisphere(BufferBuilder bufferBuilder) {
+    private BufferBuilder.RenderedBuffer drawSkyHemisphere(BufferBuilder bufferBuilder) {
         bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
 
         for(int k = -384; k <= 384; k += 64) {
@@ -233,5 +223,6 @@ public class BorealisSkyRenderer implements ISkyRenderHandler {
                 bufferBuilder.vertex(f, (float) 16.0, (l + 64)).endVertex();
             }
         }
+        return bufferBuilder.end();
     }
 }

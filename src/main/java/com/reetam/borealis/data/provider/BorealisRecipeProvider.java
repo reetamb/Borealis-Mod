@@ -7,20 +7,19 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.registries.ForgeRegistryEntry;
-
 import java.util.ArrayList;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class BorealisRecipeProvider extends RecipeProvider {
-    public BorealisRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+public abstract class BorealisRecipeProvider extends RecipeProvider {
+    public BorealisRecipeProvider(DataGenerator generator) {
+        super(generator.getPackOutput());
     }
 
     public ArrayList<SingleItemRecipeBuilder> bulkStonecutting(Consumer<FinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Block[] outputs) {
@@ -28,24 +27,25 @@ public class BorealisRecipeProvider extends RecipeProvider {
         for (Block output : outputs) {
             SingleItemRecipeBuilder recipe = SingleItemRecipeBuilder.stonecutting(
                     Ingredient.of(stoneIn.get()),
+                    RecipeCategory.BUILDING_BLOCKS,
                     output,
                     output instanceof SlabBlock ? 2 : 1
             ).unlockedBy(has(stoneIn), has(stoneIn.get()));
-            recipe.save(consumer, name(output.getRegistryName().toString().substring(BorealisMod.MODID.length()+1) + "_from_" + stoneIn.get().getRegistryName().toString().substring(BorealisMod.MODID.length()+1) + "_stonecutting"));
+            recipe.save(consumer, name(output.toString().substring(15, output.toString().length() - 1) + "_from_" + stoneIn.get().toString().substring(15, stoneIn.get().toString().length() - 1) + "_stonecutting"));
             recipes.add(recipe);
         }
         return recipes;
     }
 
     public ShapedRecipeBuilder wood(Supplier<? extends Block> logIn, Supplier<? extends Block> woodOut) {
-        return ShapedRecipeBuilder.shaped(woodOut.get(), 3)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodOut.get(), 3)
                 .pattern("##")
                 .pattern("##")
                 .define('#', logIn.get())
                 .unlockedBy(has(logIn), has(logIn.get()));
     }
     public ShapedRecipeBuilder stairs(Supplier<? extends Block> blockIn, Supplier<? extends Block> stairsOut) {
-        return ShapedRecipeBuilder.shaped(stairsOut.get(), 4)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stairsOut.get(), 4)
                 .pattern("  #")
                 .pattern(" ##")
                 .pattern("###")
@@ -53,13 +53,13 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .unlockedBy(has(blockIn), has(blockIn.get()));
     }
     public ShapedRecipeBuilder slab(Supplier<? extends Block> blockIn, Supplier<? extends Block> slabOut) {
-        return ShapedRecipeBuilder.shaped(slabOut.get(), 6)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, slabOut.get(), 6)
                 .pattern("###")
                 .define('#', blockIn.get())
                 .unlockedBy(has(blockIn), has(blockIn.get()));
     }
     public ShapedRecipeBuilder fence(Supplier<? extends Block> blockIn, Supplier<? extends Block> fenceOut) {
-        return ShapedRecipeBuilder.shaped(fenceOut.get(), 3)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, fenceOut.get(), 3)
                 .pattern("#/#")
                 .pattern("#/#")
                 .define('#', blockIn.get())
@@ -67,7 +67,7 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .unlockedBy(has(blockIn), has(blockIn.get()));
     }
     public ShapedRecipeBuilder gate(Supplier<? extends Block> blockIn, Supplier<? extends Block> gateOut) {
-        return ShapedRecipeBuilder.shaped(gateOut.get(), 3)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, gateOut.get(), 3)
                 .pattern("/#/")
                 .pattern("/#/")
                 .define('/', Items.STICK)
@@ -75,18 +75,18 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .unlockedBy(has(blockIn), has(blockIn.get()));
     }
     public ShapelessRecipeBuilder button(Supplier<? extends Block> blockIn, Supplier<? extends Block> buttonOut) {
-        return ShapelessRecipeBuilder.shapeless(buttonOut.get())
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, buttonOut.get())
                 .requires(blockIn.get())
                 .unlockedBy(has(blockIn), has(blockIn.get()));
     }
     public ShapedRecipeBuilder plate(Supplier<? extends Block> blockIn, Supplier<? extends Block> pressurePlateOut) {
-        return ShapedRecipeBuilder.shaped(pressurePlateOut.get())
+        return ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, pressurePlateOut.get())
                 .pattern("##")
                 .define('#', blockIn.get())
                 .unlockedBy(has(blockIn), has(blockIn.get()));
     }
     public ShapedRecipeBuilder door(Supplier<? extends Block> plankIn, Supplier<? extends Block> doorOut) {
-        return ShapedRecipeBuilder.shaped(doorOut.get(), 3)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, doorOut.get(), 3)
                 .pattern("##")
                 .pattern("##")
                 .pattern("##")
@@ -94,21 +94,21 @@ public class BorealisRecipeProvider extends RecipeProvider {
                 .unlockedBy(has(plankIn), has(plankIn.get()));
     }
     public ShapedRecipeBuilder trapdoor(Supplier<? extends Block> plankIn, Supplier<? extends Block> trapdoorOut) {
-        return ShapedRecipeBuilder.shaped(trapdoorOut.get(), 2)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, trapdoorOut.get(), 2)
                 .pattern("###")
                 .pattern("###")
                 .define('#', plankIn.get())
                 .unlockedBy(has(plankIn), has(plankIn.get()));
     }
     public ShapedRecipeBuilder stone(Supplier<? extends Block> stoneIn, Supplier<? extends Block> stoneOut) {
-        return ShapedRecipeBuilder.shaped(stoneOut.get(), 4)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneOut.get(), 4)
                 .pattern("##")
                 .pattern("##")
                 .define('#', stoneIn.get())
                 .unlockedBy(has(stoneIn), has(stoneIn.get()));
     }
     public ShapedRecipeBuilder wall(Supplier<? extends Block> stoneIn, Supplier<? extends Block> wallOut) {
-        return ShapedRecipeBuilder.shaped(wallOut.get(), 6)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, wallOut.get(), 6)
                 .pattern("###")
                 .pattern("###")
                 .define('#', stoneIn.get())
@@ -116,7 +116,7 @@ public class BorealisRecipeProvider extends RecipeProvider {
     }
 
     public ShapedRecipeBuilder boat(Supplier<? extends Block> plankIn, Supplier<? extends Item> boatOut) {
-        return ShapedRecipeBuilder.shaped(boatOut.get(), 1)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.TRANSPORTATION, boatOut.get(), 1)
                 .pattern("# #")
                 .pattern("###")
                 .define('#', plankIn.get())
@@ -124,7 +124,7 @@ public class BorealisRecipeProvider extends RecipeProvider {
     }
 
     public ShapedRecipeBuilder sign(Supplier<? extends Block> planksIn, Supplier<? extends SignBlock> signOut) {
-        return ShapedRecipeBuilder.shaped(signOut.get(), 3)
+        return ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, signOut.get(), 3)
                 .pattern("###")
                 .pattern("###")
                 .pattern(" / ")
@@ -137,11 +137,17 @@ public class BorealisRecipeProvider extends RecipeProvider {
         return new ResourceLocation(BorealisMod.MODID, name);
     }
 
-    protected ResourceLocation name(Supplier<? extends ForgeRegistryEntry<?>> block) {
-        return block.get().getRegistryName();
+    protected String name(Supplier<? extends ItemLike> block) {
+        String n;
+        if (block.get() instanceof Block) {
+            n = block.get().toString().substring(15, block.get().toString().length() - 1);
+        } else {
+            n = block.get().toString();
+        }
+        return n;
     }
 
     protected String has(Supplier<? extends Block> block) {
-        return "has_" + block.get().getRegistryName().getPath();
+        return "has_" + block.get().getName();
     }
 }

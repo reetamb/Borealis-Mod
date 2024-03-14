@@ -4,15 +4,12 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.BorealisFeatures;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-
-import java.util.Random;
-import java.util.function.BiConsumer;
 
 public class HelixFoliagePlacer extends FoliagePlacer {
 
@@ -28,15 +25,15 @@ public class HelixFoliagePlacer extends FoliagePlacer {
         this.trunkHeight = height;
     }
 
-    public int foliageHeight(Random rand, int height, TreeConfiguration config) {
+    public int foliageHeight(RandomSource rand, int height, TreeConfiguration config) {
         return Math.max(4, height - this.trunkHeight.sample(rand));
     }
 
     protected FoliagePlacerType<?> type() {
-        return BorealisFeatures.TreePlacers.HELIX_FOLIAGE_PLACER;
+        return BorealisFeatures.TreePlacers.HELIX_FOLIAGE_PLACER.get();
     }
 
-    protected void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, Random rand, TreeConfiguration config, int maxHeight, FoliagePlacer.FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
+    protected void createFoliage(LevelSimulatedReader level, FoliageSetter blockSetter, RandomSource rand, TreeConfiguration config, int maxHeight, FoliagePlacer.FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
         BlockPos blockpos = attachment.pos();
         int i = 0;
 
@@ -58,7 +55,7 @@ public class HelixFoliagePlacer extends FoliagePlacer {
         };
     }
 
-    protected boolean shouldSkipLocation(Random rand, int localX, int localY, int localZ, int range, boolean large) {
+    protected boolean shouldSkipLocation(RandomSource rand, int localX, int localY, int localZ, int range, boolean large) {
         return localX == range && localZ == range && range > 0;
     }
 }

@@ -4,8 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.datafixers.util.Pair;
-import com.mojang.math.Quaternion;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.entity.BorealisBoatEntity;
 import net.minecraft.client.model.BoatModel;
@@ -17,6 +16,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import org.joml.Quaternionf;
 
 import java.util.Map;
 import java.util.stream.Stream;
@@ -40,7 +40,7 @@ public class BorealisBoatRenderer extends EntityRenderer<BorealisBoatEntity> {
     public void render(BorealisBoatEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.pushPose();
         pMatrixStack.translate(0.0D, 0.375D, 0.0D);
-        pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(180.0F - pEntityYaw));
+        pMatrixStack.mulPose(Axis.YP.rotationDegrees(180.0F - pEntityYaw));
         float f = (float)pEntity.getHurtTime() - pPartialTicks;
         float f1 = pEntity.getDamage() - pPartialTicks;
         if (f1 < 0.0F) {
@@ -48,19 +48,19 @@ public class BorealisBoatRenderer extends EntityRenderer<BorealisBoatEntity> {
         }
 
         if (f > 0.0F) {
-            pMatrixStack.mulPose(Vector3f.XP.rotationDegrees(Mth.sin(f) * f * f1 / 10.0F * (float)pEntity.getHurtDir()));
+            pMatrixStack.mulPose(Axis.XP.rotationDegrees(Mth.sin(f) * f * f1 / 10.0F * (float)pEntity.getHurtDir()));
         }
 
         float bubbleAngle = pEntity.getBubbleAngle(pPartialTicks);
         if (!Mth.equal(bubbleAngle, 0.0F)) {
-            pMatrixStack.mulPose(new Quaternion(new Vector3f(1.0F, 0.0F, 1.0F), pEntity.getBubbleAngle(pPartialTicks), true));
+            pMatrixStack.mulPose(new Quaternionf().setAngleAxis(pEntity.getBubbleAngle(pPartialTicks) * 0.017453292F, 1.0F, 0.0F, 1.0F));
         }
 
         Pair<ResourceLocation, BoatModel> pair = this.boatResources.get(pEntity.getBorealisBoatType());
         ResourceLocation resourcelocation = (ResourceLocation)pair.getFirst();
         BoatModel boatmodel = (BoatModel)pair.getSecond();
         pMatrixStack.scale(-1.0F, -1.0F, 1.0F);
-        pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(90.0F));
+        pMatrixStack.mulPose(Axis.YP.rotationDegrees(90.0F));
         boatmodel.setupAnim(pEntity, pPartialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
         VertexConsumer vertexconsumer = pBuffer.getBuffer(boatmodel.renderType(resourcelocation));
         boatmodel.renderToBuffer(pMatrixStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);

@@ -2,28 +2,22 @@ package com.reetam.borealis.data;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
-import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisTags;
-import net.minecraft.data.tags.FluidTagsProvider;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
+import java.util.concurrent.CompletableFuture;
 
 public class BorealisBlockTags extends BlockTagsProvider {
 
-    public BorealisBlockTags(DataGenerator generator, @Nullable ExistingFileHelper existingFileHelper) {
-        super(generator, BorealisMod.MODID, existingFileHelper);
+    public BorealisBlockTags(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper existingFileHelper) {
+        super(packOutput, registries, BorealisMod.MODID, existingFileHelper);
     }
 
     @Override
@@ -32,7 +26,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.Provider provider) {
         //mod
         tag(BorealisTags.Blocks.BASE_STONE_BOREALIS)
                 .add(BorealisBlocks.SOAPSTONE.get())
@@ -168,9 +162,5 @@ public class BorealisBlockTags extends BlockTagsProvider {
         tag(Tags.Blocks.STONE)
                 .add(BorealisBlocks.SOAPSTONE.get())
                 .add(BorealisBlocks.SLATE.get());
-    }
-
-    protected TagsProvider.TagAppender<Block> tag(TagKey<Block> tag) {
-        return super.tag(tag);
     }
 }

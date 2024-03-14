@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "borealis:block/soapstone_tile_slab_top"
-    },
     "type=bottom": {
       "model": "borealis:block/soapstone_tile_slab"
     },
     "type=double": {
       "model": "borealis:block/soapstone_tiles"
+    },
+    "type=top": {
+      "model": "borealis:block/soapstone_tile_slab_top"
     }
   }
 }

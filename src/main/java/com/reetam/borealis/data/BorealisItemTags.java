@@ -4,23 +4,21 @@ import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.BorealisTags;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
+import java.util.concurrent.CompletableFuture;
 
 public class BorealisItemTags extends ItemTagsProvider {
 
-    public BorealisItemTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(dataGenerator, blockTagProvider, BorealisMod.MODID, existingFileHelper);
+    public BorealisItemTags(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> registries, CompletableFuture<TagLookup<Block>> blocks, @Nullable ExistingFileHelper existingFileHelper) {
+        super(packOutput, registries, blocks, BorealisMod.MODID, existingFileHelper);
     }
 
     @Override
@@ -29,7 +27,7 @@ public class BorealisItemTags extends ItemTagsProvider {
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.Provider provider) {
         //mod
         copy(BorealisTags.Blocks.BRUMAL_LOGS, BorealisTags.Items.BRUMAL_LOGS);
         copy(BorealisTags.Blocks.FROSTFIR_LOGS, BorealisTags.Items.FROSTFIR_LOGS);
@@ -119,9 +117,5 @@ public class BorealisItemTags extends ItemTagsProvider {
         tag(Tags.Items.STONE)
                 .add(BorealisBlocks.SOAPSTONE.get().asItem())
                 .add(BorealisBlocks.SLATE.get().asItem());
-    }
-
-    protected TagsProvider.TagAppender<Item> tag(TagKey<Item> tag) {
-        return super.tag(tag);
     }
 }

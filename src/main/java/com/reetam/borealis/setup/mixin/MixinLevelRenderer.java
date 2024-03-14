@@ -1,6 +1,6 @@
 package com.reetam.borealis.setup.mixin;
 
-import com.reetam.borealis.registry.BorealisDimensions;
+import com.reetam.borealis.registry.BorealisWorld;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.multiplayer.ClientLevel;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,10 +14,10 @@ public class MixinLevelRenderer {
     private ClientLevel level;
 
     @ModifyVariable(at = @At(value = "STORE"), method = "renderSky", ordinal = 0)
-    private double borealisRenderSky(double d0) {
-        if (this.level.dimension() == BorealisDimensions.BOREALIS) {
-            return 1.0D;
+    private LevelRenderer borealisRenderSky(LevelRenderer value) {
+        if (this.level.dimension() == BorealisWorld.BOREALIS_LEVEL) {
+            return value;
         }
-        return d0;
+        return value;
     }
 }

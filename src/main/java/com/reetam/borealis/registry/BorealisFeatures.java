@@ -1,42 +1,21 @@
 package com.reetam.borealis.registry;
 
-import com.mojang.serialization.Codec;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.world.gen.feature.*;
 import com.reetam.borealis.world.gen.foliageplacer.AspenFoliagePlacer;
 import com.reetam.borealis.world.gen.foliageplacer.HelixFoliagePlacer;
 import com.reetam.borealis.world.gen.foliageplacer.PalmFoliagePlacer;
 import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
-import net.minecraft.data.BuiltinRegistries;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.*;
-import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaPineFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
-import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.List;
 
 public class BorealisFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, BorealisMod.MODID);
@@ -58,18 +37,13 @@ public class BorealisFeatures {
     );
 
     public static class TreePlacers {
-        public static final FoliagePlacerType<PalmFoliagePlacer> PALM_FOLIAGE_PLACER = registerFoliage("palm_foliage_placer", PalmFoliagePlacer.CODEC);
-        public static final FoliagePlacerType<AspenFoliagePlacer> ASPEN_FOLIAGE_PLACER = registerFoliage("aspen_foliage_placer", AspenFoliagePlacer.CODEC);
-        public static final FoliagePlacerType<HelixFoliagePlacer> HELIX_FOLIAGE_PLACER = registerFoliage("helix_foliage_placer", HelixFoliagePlacer.CODEC);
 
-        public static final TrunkPlacerType<RootedTrunkPlacer> ROOTED_TRUNK_PLACER = registerTrunk("rooted_trunk_placer", RootedTrunkPlacer.CODEC);
+        public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACERS = DeferredRegister.create(ForgeRegistries.FOLIAGE_PLACER_TYPES, BorealisMod.MODID);
+        public static final RegistryObject<FoliagePlacerType<PalmFoliagePlacer>> PALM_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("palm_foliage_placer", () -> new FoliagePlacerType<>(PalmFoliagePlacer.CODEC));
+        public static final RegistryObject<FoliagePlacerType<AspenFoliagePlacer>> ASPEN_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("aspen_foliage_placer", () -> new FoliagePlacerType<>(AspenFoliagePlacer.CODEC));
+        public static final RegistryObject<FoliagePlacerType<HelixFoliagePlacer>> HELIX_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("helix_foliage_placer", () -> new FoliagePlacerType<>(HelixFoliagePlacer.CODEC));
 
-        private static <P extends FoliagePlacer> FoliagePlacerType<P> registerFoliage(String name, Codec<P> codec) {
-            return Registry.register(Registry.FOLIAGE_PLACER_TYPES, new ResourceLocation(BorealisMod.MODID, name), new FoliagePlacerType<>(codec));
-        }
-
-        private static <P extends TrunkPlacer> TrunkPlacerType<P> registerTrunk(String name, Codec<P> codec) {
-            return Registry.register(Registry.TRUNK_PLACER_TYPES, new ResourceLocation(BorealisMod.MODID, name), new TrunkPlacerType<>(codec));
-        }
+        public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACERS = DeferredRegister.create(Registries.TRUNK_PLACER_TYPE, BorealisMod.MODID);
+        public static final RegistryObject<TrunkPlacerType<RootedTrunkPlacer>> ROOTED_TRUNK_PLACER = TRUNK_PLACERS.register("rooted_trunk_placer", () -> new TrunkPlacerType<>(RootedTrunkPlacer.CODEC));
     }
 }

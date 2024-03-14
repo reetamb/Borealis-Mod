@@ -1,19 +1,18 @@
 package com.reetam.borealis.world.gen.treegrower;
 
-import com.reetam.borealis.registry.BorealisWorldgen;
-import net.minecraft.core.Holder;
+import com.reetam.borealis.BorealisMod;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-
-import javax.annotation.Nullable;
-import java.util.Random;
+import org.jetbrains.annotations.Nullable;
 
 public class BrumalTreeGrower extends AbstractTreeGrower {
-
     @Nullable
     @Override
-    protected Holder<ConfiguredFeature<TreeConfiguration, ?>> getConfiguredFeature(Random rand, boolean largeHive) {
-        return BorealisWorldgen.Configured.CONFIGURED_BRUMAL_TREE;
+    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource randomSource, boolean b) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(BorealisMod.MODID, "brumal_tree"));
     }
 }

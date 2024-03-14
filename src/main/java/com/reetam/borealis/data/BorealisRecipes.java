@@ -6,6 +6,7 @@ import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Item;
@@ -24,7 +25,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         Block[] soapstone_stonecuts = new Block[]{
                 BorealisBlocks.SOAPSTONE_BRICKS.get(),
                 BorealisBlocks.SOAPSTONE_TILES.get(),
@@ -111,32 +112,34 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         bulkStonecutting(consumer, BorealisBlocks.SOAPSTONE, soapstone_stonecuts);
         bulkStonecutting(consumer, BorealisBlocks.SOAPSTONE_BRICKS, brick_stonecuts);
         bulkStonecutting(consumer, BorealisBlocks.SOAPSTONE_TILES, tile_stonecuts);
-        ShapedRecipeBuilder.shaped(BorealisItems.HAT.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BorealisItems.HAT.get())
                 .pattern(" # ")
                 .pattern(" 0 ")
                 .pattern("###")
                 .define('#', Blocks.BLACK_WOOL)
                 .define('0', Blocks.WHITE_WOOL)
-                .unlockedBy("has_" + Blocks.BLACK_WOOL.getRegistryName().getPath(), has(Blocks.BLACK_WOOL)).save(consumer);
-        ShapedRecipeBuilder.shaped(BorealisItems.MOON_PEARL.get())
+                .unlockedBy("has_" + name(() -> Blocks.BLACK_WOOL), has(Blocks.BLACK_WOOL)).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BorealisItems.MOON_PEARL.get())
                 .pattern("000")
                 .pattern("0#0")
                 .pattern("000")
                 .define('0', Items.LAPIS_LAZULI)
                 .define('#', Items.SNOWBALL)
                 .unlockedBy("has_" + Items.LAPIS_LAZULI, has(Items.LAPIS_LAZULI)).save(consumer);
-        ShapedRecipeBuilder.shaped(BorealisBlocks.SLATE_PILLAR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BorealisBlocks.SLATE_PILLAR.get())
                 .pattern("#")
                 .pattern("#")
                 .pattern("#")
                 .define('#', BorealisBlocks.SLATE.get())
                 .unlockedBy(has(BorealisBlocks.SLATE), has(BorealisBlocks.SLATE.get()));
         stone(BorealisBlocks.SLATE, BorealisBlocks.SLATE_TILES).save(consumer);
-        ShapelessRecipeBuilder.shapeless(BorealisBlocks.PETRIFIED_WOOD_BRICKS.get(), 4)
+        smeltingResultFromBase(consumer, BorealisBlocks.STARRY_SLATE.get(), BorealisBlocks.SLATE.get());
+        stone(BorealisBlocks.STARRY_SLATE, BorealisBlocks.STARRY_SLATE_TILES).save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BorealisBlocks.PETRIFIED_WOOD_BRICKS.get(), 4)
                 .requires(BorealisBlocks.PETRIFIED_WOOD.get())
                 .unlockedBy(has(BorealisBlocks.PETRIFIED_WOOD), has(BorealisBlocks.PETRIFIED_WOOD.get()))
                 .save(consumer, name(BorealisBlocks.PETRIFIED_WOOD));
-        ShapedRecipeBuilder.shaped(Blocks.CRAFTING_TABLE, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Blocks.CRAFTING_TABLE, 1)
                 .pattern("##")
                 .pattern("##")
                 .define('#', BorealisBlocks.PETRIFIED_WOOD_BRICKS.get())
@@ -146,14 +149,14 @@ public class BorealisRecipes extends BorealisRecipeProvider {
     }
 
     public void bulkWood(Consumer<FinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn, Supplier<? extends Item> boatIn, Supplier<? extends SignBlock> signIn) {
-        ShapelessRecipeBuilder.shapeless(plankIn.get(), 4)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, plankIn.get(), 4)
                 .requires(logIn.get())
                 .unlockedBy(has(logIn), has(logIn.get()))
                 .save(consumer, name(plankIn));
-        ShapelessRecipeBuilder.shapeless(plankIn.get(), 4)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, plankIn.get(), 4)
                 .requires(woodIn.get())
                 .unlockedBy(has(woodIn), has(woodIn.get()))
-                .save(consumer, name(plankIn) + "_from_" + name(woodIn).toString().substring(BorealisMod.MODID.length()+1));
+                .save(consumer, name(plankIn) + "_from_" + name(woodIn));
 
         wood(logIn, woodIn).save(consumer, name(woodIn));
         wood(stripLogIn, stripWoodIn).save(consumer, name(stripWoodIn));

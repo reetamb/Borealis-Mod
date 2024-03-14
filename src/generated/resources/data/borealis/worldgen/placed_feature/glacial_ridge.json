@@ -1,0 +1,12 @@
+{
+  "feature": "borealis:glacial_ridge",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 4
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

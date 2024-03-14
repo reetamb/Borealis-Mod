@@ -4,7 +4,9 @@ import com.mojang.serialization.Codec;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -20,7 +22,7 @@ public class HotSpringFeature extends Feature<NoneFeatureConfiguration> {
 
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-        Random rand = context.random();
+        RandomSource rand = context.random();
         BlockPos pos = context.origin();
         WorldGenLevel level = context.level();
 
@@ -60,10 +62,10 @@ public class HotSpringFeature extends Feature<NoneFeatureConfiguration> {
                         if (booleans[(x1 * 16 + z1) * 8 + y1]) {
                             if (y1 < 4) { // don't bother with creating air overhead since this doesn't generate in the ground
                                 // place water according to shape dictated by booleans array
-                                level.setBlock(pos.offset(x1, y1, z1), BorealisBlocks.HOT_SPRING_WATER_BLOCK.get().defaultBlockState(), 2);
+                                level.setBlock(pos.offset(x1, y1, z1), Blocks.WATER.defaultBlockState(), 2);
                                 for (Direction direction : Direction.values()) {
                                     if (direction != Direction.UP) {
-                                        if (level.getBlockState(pos.offset(x1, y1, z1).relative(direction, 1)) != BorealisBlocks.HOT_SPRING_WATER_BLOCK.get().defaultBlockState()) {
+                                        if (level.getBlockState(pos.offset(x1, y1, z1).relative(direction, 1)) != Blocks.WATER.defaultBlockState()) {
                                             this.setBlock(level, pos.offset(x1, y1, z1).relative(direction, 1), BorealisBlocks.PUMICE.get().defaultBlockState());
                                         }
                                     }

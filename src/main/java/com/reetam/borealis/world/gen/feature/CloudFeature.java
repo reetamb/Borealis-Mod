@@ -3,6 +3,7 @@ package com.reetam.borealis.world.gen.feature;
 import com.mojang.serialization.Codec;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,12 +21,12 @@ public class CloudFeature extends Feature<NoneFeatureConfiguration> {
 
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-        Random rand = context.random();
+        RandomSource rand = context.random();
         BlockPos pos = context.origin();
         WorldGenLevel level = context.level();
         
-        int size = rand.nextInt(6) + 2;
-        int clouds = rand.nextInt(6) + 1;
+        int clouds = rand.nextInt(6) + 3;
+        int size = clouds + 2 + rand.nextInt(3);
         BlockState state = BorealisBlocks.CLOUD.get().defaultBlockState();
         pos = pos.offset(rand.nextInt(8) - 4, 0, rand.nextInt(8) - 4);
 
@@ -38,13 +39,13 @@ public class CloudFeature extends Feature<NoneFeatureConfiguration> {
                 makeDisk(level, state, rand, pos.above(3), size - 4);
             }
 
-            pos = pos.offset(rand.nextInt(6) - 3, rand.nextInt(4) - 2, rand.nextInt(6) - 3);
+            pos = pos.offset(rand.nextInt(4) - 2, rand.nextInt(2) - 1, rand.nextInt(4) - 2);
             size -= rand.nextInt(2);
         }
         return true;
     }
 
-    public void makeDisk(WorldGenLevel level, BlockState state, Random rand, BlockPos pos, int radius) {
+    public void makeDisk(WorldGenLevel level, BlockState state, RandomSource rand, BlockPos pos, int radius) {
         for (int i = -radius; i < radius; i++) {
             for (int j = -radius; j < radius; j++) {
                 float line = Math.abs(i*i + j*j);

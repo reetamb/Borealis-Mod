@@ -22,6 +22,8 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.SOAPSTONE);
         itemBlock(BorealisBlocks.SOAPSTONE_TILES);
         itemBlock(BorealisBlocks.KYANITE_ORE);
+        itemBlock(BorealisBlocks.TANZANITE_ORE);
+        itemBlock(BorealisBlocks.TANZANITE_BLOCK);
         itemBlock(BorealisBlocks.SOAPSTONE);
         itemBlock(BorealisBlocks.SOAPSTONE_TILES);
         itemBlock(BorealisBlocks.SOAPSTONE_BRICKS);
@@ -39,6 +41,8 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.SLATE);
         itemBlock(BorealisBlocks.SLATE_PILLAR);
         itemBlock(BorealisBlocks.SLATE_TILES);
+        itemBlock(BorealisBlocks.STARRY_SLATE);
+        itemBlock(BorealisBlocks.STARRY_SLATE_TILES);
         itemBlock(BorealisBlocks.PUMICE);
         itemBlock(BorealisBlocks.PUMICE_GEYSER);
         itemBlock(BorealisBlocks.TRAVERTINE);

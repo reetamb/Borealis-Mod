@@ -3,6 +3,7 @@ package com.reetam.borealis.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -80,7 +81,7 @@ public class HummingbirdEntity extends Animal implements FlyingAnimal {
 
     @Override
     public boolean isFlying() {
-        return !this.onGround;
+        return !this.onGround();
     }
 
     @Override
@@ -124,7 +125,7 @@ public class HummingbirdEntity extends Animal implements FlyingAnimal {
          * Execute a one shot task or start executing a continuous task
          */
         public void start() {
-            Random random = this.parentEntity.getRandom();
+            RandomSource random = this.parentEntity.getRandom();
             double dx = this.parentEntity.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
             double dy = this.parentEntity.getY() + (double)((random.nextFloat() * 2.0F - 1.0F));
             double dz = this.parentEntity.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
@@ -162,7 +163,7 @@ public class HummingbirdEntity extends Animal implements FlyingAnimal {
 
             for(int i = 1; i < tries; i++) {
                 axisalignedbb = axisalignedbb.move(motion);
-                if (!this.parentEntity.level.noCollision(this.parentEntity, axisalignedbb)) {
+                if (!this.parentEntity.level().noCollision(this.parentEntity, axisalignedbb)) {
                     return false;
                 }
             }

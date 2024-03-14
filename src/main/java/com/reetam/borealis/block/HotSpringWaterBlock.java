@@ -2,6 +2,7 @@ package com.reetam.borealis.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -13,17 +14,16 @@ import net.minecraft.world.level.material.FlowingFluid;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Random;
 import java.util.function.Supplier;
 
 public class HotSpringWaterBlock extends LiquidBlock {
 
     public HotSpringWaterBlock(Supplier<? extends FlowingFluid> fluid, Properties properties) {
-        super(fluid, properties.noCollission().strength(100F).noDrops());
+        super(fluid, properties.noCollission().strength(100F).noLootTable());
     }
 
     @Override
-    public void animateTick(BlockState state, Level level, BlockPos pos, Random rand) {
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource rand) {
         level.addParticle(ParticleTypes.CLOUD, pos.getX(), pos.getY()+rand.nextFloat(), pos.getZ(), 0.0, 0.1, 0.0);
     }
 

@@ -8,18 +8,29 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Supplier;
 
 public abstract class BorealisItemModelProvider extends ItemModelProvider {
 
     public BorealisItemModelProvider(DataGenerator generator, ExistingFileHelper fileHelper) {
-        super(generator, BorealisMod.MODID, fileHelper);
+        super(generator.getPackOutput(), BorealisMod.MODID, fileHelper);
     }
 
-    public String blockName(Supplier<? extends Block> block) {
-        return block.get().getRegistryName().getPath();
+    private ResourceLocation key(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block);
     }
+    private String blockName(Supplier<? extends Block> block) {
+        return this.key(block.get()).getPath();
+    }    
+    private ResourceLocation key(Item item) {
+        return ForgeRegistries.ITEMS.getKey(item);
+    }
+    private String name(Supplier<? extends Item> item) {
+        return this.key(item.get()).getPath();
+    }
+    
 
     protected ResourceLocation texture(String name) {
         return modLoc("block/" + name);
@@ -50,16 +61,16 @@ public abstract class BorealisItemModelProvider extends ItemModelProvider {
     }
 
     public ItemModelBuilder normalItem(Supplier<? extends Item> item) {
-        return withExistingParent(item.get().getRegistryName().getPath(), mcLoc("item/generated"))
-                .texture("layer0", modLoc("item/" + item.get().getRegistryName().getPath()));
+        return withExistingParent(name(item), mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/" + name(item)));
     }
 
     public ItemModelBuilder toolItem(Supplier<? extends Item> item) {
-        return withExistingParent(item.get().getRegistryName().getPath(), mcLoc("item/handheld"))
-                .texture("layer0", modLoc("item/" + item.get().getRegistryName().getPath()));
+        return withExistingParent(name(item), mcLoc("item/handheld"))
+                .texture("layer0", modLoc("item/" + name(item)));
     }
 
     public ItemModelBuilder egg(Supplier<? extends Item> item) {
-        return withExistingParent(item.get().getRegistryName().getPath(), mcLoc("item/template_spawn_egg"));
+        return withExistingParent(name(item), mcLoc("item/template_spawn_egg"));
     }
 }

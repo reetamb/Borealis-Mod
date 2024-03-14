@@ -1,0 +1,55 @@
+{
+  "precipitation": "snow",
+  "has_precipitation": true,
+  "category": "none",
+  "depth": 0.125,
+  "scale": 0.005,
+  "temperature": 0.0,
+  "temperature_modifier": "none",
+  "downfall": 0.5,
+  "effects": {
+    "fog_color": 6193806,
+    "foliage_color": 11913978,
+    "grass_color": 3239820,
+    "sky_color": 10136810,
+    "water_color": 5683175,
+    "water_fog_color": 5683175,
+    "grass_color_modifier": "none",
+    "particle": {
+      "options": {
+        "type": "white_ash"
+      },
+      "probability": 0.1
+    }
+  },
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [
+      "borealis:slate_boulder"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [
+      "borealis:frostfir_tree"
+    ],
+    [
+      "minecraft:freeze_top_layer",
+      "borealis:cloud"
+    ]
+  ],
+  "starts": [],
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "player_spawn_friendly": false,
+  "spawn_costs": {}
+}

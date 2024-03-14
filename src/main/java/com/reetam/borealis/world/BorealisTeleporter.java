@@ -7,10 +7,13 @@ import it.unimi.dsi.fastutil.objects.Object2LongMap;
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ColumnPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.TicketType;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ChunkPos;
@@ -18,10 +21,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.portal.PortalInfo;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.util.ITeleporter;
+import net.minecraftforge.fluids.IFluidBlock;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -46,7 +50,7 @@ public class BorealisTeleporter implements ITeleporter {
         if ((pos = placeInExistingPortal(dest, entity, entity.blockPosition(), entity instanceof Player)) == null) {
             pos = moveToSafeCoords(dest, entity);
             makePortal(entity, dest, pos.pos);
-            pos = placeInExistingPortal(dest, entity, new BlockPos(pos.pos), entity instanceof Player);
+            pos = placeInExistingPortal(dest, entity, new BlockPos(new Vec3i((int) pos.pos.x, (int) pos.pos.y, (int) pos.pos.z)), entity instanceof Player);
         }
         return pos;
     }
@@ -56,7 +60,7 @@ public class BorealisTeleporter implements ITeleporter {
         int i = 200;
         boolean flag = true;
         BlockPos blockpos = BlockPos.ZERO;
-        ColumnPos columnPos = new ColumnPos(pos);
+        ColumnPos columnPos = new ColumnPos(pos.getX(), pos.getZ());
 
         if (!isPlayer && columnMap.containsKey(columnPos)) {
             return null;
@@ -118,7 +122,7 @@ public class BorealisTeleporter implements ITeleporter {
             if (flag) {
                 destinationCoordinateCache.putIfAbsent(level.dimension().location(), Maps.newHashMapWithExpectedSize(4096));
                 destinationCoordinateCache.get(level.dimension().location()).put(columnPos, new PortalPosition(blockpos, level.getGameTime()));
-                level.getChunkSource().addRegionTicket(TicketType.PORTAL, new ChunkPos(blockpos), 3, new BlockPos(columnPos.x, blockpos.getY(), columnPos.z));
+                level.getChunkSource().addRegionTicket(TicketType.PORTAL, new ChunkPos(blockpos), 3, new BlockPos(columnPos.x(), blockpos.getY(), columnPos.z()));
             }
 
             BlockPos[] portalBorder = getBoundaryPositions(level, blockpos).toArray(new BlockPos[0]);
@@ -138,7 +142,7 @@ public class BorealisTeleporter implements ITeleporter {
 
     private static int getScanHeight(ServerLevel level, int x, int z) {
         int worldHeight = level.getMaxBuildHeight() - 1;
-        int chunkHeight = level.getChunk(x >> 4, z >> 4).getHighestSectionPosition() + 15;
+        int chunkHeight = level.getChunk(x >> 4, z >> 4).getHighestFilledSectionIndex() + 15;
         return Math.min(worldHeight, chunkHeight);
     }
 
@@ -253,7 +257,7 @@ public class BorealisTeleporter implements ITeleporter {
         }
 
         double yFactor = getYFactor(level);
-        cachePortalCoords(level, pos, makePortalAt(level, new BlockPos(entity.getX(), (entity.getY() * yFactor) - 1.0, entity.getZ())));
+        cachePortalCoords(level, pos, makePortalAt(level, new BlockPos((int) entity.getX(), (int) ((entity.getY() * yFactor) - 1.0), (int) entity.getZ())));
     }
 
     private static void loadSurroundingArea(ServerLevel level, Vec3 pos) {
@@ -326,8 +330,8 @@ public class BorealisTeleporter implements ITeleporter {
             for (int potentialX = 0; potentialX < 4; potentialX++) {
                 for (int potentialY = 0; potentialY < 4; potentialY++) {
                     BlockPos tPos = pos.offset(potentialX - 1, potentialY, potentialZ - 1);
-                    Material material = level.getBlockState(tPos).getMaterial();
-                    if (potentialY == 0 && material != Material.GRASS || potentialY >= 1 && !material.isReplaceable()) {
+                    BlockState material = level.getBlockState(tPos);
+                    if (potentialY == 0 && !material.is(BlockTags.VALID_SPAWN) || potentialY >= 1 && !material.is(BlockTags.REPLACEABLE)) {
                         return false;
                     }
                 }
@@ -351,8 +355,8 @@ public class BorealisTeleporter implements ITeleporter {
             for (int potentialX = 0; potentialX < 4; potentialX++) {
                 for (int potentialY = 0; potentialY < 4; potentialY++) {
                     BlockPos tPos = pos.offset(potentialX - 1, potentialY, potentialZ - 1);
-                    Material material = level.getBlockState(tPos).getMaterial();
-                    if (potentialY == 0 && !material.isSolid() && !material.isLiquid() || potentialY >= 1 && !material.isReplaceable()) {
+                    BlockState material = level.getBlockState(tPos);
+                    if (potentialY == 0 && !material.isSolid() && !(material instanceof IFluidBlock) || potentialY >= 1 && !material.is(BlockTags.REPLACEABLE)) {
                         return false;
                     }
                 }

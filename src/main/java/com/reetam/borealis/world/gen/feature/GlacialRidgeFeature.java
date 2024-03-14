@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -30,7 +31,7 @@ public class GlacialRidgeFeature extends Feature<ColumnFeatureConfiguration> {
         int i = context.chunkGenerator().getSeaLevel();
         BlockPos blockpos = context.origin();
         WorldGenLevel worldgenlevel = context.level();
-        Random random = context.random();
+        RandomSource random = context.random();
         ColumnFeatureConfiguration columnfeatureconfiguration = context.config();
         if (!canPlaceAt(worldgenlevel, i, blockpos.mutable())) {
             return false;

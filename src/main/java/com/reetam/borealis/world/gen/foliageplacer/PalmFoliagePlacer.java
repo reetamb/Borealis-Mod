@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.BorealisFeatures;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,10 +30,10 @@ public class PalmFoliagePlacer extends FoliagePlacer {
     }
 
     protected FoliagePlacerType<?> type() {
-        return BorealisFeatures.TreePlacers.PALM_FOLIAGE_PLACER;
+        return BorealisFeatures.TreePlacers.PALM_FOLIAGE_PLACER.get();
     }
 
-    public void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, Random rand, TreeConfiguration config, int maxHeight, FoliagePlacer.FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
+    public void createFoliage(LevelSimulatedReader level, FoliageSetter blockSetter, RandomSource rand, TreeConfiguration config, int maxHeight, FoliagePlacer.FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
         BlockPos blockpos = attachment.pos();
 
         this.placeLeavesRow(level, blockSetter, rand, config, blockpos, 1, offset, attachment.doubleTrunk());
@@ -49,11 +50,11 @@ public class PalmFoliagePlacer extends FoliagePlacer {
         this.placeLeavesRow(level, blockSetter, rand, config, blockpos.south(3), 1, offset-2, attachment.doubleTrunk());
     }
 
-    public int foliageHeight(Random rand, int height, TreeConfiguration config) {
+    public int foliageHeight(RandomSource rand, int height, TreeConfiguration config) {
         return Math.max(4, height - this.trunkHeight.sample(rand));
     }
 
-    protected boolean shouldSkipLocation(Random rand, int localX, int localY, int localZ, int range, boolean large) {
+    protected boolean shouldSkipLocation(RandomSource rand, int localX, int localY, int localZ, int range, boolean large) {
         return localX == range && localZ == range && range > 0;
     }
 }

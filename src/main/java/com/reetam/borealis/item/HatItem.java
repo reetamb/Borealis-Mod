@@ -18,11 +18,11 @@ public class HatItem extends Item {
         if (target instanceof TakaheEntity && target.isAlive()) {
             TakaheEntity takahe = (TakaheEntity) target;
             if (!takahe.getHat()) {
-                if (!player.level.isClientSide) {
+                if (!player.level().isClientSide) {
                     takahe.setHat(true);
                     stack.shrink(1);
                 }
-                return InteractionResult.sidedSuccess(player.level.isClientSide);
+                return InteractionResult.sidedSuccess(player.level().isClientSide);
             }
         }
         return InteractionResult.PASS;

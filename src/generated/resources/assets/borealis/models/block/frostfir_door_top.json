@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top",
-  "textures": {
-    "bottom": "borealis:block/frostfir_door_bottom",
-    "top": "borealis:block/frostfir_door_top"
-  }
-}

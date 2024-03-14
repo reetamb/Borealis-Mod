@@ -1,7 +1,7 @@
 package com.reetam.borealis.block;
 
 import com.reetam.borealis.registry.BorealisBlocks;
-import com.reetam.borealis.registry.BorealisDimensions;
+import com.reetam.borealis.registry.BorealisWorld;
 import com.reetam.borealis.registry.BorealisSounds;
 import com.reetam.borealis.world.BorealisTeleporter;
 import net.minecraft.core.BlockPos;
@@ -17,7 +17,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,11 +29,11 @@ public class BorealisPortalBlock extends Block {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
 
     public BorealisPortalBlock() {
-        super(Properties.of(Material.PORTAL)
+        super(Properties.copy(Blocks.NETHER_PORTAL)
                 .strength(-1F)
                 .noCollission()
                 .lightLevel((state) -> 10)
-                .noDrops()
+                .noLootTable()
         );
     }
 
@@ -115,21 +114,19 @@ public class BorealisPortalBlock extends Block {
                 entity.setPortalCooldown();
             }
             else {
-                if(!entity.level.isClientSide && !pos.equals(entity.portalEntrancePos)) {
+                if(!entity.level().isClientSide && !pos.equals(entity.portalEntrancePos)) {
                     entity.portalEntrancePos = pos.immutable();
                 }
-                Level entityLevel = entity.level;
-                if(entityLevel != null) {
-                    MinecraftServer minecraftserver = entityLevel.getServer();
-                    ResourceKey<Level> destination = entity.level.dimension() == BorealisDimensions.BOREALIS ? Level.OVERWORLD : BorealisDimensions.BOREALIS;
-                    if(minecraftserver != null) {
-                        ServerLevel destinationLevel = minecraftserver.getLevel(destination);
-                        if(destinationLevel != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {
-                            entity.level.getProfiler().push("borealis_portal");
-                            entity.setPortalCooldown();
-                            entity.changeDimension(destinationLevel, new BorealisTeleporter());
-                            entity.level.getProfiler().pop();
-                        }
+                Level entityLevel = entity.level();
+                MinecraftServer minecraftserver = entityLevel.getServer();
+                ResourceKey<Level> destination = entity.level().dimension() == BorealisWorld.BOREALIS_LEVEL ? Level.OVERWORLD : BorealisWorld.BOREALIS_LEVEL;
+                if(minecraftserver != null) {
+                    ServerLevel destinationLevel = minecraftserver.getLevel(destination);
+                    if(destinationLevel != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {
+                        entity.level().getProfiler().push("borealis_portal");
+                        entity.setPortalCooldown();
+                        entity.changeDimension(destinationLevel, new BorealisTeleporter());
+                        entity.level().getProfiler().pop();
                     }
                 }
             }

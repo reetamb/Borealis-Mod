@@ -1,0 +1,49 @@
+{
+  "carvers": {},
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 6193806,
+    "foliage_color": 10338810,
+    "grass_color": 10931454,
+    "particle": {
+      "options": {
+        "type": "minecraft:snowflake"
+      },
+      "probability": 0.1
+    },
+    "sky_color": 10136810,
+    "water_color": 5683175,
+    "water_fog_color": 5683175
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "borealis:frostfir_tree"
+    ],
+    [
+      "borealis:slate_boulder",
+      "borealis:cloud"
+    ]
+  ],
+  "has_precipitation": true,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.0
+}
