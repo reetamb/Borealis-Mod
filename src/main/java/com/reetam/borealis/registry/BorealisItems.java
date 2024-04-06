@@ -41,6 +41,9 @@ public class BorealisItems {
             "takahe_spawn_egg", () -> new ForgeSpawnEggItem(BorealisEntities.TAKAHE,
                     0x2F329F, 0x518A65,
                     new Item.Properties()));
+    public static final RegistryObject<SpawnEggItem> THRUSHER_SPAWN_EGG = ITEMS.register(
+            "thrusher_spawn_egg", () -> new ForgeSpawnEggItem(BorealisEntities.THRUSHER,
+                    0xD8EBFF, 0x32749E, new Item.Properties()));
 
     public static final RegistryObject<Item> HAT = ITEMS.register("hat", () -> new HatItem(new Item.Properties().stacksTo(1)));
 

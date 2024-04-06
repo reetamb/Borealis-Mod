@@ -6,9 +6,11 @@ import com.reetam.borealis.client.renderer.BorealisSkyRenderer;
 import com.reetam.borealis.entity.BorealisBoatEntity;
 import com.reetam.borealis.entity.model.HummingbirdModel;
 import com.reetam.borealis.entity.model.TakaheModel;
+import com.reetam.borealis.entity.model.ThrusherModel;
 import com.reetam.borealis.entity.renderer.BorealisBoatRenderer;
 import com.reetam.borealis.entity.renderer.HummingbirdRenderer;
 import com.reetam.borealis.entity.renderer.TakaheRenderer;
+import com.reetam.borealis.entity.renderer.ThrusherRenderer;
 import com.reetam.borealis.registry.*;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
@@ -62,6 +64,7 @@ public class BorealisClient {
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(BorealisEntities.HUMMINGBIRD.get(), HummingbirdRenderer::new);
         event.registerEntityRenderer(BorealisEntities.TAKAHE.get(), TakaheRenderer::new);
+        event.registerEntityRenderer(BorealisEntities.THRUSHER.get(), ThrusherRenderer::new);
         event.registerEntityRenderer(BorealisEntities.BOAT.get(), BorealisBoatRenderer::new);
         event.registerBlockEntityRenderer(BorealisBlockEntities.BOREALIS_SIGN.get(), SignRenderer::new);
     }
@@ -75,6 +78,7 @@ public class BorealisClient {
     public static void registerEntityLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(HummingbirdModel.LAYER_LOCATION, HummingbirdModel::createBodyLayer);
         event.registerLayerDefinition(TakaheModel.LAYER_LOCATION, TakaheModel::createBodyLayer);
+        event.registerLayerDefinition(ThrusherModel.LAYER_LOCATION, ThrusherModel::createBodyLayer);
 
         for (BorealisBoatEntity.Type boatType : BorealisBoatEntity.Type.values()) {
             event.registerLayerDefinition(BorealisBoatRenderer.boatLayer(boatType), BoatModel::createBodyModel);

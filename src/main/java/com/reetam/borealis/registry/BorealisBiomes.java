@@ -36,9 +36,9 @@ public class BorealisBiomes {
         context.register(BRUMAL_GROVE, brumalGrove(placedFeatures, vanillaConfiguredCarvers));
         context.register(FROSTFIR_WOODS, frostfirWoods(placedFeatures, vanillaConfiguredCarvers));
         context.register(HOT_SPRING_ISLANDS, hotSprings(placedFeatures, vanillaConfiguredCarvers));
-         context.register(GIANTWOOD, giantwood(placedFeatures, vanillaConfiguredCarvers));
-         context.register(RAVAGED_GLACIER, ravagedGlacier(placedFeatures, vanillaConfiguredCarvers));
-         context.register(SACCHARINE_HILLS, saccharineHills(placedFeatures, vanillaConfiguredCarvers));
+        context.register(GIANTWOOD, giantwood(placedFeatures, vanillaConfiguredCarvers));
+        context.register(RAVAGED_GLACIER, ravagedGlacier(placedFeatures, vanillaConfiguredCarvers));
+        context.register(SACCHARINE_HILLS, saccharineHills(placedFeatures, vanillaConfiguredCarvers));
     }
     public static Biome borealTundra(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
         return makeDefaultBiome(new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers)
@@ -108,6 +108,7 @@ public class BorealisBiomes {
                         .build(),
                 builder
                         .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_CLOUD)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BorealisPlacedFeatures.PLACED_KYANITE_CRYSTAL)
                         .build(),
                 Biome.TemperatureModifier.NONE
         );

@@ -9,6 +9,7 @@ import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
@@ -34,6 +35,9 @@ public class BorealisFeatures {
             "spiral_cloud", () -> new SpiralCloudFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> CLOUD = FEATURES.register(
             "cloud", () -> new CloudFeature(NoneFeatureConfiguration.CODEC)
+    );
+    public static final RegistryObject<Feature<BlockStateConfiguration>> BERYL = FEATURES.register(
+            "beryl", () -> new BerylFeature(BlockStateConfiguration.CODEC)
     );
 
     public static class TreePlacers {

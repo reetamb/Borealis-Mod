@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-09T00:44:01.1060416	Borealis Item Models
+// 1.20.1	2024-03-14T16:35:16.4145782	Borealis Item Models
 dda44cb29fa527773d31fe60afd588de658a3ed6 assets/borealis/models/item/brumal_boat.json
 4dc9a20ecb7471f218ebd3b229f39d26bd2e4afb assets/borealis/models/item/brumal_button.json
 323bdd9f205501a234f662237efa04fd95237596 assets/borealis/models/item/brumal_door.json
@@ -89,4 +89,5 @@ ab37330a7044b22e881bcfa9b1c78fdd80c70055 assets/borealis/models/item/stripped_fr
 7f026568277bf6078308b1d204e0408364a774ea assets/borealis/models/item/tanzanite.json
 fe43279294a4588861e019d66f47c3dad5281718 assets/borealis/models/item/tanzanite_block.json
 dcec19bafd2d5166c36041177f291e5e50661de0 assets/borealis/models/item/tanzanite_ore.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/thrusher_spawn_egg.json
 05c760393501cfa30b222ad95a817cce4d427fb8 assets/borealis/models/item/travertine.json

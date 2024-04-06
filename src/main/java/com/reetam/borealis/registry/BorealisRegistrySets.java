@@ -1,4 +1,4 @@
-package com.reetam.borealis.data;
+package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBiomes;

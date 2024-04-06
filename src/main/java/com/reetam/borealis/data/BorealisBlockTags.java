@@ -65,6 +65,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(Blocks.ICE)
                 .add(Blocks.PACKED_ICE)
                 .add(Blocks.BLUE_ICE);
+        tag(BorealisTags.Blocks.SOAPSTONE_ORE_REPLACEABLES)
+                .add(BorealisBlocks.SOAPSTONE.get());
         //vanilla
         tag(BlockTags.SAPLINGS)
                 .add(BorealisBlocks.BRUMAL_SAPLING.get())

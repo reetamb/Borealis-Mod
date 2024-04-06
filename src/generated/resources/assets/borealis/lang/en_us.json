@@ -94,5 +94,7 @@
   "item.borealis.moon_pearl": "Moon Pearl",
   "item.borealis.saccharine_boat": "Saccharine Boat",
   "item.borealis.takahe_spawn_egg": "Takahe Spawn Egg",
-  "item.borealis.tanzanite": "Tanzanite"
+  "item.borealis.tanzanite": "Tanzanite",
+  "item.borealis.thrusher_spawn_egg": "Thrusher Spawn Egg",
+  "itemGroup.borealis": "Borealis Items"
 }

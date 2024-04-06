@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-09T00:44:01.1155778	Borealis Block Tags
+// 1.20.1	2024-04-01T22:26:22.7171188	Borealis Block Tags
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/borealis/tags/blocks/base_stone_borealis.json
 5cd9b7cd7d41b33c4e1a3212a4728db86db89edc data/borealis/tags/blocks/brumal_logs.json
 c9ff60fe00f35ba952c2605091e2f6efd3a3223a data/borealis/tags/blocks/frostfir_logs.json
@@ -7,6 +7,7 @@ a9d13e97b34a304d3ce507b7ea88c800f9ed3a8f data/borealis/tags/blocks/portal_center
 cb502aef7919434df80211b97b3a6c9d3072f905 data/borealis/tags/blocks/portal_frame_blocks.json
 2c877ef981127c0433867ed152b728a913bb5e36 data/borealis/tags/blocks/saccharine_logs.json
 43fa6735a5016346bd5b6a51e3fe0098ceca144c data/borealis/tags/blocks/snowy_blocks.json
+54ca7667be428c825d888ae05a10991d705e4ddd data/borealis/tags/blocks/soapstone_ore_replaceables.json
 9705e28690ebc34ebb9f8d0d5e761879d5a3c3cb data/borealis/tags/blocks/sugary_blocks.json
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/forge/tags/blocks/cobblestone.json
 e6da83b22442162ec408924dfe620e3f871a0447 data/forge/tags/blocks/fences/wooden.json

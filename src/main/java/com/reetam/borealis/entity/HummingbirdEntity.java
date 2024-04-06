@@ -126,10 +126,10 @@ public class HummingbirdEntity extends Animal implements FlyingAnimal {
          */
         public void start() {
             RandomSource random = this.parentEntity.getRandom();
-            double dx = this.parentEntity.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
-            double dy = this.parentEntity.getY() + (double)((random.nextFloat() * 2.0F - 1.0F));
-            double dz = this.parentEntity.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 2.0F);
-            this.parentEntity.getMoveControl().setWantedPosition(dx, dy, dz, 3.0D);
+            double dx = this.parentEntity.getX() + (double)((random.nextFloat() * 4.0F - 1.0F) * 2.0F);
+            double dy = this.parentEntity.getY() + (double)((random.nextFloat() * 4.0F - 1.0F));
+            double dz = this.parentEntity.getZ() + (double)((random.nextFloat() * 4.0F - 1.0F) * 2.0F);
+            this.parentEntity.getMoveControl().setWantedPosition(dx, dy, dz, 6.0D);
         }
     }
 

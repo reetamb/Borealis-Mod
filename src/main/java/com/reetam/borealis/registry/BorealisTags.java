@@ -33,6 +33,8 @@ public class BorealisTags {
         public static final TagKey<Block> SUGARY_BLOCKS = tag("sugary_blocks");
         public static final TagKey<Block> ICY_BLOCKS = tag("icy_blocks");
 
+        public static final TagKey<Block> SOAPSTONE_ORE_REPLACEABLES = tag("soapstone_ore_replaceables");
+
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(BorealisMod.MODID, name));
         }

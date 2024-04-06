@@ -31,14 +31,15 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_CLOUD = createKey("cloud");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_SUGAR_SNOW = createKey("sugar_snow");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_SLATE_BOULDER = createKey("slate_boulder");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_BRUMAL_TREE = createKey("brumal_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_TALL_BRUMAL_TREE = createKey("tall_brumal_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_FROSTFIR_TREE = createKey("frostfir_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_GIANTWOOD_TREE = createKey("giantwood_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_HELIX_TREE = createKey("helix_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_COTTON_TREE = createKey("cotton_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_RUBBLE_PATCH = createKey("rubble_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BRUMAL_TREE = createKey("brumal_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_BRUMAL_TREE = createKey("tall_brumal_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTFIR_TREE = createKey("frostfir_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GIANTWOOD_TREE = createKey("giantwood_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HELIX_TREE = createKey("helix_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> COTTON_TREE = createKey("cotton_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RUBBLE_PATCH = createKey("rubble_patch");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> KYANITE_CRYSTAL = createKey("kyanite_ore");
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(BorealisMod.MODID, name));
     }
@@ -56,42 +57,42 @@ public class BorealisConfiguredFeatures {
         register(context, CONFIGURED_SUGAR_SNOW, BorealisFeatures.SUGAR_SNOW.get(), FeatureConfiguration.NONE);
         register(context, CONFIGURED_SLATE_BOULDER, Feature.FOREST_ROCK, new BlockStateConfiguration(BorealisBlocks.SLATE.get().defaultBlockState()));
 
-        register(context, CONFIGURED_BRUMAL_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+        register(context, BRUMAL_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(BorealisBlocks.BRUMAL_LOG.get().defaultBlockState()),
                 new RootedTrunkPlacer(4, 2, 2),
                 BlockStateProvider.simple(BorealisBlocks.BRUMAL_LEAVES.get().defaultBlockState()),
                 new PalmFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());
-        register(context, CONFIGURED_TALL_BRUMAL_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+        register(context, TALL_BRUMAL_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(BorealisBlocks.BRUMAL_LOG.get().defaultBlockState()),
                 new RootedTrunkPlacer(6, 2, 2),
                 BlockStateProvider.simple(BorealisBlocks.BRUMAL_LEAVES.get().defaultBlockState()),
                 new PalmFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());
-        register(context, CONFIGURED_FROSTFIR_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+        register(context, FROSTFIR_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(BorealisBlocks.FROSTFIR_LOG.get().defaultBlockState()),
                 new StraightTrunkPlacer(8, 2, 2),
                 BlockStateProvider.simple(BorealisBlocks.FROSTFIR_LEAVES.get().defaultBlockState()),
                 new SpruceFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());
-        register(context, CONFIGURED_GIANTWOOD_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+        register(context, GIANTWOOD_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(BorealisBlocks.FROSTFIR_LOG.get().defaultBlockState()),
                 new GiantTrunkPlacer(12, 2, 16),
                 BlockStateProvider.simple(BorealisBlocks.FROSTFIR_LEAVES.get().defaultBlockState()),
                 new MegaPineFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), UniformInt.of(12, 16)),
                 new TwoLayersFeatureSize(1, 1, 2))
                 .ignoreVines().build());
-        register(context, CONFIGURED_HELIX_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+        register(context, HELIX_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
                 new StraightTrunkPlacer(10, 2, 2),
                 BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
                 new HelixFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());
-        register(context, CONFIGURED_COTTON_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+        register(context, COTTON_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
                 new StraightTrunkPlacer(5, 2, 2),
                 BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
@@ -99,10 +100,11 @@ public class BorealisConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());
 
-        register(context, CONFIGURED_RUBBLE_PATCH, Feature.REPLACE_BLOBS, new ReplaceSphereConfiguration(
+        register(context, RUBBLE_PATCH, Feature.REPLACE_BLOBS, new ReplaceSphereConfiguration(
                 BorealisBlocks.PERMAFROST.get().defaultBlockState(),
                 BorealisBlocks.PERMAFROST_RUBBLE.get().defaultBlockState(),
                 UniformInt.of(3, 4)));
+        register(context, KYANITE_CRYSTAL, BorealisFeatures.BERYL.get(), new BlockStateConfiguration(BorealisBlocks.KYANITE_ORE.get().defaultBlockState()));
     }
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));

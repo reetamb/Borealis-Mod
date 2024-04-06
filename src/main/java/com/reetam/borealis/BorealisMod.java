@@ -50,7 +50,8 @@ public class BorealisMod {
                 BorealisFeatures.FEATURES,
                 BorealisFeatures.TreePlacers.FOLIAGE_PLACERS,
                 BorealisFeatures.TreePlacers.TRUNK_PLACERS,
-                BorealisSounds.SOUND_EVENTS
+                BorealisSounds.SOUND_EVENTS,
+                BorealisPotionEffects.EFFECTS
         };
 
         for (DeferredRegister<?> register : registers) {

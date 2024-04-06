@@ -18,6 +18,9 @@ public abstract class BorealisLangProvider extends LanguageProvider {
         super(output, BorealisMod.MODID, "en_us");
     }
 
+    protected void creativeTab(Supplier<? extends CreativeModeTab> tab, String name) {
+        this.add(tab.get().getDisplayName().getString(), name);
+    }
     protected void assumeBlockItem(Supplier<? extends ItemLike> blockOrItem) {
         String name;
         if (blockOrItem.get() instanceof Block block) {

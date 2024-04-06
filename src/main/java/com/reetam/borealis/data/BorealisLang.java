@@ -17,7 +17,7 @@ public class BorealisLang extends BorealisLangProvider {
 
     @Override
     protected void addTranslations() {
-        // addItemGroup(BorealisItems.Tabs.BOREALIS_ITEMS.get(), "Borealis");
+        creativeTab(BorealisItems.Tabs.BOREALIS_ITEMS, "Borealis Items");
 
         for (RegistryObject<Block> block : BorealisBlocks.BLOCKS.getEntries()) {
             if (!(block.get() instanceof WallSignBlock)) {
@@ -29,6 +29,7 @@ public class BorealisLang extends BorealisLangProvider {
         assumeBlockItem(BorealisItems.HOT_SPRING_WATER_BUCKET);
         assumeBlockItem(BorealisItems.HUMMINGBIRD_SPAWN_EGG);
         assumeBlockItem(BorealisItems.TAKAHE_SPAWN_EGG);
+        assumeBlockItem(BorealisItems.THRUSHER_SPAWN_EGG);
         assumeBlockItem(BorealisItems.TANZANITE);
         assumeBlockItem(BorealisItems.BRUMAL_BOAT);
         assumeBlockItem(BorealisItems.FROSTFIR_BOAT);
