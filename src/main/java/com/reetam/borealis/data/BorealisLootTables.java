@@ -168,6 +168,7 @@ public class BorealisLootTables extends LootTableProvider {
             dropSelf(BorealisBlocks.TANZANITE_BLOCK);
             dropSelf(BorealisBlocks.STARRY_SLATE);
             dropSelf(BorealisBlocks.STARRY_SLATE_TILES);
+            dropOther(BorealisBlocks.HAILSTONE, BorealisItems.HAILSTONE.get());
         }
 
         @Override

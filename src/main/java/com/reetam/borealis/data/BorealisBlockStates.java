@@ -48,6 +48,9 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.STARRY_SLATE);
         block(BorealisBlocks.STARRY_SLATE_TILES);
         block(BorealisBlocks.CLOUD);
+        block(BorealisBlocks.HAILSTONE);
+        block(BorealisBlocks.BONE_DRY_WOOD);
+        block(BorealisBlocks.BONE_DRY_WOOD_BRICKS);
         wood();
     }
 

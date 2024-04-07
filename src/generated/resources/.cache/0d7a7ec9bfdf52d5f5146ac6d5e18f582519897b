@@ -1,4 +1,6 @@
-// 1.20.1	2024-03-09T00:44:01.1276693	Borealis Block States
+// 1.20.1	2024-04-06T19:47:09.0129445	Borealis Block States
+5f6a7fbff012b989b63cb4e7142d0f5241f497c8 assets/borealis/blockstates/bone_dry_wood.json
+bd0e6241d47c89916e07280bb51de9a14164d5d8 assets/borealis/blockstates/bone_dry_wood_bricks.json
 1f11a9d481f0e7032614b3504f69f0ccd9374d33 assets/borealis/blockstates/brumal_button.json
 c8c21bd2a0ffedc7d86cf9bbfd8e4f50adcfe463 assets/borealis/blockstates/brumal_door.json
 1a920538b2652a0cf565cfd162df70a75c61f3a8 assets/borealis/blockstates/brumal_fence.json
@@ -26,6 +28,7 @@ efd6f33a97ebd0ba802ceb4a1eac8bc154bb47de assets/borealis/blockstates/frostfir_lo
 85f9b7b0db5eff96e57e66fd4fd064cd8e0eedad assets/borealis/blockstates/frostfir_stairs.json
 22aba6e0d5a32b10a36d1480c843b7d01d05334f assets/borealis/blockstates/frostfir_trapdoor.json
 40f3a682b169248a3473511014e6ab10e07e4b89 assets/borealis/blockstates/frostfir_wood.json
+f3d2c4601b9677ba2fc51a191b8e37f2bffeb709 assets/borealis/blockstates/hailstone_block.json
 ee98420c16d53a3bbebf604c644c1fa91c6132ae assets/borealis/blockstates/kyanite_ore.json
 ba8cc54de88512a43934432c5d5191a184e132c9 assets/borealis/blockstates/living_snow_block.json
 1dd2aaaa31bb2bcbd88b060ab39bf6d24b26fe23 assets/borealis/blockstates/permafrost_rubble.json
@@ -74,6 +77,8 @@ efacfc96626c52474933f8664c3a14b9dcca323a assets/borealis/blockstates/stripped_fr
 a0bf58e06b6be662a7bcde29c98f63663b905230 assets/borealis/blockstates/tanzanite_block.json
 f06bb3307e098e5527f07031ad5151411e7b44d1 assets/borealis/blockstates/tanzanite_ore.json
 8132d9c548224855f1e8edb2efd5555513a70231 assets/borealis/blockstates/travertine.json
+f28a1f165aafaeba75ce29fab32e6a0e2ab9cb23 assets/borealis/models/block/bone_dry_wood.json
+aaccb30b8b9f0a316ced85b7a85e0897d06f735f assets/borealis/models/block/bone_dry_wood_bricks.json
 fa65eb543efa664cc34bdd1075e9de37b908350c assets/borealis/models/block/brumal_button.json
 6de3a1c917b222d8f43c5229437c758a3756935c assets/borealis/models/block/brumal_button_pressed.json
 103cae394069ccf362e2a923221897d322bc8d4f assets/borealis/models/block/brumal_door_bottom_left.json
@@ -139,6 +144,7 @@ d60be3188bc488443397406f1e6c13d104dd05e9 assets/borealis/models/block/frostfir_t
 0d50c218f7895c51d1793b31de8b752d5981562d assets/borealis/models/block/frostfir_trapdoor_open.json
 f23dc7287fe2ec273afdc7034d8b52ff61dcaa3e assets/borealis/models/block/frostfir_trapdoor_top.json
 4e2821ae0850a52039480e38acea83753e2ed5dd assets/borealis/models/block/frostfir_wood.json
+66af388a2e66e4ccdca043fd01efe95c2170c38f assets/borealis/models/block/hailstone_block.json
 2b5094162830c7c3b4da67535f66dd06887a7e66 assets/borealis/models/block/kyanite_ore.json
 43a4d5d575ea6d17a97880de790ff9cba504b2d7 assets/borealis/models/block/kyanite_ore_horizontal.json
 8c200e5135a5c9a547515093edc84c0e8cd1bad9 assets/borealis/models/block/living_snow_block.json

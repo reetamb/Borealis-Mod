@@ -21,13 +21,14 @@ public abstract class BorealisLangProvider extends LanguageProvider {
     protected void creativeTab(Supplier<? extends CreativeModeTab> tab, String name) {
         this.add(tab.get().getDisplayName().getString(), name);
     }
-    protected void assumeBlockItem(Supplier<? extends ItemLike> blockOrItem) {
-        String name;
+    protected String assumeBlockItem(Supplier<? extends ItemLike> blockOrItem) {
+        String prename = "";
+        String name = "";
         if (blockOrItem.get() instanceof Block block) {
-            name = block.getName().getString();
-            name = name.substring(15);
-        } else {
-            name = blockOrItem.get().toString();
+            prename = block.getName().getString().substring(15);
+            name = prename;
+        } else if (blockOrItem.get() instanceof Item item) {
+            name = item.toString();
         }
         String[] words = name.split("_");
         StringBuilder newName = new StringBuilder();
@@ -43,5 +44,6 @@ public abstract class BorealisLangProvider extends LanguageProvider {
         } else if (blockOrItem.get() instanceof Item) {
             addItem(() -> ((Item) blockOrItem.get()), name);
         }
+        return prename;
     }
 }

@@ -1,4 +1,7 @@
-// 1.20.1	2024-03-14T16:35:16.4145782	Borealis Item Models
+// 1.20.1	2024-04-06T19:52:11.8439305	Borealis Item Models
+75aa80c42a220cf518df2584d1c3a390019b4c46 assets/borealis/models/item/blue_amber.json
+1e9281e7978034fa3037635bd94f6bcde7c2b4dd assets/borealis/models/item/bone_dry_wood.json
+116c16c50cdc1f9d104082e6e3ee17585d65f205 assets/borealis/models/item/bone_dry_wood_bricks.json
 dda44cb29fa527773d31fe60afd588de658a3ed6 assets/borealis/models/item/brumal_boat.json
 4dc9a20ecb7471f218ebd3b229f39d26bd2e4afb assets/borealis/models/item/brumal_button.json
 323bdd9f205501a234f662237efa04fd95237596 assets/borealis/models/item/brumal_door.json
@@ -30,6 +33,8 @@ c01cf7bf920b329e0fc655f2f24d26f942fb5d49 assets/borealis/models/item/frostfir_sa
 20c5b3c77f4a35f7138375233cc944b137d74f62 assets/borealis/models/item/frostfir_stairs.json
 428c1fb4356b26681a79a7a824f4d511cb4c81bc assets/borealis/models/item/frostfir_trapdoor.json
 d92379c577fb774f0bbd869bf2241b015748a148 assets/borealis/models/item/frostfir_wood.json
+b97326cfad763a174770760cf802644681b492fa assets/borealis/models/item/hailstone.json
+4d07bdc6098fb02b8bfd9d3320d5a1ea7489d456 assets/borealis/models/item/hailstone_block.json
 7842ada35567918d4ab5f84b6d37f3bce8309786 assets/borealis/models/item/hat.json
 3c022d226b8a5b26530757513b649053e70cd052 assets/borealis/models/item/hot_spring_water_bucket.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/hummingbird_spawn_egg.json
@@ -75,6 +80,7 @@ f38f07b2732ef1e6aeab4a12317c85285aabe990 assets/borealis/models/item/soapstone_t
 0ade21de435f717e006d243940ba28591aea1899 assets/borealis/models/item/soapstone_tile_stairs.json
 5bd0a3948557b695528707af2af5d9c927ce3814 assets/borealis/models/item/soapstone_tile_wall.json
 e3767f8b240d188236b4e7527f0db95ea29bfb39 assets/borealis/models/item/soapstone_wall.json
+ee1b02b8e9d0f68d24fba8ebb4fff8eb193d40cd assets/borealis/models/item/starburst.json
 1b9326ff4b06cbbd0be306500fa002bf7e48d99b assets/borealis/models/item/starry_slate.json
 05c439c120d7d08cbe35b661a3979ddc61591225 assets/borealis/models/item/starry_slate_tiles.json
 b9a073464d24a565f4a8a8f56e40041d20b440b7 assets/borealis/models/item/stripped_brumal_log.json
