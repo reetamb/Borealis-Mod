@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_16",
   "refmap": "borealis.refmap.json",
   "mixins": [
-    "MixinLivingEntity"
+    "MixinLivingEntity",
+    "MixinServerLevel"
   ],
   "client": [
   ],
