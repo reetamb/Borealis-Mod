@@ -1,4 +1,4 @@
-package com.reetam.borealis.world.gen.foliageplacer;
+package com.reetam.borealis.world.foliageplacer;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

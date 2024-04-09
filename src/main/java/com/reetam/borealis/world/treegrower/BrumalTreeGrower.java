@@ -1,4 +1,4 @@
-package com.reetam.borealis.world.gen.treegrower;
+package com.reetam.borealis.world.treegrower;
 
 import com.reetam.borealis.BorealisMod;
 import net.minecraft.core.registries.Registries;

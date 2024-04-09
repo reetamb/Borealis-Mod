@@ -1,4 +1,4 @@
-package com.reetam.borealis.world.gen.feature;
+package com.reetam.borealis.world.feature;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
@@ -16,7 +16,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class GlacialRidgeFeature extends Feature<ColumnFeatureConfiguration> {
     private static final ImmutableList<Block> CANNOT_PLACE_ON = ImmutableList.of(Blocks.WATER, BorealisBlocks.CLOUD.get());

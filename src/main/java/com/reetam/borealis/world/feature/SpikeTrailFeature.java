@@ -1,4 +1,4 @@
-package com.reetam.borealis.world.gen.feature;
+package com.reetam.borealis.world.feature;
 
 import com.mojang.serialization.Codec;
 import com.reetam.borealis.registry.BorealisBlocks;
@@ -9,8 +9,6 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class SpikeTrailFeature extends Feature<NoneFeatureConfiguration> {
     public SpikeTrailFeature(Codec<NoneFeatureConfiguration> codec) {

@@ -1,4 +1,4 @@
-package com.reetam.borealis.world.gen.feature;
+package com.reetam.borealis.world.feature;
 
 import com.mojang.serialization.Codec;
 import com.reetam.borealis.registry.BorealisBlocks;

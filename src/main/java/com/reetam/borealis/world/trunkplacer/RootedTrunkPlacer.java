@@ -1,4 +1,4 @@
-package com.reetam.borealis.world.gen.trunkplacer;
+package com.reetam.borealis.world.trunkplacer;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
@@ -14,7 +14,6 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 
 import java.util.List;
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 public class RootedTrunkPlacer extends TrunkPlacer {

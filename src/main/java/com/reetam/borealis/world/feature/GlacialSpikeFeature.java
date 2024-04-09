@@ -1,4 +1,4 @@
-package com.reetam.borealis.world.gen.feature;
+package com.reetam.borealis.world.feature;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -11,8 +11,6 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class GlacialSpikeFeature extends Feature<NoneFeatureConfiguration> {
     public GlacialSpikeFeature(Codec<NoneFeatureConfiguration> p_i231962_1_) {
