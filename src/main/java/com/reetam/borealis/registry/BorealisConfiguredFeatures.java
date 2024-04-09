@@ -1,10 +1,10 @@
 package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.world.gen.foliageplacer.AspenFoliagePlacer;
-import com.reetam.borealis.world.gen.foliageplacer.HelixFoliagePlacer;
-import com.reetam.borealis.world.gen.foliageplacer.PalmFoliagePlacer;
-import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
+import com.reetam.borealis.world.foliageplacer.AspenFoliagePlacer;
+import com.reetam.borealis.world.foliageplacer.HelixFoliagePlacer;
+import com.reetam.borealis.world.foliageplacer.PalmFoliagePlacer;
+import com.reetam.borealis.world.trunkplacer.RootedTrunkPlacer;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;

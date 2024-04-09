@@ -1,5 +1,9 @@
-// 1.20.1	2024-04-01T22:26:22.7171188	Borealis Block Tags
+// 1.20.1	2024-04-07T18:56:45.830195	Borealis Block Tags
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/borealis/tags/blocks/base_stone_borealis.json
+825e0af03ceecfa390b53b28bd13f83e92ddd045 data/borealis/tags/blocks/blockset_brumal.json
+6f814e93da348d61865058ff64743b456bfbc76f data/borealis/tags/blocks/blockset_frostfir.json
+fa99a952d2c0cc3616ef746b3b8dbef2a64d3af4 data/borealis/tags/blocks/blockset_saccharine.json
+275359aa857f3dda3b4c811148eabddaf7563e25 data/borealis/tags/blocks/blockset_soapstone.json
 5cd9b7cd7d41b33c4e1a3212a4728db86db89edc data/borealis/tags/blocks/brumal_logs.json
 c9ff60fe00f35ba952c2605091e2f6efd3a3223a data/borealis/tags/blocks/frostfir_logs.json
 52413a870520da3227b0d97b44e5455211b16e49 data/borealis/tags/blocks/icy_blocks.json
@@ -19,11 +23,18 @@ f2f4aeb31ce96775016c8eaecd4544e6ac5951f2 data/minecraft/tags/blocks/enderman_hol
 3b93c7760c60cfdd93b1514f5cbd512bb20181da data/minecraft/tags/blocks/leaves.json
 48f71af629ac6170a6e95a5a0d9b64cc800d963a data/minecraft/tags/blocks/logs.json
 48f71af629ac6170a6e95a5a0d9b64cc800d963a data/minecraft/tags/blocks/logs_that_burn.json
+3dc6249576a7a3cc5da6a7df4ea2f523b31a56a2 data/minecraft/tags/blocks/mineable/axe.json
+899fe9d3024a6be7229376bd6780a5781afc4d7a data/minecraft/tags/blocks/mineable/hoe.json
+71e3d56536203762e3d6f39ca3e073cd28fd4667 data/minecraft/tags/blocks/mineable/pickaxe.json
+0dab09731170ff7b536c84b75beff34fc9f0a6c5 data/minecraft/tags/blocks/mineable/shovel.json
+d1db93ad094bd7e96905e525b7f250d478161a51 data/minecraft/tags/blocks/needs_iron_tool.json
+6273040842e9a87576c355d131be1fae8f8dc1fd data/minecraft/tags/blocks/needs_stone_tool.json
 ebdb6820581dd55ff20b4d077a2bfb0acee8b339 data/minecraft/tags/blocks/planks.json
 08de077f368e5b46042aabca8e6788b4213e263f data/minecraft/tags/blocks/saplings.json
 045e8205a0993ec65e299bc5bf52a79a5edb35b5 data/minecraft/tags/blocks/signs.json
 2db83d405a8bbcbf44f65aa72ecaf8d5b9b64e6b data/minecraft/tags/blocks/standing_signs.json
 9e9d05037eb02a9c4cecf6557073ef3e6f96f6a9 data/minecraft/tags/blocks/stone_pressure_plates.json
+54c9d5c8d5a4c7a938f60573d8c373b7ea203c02 data/minecraft/tags/blocks/sword_efficient.json
 4e1d49fa8aad1cace2e5c414fef9c11e2ee740dd data/minecraft/tags/blocks/walls.json
 fc6a13087e75422be7080ed43ad9f440ec3ef45f data/minecraft/tags/blocks/wall_signs.json
 e0c6fbc56cafd4a76263c804cb120e339eb14612 data/minecraft/tags/blocks/wooden_buttons.json

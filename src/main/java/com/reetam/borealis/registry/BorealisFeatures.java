@@ -1,12 +1,11 @@
 package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.world.gen.feature.*;
-import com.reetam.borealis.world.gen.foliageplacer.AspenFoliagePlacer;
-import com.reetam.borealis.world.gen.foliageplacer.HelixFoliagePlacer;
-import com.reetam.borealis.world.gen.foliageplacer.PalmFoliagePlacer;
-import com.reetam.borealis.world.gen.trunkplacer.RootedTrunkPlacer;
-import net.minecraft.core.Registry;
+import com.reetam.borealis.world.feature.*;
+import com.reetam.borealis.world.foliageplacer.AspenFoliagePlacer;
+import com.reetam.borealis.world.foliageplacer.HelixFoliagePlacer;
+import com.reetam.borealis.world.foliageplacer.PalmFoliagePlacer;
+import com.reetam.borealis.world.trunkplacer.RootedTrunkPlacer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;

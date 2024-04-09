@@ -82,6 +82,7 @@ public class BorealisMod {
         generator.addProvider(event.includeClient(), new BorealisBlockStates(generator, helper));
         generator.addProvider(event.includeClient(), new BorealisItemModels(generator, helper));
         generator.addProvider(event.includeClient(), new BorealisLang(packOutput));
+        generator.addProvider(event.includeClient(), new BorealisSoundDefinitions(packOutput, helper));
 
         generator.addProvider(event.includeServer(), new BorealisRegistrySets(packOutput, lookupProvider));
         BlockTagsProvider tags = new BorealisBlockTags(generator.getPackOutput(), lookupProvider, helper);

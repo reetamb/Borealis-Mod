@@ -1,10 +1,7 @@
 package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.entity.BorealisBoatEntity;
-import com.reetam.borealis.entity.HummingbirdEntity;
-import com.reetam.borealis.entity.TakaheEntity;
-import com.reetam.borealis.entity.ThrusherEntity;
+import com.reetam.borealis.entity.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -32,7 +29,9 @@ public class BorealisEntities {
     public static final RegistryObject<EntityType<ThrusherEntity>> THRUSHER = ENTITIES.register("thrusher",
             () ->  EntityType.Builder.of(ThrusherEntity::new, MobCategory.CREATURE)
                     .sized(1.4F, 1.4F).clientTrackingRange(10).build("thrusher"));
-
+    public static final RegistryObject<EntityType<HailEntity>> HAIL = ENTITIES.register("hail",
+            () -> EntityType.Builder.of(HailEntity::new, MobCategory.MISC)
+                    .sized(1.0F, 1.0F).clientTrackingRange(10).build("hail"));
     public static void registerSpawnPlacements() {
         // SpawnPlacements.register(HUMMINGBIRD.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, HummingbirdEntity::checkHummingbirdSpawnRules);
         // SpawnPlacements.register(TAKAHE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TakaheEntity::checkTakaheSpawnRules);

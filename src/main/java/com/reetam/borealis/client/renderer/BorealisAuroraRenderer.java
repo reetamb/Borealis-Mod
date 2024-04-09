@@ -30,9 +30,9 @@ public class BorealisAuroraRenderer {
     public void render(ClientLevel level, int ticks, float partialTicks, PoseStack poseStack, double camX, double camY, double camZ, Matrix4f projectionMatrix) {
             float cloudHeight = level.effects().getCloudHeight();
             RenderSystem.disableCull();
-            RenderSystem.enableBlend();
-            RenderSystem.enableDepthTest();
-            RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+            // RenderSystem.enableBlend();
+            // RenderSystem.enableDepthTest();
+            // RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
             RenderSystem.depthMask(true);
             float f1 = 12.0F;
             float f2 = 4.0F;
@@ -75,7 +75,7 @@ public class BorealisAuroraRenderer {
 
             RenderSystem.setShader(GameRenderer::getPositionTexColorNormalShader);
             RenderSystem.setShaderTexture(0, TEXTURE_AURORA);
-            FogRenderer.levelFogColor();
+            // FogRenderer.levelFogColor();
             poseStack.pushPose();
             poseStack.scale(12.0F, 1.0F, 12.0F);
             poseStack.translate(-f3, f4, -f5);

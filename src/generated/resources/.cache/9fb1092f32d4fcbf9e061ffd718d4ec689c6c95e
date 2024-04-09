@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-09T00:44:01.1205753	Recipes
+// 1.20.1	2024-04-08T00:40:45.5581319	Recipes
 150a05c6ae942c66cb4910bef668a3593bb7048d data/borealis/advancements/recipes/building_blocks/crafting_table_from_petrified_planks.json
 bbbee481aaada7813a4b4443b1c99b281b184e4a data/borealis/advancements/recipes/building_blocks/slate_pillar_from_slate_stonecutting.json
 f9ca7b0f6b62dffbf8119cdf80ed676f7fbd2391 data/borealis/advancements/recipes/building_blocks/slate_tiles.json
@@ -22,10 +22,8 @@ b9c59e4c6b0e757b673bd1d04061d92c7e6e5c05 data/borealis/advancements/recipes/buil
 6c6c694ff945a861f4bdea3a430ebc07e7f50b59 data/borealis/advancements/recipes/building_blocks/starry_slate.json
 0511a41b093fc4a779fe9108829b33435373d3be data/borealis/advancements/recipes/building_blocks/starry_slate_tiles.json
 e3b8083c389e558dc7866572000db685461183bb data/borealis/advancements/recipes/misc/hat.json
-68c4e3d2ad6c851855dd38982e321babb3b126c7 data/borealis/advancements/recipes/misc/moon_pearl.json
 b1d05f5d1f006a0c963536510ec8d07f5cf61aba data/borealis/recipes/crafting_table_from_petrified_planks.json
 da41c3eae2ae455b45876f0de0c5241b26ce9ecb data/borealis/recipes/hat.json
-5f31e72942b1e4fddd8222725ddbb1be3626fab9 data/borealis/recipes/moon_pearl.json
 37ba84822e40601195a504511b696f14e5aa5c05 data/borealis/recipes/slate_pillar_from_slate_stonecutting.json
 25a0a6b6e9c059cfc40f168c7deb3fdd611f70c3 data/borealis/recipes/slate_tiles.json
 a04399abd4197bc2b7bde7000b68d5d6f92145c3 data/borealis/recipes/slate_tiles_from_slate_stonecutting.json

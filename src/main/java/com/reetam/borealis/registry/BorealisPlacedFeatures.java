@@ -80,7 +80,7 @@ public class BorealisPlacedFeatures {
 
         register(context, PLACED_RUBBLE_PATCH, please.getOrThrow(BorealisConfiguredFeatures.RUBBLE_PATCH),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(64)),
-                InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(2));
+                InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(2), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(120)));
         register(context, PLACED_KYANITE_CRYSTAL, please.getOrThrow(BorealisConfiguredFeatures.KYANITE_CRYSTAL),
                 InSquarePlacement.spread(), CountPlacement.of(1), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(120)));
     }

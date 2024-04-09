@@ -7,16 +7,14 @@ import com.reetam.borealis.entity.BorealisBoatEntity;
 import com.reetam.borealis.entity.model.HummingbirdModel;
 import com.reetam.borealis.entity.model.TakaheModel;
 import com.reetam.borealis.entity.model.ThrusherModel;
-import com.reetam.borealis.entity.renderer.BorealisBoatRenderer;
-import com.reetam.borealis.entity.renderer.HummingbirdRenderer;
-import com.reetam.borealis.entity.renderer.TakaheRenderer;
-import com.reetam.borealis.entity.renderer.ThrusherRenderer;
+import com.reetam.borealis.entity.renderer.*;
 import com.reetam.borealis.registry.*;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
@@ -66,6 +64,7 @@ public class BorealisClient {
         event.registerEntityRenderer(BorealisEntities.TAKAHE.get(), TakaheRenderer::new);
         event.registerEntityRenderer(BorealisEntities.THRUSHER.get(), ThrusherRenderer::new);
         event.registerEntityRenderer(BorealisEntities.BOAT.get(), BorealisBoatRenderer::new);
+        event.registerEntityRenderer(BorealisEntities.HAIL.get(), HailRenderer::new);
         event.registerBlockEntityRenderer(BorealisBlockEntities.BOREALIS_SIGN.get(), SignRenderer::new);
     }
 

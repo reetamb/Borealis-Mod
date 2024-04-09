@@ -4,19 +4,17 @@ import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.entity.BorealisBoatEntity;
 import com.reetam.borealis.item.BorealisBoatItem;
 import com.reetam.borealis.item.HatItem;
-import com.reetam.borealis.item.MoonPearlItem;
+import com.reetam.borealis.item.HailstoneItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.awt.*;
 import java.util.function.Supplier;
 
 public class BorealisItems {
@@ -24,7 +22,6 @@ public class BorealisItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BorealisMod.MODID);
 
     public static final RegistryObject<Item> KYANITE_CRYSTAL = ITEMS.register("kyanite_crystal", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> MOON_PEARL = ITEMS.register("moon_pearl", MoonPearlItem::new);
     public static final RegistryObject<Item> HOT_SPRING_WATER_BUCKET = ITEMS.register("hot_spring_water_bucket", () -> new BucketItem(
             BorealisFluids.HOT_SPRING_WATER_SOURCE, (new Item.Properties()).stacksTo(1)));
 
@@ -51,7 +48,7 @@ public class BorealisItems {
     public static final RegistryObject<Item> HAT = ITEMS.register("hat", () -> new HatItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> TANZANITE = ITEMS.register("tanzanite", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HAILSTONE = ITEMS.register("hailstone", MoonPearlItem::new);
+    public static final RegistryObject<Item> HAILSTONE = ITEMS.register("hailstone", HailstoneItem::new);
 
     public static final RegistryObject<Item> STARBURST = ITEMS.register("starburst", () -> new Item(new Item.Properties().food(
             new FoodProperties.Builder()
@@ -61,6 +58,8 @@ public class BorealisItems {
                     .effect(() -> new MobEffectInstance(BorealisPotionEffects.MANIA.get(), 200), 1).build())));
 
     public static final RegistryObject<Item> BLUE_AMBER = ITEMS.register("blue_amber", () -> new Item(new Item.Properties()));
+
+
     public static class Tabs {
 
         public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BorealisMod.MODID);

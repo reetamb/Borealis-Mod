@@ -33,10 +33,10 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.SOAPSTONE_SLAB);
         itemBlock(BorealisBlocks.SOAPSTONE_TILE_SLAB);
         itemBlock(BorealisBlocks.SOAPSTONE_BRICK_SLAB);
-        wallInventory("soapstone_wall", modLoc("block/soapstone"));
-        wallInventory("soapstone_tile_wall", modLoc("block/soapstone_tiles"));
-        wallInventory("soapstone_brick_wall", modLoc("block/soapstone_bricks"));
-        itemBlock(BorealisBlocks.SOAPSTONE_BUTTON, "soapstone_button_inventory");
+        wallInventory("soapstone_wall", texture("soapstone"));
+        wallInventory("soapstone_tile_wall", texture("soapstone_tiles"));
+        wallInventory("soapstone_brick_wall", texture("soapstone_bricks"));
+        buttonInventory("soapstone_button", texture("soapstone_bricks"));
         itemBlock(BorealisBlocks.SOAPSTONE_PRESSURE_PLATE);
         itemBlock(BorealisBlocks.SLATE);
         itemBlock(BorealisBlocks.SLATE_PILLAR);
@@ -61,7 +61,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.BRUMAL_FENCE_GATE);
         itemBlockFlat(BorealisBlocks.BRUMAL_DOOR, "item/brumal_door");
         itemBlock(BorealisBlocks.BRUMAL_TRAPDOOR, "brumal_trapdoor_bottom");
-        itemBlock(BorealisBlocks.BRUMAL_BUTTON, "brumal_button_inventory");
+        buttonInventory("brumal_button", texture("brumal_planks"));
         itemBlock(BorealisBlocks.BRUMAL_PRESSURE_PLATE);
         itemBlockFlat(BorealisBlocks.BRUMAL_SAPLING);
         normalItem(BorealisItems.BRUMAL_SIGN);
@@ -78,7 +78,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.FROSTFIR_FENCE_GATE);
         itemBlockFlat(BorealisBlocks.FROSTFIR_DOOR, "item/frostfir_door");
         itemBlock(BorealisBlocks.FROSTFIR_TRAPDOOR, "frostfir_trapdoor_bottom");
-        itemBlock(BorealisBlocks.FROSTFIR_BUTTON, "frostfir_button_inventory");
+        buttonInventory("frostfir_button", texture("frostfir_planks"));
         itemBlock(BorealisBlocks.FROSTFIR_PRESSURE_PLATE);
         itemBlockFlat(BorealisBlocks.FROSTFIR_SAPLING);
         normalItem(BorealisItems.FROSTFIR_SIGN);
@@ -95,7 +95,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.SACCHARINE_FENCE_GATE);
         itemBlockFlat(BorealisBlocks.SACCHARINE_DOOR, "item/saccharine_door");
         itemBlock(BorealisBlocks.SACCHARINE_TRAPDOOR, "saccharine_trapdoor_bottom");
-        itemBlock(BorealisBlocks.SACCHARINE_BUTTON, "saccharine_button_inventory");
+        buttonInventory("saccharine_button", texture("saccharine_planks"));
         itemBlock(BorealisBlocks.SACCHARINE_PRESSURE_PLATE);
         itemBlockFlat(BorealisBlocks.SACCHARINE_SAPLING);
         normalItem(BorealisItems.SACCHARINE_SIGN);
@@ -111,7 +111,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.BONE_DRY_WOOD_BRICKS);
 
         normalItem(BorealisItems.KYANITE_CRYSTAL);
-        normalItem(BorealisItems.MOON_PEARL);
         normalItem(BorealisItems.HOT_SPRING_WATER_BUCKET);
         egg(BorealisItems.HUMMINGBIRD_SPAWN_EGG);
         egg(BorealisItems.TAKAHE_SPAWN_EGG);

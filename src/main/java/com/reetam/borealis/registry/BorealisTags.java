@@ -35,6 +35,10 @@ public class BorealisTags {
 
         public static final TagKey<Block> SOAPSTONE_ORE_REPLACEABLES = tag("soapstone_ore_replaceables");
 
+        public static final TagKey<Block> BLOCKSET_BRUMAL = tag("blockset_brumal");
+        public static final TagKey<Block> BLOCKSET_FROSTFIR = tag("blockset_frostfir");
+        public static final TagKey<Block> BLOCKSET_SACCHARINE = tag("blockset_saccharine");
+        public static final TagKey<Block> BLOCKSET_SOAPSTONE = tag("blockset_soapstone");
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(BorealisMod.MODID, name));
         }

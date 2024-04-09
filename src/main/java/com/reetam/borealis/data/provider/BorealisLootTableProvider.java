@@ -10,6 +10,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -35,36 +36,54 @@ public abstract class BorealisLootTableProvider extends BlockLootSubProvider {
         super(explosionResistant, enabledFeatures);
     }
 
-    public void dropSelf(Supplier<? extends Block> block) {
+    public Block dropSelf(Supplier<? extends Block> block) {
         super.dropSelf(block.get());
+        return block.get();
     }
 
-    public void dropOther(Supplier<? extends Block> brokenBlock, ItemLike droppedBlock) {
+    public Block dropOther(Supplier<? extends Block> brokenBlock, ItemLike droppedBlock) {
         super.dropOther(brokenBlock.get(), droppedBlock);
+        return brokenBlock.get();
     }
 
-    public void dropAsSilk(Supplier<? extends Block> block) {
+    public Block dropAsSilk(Supplier<? extends Block> block) {
         super.dropWhenSilkTouch(block.get());
+        return block.get();
     }
 
-    public void dropWithSilk(Supplier<? extends Block> block, Supplier<? extends ItemLike> drop) {
+    public Block dropWithSilk(Supplier<? extends Block> block, Supplier<? extends ItemLike> drop) {
         add(block.get(), (result) -> createSingleItemTableWithSilkTouch(result, drop.get()));
+        return block.get();
     }
 
-    public void dropWithFortune(Supplier<? extends Block> block, Supplier<? extends Item> drop) {
+    public Block dropWithFortune(Supplier<? extends Block> block, Supplier<? extends Item> drop) {
         super.add(block.get(), (result) -> createOreDrop(result, drop.get()));
+        return block.get();
     }
 
-    public void dropWithFortune(Supplier<? extends Block> block, ItemLike drop) {
+    public Block dropWithFortune(Supplier<? extends Block> block, ItemLike drop) {
         super.add(block.get(), (result) -> createOreDrop(result, drop.asItem()));
+        return block.get();
     }
 
-    public void dropChance(Supplier<? extends Block> block, Supplier<? extends Block> drop, float... chances) {
+    public Block dropChance(Supplier<? extends Block> block, Supplier<? extends Block> drop, float... chances) {
         add(block.get(), (result) -> withChance(block.get(), drop.get(), chances));
+        return block.get();
     }
 
-    public void dropChanceAdditional(Supplier<? extends Block> block, Supplier<? extends Block> drop, Supplier<? extends Item> item, float... chances) {
+    public Block dropChanceAdditional(Supplier<? extends Block> block, Supplier<? extends Block> drop, Supplier<? extends Item> item, float... chances) {
         add(block.get(), (result) -> withChanceAdditional(block.get(), drop.get(), item.get(), chances));
+        return block.get();
+    }
+
+    public Block dropPottedPlant(Block flowerPot) {
+        super.dropPottedContents(flowerPot);
+        return flowerPot;
+    }
+
+    public Block drop(Block pBlock, LootTable.Builder pBuilder) {
+        super.add(pBlock, pBuilder);
+        return pBlock;
     }
 
     protected static LootTable.Builder withChance(Block block, Block drop, float... chances) {

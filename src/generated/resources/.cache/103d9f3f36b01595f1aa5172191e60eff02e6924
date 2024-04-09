@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-01T22:26:22.7219884	Registries
+// 1.20.1	2024-04-08T00:40:45.5571346	Registries
 36285c724c6ff5adb527abf7bc15547f52164088 data/borealis/dimension/borealis.json
 a83d32a6b10526645b91faf9a8247e4439ba3ad2 data/borealis/dimension_type/borealis.json
 3a54ea6e500cc22437c38cc99604dd1f89587cde data/borealis/worldgen/biome/boreal_tundra.json
@@ -35,7 +35,7 @@ b08ef5b8ad0c5c32612d7106ee488bd02723cdd7 data/borealis/worldgen/placed_feature/g
 fb70aa91633c74b7529bfff8e51b586b8b83beb3 data/borealis/worldgen/placed_feature/helix_tree.json
 d38e46c763cdad110c3dcfefec09f25da5564235 data/borealis/worldgen/placed_feature/hot_spring.json
 ff84438bb10a798149062110a4d0f8edf90466c7 data/borealis/worldgen/placed_feature/kyanite_crystal.json
-8da25ad749c8902148262a7fbf3951751c22029d data/borealis/worldgen/placed_feature/rubble_patch.json
+37d7689c0ce0176d2a5e550b7c64529e60cd3dca data/borealis/worldgen/placed_feature/rubble_patch.json
 eaddf8495f23bd74aa2c0e16e73f393171c2729e data/borealis/worldgen/placed_feature/slate_boulder.json
 1d4cee7729e26ffbda8a88993fe34b5f475a0618 data/borealis/worldgen/placed_feature/spike_trail.json
 aa33511dfc0d793c0c34979f1866042a57ac0ec7 data/borealis/worldgen/placed_feature/spiral_cloud.json

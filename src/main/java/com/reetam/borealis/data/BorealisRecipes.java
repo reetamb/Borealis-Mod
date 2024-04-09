@@ -119,13 +119,6 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 .define('#', Blocks.BLACK_WOOL)
                 .define('0', Blocks.WHITE_WOOL)
                 .unlockedBy("has_" + name(() -> Blocks.BLACK_WOOL), has(Blocks.BLACK_WOOL)).save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BorealisItems.MOON_PEARL.get())
-                .pattern("000")
-                .pattern("0#0")
-                .pattern("000")
-                .define('0', Items.LAPIS_LAZULI)
-                .define('#', Items.SNOWBALL)
-                .unlockedBy("has_" + Items.LAPIS_LAZULI, has(Items.LAPIS_LAZULI)).save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BorealisBlocks.SLATE_PILLAR.get())
                 .pattern("#")
                 .pattern("#")

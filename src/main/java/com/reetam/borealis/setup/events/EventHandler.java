@@ -1,4 +1,4 @@
-package com.reetam.borealis.setup.events;
+package com.reetam.borealis.modify.events;
 
 public class EventHandler {
 }

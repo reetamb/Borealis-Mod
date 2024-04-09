@@ -2,6 +2,7 @@ package com.reetam.borealis.data;
 
 import com.reetam.borealis.data.provider.BorealisLangProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.BorealisPotionEffects;
 import net.minecraft.data.DataGenerator;
@@ -34,6 +35,13 @@ public class BorealisLang extends BorealisLangProvider {
                 assumeBlockItem(item);
             }
         }
+
         add(BorealisPotionEffects.MANIA.get(), "Mania");
+
+        add(BorealisEntities.HAIL.get(), "Hailstone");
+        add(BorealisEntities.BOAT.get(), "Borealis Boat");
+        add(BorealisEntities.HUMMINGBIRD.get(), "Hummingbird");
+        add(BorealisEntities.THRUSHER.get(), "Thrusher");
+        add(BorealisEntities.TAKAHE.get(), "Takahe");
     }
 }

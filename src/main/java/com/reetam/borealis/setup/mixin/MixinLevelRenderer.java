@@ -1,4 +1,4 @@
-package com.reetam.borealis.setup.mixin;
+package com.reetam.borealis.modify.mixin;
 
 import com.reetam.borealis.registry.BorealisWorld;
 import net.minecraft.client.renderer.LevelRenderer;

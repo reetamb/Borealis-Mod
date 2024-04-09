@@ -1,4 +1,4 @@
-package com.reetam.borealis.setup.events;
+package com.reetam.borealis.modify.events;
 
 import com.reetam.borealis.registry.BorealisTags;
 import net.minecraft.core.BlockPos;

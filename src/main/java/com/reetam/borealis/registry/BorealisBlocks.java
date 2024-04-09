@@ -2,9 +2,9 @@ package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
-import com.reetam.borealis.world.gen.treegrower.BrumalTreeGrower;
-import com.reetam.borealis.world.gen.treegrower.FrostfirTreeGrower;
-import com.reetam.borealis.world.gen.treegrower.SaccharineTreeGrower;
+import com.reetam.borealis.world.treegrower.BrumalTreeGrower;
+import com.reetam.borealis.world.treegrower.FrostfirTreeGrower;
+import com.reetam.borealis.world.treegrower.SaccharineTreeGrower;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -126,14 +126,14 @@ public class BorealisBlocks {
     public static final RegistryObject<RotatedPillarBlock> KYANITE_ORE = registerBlock("kyanite_ore", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.COAL_ORE)));
     public static final RegistryObject<Block> TANZANITE_ORE = registerBlock("tanzanite_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)));
     public static final RegistryObject<Block> TANZANITE_BLOCK = registerBlock("tanzanite_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).sound(SoundType.AMETHYST)));
-    public static final RegistryObject<Block> HAILSTONE = registerBlock("hailstone_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE)));
+    public static final RegistryObject<Block> HAILSTONE = registerBlock("hailstone_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRYING_OBSIDIAN)));
 
     public static final RegistryObject<Block> PERMAFROST = registerBlock("permafrost", () -> new PermafrostBlock(BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.GRAVEL)));
     public static final RegistryObject<Block> PERMAFROST_RUBBLE = registerBlock("permafrost_rubble", () -> new Block(BlockBehaviour.Properties.copy(Blocks.COARSE_DIRT).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> LIVING_SNOW_BLOCK = registerBlock("living_snow_block", () -> new LivingSnowBlock(BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK)));
     public static final RegistryObject<Block> SUGAR_SNOW_BLOCK = registerBlock("sugar_snow_block", () -> new LivingSnowBlock(BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK)));
     public static final RegistryObject<Block> SUGAR_SNOW = registerBlock("sugar_snow", () -> new SugarSnowBlock(BlockBehaviour.Properties.copy(Blocks.SNOW)));
-    public static final RegistryObject<Block> CLOUD = registerBlock("cloud", () -> new CloudBlock(BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK).sound(SoundType.WOOL).strength(0.4F).noCollission().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CLOUD = registerBlock("cloud", () -> new CloudBlock(BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK).sound(SoundType.WOOL).destroyTime(0.2F).strength(0.4F).noCollission().requiresCorrectToolForDrops()));
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);
