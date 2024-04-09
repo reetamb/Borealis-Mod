@@ -1,4 +1,4 @@
-package com.reetam.borealis.world.feature;
+package com.reetam.borealis.world;
 
 import com.google.common.collect.Maps;
 import com.reetam.borealis.block.BorealisPortalBlock;
