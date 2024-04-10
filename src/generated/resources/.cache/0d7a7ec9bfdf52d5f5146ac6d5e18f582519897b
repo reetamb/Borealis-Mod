@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-07T17:05:12.896079	Borealis Block States
+// 1.20.1	2024-04-09T16:39:18.9314018	Borealis Block States
 5f6a7fbff012b989b63cb4e7142d0f5241f497c8 assets/borealis/blockstates/bone_dry_wood.json
 bd0e6241d47c89916e07280bb51de9a14164d5d8 assets/borealis/blockstates/bone_dry_wood_bricks.json
 1f11a9d481f0e7032614b3504f69f0ccd9374d33 assets/borealis/blockstates/brumal_button.json
@@ -35,6 +35,7 @@ efd6f33a97ebd0ba802ceb4a1eac8bc154bb47de assets/borealis/blockstates/frostfir_lo
 f3d2c4601b9677ba2fc51a191b8e37f2bffeb709 assets/borealis/blockstates/hailstone_block.json
 ee98420c16d53a3bbebf604c644c1fa91c6132ae assets/borealis/blockstates/kyanite_ore.json
 ba8cc54de88512a43934432c5d5191a184e132c9 assets/borealis/blockstates/living_snow_block.json
+a70ac5aee9ef0bf9e53f373a71e31bcec8cccc72 assets/borealis/blockstates/peat.json
 859e192a376ecba45b82f8931203cb7725b672f5 assets/borealis/blockstates/permafrost.json
 1dd2aaaa31bb2bcbd88b060ab39bf6d24b26fe23 assets/borealis/blockstates/permafrost_rubble.json
 2ac76003700d15c242a247ea97555a61187dd258 assets/borealis/blockstates/petrified_wood.json
@@ -159,6 +160,7 @@ f23dc7287fe2ec273afdc7034d8b52ff61dcaa3e assets/borealis/models/block/frostfir_t
 2b5094162830c7c3b4da67535f66dd06887a7e66 assets/borealis/models/block/kyanite_ore.json
 43a4d5d575ea6d17a97880de790ff9cba504b2d7 assets/borealis/models/block/kyanite_ore_horizontal.json
 8c200e5135a5c9a547515093edc84c0e8cd1bad9 assets/borealis/models/block/living_snow_block.json
+a11deb93c01169f67ba3262dc8b23f1e3710f74b assets/borealis/models/block/peat.json
 bf8936fc5dee5d62611c9f292e627b82541c12fb assets/borealis/models/block/permafrost.json
 92ee312cc6ba2bfc31e3618903a98e772de71722 assets/borealis/models/block/permafrost_rubble.json
 cfab4ecd2bede240cb392bc0b54c8fb57c4c9969 assets/borealis/models/block/petrified_wood.json

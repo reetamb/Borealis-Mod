@@ -21,6 +21,10 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePl
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+
+import java.util.List;
 
 public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_GLACIAL_RIDGE = createKey("glacial_ridge");
@@ -38,8 +42,9 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> HELIX_TREE = createKey("helix_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> COTTON_TREE = createKey("cotton_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> RUBBLE_PATCH = createKey("rubble_patch");
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> KYANITE_CRYSTAL = createKey("kyanite_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PEAT_ORE = createKey("peat_ore");
+
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(BorealisMod.MODID, name));
     }
@@ -105,6 +110,8 @@ public class BorealisConfiguredFeatures {
                 BorealisBlocks.PERMAFROST_RUBBLE.get().defaultBlockState(),
                 UniformInt.of(3, 4)));
         register(context, KYANITE_CRYSTAL, BorealisFeatures.BERYL.get(), new BlockStateConfiguration(BorealisBlocks.KYANITE_ORE.get().defaultBlockState()));
+        register(context, PEAT_ORE, Feature.ORE, new OreConfiguration(
+                new BlockMatchTest(BorealisBlocks.PERMAFROST.get()), BorealisBlocks.PEAT.get().defaultBlockState(), 16, 0.5F));
     }
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));

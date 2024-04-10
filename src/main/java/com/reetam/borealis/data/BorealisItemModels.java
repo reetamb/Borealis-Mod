@@ -109,6 +109,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.HAILSTONE);
         itemBlock(BorealisBlocks.BONE_DRY_WOOD);
         itemBlock(BorealisBlocks.BONE_DRY_WOOD_BRICKS);
+        itemBlock(BorealisBlocks.PEAT);
 
         normalItem(BorealisItems.KYANITE_CRYSTAL);
         normalItem(BorealisItems.HOT_SPRING_WATER_BUCKET);

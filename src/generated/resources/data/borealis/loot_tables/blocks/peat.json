@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "borealis:tanzanite_ore"
+              "name": "borealis:peat"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "borealis:tanzanite"
+              "name": "minecraft:coal"
             }
           ]
         }
@@ -46,5 +46,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "borealis:blocks/tanzanite_ore"
+  "random_sequence": "borealis:blocks/peat"
 }

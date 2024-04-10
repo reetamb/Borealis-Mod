@@ -35,6 +35,7 @@ public class BorealisPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PLACED_COTTON_TREE = createKey("cotton_tree");
     public static final ResourceKey<PlacedFeature> PLACED_RUBBLE_PATCH = createKey("rubble_patch");
     public static final ResourceKey<PlacedFeature> PLACED_KYANITE_CRYSTAL = createKey("kyanite_crystal");
+    public static final ResourceKey<PlacedFeature> PLACED_PEAT_ORE = createKey("peat_ore");
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(BorealisMod.MODID, name));
     }
@@ -83,6 +84,9 @@ public class BorealisPlacedFeatures {
                 InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(2), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(120)));
         register(context, PLACED_KYANITE_CRYSTAL, please.getOrThrow(BorealisConfiguredFeatures.KYANITE_CRYSTAL),
                 InSquarePlacement.spread(), CountPlacement.of(1), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(120)));
+        register(context, PLACED_PEAT_ORE, please.getOrThrow(BorealisConfiguredFeatures.PEAT_ORE),
+                HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top()),
+                CountPlacement.of(16), InSquarePlacement.spread());
     }
 
     private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {

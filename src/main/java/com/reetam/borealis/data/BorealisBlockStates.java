@@ -6,8 +6,10 @@ import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
 
 public class BorealisBlockStates extends BorealisBlockStateProvider {
 
@@ -65,6 +67,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
                 .partialState().with(PermafrostBlock.COVER, PermafrostCover.SUGARY).modelForState()
                     .modelFile(this.models().cubeBottomTop("sugary_permafrost", texture("sugary_permafrost_side"), texture("permafrost"), texture("sugar_snow_block"))).addModel();
         simpleBlock(BorealisBlocks.PUMICE_GEYSER.get(), this.models().cubeTop("pumice_geyser", texture("pumice"), texture("pumice_geyser")));
+        block(BorealisBlocks.PEAT);
         wood();
     }
 

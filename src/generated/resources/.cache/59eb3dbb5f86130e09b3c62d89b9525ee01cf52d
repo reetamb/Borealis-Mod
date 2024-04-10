@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-07T19:39:06.5136318	Loot Tables
+// 1.20.1	2024-04-09T16:20:40.6436924	Loot Tables
 51ddf82787e7a3e73e5120b7114515d4170a0f9e data/borealis/loot_tables/blocks/bone_dry_wood.json
 6a9e25663e1a6e1e7cab8c16966dbbae53113635 data/borealis/loot_tables/blocks/bone_dry_wood_bricks.json
 62e83126878f933fb7d8961b9cb48b2e72267545 data/borealis/loot_tables/blocks/brumal_button.json
@@ -35,6 +35,7 @@ b1c9b0d1416d633cc49893c004c0216d5a857338 data/borealis/loot_tables/blocks/frostf
 cf65d78043d89c9a95d3bea9c836083005d3ebc3 data/borealis/loot_tables/blocks/hailstone_block.json
 cab56a6550eafe368d9d65f842d4cfbf7f05e72b data/borealis/loot_tables/blocks/kyanite_ore.json
 df1108f92707eca479023bea885e7f00033321f8 data/borealis/loot_tables/blocks/living_snow_block.json
+aca189e79f801c070bb83a651abd6ea842830df6 data/borealis/loot_tables/blocks/peat.json
 033c4b1575fe03e976410caa93cda44722dd9f0b data/borealis/loot_tables/blocks/permafrost.json
 f28f382961991d26ad6582c8fbf9541abc65993c data/borealis/loot_tables/blocks/permafrost_rubble.json
 952064efc08e87d7167da25e14eed3d16e32ae2b data/borealis/loot_tables/blocks/petrified_wood.json
@@ -87,7 +88,7 @@ fedb84b11b9e8d4e7b5b144437bcece1abf93420 data/borealis/loot_tables/blocks/stripp
 e65a1ca0d28ba1f8b56c8d31a12472236fc44dee data/borealis/loot_tables/blocks/sugar_snow.json
 22c190fcb8ab01838087592b0c0bd74f769c11e6 data/borealis/loot_tables/blocks/sugar_snow_block.json
 65d6b279c9f3f724d8fce3f19e947504fc8aef49 data/borealis/loot_tables/blocks/tanzanite_block.json
-2dae9d5f95c22fe53a49eba98dca03276dce28af data/borealis/loot_tables/blocks/tanzanite_ore.json
+d062d8b49bf1a985282282ac7c46cd42eb6de206 data/borealis/loot_tables/blocks/tanzanite_ore.json
 f7faf973bf16893aca46e5964edf713fbcfd6bb4 data/borealis/loot_tables/blocks/travertine.json
 ee260535112ea769778172a24c3f1c2ae559a96d data/borealis/loot_tables/entities/hummingbird.json
 2d98c8e58bf93fe8072c2ad3eb70b6541fb39296 data/borealis/loot_tables/entities/takahe.json

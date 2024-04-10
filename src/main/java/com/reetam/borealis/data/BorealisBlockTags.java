@@ -229,15 +229,16 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.PETRIFIED_WOOD.get(), BorealisBlocks.PETRIFIED_WOOD_BRICKS.get(), BorealisBlocks.BONE_DRY_WOOD.get(), BorealisBlocks.BONE_DRY_WOOD_BRICKS.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get(), BorealisBlocks.LIVING_SNOW_BLOCK.get(), BorealisBlocks.SUGAR_SNOW.get())
-                .add(BorealisBlocks.PERMAFROST.get(), BorealisBlocks.PERMAFROST_RUBBLE.get());
+                .add(BorealisBlocks.PERMAFROST.get(), BorealisBlocks.PERMAFROST_RUBBLE.get())
+                .add(BorealisBlocks.PEAT.get())
+                .add(BorealisBlocks.CLOUD.get());
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(BorealisBlocks.CLOUD.get())
                 .add(BorealisBlocks.BRUMAL_LEAVES.get(), BorealisBlocks.FROSTFIR_LEAVES.get(), BorealisBlocks.SACCHARINE_LEAVES.get());
-        tag(BlockTags.SWORD_EFFICIENT)
-                .add(BorealisBlocks.CLOUD.get());
 
         tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(BorealisBlocks.KYANITE_ORE.get());
+                .add(BorealisBlocks.KYANITE_ORE.get())
+                .add(BorealisBlocks.PEAT.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(BorealisBlocks.HAILSTONE.get(), BorealisBlocks.TANZANITE_BLOCK.get(), BorealisBlocks.TANZANITE_ORE.get());
     }
