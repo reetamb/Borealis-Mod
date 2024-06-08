@@ -68,6 +68,8 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
                     .modelFile(this.models().cubeBottomTop("sugary_permafrost", texture("sugary_permafrost_side"), texture("permafrost"), texture("sugar_snow_block"))).addModel();
         simpleBlock(BorealisBlocks.PUMICE_GEYSER.get(), this.models().cubeTop("pumice_geyser", texture("pumice"), texture("pumice_geyser")));
         block(BorealisBlocks.PEAT);
+        log(BorealisBlocks.KYANITE_CABLE, "kyanite_cable");
+        block(BorealisBlocks.KYANITE_BULB);
         wood();
     }
 

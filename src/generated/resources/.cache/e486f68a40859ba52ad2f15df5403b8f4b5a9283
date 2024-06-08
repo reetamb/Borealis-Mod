@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-09T16:39:18.9158247	Borealis Item Models
+// 1.20.1	2024-04-10T23:42:30.455305	Borealis Item Models
 75aa80c42a220cf518df2584d1c3a390019b4c46 assets/borealis/models/item/blue_amber.json
 1e9281e7978034fa3037635bd94f6bcde7c2b4dd assets/borealis/models/item/bone_dry_wood.json
 116c16c50cdc1f9d104082e6e3ee17585d65f205 assets/borealis/models/item/bone_dry_wood_bricks.json
@@ -38,6 +38,9 @@ b97326cfad763a174770760cf802644681b492fa assets/borealis/models/item/hailstone.j
 7842ada35567918d4ab5f84b6d37f3bce8309786 assets/borealis/models/item/hat.json
 3c022d226b8a5b26530757513b649053e70cd052 assets/borealis/models/item/hot_spring_water_bucket.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/hummingbird_spawn_egg.json
+dfd9d25d54083c0169d2db344a282b3d2c400eb4 assets/borealis/models/item/kyanite_arrow.json
+e60f37bfff05548cbde80faf4066c92a3879951a assets/borealis/models/item/kyanite_bulb.json
+f2c05faf199f5d00943c8eecb7d49c7f0240ae15 assets/borealis/models/item/kyanite_cable.json
 ba2d04b062d5662ee14dbc968050247b3061c817 assets/borealis/models/item/kyanite_crystal.json
 0fbb788738ef4fd87db5e07aace44e5605f21e9f assets/borealis/models/item/kyanite_ore.json
 95822ac5d5fa44f393764dac465061bbe4017703 assets/borealis/models/item/living_snow_block.json

@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-09T16:20:40.6436924	Loot Tables
+// 1.20.1	2024-06-08T11:33:43.5266749	Loot Tables
 51ddf82787e7a3e73e5120b7114515d4170a0f9e data/borealis/loot_tables/blocks/bone_dry_wood.json
 6a9e25663e1a6e1e7cab8c16966dbbae53113635 data/borealis/loot_tables/blocks/bone_dry_wood_bricks.json
 62e83126878f933fb7d8961b9cb48b2e72267545 data/borealis/loot_tables/blocks/brumal_button.json
@@ -17,6 +17,7 @@ d7a94cf393201c3c7473045057edd747b0b131ad data/borealis/loot_tables/blocks/brumal
 76950f5cb927dc8e28857bc070366ec96484507f data/borealis/loot_tables/blocks/brumal_wall_sign.json
 3fb739647b6cc3ce71966e14d868486851009e2f data/borealis/loot_tables/blocks/brumal_wood.json
 2527057bcecfd1835ec2590e2cdb866cd5989b9e data/borealis/loot_tables/blocks/cloud.json
+f392799f3090814441b3eadee134cf6936a0adbf data/borealis/loot_tables/blocks/embedded_kyanite_arrow.json
 d9d804fa6387428a5898e2a259cb070edf389cd4 data/borealis/loot_tables/blocks/frostfir_button.json
 45d5cfdd87a9676dc15d8e71fa073742d8921301 data/borealis/loot_tables/blocks/frostfir_door.json
 ad2d63cf63f3f79ed4bf0a19e51fae7bd9f3c5c9 data/borealis/loot_tables/blocks/frostfir_fence.json
@@ -33,6 +34,8 @@ e9169fd30cf1ec4639db519e16475279d1fa1462 data/borealis/loot_tables/blocks/frostf
 b1c9b0d1416d633cc49893c004c0216d5a857338 data/borealis/loot_tables/blocks/frostfir_wall_sign.json
 9a68fd61ea31f9cdf4093ace24d588379c8586b5 data/borealis/loot_tables/blocks/frostfir_wood.json
 cf65d78043d89c9a95d3bea9c836083005d3ebc3 data/borealis/loot_tables/blocks/hailstone_block.json
+9d5a3bf01e3a307f9ca08de2611ae76163934c82 data/borealis/loot_tables/blocks/kyanite_bulb.json
+b6a76f2efa931d036d2dedd2a03315ffad808e69 data/borealis/loot_tables/blocks/kyanite_cable.json
 cab56a6550eafe368d9d65f842d4cfbf7f05e72b data/borealis/loot_tables/blocks/kyanite_ore.json
 df1108f92707eca479023bea885e7f00033321f8 data/borealis/loot_tables/blocks/living_snow_block.json
 aca189e79f801c070bb83a651abd6ea842830df6 data/borealis/loot_tables/blocks/peat.json

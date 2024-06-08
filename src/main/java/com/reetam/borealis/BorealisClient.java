@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -49,6 +50,7 @@ public class BorealisClient {
         render(BorealisBlocks.SACCHARINE_TRAPDOOR, cutout);
         render(BorealisBlocks.SACCHARINE_SAPLING, cutout);
         render(BorealisBlocks.POTTED_SACCHARINE_SAPLING, cutout);
+        render(BorealisBlocks.EMBEDDED_KYANITE_ARROW, cutout);
 
         render(BorealisBlocks.HOT_SPRING_WATER_BLOCK, translucent);
         ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_FLOWING.get(), translucent);
@@ -65,6 +67,7 @@ public class BorealisClient {
         event.registerEntityRenderer(BorealisEntities.THRUSHER.get(), ThrusherRenderer::new);
         event.registerEntityRenderer(BorealisEntities.BOAT.get(), BorealisBoatRenderer::new);
         event.registerEntityRenderer(BorealisEntities.HAIL.get(), HailRenderer::new);
+        event.registerEntityRenderer(BorealisEntities.KYANITE_ARROW.get(), KyaniteArrowRenderer::new);
         event.registerBlockEntityRenderer(BorealisBlockEntities.BOREALIS_SIGN.get(), SignRenderer::new);
     }
 

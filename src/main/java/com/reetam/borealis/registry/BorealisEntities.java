@@ -32,6 +32,10 @@ public class BorealisEntities {
     public static final RegistryObject<EntityType<HailEntity>> HAIL = ENTITIES.register("hail",
             () -> EntityType.Builder.of(HailEntity::new, MobCategory.MISC)
                     .sized(1.0F, 1.0F).clientTrackingRange(10).build("hail"));
+    public static final RegistryObject<EntityType<KyaniteArrowEntity>> KYANITE_ARROW = ENTITIES.register("kyanite_arrow",
+            () -> EntityType.Builder.of(KyaniteArrowEntity::new, MobCategory.MISC)
+                    .sized(1.0F, 1.0F).clientTrackingRange(10).build("kyanite_arrow"));
+
     public static void registerSpawnPlacements() {
         // SpawnPlacements.register(HUMMINGBIRD.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, HummingbirdEntity::checkHummingbirdSpawnRules);
         // SpawnPlacements.register(TAKAHE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TakaheEntity::checkTakaheSpawnRules);

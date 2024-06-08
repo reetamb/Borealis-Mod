@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "borealis:block/kyanite_arrow",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "borealis:block/kyanite_arrow",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "borealis:block/kyanite_arrow",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "borealis:block/kyanite_arrow",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "borealis:block/kyanite_arrow"
+    },
+    "facing=west": {
+      "model": "borealis:block/kyanite_arrow",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

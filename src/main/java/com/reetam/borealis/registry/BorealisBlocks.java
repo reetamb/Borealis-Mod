@@ -123,7 +123,7 @@ public class BorealisBlocks {
     public static final RegistryObject<ButtonBlock> SACCHARINE_BUTTON = registerBlock("saccharine_button", () -> new ButtonBlock(BlockBehaviour.Properties.copy(BorealisBlocks.FROSTFIR_PLANKS.get()).noOcclusion().noCollission(), saccharine_type, 30, true));
     public static final RegistryObject<PressurePlateBlock> SACCHARINE_PRESSURE_PLATE = registerBlock("saccharine_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(BorealisBlocks.FROSTFIR_PLANKS.get()).noOcclusion().noCollission(), saccharine_type));
 
-    public static final RegistryObject<RotatedPillarBlock> KYANITE_ORE = registerBlock("kyanite_ore", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.COAL_ORE)));
+    public static final RegistryObject<RotatedPillarBlock> KYANITE_ORE = registerBlock("kyanite_ore", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.COAL_ORE).lightLevel((blockstate) -> 8)));
     public static final RegistryObject<Block> TANZANITE_ORE = registerBlock("tanzanite_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)));
     public static final RegistryObject<Block> TANZANITE_BLOCK = registerBlock("tanzanite_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> HAILSTONE = registerBlock("hailstone_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRYING_OBSIDIAN)));
@@ -135,6 +135,11 @@ public class BorealisBlocks {
     public static final RegistryObject<Block> SUGAR_SNOW = registerBlock("sugar_snow", () -> new SugarSnowBlock(BlockBehaviour.Properties.copy(Blocks.SNOW)));
     public static final RegistryObject<Block> CLOUD = registerBlock("cloud", () -> new CloudBlock(BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK).sound(SoundType.WOOL).destroyTime(0.2F).strength(0.4F).noCollission().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> PEAT = registerBlock("peat", () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRAVEL).sound(SoundType.BASALT).requiresCorrectToolForDrops().destroyTime(1.0F)));
+
+    public static final RegistryObject<KyaniteArrowBlock> EMBEDDED_KYANITE_ARROW = BLOCKS.register("embedded_kyanite_arrow", () -> new KyaniteArrowBlock(BlockBehaviour.Properties.of().noCollission().lightLevel((blockstate) -> 15)));
+    public static final RegistryObject<RotatedPillarBlock> KYANITE_CABLE = registerBlock("kyanite_cable", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of()));
+    public static final RegistryObject<Block> KYANITE_BULB = registerBlock("kyanite_bulb", () -> new Block(BlockBehaviour.Properties.of()));
+
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);
         BorealisItems.ITEMS.register(name, item.apply(register));

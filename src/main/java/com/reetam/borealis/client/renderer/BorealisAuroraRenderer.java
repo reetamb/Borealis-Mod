@@ -143,19 +143,19 @@ public class BorealisAuroraRenderer {
 
                     if (k0 > -1) {
                         for(int i1 = 0; i1 < 8; ++i1) {
-                            bufferBuilder.vertex((k1 + (float)i1 + 0.0F), (cloudHeight + 0.0F), (l1 + 8.0F)).uv((k1 + (float)i1 + 0.5F) * fac0 + fx, (l1 + 8.0F) * fac0 + fz).color(red, green, blue, alpha).normal(-1.0F, 0.0F, 0.0F).endVertex();
+                            bufferBuilder.vertex((k1 + (float)i1 + 0.0F), (cloudHeight + 0.0F), (l1 + 8.0F)).uv((k1 + (float)i1 + 0.5F) * fac0 + fx, (l1 + 8.0F) * fac0 + fz).color(red, green, blue, 0).normal(-1.0F, 0.0F, 0.0F).endVertex();
                             bufferBuilder.vertex((k1 + (float)i1 + 0.0F), (cloudHeight + height), (l1 + 8.0F)).uv((k1 + (float)i1 + 0.5F) * fac0 + fx, (l1 + 8.0F) * fac0 + fz).color(red, green, blue, alpha).normal(-1.0F, 0.0F, 0.0F).endVertex();
                             bufferBuilder.vertex((k1 + (float)i1 + 0.0F), (cloudHeight + height), (l1 + 0.0F)).uv((k1 + (float)i1 + 0.5F) * fac0 + fx, (l1 + 0.0F) * fac0 + fz).color(red, green, blue, alpha).normal(-1.0F, 0.0F, 0.0F).endVertex();
-                            bufferBuilder.vertex((k1 + (float)i1 + 0.0F), (cloudHeight + 0.0F), (l1 + 0.0F)).uv((k1 + (float)i1 + 0.5F) * fac0 + fx, (l1 + 0.0F) * fac0 + fz).color(red, green, blue, alpha).normal(-1.0F, 0.0F, 0.0F).endVertex();
+                            bufferBuilder.vertex((k1 + (float)i1 + 0.0F), (cloudHeight + 0.0F), (l1 + 0.0F)).uv((k1 + (float)i1 + 0.5F) * fac0 + fx, (l1 + 0.0F) * fac0 + fz).color(red, green, blue, 0).normal(-1.0F, 0.0F, 0.0F).endVertex();
                         }
                     }
 
                     if (k0 <= 1) {
                         for(int j2 = 0; j2 < 8; ++j2) {
-                            bufferBuilder.vertex((k1 + (float)j2 + 1.0F - fac1), (cloudHeight + 0.0F), (l1 + 8.0F)).uv((k1 + (float)j2 + 0.5F) * fac0 + fx, (l1 + 8.0F) * fac0 + fz).color(red, green, blue, alpha).normal(1.0F, 0.0F, 0.0F).endVertex();
+                            bufferBuilder.vertex((k1 + (float)j2 + 1.0F - fac1), (cloudHeight + 0.0F), (l1 + 8.0F)).uv((k1 + (float)j2 + 0.5F) * fac0 + fx, (l1 + 8.0F) * fac0 + fz).color(red, green, blue, 0).normal(1.0F, 0.0F, 0.0F).endVertex();
                             bufferBuilder.vertex((k1 + (float)j2 + 1.0F - fac1), (cloudHeight + height), (l1 + 8.0F)).uv((k1 + (float)j2 + 0.5F) * fac0 + fx, (l1 + 8.0F) * fac0 + fz).color(red, green, blue, alpha).normal(1.0F, 0.0F, 0.0F).endVertex();
                             bufferBuilder.vertex((k1 + (float)j2 + 1.0F - fac1), (cloudHeight + height), (l1 + 0.0F)).uv((k1 + (float)j2 + 0.5F) * fac0 + fx, (l1 + 0.0F) * fac0 + fz).color(red, green, blue, alpha).normal(1.0F, 0.0F, 0.0F).endVertex();
-                            bufferBuilder.vertex((k1 + (float)j2 + 1.0F - fac1), (cloudHeight + 0.0F), (l1 + 0.0F)).uv((k1 + (float)j2 + 0.5F) * fac0 + fx, (l1 + 0.0F) * fac0 + fz).color(red, green, blue, alpha).normal(1.0F, 0.0F, 0.0F).endVertex();
+                            bufferBuilder.vertex((k1 + (float)j2 + 1.0F - fac1), (cloudHeight + 0.0F), (l1 + 0.0F)).uv((k1 + (float)j2 + 0.5F) * fac0 + fx, (l1 + 0.0F) * fac0 + fz).color(red, green, blue, 0).normal(1.0F, 0.0F, 0.0F).endVertex();
                         }
                     }
 
@@ -163,8 +163,8 @@ public class BorealisAuroraRenderer {
                         for(int k2 = 0; k2 < 8; ++k2) {
                             bufferBuilder.vertex((k1 + 0.0F), (cloudHeight + height), (l1 + (float)k2 + 0.0F)).uv((k1 + 0.0F) * fac0 + fx, (l1 + (float)k2 + 0.5F) * fac0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, -1.0F).endVertex();
                             bufferBuilder.vertex((k1 + 8.0F), (cloudHeight + height), (l1 + (float)k2 + 0.0F)).uv((k1 + 8.0F) * fac0 + fx, (l1 + (float)k2 + 0.5F) * fac0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, -1.0F).endVertex();
-                            bufferBuilder.vertex((k1 + 8.0F), (cloudHeight + 0.0F), (l1 + (float)k2 + 0.0F)).uv((k1 + 8.0F) * fac0 + fx, (l1 + (float)k2 + 0.5F) * fac0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, -1.0F).endVertex();
-                            bufferBuilder.vertex((k1 + 0.0F), (cloudHeight + 0.0F), (l1 + (float)k2 + 0.0F)).uv((k1 + 0.0F) * fac0 + fx, (l1 + (float)k2 + 0.5F) * fac0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, -1.0F).endVertex();
+                            bufferBuilder.vertex((k1 + 8.0F), (cloudHeight + 0.0F), (l1 + (float)k2 + 0.0F)).uv((k1 + 8.0F) * fac0 + fx, (l1 + (float)k2 + 0.5F) * fac0 + fz).color(red, green, blue, 0).normal(0.0F, 0.0F, -1.0F).endVertex();
+                            bufferBuilder.vertex((k1 + 0.0F), (cloudHeight + 0.0F), (l1 + (float)k2 + 0.0F)).uv((k1 + 0.0F) * fac0 + fx, (l1 + (float)k2 + 0.5F) * fac0 + fz).color(red, green, blue, 0).normal(0.0F, 0.0F, -1.0F).endVertex();
                         }
                     }
 
@@ -172,8 +172,8 @@ public class BorealisAuroraRenderer {
                         for(int l2 = 0; l2 < 8; ++l2) {
                             bufferBuilder.vertex((k1 + 0.0F), (cloudHeight + height), (l1 + (float)l2 + 1.0F - fac1)).uv((k1 + 0.0F) * fac0 + fx, (l1 + (float)l2 + 0.5F) * fac0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, 1.0F).endVertex();
                             bufferBuilder.vertex((k1 + 8.0F), (cloudHeight + height), (l1 + (float)l2 + 1.0F - fac1)).uv((k1 + 8.0F) * fac0 + fx, (l1 + (float)l2 + 0.5F) * fac0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, 1.0F).endVertex();
-                            bufferBuilder.vertex((k1 + 8.0F), (cloudHeight + 0.0F), (l1 + (float)l2 + 1.0F - fac1)).uv((k1 + 8.0F) * fac0 + fx, (l1 + (float)l2 + 0.5F) * fac0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, 1.0F).endVertex();
-                            bufferBuilder.vertex((k1 + 0.0F), (cloudHeight + 0.0F), (l1 + (float)l2 + 1.0F - fac1)).uv((k1 + 0.0F) * fac0 + fx, (l1 + (float)l2 + 0.5F) * fac0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, 1.0F).endVertex();
+                            bufferBuilder.vertex((k1 + 8.0F), (cloudHeight + 0.0F), (l1 + (float)l2 + 1.0F - fac1)).uv((k1 + 8.0F) * fac0 + fx, (l1 + (float)l2 + 0.5F) * fac0 + fz).color(red, green, blue, 0).normal(0.0F, 0.0F, 1.0F).endVertex();
+                            bufferBuilder.vertex((k1 + 0.0F), (cloudHeight + 0.0F), (l1 + (float)l2 + 1.0F - fac1)).uv((k1 + 0.0F) * fac0 + fx, (l1 + (float)l2 + 0.5F) * fac0 + fz).color(red, green, blue, 0).normal(0.0F, 0.0F, 1.0F).endVertex();
                         }
                     }
                 }

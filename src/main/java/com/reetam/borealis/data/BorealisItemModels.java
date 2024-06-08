@@ -111,6 +111,9 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.BONE_DRY_WOOD_BRICKS);
         itemBlock(BorealisBlocks.PEAT);
 
+        itemBlock(BorealisBlocks.KYANITE_CABLE);
+        itemBlock(BorealisBlocks.KYANITE_BULB);
+
         normalItem(BorealisItems.KYANITE_CRYSTAL);
         normalItem(BorealisItems.HOT_SPRING_WATER_BUCKET);
         egg(BorealisItems.HUMMINGBIRD_SPAWN_EGG);
@@ -124,5 +127,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.STARBURST);
         normalItem(BorealisItems.BLUE_AMBER);
         normalItem(BorealisItems.HAILSTONE);
+        normalItem(BorealisItems.KYANITE_ARROW);
     }
 }
