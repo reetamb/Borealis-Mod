@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "static_charge=0": {
+      "model": "borealis:block/infrared_fluorite"
+    },
+    "static_charge=1": {
+      "model": "borealis:block/radiant_fluorite"
+    },
+    "static_charge=10": {
+      "model": "borealis:block/cobalt_fluorite"
+    },
+    "static_charge=11": {
+      "model": "borealis:block/ultraviolet_fluorite"
+    },
+    "static_charge=12": {
+      "model": "borealis:block/ultraviolet_fluorite"
+    },
+    "static_charge=13": {
+      "model": "borealis:block/amaranthine_fluorite"
+    },
+    "static_charge=14": {
+      "model": "borealis:block/amaranthine_fluorite"
+    },
+    "static_charge=15": {
+      "model": "borealis:block/infrared_fluorite"
+    },
+    "static_charge=2": {
+      "model": "borealis:block/radiant_fluorite"
+    },
+    "static_charge=3": {
+      "model": "borealis:block/neon_fluorite"
+    },
+    "static_charge=4": {
+      "model": "borealis:block/neon_fluorite"
+    },
+    "static_charge=5": {
+      "model": "borealis:block/phosphorescent_fluorite"
+    },
+    "static_charge=6": {
+      "model": "borealis:block/phosphorescent_fluorite"
+    },
+    "static_charge=7": {
+      "model": "borealis:block/luminescent_fluorite"
+    },
+    "static_charge=8": {
+      "model": "borealis:block/luminescent_fluorite"
+    },
+    "static_charge=9": {
+      "model": "borealis:block/cobalt_fluorite"
+    }
+  }
+}

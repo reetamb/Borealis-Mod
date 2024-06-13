@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-10T23:42:30.455305	Borealis Item Models
+// 1.20.1	2024-06-10T19:02:04.2472491	Borealis Item Models
 75aa80c42a220cf518df2584d1c3a390019b4c46 assets/borealis/models/item/blue_amber.json
 1e9281e7978034fa3037635bd94f6bcde7c2b4dd assets/borealis/models/item/bone_dry_wood.json
 116c16c50cdc1f9d104082e6e3ee17585d65f205 assets/borealis/models/item/bone_dry_wood_bricks.json
@@ -18,6 +18,7 @@ c4ae924254107bfed3ffcd0c95031dbc1bd9fb30 assets/borealis/models/item/brumal_stai
 94eadc00fc2b880e750259d461c60920ecbd1835 assets/borealis/models/item/brumal_trapdoor.json
 3d9ba6a314f602bc76cc673936b93b3cce556982 assets/borealis/models/item/brumal_wood.json
 361608f2d88c42445f7354ca56320d63d17aa7d9 assets/borealis/models/item/cloud.json
+830d28f49e8e4f220f645d6f326e42c810d2ca56 assets/borealis/models/item/fluorite.json
 5896b09bb59f94b05cd945388e260d8dcf1666de assets/borealis/models/item/frostfir_boat.json
 31de44cf015ffa3752f34bf926411e05ae88390c assets/borealis/models/item/frostfir_button.json
 11f99d97c775d270c2132306ed24171b7b448a8a assets/borealis/models/item/frostfir_door.json
@@ -86,6 +87,7 @@ e3767f8b240d188236b4e7527f0db95ea29bfb39 assets/borealis/models/item/soapstone_w
 ee1b02b8e9d0f68d24fba8ebb4fff8eb193d40cd assets/borealis/models/item/starburst.json
 1b9326ff4b06cbbd0be306500fa002bf7e48d99b assets/borealis/models/item/starry_slate.json
 05c439c120d7d08cbe35b661a3979ddc61591225 assets/borealis/models/item/starry_slate_tiles.json
+6edf36a7564edc7cfe0b1f4dc460c3a5680d2d18 assets/borealis/models/item/static_field.json
 b9a073464d24a565f4a8a8f56e40041d20b440b7 assets/borealis/models/item/stripped_brumal_log.json
 6b6d88623b27c1201f7e5f194455953014f95815 assets/borealis/models/item/stripped_brumal_wood.json
 ab37330a7044b22e881bcfa9b1c78fdd80c70055 assets/borealis/models/item/stripped_frostfir_log.json

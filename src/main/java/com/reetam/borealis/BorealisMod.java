@@ -2,6 +2,8 @@ package com.reetam.borealis;
 
 import com.mojang.logging.LogUtils;
 import com.reetam.borealis.data.*;
+import com.reetam.borealis.modify.events.BlockEvents;
+import com.reetam.borealis.modify.events.PlayerEvents;
 import com.reetam.borealis.registry.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -38,6 +40,9 @@ public class BorealisMod {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         bus.addListener(this::gatherData);
+
+        forgeBus.register(PlayerEvents.class);
+        forgeBus.register(BlockEvents.class);
 
         DeferredRegister<?>[] registers = {
                 BorealisBlocks.BLOCKS,

@@ -46,5 +46,6 @@ public class AspenFoliagePlacer extends FoliagePlacer {
 
     protected boolean shouldSkipLocation(RandomSource rand, int localX, int localY, int localZ, int range, boolean large) {
         return localX == range - rand.nextInt(2) && localZ == range - rand.nextInt(2) && range > 0;
+        // TODO: make this more circular and less like a square
     }
 }

@@ -1,9 +1,11 @@
 package com.reetam.borealis.data;
 
+import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.data.provider.BorealisItemModelProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class BorealisItemModels extends BorealisItemModelProvider {
@@ -113,6 +115,9 @@ public class BorealisItemModels extends BorealisItemModelProvider {
 
         itemBlock(BorealisBlocks.KYANITE_CABLE);
         itemBlock(BorealisBlocks.KYANITE_BULB);
+
+        itemBlock(BorealisBlocks.FLUORITE, "neon_fluorite");
+        itemBlockFlat(BorealisBlocks.STATIC_FIELD);
 
         normalItem(BorealisItems.KYANITE_CRYSTAL);
         normalItem(BorealisItems.HOT_SPRING_WATER_BUCKET);

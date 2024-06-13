@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.Mod;
 public class BlockEvents {
 
     @SubscribeEvent
-    public void onPlayerRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+    public static void onPlayerRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         Level level = event.getLevel();
         ItemStack heldItem = event.getItemStack();
         BlockPos pos = event.getPos();

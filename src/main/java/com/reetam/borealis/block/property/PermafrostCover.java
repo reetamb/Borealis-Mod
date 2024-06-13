@@ -10,7 +10,7 @@ public enum PermafrostCover implements StringRepresentable {
 
     private final String name;
 
-    private PermafrostCover(String name) {
+    PermafrostCover(String name) {
         this.name = name;
     }
 

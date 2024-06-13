@@ -38,6 +38,9 @@ public class BorealisFeatures {
     public static final RegistryObject<Feature<BlockStateConfiguration>> BERYL = FEATURES.register(
             "beryl", () -> new BerylFeature(BlockStateConfiguration.CODEC)
     );
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> TANZANITE_METEOR = FEATURES.register(
+            "tanzanite_meteor", () -> new TanzaniteMeteorFeature(NoneFeatureConfiguration.CODEC)
+    );
 
     public static class TreePlacers {
 

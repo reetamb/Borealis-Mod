@@ -1,12 +1,17 @@
 package com.reetam.borealis.data;
 
+import com.reetam.borealis.block.FluoriteBlock;
+import com.reetam.borealis.block.KyaniteArrowBlock;
 import com.reetam.borealis.block.PermafrostBlock;
 import com.reetam.borealis.block.property.PermafrostCover;
 import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
+import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -57,6 +62,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.HAILSTONE);
         block(BorealisBlocks.BONE_DRY_WOOD);
         block(BorealisBlocks.BONE_DRY_WOOD_BRICKS);
+
         getVariantBuilder(BorealisBlocks.PERMAFROST.get())
                 .partialState().with(PermafrostBlock.COVER, PermafrostCover.CLEAR).modelForState()
                     .modelFile(this.models().cubeAll("permafrost", texture("permafrost"))).addModel()
@@ -66,10 +72,53 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
                     .modelFile(this.models().cubeBottomTop("snowy_permafrost", texture("snowy_permafrost_side"), texture("permafrost"), mcLoc("block/snow"))).addModel()
                 .partialState().with(PermafrostBlock.COVER, PermafrostCover.SUGARY).modelForState()
                     .modelFile(this.models().cubeBottomTop("sugary_permafrost", texture("sugary_permafrost_side"), texture("permafrost"), texture("sugar_snow_block"))).addModel();
+
         simpleBlock(BorealisBlocks.PUMICE_GEYSER.get(), this.models().cubeTop("pumice_geyser", texture("pumice"), texture("pumice_geyser")));
         block(BorealisBlocks.PEAT);
+
+        getVariantBuilder(BorealisBlocks.EMBEDDED_KYANITE_ARROW.get())
+                .partialState().with(KyaniteArrowBlock.FACING, Direction.UP).modelForState()
+                        .modelFile(this.models().cross("up_kyanite_arrow", texture("kyanite_arrow"))).rotationX(0).addModel()
+                .partialState().with(KyaniteArrowBlock.FACING, Direction.DOWN).modelForState()
+                        .modelFile(this.models().cross("down_kyanite_arrow", texture("kyanite_arrow"))).rotationX(180).addModel()
+                .partialState().with(KyaniteArrowBlock.FACING, Direction.SOUTH).modelForState()
+                        .modelFile(this.models().cross("south_kyanite_arrow", texture("kyanite_arrow"))).rotationX(90).rotationY(180).addModel()
+                .partialState().with(KyaniteArrowBlock.FACING, Direction.WEST).modelForState()
+                        .modelFile(this.models().cross("west_kyanite_arrow", texture("kyanite_arrow"))).rotationX(90).rotationY(-90).addModel()
+                .partialState().with(KyaniteArrowBlock.FACING, Direction.NORTH).modelForState()
+                        .modelFile(this.models().cross("north_kyanite_arrow", texture("kyanite_arrow"))).rotationX(90).rotationY(0).addModel()
+                .partialState().with(KyaniteArrowBlock.FACING, Direction.EAST).modelForState()
+                        .modelFile(this.models().cross("east_kyanite_arrow", texture("kyanite_arrow"))).rotationX(90).rotationY(90).addModel();
         log(BorealisBlocks.KYANITE_CABLE, "kyanite_cable");
         block(BorealisBlocks.KYANITE_BULB);
+
+        getVariantBuilder(BorealisBlocks.FLUORITE.get())
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 0).modelForState().modelFile(this.models().cubeAll("infrared_fluorite", texture("infrared_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 1).modelForState().modelFile(this.models().cubeAll("infrared_fluorite", texture("infrared_fluorite"))).addModel()
+                //    .partialState().with(FluoriteBlock.STATIC_LEVEL, 1).modelForState().modelFile(this.models().cubeAll("radiant_fluorite", texture("radiant_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 2).modelForState().modelFile(this.models().cubeAll("radiant_fluorite", texture("radiant_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 3).modelForState().modelFile(this.models().cubeAll("radiant_fluorite", texture("radiant_fluorite"))).addModel()
+                //    .partialState().with(FluoriteBlock.STATIC_LEVEL, 3).modelForState().modelFile(this.models().cubeAll("neon_fluorite", texture("neon_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 4).modelForState().modelFile(this.models().cubeAll("neon_fluorite", texture("neon_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 5).modelForState().modelFile(this.models().cubeAll("neon_fluorite", texture("neon_fluorite"))).addModel()
+                //    .partialState().with(FluoriteBlock.STATIC_LEVEL, 5).modelForState().modelFile(this.models().cubeAll("phosphorescent_fluorite", texture("phosphorescent_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 6).modelForState().modelFile(this.models().cubeAll("phosphorescent_fluorite", texture("phosphorescent_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 7).modelForState().modelFile(this.models().cubeAll("phosphorescent_fluorite", texture("phosphorescent_fluorite"))).addModel()
+                //    .partialState().with(FluoriteBlock.STATIC_LEVEL, 7).modelForState().modelFile(this.models().cubeAll("luminescent_fluorite", texture("luminescent_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 8).modelForState().modelFile(this.models().cubeAll("luminescent_fluorite", texture("luminescent_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 9).modelForState().modelFile(this.models().cubeAll("luminescent_fluorite", texture("luminescent_fluorite"))).addModel()
+                //    .partialState().with(FluoriteBlock.STATIC_LEVEL, 9).modelForState().modelFile(this.models().cubeAll("cobalt_fluorite", texture("cobalt_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 10).modelForState().modelFile(this.models().cubeAll("cobalt_fluorite", texture("cobalt_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 11).modelForState().modelFile(this.models().cubeAll("cobalt_fluorite", texture("cobalt_fluorite"))).addModel()
+                //    .partialState().with(FluoriteBlock.STATIC_LEVEL, 11).modelForState().modelFile(this.models().cubeAll("ultraviolet_fluorite", texture("ultraviolet_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 12).modelForState().modelFile(this.models().cubeAll("ultraviolet_fluorite", texture("ultraviolet_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 13).modelForState().modelFile(this.models().cubeAll("ultraviolet_fluorite", texture("ultraviolet_fluorite"))).addModel()
+                //    .partialState().with(FluoriteBlock.STATIC_LEVEL, 13).modelForState().modelFile(this.models().cubeAll("amaranthine_fluorite", texture("amaranthine_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 14).modelForState().modelFile(this.models().cubeAll("amaranthine_fluorite", texture("amaranthine_fluorite"))).addModel()
+                .partialState().with(FluoriteBlock.STATIC_LEVEL, 15).modelForState().modelFile(this.models().cubeAll("amaranthine_fluorite", texture("amaranthine_fluorite"))).addModel()
+                 //   .partialState().with(FluoriteBlock.STATIC_LEVEL, 15).modelForState().modelFile(this.models().cubeAll("infrared_fluorite", texture("infrared_fluorite"))).addModel()
+        ;
+        paneBlockWithRenderType(BorealisBlocks.STATIC_FIELD.get(), texture("static_field"), texture("static_field"), "cutout");
         wood();
     }
 
