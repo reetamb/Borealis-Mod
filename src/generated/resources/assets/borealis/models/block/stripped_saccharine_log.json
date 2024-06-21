@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "borealis:block/stripped_saccharine_log_end",
-    "side": "borealis:block/stripped_saccharine_log_side"
-  }
-}

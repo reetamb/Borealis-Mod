@@ -78,10 +78,9 @@ public class KyaniteArrowEntity extends AbstractArrow {
             this.level().addParticle(ParticleTypes.GLOW_SQUID_INK, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
         }
         else if (this.inGround) {
-            BorealisMod.LOGGER.error("Arrow landed in " + this.level().getBlockState(this.inBlockPos) + " at " + this.inBlockPos + " on direction " + this.embedFace);
             BlockPos placePos = this.inBlockPos.relative(this.embedFace);
             if (this.level().getBlockState(placePos).isAir() && this.level().getBlockState(this.inBlockPos).isFaceSturdy(this.level(), this.inBlockPos, this.embedFace)) {
-                this.level().setBlock(placePos, BorealisBlocks.EMBEDDED_KYANITE_ARROW.get().defaultBlockState().setValue(KyaniteArrowBlock.FACING, this.embedFace), 3);
+                this.level().setBlock(placePos, BorealisBlocks.EMBEDDED_KYANITE_ARROW.get().defaultBlockState().setValue(KyaniteArrowBlock.FACING, this.embedFace).setValue(KyaniteArrowBlock.DROPS, this.pickup == Pickup.ALLOWED), 3);
             } else {
                 this.level().addFreshEntity(new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), getPickupItem()));
             }

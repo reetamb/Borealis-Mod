@@ -28,11 +28,14 @@ public class BorealisItems {
 
     public static final RegistryObject<Item> BRUMAL_BOAT = ITEMS.register("brumal_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.BRUMAL, (new Item.Properties()).stacksTo(1)));
     public static final RegistryObject<Item> FROSTFIR_BOAT = ITEMS.register("frostfir_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.FROSTFIR, (new Item.Properties()).stacksTo(1)));
-    public static final RegistryObject<Item> SACCHARINE_BOAT = ITEMS.register("saccharine_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.SACCHARINE, (new Item.Properties()).stacksTo(1)));
+    public static final RegistryObject<Item> SWEETWOOD_BOAT = ITEMS.register("sweetwood_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.SWEETWOOD, (new Item.Properties()).stacksTo(1)));
+    public static final RegistryObject<Item> CARAMELIZED_BOAT = ITEMS.register("caramelized_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.CARAMELIZED, (new Item.Properties()).stacksTo(1)));
 
     public static final RegistryObject<SignItem> BRUMAL_SIGN = ITEMS.register("brumal_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.BRUMAL_SIGN.get(), BorealisBlocks.BRUMAL_WALL_SIGN.get()));
     public static final RegistryObject<SignItem> FROSTFIR_SIGN = ITEMS.register("frostfir_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.FROSTFIR_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_SIGN.get()));
-    public static final RegistryObject<SignItem> SACCHARINE_SIGN = ITEMS.register("saccharine_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.SACCHARINE_SIGN.get(), BorealisBlocks.SACCHARINE_WALL_SIGN.get()));
+    public static final RegistryObject<SignItem> SWEETWOOD_SIGN = ITEMS.register("sweetwood_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.SWEETWOOD_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_SIGN.get()));
+    public static final RegistryObject<SignItem> CARAMELIZED_SIGN = ITEMS.register("caramelized_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.CARAMELIZED_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_SIGN.get()));
+
 
     public static final RegistryObject<SpawnEggItem> HUMMINGBIRD_SPAWN_EGG = ITEMS.register(
             "hummingbird_spawn_egg", () -> new ForgeSpawnEggItem(BorealisEntities.HUMMINGBIRD,

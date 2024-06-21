@@ -56,7 +56,7 @@ public class BorealisCommon {
     public static void registerWoodTypes() {
         WoodType.register(BorealisBlocks.brumal_woodtype);
         WoodType.register(BorealisBlocks.frostfir_woodtype);
-        WoodType.register(BorealisBlocks.saccharine_woodtype);
+        WoodType.register(BorealisBlocks.sweetwood_woodtype);
     }
 
     public static void registerFlowerPots() {
@@ -64,7 +64,7 @@ public class BorealisCommon {
 
         pot.addPlant(BorealisBlocks.BRUMAL_SAPLING.getId(), BorealisBlocks.POTTED_BRUMAL_SAPLING);
         pot.addPlant(BorealisBlocks.FROSTFIR_SAPLING.getId(), BorealisBlocks.POTTED_FROSTFIR_SAPLING);
-        pot.addPlant(BorealisBlocks.SACCHARINE_SAPLING.getId(), BorealisBlocks.POTTED_SACCHARINE_SAPLING);
+        pot.addPlant(BorealisBlocks.SWEETWOOD_SAPLING.getId(), BorealisBlocks.POTTED_SWEETWOOD_SAPLING);
     }
 
     public static void registerAxeStrips() {
@@ -74,8 +74,8 @@ public class BorealisCommon {
         AxeItem.STRIPPABLES.put(BorealisBlocks.BRUMAL_WOOD.get(), BorealisBlocks.STRIPPED_BRUMAL_WOOD.get());
         AxeItem.STRIPPABLES.put(BorealisBlocks.FROSTFIR_LOG.get(), BorealisBlocks.STRIPPED_FROSTFIR_LOG.get());
         AxeItem.STRIPPABLES.put(BorealisBlocks.FROSTFIR_WOOD.get(), BorealisBlocks.STRIPPED_FROSTFIR_WOOD.get());
-        AxeItem.STRIPPABLES.put(BorealisBlocks.SACCHARINE_LOG.get(), BorealisBlocks.STRIPPED_SACCHARINE_LOG.get());
-        AxeItem.STRIPPABLES.put(BorealisBlocks.SACCHARINE_WOOD.get(), BorealisBlocks.STRIPPED_SACCHARINE_WOOD.get());
+        AxeItem.STRIPPABLES.put(BorealisBlocks.SWEETWOOD_LOG.get(), BorealisBlocks.STRIPPED_SWEETWOOD_LOG.get());
+        AxeItem.STRIPPABLES.put(BorealisBlocks.SWEETWOOD.get(), BorealisBlocks.STRIPPED_SWEETWOOD.get());
     }
 
     public static void registerHoeTills() {
@@ -87,9 +87,9 @@ public class BorealisCommon {
     public static void registerComposts() {
         ComposterBlock.add(0.3F, BorealisBlocks.BRUMAL_LEAVES.get());
         ComposterBlock.add(0.3F, BorealisBlocks.FROSTFIR_LEAVES.get());
-        ComposterBlock.add(0.3F, BorealisBlocks.SACCHARINE_LEAVES.get());
+        ComposterBlock.add(0.3F, BorealisBlocks.SWEETWOOD_LEAVES.get());
         ComposterBlock.add(0.3F, BorealisBlocks.BRUMAL_SAPLING.get());
         ComposterBlock.add(0.3F, BorealisBlocks.FROSTFIR_SAPLING.get());
-        ComposterBlock.add(0.3F, BorealisBlocks.SACCHARINE_SAPLING.get());
+        ComposterBlock.add(0.3F, BorealisBlocks.SWEETWOOD_SAPLING.get());
     }
 }

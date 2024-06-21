@@ -75,9 +75,9 @@ public class BorealisPlacedFeatures {
         register(context, PLACED_GIANTWOOD_TREE, please.getOrThrow(BorealisConfiguredFeatures.GIANTWOOD_TREE),
                 CountOnEveryLayerPlacement.of(4), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
         register(context, PLACED_HELIX_TREE, please.getOrThrow(BorealisConfiguredFeatures.HELIX_TREE),
-                CountOnEveryLayerPlacement.of(1), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(3), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
         register(context, PLACED_COTTON_TREE, please.getOrThrow(BorealisConfiguredFeatures.COTTON_TREE),
-                CountOnEveryLayerPlacement.of(1), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(5), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
 
         register(context, PLACED_RUBBLE_PATCH, please.getOrThrow(BorealisConfiguredFeatures.RUBBLE_PATCH),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(64)),

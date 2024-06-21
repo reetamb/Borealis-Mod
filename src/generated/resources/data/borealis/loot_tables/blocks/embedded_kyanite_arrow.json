@@ -3,15 +3,19 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:air"
+          "conditions": [
+            {
+              "block": "borealis:embedded_kyanite_arrow",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "drops": "false"
+              }
+            }
+          ],
+          "name": "borealis:kyanite_crystal"
         }
       ],
       "rolls": 1.0

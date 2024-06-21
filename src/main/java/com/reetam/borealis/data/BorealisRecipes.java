@@ -88,21 +88,39 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         );
         bulkWood(
                 consumer,
-                BorealisBlocks.SACCHARINE_LOG,
-                BorealisBlocks.SACCHARINE_PLANKS,
-                BorealisBlocks.SACCHARINE_WOOD,
-                BorealisBlocks.STRIPPED_SACCHARINE_LOG,
-                BorealisBlocks.STRIPPED_SACCHARINE_WOOD,
-                BorealisBlocks.SACCHARINE_STAIRS,
-                BorealisBlocks.SACCHARINE_SLAB,
-                BorealisBlocks.SACCHARINE_FENCE,
-                BorealisBlocks.SACCHARINE_FENCE_GATE,
-                BorealisBlocks.SACCHARINE_BUTTON,
-                BorealisBlocks.SACCHARINE_PRESSURE_PLATE,
-                BorealisBlocks.SACCHARINE_DOOR,
-                BorealisBlocks.SACCHARINE_TRAPDOOR,
-                BorealisItems.SACCHARINE_BOAT,
-                BorealisBlocks.SACCHARINE_SIGN
+                BorealisBlocks.SWEETWOOD_LOG,
+                BorealisBlocks.SWEETWOOD_PLANKS,
+                BorealisBlocks.SWEETWOOD,
+                BorealisBlocks.STRIPPED_SWEETWOOD_LOG,
+                BorealisBlocks.STRIPPED_SWEETWOOD,
+                BorealisBlocks.SWEETWOOD_STAIRS,
+                BorealisBlocks.SWEETWOOD_SLAB,
+                BorealisBlocks.SWEETWOOD_FENCE,
+                BorealisBlocks.SWEETWOOD_FENCE_GATE,
+                BorealisBlocks.SWEETWOOD_BUTTON,
+                BorealisBlocks.SWEETWOOD_PRESSURE_PLATE,
+                BorealisBlocks.SWEETWOOD_DOOR,
+                BorealisBlocks.SWEETWOOD_TRAPDOOR,
+                BorealisItems.SWEETWOOD_BOAT,
+                BorealisBlocks.SWEETWOOD_SIGN
+        );
+        bulkWood(
+                consumer,
+                BorealisBlocks.CARAMELIZED_LOG,
+                BorealisBlocks.CARAMELIZED_PLANKS,
+                BorealisBlocks.CARAMELIZED_WOOD,
+                BorealisBlocks.STRIPPED_CARAMELIZED_LOG,
+                BorealisBlocks.STRIPPED_CARAMELIZED_WOOD,
+                BorealisBlocks.CARAMELIZED_STAIRS,
+                BorealisBlocks.CARAMELIZED_SLAB,
+                BorealisBlocks.CARAMELIZED_FENCE,
+                BorealisBlocks.CARAMELIZED_FENCE_GATE,
+                BorealisBlocks.CARAMELIZED_BUTTON,
+                BorealisBlocks.CARAMELIZED_PRESSURE_PLATE,
+                BorealisBlocks.CARAMELIZED_DOOR,
+                BorealisBlocks.CARAMELIZED_TRAPDOOR,
+                BorealisItems.CARAMELIZED_BOAT,
+                BorealisBlocks.CARAMELIZED_SIGN
         );
         doStone(consumer, BorealisBlocks.SOAPSTONE, BorealisBlocks.SOAPSTONE_STAIRS, BorealisBlocks.SOAPSTONE_SLAB, BorealisBlocks.SOAPSTONE_WALL);
         doStone(consumer, BorealisBlocks.SOAPSTONE_BRICKS, BorealisBlocks.SOAPSTONE_BRICK_STAIRS, BorealisBlocks.SOAPSTONE_BRICK_SLAB, BorealisBlocks.SOAPSTONE_BRICK_WALL);
@@ -138,6 +156,14 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 .define('#', BorealisBlocks.PETRIFIED_WOOD_BRICKS.get())
                 .unlockedBy(has(BorealisBlocks.PETRIFIED_WOOD_BRICKS), has(BorealisBlocks.PETRIFIED_WOOD_BRICKS.get()))
                 .save(consumer, name("crafting_table_from_petrified_planks"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, BorealisItems.KYANITE_ARROW.get(), 3)
+                .pattern("#")
+                .pattern("#")
+                .pattern("#")
+                .define('#', BorealisItems.KYANITE_CRYSTAL.get())
+                .unlockedBy(hasItem(BorealisItems.KYANITE_CRYSTAL), has(BorealisItems.KYANITE_CRYSTAL.get()))
+                .save(consumer, name(BorealisItems.KYANITE_ARROW));
+
         bulkStonecutting(consumer, BorealisBlocks.SLATE, slate_stonecuts);
     }
 

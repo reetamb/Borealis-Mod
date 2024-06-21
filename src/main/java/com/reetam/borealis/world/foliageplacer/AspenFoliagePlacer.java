@@ -12,11 +12,11 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
 public class AspenFoliagePlacer extends FoliagePlacer {
-    public static final Codec<AspenFoliagePlacer> CODEC = RecordCodecBuilder.create((instance) -> {
-        return foliagePlacerParts(instance).and(IntProvider.codec(0, 16).fieldOf("trunk_height").forGetter((placer) -> {
-            return placer.trunkHeight;
-        })).apply(instance, AspenFoliagePlacer::new);
-    });
+    public static final Codec<AspenFoliagePlacer> CODEC = RecordCodecBuilder.create((instance) ->
+            foliagePlacerParts(instance).and(IntProvider.codec(0, 16)
+                    .fieldOf("trunk_height")
+                    .forGetter((placer) -> placer.trunkHeight))
+                    .apply(instance, AspenFoliagePlacer::new));
     private final IntProvider trunkHeight;
 
     public AspenFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider height) {

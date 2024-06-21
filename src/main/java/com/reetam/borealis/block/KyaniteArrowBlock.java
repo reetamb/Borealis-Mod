@@ -11,16 +11,16 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
 public class KyaniteArrowBlock extends Block {
-    public static final DirectionProperty FACING = BlockStateProperties.FACING;
+    public static final DirectionProperty FACING = BlockStateProperties.FACING; // the side of the block they're on, opposite to the direction the arrowhead is pointing
+    public static final BooleanProperty DROPS = BooleanProperty.create("drops");
 
     protected static final VoxelShape TOP_AABB;
     protected static final VoxelShape BOTTOM_AABB;
@@ -30,17 +30,17 @@ public class KyaniteArrowBlock extends Block {
     protected static final VoxelShape SOUTH_AABB;
     public KyaniteArrowBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.DOWN));
+        this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.DOWN).setValue(DROPS, false));
     }
 
+    @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        return pLevel.getBlockState(pPos).isFaceSturdy(pLevel, pPos, pState.getValue(FACING));
+        Direction direction = pState.getValue(FACING).getOpposite();
+        return pLevel.getBlockState(pPos).isFaceSturdy(pLevel, pPos.relative(direction), direction.getOpposite()) &&
+                !pLevel.isEmptyBlock(pPos.relative(direction));
     }
 
     // TODO: hey btw you need to make it so that the arrowheads break when the block they're on is broken
-    // also make it so multishot crossbow ones don't drop anything
-    // this should probably involve a bool "multishot" blockstate
-    // also you need to add a recipe for crafting the arrows, probably 2 or 3 kyanite > 1 arrow
 
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
@@ -57,6 +57,7 @@ public class KyaniteArrowBlock extends Block {
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);
+        pBuilder.add(DROPS);
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {

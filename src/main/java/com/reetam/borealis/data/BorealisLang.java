@@ -37,11 +37,15 @@ public class BorealisLang extends BorealisLangProvider {
         }
 
         add(BorealisPotionEffects.MANIA.get(), "Mania");
+        add(BorealisPotionEffects.STATIC.get(), "Static");
 
         add(BorealisEntities.HAIL.get(), "Hailstone");
         add(BorealisEntities.BOAT.get(), "Borealis Boat");
         add(BorealisEntities.HUMMINGBIRD.get(), "Hummingbird");
         add(BorealisEntities.THRUSHER.get(), "Thrusher");
         add(BorealisEntities.TAKAHE.get(), "Takahe");
+
+        addAdvancement("borealis_root", "Borealis", "Enter Borealis");
+        addAdvancement("get_hailstone", "Discover a Hailstone", "It's charged with enough electrical energy to light a portal...");
     }
 }

@@ -139,6 +139,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         buttonBlock(BorealisBlocks.BRUMAL_BUTTON.get(), texture("brumal_planks"));
         pressurePlateBlock(BorealisBlocks.BRUMAL_PRESSURE_PLATE.get(), texture("brumal_planks"));
         signBlock(BorealisBlocks.BRUMAL_SIGN.get(), BorealisBlocks.BRUMAL_WALL_SIGN.get(), texture("brumal_planks"));
+        
         block(BorealisBlocks.FROSTFIR_PLANKS);
         log(BorealisBlocks.FROSTFIR_LOG, "frostfir_log");
         wood(BorealisBlocks.FROSTFIR_WOOD, BorealisBlocks.FROSTFIR_LOG);
@@ -155,21 +156,39 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         buttonBlock(BorealisBlocks.FROSTFIR_BUTTON.get(), texture("frostfir_planks"));
         pressurePlateBlock(BorealisBlocks.FROSTFIR_PRESSURE_PLATE.get(), texture("frostfir_planks"));
         signBlock(BorealisBlocks.FROSTFIR_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_SIGN.get(), texture("frostfir_planks"));
-        block(BorealisBlocks.SACCHARINE_PLANKS);
-        log(BorealisBlocks.SACCHARINE_LOG, "saccharine_log");
-        wood(BorealisBlocks.SACCHARINE_WOOD, BorealisBlocks.SACCHARINE_LOG);
-        log(BorealisBlocks.STRIPPED_SACCHARINE_LOG, "stripped_saccharine_log");
-        wood(BorealisBlocks.STRIPPED_SACCHARINE_WOOD, BorealisBlocks.STRIPPED_SACCHARINE_LOG);
-        block(BorealisBlocks.SACCHARINE_LEAVES);
-        stairs(BorealisBlocks.SACCHARINE_STAIRS, BorealisBlocks.SACCHARINE_PLANKS);
-        slab(BorealisBlocks.SACCHARINE_SLAB, BorealisBlocks.SACCHARINE_PLANKS);
-        fenceBlock(BorealisBlocks.SACCHARINE_FENCE.get(), texture("saccharine_planks"));
-        fenceGateBlock(BorealisBlocks.SACCHARINE_FENCE_GATE.get(), texture("saccharine_planks"));
-        door(BorealisBlocks.SACCHARINE_DOOR, "saccharine");
-        trapdoor(BorealisBlocks.SACCHARINE_TRAPDOOR, "saccharine");
-        crossBlock(BorealisBlocks.SACCHARINE_SAPLING);
-        buttonBlock(BorealisBlocks.SACCHARINE_BUTTON.get(), texture("saccharine_planks"));
-        pressurePlateBlock(BorealisBlocks.SACCHARINE_PRESSURE_PLATE.get(), texture("saccharine_planks"));
-        signBlock(BorealisBlocks.SACCHARINE_SIGN.get(), BorealisBlocks.SACCHARINE_WALL_SIGN.get(), texture("saccharine_planks"));
+        
+        block(BorealisBlocks.SWEETWOOD_PLANKS);
+        log(BorealisBlocks.SWEETWOOD_LOG, "sweetwood_log");
+        wood(BorealisBlocks.SWEETWOOD, BorealisBlocks.SWEETWOOD_LOG);
+        log(BorealisBlocks.STRIPPED_SWEETWOOD_LOG, "stripped_sweetwood_log");
+        wood(BorealisBlocks.STRIPPED_SWEETWOOD, BorealisBlocks.STRIPPED_SWEETWOOD_LOG);
+        block(BorealisBlocks.SWEETWOOD_LEAVES);
+        stairs(BorealisBlocks.SWEETWOOD_STAIRS, BorealisBlocks.SWEETWOOD_PLANKS);
+        slab(BorealisBlocks.SWEETWOOD_SLAB, BorealisBlocks.SWEETWOOD_PLANKS);
+        fenceBlock(BorealisBlocks.SWEETWOOD_FENCE.get(), texture("sweetwood_planks"));
+        fenceGateBlock(BorealisBlocks.SWEETWOOD_FENCE_GATE.get(), texture("sweetwood_planks"));
+        door(BorealisBlocks.SWEETWOOD_DOOR, "sweetwood");
+        trapdoor(BorealisBlocks.SWEETWOOD_TRAPDOOR, "sweetwood");
+        crossBlock(BorealisBlocks.SWEETWOOD_SAPLING);
+        buttonBlock(BorealisBlocks.SWEETWOOD_BUTTON.get(), texture("sweetwood_planks"));
+        pressurePlateBlock(BorealisBlocks.SWEETWOOD_PRESSURE_PLATE.get(), texture("sweetwood_planks"));
+        signBlock(BorealisBlocks.SWEETWOOD_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_SIGN.get(), texture("sweetwood_planks"));
+        
+        block(BorealisBlocks.CARAMELIZED_PLANKS);
+        log(BorealisBlocks.CARAMELIZED_LOG, "caramelized_log");
+        wood(BorealisBlocks.CARAMELIZED_WOOD, BorealisBlocks.FROSTFIR_LOG);
+        log(BorealisBlocks.STRIPPED_CARAMELIZED_LOG, "stripped_caramelized_log");
+        wood(BorealisBlocks.STRIPPED_CARAMELIZED_WOOD, BorealisBlocks.STRIPPED_CARAMELIZED_LOG);
+        block(BorealisBlocks.GLAZED_LEAVES);
+        stairs(BorealisBlocks.CARAMELIZED_STAIRS, BorealisBlocks.CARAMELIZED_PLANKS);
+        slab(BorealisBlocks.CARAMELIZED_SLAB, BorealisBlocks.CARAMELIZED_PLANKS);
+        fenceBlock(BorealisBlocks.CARAMELIZED_FENCE.get(), texture("caramelized_planks"));
+        fenceGateBlock(BorealisBlocks.CARAMELIZED_FENCE_GATE.get(), texture("caramelized_planks"));
+        door(BorealisBlocks.CARAMELIZED_DOOR, "caramelized");
+        trapdoor(BorealisBlocks.CARAMELIZED_TRAPDOOR, "caramelized");
+        buttonBlock(BorealisBlocks.CARAMELIZED_BUTTON.get(), texture("caramelized_planks"));
+        pressurePlateBlock(BorealisBlocks.CARAMELIZED_PRESSURE_PLATE.get(), texture("caramelized_planks"));
+        signBlock(BorealisBlocks.CARAMELIZED_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_SIGN.get(), texture("caramelized_planks"));
+
     }
 }

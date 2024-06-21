@@ -46,10 +46,12 @@ public class BorealisClient {
         render(BorealisBlocks.FROSTFIR_TRAPDOOR, cutout);
         render(BorealisBlocks.FROSTFIR_SAPLING, cutout);
         render(BorealisBlocks.POTTED_FROSTFIR_SAPLING, cutout);
-        render(BorealisBlocks.SACCHARINE_DOOR, cutout);
-        render(BorealisBlocks.SACCHARINE_TRAPDOOR, cutout);
-        render(BorealisBlocks.SACCHARINE_SAPLING, cutout);
-        render(BorealisBlocks.POTTED_SACCHARINE_SAPLING, cutout);
+        render(BorealisBlocks.SWEETWOOD_DOOR, cutout);
+        render(BorealisBlocks.SWEETWOOD_TRAPDOOR, cutout);
+        render(BorealisBlocks.SWEETWOOD_SAPLING, cutout);
+        render(BorealisBlocks.POTTED_SWEETWOOD_SAPLING, cutout);
+        render(BorealisBlocks.CARAMELIZED_DOOR, cutout);
+        render(BorealisBlocks.CARAMELIZED_TRAPDOOR, cutout);
         render(BorealisBlocks.EMBEDDED_KYANITE_ARROW, cutout);
 
         render(BorealisBlocks.HOT_SPRING_WATER_BLOCK, translucent);

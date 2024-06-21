@@ -22,7 +22,7 @@ public class BlockEvents {
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
 
-        if (state.is(BorealisTags.Blocks.SACCHARINE_LOGS)) {
+        if (state.is(BorealisTags.Blocks.SWEETWOOD_LOGS)) {
             if (heldItem.getItem() instanceof AxeItem) {
                 level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.PAPER)));
             }

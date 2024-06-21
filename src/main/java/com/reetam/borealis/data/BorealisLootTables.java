@@ -1,6 +1,7 @@
 package com.reetam.borealis.data;
 
 import com.reetam.borealis.BorealisMod;
+import com.reetam.borealis.block.KyaniteArrowBlock;
 import com.reetam.borealis.data.provider.BorealisLootTableProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
@@ -8,6 +9,7 @@ import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
@@ -28,10 +30,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
@@ -75,12 +74,15 @@ public class BorealisLootTables extends LootTableProvider {
                     drop(BorealisBlocks.BRUMAL_LEAVES.get(), createLeavesDrops(BorealisBlocks.BRUMAL_LEAVES.get(), BorealisBlocks.BRUMAL_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES)),
                     dropPottedPlant(BorealisBlocks.POTTED_BRUMAL_SAPLING.get()),
                     dropOther(BorealisBlocks.BRUMAL_WALL_SIGN, () -> BorealisBlocks.BRUMAL_SIGN.get().asItem()),
+                    drop(BorealisBlocks.BRUMAL_DOOR.get(), createDoorTable(BorealisBlocks.BRUMAL_DOOR.get())),
                     drop(BorealisBlocks.FROSTFIR_LEAVES.get(), createLeavesDrops(BorealisBlocks.FROSTFIR_LEAVES.get(), BorealisBlocks.FROSTFIR_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES)),
                     dropPottedPlant(BorealisBlocks.POTTED_FROSTFIR_SAPLING.get()),
                     dropOther(BorealisBlocks.FROSTFIR_WALL_SIGN, () -> BorealisBlocks.FROSTFIR_SIGN.get().asItem()),
-                    drop(BorealisBlocks.SACCHARINE_LEAVES.get(), createLeavesDrops(BorealisBlocks.SACCHARINE_LEAVES.get(), BorealisBlocks.SACCHARINE_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES)),
-                    dropPottedPlant(BorealisBlocks.POTTED_SACCHARINE_SAPLING.get()),
-                    dropOther(BorealisBlocks.SACCHARINE_WALL_SIGN, () -> BorealisBlocks.SACCHARINE_SIGN.get().asItem()),
+                    drop(BorealisBlocks.FROSTFIR_DOOR.get(), createDoorTable(BorealisBlocks.FROSTFIR_DOOR.get())),
+                    drop(BorealisBlocks.SWEETWOOD_LEAVES.get(), createLeavesDrops(BorealisBlocks.SWEETWOOD_LEAVES.get(), BorealisBlocks.SWEETWOOD_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES)),
+                    dropPottedPlant(BorealisBlocks.POTTED_SWEETWOOD_SAPLING.get()),
+                    dropOther(BorealisBlocks.SWEETWOOD_WALL_SIGN, () -> BorealisBlocks.SWEETWOOD_SIGN.get().asItem()),
+                    drop(BorealisBlocks.SWEETWOOD_DOOR.get(), createDoorTable(BorealisBlocks.SWEETWOOD_DOOR.get())),
                     dropWithSilk(BorealisBlocks.LIVING_SNOW_BLOCK, () -> net.minecraft.world.level.block.Blocks.SNOW_BLOCK),
                     drop(BorealisBlocks.PERMAFROST_RUBBLE.get(),
                             new LootTable.Builder()
@@ -104,8 +106,13 @@ public class BorealisLootTables extends LootTableProvider {
                                             .add(LootItem.lootTableItem(Items.SNOWBALL).when(LootItemRandomChanceCondition.randomChance(1.0F))))),
                     dropWithFortune(BorealisBlocks.TANZANITE_ORE, BorealisItems.TANZANITE.get()),
                     dropOther(BorealisBlocks.HAILSTONE, BorealisItems.HAILSTONE.get()),
-                    dropWithFortune(BorealisBlocks.PEAT, Items.COAL)
-                    
+                    dropWithFortune(BorealisBlocks.PEAT, Items.COAL),
+                    drop(BorealisBlocks.EMBEDDED_KYANITE_ARROW.get(), new LootTable.Builder()
+                            .withPool(new LootPool.Builder()
+                                    .add(LootItem.lootTableItem(BorealisItems.KYANITE_CRYSTAL.get())
+                                            .when(new LootItemBlockStatePropertyCondition.Builder(
+                                                    BorealisBlocks.EMBEDDED_KYANITE_ARROW.get()).setProperties(
+                                                    StatePropertiesPredicate.Builder.properties().hasProperty(KyaniteArrowBlock.DROPS, false))))))
                     
             );
 

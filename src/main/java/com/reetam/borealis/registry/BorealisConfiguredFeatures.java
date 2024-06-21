@@ -92,16 +92,16 @@ public class BorealisConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 1, 2))
                 .ignoreVines().build());
         register(context, HELIX_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
+                BlockStateProvider.simple(BorealisBlocks.SWEETWOOD_LOG.get().defaultBlockState()),
                 new StraightTrunkPlacer(10, 2, 2),
-                BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
+                BlockStateProvider.simple(BorealisBlocks.SWEETWOOD_LEAVES.get().defaultBlockState()),
                 new HelixFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());
         register(context, COTTON_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LOG.get().defaultBlockState()),
+                BlockStateProvider.simple(BorealisBlocks.SWEETWOOD_LOG.get().defaultBlockState()),
                 new StraightTrunkPlacer(5, 2, 2),
-                BlockStateProvider.simple(BorealisBlocks.SACCHARINE_LEAVES.get().defaultBlockState()),
+                BlockStateProvider.simple(BorealisBlocks.SWEETWOOD_LEAVES.get().defaultBlockState()),
                 new AspenFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());

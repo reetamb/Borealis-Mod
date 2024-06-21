@@ -1,6 +1,7 @@
 package com.reetam.borealis.block;
 
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisTags;
 import com.reetam.borealis.registry.BorealisWorld;
 import com.reetam.borealis.registry.BorealisSounds;
 import com.reetam.borealis.world.BorealisTeleporter;
@@ -67,44 +68,20 @@ public class BorealisPortalBlock extends Block {
         return SHAPE;
     }
 
-    public boolean makePortal(Level level, BlockPos pos) {
-        level.setBlock(pos, BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
+    public void makePortal(Level level, BlockPos pos) {
 
-        level.setBlock(pos.west(), BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
-        level.setBlock(pos.east(), BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
-        level.setBlock(pos.south(), BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
-        level.setBlock(pos.north(), BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
-
-        if (level.getBlockState(pos.west().below()).isAir()) {
-            level.setBlock(pos.west().below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
+        for (int x = -2; x <= 2; x++) {
+            for (int z = -2; z <= 2; z++) {
+                int range = Math.abs(x) + Math.abs(z);
+                if (range == 2) {
+                    level.setBlock(pos.west(x).north(z), Blocks.PACKED_ICE.defaultBlockState(), 18);
+                } else if (range < 2) {
+                    level.setBlock(pos.west(x).north(z), BorealisBlocks.BOREALIS_PORTAL.get().defaultBlockState(), 18);
+                    level.setBlock(pos.below().west(x).north(z), Blocks.PACKED_ICE.defaultBlockState(), 18);
+                }
+            }
         }
-        if (level.getBlockState(pos.east().below()).isAir()) {
-            level.setBlock(pos.east().below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        }
-        if (level.getBlockState(pos.south().below()).isAir()) {
-            level.setBlock(pos.south().below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        }
-        if (level.getBlockState(pos.north().below()).isAir()) {
-            level.setBlock(pos.north().below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        }
-        if (level.getBlockState(pos.below()).isAir()) {
-            level.setBlock(pos.below(), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        }
-        if (level.getBlockState(pos.below(2)).isAir()) {
-            level.setBlock(pos.below(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        }
-
-        level.setBlock(pos.west(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        level.setBlock(pos.north(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        level.setBlock(pos.east(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        level.setBlock(pos.south(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
-
-        level.setBlock(pos.west().north(), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        level.setBlock(pos.north().east(), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        level.setBlock(pos.east().south(), Blocks.PACKED_ICE.defaultBlockState(), 18);
-        level.setBlock(pos.south().west(), Blocks.PACKED_ICE.defaultBlockState(), 18);
-
-        return true;
+        if (level.getBlockState(pos.below(2)).isAir()) level.setBlock(pos.below(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
     }
 
     @Override
@@ -135,7 +112,7 @@ public class BorealisPortalBlock extends Block {
 
     @Override
     public void neighborChanged(BlockState thisState, Level level, BlockPos thisPos, Block otherBlock, BlockPos otherPos, boolean p_220069_6_) {
-        if (otherBlock == BorealisBlocks.BOREALIS_PORTAL.get()) {
+        if (otherBlock == BorealisBlocks.BOREALIS_PORTAL.get() || otherBlock.defaultBlockState().is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) {
             level.setBlock(thisPos, Blocks.AIR.defaultBlockState(), 1);
         }
     }

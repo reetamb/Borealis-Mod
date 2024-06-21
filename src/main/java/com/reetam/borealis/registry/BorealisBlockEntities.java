@@ -19,7 +19,7 @@ public class BorealisBlockEntities {
                     BorealisBlocks.BRUMAL_WALL_SIGN.get(),
                     BorealisBlocks.FROSTFIR_SIGN.get(),
                     BorealisBlocks.FROSTFIR_WALL_SIGN.get(),
-                    BorealisBlocks.SACCHARINE_SIGN.get(),
-                    BorealisBlocks.SACCHARINE_WALL_SIGN.get()
+                    BorealisBlocks.SWEETWOOD_SIGN.get(),
+                    BorealisBlocks.SWEETWOOD_WALL_SIGN.get()
             ).build(null));
 }

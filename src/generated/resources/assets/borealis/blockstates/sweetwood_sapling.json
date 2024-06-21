@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "borealis:block/sweetwood_sapling"
+    },
+    "stage=1": {
+      "model": "borealis:block/sweetwood_sapling"
+    }
+  }
+}

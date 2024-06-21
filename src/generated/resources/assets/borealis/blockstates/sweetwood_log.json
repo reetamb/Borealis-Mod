@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "borealis:block/sweetwood_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "borealis:block/sweetwood_log"
+    },
+    "axis=z": {
+      "model": "borealis:block/sweetwood_log_horizontal",
+      "x": 90
+    }
+  }
+}

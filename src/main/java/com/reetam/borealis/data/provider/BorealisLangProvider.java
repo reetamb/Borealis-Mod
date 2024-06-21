@@ -46,4 +46,9 @@ public abstract class BorealisLangProvider extends LanguageProvider {
         }
         return prename;
     }
+
+    protected void addAdvancement(String key, String name, String desc) {
+        this.add("advancement." + BorealisMod.MODID + "." + key, name);
+        this.add("advancement." + BorealisMod.MODID + "." + key + ".desc", desc);
+    }
 }

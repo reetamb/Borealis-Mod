@@ -1,6 +1,7 @@
 package com.reetam.borealis;
 
 import com.mojang.logging.LogUtils;
+import com.reetam.borealis.client.renderer.BorealisFluidRenderer;
 import com.reetam.borealis.data.*;
 import com.reetam.borealis.modify.events.BlockEvents;
 import com.reetam.borealis.modify.events.PlayerEvents;
@@ -43,6 +44,7 @@ public class BorealisMod {
 
         forgeBus.register(PlayerEvents.class);
         forgeBus.register(BlockEvents.class);
+        forgeBus.register(BorealisFluidRenderer.class);
 
         DeferredRegister<?>[] registers = {
                 BorealisBlocks.BLOCKS,
@@ -56,7 +58,8 @@ public class BorealisMod {
                 BorealisFeatures.TreePlacers.FOLIAGE_PLACERS,
                 BorealisFeatures.TreePlacers.TRUNK_PLACERS,
                 BorealisSounds.SOUND_EVENTS,
-                BorealisPotionEffects.EFFECTS
+                BorealisPotionEffects.EFFECTS,
+                BorealisDimensions.POIS
         };
 
         for (DeferredRegister<?> register : registers) {
@@ -95,6 +98,7 @@ public class BorealisMod {
         generator.addProvider(event.includeServer(), tags);
         generator.addProvider(event.includeServer(), new BorealisItemTags(packOutput, lookupProvider, tags.contentsGetter(), helper));
         generator.addProvider(event.includeServer(), new BorealisFluidTags(generator, lookupProvider, helper));
+        generator.addProvider(event.includeServer(), new BorealisAdvancements(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new BorealisRecipes(generator));
     }
 }

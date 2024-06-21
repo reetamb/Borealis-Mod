@@ -114,8 +114,8 @@ public class BorealisAuroraRenderer {
         float green = (float)vector.y;
         float blue = (float)vector.z;
 
-        double a = Math.abs(time - 6000) / 1200.0 * 0.1D;
-        float alpha = (float) (a - 2*(Math.max(a,1)-1));
+        // double a = Math.abs(time - 6000) / 1200.0 * 0.1D;
+        float alpha = 1;
 
         float height = 80.0F;
 

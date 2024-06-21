@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:sweetwood_planks_from_sweetwood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_translation{key='block.borealis.sweetwood', args=[]}": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "borealis:sweetwood"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_translation{key='block.borealis.sweetwood', args=[]}",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:sweetwood_planks_from_sweetwood"
+    ]
+  },
+  "sends_telemetry_event": false
+}

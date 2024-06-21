@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "borealis:sweetwood_planks"
+    }
+  ],
+  "result": {
+    "item": "borealis:sweetwood_button"
+  }
+}
