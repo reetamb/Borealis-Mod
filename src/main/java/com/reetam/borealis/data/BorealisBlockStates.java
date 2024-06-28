@@ -176,7 +176,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         
         block(BorealisBlocks.CARAMELIZED_PLANKS);
         log(BorealisBlocks.CARAMELIZED_LOG, "caramelized_log");
-        wood(BorealisBlocks.CARAMELIZED_WOOD, BorealisBlocks.FROSTFIR_LOG);
+        wood(BorealisBlocks.CARAMELIZED_WOOD, BorealisBlocks.CARAMELIZED_LOG);
         log(BorealisBlocks.STRIPPED_CARAMELIZED_LOG, "stripped_caramelized_log");
         wood(BorealisBlocks.STRIPPED_CARAMELIZED_WOOD, BorealisBlocks.STRIPPED_CARAMELIZED_LOG);
         block(BorealisBlocks.GLAZED_LEAVES);

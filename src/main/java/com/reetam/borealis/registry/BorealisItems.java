@@ -2,10 +2,7 @@ package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.entity.BorealisBoatEntity;
-import com.reetam.borealis.item.BorealisBoatItem;
-import com.reetam.borealis.item.HatItem;
-import com.reetam.borealis.item.HailstoneItem;
-import com.reetam.borealis.item.KyaniteArrowItem;
+import com.reetam.borealis.item.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -64,6 +61,8 @@ public class BorealisItems {
     public static final RegistryObject<Item> BLUE_AMBER = ITEMS.register("blue_amber", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> KYANITE_ARROW = ITEMS.register("kyanite_arrow", () -> new KyaniteArrowItem(new Item.Properties()));
+
+    public static final RegistryObject<FleeceItem> FLEECE = ITEMS.register("fleece", () -> new FleeceItem(new Item.Properties()));
 
     public static class Tabs {
 

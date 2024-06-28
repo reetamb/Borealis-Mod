@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-19T21:20:15.7332853	Borealis Item Models
+// 1.20.1	2024-06-23T11:45:50.9033482	Borealis Item Models
 75aa80c42a220cf518df2584d1c3a390019b4c46 assets/borealis/models/item/blue_amber.json
 1e9281e7978034fa3037635bd94f6bcde7c2b4dd assets/borealis/models/item/bone_dry_wood.json
 116c16c50cdc1f9d104082e6e3ee17585d65f205 assets/borealis/models/item/bone_dry_wood_bricks.json
@@ -30,6 +30,7 @@ e946e9305a9d26e91cb5db4ab4eae7211666a5d3 assets/borealis/models/item/caramelized
 288b8c9a2d68099f9cc6894287b4577c08ff48f1 assets/borealis/models/item/caramelized_trapdoor.json
 72f178fab5689d321dc84bda82cb03b3bf38b0d5 assets/borealis/models/item/caramelized_wood.json
 361608f2d88c42445f7354ca56320d63d17aa7d9 assets/borealis/models/item/cloud.json
+a02e613fe799dd336241f8020821f307a4062c8c assets/borealis/models/item/fleece.json
 830d28f49e8e4f220f645d6f326e42c810d2ca56 assets/borealis/models/item/fluorite.json
 5896b09bb59f94b05cd945388e260d8dcf1666de assets/borealis/models/item/frostfir_boat.json
 31de44cf015ffa3752f34bf926411e05ae88390c assets/borealis/models/item/frostfir_button.json

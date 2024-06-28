@@ -11,7 +11,7 @@
               "block": "borealis:embedded_kyanite_arrow",
               "condition": "minecraft:block_state_property",
               "properties": {
-                "drops": "false"
+                "drops": "true"
               }
             }
           ],

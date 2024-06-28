@@ -83,6 +83,8 @@ public class BorealisLootTables extends LootTableProvider {
                     dropPottedPlant(BorealisBlocks.POTTED_SWEETWOOD_SAPLING.get()),
                     dropOther(BorealisBlocks.SWEETWOOD_WALL_SIGN, () -> BorealisBlocks.SWEETWOOD_SIGN.get().asItem()),
                     drop(BorealisBlocks.SWEETWOOD_DOOR.get(), createDoorTable(BorealisBlocks.SWEETWOOD_DOOR.get())),
+                    dropOther(BorealisBlocks.CARAMELIZED_WALL_SIGN, () -> BorealisBlocks.CARAMELIZED_SIGN.get().asItem()),
+                    drop(BorealisBlocks.CARAMELIZED_DOOR.get(), createDoorTable(BorealisBlocks.CARAMELIZED_DOOR.get())),
                     dropWithSilk(BorealisBlocks.LIVING_SNOW_BLOCK, () -> net.minecraft.world.level.block.Blocks.SNOW_BLOCK),
                     drop(BorealisBlocks.PERMAFROST_RUBBLE.get(),
                             new LootTable.Builder()
@@ -112,7 +114,7 @@ public class BorealisLootTables extends LootTableProvider {
                                     .add(LootItem.lootTableItem(BorealisItems.KYANITE_CRYSTAL.get())
                                             .when(new LootItemBlockStatePropertyCondition.Builder(
                                                     BorealisBlocks.EMBEDDED_KYANITE_ARROW.get()).setProperties(
-                                                    StatePropertiesPredicate.Builder.properties().hasProperty(KyaniteArrowBlock.DROPS, false))))))
+                                                    StatePropertiesPredicate.Builder.properties().hasProperty(KyaniteArrowBlock.DROPS, true))))))
                     
             );
 

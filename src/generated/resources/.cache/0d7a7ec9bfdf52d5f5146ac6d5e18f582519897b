@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-19T21:20:15.7498219	Borealis Block States
+// 1.20.1	2024-06-23T11:45:50.9188836	Borealis Block States
 5f6a7fbff012b989b63cb4e7142d0f5241f497c8 assets/borealis/blockstates/bone_dry_wood.json
 bd0e6241d47c89916e07280bb51de9a14164d5d8 assets/borealis/blockstates/bone_dry_wood_bricks.json
 1f11a9d481f0e7032614b3504f69f0ccd9374d33 assets/borealis/blockstates/brumal_button.json
@@ -173,7 +173,7 @@ f7fc1336bfb18b0f7fef527039bdc123627553c5 assets/borealis/models/block/caramelize
 bb5d382dafe96972e4f3405d98782c052a22608e assets/borealis/models/block/caramelized_trapdoor_bottom.json
 d8b2d9643c967635a232a332fe57a0962d3caa96 assets/borealis/models/block/caramelized_trapdoor_open.json
 2171aee4f85ac79e71c0839f0b2ab4e8cdfcab18 assets/borealis/models/block/caramelized_trapdoor_top.json
-4e2821ae0850a52039480e38acea83753e2ed5dd assets/borealis/models/block/caramelized_wood.json
+4e4241bf847b789e3a7b54c6cb3fd43d36b7a8f1 assets/borealis/models/block/caramelized_wood.json
 e8f79e0f6ad5646434a0a9d7665a931e21128957 assets/borealis/models/block/cloud.json
 57790386b4d9d4b168f226acb9e3220fd90aea32 assets/borealis/models/block/cobalt_fluorite.json
 c9143e110502f570017d6c751342bc85de4e06f9 assets/borealis/models/block/down_kyanite_arrow.json

@@ -82,7 +82,9 @@ public class KyaniteArrowEntity extends AbstractArrow {
             if (this.level().getBlockState(placePos).isAir() && this.level().getBlockState(this.inBlockPos).isFaceSturdy(this.level(), this.inBlockPos, this.embedFace)) {
                 this.level().setBlock(placePos, BorealisBlocks.EMBEDDED_KYANITE_ARROW.get().defaultBlockState().setValue(KyaniteArrowBlock.FACING, this.embedFace).setValue(KyaniteArrowBlock.DROPS, this.pickup == Pickup.ALLOWED), 3);
             } else {
-                this.level().addFreshEntity(new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), getPickupItem()));
+                if (this.pickup == Pickup.ALLOWED) {
+                    this.level().addFreshEntity(new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), getPickupItem()));
+                }
             }
             this.kill();
         }

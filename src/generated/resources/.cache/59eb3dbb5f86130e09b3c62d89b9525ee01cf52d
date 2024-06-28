@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-19T21:20:15.7382934	Loot Tables
+// 1.20.1	2024-06-23T11:45:50.9108805	Loot Tables
 51ddf82787e7a3e73e5120b7114515d4170a0f9e data/borealis/loot_tables/blocks/bone_dry_wood.json
 6a9e25663e1a6e1e7cab8c16966dbbae53113635 data/borealis/loot_tables/blocks/bone_dry_wood_bricks.json
 62e83126878f933fb7d8961b9cb48b2e72267545 data/borealis/loot_tables/blocks/brumal_button.json
@@ -17,7 +17,7 @@ d7a94cf393201c3c7473045057edd747b0b131ad data/borealis/loot_tables/blocks/brumal
 76950f5cb927dc8e28857bc070366ec96484507f data/borealis/loot_tables/blocks/brumal_wall_sign.json
 3fb739647b6cc3ce71966e14d868486851009e2f data/borealis/loot_tables/blocks/brumal_wood.json
 9d360917f83254c7cdccc67b7e859da17cb5763d data/borealis/loot_tables/blocks/caramelized_button.json
-3d57f1df431873a5baeec1519b4c6ecad47597ae data/borealis/loot_tables/blocks/caramelized_door.json
+b9fea31955424542915dbb9e2596542a95241e63 data/borealis/loot_tables/blocks/caramelized_door.json
 a26f1f5214dd0f5d8aad41e53a15ddd1e6dd2204 data/borealis/loot_tables/blocks/caramelized_fence.json
 83ad0cb74b6f9e6306796c0a73dcd3d006a87b39 data/borealis/loot_tables/blocks/caramelized_fence_gate.json
 06b550ab235299a45f5c6ee1cb74d19e8e7aef2b data/borealis/loot_tables/blocks/caramelized_log.json
@@ -30,7 +30,7 @@ d1b8baba2a963326fe05617290365f39a440ef44 data/borealis/loot_tables/blocks/carame
 480d55fb0e6b280ed100da4cc896cdfe63d948ee data/borealis/loot_tables/blocks/caramelized_wall_sign.json
 d3904f737475f721467cc372b24bc8d13226c4af data/borealis/loot_tables/blocks/caramelized_wood.json
 2527057bcecfd1835ec2590e2cdb866cd5989b9e data/borealis/loot_tables/blocks/cloud.json
-83c1fd83a9beec91110faa5dbb50e625841fce5e data/borealis/loot_tables/blocks/embedded_kyanite_arrow.json
+088253e4e9dec6b31312906d44d8c492cbbb128c data/borealis/loot_tables/blocks/embedded_kyanite_arrow.json
 a8a90c9e450aa062b5baa1a9a3c0f98a9d07a0c7 data/borealis/loot_tables/blocks/fluorite.json
 d9d804fa6387428a5898e2a259cb070edf389cd4 data/borealis/loot_tables/blocks/frostfir_button.json
 292b66a94f404ee9e88099e36878d03d52f3a6df data/borealis/loot_tables/blocks/frostfir_door.json

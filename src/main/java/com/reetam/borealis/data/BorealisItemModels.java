@@ -134,6 +134,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
 
         itemBlock(BorealisBlocks.FLUORITE, "neon_fluorite");
         itemBlockFlat(BorealisBlocks.STATIC_FIELD);
+        normalItem(BorealisItems.FLEECE);
 
         normalItem(BorealisItems.KYANITE_CRYSTAL);
         normalItem(BorealisItems.HOT_SPRING_WATER_BUCKET);
