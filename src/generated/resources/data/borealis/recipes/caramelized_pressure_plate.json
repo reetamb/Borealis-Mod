@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "borealis:sweetwood_pressure_plate"
+  },
+  "result": "borealis:caramelized_pressure_plate"
+}

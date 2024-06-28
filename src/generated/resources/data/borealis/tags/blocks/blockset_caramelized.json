@@ -1,0 +1,19 @@
+{
+  "values": [
+    "borealis:caramelized_button",
+    "borealis:caramelized_pressure_plate",
+    "borealis:caramelized_door",
+    "borealis:caramelized_trapdoor",
+    "borealis:caramelized_fence",
+    "borealis:caramelized_fence_gate",
+    "borealis:caramelized_log",
+    "borealis:caramelized_wood",
+    "borealis:stripped_caramelized_log",
+    "borealis:stripped_caramelized_wood",
+    "borealis:caramelized_planks",
+    "borealis:caramelized_slab",
+    "borealis:caramelized_stairs",
+    "borealis:caramelized_sign",
+    "borealis:caramelized_wall_sign"
+  ]
+}
