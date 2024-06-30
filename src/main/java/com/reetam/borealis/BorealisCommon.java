@@ -3,6 +3,7 @@ package com.reetam.borealis;
 import com.google.common.collect.Maps;
 import com.mojang.datafixers.util.Pair;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
@@ -50,13 +51,13 @@ public class BorealisCommon {
         DispenserBlock.registerBehavior(BorealisItems.HUMMINGBIRD_SPAWN_EGG.get(), eggBehavior);
         DispenserBlock.registerBehavior(BorealisItems.TAKAHE_SPAWN_EGG.get(), eggBehavior);
 
-        DispenserBlock.registerBehavior(BorealisItems.HOT_SPRING_WATER_BUCKET.get(), bucketBehavior);
+        DispenserBlock.registerBehavior(BorealisFluids.HOT_SPRING_WATER_BUCKET.get(), bucketBehavior);
     }
 
     public static void registerWoodTypes() {
-        WoodType.register(BorealisBlocks.brumal_woodtype);
-        WoodType.register(BorealisBlocks.frostfir_woodtype);
-        WoodType.register(BorealisBlocks.sweetwood_woodtype);
+        WoodType.register(BorealisBlocks.WOODSET_BRUMAL);
+        WoodType.register(BorealisBlocks.WOODSET_FROSTFIR);
+        WoodType.register(BorealisBlocks.WOODSET_SWEETWOOD);
     }
 
     public static void registerFlowerPots() {

@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-23T11:45:50.9033482	Borealis Item Models
+// 1.20.1	2024-06-28T20:15:17.4721805	Borealis Item Models
 75aa80c42a220cf518df2584d1c3a390019b4c46 assets/borealis/models/item/blue_amber.json
 1e9281e7978034fa3037635bd94f6bcde7c2b4dd assets/borealis/models/item/bone_dry_wood.json
 116c16c50cdc1f9d104082e6e3ee17585d65f205 assets/borealis/models/item/bone_dry_wood_bricks.json
@@ -17,6 +17,7 @@ cd3a8a80715d300b58346b461cd043d4f2190264 assets/borealis/models/item/brumal_log.
 c4ae924254107bfed3ffcd0c95031dbc1bd9fb30 assets/borealis/models/item/brumal_stairs.json
 94eadc00fc2b880e750259d461c60920ecbd1835 assets/borealis/models/item/brumal_trapdoor.json
 3d9ba6a314f602bc76cc673936b93b3cce556982 assets/borealis/models/item/brumal_wood.json
+4c5b1628d8b008d64014d10ecf7462b5c74b115f assets/borealis/models/item/caramelized_boat.json
 dd6a3b2d2fed8bfdccc97a3b8a41403ef2df38cb assets/borealis/models/item/caramelized_button.json
 5ba2b86cf0032531f0aeb15899b87505ee1eee21 assets/borealis/models/item/caramelized_door.json
 df86efc28c1f475683d772558e64e1e088197761 assets/borealis/models/item/caramelized_fence.json
@@ -51,6 +52,7 @@ d92379c577fb774f0bbd869bf2241b015748a148 assets/borealis/models/item/frostfir_wo
 b97326cfad763a174770760cf802644681b492fa assets/borealis/models/item/hailstone.json
 4d07bdc6098fb02b8bfd9d3320d5a1ea7489d456 assets/borealis/models/item/hailstone_block.json
 7842ada35567918d4ab5f84b6d37f3bce8309786 assets/borealis/models/item/hat.json
+9c692ad4ef91d5ea5819ae38d3dcb611354dfece assets/borealis/models/item/holly.json
 3c022d226b8a5b26530757513b649053e70cd052 assets/borealis/models/item/hot_spring_water_bucket.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/hummingbird_spawn_egg.json
 dfd9d25d54083c0169d2db344a282b3d2c400eb4 assets/borealis/models/item/kyanite_arrow.json
@@ -58,6 +60,7 @@ e60f37bfff05548cbde80faf4066c92a3879951a assets/borealis/models/item/kyanite_bul
 f2c05faf199f5d00943c8eecb7d49c7f0240ae15 assets/borealis/models/item/kyanite_cable.json
 ba2d04b062d5662ee14dbc968050247b3061c817 assets/borealis/models/item/kyanite_crystal.json
 0fbb788738ef4fd87db5e07aace44e5605f21e9f assets/borealis/models/item/kyanite_ore.json
+c50d27f200349d9ec4e3a2a166b2dcf00d7a7a8a assets/borealis/models/item/lichen_block.json
 95822ac5d5fa44f393764dac465061bbe4017703 assets/borealis/models/item/living_snow_block.json
 391ef7014753ada379a39395d6f72cee041373d1 assets/borealis/models/item/peat.json
 59042113b060f0ff6cb1a597ded87134b105f2da assets/borealis/models/item/permafrost.json

@@ -4,7 +4,7 @@
   "effects": {
     "fog_color": 14134238,
     "foliage_color": 10338810,
-    "grass_color": 10931454,
+    "grass_color": 14745599,
     "particle": {
       "options": {
         "type": "minecraft:snowflake"
@@ -30,7 +30,9 @@
     [],
     [
       "borealis:cotton_tree",
-      "borealis:helix_tree"
+      "borealis:helix_tree",
+      "borealis:glazed_cotton_tree",
+      "borealis:glazed_helix_tree"
     ],
     [
       "borealis:cloud"

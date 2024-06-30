@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-23T11:45:50.9188836	Borealis Block States
+// 1.20.1	2024-06-28T20:15:17.4878622	Borealis Block States
 5f6a7fbff012b989b63cb4e7142d0f5241f497c8 assets/borealis/blockstates/bone_dry_wood.json
 bd0e6241d47c89916e07280bb51de9a14164d5d8 assets/borealis/blockstates/bone_dry_wood_bricks.json
 1f11a9d481f0e7032614b3504f69f0ccd9374d33 assets/borealis/blockstates/brumal_button.json
@@ -49,9 +49,11 @@ efd6f33a97ebd0ba802ceb4a1eac8bc154bb47de assets/borealis/blockstates/frostfir_lo
 40f3a682b169248a3473511014e6ab10e07e4b89 assets/borealis/blockstates/frostfir_wood.json
 b97e4f15abe2895defca715a1d383b4b7dd2afd3 assets/borealis/blockstates/glazed_leaves.json
 f3d2c4601b9677ba2fc51a191b8e37f2bffeb709 assets/borealis/blockstates/hailstone_block.json
+284c3585ec79b3988343c7cb8d15ebd8b739e66d assets/borealis/blockstates/holly.json
 8ea79beba20887fbe7a2fb38c412856162f180bb assets/borealis/blockstates/kyanite_bulb.json
 d71d4ffa62fbd03cae81698419471c1c077e70dc assets/borealis/blockstates/kyanite_cable.json
 ee98420c16d53a3bbebf604c644c1fa91c6132ae assets/borealis/blockstates/kyanite_ore.json
+073a18bb02e4270c075f12a903f2625e473992d0 assets/borealis/blockstates/lichen_block.json
 ba8cc54de88512a43934432c5d5191a184e132c9 assets/borealis/blockstates/living_snow_block.json
 a70ac5aee9ef0bf9e53f373a71e31bcec8cccc72 assets/borealis/blockstates/peat.json
 859e192a376ecba45b82f8931203cb7725b672f5 assets/borealis/blockstates/permafrost.json
@@ -220,6 +222,7 @@ c6cefde28b3411bacfb583edcbe5c4c6e34bb531 assets/borealis/models/block/kyanite_bu
 ab25fc9527c049b5a5bc68f25644e6d9fcbb2074 assets/borealis/models/block/kyanite_cable_horizontal.json
 2b5094162830c7c3b4da67535f66dd06887a7e66 assets/borealis/models/block/kyanite_ore.json
 43a4d5d575ea6d17a97880de790ff9cba504b2d7 assets/borealis/models/block/kyanite_ore_horizontal.json
+4600ccd75933e50dcb2747fc6dc5320cb480466b assets/borealis/models/block/lichen_block.json
 8c200e5135a5c9a547515093edc84c0e8cd1bad9 assets/borealis/models/block/living_snow_block.json
 37382de5e1d7e7d29c3a2cced716721d09f53b46 assets/borealis/models/block/luminescent_fluorite.json
 6d4f3802efda195b513b30246696c77bab1fbe41 assets/borealis/models/block/neon_fluorite.json

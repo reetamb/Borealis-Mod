@@ -15,6 +15,7 @@ public class BorealisTags {
         public static final TagKey<Item> BRUMAL_LOGS = tag("brumal_logs");
         public static final TagKey<Item> FROSTFIR_LOGS = tag("frostfir_logs");
         public static final TagKey<Item> SWEETWOOD_LOGS = tag("sweetwood_logs");
+        public static final TagKey<Item> CARAMELIZED_LOGS = tag("caramelized_logs");
 
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(BorealisMod.MODID, name));
@@ -35,12 +36,14 @@ public class BorealisTags {
         public static final TagKey<Block> ICY_BLOCKS = tag("icy_blocks");
 
         public static final TagKey<Block> SOAPSTONE_ORE_REPLACEABLES = tag("soapstone_ore_replaceables");
+        public static final TagKey<Block> PEAT_REPLACEABLES = tag("peat_replaceables");
 
         public static final TagKey<Block> BLOCKSET_BRUMAL = tag("blockset_brumal");
         public static final TagKey<Block> BLOCKSET_FROSTFIR = tag("blockset_frostfir");
         public static final TagKey<Block> BLOCKSET_SWEETWOOD = tag("blockset_sweetwood");
         public static final TagKey<Block> BLOCKSET_SOAPSTONE = tag("blockset_soapstone");
         public static final TagKey<Block> BLOCKSET_CARAMELIZED = tag("blockset_caramelized");
+
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(BorealisMod.MODID, name));
         }

@@ -53,8 +53,9 @@ public class BorealisClient {
         render(BorealisBlocks.CARAMELIZED_DOOR, cutout);
         render(BorealisBlocks.CARAMELIZED_TRAPDOOR, cutout);
         render(BorealisBlocks.EMBEDDED_KYANITE_ARROW, cutout);
+        render(BorealisBlocks.HOLLY, cutout);
 
-        render(BorealisBlocks.HOT_SPRING_WATER_BLOCK, translucent);
+        render(BorealisFluids.HOT_SPRING_WATER_BLOCK, translucent);
         ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_FLOWING.get(), translucent);
         ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_SOURCE.get(), translucent);
         render(BorealisBlocks.BOREALIS_PORTAL, translucent);

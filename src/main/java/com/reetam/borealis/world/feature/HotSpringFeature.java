@@ -2,6 +2,7 @@ package com.reetam.borealis.world.feature;
 
 import com.mojang.serialization.Codec;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisFluids;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -24,7 +25,9 @@ public class HotSpringFeature extends Feature<NoneFeatureConfiguration> {
         BlockPos pos = context.origin();
         WorldGenLevel level = context.level();
 
-        pos = new BlockPos(pos.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()) - 4 + rand.nextInt(8) * rand.nextInt(1, 3), pos.getZ());
+        pos = new BlockPos(pos.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()) - 4 + rand.nextInt(8) * rand.nextInt(1, 4), pos.getZ());
+
+        if (!level.getBlockState(new BlockPos(pos.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()), pos.getZ())).isSolid()) return true;
         if (pos.getY() < 20) return true;
 
         // CREATE POND SHAPE
@@ -60,10 +63,10 @@ public class HotSpringFeature extends Feature<NoneFeatureConfiguration> {
                         if (booleans[(x1 * 16 + z1) * 8 + y1]) {
                             if (y1 < 4) { // don't bother with creating air overhead since this doesn't generate in the ground
                                 // place water according to shape dictated by booleans array
-                                level.setBlock(pos.offset(x1, y1, z1), Blocks.WATER.defaultBlockState(), 2);
+                                level.setBlock(pos.offset(x1, y1, z1), BorealisFluids.HOT_SPRING_WATER_BLOCK.get().defaultBlockState(), 2);
                                 for (Direction direction : Direction.values()) {
                                     if (direction != Direction.UP) {
-                                        if (level.getBlockState(pos.offset(x1, y1, z1).relative(direction, 1)) != Blocks.WATER.defaultBlockState()) {
+                                        if (level.getBlockState(pos.offset(x1, y1, z1).relative(direction, 1)) != BorealisFluids.HOT_SPRING_WATER_BLOCK.get().defaultBlockState()) {
                                             this.setBlock(level, pos.offset(x1, y1, z1).relative(direction, 1), BorealisBlocks.PUMICE.get().defaultBlockState());
                                         }
                                     }

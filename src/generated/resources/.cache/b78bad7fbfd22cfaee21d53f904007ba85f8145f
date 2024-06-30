@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-19T21:20:15.7418075	Borealis Block Tags
+// 1.20.1	2024-06-28T20:15:17.4801811	Borealis Block Tags
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/borealis/tags/blocks/base_stone_borealis.json
 825e0af03ceecfa390b53b28bd13f83e92ddd045 data/borealis/tags/blocks/blockset_brumal.json
 1b807719785c8fe71461ad3695b55f39192fa81d data/borealis/tags/blocks/blockset_caramelized.json
@@ -9,6 +9,7 @@
 6f38a3f95b08ee9de30aaef256f714d369d05a70 data/borealis/tags/blocks/caramelized_logs.json
 c9ff60fe00f35ba952c2605091e2f6efd3a3223a data/borealis/tags/blocks/frostfir_logs.json
 52413a870520da3227b0d97b44e5455211b16e49 data/borealis/tags/blocks/icy_blocks.json
+bf29b9f613353c6711d06e188cf6022f973eca4d data/borealis/tags/blocks/peat_replaceables.json
 a9d13e97b34a304d3ce507b7ea88c800f9ed3a8f data/borealis/tags/blocks/portal_center_blocks.json
 cb502aef7919434df80211b97b3a6c9d3072f905 data/borealis/tags/blocks/portal_frame_blocks.json
 43fa6735a5016346bd5b6a51e3fe0098ceca144c data/borealis/tags/blocks/snowy_blocks.json
@@ -19,7 +20,7 @@ ee9cf42dbaca78a9b34e634ea26be08488bb7e78 data/borealis/tags/blocks/sweetwood_log
 ff10b807fc3bca9e544e5f38016c1b8f73bfc897 data/forge/tags/blocks/fences/wooden.json
 96c9cbfdf01e0868f405b9ffb5aac3fa6e8b2b38 data/forge/tags/blocks/fence_gates/wooden.json
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/forge/tags/blocks/stone.json
-44cdfa5f91538dc5749d983cc3742ebf9b066772 data/minecraft/tags/blocks/dirt.json
+371c054d433c2ac4b92bb4e28a8dca258e493b0a data/minecraft/tags/blocks/dirt.json
 f2f4aeb31ce96775016c8eaecd4544e6ac5951f2 data/minecraft/tags/blocks/enderman_holdable.json
 7eaa03790703fff654390f5d740077926c53e307 data/minecraft/tags/blocks/fence_gates.json
 86aaa520f8d4f6c8ae92c17f458956f80ded3575 data/minecraft/tags/blocks/leaves.json

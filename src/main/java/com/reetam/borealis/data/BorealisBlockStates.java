@@ -119,6 +119,8 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
                  //   .partialState().with(FluoriteBlock.STATIC_LEVEL, 15).modelForState().modelFile(this.models().cubeAll("infrared_fluorite", texture("infrared_fluorite"))).addModel()
         ;
         paneBlockWithRenderType(BorealisBlocks.STATIC_FIELD.get(), texture("static_field"), texture("static_field"), "cutout");
+        simpleBlock(BorealisBlocks.HOLLY.get(), models().getExistingFile(modLoc("holly")));
+        block(BorealisBlocks.LICHEN_BLOCK);
         wood();
     }
 

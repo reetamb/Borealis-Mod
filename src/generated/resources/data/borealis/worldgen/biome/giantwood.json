@@ -4,7 +4,7 @@
   "effects": {
     "fog_color": 6193806,
     "foliage_color": 10338810,
-    "grass_color": 10931454,
+    "grass_color": 14745599,
     "particle": {
       "options": {
         "type": "minecraft:snowflake"
@@ -30,7 +30,8 @@
     [],
     [
       "borealis:frostfir_tree",
-      "borealis:giantwood_tree"
+      "borealis:giantwood_tree",
+      "borealis:holly"
     ],
     [
       "borealis:slate_boulder",

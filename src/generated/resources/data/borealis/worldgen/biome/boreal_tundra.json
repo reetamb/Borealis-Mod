@@ -4,7 +4,7 @@
   "effects": {
     "fog_color": 10136810,
     "foliage_color": 10338810,
-    "grass_color": 10931454,
+    "grass_color": 14745599,
     "particle": {
       "options": {
         "type": "minecraft:snowflake"
@@ -28,7 +28,11 @@
     ],
     [],
     [],
-    [],
+    [
+      "borealis:lichen_patch",
+      "minecraft:patch_tall_grass",
+      "minecraft:patch_grass_normal"
+    ],
     [
       "borealis:slate_boulder",
       "borealis:cloud"

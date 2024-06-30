@@ -29,8 +29,7 @@ public class HotSpringWaterBlock extends LiquidBlock {
 
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if (entity instanceof LivingEntity) {
-            LivingEntity livingEntityIn = (LivingEntity) entity;
+        if (entity instanceof LivingEntity livingEntityIn) {
             Collection<MobEffectInstance> activeEffects = livingEntityIn.getActiveEffects();
             ArrayList<MobEffectInstance> activeEffectsArray = new ArrayList<>(activeEffects);
             for (MobEffectInstance effectInstance : activeEffectsArray) {

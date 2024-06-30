@@ -7,8 +7,8 @@ version="${file.jarVersion}"
 displayName="Borealis"
 logoFile="logo.png"
 logoBlur=false
-credits="Thanks to Quek04 for framework code, Screem for a few textures, and ShrekRightTesticle for ideas"
-authors="reetam"
+credits=""
+authors="reetling"
 description='''Welcome to Borealis, the winter wonderland of the sky.'''
 
 [[dependencies.borealis]]

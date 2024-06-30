@@ -6,6 +6,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
@@ -28,14 +29,18 @@ public class BorealisPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PLACED_BRUMAL_TREE = createKey("brumal_tree");
     public static final ResourceKey<PlacedFeature> PLACED_TALL_BRUMAL_TREE = createKey("tall_brumal_tree");
     public static final ResourceKey<PlacedFeature> PLACED_FROSTFIR_TREE = createKey("frostfir_tree");
-    // public static final ResourceKey<PlacedFeature> PLACED_GREAT_FROSTFIR_TREE = createKey("frostfir_tree");
 
     public static final ResourceKey<PlacedFeature> PLACED_GIANTWOOD_TREE = createKey("giantwood_tree");
     public static final ResourceKey<PlacedFeature> PLACED_HELIX_TREE = createKey("helix_tree");
     public static final ResourceKey<PlacedFeature> PLACED_COTTON_TREE = createKey("cotton_tree");
+    public static final ResourceKey<PlacedFeature> PLACED_GLAZED_HELIX_TREE = createKey("glazed_helix_tree");
+    public static final ResourceKey<PlacedFeature> PLACED_GLAZED_COTTON_TREE = createKey("glazed_cotton_tree");
     public static final ResourceKey<PlacedFeature> PLACED_RUBBLE_PATCH = createKey("rubble_patch");
     public static final ResourceKey<PlacedFeature> PLACED_KYANITE_CRYSTAL = createKey("kyanite_crystal");
     public static final ResourceKey<PlacedFeature> PLACED_PEAT_ORE = createKey("peat_ore");
+
+    public static final ResourceKey<PlacedFeature> PLACED_HOLLY_PATCH = createKey("holly");
+    public static final ResourceKey<PlacedFeature> PLACED_LICHEN_PATCH = createKey("lichen_patch");
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(BorealisMod.MODID, name));
     }
@@ -62,7 +67,7 @@ public class BorealisPlacedFeatures {
         register(context, PLACED_SUGAR_SNOW, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_SUGAR_SNOW),
                 BiomeFilter.biome());
         register(context, PLACED_SLATE_BOULDER, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_SLATE_BOULDER),
-                RarityFilter.onAverageOnceEvery(6), BiomeFilter.biome());
+                CountOnEveryLayerPlacement.of(1), RarityFilter.onAverageOnceEvery(3), BiomeFilter.biome());
 
         register(context, PLACED_BRUMAL_TREE, please.getOrThrow(BorealisConfiguredFeatures.BRUMAL_TREE),
                 CountOnEveryLayerPlacement.of(2), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
@@ -78,15 +83,23 @@ public class BorealisPlacedFeatures {
                 CountOnEveryLayerPlacement.of(3), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
         register(context, PLACED_COTTON_TREE, please.getOrThrow(BorealisConfiguredFeatures.COTTON_TREE),
                 CountOnEveryLayerPlacement.of(5), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+        register(context, PLACED_GLAZED_HELIX_TREE, please.getOrThrow(BorealisConfiguredFeatures.GLAZED_HELIX_TREE),
+                CountOnEveryLayerPlacement.of(2), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+        register(context, PLACED_GLAZED_COTTON_TREE, please.getOrThrow(BorealisConfiguredFeatures.GLAZED_COTTON_TREE),
+                CountOnEveryLayerPlacement.of(3), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
 
+        register(context, PLACED_LICHEN_PATCH, please.getOrThrow(BorealisConfiguredFeatures.LICHEN_PATCH),
+                CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), InSquarePlacement.spread());
         register(context, PLACED_RUBBLE_PATCH, please.getOrThrow(BorealisConfiguredFeatures.RUBBLE_PATCH),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(64)),
-                InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(2), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(120)));
+                InSquarePlacement.spread(), CountOnEveryLayerPlacement.of(2), RarityFilter.onAverageOnceEvery(2), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(120)));
         register(context, PLACED_KYANITE_CRYSTAL, please.getOrThrow(BorealisConfiguredFeatures.KYANITE_CRYSTAL),
                 InSquarePlacement.spread(), CountPlacement.of(1), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(120)));
         register(context, PLACED_PEAT_ORE, please.getOrThrow(BorealisConfiguredFeatures.PEAT_ORE),
                 HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top()),
                 CountPlacement.of(16), InSquarePlacement.spread());
+        register(context, PLACED_HOLLY_PATCH, please.getOrThrow(BorealisConfiguredFeatures.HOLLY_PATCH),
+                CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
     }
 
     private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {

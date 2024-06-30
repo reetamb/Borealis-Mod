@@ -1,7 +1,6 @@
 package com.reetam.borealis;
 
 import com.mojang.logging.LogUtils;
-import com.reetam.borealis.client.renderer.BorealisFluidRenderer;
 import com.reetam.borealis.data.*;
 import com.reetam.borealis.modify.events.BlockEvents;
 import com.reetam.borealis.modify.events.PlayerEvents;
@@ -44,13 +43,12 @@ public class BorealisMod {
 
         forgeBus.register(PlayerEvents.class);
         forgeBus.register(BlockEvents.class);
-        forgeBus.register(BorealisFluidRenderer.class);
 
         DeferredRegister<?>[] registers = {
                 BorealisBlocks.BLOCKS,
                 BorealisBlockEntities.BLOCK_ENTITIES,
                 BorealisFluids.FLUIDS,
-                BorealisFluids.FLUID_TYPES,
+                BorealisFluids.TYPES,
                 BorealisItems.ITEMS,
                 BorealisItems.Tabs.TABS,
                 BorealisEntities.ENTITIES,

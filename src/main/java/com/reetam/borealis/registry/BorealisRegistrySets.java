@@ -23,7 +23,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
 public class BorealisRegistrySets extends DatapackBuiltinEntriesProvider {
-//    public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
 
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
     {

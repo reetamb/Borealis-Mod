@@ -3,6 +3,7 @@ package com.reetam.borealis.data;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.data.provider.BorealisItemModelProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -137,7 +138,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.FLEECE);
 
         normalItem(BorealisItems.KYANITE_CRYSTAL);
-        normalItem(BorealisItems.HOT_SPRING_WATER_BUCKET);
+        normalItem(BorealisFluids.HOT_SPRING_WATER_BUCKET);
         egg(BorealisItems.HUMMINGBIRD_SPAWN_EGG);
         egg(BorealisItems.TAKAHE_SPAWN_EGG);
         egg(BorealisItems.THRUSHER_SPAWN_EGG);
@@ -146,7 +147,11 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.BRUMAL_BOAT);
         normalItem(BorealisItems.FROSTFIR_BOAT);
         normalItem(BorealisItems.SWEETWOOD_BOAT);
+        normalItem(BorealisItems.CARAMELIZED_BOAT);
+
         normalItem(BorealisItems.STARBURST);
+        itemBlockFlat(BorealisBlocks.HOLLY);
+        itemBlock(BorealisBlocks.LICHEN_BLOCK);
         normalItem(BorealisItems.BLUE_AMBER);
         normalItem(BorealisItems.HAILSTONE);
         normalItem(BorealisItems.KYANITE_ARROW);

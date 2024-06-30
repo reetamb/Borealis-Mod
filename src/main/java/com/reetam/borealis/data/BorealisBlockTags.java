@@ -87,6 +87,10 @@ public class BorealisBlockTags extends BlockTagsProvider {
         tag(BorealisTags.Blocks.BASE_STONE_BOREALIS)
                 .add(BorealisBlocks.SOAPSTONE.get())
                 .add(BorealisBlocks.SLATE.get());
+        tag(BorealisTags.Blocks.PEAT_REPLACEABLES)
+                .addTag(BorealisTags.Blocks.BASE_STONE_BOREALIS)
+                .add(BorealisBlocks.PERMAFROST.get())
+                .add(BorealisBlocks.PERMAFROST_RUBBLE.get());
         tag(BorealisTags.Blocks.BRUMAL_LOGS)
                 .add(BorealisBlocks.BRUMAL_LOG.get())
                 .add(BorealisBlocks.BRUMAL_WOOD.get())
@@ -220,7 +224,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.LIVING_SNOW_BLOCK.get())
                 .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get())
                 .add(BorealisBlocks.PERMAFROST.get())
-                .add(BorealisBlocks.PERMAFROST_RUBBLE.get());
+                .add(BorealisBlocks.PERMAFROST_RUBBLE.get())
+                .add(BorealisBlocks.LICHEN_BLOCK.get());
     }
     
     private void forgeTags() {

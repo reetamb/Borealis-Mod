@@ -2,8 +2,12 @@
   "feature": "borealis:slate_boulder",
   "placement": [
     {
+      "type": "minecraft:count_on_every_layer",
+      "count": 1
+    },
+    {
       "type": "minecraft:rarity_filter",
-      "chance": 6
+      "chance": 3
     },
     {
       "type": "minecraft:biome"

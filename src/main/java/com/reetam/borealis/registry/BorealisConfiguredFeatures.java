@@ -8,8 +8,11 @@ import com.reetam.borealis.world.trunkplacer.RootedTrunkPlacer;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -22,11 +25,13 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import java.util.List;
 
 public class BorealisConfiguredFeatures {
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_GLACIAL_RIDGE = createKey("glacial_ridge");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_GLACIAL_SPIKE = createKey("glacial_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_HOT_SPRING = createKey("hot_spring");
@@ -41,6 +46,10 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GIANTWOOD_TREE = createKey("giantwood_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HELIX_TREE = createKey("helix_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> COTTON_TREE = createKey("cotton_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLAZED_HELIX_TREE = createKey("glazed_helix_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLAZED_COTTON_TREE = createKey("glazed_cotton_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_PATCH = createKey("holly_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LICHEN_PATCH = createKey("lichen_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> RUBBLE_PATCH = createKey("rubble_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> KYANITE_CRYSTAL = createKey("kyanite_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PEAT_ORE = createKey("peat_ore");
@@ -50,10 +59,7 @@ public class BorealisConfiguredFeatures {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(BorealisMod.MODID, name));
     }
 
-    @SuppressWarnings("deprecation")
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
-        HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
-
         register(context, CONFIGURED_GLACIAL_RIDGE, BorealisFeatures.GLACIAL_RIDGE.get(), new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 4)));
         register(context, CONFIGURED_GLACIAL_SPIKE, BorealisFeatures.GLACIAL_SPIKE.get(), FeatureConfiguration.NONE);
         register(context, CONFIGURED_HOT_SPRING, BorealisFeatures.HOT_SPRING.get(), FeatureConfiguration.NONE);
@@ -105,7 +111,27 @@ public class BorealisConfiguredFeatures {
                 new AspenFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());
+        register(context, GLAZED_HELIX_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(BorealisBlocks.SWEETWOOD_LOG.get().defaultBlockState()),
+                new StraightTrunkPlacer(10, 2, 2),
+                BlockStateProvider.simple(BorealisBlocks.GLAZED_LEAVES.get().defaultBlockState()),
+                new HelixFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
+                new TwoLayersFeatureSize(1, 0, 1))
+                .ignoreVines().build());
+        register(context, GLAZED_COTTON_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(BorealisBlocks.SWEETWOOD_LOG.get().defaultBlockState()),
+                new StraightTrunkPlacer(6, 1, 1),
+                BlockStateProvider.simple(BorealisBlocks.GLAZED_LEAVES.get().defaultBlockState()),
+                new AspenFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), ConstantInt.of(2)),
+                new TwoLayersFeatureSize(1, 0, 1))
+                .ignoreVines().build());
 
+        register(context, HOLLY_PATCH, Feature.RANDOM_PATCH, FeatureUtils.simpleRandomPatchConfiguration(64, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BorealisBlocks.HOLLY.get())))));
+        register(context, LICHEN_PATCH, Feature.REPLACE_BLOBS, new ReplaceSphereConfiguration(
+                BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(),
+                BorealisBlocks.LICHEN_BLOCK.get().defaultBlockState(),
+                UniformInt.of(1, 2)
+        ));
         register(context, RUBBLE_PATCH, Feature.REPLACE_BLOBS, new ReplaceSphereConfiguration(
                 BorealisBlocks.PERMAFROST.get().defaultBlockState(),
                 BorealisBlocks.PERMAFROST_RUBBLE.get().defaultBlockState(),

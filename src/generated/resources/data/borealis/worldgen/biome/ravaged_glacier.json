@@ -4,7 +4,7 @@
   "effects": {
     "fog_color": 10136810,
     "foliage_color": 10338810,
-    "grass_color": 10931454,
+    "grass_color": 14745599,
     "particle": {
       "options": {
         "type": "minecraft:snowflake"
