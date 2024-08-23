@@ -2,19 +2,21 @@ package com.reetam.borealis.data;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
-import com.reetam.borealis.registry.BorealisDimensions;
+import com.reetam.borealis.registry.world.BorealisDimensions;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.ChangeDimensionTrigger;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger;
+import net.minecraft.advancements.critereon.UsedTotemTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.advancements.AdvancementProvider;
 import net.minecraft.data.advancements.AdvancementSubProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraft.world.item.Items;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -45,6 +47,15 @@ public class BorealisAdvancements extends AdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .addCriterion("get_hailstone", InventoryChangeTrigger.TriggerInstance.hasItems(BorealisItems.HAILSTONE.get()))
                     .save(consumer, loc("get_hailstone"));
+
+            Advancement shearPlant = Advancement.Builder.advancement()
+                    .display(BorealisBlocks.BRUMELIAD.get(),
+                            name("shear_plant"),
+                            desc("shear_plant"),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("shear_plant", InventoryChangeTrigger.TriggerInstance.hasItems(BorealisBlocks.BRUMELIAD.get().asItem(), BorealisBlocks.WINTER_VIOLA.get().asItem(), BorealisItems.WINTER_VIOLIN.get(), BorealisBlocks.WINTER_CELLO.get().asItem()))
+                    .save(consumer, loc("shear_plant"));
         }
 
         private Component name(String name) {

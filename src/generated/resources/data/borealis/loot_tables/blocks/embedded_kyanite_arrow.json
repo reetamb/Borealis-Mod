@@ -3,18 +3,18 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "borealis:embedded_kyanite_arrow",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "drops": "false"
+          }
+        }
+      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "borealis:embedded_kyanite_arrow",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "drops": "true"
-              }
-            }
-          ],
           "name": "borealis:kyanite_crystal"
         }
       ],

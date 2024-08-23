@@ -25,10 +25,12 @@ public class HotSpringFeature extends Feature<NoneFeatureConfiguration> {
         BlockPos pos = context.origin();
         WorldGenLevel level = context.level();
 
-        pos = new BlockPos(pos.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()) - 4 + rand.nextInt(8) * rand.nextInt(1, 4), pos.getZ());
+        pos = new BlockPos(pos.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()), pos.getZ());
 
-        if (!level.getBlockState(new BlockPos(pos.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ()), pos.getZ())).isSolid()) return true;
-        if (pos.getY() < 20) return true;
+        if (!level.getBlockState(pos.below()).isSolid()) return false;
+        if (pos.getY() < 20) return false;
+
+        pos = pos.above( rand.nextInt(8) * rand.nextInt(1, 4));
 
         // CREATE POND SHAPE
         boolean[] booleans = new boolean[2048];
@@ -66,8 +68,15 @@ public class HotSpringFeature extends Feature<NoneFeatureConfiguration> {
                                 level.setBlock(pos.offset(x1, y1, z1), BorealisFluids.HOT_SPRING_WATER_BLOCK.get().defaultBlockState(), 2);
                                 for (Direction direction : Direction.values()) {
                                     if (direction != Direction.UP) {
-                                        if (level.getBlockState(pos.offset(x1, y1, z1).relative(direction, 1)) != BorealisFluids.HOT_SPRING_WATER_BLOCK.get().defaultBlockState()) {
+                                        if (!level.getBlockState(pos.offset(x1, y1, z1).relative(direction, 1)).is(BorealisFluids.HOT_SPRING_WATER_BLOCK.get())
+                                         && !level.getBlockState(pos.offset(x1, y1, z1).relative(direction, 1)).is(Blocks.MAGMA_BLOCK)) {
+
                                             this.setBlock(level, pos.offset(x1, y1, z1).relative(direction, 1), BorealisBlocks.PUMICE.get().defaultBlockState());
+                                            if (direction == Direction.DOWN) {
+                                                if (level.getBlockState(pos.offset(x1, y1, z1).above()).is(BorealisFluids.HOT_SPRING_WATER_BLOCK.get())) {
+                                                    this.setBlock(level, pos.offset(x1, y1, z1), Blocks.MAGMA_BLOCK.defaultBlockState());
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -77,6 +86,6 @@ public class HotSpringFeature extends Feature<NoneFeatureConfiguration> {
                 }
             }
         }
-        return false;
+        return true;
     }
 }

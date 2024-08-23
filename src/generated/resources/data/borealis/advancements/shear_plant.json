@@ -1,0 +1,52 @@
+{
+  "criteria": {
+    "shear_plant": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "borealis:brumeliad"
+            ]
+          },
+          {
+            "items": [
+              "borealis:winter_viola"
+            ]
+          },
+          {
+            "items": [
+              "borealis:winter_violin"
+            ]
+          },
+          {
+            "items": [
+              "borealis:winter_cello"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.borealis.shear_plant.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "borealis:brumeliad"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.borealis.shear_plant"
+    }
+  },
+  "requirements": [
+    [
+      "shear_plant"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

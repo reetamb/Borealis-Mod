@@ -14,6 +14,8 @@
     "borealis:brumal_slab",
     "borealis:brumal_stairs",
     "borealis:brumal_sign",
-    "borealis:brumal_wall_sign"
+    "borealis:brumal_wall_sign",
+    "borealis:brumal_hanging_sign",
+    "borealis:brumal_wall_hanging_sign"
   ]
 }

@@ -30,7 +30,10 @@
     [],
     [
       "borealis:frostfir_tree",
-      "borealis:holly"
+      "borealis:holly",
+      "borealis:lichen_patch",
+      "minecraft:patch_large_fern",
+      "minecraft:patch_grass_taiga"
     ],
     [
       "borealis:slate_boulder",

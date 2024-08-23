@@ -1,0 +1,14 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "borealis:block/brumeliad_leaves"
+      }
+    },
+    {
+      "apply": {
+        "model": "borealis:block/brumeliad_cross"
+      }
+    }
+  ]
+}

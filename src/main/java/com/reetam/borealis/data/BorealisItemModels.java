@@ -1,12 +1,10 @@
 package com.reetam.borealis.data;
 
-import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.data.provider.BorealisItemModelProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class BorealisItemModels extends BorealisItemModelProvider {
@@ -48,7 +46,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.STARRY_SLATE_TILES);
         itemBlock(BorealisBlocks.PUMICE);
         itemBlock(BorealisBlocks.PUMICE_GEYSER);
-        itemBlock(BorealisBlocks.TRAVERTINE);
+        itemBlock(BorealisBlocks.SCORIA);
         itemBlock(BorealisBlocks.PETRIFIED_WOOD);
         itemBlock(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
 
@@ -68,6 +66,12 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.BRUMAL_PRESSURE_PLATE);
         itemBlockFlat(BorealisBlocks.BRUMAL_SAPLING);
         normalItem(BorealisItems.BRUMAL_SIGN);
+        normalItem(BorealisItems.BRUMAL_HANGING_SIGN);
+
+        itemBlockFlat(BorealisBlocks.MISTERIA_HEAD, "block/misteria");
+        itemBlockFlat(BorealisBlocks.BRUMELIAD, "block/brumeliad");
+        itemBlockFlat(BorealisBlocks.WINTER_VIOLA, "block/winter_viola");
+        normalItem(BorealisItems.WINTER_VIOLIN);
 
         itemBlock(BorealisBlocks.FROSTFIR_PLANKS);
         itemBlock(BorealisBlocks.FROSTFIR_LOG);
@@ -85,6 +89,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.FROSTFIR_PRESSURE_PLATE);
         itemBlockFlat(BorealisBlocks.FROSTFIR_SAPLING);
         normalItem(BorealisItems.FROSTFIR_SIGN);
+        normalItem(BorealisItems.FROSTFIR_HANGING_SIGN);
 
         itemBlock(BorealisBlocks.SWEETWOOD_PLANKS);
         itemBlock(BorealisBlocks.SWEETWOOD_LOG);
@@ -102,6 +107,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.SWEETWOOD_PRESSURE_PLATE);
         itemBlockFlat(BorealisBlocks.SWEETWOOD_SAPLING);
         normalItem(BorealisItems.SWEETWOOD_SIGN);
+        normalItem(BorealisItems.SWEETWOOD_HANGING_SIGN);
 
         itemBlock(BorealisBlocks.CARAMELIZED_PLANKS);
         itemBlock(BorealisBlocks.CARAMELIZED_LOG);
@@ -118,6 +124,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         buttonInventory("caramelized_button", texture("caramelized_planks"));
         itemBlock(BorealisBlocks.CARAMELIZED_PRESSURE_PLATE);
         normalItem(BorealisItems.CARAMELIZED_SIGN);
+        normalItem(BorealisItems.CARAMELIZED_HANGING_SIGN);
 
         itemBlock(BorealisBlocks.LIVING_SNOW_BLOCK);
         itemBlock(BorealisBlocks.SUGAR_SNOW_BLOCK);
@@ -137,8 +144,12 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlockFlat(BorealisBlocks.STATIC_FIELD);
         normalItem(BorealisItems.FLEECE);
 
+        itemBlock(BorealisBlocks.CINNABAR);
+
         normalItem(BorealisItems.KYANITE_CRYSTAL);
         normalItem(BorealisFluids.HOT_SPRING_WATER_BUCKET);
+        normalItem(BorealisFluids.QUICKSILVER_BUCKET);
+        normalItem(BorealisFluids.SLUSH_BUCKET);
         egg(BorealisItems.HUMMINGBIRD_SPAWN_EGG);
         egg(BorealisItems.TAKAHE_SPAWN_EGG);
         egg(BorealisItems.THRUSHER_SPAWN_EGG);

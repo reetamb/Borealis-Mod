@@ -1,6 +1,5 @@
 package com.reetam.borealis.data;
 
-import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.KyaniteArrowBlock;
 import com.reetam.borealis.data.provider.BorealisLootTableProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
@@ -20,13 +19,15 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
@@ -86,36 +87,34 @@ public class BorealisLootTables extends LootTableProvider {
                     dropOther(BorealisBlocks.CARAMELIZED_WALL_SIGN, () -> BorealisBlocks.CARAMELIZED_SIGN.get().asItem()),
                     drop(BorealisBlocks.CARAMELIZED_DOOR.get(), createDoorTable(BorealisBlocks.CARAMELIZED_DOOR.get())),
                     dropWithSilk(BorealisBlocks.LIVING_SNOW_BLOCK, () -> net.minecraft.world.level.block.Blocks.SNOW_BLOCK),
-                    drop(BorealisBlocks.PERMAFROST_RUBBLE.get(),
-                            new LootTable.Builder()
-                                    .withPool(new LootPool.Builder()
-                                            .add(LootItem.lootTableItem(Items.FLINT).when(LootItemRandomChanceCondition.randomChance(0.2F)))
-                                            .add(LootItem.lootTableItem(Items.STICK).when(LootItemRandomChanceCondition.randomChance(0.5F)))
-                                            .add(LootItem.lootTableItem(Items.IRON_NUGGET).when(LootItemRandomChanceCondition.randomChance(0.3F)))
-                                            .add(LootItem.lootTableItem(Items.IRON_INGOT).when(LootItemRandomChanceCondition.randomChance(0.03F)))
-                                            .add(LootItem.lootTableItem(BorealisBlocks.PETRIFIED_WOOD.get().asItem()).when(LootItemRandomChanceCondition.randomChance(0.25F)))
-                                            .add(LootItem.lootTableItem(Items.ARROW).when(LootItemRandomChanceCondition.randomChance(0.2F)))
-                                            .add(LootItem.lootTableItem(Items.FEATHER).when(LootItemRandomChanceCondition.randomChance(0.5F)))
-                                            .add(LootItem.lootTableItem(Items.STRING).when(LootItemRandomChanceCondition.randomChance(0.1F)))
-                                            .add(LootItem.lootTableItem(Items.COAL).when(LootItemRandomChanceCondition.randomChance(0.2F)))
-                                            .add(LootItem.lootTableItem(Items.CHARCOAL).when(LootItemRandomChanceCondition.randomChance(0.2F)))
-                                            .add(LootItem.lootTableItem(Items.POISONOUS_POTATO).when(LootItemRandomChanceCondition.randomChance(0.01F))))),
+                    drop(BorealisBlocks.PERMAFROST_RUBBLE.get(), new LootTable.Builder().withPool(new LootPool.Builder()
+                                            .add(chance(Items.FLINT, 0.2F))
+                                            .add(chance(Items.STICK, 0.5F))
+                                            .add(chance(Items.IRON_NUGGET, 0.3F))
+                                            .add(chance(Items.IRON_INGOT, 0.03F))
+                                            .add(chance(BorealisBlocks.PETRIFIED_WOOD.get(), 0.4F))
+                                            .add(chance(Items.FEATHER, 0.2F))
+                                            .add(chance(Items.STRING, 0.2F))
+                                            .add(chance(Items.CHARCOAL, 0.6F)))),
                     dropWithSilk(BorealisBlocks.CLOUD, BorealisBlocks.CLOUD),
-                    drop(BorealisBlocks.SUGAR_SNOW.get(),
-                            new LootTable.Builder()
-                                    .withPool(new LootPool.Builder()
-                                            .add(LootItem.lootTableItem(Items.SUGAR).when(LootItemRandomChanceCondition.randomChance(1.0F)))
-                                            .add(LootItem.lootTableItem(Items.SNOWBALL).when(LootItemRandomChanceCondition.randomChance(1.0F))))),
+                    drop(BorealisBlocks.SUGAR_SNOW.get(), new LootTable.Builder().withPool(new LootPool.Builder()
+                                            .add(chance(Items.SUGAR, 1.0F))
+                                            .add(chance(Items.SNOWBALL, 1.0F)))),
                     dropWithFortune(BorealisBlocks.TANZANITE_ORE, BorealisItems.TANZANITE.get()),
                     dropOther(BorealisBlocks.HAILSTONE, BorealisItems.HAILSTONE.get()),
                     dropWithFortune(BorealisBlocks.PEAT, Items.COAL),
-                    drop(BorealisBlocks.EMBEDDED_KYANITE_ARROW.get(), new LootTable.Builder()
-                            .withPool(new LootPool.Builder()
-                                    .add(LootItem.lootTableItem(BorealisItems.KYANITE_CRYSTAL.get())
-                                            .when(new LootItemBlockStatePropertyCondition.Builder(
-                                                    BorealisBlocks.EMBEDDED_KYANITE_ARROW.get()).setProperties(
-                                                    StatePropertiesPredicate.Builder.properties().hasProperty(KyaniteArrowBlock.DROPS, true))))))
-                    
+                    drop(BorealisBlocks.MISTERIA_BODY.get(), noDrop()),
+                    drop(BorealisBlocks.MISTERIA_HEAD.get(), createShearsOnlyDrop(BorealisBlocks.MISTERIA_HEAD.get())),
+                    drop(BorealisBlocks.BRUMELIAD.get(), createShearsOnlyDrop(BorealisBlocks.BRUMELIAD.get())),
+                    drop(BorealisBlocks.WINTER_VIOLA.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_VIOLA.get())),
+                    drop(BorealisBlocks.WINTER_VIOLIN.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_VIOLIN.get())),
+                    drop(BorealisBlocks.WALL_WINTER_VIOLIN.get(), createShearsOnlyDrop(BorealisBlocks.WALL_WINTER_VIOLIN.get())),
+                    drop(BorealisBlocks.WINTER_CELLO.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_CELLO.get())),
+
+                    drop(BorealisBlocks.EMBEDDED_KYANITE_ARROW.get(), dropWithBooleanState(
+                            BorealisItems.KYANITE_CRYSTAL.get(),
+                            BorealisBlocks.EMBEDDED_KYANITE_ARROW.get(),
+                            KyaniteArrowBlock.DROPS, false))
             );
 
             
@@ -129,6 +128,20 @@ public class BorealisLootTables extends LootTableProvider {
         @Override
         protected Iterable<Block> getKnownBlocks() {
             return BorealisBlocks.BLOCKS.getEntries().stream().map(Supplier::get).collect(Collectors.toList());
+        }
+
+        private LootTable.Builder dropWithBooleanState(Item dropItem, Block minedBlock, Property<Boolean> property, boolean value) {
+            return new LootTable.Builder()
+                    .withPool(new LootPool.Builder()
+                            .add(LootItem.lootTableItem(dropItem))
+                            .when(new LootItemBlockStatePropertyCondition.Builder(minedBlock)
+                                    .setProperties(StatePropertiesPredicate.Builder.properties()
+                                            .hasProperty(property, value)
+                            )));
+        }
+
+        private LootPoolSingletonContainer.Builder<?> chance(ItemLike item, float probability) {
+            return LootItem.lootTableItem(item).when(LootItemRandomChanceCondition.randomChance(probability));
         }
     }
 

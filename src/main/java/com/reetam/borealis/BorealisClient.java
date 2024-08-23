@@ -2,21 +2,18 @@ package com.reetam.borealis;
 
 import com.reetam.borealis.client.BorealisSpecialEffects;
 import com.reetam.borealis.client.renderer.BorealisAuroraRenderer;
-import com.reetam.borealis.client.renderer.BorealisSkyRenderer;
 import com.reetam.borealis.entity.BorealisBoatEntity;
 import com.reetam.borealis.entity.model.HummingbirdModel;
 import com.reetam.borealis.entity.model.TakaheModel;
 import com.reetam.borealis.entity.model.ThrusherModel;
 import com.reetam.borealis.entity.renderer.*;
 import com.reetam.borealis.registry.*;
+import com.reetam.borealis.registry.world.BorealisWorld;
 import net.minecraft.client.model.BoatModel;
-import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
-import net.minecraft.client.renderer.entity.ArrowRenderer;
-import net.minecraft.client.renderer.entity.FallingBlockRenderer;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -54,6 +51,13 @@ public class BorealisClient {
         render(BorealisBlocks.CARAMELIZED_TRAPDOOR, cutout);
         render(BorealisBlocks.EMBEDDED_KYANITE_ARROW, cutout);
         render(BorealisBlocks.HOLLY, cutout);
+        render(BorealisBlocks.MISTERIA_HEAD, cutout);
+        render(BorealisBlocks.MISTERIA_BODY, cutout);
+        render(BorealisBlocks.BRUMELIAD, cutout);
+        render(BorealisBlocks.WINTER_VIOLA, cutout);
+        render(BorealisBlocks.WINTER_VIOLIN, cutout);
+        render(BorealisBlocks.WALL_WINTER_VIOLIN, cutout);
+        render(BorealisBlocks.WINTER_CELLO, cutout);
 
         render(BorealisFluids.HOT_SPRING_WATER_BLOCK, translucent);
         ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_FLOWING.get(), translucent);
@@ -72,7 +76,9 @@ public class BorealisClient {
         event.registerEntityRenderer(BorealisEntities.BOAT.get(), BorealisBoatRenderer::new);
         event.registerEntityRenderer(BorealisEntities.HAIL.get(), HailRenderer::new);
         event.registerEntityRenderer(BorealisEntities.KYANITE_ARROW.get(), KyaniteArrowRenderer::new);
+
         event.registerBlockEntityRenderer(BorealisBlockEntities.BOREALIS_SIGN.get(), SignRenderer::new);
+        event.registerBlockEntityRenderer(BorealisBlockEntities.BOREALIS_HANGING_SIGN.get(), HangingSignRenderer::new);
     }
 
 //    @SubscribeEvent

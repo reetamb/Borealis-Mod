@@ -19,6 +19,8 @@ import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.fluids.FluidInteractionRegistry;
 
 public class BorealisCommon {
     public static void registerDispenserBehaviors() {
@@ -52,6 +54,8 @@ public class BorealisCommon {
         DispenserBlock.registerBehavior(BorealisItems.TAKAHE_SPAWN_EGG.get(), eggBehavior);
 
         DispenserBlock.registerBehavior(BorealisFluids.HOT_SPRING_WATER_BUCKET.get(), bucketBehavior);
+        DispenserBlock.registerBehavior(BorealisFluids.QUICKSILVER_BUCKET.get(), bucketBehavior);
+        DispenserBlock.registerBehavior(BorealisFluids.SLUSH_BUCKET.get(), bucketBehavior);
     }
 
     public static void registerWoodTypes() {
@@ -66,6 +70,36 @@ public class BorealisCommon {
         pot.addPlant(BorealisBlocks.BRUMAL_SAPLING.getId(), BorealisBlocks.POTTED_BRUMAL_SAPLING);
         pot.addPlant(BorealisBlocks.FROSTFIR_SAPLING.getId(), BorealisBlocks.POTTED_FROSTFIR_SAPLING);
         pot.addPlant(BorealisBlocks.SWEETWOOD_SAPLING.getId(), BorealisBlocks.POTTED_SWEETWOOD_SAPLING);
+    }
+
+    public static void registerFluidInteractions() {
+        // quicksilver turns into cinnabar
+        FluidInteractionRegistry.addInteraction(
+                BorealisFluids.QUICKSILVER_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
+                        ForgeMod.LAVA_TYPE.get(), BorealisBlocks.CINNABAR.get().defaultBlockState()));
+        FluidInteractionRegistry.addInteraction(
+                BorealisFluids.QUICKSILVER_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
+                        BorealisFluids.SLUSH_TYPE.get(), BorealisBlocks.CINNABAR.get().defaultBlockState()));
+        FluidInteractionRegistry.addInteraction(
+                BorealisFluids.QUICKSILVER_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
+                        BorealisFluids.HOT_SPRING_WATER_TYPE.get(), BorealisBlocks.CINNABAR.get().defaultBlockState()));
+        // lava and hot spring water makes pumice
+        FluidInteractionRegistry.addInteraction(
+                ForgeMod.LAVA_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
+                        BorealisFluids.HOT_SPRING_WATER_TYPE.get(), BorealisBlocks.PUMICE.get().defaultBlockState()));
+        // slush makes ice
+        FluidInteractionRegistry.addInteraction(
+                BorealisFluids.SLUSH_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
+                        BorealisFluids.HOT_SPRING_WATER_TYPE.get(), Blocks.PACKED_ICE.defaultBlockState()));
+        FluidInteractionRegistry.addInteraction(
+                BorealisFluids.SLUSH_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
+                        ForgeMod.WATER_TYPE.get(), Blocks.BLUE_ICE.defaultBlockState()));
+        // slush over lava is smooth basalt
+        FluidInteractionRegistry.addInteraction(
+                ForgeMod.LAVA_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
+                        BorealisFluids.SLUSH_TYPE.get(), (fluidState) -> fluidState.isSource() ?
+                        Blocks.SMOOTH_BASALT.defaultBlockState() :
+                        Blocks.BASALT.defaultBlockState()));
     }
 
     public static void registerAxeStrips() {

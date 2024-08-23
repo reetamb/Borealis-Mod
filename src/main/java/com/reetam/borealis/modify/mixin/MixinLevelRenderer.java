@@ -1,6 +1,6 @@
 package com.reetam.borealis.modify.mixin;
 
-import com.reetam.borealis.registry.BorealisWorld;
+import com.reetam.borealis.registry.world.BorealisWorld;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.multiplayer.ClientLevel;
 import org.spongepowered.asm.mixin.Mixin;

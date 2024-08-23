@@ -8,13 +8,7 @@ import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
 
 public class BorealisBlockStates extends BorealisBlockStateProvider {
 
@@ -46,7 +40,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         log(BorealisBlocks.SLATE_PILLAR, "slate_pillar");
         block(BorealisBlocks.SLATE_TILES);
         block(BorealisBlocks.PUMICE);
-        block(BorealisBlocks.TRAVERTINE);
+        block(BorealisBlocks.SCORIA);
         block(BorealisBlocks.PETRIFIED_WOOD);
         block(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
         block(BorealisBlocks.LIVING_SNOW_BLOCK);
@@ -121,6 +115,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         paneBlockWithRenderType(BorealisBlocks.STATIC_FIELD.get(), texture("static_field"), texture("static_field"), "cutout");
         simpleBlock(BorealisBlocks.HOLLY.get(), models().getExistingFile(modLoc("holly")));
         block(BorealisBlocks.LICHEN_BLOCK);
+        block(BorealisBlocks.CINNABAR);
         wood();
     }
 
@@ -141,7 +136,10 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         buttonBlock(BorealisBlocks.BRUMAL_BUTTON.get(), texture("brumal_planks"));
         pressurePlateBlock(BorealisBlocks.BRUMAL_PRESSURE_PLATE.get(), texture("brumal_planks"));
         signBlock(BorealisBlocks.BRUMAL_SIGN.get(), BorealisBlocks.BRUMAL_WALL_SIGN.get(), texture("brumal_planks"));
-        
+
+        crossBlock(BorealisBlocks.MISTERIA_HEAD);
+        crossBlock(BorealisBlocks.WINTER_VIOLIN);
+
         block(BorealisBlocks.FROSTFIR_PLANKS);
         log(BorealisBlocks.FROSTFIR_LOG, "frostfir_log");
         wood(BorealisBlocks.FROSTFIR_WOOD, BorealisBlocks.FROSTFIR_LOG);
@@ -191,6 +189,5 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         buttonBlock(BorealisBlocks.CARAMELIZED_BUTTON.get(), texture("caramelized_planks"));
         pressurePlateBlock(BorealisBlocks.CARAMELIZED_PRESSURE_PLATE.get(), texture("caramelized_planks"));
         signBlock(BorealisBlocks.CARAMELIZED_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_SIGN.get(), texture("caramelized_planks"));
-
     }
 }

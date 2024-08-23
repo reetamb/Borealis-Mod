@@ -3,6 +3,7 @@ package com.reetam.borealis.registry;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.entity.BorealisBoatEntity;
 import com.reetam.borealis.item.*;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -31,6 +32,10 @@ public class BorealisItems {
     public static final RegistryObject<SignItem> SWEETWOOD_SIGN = ITEMS.register("sweetwood_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.SWEETWOOD_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_SIGN.get()));
     public static final RegistryObject<SignItem> CARAMELIZED_SIGN = ITEMS.register("caramelized_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.CARAMELIZED_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_SIGN.get()));
 
+    public static final RegistryObject<HangingSignItem> BRUMAL_HANGING_SIGN = ITEMS.register("brumal_hanging_sign", () -> new HangingSignItem(BorealisBlocks.BRUMAL_HANGING_SIGN.get(), BorealisBlocks.BRUMAL_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<HangingSignItem> FROSTFIR_HANGING_SIGN = ITEMS.register("frostfir_hanging_sign", () -> new HangingSignItem(BorealisBlocks.FROSTFIR_HANGING_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<HangingSignItem> SWEETWOOD_HANGING_SIGN = ITEMS.register("sweetwood_hanging_sign", () -> new HangingSignItem(BorealisBlocks.SWEETWOOD_HANGING_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<HangingSignItem> CARAMELIZED_HANGING_SIGN = ITEMS.register("caramelized_hanging_sign", () -> new HangingSignItem(BorealisBlocks.CARAMELIZED_HANGING_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
     public static final RegistryObject<SpawnEggItem> HUMMINGBIRD_SPAWN_EGG = ITEMS.register(
             "hummingbird_spawn_egg", () -> new ForgeSpawnEggItem(BorealisEntities.HUMMINGBIRD,
@@ -54,7 +59,7 @@ public class BorealisItems {
                     .nutrition(2)
                     .alwaysEat()
                     .saturationMod(2.0F)
-                    .effect(() -> new MobEffectInstance(BorealisPotionEffects.MANIA.get(), 200), 1).build())));
+                    .effect(() -> new MobEffectInstance(BorealisEffects.MANIA.get(), 200), 1).build())));
 
     public static final RegistryObject<Item> BLUE_AMBER = ITEMS.register("blue_amber", () -> new Item(new Item.Properties()));
 
@@ -62,6 +67,7 @@ public class BorealisItems {
 
     public static final RegistryObject<FleeceItem> FLEECE = ITEMS.register("fleece", () -> new FleeceItem(new Item.Properties()));
 
+    public static final RegistryObject<StandingAndWallBlockItem> WINTER_VIOLIN = ITEMS.register("winter_violin", () -> new StandingAndWallBlockItem(BorealisBlocks.WINTER_VIOLIN.get(), BorealisBlocks.WALL_WINTER_VIOLIN.get(), new Item.Properties(), Direction.DOWN));
     public static class Tabs {
 
         public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BorealisMod.MODID);

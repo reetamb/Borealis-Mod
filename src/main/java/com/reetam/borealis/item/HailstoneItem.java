@@ -42,6 +42,7 @@ public class HailstoneItem extends Item {
                             (level.getBlockState(pos.north().east()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
                             (level.getBlockState(pos.south().west()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) &&
                             (level.getBlockState(pos.east().south()).is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS))) {
+
                         ((BorealisPortalBlock) BorealisBlocks.BOREALIS_PORTAL.get()).makePortal(level, pos);
                         level.playSound(context.getPlayer(), pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 2.5F, 1.0F);
                         level.playSound(context.getPlayer(), pos, SoundEvents.BELL_RESONATE, SoundSource.BLOCKS, 2.5F, 1.0F);

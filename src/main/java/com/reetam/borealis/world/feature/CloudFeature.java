@@ -22,10 +22,9 @@ public class CloudFeature extends Feature<NoneFeatureConfiguration> {
         BlockPos pos = context.origin();
         WorldGenLevel level = context.level();
         
-        int clouds = rand.nextInt(6) + 3;
+        int clouds = rand.nextInt(4) + 1;
         int size = clouds + 2 + rand.nextInt(3);
         BlockState state = BorealisBlocks.CLOUD.get().defaultBlockState();
-        pos = pos.offset(rand.nextInt(8) - 4, 0, rand.nextInt(8) - 4);
 
         for (int i = 0; i < clouds; i++) {
             makeDisk(level, state, rand, pos.below(), size - 1);

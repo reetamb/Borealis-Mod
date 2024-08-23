@@ -14,6 +14,8 @@
     "borealis:frostfir_slab",
     "borealis:frostfir_stairs",
     "borealis:frostfir_sign",
-    "borealis:frostfir_wall_sign"
+    "borealis:frostfir_wall_sign",
+    "borealis:frostfir_hanging_sign",
+    "borealis:frostfir_wall_hanging_sign"
   ]
 }

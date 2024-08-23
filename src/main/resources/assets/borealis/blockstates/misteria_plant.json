@@ -1,0 +1,19 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "borealis:block/misteria_body"
+      }
+    },
+    {
+      "apply": {
+        "model": "borealis:block/misteria_leaves"
+      }
+    },
+    {
+      "apply": {
+        "model": "borealis:block/misteria_cross"
+      }
+    }
+  ]
+}

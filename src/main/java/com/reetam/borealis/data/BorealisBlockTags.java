@@ -42,7 +42,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
                         BorealisBlocks.BRUMAL_LOG.get(), BorealisBlocks.BRUMAL_WOOD.get(), BorealisBlocks.STRIPPED_BRUMAL_LOG.get(), BorealisBlocks.STRIPPED_BRUMAL_WOOD.get(),
                         BorealisBlocks.BRUMAL_PLANKS.get(),
                         BorealisBlocks.BRUMAL_SLAB.get(), BorealisBlocks.BRUMAL_STAIRS.get(),
-                        BorealisBlocks.BRUMAL_SIGN.get(), BorealisBlocks.BRUMAL_WALL_SIGN.get()
+                        BorealisBlocks.BRUMAL_SIGN.get(), BorealisBlocks.BRUMAL_WALL_SIGN.get(),
+                        BorealisBlocks.BRUMAL_HANGING_SIGN.get(), BorealisBlocks.BRUMAL_WALL_HANGING_SIGN.get()
                     );
         tag(BorealisTags.Blocks.BLOCKSET_FROSTFIR)
                 .add(
@@ -52,7 +53,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
                         BorealisBlocks.FROSTFIR_LOG.get(), BorealisBlocks.FROSTFIR_WOOD.get(), BorealisBlocks.STRIPPED_FROSTFIR_LOG.get(), BorealisBlocks.STRIPPED_FROSTFIR_WOOD.get(),
                         BorealisBlocks.FROSTFIR_PLANKS.get(),
                         BorealisBlocks.FROSTFIR_SLAB.get(), BorealisBlocks.FROSTFIR_STAIRS.get(),
-                        BorealisBlocks.FROSTFIR_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_SIGN.get()
+                        BorealisBlocks.FROSTFIR_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_SIGN.get(),
+                        BorealisBlocks.FROSTFIR_HANGING_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_HANGING_SIGN.get()
                 );
         tag(BorealisTags.Blocks.BLOCKSET_SWEETWOOD)
                 .add(
@@ -62,7 +64,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
                         BorealisBlocks.SWEETWOOD_LOG.get(), BorealisBlocks.SWEETWOOD.get(), BorealisBlocks.STRIPPED_SWEETWOOD_LOG.get(), BorealisBlocks.STRIPPED_SWEETWOOD.get(),
                         BorealisBlocks.SWEETWOOD_PLANKS.get(),
                         BorealisBlocks.SWEETWOOD_SLAB.get(), BorealisBlocks.SWEETWOOD_STAIRS.get(),
-                        BorealisBlocks.SWEETWOOD_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_SIGN.get()
+                        BorealisBlocks.SWEETWOOD_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_SIGN.get(),
+                        BorealisBlocks.SWEETWOOD_HANGING_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_HANGING_SIGN.get()
                 );
         tag(BorealisTags.Blocks.BLOCKSET_SOAPSTONE)
                 .add(
@@ -79,7 +82,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
                         BorealisBlocks.CARAMELIZED_LOG.get(), BorealisBlocks.CARAMELIZED_WOOD.get(), BorealisBlocks.STRIPPED_CARAMELIZED_LOG.get(), BorealisBlocks.STRIPPED_CARAMELIZED_WOOD.get(),
                         BorealisBlocks.CARAMELIZED_PLANKS.get(),
                         BorealisBlocks.CARAMELIZED_SLAB.get(), BorealisBlocks.CARAMELIZED_STAIRS.get(),
-                        BorealisBlocks.CARAMELIZED_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_SIGN.get()
+                        BorealisBlocks.CARAMELIZED_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_SIGN.get(),
+                        BorealisBlocks.CARAMELIZED_HANGING_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_HANGING_SIGN.get()
                 );
     }
     
@@ -218,14 +222,33 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.FROSTFIR_WALL_SIGN.get())
                 .add(BorealisBlocks.SWEETWOOD_WALL_SIGN.get())
                 .add(BorealisBlocks.CARAMELIZED_WALL_SIGN.get());
+        tag(BlockTags.CEILING_HANGING_SIGNS)
+                .add(BorealisBlocks.BRUMAL_HANGING_SIGN.get())
+                .add(BorealisBlocks.FROSTFIR_HANGING_SIGN.get())
+                .add(BorealisBlocks.SWEETWOOD_HANGING_SIGN.get())
+                .add(BorealisBlocks.CARAMELIZED_HANGING_SIGN.get());
+        tag(BlockTags.WALL_HANGING_SIGNS)
+                .add(BorealisBlocks.BRUMAL_WALL_HANGING_SIGN.get())
+                .add(BorealisBlocks.FROSTFIR_WALL_HANGING_SIGN.get())
+                .add(BorealisBlocks.SWEETWOOD_WALL_HANGING_SIGN.get())
+                .add(BorealisBlocks.CARAMELIZED_WALL_HANGING_SIGN.get());
         tag(BlockTags.SIGNS)
                 .addTag(BlockTags.STANDING_SIGNS).addTag(BlockTags.WALL_SIGNS);
+        tag(BlockTags.ALL_HANGING_SIGNS)
+                .addTag(BlockTags.CEILING_HANGING_SIGNS).addTag(BlockTags.WALL_HANGING_SIGNS);
         tag(BlockTags.DIRT)
                 .add(BorealisBlocks.LIVING_SNOW_BLOCK.get())
                 .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get())
                 .add(BorealisBlocks.PERMAFROST.get())
                 .add(BorealisBlocks.PERMAFROST_RUBBLE.get())
                 .add(BorealisBlocks.LICHEN_BLOCK.get());
+        tag(BlockTags.FLOWERS)
+                .add(BorealisBlocks.BRUMELIAD.get())
+                .add(BorealisBlocks.HOLLY.get())
+                .add(BorealisBlocks.WINTER_VIOLA.get())
+                .add(BorealisBlocks.WINTER_VIOLIN.get())
+                .add(BorealisBlocks.WALL_WINTER_VIOLIN.get())
+                .add(BorealisBlocks.WINTER_CELLO.get());
     }
     
     private void forgeTags() {
@@ -253,7 +276,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .addTag(BorealisTags.Blocks.BLOCKSET_SOAPSTONE)
                 .add(BorealisBlocks.SLATE.get(), BorealisBlocks.SLATE_PILLAR.get(), BorealisBlocks.SLATE_TILES.get(), BorealisBlocks.STARRY_SLATE.get(), BorealisBlocks.STARRY_SLATE_TILES.get())
-                .add(BorealisBlocks.PUMICE.get(), BorealisBlocks.PUMICE_GEYSER.get(), BorealisBlocks.TRAVERTINE.get())
+                .add(BorealisBlocks.PUMICE.get(), BorealisBlocks.PUMICE_GEYSER.get(), BorealisBlocks.SCORIA.get())
                 .add(BorealisBlocks.KYANITE_ORE.get(), BorealisBlocks.TANZANITE_BLOCK.get(), BorealisBlocks.TANZANITE_ORE.get(), BorealisBlocks.HAILSTONE.get())
                 .add(BorealisBlocks.PETRIFIED_WOOD.get(), BorealisBlocks.PETRIFIED_WOOD_BRICKS.get(), BorealisBlocks.BONE_DRY_WOOD.get(), BorealisBlocks.BONE_DRY_WOOD_BRICKS.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL)

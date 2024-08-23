@@ -1,14 +1,15 @@
 package com.reetam.borealis.data;
 
+import com.reetam.borealis.block.WallPlantBlock;
 import com.reetam.borealis.data.provider.BorealisLangProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisItems;
-import com.reetam.borealis.registry.BorealisPotionEffects;
-import net.minecraft.data.DataGenerator;
+import com.reetam.borealis.registry.BorealisEffects;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -26,7 +27,7 @@ public class BorealisLang extends BorealisLangProvider {
 
         ArrayList<String> blockNames = new ArrayList<>();
         for (RegistryObject<Block> block : BorealisBlocks.BLOCKS.getEntries()) {
-            if (!(block.get() instanceof WallSignBlock)) {
+            if (!(block.get() instanceof WallSignBlock || block.get() instanceof WallHangingSignBlock || block.get() instanceof WallPlantBlock)) {
                 blockNames.add(assumeBlockItem(block));
             }
         }
@@ -36,8 +37,8 @@ public class BorealisLang extends BorealisLangProvider {
             }
         }
 
-        add(BorealisPotionEffects.MANIA.get(), "Mania");
-        add(BorealisPotionEffects.STATIC.get(), "Static");
+        add(BorealisEffects.MANIA.get(), "Mania");
+        add(BorealisEffects.STATIC.get(), "Static");
 
         add(BorealisEntities.HAIL.get(), "Hailstone");
         add(BorealisEntities.BOAT.get(), "Borealis Boat");
@@ -46,6 +47,7 @@ public class BorealisLang extends BorealisLangProvider {
         add(BorealisEntities.TAKAHE.get(), "Takahe");
 
         addAdvancement("borealis_root", "Borealis", "Enter Borealis");
-        addAdvancement("get_hailstone", "Discover a Hailstone", "It's charged with enough electrical energy to light a portal...");
+        addAdvancement("get_hailstone", "Discover a Hailstone", "Find a hailstone in a snowy thunderstorm");
+        addAdvancement("shear_plant", "Distant Cousins", "Shear a flower that resembles ancient Overworld crops");
     }
 }

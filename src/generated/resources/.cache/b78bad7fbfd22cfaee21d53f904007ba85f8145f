@@ -1,10 +1,10 @@
-// 1.20.1	2024-06-28T20:15:17.4801811	Borealis Block Tags
+// 1.20.1	2024-08-22T18:00:45.1772098	Borealis Block Tags
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/borealis/tags/blocks/base_stone_borealis.json
-825e0af03ceecfa390b53b28bd13f83e92ddd045 data/borealis/tags/blocks/blockset_brumal.json
-1b807719785c8fe71461ad3695b55f39192fa81d data/borealis/tags/blocks/blockset_caramelized.json
-6f814e93da348d61865058ff64743b456bfbc76f data/borealis/tags/blocks/blockset_frostfir.json
+49452c49126eea1b6d7c14b37b099b5507f125dc data/borealis/tags/blocks/blockset_brumal.json
+36d77432c8dfde361671fa2c373a8705a8893306 data/borealis/tags/blocks/blockset_caramelized.json
+45ec87f6a5bd31c40617c3ae3aab653add78f25f data/borealis/tags/blocks/blockset_frostfir.json
 275359aa857f3dda3b4c811148eabddaf7563e25 data/borealis/tags/blocks/blockset_soapstone.json
-209bb48229c7aef5923e40b191ea0d594f48d192 data/borealis/tags/blocks/blockset_sweetwood.json
+8a1b92086f230d4f0f53ae5b78c2b24fa39d6632 data/borealis/tags/blocks/blockset_sweetwood.json
 5cd9b7cd7d41b33c4e1a3212a4728db86db89edc data/borealis/tags/blocks/brumal_logs.json
 6f38a3f95b08ee9de30aaef256f714d369d05a70 data/borealis/tags/blocks/caramelized_logs.json
 c9ff60fe00f35ba952c2605091e2f6efd3a3223a data/borealis/tags/blocks/frostfir_logs.json
@@ -20,15 +20,18 @@ ee9cf42dbaca78a9b34e634ea26be08488bb7e78 data/borealis/tags/blocks/sweetwood_log
 ff10b807fc3bca9e544e5f38016c1b8f73bfc897 data/forge/tags/blocks/fences/wooden.json
 96c9cbfdf01e0868f405b9ffb5aac3fa6e8b2b38 data/forge/tags/blocks/fence_gates/wooden.json
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/forge/tags/blocks/stone.json
+db27381b88d5d5f6202262fe27fc953ee9dbbbf6 data/minecraft/tags/blocks/all_hanging_signs.json
+0d928d56762f380356c64c7c0630ece59f3253f5 data/minecraft/tags/blocks/ceiling_hanging_signs.json
 371c054d433c2ac4b92bb4e28a8dca258e493b0a data/minecraft/tags/blocks/dirt.json
 f2f4aeb31ce96775016c8eaecd4544e6ac5951f2 data/minecraft/tags/blocks/enderman_holdable.json
 7eaa03790703fff654390f5d740077926c53e307 data/minecraft/tags/blocks/fence_gates.json
+c25c363cfce9a90bc1a8076758dcbd61f7d31934 data/minecraft/tags/blocks/flowers.json
 86aaa520f8d4f6c8ae92c17f458956f80ded3575 data/minecraft/tags/blocks/leaves.json
 267796d298b15f698340f476f38f94284b4b7668 data/minecraft/tags/blocks/logs.json
 267796d298b15f698340f476f38f94284b4b7668 data/minecraft/tags/blocks/logs_that_burn.json
 b3c17abe63c86483c029e8d4929e58d8ebf5db69 data/minecraft/tags/blocks/mineable/axe.json
 d1254d5a14c722fb9d9cfc2bd1ccfe4da8c82713 data/minecraft/tags/blocks/mineable/hoe.json
-71e3d56536203762e3d6f39ca3e073cd28fd4667 data/minecraft/tags/blocks/mineable/pickaxe.json
+69602c7958baddfe8831762a69c7a04e4a05f31d data/minecraft/tags/blocks/mineable/pickaxe.json
 11306cb4be6cac6b7125be1d4673a4f575c67f6c data/minecraft/tags/blocks/mineable/shovel.json
 d1db93ad094bd7e96905e525b7f250d478161a51 data/minecraft/tags/blocks/needs_iron_tool.json
 6fed8d61bcdbbd470d827ba44fa7ef79f2553f07 data/minecraft/tags/blocks/needs_stone_tool.json
@@ -38,6 +41,7 @@ d1db93ad094bd7e96905e525b7f250d478161a51 data/minecraft/tags/blocks/needs_iron_t
 10e0f6ab6ecc554d20ba3453b46208c1e5b96a8f data/minecraft/tags/blocks/standing_signs.json
 9e9d05037eb02a9c4cecf6557073ef3e6f96f6a9 data/minecraft/tags/blocks/stone_pressure_plates.json
 4e1d49fa8aad1cace2e5c414fef9c11e2ee740dd data/minecraft/tags/blocks/walls.json
+a54a66594b81b95a2944d8b6fcabfe95805cb43d data/minecraft/tags/blocks/wall_hanging_signs.json
 d867a682fbf2335c1d0196c1a2866477a2b27379 data/minecraft/tags/blocks/wall_signs.json
 286d8cca3231035a64a026a54889a8221ef5ea70 data/minecraft/tags/blocks/wooden_buttons.json
 d538430ec26c039af48c55f129d8084c52e7f7ca data/minecraft/tags/blocks/wooden_doors.json

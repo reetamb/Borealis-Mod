@@ -1,0 +1,6 @@
+{
+  "parent": "borealis:block/wall_plant",
+  "textures": {
+    "fan": "borealis:block/winter_violin_side"
+  }
+}

@@ -3,8 +3,7 @@ package com.reetam.borealis.registry;
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.block.HotSpringWaterBlock;
-import com.reetam.borealis.block.HotSpringWaterFluid;
+import com.reetam.borealis.block.fluid.*;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
@@ -17,6 +16,8 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.fluids.FluidInteractionRegistry;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.DeferredRegister;
@@ -44,7 +45,44 @@ public class BorealisFluids {
             BorealisFluids.HOT_SPRING_WATER_SOURCE, (new Item.Properties()).stacksTo(1)));
     public static final RegistryObject<LiquidBlock> HOT_SPRING_WATER_BLOCK = BorealisBlocks.BLOCKS.register("hot_spring_water", () -> new HotSpringWaterBlock(
             BorealisFluids.HOT_SPRING_WATER_SOURCE, BlockBehaviour.Properties.copy(Blocks.WATER).liquid()));
-    public static final ForgeFlowingFluid.Properties HOT_SPRING_WATER_PROPERTIES = new ForgeFlowingFluid.Properties(HOT_SPRING_WATER_TYPE, HOT_SPRING_WATER_SOURCE, HOT_SPRING_WATER_FLOWING).bucket(HOT_SPRING_WATER_BUCKET).block(BorealisFluids.HOT_SPRING_WATER_BLOCK);
+    public static final ForgeFlowingFluid.Properties HOT_SPRING_WATER_PROPERTIES = new ForgeFlowingFluid
+            .Properties(HOT_SPRING_WATER_TYPE, HOT_SPRING_WATER_SOURCE, HOT_SPRING_WATER_FLOWING)
+            .bucket(HOT_SPRING_WATER_BUCKET)
+            .block(BorealisFluids.HOT_SPRING_WATER_BLOCK);
+
+    public static final RegistryObject<FluidType> QUICKSILVER_TYPE = TYPES.register("quicksilver", () -> new FluidType(
+            properties("quicksilver", false, 10000, 10000, 500).motionScale(0.014)) {
+        @Override
+        public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
+            consumer.accept(new BorealisFluidClient("quicksilver", 196, 216, 229, 0F, 1F));
+        }});
+    public static final RegistryObject<QuicksilverFluid.Source> QUICKSILVER_SOURCE = FLUIDS.register("quicksilver_source", () -> new QuicksilverFluid.Source(BorealisFluids.QUICKSILVER_PROPERTIES));
+    public static final RegistryObject<QuicksilverFluid.Flowing> QUICKSILVER_FLOWING = FLUIDS.register("quicksilver_flowing", () -> new QuicksilverFluid.Flowing(BorealisFluids.QUICKSILVER_PROPERTIES));
+    public static final RegistryObject<Item> QUICKSILVER_BUCKET = BorealisItems.ITEMS.register("quicksilver_bucket", () -> new BucketItem(
+            BorealisFluids.QUICKSILVER_SOURCE, (new Item.Properties()).stacksTo(1)));
+    public static final RegistryObject<LiquidBlock> QUICKSILVER_BLOCK = BorealisBlocks.BLOCKS.register("quicksilver", () -> new QuicksilverBlock(
+            BorealisFluids.QUICKSILVER_SOURCE, BlockBehaviour.Properties.copy(Blocks.WATER).liquid()));
+    public static final ForgeFlowingFluid.Properties QUICKSILVER_PROPERTIES = new ForgeFlowingFluid
+            .Properties(QUICKSILVER_TYPE, QUICKSILVER_SOURCE, QUICKSILVER_FLOWING)
+            .bucket(QUICKSILVER_BUCKET)
+            .block(BorealisFluids.QUICKSILVER_BLOCK);
+
+    public static final RegistryObject<FluidType> SLUSH_TYPE = TYPES.register("slush", () -> new FluidType(
+            properties("slush", false, 5000, 5000, 10).motionScale(0.014)) {
+        @Override
+        public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
+            consumer.accept(new BorealisFluidClient("slush", 133, 146, 191, 1F, 3F));
+        }});
+    public static final RegistryObject<SlushFluid.Source> SLUSH_SOURCE = FLUIDS.register("slush_source", () -> new SlushFluid.Source(BorealisFluids.SLUSH_PROPERTIES));
+    public static final RegistryObject<SlushFluid.Flowing> SLUSH_FLOWING = FLUIDS.register("slush_flowing", () -> new SlushFluid.Flowing(BorealisFluids.SLUSH_PROPERTIES));
+    public static final RegistryObject<Item> SLUSH_BUCKET = BorealisItems.ITEMS.register("slush_bucket", () -> new BucketItem(
+            BorealisFluids.SLUSH_SOURCE, (new Item.Properties()).stacksTo(1)));
+    public static final RegistryObject<LiquidBlock> SLUSH_BLOCK = BorealisBlocks.BLOCKS.register("slush", () -> new SlushBlock(
+            BorealisFluids.SLUSH_SOURCE, BlockBehaviour.Properties.copy(Blocks.WATER).liquid()));
+    public static final ForgeFlowingFluid.Properties SLUSH_PROPERTIES = new ForgeFlowingFluid
+            .Properties(SLUSH_TYPE, SLUSH_SOURCE, SLUSH_FLOWING)
+            .bucket(SLUSH_BUCKET)
+            .block(BorealisFluids.SLUSH_BLOCK);
 
     private static FluidType.Properties properties(String name, boolean wet, int density, int viscosity, int temperature) {
         return FluidType.Properties.create()

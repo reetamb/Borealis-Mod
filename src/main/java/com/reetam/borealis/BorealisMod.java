@@ -5,6 +5,9 @@ import com.reetam.borealis.data.*;
 import com.reetam.borealis.modify.events.BlockEvents;
 import com.reetam.borealis.modify.events.PlayerEvents;
 import com.reetam.borealis.registry.*;
+import com.reetam.borealis.registry.world.BorealisDimensions;
+import com.reetam.borealis.registry.world.BorealisFeatures;
+import com.reetam.borealis.registry.world.BorealisRegistrySets;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -27,11 +30,6 @@ public class BorealisMod {
 
     public static final String MODID = "borealis";
     public static final Logger LOGGER = LogUtils.getLogger();
-    // 1.18 Port Todo:
-    // FINISHED Fix noise sliders so that island tops are less flat
-    // FINISHED Fix biome distribution
-    // FINISHED Fix tree placers to fix tree features
-    // Fix dimension render effects
 
     public BorealisMod() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -55,8 +53,9 @@ public class BorealisMod {
                 BorealisFeatures.FEATURES,
                 BorealisFeatures.TreePlacers.FOLIAGE_PLACERS,
                 BorealisFeatures.TreePlacers.TRUNK_PLACERS,
+                BorealisFeatures.TreePlacers.TREE_DECORATORS,
                 BorealisSounds.SOUND_EVENTS,
-                BorealisPotionEffects.EFFECTS,
+                BorealisEffects.EFFECTS,
                 BorealisDimensions.POIS
         };
 
@@ -77,6 +76,7 @@ public class BorealisMod {
         BorealisCommon.registerHoeTills();
         BorealisCommon.registerComposts();
         BorealisCommon.registerDispenserBehaviors();
+        BorealisCommon.registerFluidInteractions();
     }
 
     public void gatherData(GatherDataEvent event) {

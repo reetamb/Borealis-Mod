@@ -2,7 +2,7 @@ package com.reetam.borealis.block;
 
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisTags;
-import com.reetam.borealis.registry.BorealisWorld;
+import com.reetam.borealis.registry.world.BorealisWorld;
 import com.reetam.borealis.registry.BorealisSounds;
 import com.reetam.borealis.world.BorealisTeleporter;
 import net.minecraft.core.BlockPos;

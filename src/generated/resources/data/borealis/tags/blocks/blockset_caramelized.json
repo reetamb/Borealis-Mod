@@ -14,6 +14,8 @@
     "borealis:caramelized_slab",
     "borealis:caramelized_stairs",
     "borealis:caramelized_sign",
-    "borealis:caramelized_wall_sign"
+    "borealis:caramelized_wall_sign",
+    "borealis:caramelized_hanging_sign",
+    "borealis:caramelized_wall_hanging_sign"
   ]
 }

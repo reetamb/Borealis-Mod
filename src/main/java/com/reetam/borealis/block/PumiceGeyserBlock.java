@@ -9,19 +9,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.Random;
-
 public class PumiceGeyserBlock extends Block {
-
-    Random random = new Random();
-
-    public PumiceGeyserBlock() {
-        super(Properties.copy(Blocks.STONE)
-                .strength(0.5F)
-        );
+    public PumiceGeyserBlock(BlockBehaviour.Properties properties) {
+        super(properties);
     }
 
     @Override
@@ -36,7 +30,7 @@ public class PumiceGeyserBlock extends Block {
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if (entity instanceof LivingEntity) {
-            entity.setDeltaMovement(new Vec3(entity.getDeltaMovement().x(), entity.getDeltaMovement().y() + random.nextInt(5), entity.getDeltaMovement().z()));
+            entity.setDeltaMovement(new Vec3(entity.getDeltaMovement().x(), entity.getDeltaMovement().y() + level.random.nextInt(5), entity.getDeltaMovement().z()));
         }
 
         super.stepOn(level, pos, state, entity);

@@ -9,10 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SignBlock;
-import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.common.Tags;
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -131,6 +128,16 @@ public abstract class BorealisRecipeProvider extends RecipeProvider {
                 .pattern(" / ")
                 .define('#', planksIn.get())
                 .define('/', Tags.Items.RODS_WOODEN)
+                .unlockedBy(has(planksIn), has(planksIn.get()));
+    }
+
+    public ShapedRecipeBuilder hangingSign(Supplier<? extends Block> planksIn, Supplier<? extends CeilingHangingSignBlock> signOut) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, signOut.get(), 3)
+                .pattern("/ /")
+                .pattern("###")
+                .pattern("###")
+                .define('#', planksIn.get())
+                .define('/', Items.CHAIN)
                 .unlockedBy(has(planksIn), has(planksIn.get()));
     }
 
