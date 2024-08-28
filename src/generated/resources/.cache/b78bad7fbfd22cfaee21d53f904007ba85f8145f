@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-22T18:00:45.1772098	Borealis Block Tags
+// 1.20.1	2024-08-23T12:30:56.1812412	Borealis Block Tags
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/borealis/tags/blocks/base_stone_borealis.json
 49452c49126eea1b6d7c14b37b099b5507f125dc data/borealis/tags/blocks/blockset_brumal.json
 36d77432c8dfde361671fa2c373a8705a8893306 data/borealis/tags/blocks/blockset_caramelized.json
@@ -31,7 +31,7 @@ c25c363cfce9a90bc1a8076758dcbd61f7d31934 data/minecraft/tags/blocks/flowers.json
 267796d298b15f698340f476f38f94284b4b7668 data/minecraft/tags/blocks/logs_that_burn.json
 b3c17abe63c86483c029e8d4929e58d8ebf5db69 data/minecraft/tags/blocks/mineable/axe.json
 d1254d5a14c722fb9d9cfc2bd1ccfe4da8c82713 data/minecraft/tags/blocks/mineable/hoe.json
-69602c7958baddfe8831762a69c7a04e4a05f31d data/minecraft/tags/blocks/mineable/pickaxe.json
+c5479faf3516207760be69f836b30125acaaaa26 data/minecraft/tags/blocks/mineable/pickaxe.json
 11306cb4be6cac6b7125be1d4673a4f575c67f6c data/minecraft/tags/blocks/mineable/shovel.json
 d1db93ad094bd7e96905e525b7f250d478161a51 data/minecraft/tags/blocks/needs_iron_tool.json
 6fed8d61bcdbbd470d827ba44fa7ef79f2553f07 data/minecraft/tags/blocks/needs_stone_tool.json

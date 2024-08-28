@@ -3,15 +3,19 @@ package com.reetam.borealis.registry.world;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.world.tree.*;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -21,12 +25,16 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePl
 import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaPineFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 
 import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class BorealisConfiguredFeatures {
 
@@ -38,6 +46,7 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_CLOUD = createKey("cloud");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_SUGAR_SNOW = createKey("sugar_snow");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_SLATE_BOULDER = createKey("slate_boulder");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BRUMAL_TREE = createKey("brumal_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRUMAL_TREE_1 = createKey("brumal_tree_1"); // root trunk, palm foliage, short
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRUMAL_TREE_2 = createKey("brumal_tree_2"); // root trunk, palm foliage, tall
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRUMAL_TREE_3 = createKey("brumal_tree_3"); // straight trunk, palm foliage, tall
@@ -69,39 +78,57 @@ public class BorealisConfiguredFeatures {
         register(context, CONFIGURED_SUGAR_SNOW, BorealisFeatures.SUGAR_SNOW.get(), FeatureConfiguration.NONE);
         register(context, CONFIGURED_SLATE_BOULDER, Feature.FOREST_ROCK, new BlockStateConfiguration(BorealisBlocks.SLATE.get().defaultBlockState()));
 
+        register(context, BRUMAL_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                with(BorealisBlocks.BRUMAL_LOG), new RootedTrunkPlacer(6, 2, 2),
+                with(BorealisBlocks.BRUMAL_LEAVES), new PalmFoliagePlacer(of(2), of(0), of(2)),
+                new TwoLayersFeatureSize(1, 0, 1))
+                .ignoreVines().build());
         register(context, BRUMAL_TREE_1, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG),
-                new RootedTrunkPlacer(5, 2, 2),
+                new RootedTrunkPlacer(5, 2, 2, with(BorealisBlocks.WINTER_VIOLA), 0.25F),
                 with(BorealisBlocks.BRUMAL_LEAVES),
                 new PalmFoliagePlacer(of(2), of(0), of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
-                .decorators(List.of(new EpiphyteTreeDecorator(0.35F)))
-                .ignoreVines().build());
+                .decorators(List.of(
+                        new EpiphyteDecorator(0.25F),
+                        new RootDecorator(0.15F, with(BorealisBlocks.WINTER_VIOLA)),
+                        new LogDecorator(0.3F, with(BorealisBlocks.WALL_WINTER_VIOLIN)),
+                        undergrowth()
+                )).ignoreVines().build());
         register(context, BRUMAL_TREE_2, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG),
-                new RootedTrunkPlacer(7, 2, 2),
+                new RootedTrunkPlacer(7, 2, 2, with(BorealisBlocks.WINTER_VIOLA), 0.25F),
                 with(BorealisBlocks.BRUMAL_LEAVES),
                 new PalmFoliagePlacer(of(2), of(0), of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
-                .decorators(List.of(new EpiphyteTreeDecorator(0.25F)))
-                .ignoreVines().build());
+                .decorators(List.of(
+                        new EpiphyteDecorator(0.25F),
+                        new RootDecorator(0.15F, with(BorealisBlocks.WINTER_VIOLA)),
+                        new LogDecorator(0.3F, with(BorealisBlocks.WALL_WINTER_VIOLIN)),
+                        undergrowth()
+                )).ignoreVines().build());
         register(context, BRUMAL_TREE_3, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG),
                 new StraightTrunkPlacer(6, 2, 2),
                 with(BorealisBlocks.BRUMAL_LEAVES),
                 new PalmFoliagePlacer(of(2), of(0), of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
-                .decorators(List.of(new EpiphyteTreeDecorator(0.2F)))
-                .ignoreVines().build());
+                .decorators(List.of(
+                        new EpiphyteDecorator(0.25F),
+                        new LogDecorator(0.3F, with(BorealisBlocks.WALL_WINTER_VIOLIN)),
+                        undergrowth()
+                )).ignoreVines().build());
         register(context, BRUMAL_TREE_4, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG),
                 new StraightTrunkPlacer(8, 2, 2),
                 with(BorealisBlocks.BRUMAL_LEAVES),
                 new AcaciaFoliagePlacer(of(3), of(0)),
                 new TwoLayersFeatureSize(1, 0, 1))
-                .decorators(List.of(new EpiphyteTreeDecorator(0.15F)))
-                .ignoreVines().build());
-
+                .decorators(List.of(
+                        new EpiphyteDecorator(0.25F),
+                        new LogDecorator(0.3F, with(BorealisBlocks.WALL_WINTER_VIOLIN)),
+                        undergrowth()
+                )).ignoreVines().build());
 
         register(context, FROSTFIR_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.FROSTFIR_LOG),
@@ -164,10 +191,20 @@ public class BorealisConfiguredFeatures {
 
     private static ConstantInt of(int n) { return ConstantInt.of(n); }
     private static UniformInt from(int a, int b) { return UniformInt.of(a, b); }
-
-    private static BlockStateProvider with(BlockState state) { return BlockStateProvider.simple(state); }
     private static BlockStateProvider with(Supplier<? extends Block> block) { return with(block.get()); }
     private static BlockStateProvider with(Block block) { return BlockStateProvider.simple(block); }
+    private static TreeDecorator undergrowth() {
+        return new UndergrowthDecorator(0.375F, new WeightedStateProvider(
+                SimpleWeightedRandomList.<BlockState>builder()
+                        .add(BorealisBlocks.WINTER_CELLO.get().defaultBlockState(), 3)
+                        .add(BorealisBlocks.BRUMELIAD.get().defaultBlockState(), 15)
+                        .add(BorealisBlocks.WINTER_VIOLA.get().defaultBlockState(), 6)
+                        .add(Blocks.LARGE_FERN.defaultBlockState(), 10)
+                        .add(Blocks.TALL_GRASS.defaultBlockState(), 10)
+                        .add(Blocks.FERN.defaultBlockState(), 15)
+                        .build()));
+
+    }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));

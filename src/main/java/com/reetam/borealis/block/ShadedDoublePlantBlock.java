@@ -6,31 +6,25 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class ShadedBushBlock extends BushBlock {
+public class ShadedDoublePlantBlock extends DoublePlantBlock {
     private final List<TagKey<Block>> substrate;
-    public ShadedBushBlock(Properties pProperties, TagKey<Block> substrate) {
+    public ShadedDoublePlantBlock(Properties pProperties, TagKey<Block> substrates) {
         super(pProperties.randomTicks());
-        this.substrate = List.of(substrate);
+        this.substrate = List.of(substrates);
     }
 
-    public ShadedBushBlock(Properties properties, List<TagKey<Block>> substrates) {
-        super(properties.randomTicks());
-        this.substrate = substrates;
-    }
-
-    @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         AtomicBoolean flag = new AtomicBoolean(false);
         this.substrate.stream().forEach((type) -> {
-            if (pLevel.getBlockState(pPos.below()).is(type)) flag.set(true);
+            if (pLevel.getBlockState(pPos.below()).is(type) || pLevel.getBlockState(pPos.below()).is(this)) flag.set(true);
         });
-        return flag.get() && !pLevel.canSeeSky(pPos);
+        return flag.get() && !pLevel.canSeeSky(pPos) && super.canSurvive(pState, pLevel, pPos);
     }
 
     @Override

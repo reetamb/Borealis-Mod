@@ -12,17 +12,17 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 import java.util.List;
 import java.util.function.Predicate;
 
-public class EpiphyteTreeDecorator extends TreeDecorator {
+public class EpiphyteDecorator extends TreeDecorator {
 
-    public static final Codec<EpiphyteTreeDecorator> CODEC = Codec.floatRange(0.0F, 1.0F).fieldOf("probability").xmap(EpiphyteTreeDecorator::new, (decorator) -> decorator.probability).codec();
+    public static final Codec<EpiphyteDecorator> CODEC = Codec.floatRange(0.0F, 1.0F).fieldOf("probability").xmap(EpiphyteDecorator::new, (decorator) -> decorator.probability).codec();
     private final float probability;
 
-    public EpiphyteTreeDecorator(float probability) {
+    public EpiphyteDecorator(float probability) {
         this.probability = probability;
     }
     @Override
     protected TreeDecoratorType<?> type() {
-        return BorealisFeatures.TreePlacers.EPIPHYTE_TREE_DECORATOR.get();
+        return BorealisFeatures.TreePlacers.EPIPHYTE_DECORATOR.get();
     }
     @Override
     public void place(Context context) {

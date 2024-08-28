@@ -3,11 +3,13 @@ package com.reetam.borealis.data;
 import com.reetam.borealis.block.FluoriteBlock;
 import com.reetam.borealis.block.KyaniteArrowBlock;
 import com.reetam.borealis.block.PermafrostBlock;
+import com.reetam.borealis.block.ShadedDoublePlantBlock;
 import com.reetam.borealis.block.property.PermafrostCover;
 import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class BorealisBlockStates extends BorealisBlockStateProvider {
@@ -114,6 +116,10 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         ;
         paneBlockWithRenderType(BorealisBlocks.STATIC_FIELD.get(), texture("static_field"), texture("static_field"), "cutout");
         simpleBlock(BorealisBlocks.HOLLY.get(), models().getExistingFile(modLoc("holly")));
+        getVariantBuilder(BorealisBlocks.WINTER_CELLO.get())
+                .partialState().with(ShadedDoublePlantBlock.HALF, DoubleBlockHalf.UPPER).modelForState().modelFile(this.models().cross("winter_cello_top", texture("winter_cello_top"))).addModel()
+                .partialState().with(ShadedDoublePlantBlock.HALF, DoubleBlockHalf.LOWER).modelForState().modelFile(this.models().cross("winter_cello_bottom", texture("winter_cello_bottom"))).addModel();
+
         block(BorealisBlocks.LICHEN_BLOCK);
         block(BorealisBlocks.CINNABAR);
         wood();

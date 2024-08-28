@@ -1,11 +1,9 @@
 package com.reetam.borealis.registry;
 
-import com.mojang.datafixers.types.templates.Tag;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
 import com.reetam.borealis.world.tree.Grower;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.TagTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
@@ -17,11 +15,11 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -179,11 +177,11 @@ public class BorealisBlocks {
     public static final RegistryObject<Block> LICHEN_BLOCK = registerBlock("lichen_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK)));
     public static final RegistryObject<MisteriaBody> MISTERIA_BODY = BLOCKS.register("misteria_plant", () -> new MisteriaBody(Template.plant()));
     public static final RegistryObject<MisteriaHead> MISTERIA_HEAD = registerBlock("misteria", () -> new MisteriaHead(Template.plant()));
-    public static final RegistryObject<ShadedBushBlock> BRUMELIAD = registerBlock("brumeliad", () -> new ShadedBushBlock(BlockTags.DIRT, Template.plant()));
-    public static final RegistryObject<ShadedBushBlock> WINTER_VIOLA = registerBlock("winter_viola", () -> new ShadedBushBlock(BlockTags.LOGS, Template.plant()));
-    public static final RegistryObject<ShadedBushBlock> WINTER_VIOLIN = BLOCKS.register("winter_violin", () -> new ShadedBushBlock(BlockTags.LOGS, Template.plant().offsetType(BlockBehaviour.OffsetType.XZ)));
+    public static final RegistryObject<ShadedBushBlock> BRUMELIAD = registerBlock("brumeliad", () -> new ShadedBushBlock(Template.plant(), BlockTags.DIRT));
+    public static final RegistryObject<ShadedBushBlock> WINTER_VIOLA = registerBlock("winter_viola", () -> new ShadedBushBlock(Template.plant(), List.of(BlockTags.LOGS, BlockTags.DIRT)));
+    public static final RegistryObject<ShadedBushBlock> WINTER_VIOLIN = BLOCKS.register("winter_violin", () -> new ShadedBushBlock(Template.plant().offsetType(BlockBehaviour.OffsetType.XZ), BlockTags.LOGS));
     public static final RegistryObject<WallPlantBlock> WALL_WINTER_VIOLIN = BLOCKS.register("wall_winter_violin", () -> new WallPlantBlock(BlockTags.LOGS, Template.plant()));
-    public static final RegistryObject<ShadedBushBlock> WINTER_CELLO = registerBlock("winter_cello", () -> new ShadedBushBlock(BlockTags.DIRT, Template.plant()));
+    public static final RegistryObject<ShadedDoublePlantBlock> WINTER_CELLO = registerBlock("winter_cello", () -> new ShadedDoublePlantBlock(Template.plant(), BlockTags.DIRT));
 
     public static final RegistryObject<Block> CINNABAR = registerBlock("cinnabar", () -> new Block(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_MAGENTA)));
 
@@ -201,7 +199,7 @@ public class BorealisBlocks {
         return () -> new BlockItem(Objects.requireNonNull(block.get()), new Item.Properties());
     }
 
-    private class Template {
+    private static class Template {
         protected static BlockBehaviour.Properties soapstone() {
             return BlockBehaviour.Properties.copy(Blocks.STONE)
                     .mapColor(MapColor.TERRACOTTA_LIGHT_BLUE);

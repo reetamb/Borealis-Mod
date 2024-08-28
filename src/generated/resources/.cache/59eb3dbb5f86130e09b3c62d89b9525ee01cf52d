@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-22T18:00:45.1716678	Loot Tables
+// 1.20.1	2024-08-23T12:30:56.1802425	Loot Tables
 51ddf82787e7a3e73e5120b7114515d4170a0f9e data/borealis/loot_tables/blocks/bone_dry_wood.json
 6a9e25663e1a6e1e7cab8c16966dbbae53113635 data/borealis/loot_tables/blocks/bone_dry_wood_bricks.json
 62e83126878f933fb7d8961b9cb48b2e72267545 data/borealis/loot_tables/blocks/brumal_button.json
@@ -125,7 +125,6 @@ d4392485113276b571268ec7f41723afccc7feec data/borealis/loot_tables/blocks/sweetw
 0304535f90d6750c4574c7f8a74c4277744654cb data/borealis/loot_tables/blocks/sweetwood_wall_sign.json
 65d6b279c9f3f724d8fce3f19e947504fc8aef49 data/borealis/loot_tables/blocks/tanzanite_block.json
 d062d8b49bf1a985282282ac7c46cd42eb6de206 data/borealis/loot_tables/blocks/tanzanite_ore.json
-f7faf973bf16893aca46e5964edf713fbcfd6bb4 data/borealis/loot_tables/blocks/travertine.json
 83b7910570a5d17b7b016c1f8cf9d5ddeb4859b6 data/borealis/loot_tables/blocks/wall_winter_violin.json
 4b6d5b6d1b418be54f97498b901b108615a7bca7 data/borealis/loot_tables/blocks/winter_cello.json
 bda90abe189225d2d9206a0c0a6cc63e2b4f00e0 data/borealis/loot_tables/blocks/winter_viola.json

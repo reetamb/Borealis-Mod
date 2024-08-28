@@ -51,6 +51,10 @@ public class BorealisFeatures {
         public static final RegistryObject<TrunkPlacerType<RootedTrunkPlacer>> ROOTED_TRUNK_PLACER = TRUNK_PLACERS.register("rooted_trunk_placer", () -> new TrunkPlacerType<>(RootedTrunkPlacer.CODEC));
 
         public static final DeferredRegister<TreeDecoratorType<?>> TREE_DECORATORS = DeferredRegister.create(Registries.TREE_DECORATOR_TYPE, BorealisMod.MODID);
-        public static final RegistryObject<TreeDecoratorType<EpiphyteTreeDecorator>> EPIPHYTE_TREE_DECORATOR = TREE_DECORATORS.register("epiphyte_tree_decorator", () -> new TreeDecoratorType<>(EpiphyteTreeDecorator.CODEC));
+        public static final RegistryObject<TreeDecoratorType<EpiphyteDecorator>> EPIPHYTE_DECORATOR = TREE_DECORATORS.register("epiphyte_decorator", () -> new TreeDecoratorType<>(EpiphyteDecorator.CODEC));
+        public static final RegistryObject<TreeDecoratorType<UndergrowthDecorator>> UNDERGROWTH_DECORATOR = TREE_DECORATORS.register("undergrowth_decorator", () -> new TreeDecoratorType<>(UndergrowthDecorator.CODEC));
+        public static final RegistryObject<TreeDecoratorType<LogDecorator>> LOG_DECORATOR = TREE_DECORATORS.register("log_decorator", () -> new TreeDecoratorType<>(LogDecorator.CODEC));
+        public static final RegistryObject<TreeDecoratorType<RootDecorator>> ROOT_DECORATOR = TREE_DECORATORS.register("root_decorator", () -> new TreeDecoratorType<>(RootDecorator.CODEC));
+
     }
 }

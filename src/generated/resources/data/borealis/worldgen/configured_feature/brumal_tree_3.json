@@ -3,8 +3,75 @@
   "config": {
     "decorators": [
       {
-        "type": "borealis:epiphyte_tree_decorator",
-        "probability": 0.2
+        "type": "borealis:epiphyte_decorator",
+        "probability": 0.25
+      },
+      {
+        "type": "borealis:log_decorator",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "borealis:wall_winter_violin",
+            "Properties": {
+              "facing": "north"
+            }
+          }
+        },
+        "probability": 0.3
+      },
+      {
+        "type": "borealis:undergrowth_decorator",
+        "block_provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "borealis:winter_cello",
+                "Properties": {
+                  "half": "lower"
+                }
+              },
+              "weight": 3
+            },
+            {
+              "data": {
+                "Name": "borealis:brumeliad"
+              },
+              "weight": 15
+            },
+            {
+              "data": {
+                "Name": "borealis:winter_viola"
+              },
+              "weight": 6
+            },
+            {
+              "data": {
+                "Name": "minecraft:large_fern",
+                "Properties": {
+                  "half": "lower"
+                }
+              },
+              "weight": 10
+            },
+            {
+              "data": {
+                "Name": "minecraft:tall_grass",
+                "Properties": {
+                  "half": "lower"
+                }
+              },
+              "weight": 10
+            },
+            {
+              "data": {
+                "Name": "minecraft:fern"
+              },
+              "weight": 15
+            }
+          ]
+        },
+        "probability": 0.375
       }
     ],
     "dirt_provider": {

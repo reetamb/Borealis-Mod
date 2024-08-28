@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-22T18:00:45.1851872	Borealis Block States
+// 1.20.1	2024-08-24T19:45:33.7720307	Borealis Block States
 5f6a7fbff012b989b63cb4e7142d0f5241f497c8 assets/borealis/blockstates/bone_dry_wood.json
 bd0e6241d47c89916e07280bb51de9a14164d5d8 assets/borealis/blockstates/bone_dry_wood_bricks.json
 1f11a9d481f0e7032614b3504f69f0ccd9374d33 assets/borealis/blockstates/brumal_button.json
@@ -111,7 +111,7 @@ e4b956d1cae748dd48d6e33906471e613deb8a21 assets/borealis/blockstates/sweetwood_t
 5cd8666f05e7c574c5b454a7025220b4c94b6678 assets/borealis/blockstates/sweetwood_wall_sign.json
 a0bf58e06b6be662a7bcde29c98f63663b905230 assets/borealis/blockstates/tanzanite_block.json
 f06bb3307e098e5527f07031ad5151411e7b44d1 assets/borealis/blockstates/tanzanite_ore.json
-8132d9c548224855f1e8edb2efd5555513a70231 assets/borealis/blockstates/travertine.json
+581afd94a3a37006dcb702a6f7c0df13f4833c59 assets/borealis/blockstates/winter_cello.json
 8b587d993288920eb79f7efda48a028ab8c61cd2 assets/borealis/blockstates/winter_violin.json
 eb943bbc3ce44352de9fb99a538df8450f1f719d assets/borealis/models/block/amaranthine_fluorite.json
 f28a1f165aafaeba75ce29fab32e6a0e2ab9cb23 assets/borealis/models/block/bone_dry_wood.json
@@ -336,8 +336,9 @@ dbe5f7a402adb3b15b84725036d72e95e7d24703 assets/borealis/models/block/sweetwood_
 154dad07b16f72a2297829e78590027f16f903e1 assets/borealis/models/block/sweetwood_trapdoor_top.json
 14f2db11737f35689f766b57bccac145051bc661 assets/borealis/models/block/tanzanite_block.json
 2fa69736bfdc4724fe274ceb29662a981768cf4e assets/borealis/models/block/tanzanite_ore.json
-b34da4051baea45a3af439c01b49ad86e460a1aa assets/borealis/models/block/travertine.json
 d9b5103ef1035cc73e5a26529d65ecc403d09d3a assets/borealis/models/block/ultraviolet_fluorite.json
 c9143e110502f570017d6c751342bc85de4e06f9 assets/borealis/models/block/up_kyanite_arrow.json
 c9143e110502f570017d6c751342bc85de4e06f9 assets/borealis/models/block/west_kyanite_arrow.json
+843c63fc6464346a181c05ad282178368619c422 assets/borealis/models/block/winter_cello_bottom.json
+79f0db2ef6d1df40a5f52338ce5bb3682e6fb88a assets/borealis/models/block/winter_cello_top.json
 65fdd81a4e4fcffcb65de18a1109d2dc2ed386de assets/borealis/models/block/winter_violin.json
