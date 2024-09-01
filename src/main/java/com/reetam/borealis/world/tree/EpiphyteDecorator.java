@@ -40,7 +40,7 @@ public class EpiphyteDecorator extends TreeDecorator {
                 }
                 int height = random.nextInt(1, 4);
                 for (int i = 1; i < height; i++) {
-                    if (context.isAir(leafPos.below(i)) && context.isAir(leafPos.below(i + 1))) {
+                    if (context.isAir(leafPos.below(i)) && context.isAir(leafPos.below(i + 1)) && !context.logs().contains(leafPos.below(i))) {
                         context.setBlock(leafPos.below(i), BorealisBlocks.MISTERIA_BODY.get().defaultBlockState());
                     }
                 }

@@ -2,6 +2,7 @@ package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
+import com.reetam.borealis.block.entity.*;
 import com.reetam.borealis.world.tree.Grower;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -182,8 +183,12 @@ public class BorealisBlocks {
     public static final RegistryObject<ShadedBushBlock> WINTER_VIOLIN = BLOCKS.register("winter_violin", () -> new ShadedBushBlock(Template.plant().offsetType(BlockBehaviour.OffsetType.XZ), BlockTags.LOGS));
     public static final RegistryObject<WallPlantBlock> WALL_WINTER_VIOLIN = BLOCKS.register("wall_winter_violin", () -> new WallPlantBlock(BlockTags.LOGS, Template.plant()));
     public static final RegistryObject<ShadedDoublePlantBlock> WINTER_CELLO = registerBlock("winter_cello", () -> new ShadedDoublePlantBlock(Template.plant(), BlockTags.DIRT));
+    public static final RegistryObject<AlmsBlock> ALMS = registerBlock("alms", () -> new AlmsBlock(Template.petrifiedWood().mapColor(MapColor.DIRT)));
+    public static final RegistryObject<AlmsCrackedBlock> CRACKED_ALMS = registerBlock("cracked_alms", () -> new AlmsCrackedBlock(Template.petrifiedWood().mapColor(MapColor.GOLD)));
 
     public static final RegistryObject<Block> CINNABAR = registerBlock("cinnabar", () -> new Block(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_MAGENTA)));
+
+    public static final RegistryObject<KilnBlock> KILN = registerBlock("kiln", () -> new KilnBlock(BlockBehaviour.Properties.copy(Blocks.SMOKER)));
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);

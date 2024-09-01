@@ -95,6 +95,7 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 .define('#', BorealisItems.KYANITE_CRYSTAL.get())
                 .unlockedBy(hasItem(BorealisItems.KYANITE_CRYSTAL), has(BorealisItems.KYANITE_CRYSTAL.get()))
                 .save(consumer, name(BorealisItems.KYANITE_ARROW));
+        smeltingResultFromBase(consumer, BorealisBlocks.CRACKED_ALMS.get(), BorealisBlocks.ALMS.get());
 
         bulkStonecutting(consumer, BorealisBlocks.SLATE, slate_stonecuts);
     }

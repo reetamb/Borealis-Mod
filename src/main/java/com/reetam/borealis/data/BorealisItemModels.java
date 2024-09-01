@@ -73,6 +73,9 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlockFlat(BorealisBlocks.WINTER_VIOLA, "block/winter_viola");
         normalItem(BorealisItems.WINTER_VIOLIN);
         itemBlockFlat(BorealisBlocks.WINTER_CELLO, "block/winter_cello_bottom");
+        normalItem(BorealisItems.ALMS_NUT);
+        itemBlock(BorealisBlocks.ALMS);
+        itemBlock(BorealisBlocks.CRACKED_ALMS);
 
         itemBlock(BorealisBlocks.FROSTFIR_PLANKS);
         itemBlock(BorealisBlocks.FROSTFIR_LOG);

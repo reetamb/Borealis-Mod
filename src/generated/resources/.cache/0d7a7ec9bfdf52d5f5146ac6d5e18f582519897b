@@ -1,4 +1,5 @@
-// 1.20.1	2024-08-24T19:45:33.7720307	Borealis Block States
+// 1.20.1	2024-08-29T15:08:40.3958819	Borealis Block States
+dd618f4c8676ae73535fb7c4de7e56573498ba1c assets/borealis/blockstates/alms.json
 5f6a7fbff012b989b63cb4e7142d0f5241f497c8 assets/borealis/blockstates/bone_dry_wood.json
 bd0e6241d47c89916e07280bb51de9a14164d5d8 assets/borealis/blockstates/bone_dry_wood_bricks.json
 1f11a9d481f0e7032614b3504f69f0ccd9374d33 assets/borealis/blockstates/brumal_button.json
@@ -31,6 +32,7 @@ e19068f11171018ac7c03ab5ec87b5ccde83d380 assets/borealis/blockstates/caramelized
 6e4cb96248f6b5e0d3d5d2cb7ee9b397cee5b32f assets/borealis/blockstates/caramelized_wood.json
 5d933404c0b36e37937118c07edd8ba2acb9da6d assets/borealis/blockstates/cinnabar.json
 db482ef82c1d14dbded72e7ee652c2ac18d6ec4c assets/borealis/blockstates/cloud.json
+dd0851bccc99754f5ce10d354ee9b0cdd4d6d8c6 assets/borealis/blockstates/cracked_alms.json
 28207cb2df328a0bba5cb748990775449a233898 assets/borealis/blockstates/embedded_kyanite_arrow.json
 d76cbb4c4af30e2ccd918b5cd1f362b1ab377103 assets/borealis/blockstates/fluorite.json
 1c3d5b218add178fba90399ecd6862e7e0350325 assets/borealis/blockstates/frostfir_button.json
@@ -113,6 +115,8 @@ a0bf58e06b6be662a7bcde29c98f63663b905230 assets/borealis/blockstates/tanzanite_b
 f06bb3307e098e5527f07031ad5151411e7b44d1 assets/borealis/blockstates/tanzanite_ore.json
 581afd94a3a37006dcb702a6f7c0df13f4833c59 assets/borealis/blockstates/winter_cello.json
 8b587d993288920eb79f7efda48a028ab8c61cd2 assets/borealis/blockstates/winter_violin.json
+14fcd10893a504dbc3692b2c2d75641dd1d2bc9c assets/borealis/models/block/alms.json
+5c0271cae7845ad1222718065d59d816a5e9d291 assets/borealis/models/block/alms_shell.json
 eb943bbc3ce44352de9fb99a538df8450f1f719d assets/borealis/models/block/amaranthine_fluorite.json
 f28a1f165aafaeba75ce29fab32e6a0e2ab9cb23 assets/borealis/models/block/bone_dry_wood.json
 aaccb30b8b9f0a316ced85b7a85e0897d06f735f assets/borealis/models/block/bone_dry_wood_bricks.json
@@ -183,6 +187,7 @@ d8b2d9643c967635a232a332fe57a0962d3caa96 assets/borealis/models/block/caramelize
 eafa74b20747429fdf04f17999bc3b5998c96757 assets/borealis/models/block/cinnabar.json
 e8f79e0f6ad5646434a0a9d7665a931e21128957 assets/borealis/models/block/cloud.json
 57790386b4d9d4b168f226acb9e3220fd90aea32 assets/borealis/models/block/cobalt_fluorite.json
+4c05f6038056d36ff1533ea95e159ef05b9d6e76 assets/borealis/models/block/cracked_alms.json
 c9143e110502f570017d6c751342bc85de4e06f9 assets/borealis/models/block/down_kyanite_arrow.json
 c9143e110502f570017d6c751342bc85de4e06f9 assets/borealis/models/block/east_kyanite_arrow.json
 78924c68a5e31b10be810150cd9426d9ef776d63 assets/borealis/models/block/frostfir_button.json

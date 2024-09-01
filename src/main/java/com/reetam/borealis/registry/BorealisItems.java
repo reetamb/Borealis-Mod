@@ -68,6 +68,7 @@ public class BorealisItems {
     public static final RegistryObject<FleeceItem> FLEECE = ITEMS.register("fleece", () -> new FleeceItem(new Item.Properties()));
 
     public static final RegistryObject<StandingAndWallBlockItem> WINTER_VIOLIN = ITEMS.register("winter_violin", () -> new StandingAndWallBlockItem(BorealisBlocks.WINTER_VIOLIN.get(), BorealisBlocks.WALL_WINTER_VIOLIN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistryObject<Item> ALMS_NUT = ITEMS.register("alms_nut", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).saturationMod(1.25F).build())));
     public static class Tabs {
 
         public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BorealisMod.MODID);

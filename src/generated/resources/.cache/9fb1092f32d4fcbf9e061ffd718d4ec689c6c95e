@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-26T20:27:28.143581	Recipes
+// 1.20.1	2024-08-29T15:08:40.3768299	Recipes
 75d1f0dce46736d1eea95fdf06a0eec7d3580a3e data/borealis/advancements/recipes/building_blocks/caramelized_boat.json
 6829e5c9d6eaaca1a14bca9bed859cdaf551fc0d data/borealis/advancements/recipes/building_blocks/caramelized_button.json
 5e0413b6fc919248f68ce2245422a93f4dbb2953 data/borealis/advancements/recipes/building_blocks/caramelized_door.json
@@ -12,6 +12,7 @@ bfcb73d15ea255462775d0f0fff689625886c147 data/borealis/advancements/recipes/buil
 91a56912b1d4ee7b7ed9ee786cadd7fffe1fb8b6 data/borealis/advancements/recipes/building_blocks/caramelized_stairs.json
 5c2d2c499c7eca861a4f23d83178fea013068908 data/borealis/advancements/recipes/building_blocks/caramelized_trapdoor.json
 c6de4342f4323bbd20962a8abf237c164113d1f7 data/borealis/advancements/recipes/building_blocks/caramelized_wood.json
+a491b2f90c450cf8e80e70bdadc46ae838d67d9e data/borealis/advancements/recipes/building_blocks/cracked_alms.json
 150a05c6ae942c66cb4910bef668a3593bb7048d data/borealis/advancements/recipes/building_blocks/crafting_table_from_petrified_planks.json
 bbbee481aaada7813a4b4443b1c99b281b184e4a data/borealis/advancements/recipes/building_blocks/slate_pillar_from_slate_stonecutting.json
 f9ca7b0f6b62dffbf8119cdf80ed676f7fbd2391 data/borealis/advancements/recipes/building_blocks/slate_tiles.json
@@ -50,6 +51,7 @@ f828088780478f240a8ebab3934d06772611d6d7 data/borealis/recipes/caramelized_sign.
 088cdfe448a08f90c131aa274f474fadb447fa53 data/borealis/recipes/caramelized_stairs.json
 b4080f93c449228d7c7eed2535eeeaee614a3056 data/borealis/recipes/caramelized_trapdoor.json
 b9ca6ab095d821b97ce49bd66e170cdd147d08ab data/borealis/recipes/caramelized_wood.json
+12eb38d26788ea0906aabd98b1a29b94db5d8451 data/borealis/recipes/cracked_alms.json
 b1d05f5d1f006a0c963536510ec8d07f5cf61aba data/borealis/recipes/crafting_table_from_petrified_planks.json
 da41c3eae2ae455b45876f0de0c5241b26ce9ecb data/borealis/recipes/hat.json
 37ba84822e40601195a504511b696f14e5aa5c05 data/borealis/recipes/slate_pillar_from_slate_stonecutting.json

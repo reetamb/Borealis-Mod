@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-27T19:34:29.7882083	Registries
+// 1.20.1	2024-08-29T15:22:31.9050579	Registries
 36285c724c6ff5adb527abf7bc15547f52164088 data/borealis/dimension/borealis.json
 a83d32a6b10526645b91faf9a8247e4439ba3ad2 data/borealis/dimension_type/borealis.json
 ac73559f34a79a7d7c8a751f1e892e6a53d1185d data/borealis/worldgen/biome/boreal_tundra.json
@@ -9,9 +9,9 @@ caa6d290f0f540e7b25d32fff6e956a94d7e49e2 data/borealis/worldgen/biome/brumal_gro
 698ec866decc658930f6cb060c7737ea110103b2 data/borealis/worldgen/biome/ravaged_glacier.json
 63fb52a343a91e32707778b95822ee69d54341a7 data/borealis/worldgen/biome/saccharine_hills.json
 99639b5015e08c48d5e4f27429bf9ed4e0ee1b88 data/borealis/worldgen/configured_feature/brumal_tree.json
-20ad7b505db8ebbad81385844216bb9a8bad8146 data/borealis/worldgen/configured_feature/brumal_tree_1.json
-33749b0b0791ae15436e960ddbe8c0ee6f7fbced data/borealis/worldgen/configured_feature/brumal_tree_2.json
-4fad06ef4de55ca5517e2a0cdb666befc4dc6b73 data/borealis/worldgen/configured_feature/brumal_tree_3.json
+65038a51a0f0b8245ac5999e9b0195de4590f679 data/borealis/worldgen/configured_feature/brumal_tree_1.json
+1359fe68a1584efbe6f4ebd11ac3bfe9ce56d544 data/borealis/worldgen/configured_feature/brumal_tree_2.json
+becc6eae19d992baa5425060575a83249a343ae2 data/borealis/worldgen/configured_feature/brumal_tree_3.json
 969aa28ba2534dba2d19741f40f5741316a40de1 data/borealis/worldgen/configured_feature/brumal_tree_4.json
 ac8c0e59deaace3456853fcf7571b7b6ed476a45 data/borealis/worldgen/configured_feature/cloud.json
 d90dc99f7d9e6aae9681d4f7412ae92bd7985658 data/borealis/worldgen/configured_feature/cotton_tree.json

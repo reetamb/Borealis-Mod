@@ -1,4 +1,6 @@
-// 1.20.1	2024-08-24T19:45:33.7589704	Borealis Item Models
+// 1.20.1	2024-08-29T14:32:24.5846965	Borealis Item Models
+5fd295104ee66c7b9091ab57fa73d2739d66df02 assets/borealis/models/item/alms.json
+37a211cdf9f551a56fbf6af22f3a70dbb05b0519 assets/borealis/models/item/alms_nut.json
 75aa80c42a220cf518df2584d1c3a390019b4c46 assets/borealis/models/item/blue_amber.json
 1e9281e7978034fa3037635bd94f6bcde7c2b4dd assets/borealis/models/item/bone_dry_wood.json
 116c16c50cdc1f9d104082e6e3ee17585d65f205 assets/borealis/models/item/bone_dry_wood_bricks.json
@@ -35,6 +37,7 @@ e946e9305a9d26e91cb5db4ab4eae7211666a5d3 assets/borealis/models/item/caramelized
 72f178fab5689d321dc84bda82cb03b3bf38b0d5 assets/borealis/models/item/caramelized_wood.json
 83a70a8e37d5742a5933222224efbde8ad07e170 assets/borealis/models/item/cinnabar.json
 361608f2d88c42445f7354ca56320d63d17aa7d9 assets/borealis/models/item/cloud.json
+5b20bb71a44b510352d07d60bed0ff41cc7ea192 assets/borealis/models/item/cracked_alms.json
 a02e613fe799dd336241f8020821f307a4062c8c assets/borealis/models/item/fleece.json
 830d28f49e8e4f220f645d6f326e42c810d2ca56 assets/borealis/models/item/fluorite.json
 5896b09bb59f94b05cd945388e260d8dcf1666de assets/borealis/models/item/frostfir_boat.json

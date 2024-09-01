@@ -20,6 +20,10 @@
         "probability": 0.3
       },
       {
+        "type": "borealis:tree_nut_decorator",
+        "probability": 0.025
+      },
+      {
         "type": "borealis:undergrowth_decorator",
         "block_provider": {
           "type": "minecraft:weighted_state_provider",

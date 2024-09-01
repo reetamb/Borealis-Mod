@@ -3,14 +3,12 @@ package com.reetam.borealis.registry.world;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.world.tree.*;
-import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -29,12 +27,10 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 
 import java.util.List;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 public class BorealisConfiguredFeatures {
 
@@ -93,6 +89,7 @@ public class BorealisConfiguredFeatures {
                         new EpiphyteDecorator(0.25F),
                         new RootDecorator(0.15F, with(BorealisBlocks.WINTER_VIOLA)),
                         new LogDecorator(0.3F, with(BorealisBlocks.WALL_WINTER_VIOLIN)),
+                        new TreeNutDecorator(0.025F),
                         undergrowth()
                 )).ignoreVines().build());
         register(context, BRUMAL_TREE_2, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -105,6 +102,7 @@ public class BorealisConfiguredFeatures {
                         new EpiphyteDecorator(0.25F),
                         new RootDecorator(0.15F, with(BorealisBlocks.WINTER_VIOLA)),
                         new LogDecorator(0.3F, with(BorealisBlocks.WALL_WINTER_VIOLIN)),
+                        new TreeNutDecorator(0.025F),
                         undergrowth()
                 )).ignoreVines().build());
         register(context, BRUMAL_TREE_3, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -116,6 +114,7 @@ public class BorealisConfiguredFeatures {
                 .decorators(List.of(
                         new EpiphyteDecorator(0.25F),
                         new LogDecorator(0.3F, with(BorealisBlocks.WALL_WINTER_VIOLIN)),
+                        new TreeNutDecorator(0.025F),
                         undergrowth()
                 )).ignoreVines().build());
         register(context, BRUMAL_TREE_4, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(

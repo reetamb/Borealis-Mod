@@ -1,5 +1,6 @@
 package com.reetam.borealis.data;
 
+import com.reetam.borealis.block.AlmsCrackedBlock;
 import com.reetam.borealis.block.KyaniteArrowBlock;
 import com.reetam.borealis.data.provider.BorealisLootTableProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
@@ -110,6 +111,10 @@ public class BorealisLootTables extends LootTableProvider {
                     drop(BorealisBlocks.WINTER_VIOLIN.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_VIOLIN.get())),
                     drop(BorealisBlocks.WALL_WINTER_VIOLIN.get(), createShearsOnlyDrop(BorealisBlocks.WALL_WINTER_VIOLIN.get())),
                     drop(BorealisBlocks.WINTER_CELLO.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_CELLO.get())),
+//                    drop(BorealisBlocks.CRACKED_ALMS.get(), dropWithBooleanState(
+//                            BorealisItems.ALMS_NUT.get(),
+//                            BorealisBlocks.CRACKED_ALMS.get(),
+//                            AlmsCrackedBlock.EMPTY, true)),
 
                     drop(BorealisBlocks.EMBEDDED_KYANITE_ARROW.get(), dropWithBooleanState(
                             BorealisItems.KYANITE_CRYSTAL.get(),

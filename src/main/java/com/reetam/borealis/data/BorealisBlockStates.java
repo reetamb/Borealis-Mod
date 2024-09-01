@@ -1,16 +1,15 @@
 package com.reetam.borealis.data;
 
-import com.reetam.borealis.block.FluoriteBlock;
-import com.reetam.borealis.block.KyaniteArrowBlock;
-import com.reetam.borealis.block.PermafrostBlock;
-import com.reetam.borealis.block.ShadedDoublePlantBlock;
+import com.reetam.borealis.block.*;
 import com.reetam.borealis.block.property.PermafrostCover;
 import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 
 public class BorealisBlockStates extends BorealisBlockStateProvider {
 
@@ -18,7 +17,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         super(generator, fileHelper);
     }
 
-    @Override
+    @Override @NotNull
     public String getName() {
         return "Borealis Block States";
     }
@@ -119,6 +118,11 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         getVariantBuilder(BorealisBlocks.WINTER_CELLO.get())
                 .partialState().with(ShadedDoublePlantBlock.HALF, DoubleBlockHalf.UPPER).modelForState().modelFile(this.models().cross("winter_cello_top", texture("winter_cello_top"))).addModel()
                 .partialState().with(ShadedDoublePlantBlock.HALF, DoubleBlockHalf.LOWER).modelForState().modelFile(this.models().cross("winter_cello_bottom", texture("winter_cello_bottom"))).addModel();
+        getVariantBuilder(BorealisBlocks.ALMS.get())
+                .forAllStates((test) -> ConfiguredModel.builder().modelFile(this.models().cube("alms", texture("alms_top"), texture("alms_top"), texture("alms_end"), texture("alms_end"), texture("alms_side"), texture("alms_side")).texture("particle", texture("alms_side"))).build());
+        getVariantBuilder(BorealisBlocks.CRACKED_ALMS.get())
+                .partialState().with(AlmsCrackedBlock.EMPTY, false).modelForState().modelFile(this.models().cube("cracked_alms", texture("alms_top"), texture("cracked_alms_top"), texture("alms_end"), texture("alms_end"), texture("cracked_alms_side"), texture("cracked_alms_side")).texture("particle", texture("alms_side"))).addModel()
+                .partialState().with(AlmsCrackedBlock.EMPTY, true).modelForState().modelFile(this.models().cube("alms_shell", texture("alms_top"), texture("alms_shell_top"), texture("alms_end"), texture("alms_end"), texture("alms_shell_side"), texture("alms_shell_side")).texture("particle", texture("alms_side"))).addModel();
 
         block(BorealisBlocks.LICHEN_BLOCK);
         block(BorealisBlocks.CINNABAR);

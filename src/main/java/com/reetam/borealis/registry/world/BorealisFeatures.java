@@ -55,6 +55,7 @@ public class BorealisFeatures {
         public static final RegistryObject<TreeDecoratorType<UndergrowthDecorator>> UNDERGROWTH_DECORATOR = TREE_DECORATORS.register("undergrowth_decorator", () -> new TreeDecoratorType<>(UndergrowthDecorator.CODEC));
         public static final RegistryObject<TreeDecoratorType<LogDecorator>> LOG_DECORATOR = TREE_DECORATORS.register("log_decorator", () -> new TreeDecoratorType<>(LogDecorator.CODEC));
         public static final RegistryObject<TreeDecoratorType<RootDecorator>> ROOT_DECORATOR = TREE_DECORATORS.register("root_decorator", () -> new TreeDecoratorType<>(RootDecorator.CODEC));
+        public static final RegistryObject<TreeDecoratorType<TreeNutDecorator>> TREE_NUT_DECORATOR = TREE_DECORATORS.register("tree_nut_decorator", () -> new TreeDecoratorType<>(TreeNutDecorator.CODEC));
 
     }
 }

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "borealis:block/alms_top",
+    "east": "borealis:block/alms_shell_side",
+    "north": "borealis:block/alms_end",
+    "particle": "borealis:block/alms_side",
+    "south": "borealis:block/alms_end",
+    "up": "borealis:block/alms_shell_top",
+    "west": "borealis:block/alms_shell_side"
+  }
+}
