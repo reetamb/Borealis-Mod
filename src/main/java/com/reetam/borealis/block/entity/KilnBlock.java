@@ -1,5 +1,6 @@
 package com.reetam.borealis.block.entity;
 
+import com.mojang.serialization.MapCodec;
 import com.reetam.borealis.registry.BorealisBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -20,6 +21,12 @@ public class KilnBlock extends AbstractFurnaceBlock {
     public KilnBlock(BlockBehaviour.Properties properties) {
         super(properties);
     }
+
+    @Override
+    protected MapCodec<? extends AbstractFurnaceBlock> codec() {
+        return simpleCodec(KilnBlock::new);
+    }
+
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new KilnBlockEntity(pPos, pState);
     }

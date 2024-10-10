@@ -16,6 +16,7 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.FlyingAnimal;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -34,10 +35,9 @@ public class HummingbirdEntity extends Animal implements FlyingAnimal {
         this.moveControl = new HummingbirdEntity.MoveHelperController(this);
         this.setNoGravity(true);
     }
-
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
-        return super.finalizeSpawn(level, difficulty, reason, spawnData, dataTag);
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pSpawnType, @org.jetbrains.annotations.Nullable SpawnGroupData pSpawnGroupData) {
+        return super.finalizeSpawn(pLevel, pDifficulty, pSpawnType, pSpawnGroupData);
     }
 
     @Override
@@ -77,6 +77,11 @@ public class HummingbirdEntity extends Animal implements FlyingAnimal {
     @Override
     public void aiStep() {
         super.aiStep();
+    }
+
+    @Override
+    public boolean isFood(ItemStack pStack) {
+        return false;
     }
 
     @Override
@@ -194,16 +199,16 @@ public class HummingbirdEntity extends Animal implements FlyingAnimal {
         public void tick() {
             if (this.parentEntity.getTarget() == null) {
                 Vec3 vector3d = this.parentEntity.getDeltaMovement();
-                this.parentEntity.yRot = -((float)Math.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
-                this.parentEntity.yBodyRot = this.parentEntity.yRot;
+                this.parentEntity.setYRot(-((float)Math.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI));
+                this.parentEntity.yBodyRot = this.parentEntity.getYRot();
             } else {
                 LivingEntity livingentity = this.parentEntity.getTarget();
                 double d0 = 64.0D;
                 if (livingentity.distanceToSqr(this.parentEntity) < 4096.0D) {
                     double d1 = livingentity.getX() - this.parentEntity.getX();
                     double d2 = livingentity.getZ() - this.parentEntity.getZ();
-                    this.parentEntity.yRot = -((float)Math.atan2(d1, d2)) * (180F / (float)Math.PI);
-                    this.parentEntity.yBodyRot = this.parentEntity.yRot;
+                    this.parentEntity.setYRot(-((float)Math.atan2(d1, d2)) * (180F / (float)Math.PI));
+                    this.parentEntity.yBodyRot = this.parentEntity.getYRot();
                 }
             }
 

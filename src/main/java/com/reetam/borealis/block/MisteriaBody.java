@@ -1,5 +1,6 @@
 package com.reetam.borealis.block;
 
+import com.mojang.serialization.MapCodec;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
@@ -17,5 +18,10 @@ public class MisteriaBody extends GrowingPlantBodyBlock {
 
     protected GrowingPlantHeadBlock getHeadBlock() {
         return BorealisBlocks.MISTERIA_HEAD.get();
+    }
+
+    @Override
+    protected MapCodec<? extends GrowingPlantBodyBlock> codec() {
+        return simpleCodec(MisteriaBody::new);
     }
 }

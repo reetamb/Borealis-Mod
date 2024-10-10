@@ -1,14 +1,14 @@
 package com.reetam.borealis.data.provider;
 
 import com.reetam.borealis.BorealisMod;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.function.Supplier;
 
@@ -19,13 +19,13 @@ public abstract class BorealisItemModelProvider extends ItemModelProvider {
     }
 
     private ResourceLocation key(Block block) {
-        return ForgeRegistries.BLOCKS.getKey(block);
+        return BuiltInRegistries.BLOCK.getKey(block);
     }
     private String blockName(Supplier<? extends Block> block) {
         return this.key(block.get()).getPath();
     }    
     private ResourceLocation key(Item item) {
-        return ForgeRegistries.ITEMS.getKey(item);
+        return BuiltInRegistries.ITEM.getKey(item);
     }
     private String name(Supplier<? extends Item> item) {
         return this.key(item.get()).getPath();

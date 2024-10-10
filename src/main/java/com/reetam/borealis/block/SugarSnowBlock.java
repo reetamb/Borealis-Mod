@@ -3,6 +3,7 @@ package com.reetam.borealis.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
@@ -13,8 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.Random;
 
 public class SugarSnowBlock extends Block {
     private final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
@@ -44,12 +43,12 @@ public class SugarSnowBlock extends Block {
         return true;
     }
 
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
-        if (level.getBrightness(LightLayer.BLOCK, pos) > 11) {
-            dropResources(state, level, pos);
-            level.removeBlock(pos, false);
+    @Override
+    protected void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pLevel.getBrightness(LightLayer.BLOCK, pPos) > 11) {
+            dropResources(pState, pLevel, pPos);
+            pLevel.removeBlock(pPos, false);
         }
-
     }
 
     @Override

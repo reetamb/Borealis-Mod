@@ -1,72 +1,58 @@
 package com.reetam.borealis.data;
 
-import com.reetam.borealis.block.AlmsCrackedBlock;
 import com.reetam.borealis.block.KyaniteArrowBlock;
 import com.reetam.borealis.data.provider.BorealisLootTableProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisItems;
-import net.minecraft.advancements.critereon.EnchantmentPredicate;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
-import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
+import net.minecraft.world.level.storage.loot.functions.EnchantedCountIncreaseFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.predicates.*;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BorealisLootTables extends LootTableProvider {
 
-    private static final LootItemCondition.Builder SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))));
-    private static final LootItemCondition.Builder SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
-    private static final LootItemCondition.Builder SILK_TOUCH_OR_SHEARS = SHEARS.or(SILK_TOUCH);
     private static final float[] DEFAULT_SAPLING_DROP_RATES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
 
-    public BorealisLootTables(PackOutput output) {
+    public BorealisLootTables(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
         super(output, Set.of(), List.of(
-                new LootTableProvider.SubProviderEntry(() -> new Blocks(Set.of(BorealisItems.HAILSTONE.get()), FeatureFlags.REGISTRY.allFlags()), LootContextParamSets.BLOCK),
-                new LootTableProvider.SubProviderEntry(() -> new Entities(FeatureFlags.REGISTRY.allFlags()), LootContextParamSets.ENTITY)
-        ));
-    }
-
-
-    @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker) {
-
+                new SubProviderEntry(Blocks::new, LootContextParamSets.BLOCK),
+                new SubProviderEntry(Entities::new, LootContextParamSets.ENTITY)
+        ), provider);
     }
 
 
     public static class Blocks extends BorealisLootTableProvider {
-        protected Blocks(Set<Item> explosionResistant, FeatureFlagSet enabledFeatures) {
-            super(explosionResistant, enabledFeatures);
+        protected Blocks(HolderLookup.Provider provider) {
+            super(provider);
         }
 
         @Override
@@ -108,8 +94,8 @@ public class BorealisLootTables extends LootTableProvider {
                     drop(BorealisBlocks.MISTERIA_HEAD.get(), createShearsOnlyDrop(BorealisBlocks.MISTERIA_HEAD.get())),
                     drop(BorealisBlocks.BRUMELIAD.get(), createShearsOnlyDrop(BorealisBlocks.BRUMELIAD.get())),
                     drop(BorealisBlocks.WINTER_VIOLA.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_VIOLA.get())),
-                    drop(BorealisBlocks.WINTER_VIOLIN.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_VIOLIN.get())),
-                    drop(BorealisBlocks.WALL_WINTER_VIOLIN.get(), createShearsOnlyDrop(BorealisBlocks.WALL_WINTER_VIOLIN.get())),
+                    drop(BorealisBlocks.WINTER_FIDDLE.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_FIDDLE.get())),
+                    drop(BorealisBlocks.WALL_WINTER_FIDDLE.get(), createShearsOnlyDrop(BorealisBlocks.WALL_WINTER_FIDDLE.get())),
                     drop(BorealisBlocks.WINTER_CELLO.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_CELLO.get())),
 //                    drop(BorealisBlocks.CRACKED_ALMS.get(), dropWithBooleanState(
 //                            BorealisItems.ALMS_NUT.get(),
@@ -152,8 +138,8 @@ public class BorealisLootTables extends LootTableProvider {
 
     public static class Entities extends EntityLootSubProvider {
 
-        protected Entities(FeatureFlagSet enabledFeatures) {
-            super(enabledFeatures);
+        protected Entities(HolderLookup.Provider provider) {
+            super(FeatureFlags.REGISTRY.allFlags(), provider);
         }
         @Override
         public void generate() {
@@ -163,7 +149,7 @@ public class BorealisLootTables extends LootTableProvider {
                             (LootPool.lootPool().setRolls(ConstantValue.exactly(1))
                                     .add(LootItem.lootTableItem(Items.FEATHER)
                                             .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))
-                                            .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)))
+                                            .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F)))
                                             .when(LootItemKilledByPlayerCondition.killedByPlayer()))));
             this.add(
                     BorealisEntities.TAKAHE.get(),
@@ -171,9 +157,9 @@ public class BorealisLootTables extends LootTableProvider {
                             (LootPool.lootPool().setRolls(ConstantValue.exactly(1))
                                     .add(LootItem.lootTableItem(Items.FEATHER)
                                             .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))
-                                            .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))
+                                            .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))
                                     .add(LootItem.lootTableItem(Items.CHICKEN)
-                                        .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))
+                                        .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))
                             ));
             this.add(
                     BorealisEntities.THRUSHER.get(),
@@ -181,9 +167,9 @@ public class BorealisLootTables extends LootTableProvider {
                             (LootPool.lootPool().setRolls(ConstantValue.exactly(1))
                                     .add(LootItem.lootTableItem(Items.FEATHER)
                                             .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F)))
-                                            .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))
+                                            .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))
                                     .add(LootItem.lootTableItem(Items.CHICKEN)
-                                            .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(1.0F, 2.0F))))
+                                            .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(1.0F, 2.0F))))
             ));
         }
 

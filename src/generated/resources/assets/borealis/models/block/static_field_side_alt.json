@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/template_glass_pane_side_alt",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "edge": "borealis:block/static_field",
-    "pane": "borealis:block/static_field"
-  }
-}

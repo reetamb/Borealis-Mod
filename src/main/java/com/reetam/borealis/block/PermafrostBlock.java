@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraftforge.common.IPlantable;
+import net.neoforged.neoforge.common.util.TriState;
 
 public class PermafrostBlock extends Block {
     public static final EnumProperty<PermafrostCover> COVER = EnumProperty.create("cover", PermafrostCover.class);
@@ -22,8 +22,8 @@ public class PermafrostBlock extends Block {
     }
 
     @Override
-    public boolean canSustainPlant(BlockState state, BlockGetter getter, BlockPos pos, Direction facing, IPlantable plantable) {
-        return true;
+    public TriState canSustainPlant(BlockState state, BlockGetter level, BlockPos soilPosition, Direction facing, BlockState plant) {
+        return TriState.TRUE;
     }
 
     @Override

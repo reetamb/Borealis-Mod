@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 public class SlushBlock extends LiquidBlock {
 
     public SlushBlock(Supplier<? extends FlowingFluid> fluid, Properties properties) {
-        super(fluid, properties.noCollission().strength(100F).noLootTable());
+        super(fluid.get(), properties.noCollission().strength(100F).noLootTable());
     }
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {

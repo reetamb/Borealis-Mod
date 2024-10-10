@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_left",
-  "textures": {
-    "bottom": "borealis:block/brumal_door_bottom",
-    "top": "borealis:block/brumal_door_top"
-  }
-}

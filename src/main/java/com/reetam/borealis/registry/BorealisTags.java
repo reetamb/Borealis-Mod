@@ -18,7 +18,7 @@ public class BorealisTags {
         public static final TagKey<Item> CARAMELIZED_LOGS = tag("caramelized_logs");
 
         private static TagKey<Item> tag(String name) {
-            return ItemTags.create(new ResourceLocation(BorealisMod.MODID, name));
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
         }
     }
 
@@ -45,7 +45,7 @@ public class BorealisTags {
         public static final TagKey<Block> BLOCKSET_CARAMELIZED = tag("blockset_caramelized");
 
         private static TagKey<Block> tag(String name) {
-            return BlockTags.create(new ResourceLocation(BorealisMod.MODID, name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
         }
     }
 }

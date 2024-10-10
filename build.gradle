@@ -1,131 +1,132 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-        maven { url='https://repo.spongepowered.org/repository/maven-public/' }
-        maven { url = 'https://maven.parchmentmc.org' }
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7.+'
-        classpath 'org.parchmentmc:librarian:1.+'
-    }
+plugins {
+    id 'java-library'
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.neoforged.gradle.userdev' version '7.0.145'
 }
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
-apply plugin: 'org.spongepowered.mixin'
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
-version = project.borealis_version
-group = 'com.reetam.borealis'
-archivesBaseName = 'borealis-'+project.minecraft_version
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
+}
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+version = mod_version
+group = mod_group_id
+
+repositories {
+    mavenLocal()
+}
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 minecraft {
-    mappings channel: 'parchment', version: project.parchment_version+'-'+project.minecraft_version
-
-    runs {
-        client {
-            workingDirectory project.file('run')
-
-            arg "-mixin.config=borealis.mixins.json"
-
-            //property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            //property 'forge.logging.console.level', 'debug'
-
-            mods {
-                borealis {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-
-            arg "-mixin.config=borealis.mixins.json"
-
-            //property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            //property 'forge.logging.console.level', 'debug'
-
-            mods {
-                borealis {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        data {
-            workingDirectory project.file('run')
-
-            //property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            //property 'forge.logging.console.level', 'debug'
-
-            args '--mod', 'borealis', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing', file('src/generated/resources/')
-
-            environment 'target', 'fmluserdevdata'
-
-            mods {
-                borealis {
-                    source sourceSets.main
-                }
-            }
-        }
+    accessTransformers {
+        file('src/main/resources/META-INF/accesstransformer.cfg')
     }
-
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 }
 
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
+runs {
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
+
+        modSource project.sourceSets.main
+    }
+
+    client {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
+
+    server {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+        programArgument '--nogui'
+    }
+
+    gameTestServer {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
+
+    data {
+        programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+    }
+}
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
 }
 
 dependencies {
+    implementation "net.neoforged:neoforge:${neo_version}"
 
-    minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
+    // Example optional mod dependency with JEI
+    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
+    // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
+    // compileOnly "mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}"
+    // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
+    // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
 
-    annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
+    // Example mod dependency using a mod jar from ./libs with a flat dir repository
+    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
+    // The group id is ignored when searching -- in this case, it is "blank"
+    // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
+
+    // Example mod dependency using a file as dependency
+    // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
+
+    // Example project dependency using a sister or child project:
+    // implementation project(":myproject")
+
+    // For more info:
+    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
+    // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
 
-mixin {
-    add sourceSets.main, "borealis.refmap.json"
-    config 'borealis.mixins.json'
-}
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description
+    ]
+    inputs.properties replaceProperties
 
-jar {
-    manifest {
-        attributes([
-                "Specification-Title": "borealis",
-                "Specification-Vendor": "reetam",
-                "Specification-Version": "1", // We are version 1 of ourselves
-                "Implementation-Title": project.name,
-                "Implementation-Version": "${version}",
-                "Implementation-Vendor" :"reetam",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                "MixinConfigs": "borealis.mixins.json"
-        ])
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
     }
 }
 
-jar.finalizedBy('reobfJar')
-
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            artifact jar
+        register('mavenJava', MavenPublication) {
+            from components.java
         }
     }
     repositories {
         maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+            url "file://${project.projectDir}/repo"
         }
     }
 }
 
-repositories {
-    maven {
-        url='https://repo.spongepowered.org/repository/maven-public/'
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
     }
 }

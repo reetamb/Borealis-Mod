@@ -1,14 +1,14 @@
 package com.reetam.borealis.data.provider;
 
 import com.reetam.borealis.BorealisMod;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.function.Supplier;
 
@@ -47,7 +47,7 @@ public abstract class BorealisBlockStateProvider extends BlockStateProvider {
     }
 
     private ResourceLocation key(Block block) {
-        return ForgeRegistries.BLOCKS.getKey(block);
+        return BuiltInRegistries.BLOCK.getKey(block);
     }
     private String name(Supplier<? extends Block> block) {
         return this.key(block.get()).getPath();

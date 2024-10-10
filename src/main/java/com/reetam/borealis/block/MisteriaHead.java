@@ -1,5 +1,6 @@
 package com.reetam.borealis.block;
 
+import com.mojang.serialization.MapCodec;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -21,6 +22,11 @@ public class MisteriaHead extends GrowingPlantHeadBlock {
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockState aboveBlock = pLevel.getBlockState(pPos.relative(this.growthDirection.getOpposite()));
         return aboveBlock.is(BorealisBlocks.MISTERIA_BODY.get()) || aboveBlock.is(BorealisBlocks.MISTERIA_HEAD.get()) || aboveBlock.is(BlockTags.LEAVES);
+    }
+
+    @Override
+    protected MapCodec<? extends GrowingPlantHeadBlock> codec() {
+        return simpleCodec(MisteriaHead::new);
     }
 
     @Override

@@ -8,13 +8,13 @@ import com.reetam.borealis.entity.renderer.layer.TakaheHatLayer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class TakaheRenderer extends MobRenderer<TakaheEntity, TakaheModel<TakaheEntity>> {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation(BorealisMod.MODID, "textures/entity/takahe.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "textures/entity/takahe.png");
 
     public TakaheRenderer(EntityRendererProvider.Context context) {
         super(context, new TakaheModel<>(context.bakeLayer(TakaheModel.LAYER_LOCATION)), 0.5F);

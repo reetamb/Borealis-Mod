@@ -4,22 +4,18 @@ import com.reetam.borealis.BorealisMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
-public class Grower extends AbstractTreeGrower {
-    private final String name;
+import java.util.Optional;
 
-    private Grower(String nameIn) {
-        name = nameIn;
+public class Grower {
+
+    public static TreeGrower of(String nameIn) {
+        return new TreeGrower(nameIn, Optional.empty(), Optional.of(getConfiguredFeature(nameIn)), Optional.empty());
     }
 
-    public static AbstractTreeGrower of(String nameIn) {
-        return new Grower(nameIn);
-    }
-
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource randomSource, boolean b) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(BorealisMod.MODID, name + "_tree"));
+    protected static ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(String name) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name + "_tree"));
     }
 }

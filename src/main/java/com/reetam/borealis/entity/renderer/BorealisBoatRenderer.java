@@ -16,11 +16,14 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.joml.Quaternionf;
 
 import java.util.Map;
 import java.util.stream.Stream;
 
+@OnlyIn(Dist.CLIENT)
 public class BorealisBoatRenderer extends EntityRenderer<BorealisBoatEntity> {
     
     private final Map<BorealisBoatEntity.Type, Pair<ResourceLocation, BoatModel>> boatResources;
@@ -29,11 +32,11 @@ public class BorealisBoatRenderer extends EntityRenderer<BorealisBoatEntity> {
         super(renderContext);
         this.shadowRadius = 0.8F;
         this.boatResources = Stream.of(BorealisBoatEntity.Type.values()).collect(ImmutableMap.toImmutableMap((boatType) -> boatType,
-                (boatType) -> Pair.of(new ResourceLocation(BorealisMod.MODID, "textures/entity/boats/" + boatType.getName() + ".png"), new BoatModel(renderContext.bakeLayer(boatLayer(boatType))))));
+                (boatType) -> Pair.of(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "textures/entity/boats/" + boatType.getName() + ".png"), new BoatModel(renderContext.bakeLayer(boatLayer(boatType))))));
     }
 
     public static ModelLayerLocation boatLayer(BorealisBoatEntity.Type boatType) {
-        return new ModelLayerLocation(new ResourceLocation(BorealisMod.MODID, "boats/" + boatType.getName()), "main");
+        return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "boats/" + boatType.getName()), "main");
     }
 
     @Override
@@ -63,7 +66,7 @@ public class BorealisBoatRenderer extends EntityRenderer<BorealisBoatEntity> {
         pMatrixStack.mulPose(Axis.YP.rotationDegrees(90.0F));
         boatmodel.setupAnim(pEntity, pPartialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
         VertexConsumer vertexconsumer = pBuffer.getBuffer(boatmodel.renderType(resourcelocation));
-        boatmodel.renderToBuffer(pMatrixStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        boatmodel.renderToBuffer(pMatrixStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY);
         if (!pEntity.isUnderWater()) {
             VertexConsumer vertexconsumer1 = pBuffer.getBuffer(RenderType.waterMask());
             boatmodel.waterPatch().render(pMatrixStack, vertexconsumer1, pPackedLight, OverlayTexture.NO_OVERLAY);

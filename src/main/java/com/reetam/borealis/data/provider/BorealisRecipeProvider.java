@@ -1,6 +1,7 @@
 package com.reetam.borealis.data.provider;
 
 import com.reetam.borealis.BorealisMod;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -10,17 +11,18 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
-import net.minecraftforge.common.Tags;
+import net.neoforged.neoforge.common.Tags;
+
 import java.util.ArrayList;
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
 public abstract class BorealisRecipeProvider extends RecipeProvider {
-    public BorealisRecipeProvider(DataGenerator generator) {
-        super(generator.getPackOutput());
+    public BorealisRecipeProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> provider) {
+        super(generator.getPackOutput(), provider);
     }
 
-    public ArrayList<SingleItemRecipeBuilder> bulkStonecutting(Consumer<FinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Block[] outputs) {
+    public ArrayList<SingleItemRecipeBuilder> bulkStonecutting(RecipeOutput consumer, Supplier<? extends Block> stoneIn, Block[] outputs) {
         ArrayList<SingleItemRecipeBuilder> recipes = new ArrayList<>();
         for (Block output : outputs) {
             SingleItemRecipeBuilder recipe = SingleItemRecipeBuilder.stonecutting(
@@ -142,7 +144,7 @@ public abstract class BorealisRecipeProvider extends RecipeProvider {
     }
 
     protected ResourceLocation name(String name) {
-        return new ResourceLocation(BorealisMod.MODID, name);
+        return ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name);
     }
 
     protected String name(Supplier<? extends ItemLike> block) {

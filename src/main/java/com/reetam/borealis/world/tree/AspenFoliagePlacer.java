@@ -1,6 +1,7 @@
 package com.reetam.borealis.world.tree;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.world.BorealisFeatures;
 import net.minecraft.core.BlockPos;
@@ -12,7 +13,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
 public class AspenFoliagePlacer extends FoliagePlacer {
-    public static final Codec<AspenFoliagePlacer> CODEC = RecordCodecBuilder.create((instance) ->
+    public static final MapCodec<AspenFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec((instance) ->
             foliagePlacerParts(instance).and(IntProvider.codec(0, 16)
                     .fieldOf("trunk_height")
                     .forGetter((placer) -> placer.trunkHeight))

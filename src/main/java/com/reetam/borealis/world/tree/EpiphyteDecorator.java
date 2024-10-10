@@ -1,6 +1,8 @@
 package com.reetam.borealis.world.tree;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.world.BorealisFeatures;
 import net.minecraft.core.BlockPos;
@@ -14,7 +16,10 @@ import java.util.function.Predicate;
 
 public class EpiphyteDecorator extends TreeDecorator {
 
-    public static final Codec<EpiphyteDecorator> CODEC = Codec.floatRange(0.0F, 1.0F).fieldOf("probability").xmap(EpiphyteDecorator::new, (decorator) -> decorator.probability).codec();
+    public static final MapCodec<EpiphyteDecorator> CODEC = RecordCodecBuilder.mapCodec(
+            (instance) -> instance.group(
+                    Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter((decorator) -> decorator.probability)
+            ).apply(instance, EpiphyteDecorator::new));
     private final float probability;
 
     public EpiphyteDecorator(float probability) {
@@ -27,25 +32,18 @@ public class EpiphyteDecorator extends TreeDecorator {
     @Override
     public void place(Context context) {
         List<BlockPos> leaves = context.leaves();
-        LevelSimulatedReader level = context.level();
         RandomSource random = context.random();
-        for (BlockPos leafPos : leaves) {
-            if (context.isAir(leafPos.below()) && random.nextDouble() < this.probability) {
-                for (int x = -1; x <= 1; x++) {
-                    for (int z = -1; z <= 1; z++) {
-                        if (level.isStateAtPosition(leafPos.below().east(x).south(z), Predicate.isEqual(BorealisBlocks.MISTERIA_BODY.get().defaultBlockState()))) {
-                            return;
-                        }
-                    }
-                }
-                int height = random.nextInt(1, 4);
-                for (int i = 1; i < height; i++) {
-                    if (context.isAir(leafPos.below(i)) && context.isAir(leafPos.below(i + 1)) && !context.logs().contains(leafPos.below(i))) {
-                        context.setBlock(leafPos.below(i), BorealisBlocks.MISTERIA_BODY.get().defaultBlockState());
-                    }
-                }
-                context.setBlock(leafPos.below(height), BorealisBlocks.MISTERIA_HEAD.get().defaultBlockState());
+
+        leaves.forEach((leafPos) -> {
+            if (!leaves.contains(leafPos.below()) && random.nextDouble() < this.probability) {
+//                int height = random.nextInt(1, 4);
+//                for (int i = 1; i < height; i++) {
+//                    if (!leaves.contains(leafPos.below(i)) && !leaves.contains(leafPos.below(i + 1)) && !context.logs().contains(leafPos.below(i))) {
+//                        context.setBlock(leafPos.below(i), BorealisBlocks.MISTERIA_BODY.get().defaultBlockState());
+//                    }
+//                }
+                context.setBlock(leafPos.below(), BorealisBlocks.MISTERIA_HEAD.get().defaultBlockState());
             }
-        }
+        });
     }
 }

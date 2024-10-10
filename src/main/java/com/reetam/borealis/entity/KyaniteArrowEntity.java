@@ -1,6 +1,5 @@
 package com.reetam.borealis.entity;
 
-import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.KyaniteArrowBlock;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
@@ -8,10 +7,8 @@ import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -19,11 +16,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
-
-import javax.annotation.Nullable;
 
 public class KyaniteArrowEntity extends AbstractArrow {
     private BlockPos inBlockPos;
@@ -33,7 +26,7 @@ public class KyaniteArrowEntity extends AbstractArrow {
         super(pEntityType, pLevel);
     }
     protected KyaniteArrowEntity(Level pLevel, LivingEntity pShooter) {
-        super(BorealisEntities.KYANITE_ARROW.get(), pShooter.getX(), pShooter.getEyeY() - 0.10000000149011612, pShooter.getZ(), pLevel);
+        super(BorealisEntities.KYANITE_ARROW.get(), pShooter.getX(), pShooter.getEyeY() - 0.10000000149011612, pShooter.getZ(), pLevel, new ItemStack(BorealisItems.KYANITE_CRYSTAL.get(), 1), pShooter.getWeaponItem());
         this.setOwner(pShooter);
         if (pShooter instanceof Player) {
             this.pickup = AbstractArrow.Pickup.ALLOWED;
@@ -44,7 +37,7 @@ public class KyaniteArrowEntity extends AbstractArrow {
     }
 
     @Override
-    protected ItemStack getPickupItem() {
+    protected ItemStack getDefaultPickupItem() {
         return new ItemStack(BorealisItems.KYANITE_CRYSTAL.get(), 1);
     }
 
@@ -58,7 +51,7 @@ public class KyaniteArrowEntity extends AbstractArrow {
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         if (pCompound.contains("inBlockPos", 10)) {
-            this.inBlockPos = NbtUtils.readBlockPos(pCompound.getCompound("inBlockState"));
+            this.inBlockPos = NbtUtils.readBlockPos(pCompound.getCompound("inBlockState"), "embed_pos").orElse(null);
         }
         if (pCompound.contains("embedFace")) {
             this.embedFace = Direction.valueOf(pCompound.getString("embedFace"));

@@ -9,8 +9,8 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -103,7 +103,7 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisItems.SWEETWOOD_SIGN.get());
 
         //forge
-        tag(Tags.Items.COBBLESTONE)
+        tag(Tags.Items.COBBLESTONES)
                 .add(BorealisBlocks.SOAPSTONE.get().asItem())
                 .add(BorealisBlocks.SLATE.get().asItem());
         tag(Tags.Items.FENCE_GATES_WOODEN)
@@ -114,7 +114,7 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisBlocks.BRUMAL_FENCE.get().asItem())
                 .add(BorealisBlocks.FROSTFIR_FENCE.get().asItem())
                 .add(BorealisBlocks.SWEETWOOD_FENCE.get().asItem());
-        tag(Tags.Items.STONE)
+        tag(Tags.Items.STONES)
                 .add(BorealisBlocks.SOAPSTONE.get().asItem())
                 .add(BorealisBlocks.SLATE.get().asItem());
     }

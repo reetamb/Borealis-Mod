@@ -3,8 +3,8 @@ package com.reetam.borealis.data;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisSounds;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.common.data.SoundDefinitionsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
 
 public class BorealisSoundDefinitions extends SoundDefinitionsProvider {
     public BorealisSoundDefinitions(PackOutput output, ExistingFileHelper helper) {

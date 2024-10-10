@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 public class HotSpringWaterBlock extends LiquidBlock {
 
     public HotSpringWaterBlock(Supplier<? extends FlowingFluid> fluid, Properties properties) {
-        super(fluid, properties.noCollission().strength(100F).noLootTable());
+        super(fluid.get(), properties.noCollission().strength(100F).noLootTable());
     }
 
     @Override
@@ -33,7 +33,7 @@ public class HotSpringWaterBlock extends LiquidBlock {
             Collection<MobEffectInstance> activeEffects = livingEntityIn.getActiveEffects();
             ArrayList<MobEffectInstance> activeEffectsArray = new ArrayList<>(activeEffects);
             for (MobEffectInstance effectInstance : activeEffectsArray) {
-                if (effectInstance.getEffect().getCategory() == MobEffectCategory.HARMFUL) {
+                if (effectInstance.getEffect().value().getCategory() == MobEffectCategory.HARMFUL) {
                     livingEntityIn.removeEffect(effectInstance.getEffect());
                 }
             }

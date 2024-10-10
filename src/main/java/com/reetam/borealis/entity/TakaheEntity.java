@@ -15,6 +15,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 
@@ -51,9 +52,9 @@ public class TakaheEntity extends Animal {
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(HAT, false);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(HAT, false);
     }
     public boolean getHat() {
         return this.entityData.get(HAT);
@@ -68,6 +69,11 @@ public class TakaheEntity extends Animal {
     public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         this.setHat(compound.getBoolean("HasHat"));
+    }
+
+    @Override
+    public boolean isFood(ItemStack pStack) {
+        return false;
     }
 
     public static boolean checkTakaheSpawnRules(EntityType<? extends Animal> animal, LevelAccessor level, MobSpawnType reason, BlockPos pos, Random random) {

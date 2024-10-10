@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 public class QuicksilverBlock extends LiquidBlock {
 
     public QuicksilverBlock(Supplier<? extends FlowingFluid> fluid, Properties properties) {
-        super(fluid, properties.noCollission().strength(100F).noLootTable());
+        super(fluid.get(), properties.noCollission().strength(100F).noLootTable());
     }
 
     @Override

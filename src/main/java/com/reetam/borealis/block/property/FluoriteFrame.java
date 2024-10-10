@@ -15,7 +15,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -180,12 +179,12 @@ public class FluoriteFrame {
     }
 
     public static Vec3 getRelativePosition(BlockUtil.FoundRectangle pFoundRectangle, Direction.Axis pAxis, Vec3 pPos, EntityDimensions pEntityDimensions) {
-        double d0 = (double)pFoundRectangle.axis1Size - (double)pEntityDimensions.width;
-        double d1 = (double)pFoundRectangle.axis2Size - (double)pEntityDimensions.height;
+        double d0 = (double)pFoundRectangle.axis1Size - (double)pEntityDimensions.width();
+        double d1 = (double)pFoundRectangle.axis2Size - (double)pEntityDimensions.height();
         BlockPos blockpos = pFoundRectangle.minCorner;
         double d2;
         if (d0 > 0.0) {
-            float f = (float)blockpos.get(pAxis) + pEntityDimensions.width / 2.0F;
+            float f = (float)blockpos.get(pAxis) + pEntityDimensions.width() / 2.0F;
             d2 = Mth.clamp(Mth.inverseLerp(pPos.get(pAxis) - (double)f, 0.0, d0), 0.0, 1.0);
         } else {
             d2 = 0.5;
@@ -206,11 +205,11 @@ public class FluoriteFrame {
     }
 
     private static Vec3 findCollisionFreePosition(Vec3 pPos, ServerLevel pLevel, Entity pEntity, EntityDimensions pDimensions) {
-        if (!(pDimensions.width > 4.0F) && !(pDimensions.height > 4.0F)) {
-            double d0 = (double)pDimensions.height / 2.0;
+        if (!(pDimensions.width() > 4.0F) && !(pDimensions.height() > 4.0F)) {
+            double d0 = (double)pDimensions.height() / 2.0;
             Vec3 vec3 = pPos.add(0.0, d0, 0.0);
-            VoxelShape voxelshape = Shapes.create(AABB.ofSize(vec3, (double)pDimensions.width, 0.0, (double)pDimensions.width).expandTowards(0.0, 1.0, 0.0).inflate(1.0E-6));
-            Optional<Vec3> optional = pLevel.findFreePosition(pEntity, voxelshape, vec3, (double)pDimensions.width, (double)pDimensions.height, (double)pDimensions.width);
+            VoxelShape voxelshape = Shapes.create(AABB.ofSize(vec3, (double)pDimensions.width(), 0.0, (double)pDimensions.width()).expandTowards(0.0, 1.0, 0.0).inflate(1.0E-6));
+            Optional<Vec3> optional = pLevel.findFreePosition(pEntity, voxelshape, vec3, (double)pDimensions.width(), (double)pDimensions.height(), (double)pDimensions.width());
             Optional<Vec3> optional1 = optional.map((p_259019_) -> {
                 return p_259019_.subtract(0.0, d0, 0.0);
             });

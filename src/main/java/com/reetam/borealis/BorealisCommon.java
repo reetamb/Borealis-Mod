@@ -6,29 +6,33 @@ import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
+import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.fluids.FluidInteractionRegistry;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
+import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class BorealisCommon {
     public static void registerDispenserBehaviors() {
         final DefaultDispenseItemBehavior eggBehavior = new DefaultDispenseItemBehavior() {
             public ItemStack execute(BlockSource source, ItemStack stack) {
-                Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
-                EntityType<?> type = ((SpawnEggItem)stack.getItem()).getType(stack.getTag());
-                type.spawn(source.getLevel(), stack, null, source.getPos().relative(direction), MobSpawnType.DISPENSER, direction != Direction.UP, false);
+                Direction direction = source.state().getValue(DispenserBlock.FACING);
+                EntityType<?> type = ((SpawnEggItem)stack.getItem()).getType(stack);
+                type.spawn(source.level(), stack, null, source.pos().relative(direction), MobSpawnType.DISPENSER, direction != Direction.UP, false);
                 stack.shrink(1);
                 return stack;
             }
@@ -39,8 +43,8 @@ public class BorealisCommon {
 
             public ItemStack execute(BlockSource source, ItemStack stack) {
                 BucketItem bucketitem = (BucketItem)stack.getItem();
-                BlockPos blockpos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
-                Level level = source.getLevel();
+                BlockPos blockpos = source.pos().relative(source.state().getValue(DispenserBlock.FACING));
+                Level level = source.level();
                 if (bucketitem.emptyContents(null, level, blockpos, null)) {
                     bucketitem.checkExtraContent(null, level, stack, blockpos);
                     return new ItemStack(Items.BUCKET);
@@ -76,7 +80,7 @@ public class BorealisCommon {
         // quicksilver turns into cinnabar
         FluidInteractionRegistry.addInteraction(
                 BorealisFluids.QUICKSILVER_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
-                        ForgeMod.LAVA_TYPE.get(), BorealisBlocks.CINNABAR.get().defaultBlockState()));
+                        NeoForgeMod.LAVA_TYPE.value(), BorealisBlocks.CINNABAR.get().defaultBlockState()));
         FluidInteractionRegistry.addInteraction(
                 BorealisFluids.QUICKSILVER_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
                         BorealisFluids.SLUSH_TYPE.get(), BorealisBlocks.CINNABAR.get().defaultBlockState()));
@@ -85,7 +89,7 @@ public class BorealisCommon {
                         BorealisFluids.HOT_SPRING_WATER_TYPE.get(), BorealisBlocks.CINNABAR.get().defaultBlockState()));
         // lava and hot spring water makes pumice
         FluidInteractionRegistry.addInteraction(
-                ForgeMod.LAVA_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
+                NeoForgeMod.LAVA_TYPE.value(), new FluidInteractionRegistry.InteractionInformation(
                         BorealisFluids.HOT_SPRING_WATER_TYPE.get(), BorealisBlocks.PUMICE.get().defaultBlockState()));
         // slush makes ice
         FluidInteractionRegistry.addInteraction(
@@ -93,38 +97,34 @@ public class BorealisCommon {
                         BorealisFluids.HOT_SPRING_WATER_TYPE.get(), Blocks.PACKED_ICE.defaultBlockState()));
         FluidInteractionRegistry.addInteraction(
                 BorealisFluids.SLUSH_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
-                        ForgeMod.WATER_TYPE.get(), Blocks.BLUE_ICE.defaultBlockState()));
+                        NeoForgeMod.WATER_TYPE.value(), Blocks.BLUE_ICE.defaultBlockState()));
         // slush over lava is smooth basalt
         FluidInteractionRegistry.addInteraction(
-                ForgeMod.LAVA_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
+                NeoForgeMod.LAVA_TYPE.value(), new FluidInteractionRegistry.InteractionInformation(
                         BorealisFluids.SLUSH_TYPE.get(), (fluidState) -> fluidState.isSource() ?
                         Blocks.SMOOTH_BASALT.defaultBlockState() :
                         Blocks.BASALT.defaultBlockState()));
     }
+    public static void toolInteractions(BlockEvent.BlockToolModificationEvent event) {
+        ItemAbility action = event.getItemAbility();
+        BlockState state = event.getState();
 
-    public static void registerAxeStrips() {
-        AxeItem.STRIPPABLES = Maps.newHashMap(AxeItem.STRIPPABLES);
+        Map<Block, Block> STRIPPABLES = new HashMap<>();
+        STRIPPABLES.put(BorealisBlocks.BRUMAL_LOG.get(), BorealisBlocks.STRIPPED_BRUMAL_LOG.get());
+        STRIPPABLES.put(BorealisBlocks.BRUMAL_WOOD.get(), BorealisBlocks.STRIPPED_BRUMAL_WOOD.get());
+        STRIPPABLES.put(BorealisBlocks.FROSTFIR_LOG.get(), BorealisBlocks.STRIPPED_FROSTFIR_LOG.get());
+        STRIPPABLES.put(BorealisBlocks.FROSTFIR_WOOD.get(), BorealisBlocks.STRIPPED_FROSTFIR_WOOD.get());
+        STRIPPABLES.put(BorealisBlocks.SWEETWOOD_LOG.get(), BorealisBlocks.STRIPPED_SWEETWOOD_LOG.get());
+        STRIPPABLES.put(BorealisBlocks.SWEETWOOD.get(), BorealisBlocks.STRIPPED_SWEETWOOD.get());
+        STRIPPABLES.put(BorealisBlocks.CARAMELIZED_LOG.get(), BorealisBlocks.STRIPPED_CARAMELIZED_LOG.get());
+        STRIPPABLES.put(BorealisBlocks.CARAMELIZED_WOOD.get(), BorealisBlocks.STRIPPED_CARAMELIZED_WOOD.get());
 
-        AxeItem.STRIPPABLES.put(BorealisBlocks.BRUMAL_LOG.get(), BorealisBlocks.STRIPPED_BRUMAL_LOG.get());
-        AxeItem.STRIPPABLES.put(BorealisBlocks.BRUMAL_WOOD.get(), BorealisBlocks.STRIPPED_BRUMAL_WOOD.get());
-        AxeItem.STRIPPABLES.put(BorealisBlocks.FROSTFIR_LOG.get(), BorealisBlocks.STRIPPED_FROSTFIR_LOG.get());
-        AxeItem.STRIPPABLES.put(BorealisBlocks.FROSTFIR_WOOD.get(), BorealisBlocks.STRIPPED_FROSTFIR_WOOD.get());
-        AxeItem.STRIPPABLES.put(BorealisBlocks.SWEETWOOD_LOG.get(), BorealisBlocks.STRIPPED_SWEETWOOD_LOG.get());
-        AxeItem.STRIPPABLES.put(BorealisBlocks.SWEETWOOD.get(), BorealisBlocks.STRIPPED_SWEETWOOD.get());
-    }
-
-    public static void registerHoeTills() {
-        HoeItem.TILLABLES = Maps.newHashMap(HoeItem.TILLABLES);
-
-        HoeItem.TILLABLES.put(BorealisBlocks.PERMAFROST_RUBBLE.get(), Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(BorealisBlocks.PERMAFROST.get().defaultBlockState())));
-    }
-
-    public static void registerComposts() {
-        ComposterBlock.add(0.3F, BorealisBlocks.BRUMAL_LEAVES.get());
-        ComposterBlock.add(0.3F, BorealisBlocks.FROSTFIR_LEAVES.get());
-        ComposterBlock.add(0.3F, BorealisBlocks.SWEETWOOD_LEAVES.get());
-        ComposterBlock.add(0.3F, BorealisBlocks.BRUMAL_SAPLING.get());
-        ComposterBlock.add(0.3F, BorealisBlocks.FROSTFIR_SAPLING.get());
-        ComposterBlock.add(0.3F, BorealisBlocks.SWEETWOOD_SAPLING.get());
+        if (!event.isSimulated()) {
+            if (action == ItemAbilities.AXE_STRIP) {
+                if (STRIPPABLES.containsKey(state.getBlock())) {
+                    event.setFinalState(STRIPPABLES.get(event.getState().getBlock()).defaultBlockState().setValue(RotatedPillarBlock.AXIS, state.getValue(RotatedPillarBlock.AXIS)));
+                }
+            }
+        }
     }
 }

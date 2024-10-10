@@ -6,7 +6,7 @@ import com.reetam.borealis.block.property.PermafrostCover;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -26,12 +26,12 @@ import java.util.List;
 import java.util.OptionalLong;
 
 public class BorealisWorld {
-    private final static ResourceLocation BOREALIS_LEVEL_ID = new ResourceLocation(BorealisMod.MODID, "borealis");
+    private final static ResourceLocation BOREALIS_LEVEL_ID = ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "borealis");
 
     public static final ResourceKey<DimensionType> BOREALIS_DIMENSION_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, BOREALIS_LEVEL_ID);
     public static final ResourceKey<Level> BOREALIS_LEVEL = ResourceKey.create(Registries.DIMENSION, BOREALIS_LEVEL_ID);
     public static final ResourceKey<LevelStem> BOREALIS_LEVEL_STEM = ResourceKey.create(Registries.LEVEL_STEM, BOREALIS_LEVEL_ID);
-    public static void bootstrapDimensionType(BootstapContext<DimensionType> context) {
+    public static void bootstrapDimensionType(BootstrapContext<DimensionType> context) {
         context.register(BOREALIS_DIMENSION_TYPE, new DimensionType(
                 OptionalLong.empty(),
                 true,
@@ -45,27 +45,27 @@ public class BorealisWorld {
                 256,
                 256,
                 BlockTags.INFINIBURN_OVERWORLD,
-                new ResourceLocation(BorealisMod.MODID, "borealis"),
+                ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "borealis"),
                 0.0F,
                 new DimensionType.MonsterSettings(false, false, UniformInt.of(0, 7), 0)));
     }
 
-    public static void bootstrapLevelStem(BootstapContext<LevelStem> context) {
+    public static void bootstrapLevelStem(BootstrapContext<LevelStem> context) {
         HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
         HolderGetter<NoiseGeneratorSettings> noiseSettings = context.lookup(Registries.NOISE_SETTINGS);
         HolderGetter<DimensionType> dimensionTypes = context.lookup(Registries.DIMENSION_TYPE);
         BiomeSource source = BorealisBiomes.biomeSource(biomes);
-        NoiseBasedChunkGenerator borealisChunkGen = new NoiseBasedChunkGenerator(source, noiseSettings.getOrThrow(ResourceKey.create(Registries.NOISE_SETTINGS, new ResourceLocation(BorealisMod.MODID, "floating_islands"))));
+        NoiseBasedChunkGenerator borealisChunkGen = new NoiseBasedChunkGenerator(source, noiseSettings.getOrThrow(ResourceKey.create(Registries.NOISE_SETTINGS, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "floating_islands"))));
         context.register(BOREALIS_LEVEL_STEM, new LevelStem(dimensionTypes.getOrThrow(BorealisWorld.BOREALIS_DIMENSION_TYPE), borealisChunkGen));
     }
 
     public static final ResourceKey<NoiseGeneratorSettings> FLOATING_ISLANDS = createKey("floating_islands");
 
     private static ResourceKey<NoiseGeneratorSettings> createKey(String name) {
-        return ResourceKey.create(Registries.NOISE_SETTINGS, new ResourceLocation(BorealisMod.MODID, name));
+        return ResourceKey.create(Registries.NOISE_SETTINGS, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
     }
 
-    public static void bootstrapNoise(BootstapContext<NoiseGeneratorSettings> context) {
+    public static void bootstrapNoise(BootstrapContext<NoiseGeneratorSettings> context) {
         HolderGetter<DensityFunction> densityFunctions = context.lookup(Registries.DENSITY_FUNCTION);
         HolderGetter<NormalNoise.NoiseParameters> noise = context.lookup(Registries.NOISE);
         context.register(FLOATING_ISLANDS, floatingIslandNoiseSettings(densityFunctions, noise));
@@ -94,18 +94,18 @@ public class BorealisWorld {
                 DensityFunctions.zero(),
                 DensityFunctions.zero(),
                 DensityFunctions.shiftedNoise2d(
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, new ResourceLocation("shift_x"))),
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, new ResourceLocation("shift_z"))),
-                        1, noise.getOrThrow(ResourceKey.create(Registries.NOISE, new ResourceLocation("temperature")))),
+                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_x"))),
+                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_z"))),
+                        1, noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace("temperature")))),
                 DensityFunctions.shiftedNoise2d(
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, new ResourceLocation("shift_x"))),
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, new ResourceLocation("shift_z"))),
-                        1, noise.getOrThrow(ResourceKey.create(Registries.NOISE, new ResourceLocation("vegetation")))),
+                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_x"))),
+                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_z"))),
+                        1, noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace("vegetation")))),
                 DensityFunctions.zero(),
                 DensityFunctions.shiftedNoise2d(
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, new ResourceLocation("shift_x"))),
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, new ResourceLocation("shift_z"))),
-                        1, noise.getOrThrow(ResourceKey.create(Registries.NOISE, new ResourceLocation("erosion")))),
+                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_x"))),
+                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_z"))),
+                        1, noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace("erosion")))),
                 DensityFunctions.zero(),
                 DensityFunctions.zero(),
                 DensityFunctions.zero(),
@@ -117,8 +117,8 @@ public class BorealisWorld {
                             DensityFunctions.yClampedGradient(-32, 116, -1, 1),
                             -0.15,
                             DensityFunctions.add(
-                                    DensityFunctions.noise(noise.getOrThrow(ResourceKey.create(Registries.NOISE, new ResourceLocation("gravel"))), 4, 4),
-                                    DensityFunctions.noise(noise.getOrThrow(ResourceKey.create(Registries.NOISE, new ResourceLocation("cave_entrance"))), 1, 8))
+                                    DensityFunctions.noise(noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace("gravel"))), 4, 4),
+                                    DensityFunctions.noise(noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace("cave_entrance"))), 1, 8))
                 ))),
                 DensityFunctions.zero(),
                 DensityFunctions.zero(),

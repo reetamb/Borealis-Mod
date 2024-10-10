@@ -24,7 +24,7 @@ public class AlmsCrackedBlock extends Block {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
         if (!pState.getValue(EMPTY)) {
             popResource(pLevel, pPos.above(), new ItemStack(BorealisItems.ALMS_NUT.get(), 1));
             pLevel.setBlockAndUpdate(pPos, pState.setValue(EMPTY, true));

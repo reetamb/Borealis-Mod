@@ -1,10 +1,8 @@
 package com.reetam.borealis.block;
 
-import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.state.BlockState;

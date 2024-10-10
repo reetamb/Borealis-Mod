@@ -7,8 +7,8 @@ import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
 public class BorealisBlockStates extends BorealisBlockStateProvider {
@@ -148,7 +148,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         signBlock(BorealisBlocks.BRUMAL_SIGN.get(), BorealisBlocks.BRUMAL_WALL_SIGN.get(), texture("brumal_planks"));
 
         crossBlock(BorealisBlocks.MISTERIA_HEAD);
-        crossBlock(BorealisBlocks.WINTER_VIOLIN);
+        crossBlock(BorealisBlocks.WINTER_FIDDLE);
 
         block(BorealisBlocks.FROSTFIR_PLANKS);
         log(BorealisBlocks.FROSTFIR_LOG, "frostfir_log");

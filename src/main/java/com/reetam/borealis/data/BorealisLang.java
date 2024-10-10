@@ -8,10 +8,8 @@ import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.BorealisEffects;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.WallHangingSignBlock;
-import net.minecraft.world.level.block.WallSignBlock;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.block.*;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.ArrayList;
 
@@ -26,14 +24,19 @@ public class BorealisLang extends BorealisLangProvider {
         creativeTab(BorealisItems.Tabs.BOREALIS_ITEMS, "Borealis Items");
 
         ArrayList<String> blockNames = new ArrayList<>();
-        for (RegistryObject<Block> block : BorealisBlocks.BLOCKS.getEntries()) {
-            if (!(block.get() instanceof WallSignBlock || block.get() instanceof WallHangingSignBlock || block.get() instanceof WallPlantBlock)) {
-                blockNames.add(assumeBlockItem(block));
+        for (DeferredHolder<Block, ? extends Block> block : BorealisBlocks.BLOCKS.getEntries()) {
+            if (!(block.get() instanceof StandingSignBlock ||
+                    block.get() instanceof CeilingHangingSignBlock ||
+                    block.get() instanceof WallSignBlock ||
+                    block.get() instanceof WallHangingSignBlock ||
+                    block.get() == BorealisBlocks.WINTER_FIDDLE.get() ||
+                    block.get() instanceof WallPlantBlock)) {
+                blockNames.add(assumeBlock(block));
             }
         }
-        for (RegistryObject<Item> item : BorealisItems.ITEMS.getEntries()) {
+        for (DeferredHolder<Item, ? extends Item> item : BorealisItems.ITEMS.getEntries()) {
             if (!blockNames.contains(item.get().toString())) {
-                assumeBlockItem(item);
+                assumeItem(item);
             }
         }
 

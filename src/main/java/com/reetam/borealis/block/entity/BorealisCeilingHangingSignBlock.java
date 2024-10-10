@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 public class BorealisCeilingHangingSignBlock extends CeilingHangingSignBlock {
     public BorealisCeilingHangingSignBlock(Properties pProperties, WoodType pType) {
-        super(pProperties, pType);
+        super(pType, pProperties);
     }
 
     @Override

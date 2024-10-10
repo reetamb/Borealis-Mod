@@ -4,7 +4,6 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import com.reetam.borealis.BorealisMod;
-import net.minecraft.client.Camera;
 import net.minecraft.client.CloudStatus;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -18,7 +17,7 @@ import org.joml.Matrix4f;
 
 public class BorealisAuroraRenderer {
 
-    private static final ResourceLocation TEXTURE_AURORA = new ResourceLocation(BorealisMod.MODID + ":textures/environment/aurora.png");
+    private static final ResourceLocation TEXTURE_AURORA = ResourceLocation.read(BorealisMod.MODID + ":textures/environment/aurora.png").getOrThrow();
     private VertexBuffer cloudBuffer;
 
     private int prevCloudX = Integer.MIN_VALUE;
@@ -59,19 +58,18 @@ public class BorealisAuroraRenderer {
 
         if (this.generateClouds) {
             this.generateClouds = false;
-            BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
             if (this.cloudBuffer != null) {
                 this.cloudBuffer.close();
             }
 
             this.cloudBuffer = new VertexBuffer(VertexBuffer.Usage.STATIC);
-            BufferBuilder.RenderedBuffer bufferbuilder$renderedbuffer = buildAurora(bufferbuilder, d2, d3, d4, vec3, level.getDayTime());
+            BufferBuilder bufferbuilder = buildAurora(Tesselator.getInstance(), d2, d3, d4, vec3, level.getDayTime());
             this.cloudBuffer.bind();
-            this.cloudBuffer.upload(bufferbuilder$renderedbuffer);
+            this.cloudBuffer.upload(bufferbuilder.build());
             VertexBuffer.unbind();
         }
 
-        RenderSystem.setShader(GameRenderer::getPositionTexColorNormalShader);
+        RenderSystem.setShader(GameRenderer::getPositionTexColorShader);
         RenderSystem.setShaderTexture(0, TEXTURE_AURORA);
         // for some reason getSkyColor is returning (0, 0, 0)
         Vec3 skyColor = new Vec3(154, 172, 234);
@@ -108,7 +106,7 @@ public class BorealisAuroraRenderer {
         }
     }
 
-    private BufferBuilder.RenderedBuffer buildAurora(BufferBuilder bufferBuilder, double x, double y, double z, Vec3 vector, float time) {
+    private BufferBuilder buildAurora(Tesselator tesselator, double x, double y, double z, Vec3 vector, float time) {
         final float f0 = 0.00390625F;
         final float f1 = 9.765625E-4F;
 
@@ -124,103 +122,92 @@ public class BorealisAuroraRenderer {
 
         float height = 80.0F;
 
-        RenderSystem.setShader(GameRenderer::getPositionTexColorNormalShader);
-        bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX_COLOR_NORMAL);
+        RenderSystem.setShader(GameRenderer::getPositionTexColorShader);
+        BufferBuilder bufferBuilder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX_COLOR_NORMAL);
         float vertY = (float)Math.floor(y / 4.0D) * 4.0F;
         if (this.prevCloudsType == CloudStatus.FANCY) {
             for(int chunkX = -3; chunkX <= 4; ++chunkX) {
                 for(int chunkZ = -3; chunkZ <= 4; ++chunkZ) {
                     float vertX = (float)(chunkX * 8);
                     float vertZ = (float)(chunkZ * 8);
+                    alpha = 1 - ((chunkX * chunkX + chunkZ * chunkZ) / 32.0F);
                     if (vertY > -5.0F) {
-                        bufferBuilder.vertex((vertX + 0.0F), (vertY + 0.0F), (vertZ + 8.0F))
-                                .uv((vertX + 0.0F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
-                                .color(red, green, blue, alpha).normal(0.0F, -1.0F, 0.0F)
-                                .endVertex();
-                        bufferBuilder.vertex((vertX + 8.0F), (vertY + 0.0F), (vertZ + 8.0F))
-                                .uv((vertX + 8.0F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
-                                .color(red, green, blue, alpha).normal(0.0F, -1.0F, 0.0F)
-                                .endVertex();
-                        bufferBuilder.vertex((vertX + 8.0F), (vertY + 0.0F), (vertZ + 0.0F))
-                                .uv((vertX + 8.0F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
-                                .color(red, green, blue, alpha).normal(0.0F, -1.0F, 0.0F)
-                                .endVertex();
-                        bufferBuilder.vertex((vertX + 0.0F), (vertY + 0.0F), (vertZ + 0.0F))
-                                .uv((vertX + 0.0F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
-                                .color(red, green, blue, alpha).normal(0.0F, -1.0F, 0.0F)
-                                .endVertex();
+                        bufferBuilder.addVertex((vertX + 0.0F), (vertY + 0.0F), (vertZ + 8.0F))
+                                .setUv((vertX + 0.0F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
+                                .setColor(red, green, blue, alpha).setNormal(0.0F, -1.0F, 0.0F);
+                        bufferBuilder.addVertex((vertX + 8.0F), (vertY + 0.0F), (vertZ + 8.0F))
+                                .setUv((vertX + 8.0F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
+                                .setColor(red, green, blue, alpha).setNormal(0.0F, -1.0F, 0.0F);
+                        bufferBuilder.addVertex((vertX + 8.0F), (vertY + 0.0F), (vertZ + 0.0F))
+                                .setUv((vertX + 8.0F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
+                                .setColor(red, green, blue, alpha).setNormal(0.0F, -1.0F, 0.0F);
+                        bufferBuilder.addVertex((vertX + 0.0F), (vertY + 0.0F), (vertZ + 0.0F))
+                                .setUv((vertX + 0.0F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
+                                .setColor(red, green, blue, alpha).setNormal(0.0F, -1.0F, 0.0F);
                     }
 
                     if (vertY <= 5.0F) {
-                        bufferBuilder.vertex((vertX + 0.0F), (vertY + height - f1), (vertZ + 8.0F))
-                                .uv((vertX + 0.0F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
-                                .color(red, green, blue, alpha).normal(0.0F, 1.0F, 0.0F)
-                                .endVertex();
-                        bufferBuilder.vertex((vertX + 8.0F), (vertY + height - f1), (vertZ + 8.0F))
-                                .uv((vertX + 8.0F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
-                                .color(red, green, blue, alpha).normal(0.0F, 1.0F, 0.0F)
-                                .endVertex();
-                        bufferBuilder.vertex((vertX + 8.0F), (vertY + height - f1), (vertZ + 0.0F))
-                                .uv((vertX + 8.0F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
-                                .color(red, green, blue, alpha).normal(0.0F, 1.0F, 0.0F)
-                                .endVertex();
-                        bufferBuilder.vertex((vertX + 0.0F), (vertY + height - f1), (vertZ + 0.0F))
-                                .uv((vertX + 0.0F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
-                                .color(red, green, blue, alpha).normal(0.0F, 1.0F, 0.0F)
-                                .endVertex();
+                        bufferBuilder.addVertex((vertX + 0.0F), (vertY + height - f1), (vertZ + 8.0F))
+                                .setUv((vertX + 0.0F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
+                                .setColor(red, green, blue, alpha).setNormal(0.0F, 1.0F, 0.0F);
+                        bufferBuilder.addVertex((vertX + 8.0F), (vertY + height - f1), (vertZ + 8.0F))
+                                .setUv((vertX + 8.0F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
+                                .setColor(red, green, blue, alpha).setNormal(0.0F, 1.0F, 0.0F);
+                        bufferBuilder.addVertex((vertX + 8.0F), (vertY + height - f1), (vertZ + 0.0F))
+                                .setUv((vertX + 8.0F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
+                                .setColor(red, green, blue, alpha).setNormal(0.0F, 1.0F, 0.0F);
+                        bufferBuilder.addVertex((vertX + 0.0F), (vertY + height - f1), (vertZ + 0.0F))
+                                .setUv((vertX + 0.0F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
+                                .setColor(red, green, blue, alpha).setNormal(0.0F, 1.0F, 0.0F);
                     }
 
                     float l2;
                     if (chunkX > -1) { // the east half (incl. center)
                         for(l2 = 0; l2 < 8; ++l2) {
-                            bufferBuilder.vertex((vertX + l2 + 0.0F), (vertY + 0.0F), (vertZ + 8.0F))
-                                    .uv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
-                                    .color(red, green, blue, alpha).normal(-1.0F, 0.0F, 0.0F)
-                                    .endVertex();
-                            bufferBuilder.vertex((vertX + l2 + 0.0F), (vertY + height), (vertZ + 8.0F))
-                                    .uv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
-                                    .color(red, green, blue, alpha).normal(-1.0F, 0.0F, 0.0F)
-                                    .endVertex();
-                            bufferBuilder.vertex((vertX + l2 + 0.0F), (vertY + height), (vertZ + 0.0F))
-                                    .uv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
-                                    .color(red, green, blue, alpha).normal(-1.0F, 0.0F, 0.0F)
-                                    .endVertex();
-                            bufferBuilder.vertex((vertX + l2 + 0.0F), (vertY + 0.0F), (vertZ + 0.0F))
-                                    .uv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
-                                    .color(red, green, blue, alpha).normal(-1.0F, 0.0F, 0.0F)
-                                    .endVertex();
+                            bufferBuilder.addVertex((vertX + l2 + 0.0F), (vertY + 0.0F), (vertZ + 8.0F))
+                                    .setUv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
+                                    .setColor(red, green, blue, alpha).setNormal(-1.0F, 0.0F, 0.0F);
+                            bufferBuilder.addVertex((vertX + l2 + 0.0F), (vertY + height), (vertZ + 8.0F))
+                                    .setUv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 8.0F) * f0 + fz)
+                                    .setColor(red, green, blue, alpha).setNormal(-1.0F, 0.0F, 0.0F);
+                            bufferBuilder.addVertex((vertX + l2 + 0.0F), (vertY + height), (vertZ + 0.0F))
+                                    .setUv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
+                                    .setColor(red, green, blue, alpha).setNormal(-1.0F, 0.0F, 0.0F);
+                            bufferBuilder.addVertex((vertX + l2 + 0.0F), (vertY + 0.0F), (vertZ + 0.0F))
+                                    .setUv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 0.0F) * f0 + fz)
+                                    .setColor(red, green, blue, alpha).setNormal(-1.0F, 0.0F, 0.0F);
                         }
                     }
 
                     if (chunkX <= 1) { // the west half (incl. center)
                         for(l2 = 0; l2 < 8; ++l2) {
-                            bufferBuilder.vertex((vertX + l2 + 1.0F - f1), (vertY + 0.0F), (vertZ + 8.0F)).uv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 8.0F) * f0 + fz).color(red, green, blue, alpha).normal(1.0F, 0.0F, 0.0F).endVertex();
-                            bufferBuilder.vertex((vertX + l2 + 1.0F - f1), (vertY + height), (vertZ + 8.0F)).uv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 8.0F) * f0 + fz).color(red, green, blue, alpha).normal(1.0F, 0.0F, 0.0F).endVertex();
-                            bufferBuilder.vertex((vertX + l2 + 1.0F - f1), (vertY + height), (vertZ + 0.0F)).uv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 0.0F) * f0 + fz).color(red, green, blue, alpha).normal(1.0F, 0.0F, 0.0F).endVertex();
-                            bufferBuilder.vertex((vertX + l2 + 1.0F - f1), (vertY + 0.0F), (vertZ + 0.0F)).uv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 0.0F) * f0 + fz).color(red, green, blue, alpha).normal(1.0F, 0.0F, 0.0F).endVertex();
+                            bufferBuilder.addVertex((vertX + l2 + 1.0F - f1), (vertY + 0.0F), (vertZ + 8.0F)).setUv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 8.0F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(1.0F, 0.0F, 0.0F);
+                            bufferBuilder.addVertex((vertX + l2 + 1.0F - f1), (vertY + height), (vertZ + 8.0F)).setUv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 8.0F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(1.0F, 0.0F, 0.0F);
+                            bufferBuilder.addVertex((vertX + l2 + 1.0F - f1), (vertY + height), (vertZ + 0.0F)).setUv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 0.0F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(1.0F, 0.0F, 0.0F);
+                            bufferBuilder.addVertex((vertX + l2 + 1.0F - f1), (vertY + 0.0F), (vertZ + 0.0F)).setUv((vertX + l2 + 0.5F) * f0 + fx, (vertZ + 0.0F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(1.0F, 0.0F, 0.0F);
                         }
                     }
 
                     if (chunkZ > -1) { // the south half (incl. center)
                         for(l2 = 0; l2 < 8; ++l2) {
-                            bufferBuilder.vertex((vertX + 0.0F), (vertY + height), (vertZ + l2 + 0.0F)).uv((vertX + 0.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, -1.0F).endVertex();
-                            bufferBuilder.vertex((vertX + 8.0F), (vertY + height), (vertZ + l2 + 0.0F)).uv((vertX + 8.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, -1.0F).endVertex();
-                            bufferBuilder.vertex((vertX + 8.0F), (vertY + 0.0F), (vertZ + l2 + 0.0F)).uv((vertX + 8.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, -1.0F).endVertex();
-                            bufferBuilder.vertex((vertX + 0.0F), (vertY + 0.0F), (vertZ + l2 + 0.0F)).uv((vertX + 0.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, -1.0F).endVertex();
+                            bufferBuilder.addVertex((vertX + 0.0F), (vertY + height), (vertZ + l2 + 0.0F)).setUv((vertX + 0.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(0.0F, 0.0F, -1.0F);
+                            bufferBuilder.addVertex((vertX + 8.0F), (vertY + height), (vertZ + l2 + 0.0F)).setUv((vertX + 8.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(0.0F, 0.0F, -1.0F);
+                            bufferBuilder.addVertex((vertX + 8.0F), (vertY + 0.0F), (vertZ + l2 + 0.0F)).setUv((vertX + 8.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(0.0F, 0.0F, -1.0F);
+                            bufferBuilder.addVertex((vertX + 0.0F), (vertY + 0.0F), (vertZ + l2 + 0.0F)).setUv((vertX + 0.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(0.0F, 0.0F, -1.0F);
                         }
                     }
 
                     if (chunkZ <= 1) { // the north half (incl. center)
                         for(l2 = 0; l2 < 8; ++l2) {
-                            bufferBuilder.vertex((vertX + 0.0F), (vertY + height), (vertZ + l2 + 1.0F - f1)).uv((vertX + 0.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, 1.0F).endVertex();
-                            bufferBuilder.vertex((vertX + 8.0F), (vertY + height), (vertZ + l2 + 1.0F - f1)).uv((vertX + 8.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, 1.0F).endVertex();
-                            bufferBuilder.vertex((vertX + 8.0F), (vertY + 0.0F), (vertZ + l2 + 1.0F - f1)).uv((vertX + 8.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, 1.0F).endVertex();
-                            bufferBuilder.vertex((vertX + 0.0F), (vertY + 0.0F), (vertZ + l2 + 1.0F - f1)).uv((vertX + 0.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).color(red, green, blue, alpha).normal(0.0F, 0.0F, 1.0F).endVertex();
+                            bufferBuilder.addVertex((vertX + 0.0F), (vertY + height), (vertZ + l2 + 1.0F - f1)).setUv((vertX + 0.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(0.0F, 0.0F, 1.0F);
+                            bufferBuilder.addVertex((vertX + 8.0F), (vertY + height), (vertZ + l2 + 1.0F - f1)).setUv((vertX + 8.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(0.0F, 0.0F, 1.0F);
+                            bufferBuilder.addVertex((vertX + 8.0F), (vertY + 0.0F), (vertZ + l2 + 1.0F - f1)).setUv((vertX + 8.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(0.0F, 0.0F, 1.0F);
+                            bufferBuilder.addVertex((vertX + 0.0F), (vertY + 0.0F), (vertZ + l2 + 1.0F - f1)).setUv((vertX + 0.0F) * f0 + fx, (vertZ + l2 + 0.5F) * f0 + fz).setColor(red, green, blue, alpha).setNormal(0.0F, 0.0F, 1.0F);
                         }
                     }
                 }
             }
         }
-        return bufferBuilder.end();
+        return bufferBuilder;
     }
 }

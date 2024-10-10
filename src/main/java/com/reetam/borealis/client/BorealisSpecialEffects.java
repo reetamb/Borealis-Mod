@@ -2,28 +2,24 @@ package com.reetam.borealis.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.reetam.borealis.client.renderer.BorealisAuroraRenderer;
-import com.reetam.borealis.client.renderer.BorealisSkyRenderer;
-import com.reetam.borealis.client.renderer.BorealisWeatherRenderer;
-import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.client.extensions.IForgeDimensionSpecialEffects;
 import org.joml.Matrix4f;
 
 import javax.annotation.Nullable;
 
-public class BorealisSpecialEffects extends DimensionSpecialEffects implements IForgeDimensionSpecialEffects {
+public class BorealisSpecialEffects extends DimensionSpecialEffects {
 
     BorealisAuroraRenderer auroraRenderer;
     // BorealisSkyRenderer skyRenderer;
-    BorealisWeatherRenderer weatherRenderer;
+    // BorealisWeatherRenderer weatherRenderer;
     public BorealisSpecialEffects() {
         super(Float.NaN, false, DimensionSpecialEffects.SkyType.NORMAL, false, true);
         auroraRenderer = new BorealisAuroraRenderer();
         // skyRenderer = new BorealisSkyRenderer();
-        weatherRenderer = new BorealisWeatherRenderer();
+        // weatherRenderer = new BorealisWeatherRenderer();
     }
 
     private final float[] sunriseCol = new float[4];

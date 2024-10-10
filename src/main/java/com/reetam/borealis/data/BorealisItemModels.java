@@ -5,7 +5,7 @@ import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class BorealisItemModels extends BorealisItemModelProvider {
 
@@ -71,7 +71,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlockFlat(BorealisBlocks.MISTERIA_HEAD, "block/misteria");
         itemBlockFlat(BorealisBlocks.BRUMELIAD, "block/brumeliad");
         itemBlockFlat(BorealisBlocks.WINTER_VIOLA, "block/winter_viola");
-        normalItem(BorealisItems.WINTER_VIOLIN);
+        normalItem(BorealisItems.WINTER_FIDDLE);
         itemBlockFlat(BorealisBlocks.WINTER_CELLO, "block/winter_cello_bottom");
         normalItem(BorealisItems.ALMS_NUT);
         itemBlock(BorealisBlocks.ALMS);

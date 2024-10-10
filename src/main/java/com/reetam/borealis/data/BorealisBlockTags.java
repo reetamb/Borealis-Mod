@@ -7,9 +7,9 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.BlockTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -246,13 +246,13 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.BRUMELIAD.get())
                 .add(BorealisBlocks.HOLLY.get())
                 .add(BorealisBlocks.WINTER_VIOLA.get())
-                .add(BorealisBlocks.WINTER_VIOLIN.get())
-                .add(BorealisBlocks.WALL_WINTER_VIOLIN.get())
+                .add(BorealisBlocks.WINTER_FIDDLE.get())
+                .add(BorealisBlocks.WALL_WINTER_FIDDLE.get())
                 .add(BorealisBlocks.WINTER_CELLO.get());
     }
     
     private void forgeTags() {
-        tag(Tags.Blocks.COBBLESTONE)
+        tag(Tags.Blocks.COBBLESTONES)
                 .add(BorealisBlocks.SOAPSTONE.get())
                 .add(BorealisBlocks.SLATE.get());
         tag(Tags.Blocks.FENCE_GATES_WOODEN)
@@ -262,7 +262,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.FROSTFIR_FENCE.get())
                 .add(BorealisBlocks.SWEETWOOD_FENCE.get())
                 .add(BorealisBlocks.CARAMELIZED_FENCE.get());
-        tag(Tags.Blocks.STONE)
+        tag(Tags.Blocks.STONES)
                 .add(BorealisBlocks.SOAPSTONE.get())
                 .add(BorealisBlocks.SLATE.get());
     }

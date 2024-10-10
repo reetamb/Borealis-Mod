@@ -1,6 +1,5 @@
 package com.reetam.borealis.block;
 
-import com.reetam.borealis.block.property.PermafrostCover;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;

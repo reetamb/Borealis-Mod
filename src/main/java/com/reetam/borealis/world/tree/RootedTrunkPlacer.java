@@ -2,6 +2,7 @@ package com.reetam.borealis.world.tree;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.world.BorealisFeatures;
@@ -21,7 +22,7 @@ import java.util.function.BiConsumer;
 
 public class RootedTrunkPlacer extends TrunkPlacer {
 
-    public static final Codec<RootedTrunkPlacer> CODEC = RecordCodecBuilder.create((instance) ->
+    public static final MapCodec<RootedTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec((instance) ->
             trunkPlacerParts(instance).apply(instance, RootedTrunkPlacer::new));
 
     private final BlockStateProvider decoration;

@@ -1,6 +1,7 @@
 package com.reetam.borealis.world.tree;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.world.BorealisFeatures;
 import net.minecraft.core.BlockPos;
@@ -21,7 +22,7 @@ import java.util.function.Predicate;
 
 public class UndergrowthDecorator extends TreeDecorator {
 
-    public static final Codec<UndergrowthDecorator> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+    public static final MapCodec<UndergrowthDecorator> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter((decorator) -> decorator.probability),
             BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((decorator) -> decorator.provider)
     ).apply(instance, UndergrowthDecorator::new));

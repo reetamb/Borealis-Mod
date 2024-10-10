@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "borealis:block/kyanite_ore_top",
-    "side": "borealis:block/kyanite_ore"
-  }
-}

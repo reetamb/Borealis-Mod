@@ -16,7 +16,7 @@ import net.minecraft.world.entity.Entity;
 
 public class ThrusherModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "thrusher"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath("modid", "thrusher"), "main");
 	private final ModelPart head;
 	private final ModelPart body;
 	private final ModelPart frontLeftWingLeg;
@@ -71,12 +71,12 @@ public class ThrusherModel<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		frontLeftWingLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		frontRightWingLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		backLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		backRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		frontLeftWingLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		frontRightWingLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		backLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		backRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

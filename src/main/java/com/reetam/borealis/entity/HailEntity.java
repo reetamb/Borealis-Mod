@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 
 public class HailEntity extends FallingBlockEntity {
+    BlockState blockState;
     public HailEntity(EntityType<? extends HailEntity> entityType, Level level) {
         super(entityType, level);
         this.blockState = BorealisBlocks.HAILSTONE.get().defaultBlockState();

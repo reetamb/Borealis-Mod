@@ -9,8 +9,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.DimensionType;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class BorealisDimensions {
 
@@ -19,10 +19,10 @@ public class BorealisDimensions {
     public static final ResourceKey<DimensionType> BOREALIS_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, name("borealis"));
     public static final ResourceKey<Level> BOREALIS = ResourceKey.create(Registries.DIMENSION, name("borealis"));
 
-    public static final RegistryObject<PoiType> BOREALIS_PORTAL_POI = POIS.register("borealis_portal",
+    public static final DeferredHolder<PoiType, PoiType> BOREALIS_PORTAL_POI = POIS.register("borealis_portal",
             () -> new PoiType(ImmutableSet.copyOf(BorealisBlocks.BOREALIS_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1));
 
     private static ResourceLocation name(String name) {
-        return new ResourceLocation(BorealisMod.MODID, name);
+        return ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name);
     }
 }

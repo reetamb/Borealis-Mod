@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class AlmsBlock extends Block {
     public AlmsBlock(Properties pProperties) {

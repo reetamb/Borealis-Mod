@@ -4,8 +4,6 @@ import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -15,7 +13,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.network.NetworkHooks;
 
 public class BorealisBoatEntity extends Boat {
 
@@ -59,9 +56,8 @@ public class BorealisBoatEntity extends Boat {
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(BOAT_TYPE, Type.BRUMAL.ordinal());
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        builder.define(BOAT_TYPE, Type.BRUMAL.ordinal());
     }
 
     @Override
@@ -74,11 +70,6 @@ public class BorealisBoatEntity extends Boat {
         if (compound.contains("Type", 8)) {
             this.setBoatType(BorealisBoatEntity.Type.getTypeFromString(compound.getString("Type")));
         }
-    }
-
-    @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
     }
 
     public enum Type {

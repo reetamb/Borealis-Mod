@@ -19,6 +19,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 
@@ -72,9 +73,10 @@ public class ThrusherEntity extends Animal implements NeutralMob {
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
+    protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
     }
+
     public static boolean checkSpawnRules(EntityType<? extends Animal> animal, LevelAccessor level, MobSpawnType reason, BlockPos pos, Random random) {
         return level.getBlockState(pos.below()).getBlock() == BorealisBlocks.LIVING_SNOW_BLOCK.get();
     }
@@ -87,6 +89,12 @@ public class ThrusherEntity extends Animal implements NeutralMob {
         super.readAdditionalSaveData(pCompound);
         this.readPersistentAngerSaveData(this.level(), pCompound);
     }
+
+    @Override
+    public boolean isFood(ItemStack pStack) {
+        return false;
+    }
+
     @Override
     public int getRemainingPersistentAngerTime() {
         return this.remainingPersistentAngerTime;

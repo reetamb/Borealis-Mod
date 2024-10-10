@@ -1,6 +1,8 @@
 package com.reetam.borealis.world.tree;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.world.BorealisFeatures;
 import net.minecraft.core.BlockPos;
@@ -10,7 +12,10 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 
 public class TreeNutDecorator extends TreeDecorator {
 
-    public static final Codec<TreeNutDecorator> CODEC = Codec.floatRange(0.0F, 1.0F).fieldOf("probability").xmap(TreeNutDecorator::new, (decorator) -> decorator.probability).codec();
+    public static final MapCodec<TreeNutDecorator> CODEC = RecordCodecBuilder.mapCodec(
+            (instance) -> instance.group(
+                    Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter((decorator) -> decorator.probability)
+            ).apply(instance, TreeNutDecorator::new));
     private final float probability;
 
     public TreeNutDecorator(float probability) {

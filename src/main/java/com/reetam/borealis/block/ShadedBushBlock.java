@@ -1,5 +1,6 @@
 package com.reetam.borealis.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
@@ -22,6 +23,11 @@ public class ShadedBushBlock extends BushBlock {
     public ShadedBushBlock(Properties properties, List<TagKey<Block>> substrates) {
         super(properties.randomTicks());
         this.substrate = substrates;
+    }
+
+    @Override
+    protected MapCodec<? extends BushBlock> codec() {
+        return simpleCodec((properties) -> new ShadedBushBlock(properties, substrate));
     }
 
     @Override

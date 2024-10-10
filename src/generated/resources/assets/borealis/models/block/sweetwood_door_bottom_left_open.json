@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_left_open",
-  "textures": {
-    "bottom": "borealis:block/sweetwood_door_bottom",
-    "top": "borealis:block/sweetwood_door_top"
-  }
-}

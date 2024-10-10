@@ -1,36 +1,31 @@
 package com.reetam.borealis.block;
 
 import com.reetam.borealis.registry.BorealisBlocks;
-import com.reetam.borealis.registry.BorealisTags;
-import com.reetam.borealis.registry.world.BorealisWorld;
 import com.reetam.borealis.registry.BorealisSounds;
-import com.reetam.borealis.world.BorealisTeleporter;
+import com.reetam.borealis.registry.BorealisTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-
-import java.util.Random;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 public class BorealisPortalBlock extends Block {
 
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
 
     public BorealisPortalBlock() {
-        super(Properties.copy(Blocks.NETHER_PORTAL)
+        super(Properties.ofFullCopy(Blocks.NETHER_PORTAL)
                 .strength(-1F)
                 .noCollission()
                 .lightLevel((state) -> 10)
@@ -39,7 +34,8 @@ public class BorealisPortalBlock extends Block {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState state, Level level, BlockPos pos, Random rand) {
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource rand) {
         if (rand.nextInt(100) == 0) {
             level.playLocalSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, BorealisSounds.BOREALIS_PORTAL_CHIME.get(), SoundSource.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
         }
@@ -60,7 +56,6 @@ public class BorealisPortalBlock extends Block {
         }
 
         level.addParticle(ParticleTypes.CLOUD, d0, d1, d2, d3, d4, d5);
-
     }
 
     @Override
@@ -69,7 +64,6 @@ public class BorealisPortalBlock extends Block {
     }
 
     public void makePortal(Level level, BlockPos pos) {
-
         for (int x = -2; x <= 2; x++) {
             for (int z = -2; z <= 2; z++) {
                 int range = Math.abs(x) + Math.abs(z);
@@ -84,31 +78,31 @@ public class BorealisPortalBlock extends Block {
         if (level.getBlockState(pos.below(2)).isAir()) level.setBlock(pos.below(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
     }
 
-    @Override
-    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if(!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions()) {
-            if(entity.isOnPortalCooldown()) {
-                entity.setPortalCooldown();
-            }
-            else {
-                if(!entity.level().isClientSide && !pos.equals(entity.portalEntrancePos)) {
-                    entity.portalEntrancePos = pos.immutable();
-                }
-                Level entityLevel = entity.level();
-                MinecraftServer minecraftserver = entityLevel.getServer();
-                ResourceKey<Level> destination = entity.level().dimension() == BorealisWorld.BOREALIS_LEVEL ? Level.OVERWORLD : BorealisWorld.BOREALIS_LEVEL;
-                if(minecraftserver != null) {
-                    ServerLevel destinationLevel = minecraftserver.getLevel(destination);
-                    if(destinationLevel != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {
-                        entity.level().getProfiler().push("borealis_portal");
-                        entity.setPortalCooldown();
-                        entity.changeDimension(destinationLevel, new BorealisTeleporter());
-                        entity.level().getProfiler().pop();
-                    }
-                }
-            }
-        }
-    }
+//    @Override
+//    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+//        if(!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions()) {
+//            if(entity.isOnPortalCooldown()) {
+//                entity.setPortalCooldown();
+//            }
+//            else {
+//                if(!entity.level().isClientSide && !pos.equals(entity.portalEntrancePos)) {
+//                    entity.portalEntrancePos = pos.immutable();
+//                }
+//                Level entityLevel = entity.level();
+//                MinecraftServer minecraftserver = entityLevel.getServer();
+//                ResourceKey<Level> destination = entity.level().dimension() == BorealisWorld.BOREALIS_LEVEL ? Level.OVERWORLD : BorealisWorld.BOREALIS_LEVEL;
+//                if(minecraftserver != null) {
+//                    ServerLevel destinationLevel = minecraftserver.getLevel(destination);
+//                    if(destinationLevel != null && !entity.isPassenger()) {
+//                        entity.level().getProfiler().push("borealis_portal");
+//                        entity.setPortalCooldown();
+//                        entity.changeDimension(destinationLevel, new BorealisTeleporter());
+//                        entity.level().getProfiler().pop();
+//                    }
+//                }
+//            }
+//        }
+//    }
 
     @Override
     public void neighborChanged(BlockState thisState, Level level, BlockPos thisPos, Block otherBlock, BlockPos otherPos, boolean p_220069_6_) {
@@ -118,7 +112,7 @@ public class BorealisPortalBlock extends Block {
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(LevelReader pLevel, BlockPos pPos, BlockState pState) {
         return ItemStack.EMPTY;
     }
 }

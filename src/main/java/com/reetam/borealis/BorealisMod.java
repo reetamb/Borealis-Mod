@@ -2,7 +2,6 @@ package com.reetam.borealis;
 
 import com.mojang.logging.LogUtils;
 import com.reetam.borealis.data.*;
-import com.reetam.borealis.modify.events.BlockEvents;
 import com.reetam.borealis.modify.events.PlayerEvents;
 import com.reetam.borealis.registry.*;
 import com.reetam.borealis.registry.world.BorealisDimensions;
@@ -11,16 +10,17 @@ import com.reetam.borealis.registry.world.BorealisRegistrySets;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.data.BlockTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
 import java.util.concurrent.CompletableFuture;
@@ -31,16 +31,17 @@ public class BorealisMod {
     public static final String MODID = "borealis";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public BorealisMod() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        IEventBus forgeBus = MinecraftForge.EVENT_BUS;
+    public BorealisMod(IEventBus bus) {
 
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         bus.addListener(this::gatherData);
-
-        forgeBus.register(PlayerEvents.class);
-        forgeBus.register(BlockEvents.class);
+        bus.addListener(BorealisEntities::registerEntityRenderers);
+        bus.addListener(BorealisEntities::registerEntityLayerDefinitions);
+        bus.addListener(BorealisFluids::registerFluidClient);
+        bus.addListener(BorealisEntities::registerEntityAttributes);
+        NeoForge.EVENT_BUS.addListener(PlayerEvents::getProjectileEvent);
+        NeoForge.EVENT_BUS.addListener(BorealisCommon::toolInteractions);
 
         DeferredRegister<?>[] registers = {
                 BorealisBlocks.BLOCKS,
@@ -72,9 +73,6 @@ public class BorealisMod {
         BorealisEntities.registerSpawnPlacements();
         BorealisCommon.registerFlowerPots();
         BorealisCommon.registerWoodTypes();
-        BorealisCommon.registerAxeStrips();
-        BorealisCommon.registerHoeTills();
-        BorealisCommon.registerComposts();
         BorealisCommon.registerDispenserBehaviors();
         BorealisCommon.registerFluidInteractions();
     }
@@ -92,11 +90,11 @@ public class BorealisMod {
 
         generator.addProvider(event.includeServer(), new BorealisRegistrySets(packOutput, lookupProvider));
         BlockTagsProvider tags = new BorealisBlockTags(generator.getPackOutput(), lookupProvider, helper);
-        generator.addProvider(event.includeServer(), new BorealisLootTables(packOutput));
+        generator.addProvider(event.includeServer(), new BorealisLootTables(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), tags);
         generator.addProvider(event.includeServer(), new BorealisItemTags(packOutput, lookupProvider, tags.contentsGetter(), helper));
         generator.addProvider(event.includeServer(), new BorealisFluidTags(generator, lookupProvider, helper));
         generator.addProvider(event.includeServer(), new BorealisAdvancements(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new BorealisRecipes(generator));
+        generator.addProvider(event.includeServer(), new BorealisRecipes(generator, lookupProvider));
     }
 }

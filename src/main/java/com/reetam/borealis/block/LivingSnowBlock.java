@@ -5,7 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.IPlantable;
+import net.neoforged.neoforge.common.util.TriState;
 
 public class LivingSnowBlock extends Block {
 
@@ -14,7 +14,7 @@ public class LivingSnowBlock extends Block {
     }
 
     @Override
-    public boolean canSustainPlant(BlockState state, BlockGetter getter, BlockPos pos, Direction facing, IPlantable plantable) {
-        return true;
+    public TriState canSustainPlant(BlockState state, BlockGetter level, BlockPos soilPosition, Direction facing, BlockState plant) {
+        return TriState.TRUE;
     }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "borealis:block/stripped_sweetwood_log_side"
-  }
-}

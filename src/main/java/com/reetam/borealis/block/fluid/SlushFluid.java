@@ -1,16 +1,11 @@
 package com.reetam.borealis.block.fluid;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
-public abstract class SlushFluid extends ForgeFlowingFluid {
+public abstract class SlushFluid extends BaseFlowingFluid {
 
     public SlushFluid(Properties properties) {
         super(properties);

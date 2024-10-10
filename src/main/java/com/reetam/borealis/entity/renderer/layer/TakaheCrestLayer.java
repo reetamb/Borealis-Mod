@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class TakaheCrestLayer<T extends TakaheEntity, M extends TakaheModel<T>> extends RenderLayer<T, M> {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation(BorealisMod.MODID, "textures/entity/takahe_crest.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "textures/entity/takahe_crest.png");
 
     public TakaheCrestLayer(RenderLayerParent<T, M> renderer) {
         super(renderer);
@@ -20,7 +20,7 @@ public class TakaheCrestLayer<T extends TakaheEntity, M extends TakaheModel<T>> 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.getHat()) {
-            coloredCutoutModelCopyLayerRender(this.getParentModel(), this.getParentModel(), TEXTURE, poseStack, buffer, packedLight, entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, partialTicks, 1.0F, 1.0F, 1.0F);
+            coloredCutoutModelCopyLayerRender(this.getParentModel(), this.getParentModel(), TEXTURE, poseStack, buffer, packedLight, entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, partialTicks, 16777215);
         }
     }
 

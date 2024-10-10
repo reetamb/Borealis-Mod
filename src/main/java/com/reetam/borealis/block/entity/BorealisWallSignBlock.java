@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 public class BorealisWallSignBlock extends WallSignBlock {
 
     public BorealisWallSignBlock(Properties properties, WoodType woodType) {
-        super(properties, woodType);
+        super(woodType, properties);
     }
 
     @Override

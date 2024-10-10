@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "borealis:block/brumal_planks",
-    "side": "borealis:block/brumal_planks",
-    "top": "borealis:block/brumal_planks"
-  }
-}

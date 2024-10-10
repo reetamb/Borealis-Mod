@@ -1,32 +1,31 @@
 package com.reetam.borealis.data;
 
-import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.data.provider.BorealisRecipeProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.SignBlock;
 
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
 public class BorealisRecipes extends BorealisRecipeProvider {
 
-    public BorealisRecipes(DataGenerator generatorIn) {
-        super(generatorIn);
+    public BorealisRecipes(DataGenerator generatorIn, CompletableFuture<HolderLookup.Provider> provider) {
+        super(generatorIn, provider);
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(RecipeOutput consumer) {
         Block[] soapstone_stonecuts = new Block[]{
                 BorealisBlocks.SOAPSTONE_BRICKS.get(),
                 BorealisBlocks.SOAPSTONE_TILES.get(),
@@ -93,14 +92,13 @@ public class BorealisRecipes extends BorealisRecipeProvider {
                 .pattern("#")
                 .pattern("#")
                 .define('#', BorealisItems.KYANITE_CRYSTAL.get())
-                .unlockedBy(hasItem(BorealisItems.KYANITE_CRYSTAL), has(BorealisItems.KYANITE_CRYSTAL.get()))
-                .save(consumer, name(BorealisItems.KYANITE_ARROW));
+                .unlockedBy(hasItem(BorealisItems.KYANITE_CRYSTAL), has(BorealisItems.KYANITE_CRYSTAL.get()));
         smeltingResultFromBase(consumer, BorealisBlocks.CRACKED_ALMS.get(), BorealisBlocks.ALMS.get());
 
         bulkStonecutting(consumer, BorealisBlocks.SLATE, slate_stonecuts);
     }
 
-    public void bulkWood(Consumer<FinishedRecipe> consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn, Supplier<? extends Item> boatIn, Supplier<? extends SignBlock> signIn, Supplier<? extends CeilingHangingSignBlock> hangingSignIn) {
+    public void bulkWood(RecipeOutput consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn, Supplier<? extends Item> boatIn, Supplier<? extends SignBlock> signIn, Supplier<? extends CeilingHangingSignBlock> hangingSignIn) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, plankIn.get(), 4)
                 .requires(logIn.get())
                 .unlockedBy(has(logIn), has(logIn.get()))
@@ -120,18 +118,18 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         plate(plankIn, plateIn).save(consumer, name(plateIn));
         door(plankIn, doorIn).save(consumer, name(doorIn));
         trapdoor(plankIn, trapdoorIn).save(consumer, name(trapdoorIn));
-        boat(plankIn, boatIn).save(consumer, name(boatIn));
+        boat(plankIn, boatIn);
         sign(plankIn, signIn).save(consumer, name(signIn));
         hangingSign(plankIn, hangingSignIn).save(consumer, name(hangingSignIn));
     }
 
-    public void doStone(Consumer<FinishedRecipe> consumer, Supplier<? extends Block> stoneIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> wallIn) {
+    public void doStone(RecipeOutput consumer, Supplier<? extends Block> stoneIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> wallIn) {
         stairs(stoneIn, stairsIn).save(consumer, name(stairsIn));
         slab(stoneIn, slabIn).save(consumer, name(slabIn));
         wall(stoneIn, wallIn).save(consumer, name(wallIn));
     }
 
-    public void doWood(Consumer<FinishedRecipe> consumer) {
+    public void doWood(RecipeOutput consumer) {
         bulkWood(
                 consumer,
                 BorealisBlocks.BRUMAL_LOG,
@@ -224,9 +222,5 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         smeltingResultFromBase(consumer, BorealisBlocks.CARAMELIZED_TRAPDOOR.get(), BorealisBlocks.SWEETWOOD_TRAPDOOR.get());
         smeltingResultFromBase(consumer, BorealisItems.CARAMELIZED_BOAT.get(), BorealisItems.SWEETWOOD_BOAT.get());
         smeltingResultFromBase(consumer, BorealisBlocks.CARAMELIZED_SIGN.get(), BorealisBlocks.SWEETWOOD_SIGN.get());
-
-
-
-
     }
 }

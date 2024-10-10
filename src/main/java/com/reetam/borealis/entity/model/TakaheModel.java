@@ -17,7 +17,7 @@ import net.minecraft.world.entity.Entity;
 
 public class TakaheModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BorealisMod.MODID, "takahe"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "takahe"), "main");
 	private final ModelPart beak;
 	private final ModelPart head;
 	private final ModelPart body;
@@ -63,7 +63,7 @@ public class TakaheModel<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
 		beak.render(poseStack, buffer, packedLight, packedOverlay);
 		head.render(poseStack, buffer, packedLight, packedOverlay);
 		body.render(poseStack, buffer, packedLight, packedOverlay);

@@ -5,7 +5,7 @@ import com.reetam.borealis.BorealisMod;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -27,10 +27,10 @@ public class BorealisBiomes {
     public static final ResourceKey<Biome> SACCHARINE_HILLS = createKey("saccharine_hills");
 
     private static ResourceKey<Biome> createKey(String name) {
-        return ResourceKey.create(Registries.BIOME, new ResourceLocation(BorealisMod.MODID, name));
+        return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
     }
 
-    public static void bootstrap(BootstapContext<Biome> context) {
+    public static void bootstrap(BootstrapContext<Biome> context) {
         HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         HolderGetter<ConfiguredWorldCarver<?>> vanillaConfiguredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
         context.register(BOREAL_TUNDRA, borealTundra(placedFeatures, vanillaConfiguredCarvers));
@@ -43,20 +43,20 @@ public class BorealisBiomes {
     }
     public static Biome borealTundra(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
         return makeDefaultBiome(new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_SLATE_BOULDER)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_TALL_GRASS)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL)
+                        //.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_SLATE_BOULDER)
+                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
+                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_TALL_GRASS)
+                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL)
                         /*.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, freeze(placedFeatures))*/,
                 10136810);
     }
     public static Biome brumalGrove(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
         return makeDefaultBiome(new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_1)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_2)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_3)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_4)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
+                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_2)
+                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_3)
+                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_4)
+                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL)
                 /*.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, freeze(placedFeatures))*/,
                 10926829);
@@ -109,7 +109,7 @@ public class BorealisBiomes {
     }
 
     private static ResourceKey<PlacedFeature> freeze(HolderGetter<PlacedFeature> placedFeatures) {
-        return placedFeatures.getOrThrow(ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation("freeze_top_layer"))).key();
+        return placedFeatures.getOrThrow(ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.withDefaultNamespace("freeze_top_layer"))).key();
     }
     public static Biome makeDefaultBiome(BiomeGenerationSettings.Builder builder, int fogColor) {
         return fullDefinition(
@@ -127,9 +127,9 @@ public class BorealisBiomes {
                         .ambientParticle(new AmbientParticleSettings(ParticleTypes.SNOWFLAKE, 0.1F))
                         .build(),
                 builder
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_CLOUD)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BorealisPlacedFeatures.PLACED_KYANITE_CRYSTAL)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BorealisPlacedFeatures.PLACED_PEAT_ORE)
+                        //.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_CLOUD)
+                        //.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BorealisPlacedFeatures.PLACED_KYANITE_CRYSTAL)
+                        //.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BorealisPlacedFeatures.PLACED_PEAT_ORE)
                         .build(),
                 Biome.TemperatureModifier.NONE
         );
@@ -156,18 +156,18 @@ public class BorealisBiomes {
         return MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(List.of(
                 Pair.of(new Climate.ParameterPoint(zero, zero, zero, zero, zero, zero, 0),
                         biomes.getOrThrow(BOREAL_TUNDRA)),
-                Pair.of(new Climate.ParameterPoint(unhalf, zero, zero, zero, zero, zero, 0),
-                        biomes.getOrThrow(FROSTFIR_WOODS)),
-                Pair.of(new Climate.ParameterPoint(unone, zero, zero, zero, zero, zero, 0),
-                        biomes.getOrThrow(GIANTWOOD)),
-                Pair.of(new Climate.ParameterPoint(unhalf, unone, zero, zero, zero, zero, 0),
-                        biomes.getOrThrow(RAVAGED_GLACIER)),
+//                Pair.of(new Climate.ParameterPoint(unhalf, zero, zero, zero, zero, zero, 0),
+//                        biomes.getOrThrow(FROSTFIR_WOODS)),
+//                Pair.of(new Climate.ParameterPoint(unone, zero, zero, zero, zero, zero, 0),
+//                        biomes.getOrThrow(GIANTWOOD)),
+//                Pair.of(new Climate.ParameterPoint(unhalf, unone, zero, zero, zero, zero, 0),
+//                        biomes.getOrThrow(RAVAGED_GLACIER)),
                 Pair.of(new Climate.ParameterPoint(half, zero, zero, zero, zero, zero, 0),
-                        biomes.getOrThrow(BRUMAL_GROVE)),
-                Pair.of(new Climate.ParameterPoint(one, zero, zero, zero, zero, zero, 0),
-                        biomes.getOrThrow(SACCHARINE_HILLS)),
-                Pair.of(new Climate.ParameterPoint(zero, one, zero, zero, zero, zero, 0),
-                        biomes.getOrThrow(HOT_SPRING_ISLANDS))
+                        biomes.getOrThrow(BRUMAL_GROVE))
+//                Pair.of(new Climate.ParameterPoint(one, zero, zero, zero, zero, zero, 0),
+//                        biomes.getOrThrow(SACCHARINE_HILLS)),
+//                Pair.of(new Climate.ParameterPoint(zero, one, zero, zero, zero, zero, 0),
+//                        biomes.getOrThrow(HOT_SPRING_ISLANDS))
         )));
     }
 }
