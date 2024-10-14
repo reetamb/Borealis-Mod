@@ -76,35 +76,43 @@ public class BorealisConfiguredFeatures {
 
         register(context, BRUMAL_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG), new RootedTrunkPlacer(6, 2, 2),
-                with(BorealisBlocks.BRUMAL_LEAVES), new PalmFoliagePlacer(of(2), of(0), of(2)),
+                with(BorealisBlocks.BRUMAL_LEAVES), new PalmFoliagePlacer(of(2), of(0), 2),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());
         register(context, BRUMAL_TREE_1, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG),
-                new RootedTrunkPlacer(5, 2, 2, with(BorealisBlocks.WINTER_VIOLA), 0.25F),
+                new RootedTrunkPlacer(5, 2, 2),
                 with(BorealisBlocks.BRUMAL_LEAVES),
-                new PalmFoliagePlacer(of(2), of(0), of(2)),
+                new PalmFoliagePlacer(of(2), of(0), 2),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .decorators(List.of(
-                        new EpiphyteDecorator(0.25F)))
+                        new EpiphyteDecorator(0.25F),
+                        new RootDecorator(0.25F, with(BorealisBlocks.WINTER_VIOLA)),
+                        undergrowth()))
                 .ignoreVines().build());
         register(context, BRUMAL_TREE_2, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG),
                 new RootedTrunkPlacer(7, 2, 2, with(BorealisBlocks.WINTER_VIOLA), 0.25F),
                 with(BorealisBlocks.BRUMAL_LEAVES),
-                new PalmFoliagePlacer(of(2), of(0), of(2)),
+                new PalmFoliagePlacer(of(2), of(0), 2),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .decorators(List.of(
-                        new EpiphyteDecorator(0.25F)))
+                        new EpiphyteDecorator(0.25F),
+                        new TreeNutDecorator(0.1F),
+                        new RootDecorator(0.25F, with(BorealisBlocks.WINTER_VIOLA)),
+                        undergrowth()))
                 .ignoreVines().build());
         register(context, BRUMAL_TREE_3, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG),
                 new StraightTrunkPlacer(6, 2, 2),
                 with(BorealisBlocks.BRUMAL_LEAVES),
-                new PalmFoliagePlacer(of(2), of(0), of(2)),
+                new PalmFoliagePlacer(of(2), of(0), 2),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .decorators(List.of(
-                        new EpiphyteDecorator(0.25F)))
+                        new EpiphyteDecorator(0.25F),
+                        new TreeNutDecorator(0.1F),
+                        new LogDecorator(0.2F, with(BorealisBlocks.WALL_WINTER_FIDDLE)),
+                        undergrowth()))
                 .ignoreVines().build());
         register(context, BRUMAL_TREE_4, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG),
@@ -113,7 +121,9 @@ public class BorealisConfiguredFeatures {
                 new AcaciaFoliagePlacer(of(3), of(0)),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .decorators(List.of(
-                        new EpiphyteDecorator(0.25F)))
+                        new EpiphyteDecorator(0.25F),
+                        new LogDecorator(0.2F, with(BorealisBlocks.WALL_WINTER_FIDDLE)),
+                        undergrowth()))
                 .ignoreVines().build());
 
         register(context, FROSTFIR_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(

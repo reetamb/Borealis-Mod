@@ -3,6 +3,7 @@ package com.reetam.borealis.world.tree;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.world.BorealisFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -14,14 +15,10 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 
 public class PalmFoliagePlacer extends FoliagePlacer {
 
-    public static final MapCodec<PalmFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
-        return foliagePlacerParts(instance).and(IntProvider.codec(0, 16).fieldOf("trunk_height").forGetter((placer) -> {
-            return placer.trunkHeight;
-        })).apply(instance, PalmFoliagePlacer::new);
-    });
-    private final IntProvider trunkHeight;
+    public static final MapCodec<PalmFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec((instance) -> foliagePlacerParts(instance).and(Codec.intRange(0, 16).fieldOf("trunk_height").forGetter((placer) -> placer.trunkHeight)).apply(instance, PalmFoliagePlacer::new));
+    private final int trunkHeight;
 
-    public PalmFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider height) {
+    public PalmFoliagePlacer(IntProvider radius, IntProvider offset, int height) {
         super(radius, offset);
         this.trunkHeight = height;
     }
@@ -34,24 +31,17 @@ public class PalmFoliagePlacer extends FoliagePlacer {
         BlockPos blockpos = attachment.pos();
 
         this.placeLeavesRow(level, blockSetter, rand, config, blockpos, 1, offset, attachment.doubleTrunk());
-        this.placeLeavesRow(level, blockSetter, rand, config, blockpos, 2, offset-1, attachment.doubleTrunk());
-
-        this.placeLeavesRow(level, blockSetter, rand, config, blockpos.west(2), 1, offset-1, attachment.doubleTrunk());
-        this.placeLeavesRow(level, blockSetter, rand, config, blockpos.north(2), 1, offset-1, attachment.doubleTrunk());
-        this.placeLeavesRow(level, blockSetter, rand, config, blockpos.east(2), 1, offset-1, attachment.doubleTrunk());
-        this.placeLeavesRow(level, blockSetter, rand, config, blockpos.south(2), 1, offset-1, attachment.doubleTrunk());
-
-        this.placeLeavesRow(level, blockSetter, rand, config, blockpos.west(3), 1, offset-2, attachment.doubleTrunk());
-        this.placeLeavesRow(level, blockSetter, rand, config, blockpos.north(3), 1, offset-2, attachment.doubleTrunk());
-        this.placeLeavesRow(level, blockSetter, rand, config, blockpos.east(3), 1, offset-2, attachment.doubleTrunk());
-        this.placeLeavesRow(level, blockSetter, rand, config, blockpos.south(3), 1, offset-2, attachment.doubleTrunk());
+        this.placeLeavesRow(level, blockSetter, rand, config, blockpos, 3, offset-1, attachment.doubleTrunk());
+        this.placeLeavesRowWithHangingLeavesBelow(level, blockSetter, rand, config, blockpos, 4, offset-2, attachment.doubleTrunk(), 0.5F, 0.5F);
     }
 
     public int foliageHeight(RandomSource rand, int height, TreeConfiguration config) {
-        return Math.max(4, height - this.trunkHeight.sample(rand));
+        return this.trunkHeight;
     }
 
+    @Override
     protected boolean shouldSkipLocation(RandomSource rand, int localX, int localY, int localZ, int range, boolean large) {
-        return localX == range && localZ == range && range > 0;
+        if (range <= 3) return localX + localZ > range && range > 0;
+        else return range * (Math.abs(localX - range + 1) + localZ) > range && range * (Math.abs(localZ - range + 1) + localX) > range;
     }
 }

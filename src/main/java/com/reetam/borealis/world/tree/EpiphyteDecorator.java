@@ -35,14 +35,13 @@ public class EpiphyteDecorator extends TreeDecorator {
         RandomSource random = context.random();
 
         leaves.forEach((leafPos) -> {
-            if (!leaves.contains(leafPos.below()) && random.nextDouble() < this.probability) {
-//                int height = random.nextInt(1, 4);
-//                for (int i = 1; i < height; i++) {
-//                    if (!leaves.contains(leafPos.below(i)) && !leaves.contains(leafPos.below(i + 1)) && !context.logs().contains(leafPos.below(i))) {
-//                        context.setBlock(leafPos.below(i), BorealisBlocks.MISTERIA_BODY.get().defaultBlockState());
-//                    }
-//                }
-                context.setBlock(leafPos.below(), BorealisBlocks.MISTERIA_HEAD.get().defaultBlockState());
+            if (random.nextDouble() < this.probability) {
+                int height = random.nextInt(1, 4);
+                for (int i = 1; i < height; i++) {
+                    if (!leaves.contains(leafPos.below(i)) && !leaves.contains(leafPos.below(i + 1)) && !context.logs().contains(leafPos.below(i))) {
+                        context.setBlock(leafPos.below(i), BorealisBlocks.MISTERIA_BODY.get().defaultBlockState());
+                    }
+                }
             }
         });
     }

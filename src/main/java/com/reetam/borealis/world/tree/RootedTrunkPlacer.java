@@ -52,7 +52,7 @@ public class RootedTrunkPlacer extends TrunkPlacer {
         int rootSplay = 2;
         BlockPos pos1 = pos;
 
-        for (int i = -3; i < treeBaseHeight; i++) {
+        for (int i = -3; i <= treeBaseHeight; i++) {
             if (i < rootHeight) {
                 radialLog(level, blockSetter, rand, pos1, rootSplay, config, i == rootHeight - 1);
             } else if (rootSplay > 0) {

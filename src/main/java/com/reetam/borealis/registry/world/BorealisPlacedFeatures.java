@@ -47,14 +47,14 @@ public class BorealisPlacedFeatures {
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
     }
-    private static final BlockPredicateFilter PLANT = BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(Blocks.OAK_SAPLING.defaultBlockState(), BlockPos.ZERO));
+    private static final BlockPredicateFilter PLANT = BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(Blocks.SPRUCE_SAPLING.defaultBlockState(), BlockPos.ZERO));
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> please = context.lookup(Registries.CONFIGURED_FEATURE);
         register(context, PLACED_GLACIAL_RIDGE, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_GLACIAL_RIDGE),
-                      CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());
+                CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());
         register(context, PLACED_GLACIAL_SPIKE, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_GLACIAL_SPIKE),
-                InSquarePlacement.spread(), CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());
+                CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());
         register(context, PLACED_HOT_SPRING, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_HOT_SPRING),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(128)),
                 InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(3), BiomeFilter.biome());
@@ -73,31 +73,31 @@ public class BorealisPlacedFeatures {
                 CountOnEveryLayerPlacement.of(1), RarityFilter.onAverageOnceEvery(3), BiomeFilter.biome());
 
         register(context, PLACED_BRUMAL_TREE_1, please.getOrThrow(BorealisConfiguredFeatures.BRUMAL_TREE_1),
-                CountOnEveryLayerPlacement.of(6), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(4), BiomeFilter.biome(), PLANT);
         register(context, PLACED_BRUMAL_TREE_2, please.getOrThrow(BorealisConfiguredFeatures.BRUMAL_TREE_2),
-                CountOnEveryLayerPlacement.of(4), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(3), BiomeFilter.biome(), PLANT);
         register(context, PLACED_BRUMAL_TREE_3, please.getOrThrow(BorealisConfiguredFeatures.BRUMAL_TREE_3),
-                CountOnEveryLayerPlacement.of(12), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(4), BiomeFilter.biome(), PLANT);
         register(context, PLACED_BRUMAL_TREE_4, please.getOrThrow(BorealisConfiguredFeatures.BRUMAL_TREE_4),
-                CountOnEveryLayerPlacement.of(6), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(6), BiomeFilter.biome(), PLANT);
 
         register(context, PLACED_FROSTFIR_TREE, please.getOrThrow(BorealisConfiguredFeatures.FROSTFIR_TREE),
-                CountOnEveryLayerPlacement.of(8), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(8), BiomeFilter.biome(), PLANT);
 //        register(context, PLACED_GREAT_FROSTFIR_TREE, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_FROSTFIR_TREE),
 //                CountPlacement.of(4), BiomeFilter.biome());
         register(context, PLACED_GIANTWOOD_TREE, please.getOrThrow(BorealisConfiguredFeatures.GIANTWOOD_TREE),
-                CountOnEveryLayerPlacement.of(4), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(4), BiomeFilter.biome(), PLANT);
         register(context, PLACED_HELIX_TREE, please.getOrThrow(BorealisConfiguredFeatures.HELIX_TREE),
-                CountOnEveryLayerPlacement.of(3), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(3), BiomeFilter.biome(), PLANT);
         register(context, PLACED_COTTON_TREE, please.getOrThrow(BorealisConfiguredFeatures.COTTON_TREE),
-                CountOnEveryLayerPlacement.of(5), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(5), BiomeFilter.biome(), PLANT);
         register(context, PLACED_GLAZED_HELIX_TREE, please.getOrThrow(BorealisConfiguredFeatures.GLAZED_HELIX_TREE),
-                CountOnEveryLayerPlacement.of(2), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), PLANT);
         register(context, PLACED_GLAZED_COTTON_TREE, please.getOrThrow(BorealisConfiguredFeatures.GLAZED_COTTON_TREE),
-                CountOnEveryLayerPlacement.of(3), InSquarePlacement.spread(), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(3), BiomeFilter.biome(), PLANT);
 
         register(context, PLACED_LICHEN_PATCH, please.getOrThrow(BorealisConfiguredFeatures.LICHEN_PATCH),
-                CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), InSquarePlacement.spread());
+                CountOnEveryLayerPlacement.of(2), BiomeFilter.biome());
         register(context, PLACED_RUBBLE_PATCH, please.getOrThrow(BorealisConfiguredFeatures.RUBBLE_PATCH),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(64)),
                 InSquarePlacement.spread(), CountOnEveryLayerPlacement.of(2), RarityFilter.onAverageOnceEvery(2), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(120)));

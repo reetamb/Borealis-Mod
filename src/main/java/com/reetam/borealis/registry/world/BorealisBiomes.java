@@ -43,22 +43,22 @@ public class BorealisBiomes {
     }
     public static Biome borealTundra(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
         return makeDefaultBiome(new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers)
-                        //.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_SLATE_BOULDER)
-                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
-                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_TALL_GRASS)
-                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL)
+                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_SLATE_BOULDER)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_TALL_GRASS)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL)
                         /*.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, freeze(placedFeatures))*/,
                 10136810);
     }
     public static Biome brumalGrove(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
         return makeDefaultBiome(new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_1)
-                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_2)
-                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_3)
-                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_4)
-                        //.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_2)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_3)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_BRUMAL_TREE_4)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL)
-                /*.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, freeze(placedFeatures))*/,
+                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, freeze(placedFeatures)),
                 10926829);
     }
     public static Biome frostfirWoods(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
@@ -128,8 +128,8 @@ public class BorealisBiomes {
                         .build(),
                 builder
                         //.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_CLOUD)
-                        //.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BorealisPlacedFeatures.PLACED_KYANITE_CRYSTAL)
-                        //.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BorealisPlacedFeatures.PLACED_PEAT_ORE)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BorealisPlacedFeatures.PLACED_KYANITE_CRYSTAL)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BorealisPlacedFeatures.PLACED_PEAT_ORE)
                         .build(),
                 Biome.TemperatureModifier.NONE
         );
@@ -156,18 +156,18 @@ public class BorealisBiomes {
         return MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(List.of(
                 Pair.of(new Climate.ParameterPoint(zero, zero, zero, zero, zero, zero, 0),
                         biomes.getOrThrow(BOREAL_TUNDRA)),
-//                Pair.of(new Climate.ParameterPoint(unhalf, zero, zero, zero, zero, zero, 0),
-//                        biomes.getOrThrow(FROSTFIR_WOODS)),
-//                Pair.of(new Climate.ParameterPoint(unone, zero, zero, zero, zero, zero, 0),
-//                        biomes.getOrThrow(GIANTWOOD)),
-//                Pair.of(new Climate.ParameterPoint(unhalf, unone, zero, zero, zero, zero, 0),
-//                        biomes.getOrThrow(RAVAGED_GLACIER)),
+                Pair.of(new Climate.ParameterPoint(unhalf, zero, zero, zero, zero, zero, 0),
+                        biomes.getOrThrow(FROSTFIR_WOODS)),
+                Pair.of(new Climate.ParameterPoint(unone, zero, zero, zero, zero, zero, 0),
+                        biomes.getOrThrow(GIANTWOOD)),
+                Pair.of(new Climate.ParameterPoint(unhalf, unone, zero, zero, zero, zero, 0),
+                        biomes.getOrThrow(RAVAGED_GLACIER)),
                 Pair.of(new Climate.ParameterPoint(half, zero, zero, zero, zero, zero, 0),
-                        biomes.getOrThrow(BRUMAL_GROVE))
-//                Pair.of(new Climate.ParameterPoint(one, zero, zero, zero, zero, zero, 0),
-//                        biomes.getOrThrow(SACCHARINE_HILLS)),
-//                Pair.of(new Climate.ParameterPoint(zero, one, zero, zero, zero, zero, 0),
-//                        biomes.getOrThrow(HOT_SPRING_ISLANDS))
+                        biomes.getOrThrow(BRUMAL_GROVE)),
+                Pair.of(new Climate.ParameterPoint(one, zero, zero, zero, zero, zero, 0),
+                        biomes.getOrThrow(SACCHARINE_HILLS)),
+                Pair.of(new Climate.ParameterPoint(zero, one, zero, zero, zero, zero, 0),
+                        biomes.getOrThrow(HOT_SPRING_ISLANDS))
         )));
     }
 }

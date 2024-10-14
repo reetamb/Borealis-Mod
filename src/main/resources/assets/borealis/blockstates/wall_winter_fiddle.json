@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=east": {
-      "model": "borealis:block/wall_winter_violin",
+      "model": "borealis:block/wall_winter_fiddle",
       "y": 90
     },
     "facing=north": {
-      "model": "borealis:block/wall_winter_violin"
+      "model": "borealis:block/wall_winter_fiddle"
     },
     "facing=south": {
-      "model": "borealis:block/wall_winter_violin",
+      "model": "borealis:block/wall_winter_fiddle",
       "y": 180
     },
     "facing=west": {
-      "model": "borealis:block/wall_winter_violin",
+      "model": "borealis:block/wall_winter_fiddle",
       "y": 270
     }
   }
