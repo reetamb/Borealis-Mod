@@ -116,10 +116,9 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.STRIPPED_CARAMELIZED_LOG.get())
                 .add(BorealisBlocks.STRIPPED_CARAMELIZED_WOOD.get());
         tag(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)
-                .add(Blocks.ICE)
-                .add(Blocks.PACKED_ICE)
-                .add(Blocks.BLUE_ICE)
-                .add(Blocks.SNOW_BLOCK);
+                .add(BorealisBlocks.KYANITE_CABLE.get())
+                .add(BorealisBlocks.KYANITE_FLAGSTONE.get())
+                .add(BorealisBlocks.KYANITE_ORE.get());
         tag(BorealisTags.Blocks.PORTAL_CENTER_BLOCKS)
                 .add(Blocks.SNOW)
                 .add(BorealisBlocks.SUGAR_SNOW.get());
@@ -249,6 +248,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.WINTER_FIDDLE.get())
                 .add(BorealisBlocks.WALL_WINTER_FIDDLE.get())
                 .add(BorealisBlocks.WINTER_CELLO.get());
+        tag(BlockTags.CLIMBABLE).add(BorealisBlocks.BOREALIS_PORTAL.get());
     }
     
     private void forgeTags() {
@@ -277,7 +277,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .addTag(BorealisTags.Blocks.BLOCKSET_SOAPSTONE)
                 .add(BorealisBlocks.SLATE.get(), BorealisBlocks.SLATE_PILLAR.get(), BorealisBlocks.SLATE_TILES.get(), BorealisBlocks.STARRY_SLATE.get(), BorealisBlocks.STARRY_SLATE_TILES.get())
                 .add(BorealisBlocks.PUMICE.get(), BorealisBlocks.PUMICE_GEYSER.get(), BorealisBlocks.SCORIA.get())
-                .add(BorealisBlocks.KYANITE_ORE.get(), BorealisBlocks.TANZANITE_BLOCK.get(), BorealisBlocks.TANZANITE_ORE.get(), BorealisBlocks.HAILSTONE.get())
+                .add(BorealisBlocks.KYANITE_ORE.get(), BorealisBlocks.TANZANITE_BLOCK.get(), BorealisBlocks.TANZANITE_ORE.get(), BorealisBlocks.HAILSTONE.get(), BorealisBlocks.KYANITE_FLAGSTONE.get(), BorealisBlocks.KYANITE_CABLE.get(), BorealisBlocks.KYANITE_BULB.get())
                 .add(BorealisBlocks.PETRIFIED_WOOD.get(), BorealisBlocks.PETRIFIED_WOOD_BRICKS.get(), BorealisBlocks.BONE_DRY_WOOD.get(), BorealisBlocks.BONE_DRY_WOOD_BRICKS.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get(), BorealisBlocks.LIVING_SNOW_BLOCK.get(), BorealisBlocks.SUGAR_SNOW.get())
@@ -292,6 +292,8 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.KYANITE_ORE.get())
                 .add(BorealisBlocks.PEAT.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(BorealisBlocks.HAILSTONE.get(), BorealisBlocks.TANZANITE_BLOCK.get(), BorealisBlocks.TANZANITE_ORE.get());
+                .add(BorealisBlocks.HAILSTONE.get(), BorealisBlocks.TANZANITE_BLOCK.get(), BorealisBlocks.TANZANITE_ORE.get(), BorealisBlocks.KYANITE_CABLE.get(), BorealisBlocks.KYANITE_BULB.get());
+        tag(BlockTags.NEEDS_DIAMOND_TOOL)
+                .add(BorealisBlocks.KYANITE_FLAGSTONE.get());
     }
 }

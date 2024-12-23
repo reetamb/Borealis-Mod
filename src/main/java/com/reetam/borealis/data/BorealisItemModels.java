@@ -149,11 +149,14 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.FLEECE);
 
         itemBlock(BorealisBlocks.CINNABAR);
+        itemBlock(BorealisBlocks.KYANITE_FLAGSTONE);
+        itemBlockFlat(BorealisBlocks.MOONFLOWER_BLOCK);
 
         normalItem(BorealisItems.KYANITE_CRYSTAL);
         normalItem(BorealisFluids.HOT_SPRING_WATER_BUCKET);
         normalItem(BorealisFluids.QUICKSILVER_BUCKET);
         normalItem(BorealisFluids.SLUSH_BUCKET);
+        normalItem(BorealisFluids.PORTAL_FLUID_BUCKET);
         egg(BorealisItems.HUMMINGBIRD_SPAWN_EGG);
         egg(BorealisItems.TAKAHE_SPAWN_EGG);
         egg(BorealisItems.THRUSHER_SPAWN_EGG);

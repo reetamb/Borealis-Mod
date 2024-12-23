@@ -3,6 +3,7 @@ package com.reetam.borealis.registry.world;
 import com.google.common.collect.ImmutableSet;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisFluids;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -20,7 +21,7 @@ public class BorealisDimensions {
     public static final ResourceKey<Level> BOREALIS = ResourceKey.create(Registries.DIMENSION, name("borealis"));
 
     public static final DeferredHolder<PoiType, PoiType> BOREALIS_PORTAL_POI = POIS.register("borealis_portal",
-            () -> new PoiType(ImmutableSet.copyOf(BorealisBlocks.BOREALIS_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1));
+            () -> new PoiType(ImmutableSet.copyOf(BorealisFluids.PORTAL_FLUID_BLOCK.get().getStateDefinition().getPossibleStates()), 0, 1));
 
     private static ResourceLocation name(String name) {
         return ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name);

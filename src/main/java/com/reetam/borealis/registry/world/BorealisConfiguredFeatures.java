@@ -59,6 +59,7 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> KYANITE_CRYSTAL = createKey("kyanite_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PEAT_ORE = createKey("peat_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_TANZANITE_METEOR = createKey("tanzanite_meteor");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NATURAL_HAILSTONE = createKey("natural_hailstone");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
@@ -73,6 +74,7 @@ public class BorealisConfiguredFeatures {
         register(context, CONFIGURED_CLOUD, BorealisFeatures.CLOUD.get(), FeatureConfiguration.NONE);
         register(context, CONFIGURED_SUGAR_SNOW, BorealisFeatures.SUGAR_SNOW.get(), FeatureConfiguration.NONE);
         register(context, CONFIGURED_SLATE_BOULDER, Feature.FOREST_ROCK, new BlockStateConfiguration(BorealisBlocks.SLATE.get().defaultBlockState()));
+        register(context, NATURAL_HAILSTONE, Feature.REPLACE_SINGLE_BLOCK, new ReplaceBlockConfiguration(Blocks.SNOW.getStateDefinition().any(), BorealisBlocks.HAILSTONE.get().defaultBlockState()));
 
         register(context, BRUMAL_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG), new RootedTrunkPlacer(6, 2, 2),

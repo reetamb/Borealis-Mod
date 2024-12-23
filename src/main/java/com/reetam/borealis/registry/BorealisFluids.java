@@ -72,6 +72,18 @@ public class BorealisFluids {
             .bucket(SLUSH_BUCKET)
             .block(BorealisFluids.SLUSH_BLOCK);
 
+    public static final DeferredHolder<FluidType, FluidType> PORTAL_FLUID_TYPE = TYPES.register("portal_fluid", () -> new FluidType(
+            properties("portal_fluid", false, 5000, 5000, 10).motionScale(0.014)));
+    public static final DeferredHolder<Fluid, PortalFluid.Source> PORTAL_FLUID_SOURCE = FLUIDS.register("portal_fluid_source", () -> new PortalFluid.Source(BorealisFluids.PORTAL_FLUID_PROPERTIES));
+    public static final DeferredHolder<Fluid, PortalFluid.Flowing> PORTAL_FLUID_FLOWING = FLUIDS.register("portal_fluid_flowing", () -> new PortalFluid.Flowing(BorealisFluids.PORTAL_FLUID_PROPERTIES));
+    public static final DeferredHolder<Item, Item> PORTAL_FLUID_BUCKET = BorealisItems.ITEMS.register("portal_fluid_bucket", () -> new BucketItem(
+            BorealisFluids.PORTAL_FLUID_SOURCE.get(), (new Item.Properties()).stacksTo(1)));
+    public static final DeferredHolder<Block, LiquidBlock> PORTAL_FLUID_BLOCK = BorealisBlocks.BLOCKS.register("portal_fluid", () -> new PortalBlock(
+            BorealisFluids.PORTAL_FLUID_SOURCE, BlockBehaviour.Properties.ofFullCopy(Blocks.WATER).liquid()));
+    public static final BaseFlowingFluid.Properties PORTAL_FLUID_PROPERTIES = new BaseFlowingFluid
+            .Properties(PORTAL_FLUID_TYPE, PORTAL_FLUID_SOURCE, PORTAL_FLUID_FLOWING)
+            .bucket(PORTAL_FLUID_BUCKET)
+            .block(BorealisFluids.PORTAL_FLUID_BLOCK);
     private static FluidType.Properties properties(String name, boolean wet, int density, int viscosity, int temperature) {
         return FluidType.Properties.create()
                 .descriptionId("block." + BorealisMod.MODID + "." + name)
@@ -85,6 +97,7 @@ public class BorealisFluids {
     public static void registerFluidClient(RegisterClientExtensionsEvent event) {
         event.registerFluidType(new BorealisFluids.BorealisFluidClient("hot_spring_water", 112, 220, 255, 2F, 5F), HOT_SPRING_WATER_TYPE.get());
         event.registerFluidType(new BorealisFluids.BorealisFluidClient("quicksilver", 196, 216, 229, 0F, 1F), QUICKSILVER_TYPE.get());
+        event.registerFluidType(new BorealisFluids.BorealisFluidClient("portal_fluid", 51, 51, 204, 0.5F, 1.5F), PORTAL_FLUID_TYPE.get());
         event.registerFluidType(new BorealisFluids.BorealisFluidClient("slush", 133, 146, 191, 1F, 3F), SLUSH_TYPE.get());
     }
 

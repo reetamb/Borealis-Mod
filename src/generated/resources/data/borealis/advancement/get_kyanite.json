@@ -1,0 +1,33 @@
+{
+  "parent": "borealis:enter_borealis",
+  "criteria": {
+    "get_kyanite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:kyanite_crystal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.borealis.get_kyanite.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "borealis:kyanite_crystal"
+    },
+    "title": {
+      "translate": "advancement.borealis.get_kyanite"
+    }
+  },
+  "requirements": [
+    [
+      "get_kyanite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

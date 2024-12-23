@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:replace_single_block",
+  "config": {
+    "targets": [
+      {
+        "state": {
+          "Name": "borealis:hailstone_block"
+        },
+        "target": {
+          "block_state": {
+            "Name": "minecraft:snow",
+            "Properties": {
+              "layers": "1"
+            }
+          },
+          "predicate_type": "minecraft:blockstate_match"
+        }
+      }
+    ]
+  }
+}

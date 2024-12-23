@@ -1,0 +1,60 @@
+{
+  "parent": "borealis:get_hailstone",
+  "criteria": {
+    "icarian_fall": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "position": {
+                  "y": {
+                    "max": 0.0,
+                    "min": -64.0
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "icarian_savior": {
+      "conditions": {
+        "item": {
+          "items": "borealis:hailstone"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.borealis.icarian.desc"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "components": {
+        "minecraft:damage": 432
+      },
+      "count": 1,
+      "id": "minecraft:elytra"
+    },
+    "title": {
+      "translate": "advancement.borealis.icarian"
+    }
+  },
+  "requirements": [
+    [
+      "icarian_fall"
+    ],
+    [
+      "icarian_savior"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

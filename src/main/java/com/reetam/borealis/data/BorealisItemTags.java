@@ -33,6 +33,12 @@ public class BorealisItemTags extends ItemTagsProvider {
         copy(BorealisTags.Blocks.FROSTFIR_LOGS, BorealisTags.Items.FROSTFIR_LOGS);
         copy(BorealisTags.Blocks.SWEETWOOD_LOGS, BorealisTags.Items.SWEETWOOD_LOGS);
 
+        tag(BorealisTags.Items.PREHISTORIC_PLANT)
+                .add(BorealisItems.WINTER_FIDDLE.get())
+                .add(BorealisBlocks.WINTER_CELLO.get().asItem())
+                .add(BorealisBlocks.WINTER_VIOLA.get().asItem())
+                .add(BorealisBlocks.BRUMELIAD.get().asItem());
+
         //vanilla
         tag(ItemTags.SAPLINGS)
                 .add(BorealisBlocks.BRUMAL_SAPLING.get().asItem())

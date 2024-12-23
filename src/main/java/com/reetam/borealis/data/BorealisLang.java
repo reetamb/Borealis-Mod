@@ -34,6 +34,7 @@ public class BorealisLang extends BorealisLangProvider {
                 blockNames.add(assumeBlock(block));
             }
         }
+        blockNames.add(assumeBlock(BorealisBlocks.WINTER_FIDDLE));
         for (DeferredHolder<Item, ? extends Item> item : BorealisItems.ITEMS.getEntries()) {
             if (!blockNames.contains(item.get().toString())) {
                 assumeItem(item);
@@ -49,8 +50,12 @@ public class BorealisLang extends BorealisLangProvider {
         add(BorealisEntities.THRUSHER.get(), "Thrusher");
         add(BorealisEntities.TAKAHE.get(), "Takahe");
 
-        addAdvancement("borealis_root", "Borealis", "Enter Borealis");
-        addAdvancement("get_hailstone", "Discover a Hailstone", "Find a hailstone in a snowy thunderstorm");
-        addAdvancement("shear_plant", "Distant Cousins", "Shear a flower that resembles ancient Overworld crops");
+        addAdvancement("borealis_root", "Borealis", "Discover an untouched world");
+        addAdvancement("enter_borealis", "Enter Borealis", "Use a hailstone above build height");
+        addAdvancement("get_hailstone", "Hail-o There", "Find a hailstone in a snowy thunderstorm");
+        addAdvancement("icarian", "Icarian", "Save yourself from burning up in the stratosphere");
+        addAdvancement("make_portal", "Warm Welcome Home", "Build a portal back home with Kyanite Cable");
+        addAdvancement("get_kyanite", "Bottom of the Beryl", "Mine a fibrous crystal");
+        addAdvancement("shear_plant", "Distant Relatives", "Gather a prehistoric plant");
     }
 }

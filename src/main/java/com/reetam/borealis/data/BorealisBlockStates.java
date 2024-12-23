@@ -124,6 +124,8 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
                 .partialState().with(AlmsCrackedBlock.EMPTY, false).modelForState().modelFile(this.models().cube("cracked_alms", texture("alms_top"), texture("cracked_alms_top"), texture("alms_end"), texture("alms_end"), texture("cracked_alms_side"), texture("cracked_alms_side")).texture("particle", texture("alms_side"))).addModel()
                 .partialState().with(AlmsCrackedBlock.EMPTY, true).modelForState().modelFile(this.models().cube("alms_shell", texture("alms_top"), texture("alms_shell_top"), texture("alms_end"), texture("alms_end"), texture("alms_shell_side"), texture("alms_shell_side")).texture("particle", texture("alms_side"))).addModel();
 
+        block(BorealisBlocks.BOREALIS_PORTAL);
+        logBlock(BorealisBlocks.KYANITE_FLAGSTONE.get());
         block(BorealisBlocks.LICHEN_BLOCK);
         block(BorealisBlocks.CINNABAR);
         wood();

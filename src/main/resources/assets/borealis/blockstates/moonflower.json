@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "borealis:block/moonflower"
+      },
+      {
+        "model": "borealis:block/moonflower",
+        "y": 90
+      },
+      {
+        "model": "borealis:block/moonflower",
+        "y": 180
+      },
+      {
+        "model": "borealis:block/moonflower",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -78,37 +78,9 @@ public class BorealisPortalBlock extends Block {
         if (level.getBlockState(pos.below(2)).isAir()) level.setBlock(pos.below(2), Blocks.PACKED_ICE.defaultBlockState(), 18);
     }
 
-//    @Override
-//    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-//        if(!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions()) {
-//            if(entity.isOnPortalCooldown()) {
-//                entity.setPortalCooldown();
-//            }
-//            else {
-//                if(!entity.level().isClientSide && !pos.equals(entity.portalEntrancePos)) {
-//                    entity.portalEntrancePos = pos.immutable();
-//                }
-//                Level entityLevel = entity.level();
-//                MinecraftServer minecraftserver = entityLevel.getServer();
-//                ResourceKey<Level> destination = entity.level().dimension() == BorealisWorld.BOREALIS_LEVEL ? Level.OVERWORLD : BorealisWorld.BOREALIS_LEVEL;
-//                if(minecraftserver != null) {
-//                    ServerLevel destinationLevel = minecraftserver.getLevel(destination);
-//                    if(destinationLevel != null && !entity.isPassenger()) {
-//                        entity.level().getProfiler().push("borealis_portal");
-//                        entity.setPortalCooldown();
-//                        entity.changeDimension(destinationLevel, new BorealisTeleporter());
-//                        entity.level().getProfiler().pop();
-//                    }
-//                }
-//            }
-//        }
-//    }
-
     @Override
-    public void neighborChanged(BlockState thisState, Level level, BlockPos thisPos, Block otherBlock, BlockPos otherPos, boolean p_220069_6_) {
-        if (otherBlock == BorealisBlocks.BOREALIS_PORTAL.get() || otherBlock.defaultBlockState().is(BorealisTags.Blocks.PORTAL_FRAME_BLOCKS)) {
-            level.setBlock(thisPos, Blocks.AIR.defaultBlockState(), 1);
-        }
+    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+
     }
 
     @Override

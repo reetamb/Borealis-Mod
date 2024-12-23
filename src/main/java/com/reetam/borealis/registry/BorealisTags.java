@@ -17,6 +17,8 @@ public class BorealisTags {
         public static final TagKey<Item> SWEETWOOD_LOGS = tag("sweetwood_logs");
         public static final TagKey<Item> CARAMELIZED_LOGS = tag("caramelized_logs");
 
+        public static final TagKey<Item> PREHISTORIC_PLANT = tag("prehistoric_plant");
+
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
         }

@@ -11,7 +11,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
 public abstract class QuicksilverFluid extends BaseFlowingFluid {
-
     public QuicksilverFluid(Properties properties) {
         super(properties);
         properties.levelDecreasePerBlock(6);

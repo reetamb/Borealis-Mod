@@ -1,0 +1,29 @@
+{
+  "parent": "borealis:get_hailstone",
+  "criteria": {
+    "enter_borealis": {
+      "conditions": {
+        "to": "borealis:borealis"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.borealis.enter_borealis.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "borealis:living_snow_block"
+    },
+    "title": {
+      "translate": "advancement.borealis.enter_borealis"
+    }
+  },
+  "requirements": [
+    [
+      "enter_borealis"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

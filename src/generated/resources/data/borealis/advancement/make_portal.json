@@ -1,0 +1,29 @@
+{
+  "parent": "borealis:get_kyanite",
+  "criteria": {
+    "make_portal": {
+      "conditions": {
+        "block": "borealis:borealis_portal"
+      },
+      "trigger": "minecraft:enter_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.borealis.make_portal.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "borealis:kyanite_flagstone"
+    },
+    "title": {
+      "translate": "advancement.borealis.make_portal"
+    }
+  },
+  "requirements": [
+    [
+      "make_portal"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

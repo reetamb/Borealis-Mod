@@ -1,278 +1,163 @@
-[13Oct2024 18:27:09.851] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, 21.0.167, --assetIndex, asset-index, --assetsDir, C:\Users\reeta\.gradle\caches\minecraft\assets\1.21, --gameDir, ., --fml.neoForgeVersion, 21.0.167, --fml.fmlVersion, 4.0.23, --fml.mcVersion, 1.21, --fml.neoFormVersion, 20240613.152323]
-[13Oct2024 18:27:09.856] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.4+7-LTS
-[13Oct2024 18:27:09.860] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.4 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[13Oct2024 18:27:10.120] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
-[13Oct2024 18:27:10.271] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
-[13Oct2024 18:27:10.379] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
-[13Oct2024 18:27:10.642] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.6 Source=union:/C:/Users/reeta/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.14.0+mixin.0.8.6/c265173c84346e9e5d42a2384b2b02bd39a4a899/sponge-mixin-0.14.0+mixin.0.8.6.jar%23135!/ Service=ModLauncher Env=CLIENT
-[13Oct2024 18:27:10.873] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) Iris(R) Xe Graphics GL version 4.6.0 - Build 31.0.101.5186, Intel
-[13Oct2024 18:27:10.971] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: neoforge devenv provider ([C:\Users\reeta\Desktop\Borealis\Borealis-Mod\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.0.167\neoforge-21.0.167.jar])]
-[13Oct2024 18:27:10.994] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: neoforge devenv provider ([C:\Users\reeta\Desktop\Borealis\Borealis-Mod\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.0.167\neoforge-21.0.167.jar])]
-[13Oct2024 18:27:11.016] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "main" [locator: userdev mods and services, reader: mod manifest]
-[13Oct2024 18:27:11.066] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: userdev mods and services, reader: mod manifest]
-[13Oct2024 18:27:11.103] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.3.5.jar" [locator: userdev mods and services, reader: mod manifest]
-[13Oct2024 18:27:11.449] [main/WARN] [net.neoforged.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: mixinextras-neoforge-0.3.5.jar. Using Mod File: C:\Users\reeta\.gradle\caches\modules-2\files-2.1\io.github.llamalad7\mixinextras-neoforge\0.3.5\ef3ffcf309dae656517b2f120189b1c9b21737dd\mixinextras-neoforge-0.3.5.jar
-[13Oct2024 18:27:11.451] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[13Oct2024 18:27:11.694] [main/INFO] [net.neoforged.fml.loading.FMLServiceProvider/CORE]: Loading coremod script-engine for [neoforge]
-[13Oct2024 18:27:12.836] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, 21.0.167, --gameDir, ., --assetsDir, C:\Users\reeta\.gradle\caches\minecraft\assets\1.21, --assetIndex, asset-index]
-[13Oct2024 18:27:14.914] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 362 milliseconds
-[13Oct2024 18:27:15.387] [pool-7-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.5).
-[13Oct2024 18:27:25.289] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[13Oct2024 18:27:25.293] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
-[13Oct2024 18:27:25.429] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[13Oct2024 18:27:25.431] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[13Oct2024 18:27:25.433] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[13Oct2024 18:27:26.357] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/reeta/Desktop/Borealis/Borealis-Mod/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.0.167/neoforge-21.0.167.jar%23189!/assets/.mcassetsroot' uses unexpected schema
-[13Oct2024 18:27:26.357] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/reeta/Desktop/Borealis/Borealis-Mod/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.0.167/neoforge-21.0.167.jar%23189!/data/.mcassetsroot' uses unexpected schema
-[13Oct2024 18:27:26.538] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[13Oct2024 18:27:26.558] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[13Oct2024 18:27:27.338] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5
-[13Oct2024 18:27:30.180] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.0.167, for MC 1.21
-[13Oct2024 18:27:32.416] [Render thread/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: []
-[13Oct2024 18:27:33.027] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, mod/borealis, mod/neoforge
-[13Oct2024 18:27:33.434] [Worker-Main-9/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
-[13Oct2024 18:27:33.528] [Worker-Main-3/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
-[13Oct2024 18:27:33.602] [Worker-Main-8/ERROR] [net.minecraft.Util/]: Invalid path in pack: borealis:textures/block/brumeliad draft.png, ignoring
-[13Oct2024 18:27:34.405] [Worker-Main-5/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture borealis:item/hailstone with size 15x17 limits mip level from 4 to 0
-[13Oct2024 18:27:35.360] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'borealis:block/potted_saccharine_sapling' referenced from: borealis:block/potted_saccharine_sapling: java.io.FileNotFoundException: borealis:models/block/potted_saccharine_sapling.json
-[13Oct2024 18:27:35.373] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=south,lit=false'
-[13Oct2024 18:27:35.374] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=west,lit=false'
-[13Oct2024 18:27:35.374] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=north,lit=true'
-[13Oct2024 18:27:35.375] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=north,lit=false'
-[13Oct2024 18:27:35.375] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=west,lit=true'
-[13Oct2024 18:27:35.375] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=east,lit=false'
-[13Oct2024 18:27:35.376] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=east,lit=true'
-[13Oct2024 18:27:35.376] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=south,lit=true'
-[13Oct2024 18:27:35.382] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'borealis:item/kiln' referenced from: borealis:item/kiln: java.io.FileNotFoundException: borealis:models/item/kiln.json
-[13Oct2024 18:27:36.935] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='Borealis Portal opens', args=[]} for sound event: borealis:block.borealis_portal
-[13Oct2024 18:27:36.938] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='Hailstone echoes', args=[]} for sound event: borealis:weather.hailstone_fall
-[13Oct2024 18:27:36.940] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[13Oct2024 18:27:36.940] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[13Oct2024 18:27:37.518] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Speaker (Realtek(R) Audio)
-[13Oct2024 18:27:37.519] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[13Oct2024 18:27:37.647] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[13Oct2024 18:27:37.734] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[13Oct2024 18:27:37.737] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[13Oct2024 18:27:37.744] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[13Oct2024 18:27:37.750] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[13Oct2024 18:27:37.784] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[13Oct2024 18:27:37.787] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[13Oct2024 18:27:37.788] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[13Oct2024 18:27:37.791] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[13Oct2024 18:27:37.862] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
-[13Oct2024 18:27:37.876] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
-[13Oct2024 18:27:37.883] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[13Oct2024 18:27:37.886] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
-[13Oct2024 18:27:37.887] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
-[13Oct2024 18:27:37.947] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[13Oct2024 18:28:14.286] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1395 recipes
-[13Oct2024 18:28:14.486] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1507 advancements
-[13Oct2024 18:28:15.014] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.21
-[13Oct2024 18:28:15.014] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[13Oct2024 18:28:16.367] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[13Oct2024 18:28:16.757] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[13Oct2024 18:28:16.909] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 95%
-[13Oct2024 18:28:16.916] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
-[13Oct2024 18:28:16.932] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 540 ms
-[13Oct2024 18:28:17.043] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
-[13Oct2024 18:28:17.043] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
-[13Oct2024 18:28:18.233] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:3fb94b07] logged in with entity id 1 at (199.21861751339745, 117.95689555684174, -775.3489010174156)
-[13Oct2024 18:28:18.356] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
-[13Oct2024 18:28:18.627] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 159 advancements
-[13Oct2024 18:28:19.024] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:28:19.104] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:28:19.128] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:28:19.145] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:28:19.163] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:29:29.897] [Server thread/INFO] [net.minecraft.server.commands.LocateCommand/]: Locating element borealis:boreal_tundra took 7 ms
-[13Oct2024 18:29:29.912] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] The nearest borealis:boreal_tundra is at [520, 134, -549] (452 blocks away)
-[13Oct2024 18:29:31.639] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to 520.500000, 134.000000, -548.500000]
-[13Oct2024 18:29:31.660] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported Dev to 520.500000, 134.000000, -548.500000
-[13Oct2024 18:29:38.082] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Placed "borealis:brumal_tree_1" at 520, 117, -527]
-[13Oct2024 18:29:38.093] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Placed "borealis:brumal_tree_1" at 520, 117, -527
-[13Oct2024 18:29:45.721] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:29:45.738] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:29:45.756] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:29:45.769] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:29:45.785] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:29:49.948] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set the time to 6000]
-[13Oct2024 18:29:49.956] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set the time to 6000
-[13Oct2024 18:30:19.263] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Placed "borealis:brumal_tree_1" at 502, 124, -501]
-[13Oct2024 18:30:19.267] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Placed "borealis:brumal_tree_1" at 502, 124, -501
-[13Oct2024 18:30:32.470] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:30:32.485] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:30:32.503] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:30:32.511] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:30:32.524] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:31:24.374] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] [Debug]: Chunk borders: shown
-[13Oct2024 18:31:24.952] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] [Debug]: Chunk borders: hidden
-[13Oct2024 18:32:00.969] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:32:00.991] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:32:01.009] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:32:01.021] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:32:01.043] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:32:29.121] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:32:29.139] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:32:29.158] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:32:29.169] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:32:29.179] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:33:05.228] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Placed "borealis:brumal_tree_1" at 274, 121, -375]
-[13Oct2024 18:33:05.229] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Placed "borealis:brumal_tree_1" at 274, 121, -375
-[13Oct2024 18:33:13.936] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Placed "borealis:brumal_tree_2" at 248, 121, -344]
-[13Oct2024 18:33:13.939] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Placed "borealis:brumal_tree_2" at 248, 121, -344
-[13Oct2024 18:33:24.457] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Placed "borealis:brumal_tree_3" at 216, 110, -358]
-[13Oct2024 18:33:24.466] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Placed "borealis:brumal_tree_3" at 216, 110, -358
-[13Oct2024 18:33:35.670] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:33:35.694] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:33:35.726] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:33:35.735] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:33:35.747] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:34:09.666] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Placed "borealis:brumal_tree_2" at 135, 118, -316]
-[13Oct2024 18:34:09.670] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Placed "borealis:brumal_tree_2" at 135, 118, -316
-[13Oct2024 18:34:15.448] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: The game is frozen]
-[13Oct2024 18:34:15.456] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] The game is frozen
-[13Oct2024 18:34:20.576] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 162 advancements
-[13Oct2024 18:34:30.199] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: The game is running normally]
-[13Oct2024 18:34:30.208] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] The game is running normally
-[13Oct2024 18:34:50.306] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev has made the advancement [Distant Cousins]
-[13Oct2024 18:34:50.322] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Dev has made the advancement [Distant Cousins]
-[13Oct2024 18:34:50.337] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 163 advancements
-[13Oct2024 18:34:54.288] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 164 advancements
-[13Oct2024 18:34:59.236] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 165 advancements
-[13Oct2024 18:35:49.920] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:35:49.939] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:35:49.952] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:35:49.967] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:35:49.981] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:37:02.382] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2024-10-13_18.37.02.png
-[13Oct2024 18:37:04.021] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:37:04.036] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:37:04.046] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:37:04.056] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:37:04.073] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:39:14.077] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2024-10-13_18.39.13.png
-[13Oct2024 18:39:15.620] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:39:15.634] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:39:15.644] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:39:15.654] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:39:15.668] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:40:17.271] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:40:17.319] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:40:17.337] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:40:17.349] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:40:17.366] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:41:11.921] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:41:11.937] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:41:11.956] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:41:11.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:41:11.984] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:41:59.971] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:42:00.011] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:42:00.035] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:42:00.048] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:42:00.070] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:42:27.521] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:42:27.543] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:42:27.564] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:42:27.580] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:42:27.597] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:44:24.471] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:44:24.486] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:44:24.502] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:44:24.513] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:44:24.523] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:45:40.821] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:45:40.843] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:45:40.860] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:45:40.878] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:45:40.896] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:47:02.721] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:47:02.736] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:47:02.750] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:47:02.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:47:02.770] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:47:42.470] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:47:42.495] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:47:42.516] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:47:42.534] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:47:42.554] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:50:57.624] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2024-10-13_18.50.57.png
-[13Oct2024 18:50:59.171] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:50:59.185] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:50:59.205] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:50:59.212] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:50:59.227] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:52:48.781] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gamerule randomTickSpeed is now set to: 100]
-[13Oct2024 18:52:48.792] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Gamerule randomTickSpeed is now set to: 100
-[13Oct2024 18:53:10.028] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gamerule doFireTick is now set to: true]
-[13Oct2024 18:53:10.044] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Gamerule doFireTick is now set to: true
-[13Oct2024 18:53:28.878] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gamerule randomTickSpeed is now set to: 3]
-[13Oct2024 18:53:28.886] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Gamerule randomTickSpeed is now set to: 3
-[13Oct2024 18:53:29.371] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:53:29.402] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:53:29.418] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:53:29.427] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:53:29.441] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:53:43.172] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:53:43.199] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:53:43.206] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:53:43.215] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:53:43.228] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:54:13.021] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:54:13.051] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:54:13.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:54:13.078] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:54:13.089] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:55:25.021] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:55:25.047] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:55:25.073] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:55:25.084] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:55:25.096] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:56:54.679] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 166 advancements
-[13Oct2024 18:57:30.754] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Successfully filled 5 block(s)]
-[13Oct2024 18:57:30.760] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Successfully filled 5 block(s)
-[13Oct2024 18:57:32.754] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] No blocks were filled
-[13Oct2024 18:57:33.470] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:57:33.483] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:57:33.503] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:57:33.509] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:57:33.521] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 18:58:52.025] [worldgen/ERROR] [net.minecraft.Util/]: Detected setBlock in a far chunk [-68, -112], pos: MutableBlockPos{x=-1088, y=108, z=-1788}, status: minecraft:features, currently generating: ResourceKey[minecraft:worldgen/placed_feature / borealis:rubble_patch]
-[13Oct2024 18:58:56.320] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 18:58:56.337] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 18:58:56.353] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 18:58:56.365] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 18:58:56.384] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 19:00:03.482] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 167 advancements
-[13Oct2024 19:00:09.909] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gamerule randomTickSpeed is now set to: 100]
-[13Oct2024 19:00:09.921] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Gamerule randomTickSpeed is now set to: 100
-[13Oct2024 19:00:22.670] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 19:00:22.684] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 19:00:22.693] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 19:00:22.701] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 19:00:22.711] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 19:00:29.621] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 19:00:29.671] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 19:00:29.685] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 19:00:29.695] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 19:00:29.707] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 19:00:53.043] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev has made the advancement [Stone Age]
-[13Oct2024 19:00:53.058] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Dev has made the advancement [Stone Age]
-[13Oct2024 19:00:53.091] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 177 advancements
-[13Oct2024 19:00:53.641] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 178 advancements
-[13Oct2024 19:01:37.869] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 19:01:37.889] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 19:01:37.907] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 19:01:37.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 19:01:37.929] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 19:04:47.325] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 19:04:47.344] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 19:04:47.353] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 19:04:47.361] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 19:04:47.369] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
-[13Oct2024 19:09:22.454] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 90234ms or 1804 ticks behind
-[13Oct2024 19:10:21.374] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[13Oct2024 19:10:21.401] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:overworld
-[13Oct2024 19:10:21.425] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_nether
-[13Oct2024 19:10:21.436] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/borealis:borealis
-[13Oct2024 19:10:21.471] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[epic transition fail]'/minecraft:the_end
+[23Dec2024 14:38:23.076] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, 21.0.167, --assetIndex, asset-index, --assetsDir, C:\Users\reeta\.gradle\caches\minecraft\assets\1.21, --gameDir, ., --fml.neoForgeVersion, 21.0.167, --fml.fmlVersion, 4.0.23, --fml.mcVersion, 1.21, --fml.neoFormVersion, 20240613.152323]
+[23Dec2024 14:38:23.080] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.4+7-LTS
+[23Dec2024 14:38:23.082] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.4 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[23Dec2024 14:38:23.250] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[23Dec2024 14:38:23.384] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[23Dec2024 14:38:23.580] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[23Dec2024 14:38:23.750] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.6 Source=union:/C:/Users/reeta/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.14.0+mixin.0.8.6/c265173c84346e9e5d42a2384b2b02bd39a4a899/sponge-mixin-0.14.0+mixin.0.8.6.jar%23135!/ Service=ModLauncher Env=CLIENT
+[23Dec2024 14:38:23.964] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) Iris(R) Xe Graphics GL version 4.6.0 - Build 31.0.101.5186, Intel
+[23Dec2024 14:38:24.052] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: neoforge devenv provider ([C:\Users\reeta\Desktop\Borealis\Borealis-Mod\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.0.167\neoforge-21.0.167.jar])]
+[23Dec2024 14:38:24.087] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: neoforge devenv provider ([C:\Users\reeta\Desktop\Borealis\Borealis-Mod\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.0.167\neoforge-21.0.167.jar])]
+[23Dec2024 14:38:24.105] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "main" [locator: userdev mods and services, reader: mod manifest]
+[23Dec2024 14:38:24.125] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: userdev mods and services, reader: mod manifest]
+[23Dec2024 14:38:24.172] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.3.5.jar" [locator: userdev mods and services, reader: mod manifest]
+[23Dec2024 14:38:24.502] [main/WARN] [net.neoforged.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: mixinextras-neoforge-0.3.5.jar. Using Mod File: C:\Users\reeta\.gradle\caches\modules-2\files-2.1\io.github.llamalad7\mixinextras-neoforge\0.3.5\ef3ffcf309dae656517b2f120189b1c9b21737dd\mixinextras-neoforge-0.3.5.jar
+[23Dec2024 14:38:24.503] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[23Dec2024 14:38:24.780] [main/INFO] [net.neoforged.fml.loading.FMLServiceProvider/CORE]: Loading coremod script-engine for [neoforge]
+[23Dec2024 14:38:26.246] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, 21.0.167, --gameDir, ., --assetsDir, C:\Users\reeta\.gradle\caches\minecraft\assets\1.21, --assetIndex, asset-index]
+[23Dec2024 14:38:28.241] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 348 milliseconds
+[23Dec2024 14:38:29.586] [pool-7-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.5).
+[23Dec2024 14:38:44.341] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23Dec2024 14:38:44.344] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23Dec2024 14:38:44.356] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[23Dec2024 14:38:44.360] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[23Dec2024 14:38:44.366] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23Dec2024 14:38:44.844] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/reeta/Desktop/Borealis/Borealis-Mod/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.0.167/neoforge-21.0.167.jar%23189!/assets/.mcassetsroot' uses unexpected schema
+[23Dec2024 14:38:44.846] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/reeta/Desktop/Borealis/Borealis-Mod/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.0.167/neoforge-21.0.167.jar%23189!/data/.mcassetsroot' uses unexpected schema
+[23Dec2024 14:38:44.915] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[23Dec2024 14:38:44.946] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[23Dec2024 14:38:45.211] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5
+[23Dec2024 14:38:45.936] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.0.167, for MC 1.21
+[23Dec2024 14:38:48.637] [Render thread/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: []
+[23Dec2024 14:38:49.450] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, mod/borealis, mod/neoforge
+[23Dec2024 14:38:49.831] [Worker-Main-4/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
+[23Dec2024 14:38:50.022] [Worker-Main-1/ERROR] [net.minecraft.Util/]: Invalid path in pack: borealis:textures/block/brumeliad draft.png, ignoring
+[23Dec2024 14:38:50.245] [Worker-Main-6/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
+[23Dec2024 14:38:51.284] [Worker-Main-10/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture borealis:item/hailstone with size 15x17 limits mip level from 4 to 0
+[23Dec2024 14:38:52.209] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'borealis:block/potted_saccharine_sapling' referenced from: borealis:block/potted_saccharine_sapling: java.io.FileNotFoundException: borealis:models/block/potted_saccharine_sapling.json
+[23Dec2024 14:38:52.223] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=south,lit=false'
+[23Dec2024 14:38:52.224] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=west,lit=false'
+[23Dec2024 14:38:52.225] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=north,lit=true'
+[23Dec2024 14:38:52.225] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=north,lit=false'
+[23Dec2024 14:38:52.225] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=west,lit=true'
+[23Dec2024 14:38:52.226] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=east,lit=false'
+[23Dec2024 14:38:52.226] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=east,lit=true'
+[23Dec2024 14:38:52.226] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=south,lit=true'
+[23Dec2024 14:38:52.234] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'borealis:item/kiln' referenced from: borealis:item/kiln: java.io.FileNotFoundException: borealis:models/item/kiln.json
+[23Dec2024 14:38:53.724] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='Borealis Portal opens', args=[]} for sound event: borealis:block.borealis_portal
+[23Dec2024 14:38:53.728] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='Hailstone echoes', args=[]} for sound event: borealis:weather.hailstone_fall
+[23Dec2024 14:38:53.729] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[23Dec2024 14:38:53.729] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[23Dec2024 14:38:54.184] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Speaker (Realtek(R) Audio)
+[23Dec2024 14:38:54.185] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[23Dec2024 14:38:54.322] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[23Dec2024 14:38:54.458] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[23Dec2024 14:38:54.465] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[23Dec2024 14:38:54.475] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[23Dec2024 14:38:54.489] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[23Dec2024 14:38:54.550] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[23Dec2024 14:38:54.552] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[23Dec2024 14:38:54.555] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[23Dec2024 14:38:54.559] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[23Dec2024 14:38:54.664] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[23Dec2024 14:38:54.675] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[23Dec2024 14:38:54.683] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[23Dec2024 14:38:54.686] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[23Dec2024 14:38:54.689] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[23Dec2024 14:38:54.756] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[23Dec2024 14:39:33.721] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1395 recipes
+[23Dec2024 14:39:33.919] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1511 advancements
+[23Dec2024 14:39:34.496] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.21
+[23Dec2024 14:39:34.498] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[23Dec2024 14:39:35.791] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[23Dec2024 14:39:36.131] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[23Dec2024 14:39:36.259] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[23Dec2024 14:39:36.274] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 462 ms
+[23Dec2024 14:39:36.419] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
+[23Dec2024 14:39:36.419] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
+[23Dec2024 14:39:37.296] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:b9ef6d2e] logged in with entity id 12 at (398.5, 81.0, -232.5)
+[23Dec2024 14:39:37.409] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[23Dec2024 14:39:37.523] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 55 advancements
+[23Dec2024 14:39:39.998] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[23Dec2024 14:39:40.011] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Creative Mode
+[23Dec2024 14:39:46.750] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to 99.625000, 81.000000, -58.125000]
+[23Dec2024 14:39:47.036] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported Dev to 99.625000, 81.000000, -58.125000
+[23Dec2024 14:39:49.558] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 2747ms or 54 ticks behind
+[23Dec2024 14:39:52.212] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
+[23Dec2024 14:39:52.219] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Spectator Mode
+[23Dec2024 14:39:58.162] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[23Dec2024 14:39:58.212] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:overworld
+[23Dec2024 14:39:58.248] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_nether
+[23Dec2024 14:39:58.265] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/borealis:borealis
+[23Dec2024 14:39:58.282] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_end
+[23Dec2024 14:40:21.832] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2024-12-23_14.40.21.png
+[23Dec2024 14:40:34.945] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2024-12-23_14.40.34.png
+[23Dec2024 14:40:42.264] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2024-12-23_14.40.41.png
+[23Dec2024 14:40:44.763] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[23Dec2024 14:40:44.799] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:overworld
+[23Dec2024 14:40:44.829] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_nether
+[23Dec2024 14:40:44.845] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/borealis:borealis
+[23Dec2024 14:40:44.866] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_end
+[23Dec2024 14:41:11.915] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[23Dec2024 14:41:11.933] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:overworld
+[23Dec2024 14:41:11.941] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_nether
+[23Dec2024 14:41:11.947] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/borealis:borealis
+[23Dec2024 14:41:11.954] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_end
+[23Dec2024 14:42:21.177] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] The nearest borealis:hot_spring_islands is at [737, 137, 871] (458 blocks away)
+[23Dec2024 14:42:21.179] [Server thread/INFO] [net.minecraft.server.commands.LocateCommand/]: Locating element borealis:hot_spring_islands took 21 ms
+[23Dec2024 14:42:23.493] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to 737.500000, 137.000000, 871.500000]
+[23Dec2024 14:42:23.510] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported Dev to 737.500000, 137.000000, 871.500000
+[23Dec2024 14:42:26.413] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[23Dec2024 14:42:26.432] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:overworld
+[23Dec2024 14:42:26.444] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_nether
+[23Dec2024 14:42:26.457] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/borealis:borealis
+[23Dec2024 14:42:26.469] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_end
+[23Dec2024 14:43:39.256] [Server thread/INFO] [net.minecraft.server.commands.LocateCommand/]: Locating element borealis:saccharine_hills took 41 ms
+[23Dec2024 14:43:39.263] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] The nearest borealis:saccharine_hills is at [-182, 128, 1082] (996 blocks away)
+[23Dec2024 14:43:40.730] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to -181.500000, 128.000000, 1082.500000]
+[23Dec2024 14:43:40.746] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported Dev to -181.500000, 128.000000, 1082.500000
+[23Dec2024 14:44:11.392] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2024-12-23_14.44.10.png
+[23Dec2024 14:44:11.812] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[23Dec2024 14:44:11.836] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:overworld
+[23Dec2024 14:44:11.850] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_nether
+[23Dec2024 14:44:11.865] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/borealis:borealis
+[23Dec2024 14:44:11.879] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_end
+[23Dec2024 14:47:32.571] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[23Dec2024 14:47:32.594] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Creative Mode
+[23Dec2024 14:48:15.916] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2024-12-23_14.48.15.png
+[23Dec2024 14:48:37.015] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set the time to 13000]
+[23Dec2024 14:48:37.017] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set the time to 13000
+[23Dec2024 14:48:38.984] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
+[23Dec2024 14:48:39.000] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Spectator Mode
+[23Dec2024 14:49:16.208] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2024-12-23_14.49.15.png
+[23Dec2024 14:49:17.512] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[23Dec2024 14:49:17.537] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:overworld
+[23Dec2024 14:49:17.572] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_nether
+[23Dec2024 14:49:17.590] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/borealis:borealis
+[23Dec2024 14:49:17.604] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_end
+[23Dec2024 14:58:56.647] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to -115.907738, 86.153773, 67.590007]
+[23Dec2024 14:58:57.202] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported Dev to -115.907738, 86.153773, 67.590007
+[23Dec2024 14:59:01.929] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[23Dec2024 14:59:01.930] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Creative Mode
+[23Dec2024 14:59:20.169] [Server thread/ERROR] [net.minecraft.world.entity.ai.village.poi.PoiSection/]: POI data mismatch: never registered at BlockPos{x=-122, y=97, z=61}
+[23Dec2024 15:00:19.738] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Unknown dimension 'minecraft:overworlds'
+[23Dec2024 15:00:21.941] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to -341.942001, 113.599681, 261.712080]
+[23Dec2024 15:00:22.084] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported Dev to -341.942001, 113.599681, 261.712080
+[23Dec2024 15:00:38.412] [Server thread/ERROR] [net.minecraft.world.entity.ai.village.poi.PoiSection/]: POI data mismatch: never registered at BlockPos{x=-343, y=69, z=260}
+[23Dec2024 15:01:14.293] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to -1318.662008, 79.417787, 931.475425]
+[23Dec2024 15:01:14.434] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported Dev to -1318.662008, 79.417787, 931.475425
+[23Dec2024 15:01:27.745] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Changed the block at -1319, 63, 931]
+[23Dec2024 15:01:27.754] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Changed the block at -1319, 63, 931
+[23Dec2024 15:01:28.267] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Unable to play empty soundEvent: minecraft:entity.cod.ambient
+[23Dec2024 15:01:28.416] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Unable to play empty soundEvent: minecraft:entity.salmon.ambient
+[23Dec2024 15:02:03.612] [Server thread/ERROR] [net.minecraft.world.entity.ai.village.poi.PoiSection/]: POI data mismatch: never registered at BlockPos{x=-1319, y=64, z=930}
+[23Dec2024 15:02:15.961] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[23Dec2024 15:02:15.980] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:overworld
+[23Dec2024 15:02:16.009] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_nether
+[23Dec2024 15:02:16.028] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/borealis:borealis
+[23Dec2024 15:02:16.045] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_end
+[23Dec2024 15:03:19.762] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[23Dec2024 15:03:19.780] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:overworld
+[23Dec2024 15:03:19.794] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_nether
+[23Dec2024 15:03:19.810] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/borealis:borealis
+[23Dec2024 15:03:19.825] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test 1 PT1]'/minecraft:the_end

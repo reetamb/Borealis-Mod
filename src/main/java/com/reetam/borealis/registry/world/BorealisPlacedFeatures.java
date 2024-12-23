@@ -10,6 +10,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -44,6 +45,9 @@ public class BorealisPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> PLACED_HOLLY_PATCH = createKey("holly");
     public static final ResourceKey<PlacedFeature> PLACED_LICHEN_PATCH = createKey("lichen_patch");
+
+    public static final ResourceKey<PlacedFeature> PLACED_NATURAL_HAILSTONE = createKey("natural_hailstone");
+
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
     }
@@ -108,6 +112,9 @@ public class BorealisPlacedFeatures {
                 CountPlacement.of(16), InSquarePlacement.spread());
         register(context, PLACED_HOLLY_PATCH, please.getOrThrow(BorealisConfiguredFeatures.HOLLY_PATCH),
                 CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
+
+        register(context, PLACED_NATURAL_HAILSTONE, please.getOrThrow(BorealisConfiguredFeatures.NATURAL_HAILSTONE),
+                RarityFilter.onAverageOnceEvery(128), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING));
     }
 
     private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {
