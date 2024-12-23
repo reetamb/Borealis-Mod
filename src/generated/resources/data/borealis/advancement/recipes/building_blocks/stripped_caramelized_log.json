@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stripped_sweetwood_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:stripped_sweetwood_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borealis:stripped_caramelized_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_sweetwood_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borealis:stripped_caramelized_log"
+    ]
+  }
+}

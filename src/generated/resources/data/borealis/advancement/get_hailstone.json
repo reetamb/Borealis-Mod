@@ -1,0 +1,33 @@
+{
+  "parent": "borealis:borealis_root",
+  "criteria": {
+    "get_hailstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:hailstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.borealis.get_hailstone.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "borealis:hailstone"
+    },
+    "title": {
+      "translate": "advancement.borealis.get_hailstone"
+    }
+  },
+  "requirements": [
+    [
+      "get_hailstone"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

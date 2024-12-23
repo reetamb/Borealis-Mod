@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "borealis:soapstone"
+  },
+  "result": {
+    "count": 1,
+    "id": "borealis:soapstone_bricks"
+  }
+}

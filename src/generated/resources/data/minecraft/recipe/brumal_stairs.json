@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "borealis:brumal_planks"
+    }
+  },
+  "pattern": [
+    "  #",
+    " ##",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "borealis:brumal_stairs"
+  }
+}

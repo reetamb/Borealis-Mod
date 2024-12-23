@@ -1,0 +1,24 @@
+{
+  "values": [
+    "#borealis:blockset_soapstone",
+    "borealis:slate",
+    "borealis:slate_pillar",
+    "borealis:slate_tiles",
+    "borealis:starry_slate",
+    "borealis:starry_slate_tiles",
+    "borealis:pumice",
+    "borealis:pumice_geyser",
+    "borealis:scoria",
+    "borealis:kyanite_ore",
+    "borealis:tanzanite_block",
+    "borealis:tanzanite_ore",
+    "borealis:hailstone_block",
+    "borealis:kyanite_flagstone",
+    "borealis:kyanite_cable",
+    "borealis:kyanite_bulb",
+    "borealis:petrified_wood",
+    "borealis:petrified_wood_bricks",
+    "borealis:bone_dry_wood",
+    "borealis:bone_dry_wood_bricks"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "block.borealis_portal": {
+    "sounds": [
+      "borealis:block/borealis_portal"
+    ],
+    "subtitle": "Borealis Portal opens"
+  },
+  "weather.hailstone_fall": {
+    "sounds": [
+      "block/bell/resonate"
+    ],
+    "subtitle": "Hailstone echoes"
+  }
+}

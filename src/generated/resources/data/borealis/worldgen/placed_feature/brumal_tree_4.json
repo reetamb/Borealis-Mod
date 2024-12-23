@@ -1,0 +1,24 @@
+{
+  "feature": "borealis:brumal_tree_4",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 6
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "minecraft:spruce_sapling",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    }
+  ]
+}

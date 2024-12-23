@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:brumal_hanging_sign"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_translation{key='block.borealis.brumal_planks', args=[]}": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:brumal_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_translation{key='block.borealis.brumal_planks', args=[]}"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:brumal_hanging_sign"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "borealis:block/brumal_sapling"
+    },
+    "stage=1": {
+      "model": "borealis:block/brumal_sapling"
+    }
+  }
+}

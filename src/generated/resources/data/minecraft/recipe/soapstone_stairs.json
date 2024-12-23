@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "borealis:soapstone"
+    }
+  },
+  "pattern": [
+    "  #",
+    " ##",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "borealis:soapstone_stairs"
+  }
+}

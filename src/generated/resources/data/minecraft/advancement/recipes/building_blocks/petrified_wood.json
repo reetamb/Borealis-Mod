@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:petrified_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_translation{key='block.borealis.petrified_wood', args=[]}": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:petrified_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_translation{key='block.borealis.petrified_wood', args=[]}"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:petrified_wood"
+    ]
+  }
+}

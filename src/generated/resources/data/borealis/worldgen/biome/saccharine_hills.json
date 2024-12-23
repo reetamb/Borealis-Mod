@@ -1,0 +1,51 @@
+{
+  "carvers": {},
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 14134238,
+    "foliage_color": 10338810,
+    "grass_color": 14745599,
+    "particle": {
+      "options": {
+        "type": "minecraft:snowflake"
+      },
+      "probability": 0.1
+    },
+    "sky_color": 10136810,
+    "water_color": 5683175,
+    "water_fog_color": 5683175
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "borealis:kyanite_crystal",
+      "borealis:peat_ore"
+    ],
+    [],
+    [],
+    [
+      "borealis:cotton_tree",
+      "borealis:helix_tree",
+      "borealis:glazed_cotton_tree",
+      "borealis:glazed_helix_tree"
+    ]
+  ],
+  "has_precipitation": true,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.0
+}

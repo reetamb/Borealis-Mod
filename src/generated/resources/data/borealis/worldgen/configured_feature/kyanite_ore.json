@@ -1,0 +1,11 @@
+{
+  "type": "borealis:beryl",
+  "config": {
+    "state": {
+      "Name": "borealis:kyanite_ore",
+      "Properties": {
+        "axis": "y"
+      }
+    }
+  }
+}

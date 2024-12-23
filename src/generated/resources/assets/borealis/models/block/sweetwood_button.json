@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "borealis:block/sweetwood_planks"
+  }
+}

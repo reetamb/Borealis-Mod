@@ -1,0 +1,92 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.2,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "minecraft:flint"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.5,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "minecraft:stick"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.3,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "minecraft:iron_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.03,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "minecraft:iron_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.4,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "borealis:petrified_wood"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.2,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "minecraft:feather"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.2,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "minecraft:string"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.6,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "minecraft:charcoal"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "borealis:blocks/permafrost_rubble"
+}

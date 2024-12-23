@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_:black_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:black_wool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borealis:hat"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_:black_wool"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borealis:hat"
+    ]
+  }
+}

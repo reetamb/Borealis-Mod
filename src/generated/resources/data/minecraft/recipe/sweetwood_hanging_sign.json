@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "borealis:sweetwood_planks"
+    },
+    "/": {
+      "item": "minecraft:chain"
+    }
+  },
+  "pattern": [
+    "/ /",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 3,
+    "id": "borealis:sweetwood_hanging_sign"
+  }
+}

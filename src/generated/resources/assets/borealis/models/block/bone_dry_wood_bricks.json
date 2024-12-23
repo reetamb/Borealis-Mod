@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "borealis:block/bone_dry_wood_bricks"
+  }
+}

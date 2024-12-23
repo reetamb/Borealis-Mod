@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sweetwood_pressure_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:sweetwood_pressure_plate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borealis:caramelized_pressure_plate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sweetwood_pressure_plate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borealis:caramelized_pressure_plate"
+    ]
+  }
+}

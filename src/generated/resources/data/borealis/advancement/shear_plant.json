@@ -1,0 +1,78 @@
+{
+  "parent": "borealis:enter_borealis",
+  "criteria": {
+    "shear_brumeliad": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:brumeliad"
+          },
+          {
+            "items": "minecraft:torchflower"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "shear_cello": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:winter_cello"
+          },
+          {
+            "items": "minecraft:pitcher_plant"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "shear_fiddle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:winter_fiddle"
+          },
+          {
+            "items": "minecraft:pitcher_plant"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "shear_viola": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:winter_viola"
+          },
+          {
+            "items": "minecraft:pitcher_plant"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.borealis.shear_plant.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "borealis:brumeliad"
+    },
+    "title": {
+      "translate": "advancement.borealis.shear_plant"
+    }
+  },
+  "requirements": [
+    [
+      "shear_brumeliad",
+      "shear_fiddle",
+      "shear_viola",
+      "shear_cello"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

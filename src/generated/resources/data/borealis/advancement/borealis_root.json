@@ -1,0 +1,59 @@
+{
+  "criteria": {
+    "in_borealis": {
+      "conditions": {
+        "to": "borealis:borealis"
+      },
+      "trigger": "minecraft:changed_dimension"
+    },
+    "snowy_plains": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "minecraft:snowy_plains"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "wind_charge": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:wind_charge"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/snow.png",
+    "description": {
+      "translate": "advancement.borealis.borealis_root.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "borealis:hailstone_block"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.borealis.borealis_root"
+    }
+  },
+  "requirements": [
+    [
+      "in_borealis",
+      "wind_charge",
+      "snowy_plains"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

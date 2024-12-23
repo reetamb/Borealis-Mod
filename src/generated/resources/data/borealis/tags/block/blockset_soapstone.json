@@ -1,0 +1,18 @@
+{
+  "values": [
+    "borealis:soapstone",
+    "borealis:soapstone_slab",
+    "borealis:soapstone_stairs",
+    "borealis:soapstone_wall",
+    "borealis:soapstone_bricks",
+    "borealis:soapstone_brick_slab",
+    "borealis:soapstone_brick_stairs",
+    "borealis:soapstone_brick_wall",
+    "borealis:soapstone_tiles",
+    "borealis:soapstone_tile_slab",
+    "borealis:soapstone_tile_stairs",
+    "borealis:soapstone_tile_wall",
+    "borealis:soapstone_button",
+    "borealis:soapstone_pressure_plate"
+  ]
+}

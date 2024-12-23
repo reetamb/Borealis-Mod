@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "borealis:block/sweetwood_slab"
+    },
+    "type=double": {
+      "model": "borealis:block/sweetwood_planks"
+    },
+    "type=top": {
+      "model": "borealis:block/sweetwood_slab_top"
+    }
+  }
+}

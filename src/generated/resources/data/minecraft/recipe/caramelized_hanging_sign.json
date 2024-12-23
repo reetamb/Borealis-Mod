@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "borealis:caramelized_planks"
+    },
+    "/": {
+      "item": "minecraft:chain"
+    }
+  },
+  "pattern": [
+    "/ /",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 3,
+    "id": "borealis:caramelized_hanging_sign"
+  }
+}

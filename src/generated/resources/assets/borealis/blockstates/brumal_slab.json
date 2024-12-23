@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "borealis:block/brumal_slab"
+    },
+    "type=double": {
+      "model": "borealis:block/brumal_planks"
+    },
+    "type=top": {
+      "model": "borealis:block/brumal_slab_top"
+    }
+  }
+}

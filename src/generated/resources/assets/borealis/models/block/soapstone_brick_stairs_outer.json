@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "borealis:block/soapstone_bricks",
+    "side": "borealis:block/soapstone_bricks",
+    "top": "borealis:block/soapstone_bricks"
+  }
+}

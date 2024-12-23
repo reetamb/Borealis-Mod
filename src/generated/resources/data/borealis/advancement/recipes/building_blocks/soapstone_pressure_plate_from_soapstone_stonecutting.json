@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borealis:soapstone_pressure_plate_from_soapstone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_translation{key='block.borealis.soapstone', args=[]}": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:soapstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_translation{key='block.borealis.soapstone', args=[]}"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borealis:soapstone_pressure_plate_from_soapstone_stonecutting"
+    ]
+  }
+}

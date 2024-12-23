@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "empty=false": {
+      "model": "borealis:block/cracked_alms"
+    },
+    "empty=true": {
+      "model": "borealis:block/alms_shell"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sweetwood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borealis:sweetwood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borealis:caramelized_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sweetwood"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borealis:caramelized_wood"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:netherrack_replace_blobs",
+  "config": {
+    "radius": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 4,
+      "min_inclusive": 3
+    },
+    "state": {
+      "Name": "borealis:permafrost_rubble"
+    },
+    "target": {
+      "Name": "borealis:permafrost",
+      "Properties": {
+        "cover": "clear"
+      }
+    }
+  }
+}

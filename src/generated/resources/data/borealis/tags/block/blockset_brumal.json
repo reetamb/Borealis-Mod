@@ -1,0 +1,21 @@
+{
+  "values": [
+    "borealis:brumal_button",
+    "borealis:brumal_pressure_plate",
+    "borealis:brumal_door",
+    "borealis:brumal_trapdoor",
+    "borealis:brumal_fence",
+    "borealis:brumal_fence_gate",
+    "borealis:brumal_log",
+    "borealis:brumal_wood",
+    "borealis:stripped_brumal_log",
+    "borealis:stripped_brumal_wood",
+    "borealis:brumal_planks",
+    "borealis:brumal_slab",
+    "borealis:brumal_stairs",
+    "borealis:brumal_sign",
+    "borealis:brumal_wall_sign",
+    "borealis:brumal_hanging_sign",
+    "borealis:brumal_wall_hanging_sign"
+  ]
+}
