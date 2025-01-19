@@ -5,12 +5,9 @@ import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.world.BorealisDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.ai.village.poi.PoiManager;
-import net.minecraft.world.entity.ai.village.poi.PoiRecord;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -25,7 +22,6 @@ import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.portal.DimensionTransition;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Comparator;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -95,18 +91,19 @@ public class PortalBlock extends LiquidBlock implements Portal {
 
             // if there is a portal:
             if (portalPos.isPresent()) {
-                BlockState state = pLevel.getBlockState(portalPos.get());
-
                 BlockPos outPos = portalPos.get().above();
                 for (int x = -3; x <= 3; x++) {
                     for (int z = -3; z <= 3; z++) {
-                        if (pLevel.getBlockState(portalPos.get().offset(x, 1, z)).is(BorealisBlocks.MOONFLOWER_BLOCK)) {
-                            outPos = portalPos.get().offset(x, 1, z);
+                        boolean flag = true;
+                        for (Direction direction : Direction.Plane.HORIZONTAL) {
+                            if (pLevel.getBlockState(portalPos.get().relative(direction, 2)) != BorealisBlocks.KYANITE_FLAGSTONE.get().defaultBlockState()) {
+                                flag = false;
+                            }
+                        }
+                        if (flag) {
+                            outPos = portalPos.get();
                         }
                     }
-                }
-                if (outPos == portalPos.get().above()) {
-                    serverlevel.setBlock(outPos, BorealisBlocks.MOONFLOWER_BLOCK.get().defaultBlockState(), 3);
                 }
 
                 return new DimensionTransition(
@@ -124,7 +121,7 @@ public class PortalBlock extends LiquidBlock implements Portal {
                 } else {
                     int y = serverlevel.getHeight(Heightmap.Types.WORLD_SURFACE, exitPos.getX(), exitPos.getZ());
                     if (y <= serverlevel.getMinBuildHeight()) {
-                        y = serverlevel.getMinBuildHeight() + 16;
+                        y = (serverlevel.getMinBuildHeight() + serverlevel.getMaxBuildHeight()) / 2;
                     }
                     exitPos = exitPos.atY(y);
                 }

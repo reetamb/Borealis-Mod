@@ -53,11 +53,12 @@ public class BorealisSpecialEffects extends DimensionSpecialEffects {
     }
     @Override
     public float getCloudHeight() {
-        return 256.0F;
+        return 192.0F;
     }
 
-    public boolean renderClouds(ClientLevel level, int ticks, float partialTicks, PoseStack poseStack, double camX, double camY, double camZ, Matrix4f projectionMatrix) {
-        auroraRenderer.render(level, ticks, partialTicks, poseStack, camX, camY, camZ, projectionMatrix);
+    @Override
+    public boolean renderClouds(ClientLevel level, int ticks, float partialTick, PoseStack poseStack, double camX, double camY, double camZ, Matrix4f modelViewMatrix, Matrix4f projectionMatrix) {
+        auroraRenderer.renderClouds(level, poseStack, modelViewMatrix, projectionMatrix, ticks, partialTick, camX, camY, camZ);
         return true;
     }
 

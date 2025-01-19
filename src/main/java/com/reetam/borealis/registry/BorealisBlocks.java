@@ -41,7 +41,6 @@ public class BorealisBlocks {
     public static final WoodType WOODSET_CARAMELIZED = WoodType.register(new WoodType(SET_CARAMELIZED.name(), SET_CARAMELIZED));
 
     public static final DeferredHolder<Block, Block> BOREALIS_PORTAL = BLOCKS.register("borealis_portal", BorealisPortalBlock::new);
-    public static final DeferredHolder<Block, Block> MOONFLOWER_BLOCK = registerBlock("moonflower", () -> new MoonflowerBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().sound(SoundType.LILY_PAD).noOcclusion().pushReaction(PushReaction.DESTROY).noLootTable()));
     public static final DeferredHolder<Block, RotatedPillarBlock> KYANITE_FLAGSTONE = registerBlock("kyanite_flagstone", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).sound(SoundType.AMETHYST).destroyTime(40.0F)));
 
     public static final DeferredHolder<Block, Block> SOAPSTONE = registerBlock("soapstone", () -> new Block(Template.soapstone()));

@@ -13,9 +13,6 @@ public class BorealisSoundDefinitions extends SoundDefinitionsProvider {
 
     @Override
     public void registerSounds() {
-        add(BorealisSounds.BOREALIS_PORTAL_CHIME, definition()
-                .with(sound("borealis:block/borealis_portal"))
-                .subtitle("Borealis Portal opens"));
         add(BorealisSounds.HAILSTONE_FALL, definition()
                 .with(sound("minecraft:block/bell/resonate"))
                 .subtitle("Hailstone echoes"));

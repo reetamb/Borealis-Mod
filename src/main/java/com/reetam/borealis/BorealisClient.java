@@ -8,6 +8,8 @@ import com.reetam.borealis.registry.world.BorealisWorld;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent;
 
 import java.util.function.Supplier;
@@ -45,7 +47,6 @@ public class BorealisClient {
         render(BorealisBlocks.WINTER_FIDDLE, cutout);
         render(BorealisBlocks.WALL_WINTER_FIDDLE, cutout);
         render(BorealisBlocks.WINTER_CELLO, cutout);
-        render(BorealisBlocks.MOONFLOWER_BLOCK, cutout);
 
         render(BorealisFluids.HOT_SPRING_WATER_BLOCK, translucent);
         ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_FLOWING.get(), translucent);
@@ -56,6 +57,7 @@ public class BorealisClient {
         render(BorealisBlocks.STATIC_FIELD, cutout);
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static void registerDimensionRenderers(RegisterDimensionSpecialEffectsEvent event) {
         new BorealisAuroraRenderer();
         event.register(BorealisWorld.BOREALIS_DIMENSION_TYPE.location(), new BorealisSpecialEffects());

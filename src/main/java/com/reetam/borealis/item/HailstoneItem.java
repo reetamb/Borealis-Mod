@@ -78,7 +78,7 @@ public class HailstoneItem extends Item {
                     }
                 }
                 // level.setBlock(center.above(), BorealisBlocks.MOONFLOWER_BLOCK.get().defaultBlockState(), 18);
-                level.playLocalSound(center.getX(), center.getY(), center.getZ(), BorealisSounds.BOREALIS_PORTAL_CHIME.get(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                level.playLocalSound(center.getX(), center.getY(), center.getZ(), BorealisSounds.HAILSTONE_FALL.get(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
                 pContext.getItemInHand().hurtAndBreak(pContext.getItemInHand().getDamageValue(), pContext.getPlayer(), LivingEntity.getSlotForHand(pContext.getHand()));
             }
         }

@@ -36,10 +36,6 @@ public class BorealisPortalBlock extends Block {
     @OnlyIn(Dist.CLIENT)
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource rand) {
-        if (rand.nextInt(100) == 0) {
-            level.playLocalSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, BorealisSounds.BOREALIS_PORTAL_CHIME.get(), SoundSource.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
-        }
-
         double d0 = (double)pos.getX() + rand.nextDouble();
         double d1 = (double)pos.getY() + rand.nextDouble();
         double d2 = (double)pos.getZ() + rand.nextDouble();

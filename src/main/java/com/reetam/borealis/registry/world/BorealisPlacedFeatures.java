@@ -47,6 +47,8 @@ public class BorealisPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PLACED_LICHEN_PATCH = createKey("lichen_patch");
 
     public static final ResourceKey<PlacedFeature> PLACED_NATURAL_HAILSTONE = createKey("natural_hailstone");
+    public static final ResourceKey<PlacedFeature> PLACED_CLOUD_HAILSTONE = createKey("cloud_hailstone");
+
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
@@ -115,6 +117,8 @@ public class BorealisPlacedFeatures {
 
         register(context, PLACED_NATURAL_HAILSTONE, please.getOrThrow(BorealisConfiguredFeatures.NATURAL_HAILSTONE),
                 RarityFilter.onAverageOnceEvery(128), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING));
+        register(context, PLACED_CLOUD_HAILSTONE, please.getOrThrow(BorealisConfiguredFeatures.CLOUD_HAILSTONE),
+                CountPlacement.of(5), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(32)));
     }
 
     private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {

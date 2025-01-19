@@ -11,7 +11,6 @@ public class BorealisSounds {
 
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(Registries.SOUND_EVENT, BorealisMod.MODID);
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> BOREALIS_PORTAL_CHIME = register("block.borealis_portal");
     public static final DeferredHolder<SoundEvent, SoundEvent> HAILSTONE_FALL = SOUND_EVENTS.register("weather.hailstone_fall", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "weather.hailstone_fall")));
 
     private static DeferredHolder<SoundEvent, SoundEvent> register(String name) {

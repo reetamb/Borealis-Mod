@@ -150,7 +150,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
 
         itemBlock(BorealisBlocks.CINNABAR);
         itemBlock(BorealisBlocks.KYANITE_FLAGSTONE);
-        itemBlockFlat(BorealisBlocks.MOONFLOWER_BLOCK);
 
         normalItem(BorealisItems.KYANITE_CRYSTAL);
         normalItem(BorealisFluids.HOT_SPRING_WATER_BUCKET);

@@ -14,6 +14,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.TargetBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -28,6 +29,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -60,6 +62,8 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PEAT_ORE = createKey("peat_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_TANZANITE_METEOR = createKey("tanzanite_meteor");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NATURAL_HAILSTONE = createKey("natural_hailstone");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUD_HAILSTONE = createKey("cloud_hailstone");
+
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
@@ -75,6 +79,8 @@ public class BorealisConfiguredFeatures {
         register(context, CONFIGURED_SUGAR_SNOW, BorealisFeatures.SUGAR_SNOW.get(), FeatureConfiguration.NONE);
         register(context, CONFIGURED_SLATE_BOULDER, Feature.FOREST_ROCK, new BlockStateConfiguration(BorealisBlocks.SLATE.get().defaultBlockState()));
         register(context, NATURAL_HAILSTONE, Feature.REPLACE_SINGLE_BLOCK, new ReplaceBlockConfiguration(Blocks.SNOW.getStateDefinition().any(), BorealisBlocks.HAILSTONE.get().defaultBlockState()));
+        register(context, CLOUD_HAILSTONE, Feature.SCATTERED_ORE, new OreConfiguration(new BlockMatchTest(BorealisBlocks.CLOUD.get()), BorealisBlocks.HAILSTONE.get().defaultBlockState(), 1, 1.0F));
+
 
         register(context, BRUMAL_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG), new RootedTrunkPlacer(6, 2, 2),
