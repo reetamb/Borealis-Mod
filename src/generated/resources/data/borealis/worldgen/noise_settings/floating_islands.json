@@ -327,10 +327,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:permafrost",
-                        "Properties": {
-                          "cover": "snowy"
-                        }
+                        "Name": "borealis:living_snow_block"
                       }
                     }
                   },
@@ -345,10 +342,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:permafrost",
-                        "Properties": {
-                          "cover": "sugary"
-                        }
+                        "Name": "borealis:living_snow_block"
                       }
                     }
                   },
@@ -363,10 +357,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:permafrost",
-                        "Properties": {
-                          "cover": "icy"
-                        }
+                        "Name": "borealis:living_snow_block"
                       }
                     }
                   },
@@ -416,10 +407,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:permafrost",
-                        "Properties": {
-                          "cover": "clear"
-                        }
+                        "Name": "borealis:living_snow_block"
                       }
                     }
                   },

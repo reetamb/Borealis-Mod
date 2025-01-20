@@ -1,4 +1,4 @@
-// 1.21	2025-01-18T19:12:30.6071476	Registries
+// 1.21	2025-01-19T15:42:47.2121033	Registries
 36285c724c6ff5adb527abf7bc15547f52164088 data/borealis/dimension/borealis.json
 ccda5712ff11ebe99b8c9afd42b08f0baf5ebc47 data/borealis/dimension_type/borealis.json
 0bb6de2c86d125de3f60beee78196c28120e03dc data/borealis/worldgen/biome/boreal_tundra.json
@@ -35,13 +35,13 @@ dcb76062665a468bd378b2f9137877e920bf3374 data/borealis/worldgen/configured_featu
 e547b1753316c80d3e70e5afe763402e1da91cbd data/borealis/worldgen/configured_feature/spiral_cloud.json
 492f3e8a585ab0cae73062b104929c8e2e62e691 data/borealis/worldgen/configured_feature/sugar_snow.json
 88a014edfb3952b9cc68cea02b70898c27f82ef2 data/borealis/worldgen/configured_feature/tanzanite_meteor.json
-cb472c3650e48270373dbb587ebdb0538b299ed2 data/borealis/worldgen/noise_settings/floating_islands.json
+ed6c625f2eea8202145bd48a83dfe173698f8d4a data/borealis/worldgen/noise_settings/floating_islands.json
 9229d8317ab75a6c35bb1290ae9e069479eed915 data/borealis/worldgen/placed_feature/brumal_tree_1.json
 98fa4a7d7cbfff18797449cd1d5cacbcbaa742f2 data/borealis/worldgen/placed_feature/brumal_tree_2.json
 26702eb24d17dd77ce338111102d4989012d8721 data/borealis/worldgen/placed_feature/brumal_tree_3.json
 fa4325725be2493ee141d4c8c0faecbfa374013b data/borealis/worldgen/placed_feature/brumal_tree_4.json
 c3f8c81027d05e7d298b4f259683247f35643aee data/borealis/worldgen/placed_feature/cloud.json
-58607016a767384c0b0905c426ac7c03cea6284a data/borealis/worldgen/placed_feature/cloud_hailstone.json
+50066922afa7eee09348149cd94cba483b933371 data/borealis/worldgen/placed_feature/cloud_hailstone.json
 01b5aba2b82801998f13dc520630aac0cac21467 data/borealis/worldgen/placed_feature/cotton_tree.json
 4544f9e2658f1ed8068ab84a4e196080b7d7e7eb data/borealis/worldgen/placed_feature/frostfir_tree.json
 a189cf2c1dac3321bf4288abe36c938a3ec53ec4 data/borealis/worldgen/placed_feature/giantwood_tree.json

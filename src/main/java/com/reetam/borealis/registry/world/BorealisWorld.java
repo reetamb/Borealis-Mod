@@ -169,13 +169,13 @@ public class BorealisWorld {
                             SurfaceRules.sequence(
                                     SurfaceRules.ifTrue(
                                             SurfaceRules.isBiome(BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE, BorealisBiomes.GIANTWOOD),
-                                            SurfaceRules.state(BorealisBlocks.PERMAFROST.get().defaultBlockState().setValue(PermafrostBlock.COVER, PermafrostCover.SNOWY))),
+                                            SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
                                     SurfaceRules.ifTrue(
                                             SurfaceRules.isBiome(BorealisBiomes.SACCHARINE_HILLS),
-                                            SurfaceRules.state(BorealisBlocks.PERMAFROST.get().defaultBlockState().setValue(PermafrostBlock.COVER, PermafrostCover.SUGARY))),
+                                            SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
                                     SurfaceRules.ifTrue(
                                             SurfaceRules.isBiome(BorealisBiomes.RAVAGED_GLACIER),
-                                            SurfaceRules.state(BorealisBlocks.PERMAFROST.get().defaultBlockState().setValue(PermafrostBlock.COVER, PermafrostCover.ICY))),
+                                            SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
                                     SurfaceRules.ifTrue(
                                             SurfaceRules.isBiome(BorealisBiomes.HOT_SPRING_ISLANDS),
                                             SurfaceRules.state(BorealisBlocks.SCORIA.get().defaultBlockState()))
@@ -184,7 +184,7 @@ public class BorealisWorld {
                             SurfaceRules.sequence(
                                     SurfaceRules.ifTrue(
                                             SurfaceRules.isBiome(BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE, BorealisBiomes.GIANTWOOD, BorealisBiomes.RAVAGED_GLACIER, BorealisBiomes.SACCHARINE_HILLS),
-                                            SurfaceRules.state(BorealisBlocks.PERMAFROST.get().defaultBlockState())),
+                                            SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
                                     SurfaceRules.ifTrue(
                                             SurfaceRules.isBiome(BorealisBiomes.HOT_SPRING_ISLANDS),
                                             SurfaceRules.state(BorealisBlocks.SCORIA.get().defaultBlockState())))

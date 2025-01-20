@@ -66,7 +66,7 @@ public class BorealisBlocks {
 
     public static final DeferredHolder<Block, Block> PUMICE = registerBlock("pumice", () -> new PumiceBlock(Template.pumice()));
     public static final DeferredHolder<Block, Block> PUMICE_GEYSER = registerBlock("pumice_geyser", () -> new PumiceGeyserBlock(Template.pumice()));
-    public static final DeferredHolder<Block, Block> SCORIA = registerBlock("scoria", () -> new Block(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_WHITE)));
+    public static final DeferredHolder<Block, Block> SCORIA = registerBlock("scoria", () -> new SolubleBlock(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_WHITE), null));
 
     public static final DeferredHolder<Block, Block> PETRIFIED_WOOD = registerBlock("petrified_wood", () -> new Block(Template.petrifiedWood()));
     public static final DeferredHolder<Block, Block> PETRIFIED_WOOD_BRICKS = registerBlock("petrified_wood_bricks", () -> new Block(Template.petrifiedWood()));
