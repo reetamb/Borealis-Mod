@@ -1,9 +1,8 @@
 package com.reetam.borealis.registry.world;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.block.PermafrostBlock;
-import com.reetam.borealis.block.property.PermafrostCover;
 import com.reetam.borealis.registry.BorealisBlocks;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -41,9 +40,9 @@ public class BorealisWorld {
                 4.0,
                 true,
                 false,
-                0,
-                256,
-                256,
+                BorealisMod.MIN_HEIGHT,
+                BorealisMod.HEIGHT,
+                BorealisMod.HEIGHT,
                 BlockTags.INFINIBURN_OVERWORLD,
                 ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "borealis"),
                 0.0F,
@@ -73,7 +72,7 @@ public class BorealisWorld {
     public static NoiseGeneratorSettings floatingIslandNoiseSettings(HolderGetter<DensityFunction> densityFunctions, HolderGetter<NormalNoise.NoiseParameters> noise) {
         BlockState soapstone = BorealisBlocks.SOAPSTONE.get().defaultBlockState();
         return new NoiseGeneratorSettings(
-                new NoiseSettings(0, 128, 2, 1), // noiseSettings
+                new NoiseSettings(BorealisMod.MIN_HEIGHT, BorealisMod.HEIGHT, 2, 1), // noiseSettings
                 soapstone,
                 Blocks.WATER.defaultBlockState(),
                 noiseRouter(densityFunctions, noise),
@@ -109,21 +108,28 @@ public class BorealisWorld {
                 DensityFunctions.zero(),
                 DensityFunctions.zero(),
                 DensityFunctions.zero(),
-                DensityFunctions.lerp(DensityFunctions.yClampedGradient(-16, 16, 0, 1),
-                            -0.5,
-                    DensityFunctions.lerp(DensityFunctions.yClampedGradient(96, 160, 1, -1),
-                            -0.15,
-                    DensityFunctions.lerp(
-                            DensityFunctions.yClampedGradient(-32, 116, -1, 1),
-                            -0.15,
-                            DensityFunctions.add(
-                                    DensityFunctions.noise(noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace("gravel"))), 4, 4),
-                                    DensityFunctions.noise(noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace("cave_entrance"))), 1, 8))
-                ))),
+                DensityFunctions.add(DensityFunctions.constant(0),
+//                        DensityFunctions.max(
+//                                DensityFunctions.constant(0),
+//                                DensityFunctions.noise(get(noise, "continentalness_large"), 4, 0)),
+                            DensityFunctions.lerp(DensityFunctions.yClampedGradient( BorealisMod.MIN_HEIGHT-16, BorealisMod.MIN_HEIGHT+16, 0, 1),
+                                        -0.5,
+                                DensityFunctions.lerp(DensityFunctions.yClampedGradient((BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2), 1, 0),
+                                        -0.15,
+                                DensityFunctions.lerp(
+                                        DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-12, -1, 1),
+                                        -0.15,
+                                        DensityFunctions.add(
+                                                DensityFunctions.noise(get(noise, "gravel"), 4, 4),
+                                                DensityFunctions.noise(get(noise, "cave_entrance"), 1, 8))
+                            )))),
                 DensityFunctions.zero(),
                 DensityFunctions.zero(),
                 DensityFunctions.zero());
     }
+
+    // increase max generation height
+    // need to clamp a maximum height of the gravel+cave_entrance to compensate
 
     private static DensityFunction getFunction(HolderGetter<DensityFunction> densityFunctions, ResourceKey<DensityFunction> key) {
         return new DensityFunctions.HolderHolder(densityFunctions.getOrThrow(key));
@@ -192,4 +198,7 @@ public class BorealisWorld {
                 SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.aboveBottom(56), 0)), SurfaceRules.state(BorealisBlocks.CLOUD.get().defaultBlockState())));
     }
 
+    private static Holder.Reference<NormalNoise.NoiseParameters> get(HolderGetter<NormalNoise.NoiseParameters> noise, String name) {
+        return noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace(name)));
+    }
 }

@@ -1,5 +1,6 @@
 package com.reetam.borealis.item;
 
+import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.TRandom;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisFluids;
@@ -77,7 +78,6 @@ public class HailstoneItem extends Item {
                         }
                     }
                 }
-                // level.setBlock(center.above(), BorealisBlocks.MOONFLOWER_BLOCK.get().defaultBlockState(), 18);
                 level.playLocalSound(center.getX(), center.getY(), center.getZ(), BorealisSounds.HAILSTONE_FALL.get(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
                 pContext.getItemInHand().hurtAndBreak(pContext.getItemInHand().getDamageValue(), pContext.getPlayer(), LivingEntity.getSlotForHand(pContext.getHand()));
             }
@@ -95,7 +95,7 @@ public class HailstoneItem extends Item {
                 pPlayer.changeDimension(transition);
                 return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
 
-            } else if (level.dimension() == BorealisDimensions.BOREALIS && pPlayer.getY() <= level.getMinBuildHeight() - 2) {
+            } else if (level.dimension() == BorealisDimensions.BOREALIS && pPlayer.getY() <= BorealisMod.MIN_HEIGHT) {
                 DimensionTransition transition = WorldHeightTransition.toOverworld(serverLevel, pPlayer);
                 pPlayer.changeDimension(transition);
                 return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));

@@ -1,6 +1,7 @@
 package com.reetam.borealis.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.client.renderer.BorealisAuroraRenderer;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
@@ -53,7 +54,7 @@ public class BorealisSpecialEffects extends DimensionSpecialEffects {
     }
     @Override
     public float getCloudHeight() {
-        return 192.0F;
+        return BorealisMod.MIN_HEIGHT + (0.75F*BorealisMod.HEIGHT);
     }
 
     @Override

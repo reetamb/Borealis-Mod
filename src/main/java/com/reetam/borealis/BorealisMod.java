@@ -30,6 +30,8 @@ public class BorealisMod {
 
     public static final String MODID = "borealis";
     public static final Logger LOGGER = LogUtils.getLogger();
+    public static final int MIN_HEIGHT = 256;
+    public static final int HEIGHT = 256;
 
     public BorealisMod(IEventBus bus) {
 

@@ -62,13 +62,13 @@ public class BorealisPlacedFeatures {
         register(context, PLACED_GLACIAL_SPIKE, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_GLACIAL_SPIKE),
                 CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());
         register(context, PLACED_HOT_SPRING, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_HOT_SPRING),
-                HeightRangePlacement.uniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(128)),
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(32), VerticalAnchor.aboveBottom(128)),
                 InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(3), BiomeFilter.biome());
         register(context, PLACED_SPIKE_TRAIL, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_SPIKE_TRAIL),
-                HeightRangePlacement.uniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(128)),
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(32), VerticalAnchor.aboveBottom(128)),
                 RarityFilter.onAverageOnceEvery(2));
         register(context, PLACED_SPIRAL_CLOUD, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_SPIRAL_CLOUD),
-                HeightRangePlacement.uniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(128)),
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(32), VerticalAnchor.aboveBottom(128)),
                 InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(4));
         register(context, PLACED_CLOUD, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_CLOUD),
                 HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(32)),
@@ -105,10 +105,10 @@ public class BorealisPlacedFeatures {
         register(context, PLACED_LICHEN_PATCH, please.getOrThrow(BorealisConfiguredFeatures.LICHEN_PATCH),
                 CountOnEveryLayerPlacement.of(2), BiomeFilter.biome());
         register(context, PLACED_RUBBLE_PATCH, please.getOrThrow(BorealisConfiguredFeatures.RUBBLE_PATCH),
-                HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(64)),
-                InSquarePlacement.spread(), CountOnEveryLayerPlacement.of(2), RarityFilter.onAverageOnceEvery(2), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(120)));
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(64)),
+                InSquarePlacement.spread(), CountOnEveryLayerPlacement.of(2), RarityFilter.onAverageOnceEvery(2), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(60), VerticalAnchor.aboveBottom(120)));
         register(context, PLACED_KYANITE_CRYSTAL, please.getOrThrow(BorealisConfiguredFeatures.KYANITE_CRYSTAL),
-                InSquarePlacement.spread(), CountPlacement.of(1), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(120)));
+                InSquarePlacement.spread(), CountPlacement.of(1), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(60), VerticalAnchor.aboveBottom(120)));
         register(context, PLACED_PEAT_ORE, please.getOrThrow(BorealisConfiguredFeatures.PEAT_ORE),
                 HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top()),
                 CountPlacement.of(16), InSquarePlacement.spread());
