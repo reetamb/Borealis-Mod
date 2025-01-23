@@ -3,6 +3,8 @@ package com.reetam.borealis.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.client.renderer.BorealisAuroraRenderer;
+import com.reetam.borealis.client.renderer.BorealisSkyRenderer;
+import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.LightTexture;
@@ -14,12 +16,12 @@ import javax.annotation.Nullable;
 public class BorealisSpecialEffects extends DimensionSpecialEffects {
 
     BorealisAuroraRenderer auroraRenderer;
-    // BorealisSkyRenderer skyRenderer;
+    BorealisSkyRenderer skyRenderer;
     // BorealisWeatherRenderer weatherRenderer;
     public BorealisSpecialEffects() {
-        super(Float.NaN, false, DimensionSpecialEffects.SkyType.NORMAL, false, true);
+        super(Float.NaN, false, SkyType.NORMAL, false, true);
         auroraRenderer = new BorealisAuroraRenderer();
-        // skyRenderer = new BorealisSkyRenderer();
+        skyRenderer = new BorealisSkyRenderer();
         // weatherRenderer = new BorealisWeatherRenderer();
     }
 
@@ -54,7 +56,7 @@ public class BorealisSpecialEffects extends DimensionSpecialEffects {
     }
     @Override
     public float getCloudHeight() {
-        return BorealisMod.MIN_HEIGHT + (0.75F*BorealisMod.HEIGHT);
+        return BorealisMod.MIN_HEIGHT + BorealisMod.HEIGHT - 16;
     }
 
     @Override
@@ -63,10 +65,11 @@ public class BorealisSpecialEffects extends DimensionSpecialEffects {
         return true;
     }
 
-//    public boolean renderSky(ClientLevel level, int ticks, float partialTick, PoseStack poseStack, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
-//        skyRenderer.render(level, ticks, partialTick, poseStack, camera, projectionMatrix, isFoggy, setupFog);
-//        return true;
-//    }
+    @Override
+    public boolean renderSky(ClientLevel level, int ticks, float partialTick, Matrix4f modelViewMatrix, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
+        skyRenderer.renderSky(level, modelViewMatrix, projectionMatrix, partialTick, camera, isFoggy, setupFog);
+        return true;
+    }
 
     public boolean renderSnowAndRain(ClientLevel level, int ticks, float partialTick, LightTexture lightTexture, double camX, double camY, double camZ) {
         return false;

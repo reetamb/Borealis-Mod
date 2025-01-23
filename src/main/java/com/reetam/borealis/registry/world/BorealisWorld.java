@@ -76,7 +76,7 @@ public class BorealisWorld {
                 soapstone,
                 Blocks.WATER.defaultBlockState(),
                 noiseRouter(densityFunctions, noise),
-                surfaceRule(),
+                surfaceRule(noise),
                 List.of(),
                 0,
                 false,
@@ -108,21 +108,31 @@ public class BorealisWorld {
                 DensityFunctions.zero(),
                 DensityFunctions.zero(),
                 DensityFunctions.zero(),
-                DensityFunctions.add(DensityFunctions.constant(0),
-//                        DensityFunctions.max(
-//                                DensityFunctions.constant(0),
-//                                DensityFunctions.noise(get(noise, "continentalness_large"), 4, 0)),
-                            DensityFunctions.lerp(DensityFunctions.yClampedGradient( BorealisMod.MIN_HEIGHT-16, BorealisMod.MIN_HEIGHT+16, 0, 1),
-                                        -0.5,
+                DensityFunctions.add(
+                        // MOUNTAINS
+                        // blend height to prevent hitting 256|512 (gradient goes 384 to 512)
+                        DensityFunctions.lerp(DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2, BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT, 1, 0),
+                                -0.5,
+                                // blend height to prevent going below -42
+                                DensityFunctions.lerp(DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-12, -1, 1),
+                                        -0.15,
+                                        // take continentalness_large and set the min value to 0
+                                        DensityFunctions.max(
+                                                DensityFunctions.constant(0),
+                                                DensityFunctions.noise(get(noise, "continentalness_large"), 4, 1)))),
+                        // BASE GENERATION
+                        // prevent bottom height from going below 16|272 (gradient goes 240 to 272)
+                        DensityFunctions.lerp(DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT-16, BorealisMod.MIN_HEIGHT+16, 0, 1),
+                                -0.5,
+                                // prevent top height from exceeding 128|384 (gradient goes 352 to 384)
                                 DensityFunctions.lerp(DensityFunctions.yClampedGradient((BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2), 1, 0),
                                         -0.15,
-                                DensityFunctions.lerp(
-                                        DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-12, -1, 1),
-                                        -0.15,
-                                        DensityFunctions.add(
-                                                DensityFunctions.noise(get(noise, "gravel"), 4, 4),
-                                                DensityFunctions.noise(get(noise, "cave_entrance"), 1, 8))
-                            )))),
+                                        // overall blend for... something IDK LOL (gradient goes -32|224 to 116|372)
+                                        DensityFunctions.lerp(DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-12, -1, 1),
+                                                -0.15,
+                                                DensityFunctions.add(
+                                                        DensityFunctions.noise(get(noise, "gravel"), 4, 4),
+                                                        DensityFunctions.noise(get(noise, "cave_entrance"), 1, 8)))))),
                 DensityFunctions.zero(),
                 DensityFunctions.zero(),
                 DensityFunctions.zero());
@@ -135,67 +145,56 @@ public class BorealisWorld {
         return new DensityFunctions.HolderHolder(densityFunctions.getOrThrow(key));
     }
 
+    @SafeVarargs
     private static SurfaceRules.RuleSource biomeBlock(BlockState block, ResourceKey<Biome>... biomes) {
         return SurfaceRules.ifTrue(SurfaceRules.isBiome(biomes), SurfaceRules.state(block));
     }
-    private static SurfaceRules.RuleSource surfaceRule() {
+    private static SurfaceRules.RuleSource surfaceRule(HolderGetter<NormalNoise.NoiseParameters> noise) {
         return SurfaceRules.sequence(
-                SurfaceRules.ifTrue(SurfaceRules.yStartCheck(VerticalAnchor.aboveBottom(56), 0), SurfaceRules.sequence(
+                // if higher than H/2
+                SurfaceRules.ifTrue(SurfaceRules.yStartCheck(VerticalAnchor.belowTop(BorealisMod.HEIGHT/2), 5),
+                        SurfaceRules.sequence(
+                            SurfaceRules.ifTrue(SurfaceRules.yStartCheck(VerticalAnchor.belowTop(BorealisMod.HEIGHT/3), 10),
+                                    SurfaceRules.sequence(
+                                            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
+                                                    SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
+                                            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(1, false, 0, CaveSurface.FLOOR),
+                                                    SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
+                                            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(2, false, 0, CaveSurface.FLOOR),
+                                                    SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
+                                            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(3, true, 0, CaveSurface.FLOOR),
+                                                    SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState()))
+                                    )),
+                            SurfaceRules.ifTrue(SurfaceRules.noiseCondition(get(noise, "aquifer_barrier").key(), 0),
+                                    SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())))),
+                // else
+                SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.belowTop(BorealisMod.HEIGHT/2), 1)), SurfaceRules.sequence(
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
                             SurfaceRules.sequence(
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.GIANTWOOD),
-                                            SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.SACCHARINE_HILLS),
-                                            SurfaceRules.state(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState())),
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.RAVAGED_GLACIER),
-                                            SurfaceRules.state(Blocks.PACKED_ICE.defaultBlockState())),
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.HOT_SPRING_ISLANDS),
-                                            SurfaceRules.state(BorealisBlocks.SCORIA.get().defaultBlockState()))
+                                    biomeBlock(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE, BorealisBiomes.GIANTWOOD),
+                                    biomeBlock(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.SACCHARINE_HILLS),
+                                    biomeBlock(Blocks.PACKED_ICE.defaultBlockState(), BorealisBiomes.RAVAGED_GLACIER),
+                                    biomeBlock(BorealisBlocks.SCORIA.get().defaultBlockState(), BorealisBiomes.HOT_SPRING_ISLANDS)
                             )),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(1, false, 0, CaveSurface.FLOOR),
                             SurfaceRules.sequence(
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE, BorealisBiomes.GIANTWOOD),
-                                            SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.SACCHARINE_HILLS),
-                                            SurfaceRules.state(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState())),
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.RAVAGED_GLACIER),
-                                            SurfaceRules.state(Blocks.PACKED_ICE.defaultBlockState())),
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.HOT_SPRING_ISLANDS),
-                                            SurfaceRules.state(BorealisBlocks.SCORIA.get().defaultBlockState()))
+                                    biomeBlock(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE, BorealisBiomes.GIANTWOOD),
+                                    biomeBlock(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.SACCHARINE_HILLS),
+                                    biomeBlock(Blocks.PACKED_ICE.defaultBlockState(), BorealisBiomes.RAVAGED_GLACIER),
+                                    biomeBlock(BorealisBlocks.SCORIA.get().defaultBlockState(), BorealisBiomes.HOT_SPRING_ISLANDS)
                             )),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(2, false, 0, CaveSurface.FLOOR),
                             SurfaceRules.sequence(
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE, BorealisBiomes.GIANTWOOD),
-                                            SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.SACCHARINE_HILLS),
-                                            SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.RAVAGED_GLACIER),
-                                            SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.HOT_SPRING_ISLANDS),
-                                            SurfaceRules.state(BorealisBlocks.SCORIA.get().defaultBlockState()))
+                                    biomeBlock(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE, BorealisBiomes.GIANTWOOD),
+                                    biomeBlock(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.SACCHARINE_HILLS),
+                                    biomeBlock(Blocks.PACKED_ICE.defaultBlockState(), BorealisBiomes.RAVAGED_GLACIER),
+                                    biomeBlock(BorealisBlocks.SCORIA.get().defaultBlockState(), BorealisBiomes.HOT_SPRING_ISLANDS)
                             )),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(3, true, 0, CaveSurface.FLOOR),
                             SurfaceRules.sequence(
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE, BorealisBiomes.GIANTWOOD, BorealisBiomes.RAVAGED_GLACIER, BorealisBiomes.SACCHARINE_HILLS),
-                                            SurfaceRules.state(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState())),
-                                    SurfaceRules.ifTrue(
-                                            SurfaceRules.isBiome(BorealisBiomes.HOT_SPRING_ISLANDS),
-                                            SurfaceRules.state(BorealisBlocks.SCORIA.get().defaultBlockState())))
-                            ))),
-                SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.aboveBottom(56), 0)), SurfaceRules.state(BorealisBlocks.CLOUD.get().defaultBlockState())));
+                                    biomeBlock(BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE, BorealisBiomes.GIANTWOOD),
+                                    biomeBlock(BorealisBlocks.SCORIA.get().defaultBlockState(), BorealisBiomes.HOT_SPRING_ISLANDS)
+                            )))));
     }
 
     private static Holder.Reference<NormalNoise.NoiseParameters> get(HolderGetter<NormalNoise.NoiseParameters> noise, String name) {
