@@ -1,4 +1,4 @@
-// 1.21	2025-01-18T17:18:29.2954385	Borealis Item Models
+// 1.21	2025-02-18T11:41:15.4448872	Borealis Item Models
 5fd295104ee66c7b9091ab57fa73d2739d66df02 assets/borealis/models/item/alms.json
 37a211cdf9f551a56fbf6af22f3a70dbb05b0519 assets/borealis/models/item/alms_nut.json
 75aa80c42a220cf518df2584d1c3a390019b4c46 assets/borealis/models/item/blue_amber.json
@@ -14,7 +14,6 @@ cf03e1169033ff4fa35527d92e461a951814fbf8 assets/borealis/models/item/brumal_butt
 cd3a8a80715d300b58346b461cd043d4f2190264 assets/borealis/models/item/brumal_log.json
 55e00480454f1322abe8034dc986104a0d21b80f assets/borealis/models/item/brumal_planks.json
 1c807cf46e8e8ea1144f1a560173cc0c939ab548 assets/borealis/models/item/brumal_pressure_plate.json
-7f0af0d83e1d4aa7fe334a4f264372a4faed80c6 assets/borealis/models/item/brumal_sapling.json
 792ad45ed203778a2b2f0cf96111bfc8217ee898 assets/borealis/models/item/brumal_sign.json
 6cc7c5f99481420c98654398bd43430e2cd52723 assets/borealis/models/item/brumal_slab.json
 c4ae924254107bfed3ffcd0c95031dbc1bd9fb30 assets/borealis/models/item/brumal_stairs.json
@@ -38,6 +37,7 @@ e946e9305a9d26e91cb5db4ab4eae7211666a5d3 assets/borealis/models/item/caramelized
 83a70a8e37d5742a5933222224efbde8ad07e170 assets/borealis/models/item/cinnabar.json
 361608f2d88c42445f7354ca56320d63d17aa7d9 assets/borealis/models/item/cloud.json
 5b20bb71a44b510352d07d60bed0ff41cc7ea192 assets/borealis/models/item/cracked_alms.json
+45e960186f9e7489db9d7fd8a256f5d6d7eb8140 assets/borealis/models/item/firn.json
 a02e613fe799dd336241f8020821f307a4062c8c assets/borealis/models/item/fleece.json
 830d28f49e8e4f220f645d6f326e42c810d2ca56 assets/borealis/models/item/fluorite.json
 5896b09bb59f94b05cd945388e260d8dcf1666de assets/borealis/models/item/frostfir_boat.json
@@ -50,19 +50,20 @@ d6d8f1268644e344ff8aa595851839ac7d209cc1 assets/borealis/models/item/frostfir_fe
 3d5954fc7ac11441c3a0038bcba5cb93e3b682bb assets/borealis/models/item/frostfir_log.json
 68557bbf111497eca905e31cafb44c311e47e6bd assets/borealis/models/item/frostfir_planks.json
 3232b9a50e57c531e20ef697f614295a94e73145 assets/borealis/models/item/frostfir_pressure_plate.json
-c01cf7bf920b329e0fc655f2f24d26f942fb5d49 assets/borealis/models/item/frostfir_sapling.json
 7759f5bf3d61083e1c0cf8371dd9efa5d7f98b69 assets/borealis/models/item/frostfir_sign.json
 9fff76a9809b1404c5017070f88fca5402478903 assets/borealis/models/item/frostfir_slab.json
 20c5b3c77f4a35f7138375233cc944b137d74f62 assets/borealis/models/item/frostfir_stairs.json
 428c1fb4356b26681a79a7a824f4d511cb4c81bc assets/borealis/models/item/frostfir_trapdoor.json
 d92379c577fb774f0bbd869bf2241b015748a148 assets/borealis/models/item/frostfir_wood.json
 1ff89a7af7bd9fb15f483166c9be1b55cb7292d3 assets/borealis/models/item/glazed_leaves.json
+629a9afbcf88b70ea4a8a84ac9563e062b9b829a assets/borealis/models/item/gypsum.json
 b97326cfad763a174770760cf802644681b492fa assets/borealis/models/item/hailstone.json
 4d07bdc6098fb02b8bfd9d3320d5a1ea7489d456 assets/borealis/models/item/hailstone_block.json
 7842ada35567918d4ab5f84b6d37f3bce8309786 assets/borealis/models/item/hat.json
 9c692ad4ef91d5ea5819ae38d3dcb611354dfece assets/borealis/models/item/holly.json
 3c022d226b8a5b26530757513b649053e70cd052 assets/borealis/models/item/hot_spring_water_bucket.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/hummingbird_spawn_egg.json
+8c657bc7fd739d33131d6272a3ee96bcb07e10e9 assets/borealis/models/item/kaolin.json
 dfd9d25d54083c0169d2db344a282b3d2c400eb4 assets/borealis/models/item/kyanite_arrow.json
 e60f37bfff05548cbde80faf4066c92a3879951a assets/borealis/models/item/kyanite_bulb.json
 f2c05faf199f5d00943c8eecb7d49c7f0240ae15 assets/borealis/models/item/kyanite_cable.json
@@ -70,18 +71,14 @@ ba2d04b062d5662ee14dbc968050247b3061c817 assets/borealis/models/item/kyanite_cry
 cb6eb0dd2aa4ff7f3277431af16ab4ff8c0b02df assets/borealis/models/item/kyanite_flagstone.json
 0fbb788738ef4fd87db5e07aace44e5605f21e9f assets/borealis/models/item/kyanite_ore.json
 c50d27f200349d9ec4e3a2a166b2dcf00d7a7a8a assets/borealis/models/item/lichen_block.json
-95822ac5d5fa44f393764dac465061bbe4017703 assets/borealis/models/item/living_snow_block.json
 8115978b2d99be5c89ab7bc46ffc77502fa8b41d assets/borealis/models/item/misteria.json
 391ef7014753ada379a39395d6f72cee041373d1 assets/borealis/models/item/peat.json
-59042113b060f0ff6cb1a597ded87134b105f2da assets/borealis/models/item/permafrost.json
-91ee8ddbc251c3ce87d098bd6adb3bbb17a33548 assets/borealis/models/item/permafrost_rubble.json
 b2b161cc742e7b2ef8eb51aa3be7f93b44103500 assets/borealis/models/item/petrified_wood.json
 9b8fe5aefae0ead25374a8b03c5dda1bca10b39b assets/borealis/models/item/petrified_wood_bricks.json
 fd17ed0d8ce1c2e949c309625c7457cbfb66a25f assets/borealis/models/item/portal_fluid_bucket.json
 d6f67c7fcb1199631349dd0765c89eee1f049861 assets/borealis/models/item/pumice.json
 46c4b7339242326bf8c081e47d0b7748a415c7f2 assets/borealis/models/item/pumice_geyser.json
 c54ba278d95644a9b260e91638c090be82098c0f assets/borealis/models/item/quicksilver_bucket.json
-aec8787bddd8dcffbf15432416a7a1d80b844b0d assets/borealis/models/item/scoria.json
 dce3e90121aa1c7d3745686ed744c1a923d117f3 assets/borealis/models/item/slate.json
 4668e5268278f99da7a4a30997196ff7e0e5021f assets/borealis/models/item/slate_pillar.json
 463fdca9882d4dd3d53adee2ed37a9a7e0e4db54 assets/borealis/models/item/slate_tiles.json
@@ -125,7 +122,6 @@ f6321809dd454f547264ac6a0dec32a6fcaec5b8 assets/borealis/models/item/sweetwood_h
 5f4ab275a4060cea14aad25e43ab9e5e4b920f1b assets/borealis/models/item/sweetwood_log.json
 40119c1ecf6d7c2cbb4c261a6293c01a99fb23b0 assets/borealis/models/item/sweetwood_planks.json
 d571a6879b9d25e09fb1b74a73db46185715bb6e assets/borealis/models/item/sweetwood_pressure_plate.json
-6c0314d23b133c34cf8042db8be845caa7624466 assets/borealis/models/item/sweetwood_sapling.json
 a0a5f51a4131169c582bd0832312e08265867760 assets/borealis/models/item/sweetwood_sign.json
 d004a868266a96b48a70c1a0c49fe77df9bad0b5 assets/borealis/models/item/sweetwood_slab.json
 eb735b2e166aabe66465fcd05fd2baf70ccc6373 assets/borealis/models/item/sweetwood_stairs.json

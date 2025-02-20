@@ -25,9 +25,9 @@ public class SolubleBlock extends Block {
             FluidState state = pLevel.getFluidState(pPos.above());
             if (state.is(BorealisFluids.HOT_SPRING_WATER_FLOWING.get())) {
                 if (!state.getValue(FlowingFluid.FALLING)) {
-                    if (this.dissolveState == null) {
-                        pLevel.removeBlock(pPos, false);
-                    } else {
+                    pLevel.removeBlock(pPos, false);
+                } else {
+                    if (this.dissolveState != null) {
                         pLevel.setBlock(pPos, dissolveState, 3);
                     }
                 }

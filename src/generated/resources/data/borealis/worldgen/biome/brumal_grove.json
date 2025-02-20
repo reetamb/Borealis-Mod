@@ -24,7 +24,6 @@
     [],
     [
       "borealis:kyanite_crystal",
-      "borealis:peat_ore",
       "borealis:cloud_hailstone"
     ],
     [],
@@ -36,9 +35,6 @@
       "borealis:brumal_tree_4",
       "borealis:lichen_patch",
       "minecraft:patch_grass_normal"
-    ],
-    [
-      "minecraft:freeze_top_layer"
     ]
   ],
   "has_precipitation": true,

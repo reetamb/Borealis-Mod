@@ -45,6 +45,7 @@ public class BorealisFeatures {
         public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<PalmFoliagePlacer>> PALM_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("palm_foliage_placer", () -> new FoliagePlacerType<>(PalmFoliagePlacer.CODEC));
         public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<AspenFoliagePlacer>> ASPEN_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("aspen_foliage_placer", () -> new FoliagePlacerType<>(AspenFoliagePlacer.CODEC));
         public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<HelixFoliagePlacer>> HELIX_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("helix_foliage_placer", () -> new FoliagePlacerType<>(HelixFoliagePlacer.CODEC));
+        public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<PineyFoliagePlacer>> PINEY_FOLIAGE_PLACER = FOLIAGE_PLACERS.register("piney_foliage_placer", () -> new FoliagePlacerType<>(PineyFoliagePlacer.CODEC));
 
         public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACERS = DeferredRegister.create(Registries.TRUNK_PLACER_TYPE, BorealisMod.MODID);
         public static final DeferredHolder<TrunkPlacerType<?>, TrunkPlacerType<RootedTrunkPlacer>> ROOTED_TRUNK_PLACER = TRUNK_PLACERS.register("rooted_trunk_placer", () -> new TrunkPlacerType<>(RootedTrunkPlacer.CODEC));

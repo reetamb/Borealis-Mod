@@ -10,7 +10,7 @@
       "Name": "borealis:lichen_block"
     },
     "target": {
-      "Name": "borealis:living_snow_block"
+      "Name": "borealis:firn"
     }
   }
 }

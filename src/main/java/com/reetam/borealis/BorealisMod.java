@@ -2,6 +2,7 @@ package com.reetam.borealis;
 
 import com.mojang.logging.LogUtils;
 import com.reetam.borealis.data.*;
+import com.reetam.borealis.data.trigger.BorealisTriggers;
 import com.reetam.borealis.modify.events.PlayerEvents;
 import com.reetam.borealis.registry.*;
 import com.reetam.borealis.registry.world.BorealisDimensions;
@@ -61,7 +62,8 @@ public class BorealisMod {
                 BorealisFeatures.TreePlacers.TREE_DECORATORS,
                 BorealisSounds.SOUND_EVENTS,
                 BorealisEffects.EFFECTS,
-                BorealisDimensions.POIS
+                BorealisDimensions.POIS,
+                BorealisTriggers.TRIGGERS
         };
 
         for (DeferredRegister<?> register : registers) {
@@ -75,7 +77,6 @@ public class BorealisMod {
 
     public void commonSetup(FMLCommonSetupEvent event) {
         BorealisEntities.registerSpawnPlacements();
-        BorealisCommon.registerFlowerPots();
         BorealisCommon.registerWoodTypes();
         BorealisCommon.registerDispenserBehaviors();
         BorealisCommon.registerFluidInteractions();

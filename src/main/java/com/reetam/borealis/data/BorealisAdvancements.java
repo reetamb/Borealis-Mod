@@ -1,35 +1,28 @@
 package com.reetam.borealis.data;
 
 import com.reetam.borealis.BorealisMod;
+import com.reetam.borealis.data.trigger.BorealisTriggers;
+import com.reetam.borealis.data.trigger.BreakBlockTrigger;
+import com.reetam.borealis.data.trigger.HailstoneTrigger;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.world.BorealisDimensions;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.advancements.AdvancementProvider;
 import net.minecraft.data.advancements.AdvancementSubProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeSources;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.storage.loot.predicates.AnyOfCondition;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -65,7 +58,7 @@ public class BorealisAdvancements extends AdvancementProvider {
                     .save(consumer, loc("get_hailstone"));
 
             AdvancementHolder enterBorealis = Advancement.Builder.advancement()
-                    .display(BorealisBlocks.LIVING_SNOW_BLOCK.get(),
+                    .display(BorealisBlocks.FIRN.get(),
                             name("enter_borealis"),
                             desc("enter_borealis"),
                             null,
@@ -100,8 +93,7 @@ public class BorealisAdvancements extends AdvancementProvider {
                             desc("icarian"),
                             null,
                             AdvancementType.CHALLENGE, true, true, true)
-                    .addCriterion("icarian_fall", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.atYLocation(MinMaxBounds.Doubles.between(-64, 0))))
-                    .addCriterion("icarian_savior", ConsumeItemTrigger.TriggerInstance.usedItem(BorealisItems.HAILSTONE.get()))
+                    .addCriterion("used_hailstone", HailstoneTrigger.TriggerInstance.usedHailstone(ItemPredicate.Builder.item().of(BorealisItems.HAILSTONE.get()), MinMaxBounds.Doubles.between(-1 * BorealisMod.MIN_HEIGHT, BorealisMod.MIN_HEIGHT), BorealisDimensions.BOREALIS))
                     .parent(getHailstone)
                     .save(consumer, loc("icarian"));
 
@@ -118,6 +110,16 @@ public class BorealisAdvancements extends AdvancementProvider {
                     .addCriterion("shear_cello", InventoryChangeTrigger.TriggerInstance.hasItems(BorealisBlocks.WINTER_CELLO.get().asItem(), Items.PITCHER_PLANT))
                     .parent(enterBorealis)
                     .save(consumer, loc("shear_plant"));
+
+            AdvancementHolder stripFrostfir = Advancement.Builder.advancement()
+                    .display(BorealisBlocks.BONE_DRY_WOOD.get(),
+                            name("strip_frostfir"),
+                            desc("strip_frostfir"),
+                            null,
+                            AdvancementType.TASK, true, true, false)
+                    .addCriterion("strip_frostfir", BreakBlockTrigger.TriggerInstance.destroyedBlock(BorealisBlocks.PETRIFIED_WOOD.get()))
+                    .parent(enterBorealis)
+                    .save(consumer, loc("strip_frostfir"));
         }
 
         private Component name(String name) {

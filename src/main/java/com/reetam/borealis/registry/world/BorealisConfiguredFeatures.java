@@ -14,7 +14,6 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.TargetBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -29,7 +28,6 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
-import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -57,9 +55,7 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLAZED_COTTON_TREE = createKey("glazed_cotton_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_PATCH = createKey("holly_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LICHEN_PATCH = createKey("lichen_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> RUBBLE_PATCH = createKey("rubble_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> KYANITE_CRYSTAL = createKey("kyanite_ore");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PEAT_ORE = createKey("peat_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_TANZANITE_METEOR = createKey("tanzanite_meteor");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NATURAL_HAILSTONE = createKey("natural_hailstone");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUD_HAILSTONE = createKey("cloud_hailstone");
@@ -135,10 +131,10 @@ public class BorealisConfiguredFeatures {
                 .ignoreVines().build());
 
         register(context, FROSTFIR_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                with(BorealisBlocks.FROSTFIR_LOG),
+                with(BorealisBlocks.PETRIFIED_WOOD),
                 new StraightTrunkPlacer(8, 2, 2),
                 with(BorealisBlocks.FROSTFIR_LEAVES),
-                new SpruceFoliagePlacer(of(2), of(0), of(2)),
+                new PineyFoliagePlacer(of(2), of(0), of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());
         register(context, GIANTWOOD_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -147,7 +143,7 @@ public class BorealisConfiguredFeatures {
                 with(BorealisBlocks.FROSTFIR_LEAVES),
                 new MegaPineFoliagePlacer(of(0), of(0), from(12, 16)),
                 new TwoLayersFeatureSize(1, 1, 2))
-                .dirt(with(BorealisBlocks.LIVING_SNOW_BLOCK)).ignoreVines().build());
+                .dirt(with(BorealisBlocks.FIRN)).ignoreVines().build());
         register(context, HELIX_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.SWEETWOOD_LOG),
                 new StraightTrunkPlacer(10, 2, 2),
@@ -179,17 +175,11 @@ public class BorealisConfiguredFeatures {
 
         register(context, HOLLY_PATCH, Feature.RANDOM_PATCH, FeatureUtils.simpleRandomPatchConfiguration(64, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(with(BorealisBlocks.HOLLY.get())))));
         register(context, LICHEN_PATCH, Feature.REPLACE_BLOBS, new ReplaceSphereConfiguration(
-                BorealisBlocks.LIVING_SNOW_BLOCK.get().defaultBlockState(),
+                BorealisBlocks.FIRN.get().defaultBlockState(),
                 BorealisBlocks.LICHEN_BLOCK.get().defaultBlockState(),
                 from(1, 2)
         ));
-        register(context, RUBBLE_PATCH, Feature.REPLACE_BLOBS, new ReplaceSphereConfiguration(
-                BorealisBlocks.PERMAFROST.get().defaultBlockState(),
-                BorealisBlocks.PERMAFROST_RUBBLE.get().defaultBlockState(),
-                from(3, 4)));
         register(context, KYANITE_CRYSTAL, BorealisFeatures.BERYL.get(), new BlockStateConfiguration(BorealisBlocks.KYANITE_ORE.get().defaultBlockState()));
-        register(context, PEAT_ORE, Feature.ORE, new OreConfiguration(
-                new BlockMatchTest(BorealisBlocks.PERMAFROST.get()), BorealisBlocks.PEAT.get().defaultBlockState(), 16, 0.5F));
         register(context, CONFIGURED_TANZANITE_METEOR, BorealisFeatures.TANZANITE_METEOR.get(), FeatureConfiguration.NONE);
     }
 

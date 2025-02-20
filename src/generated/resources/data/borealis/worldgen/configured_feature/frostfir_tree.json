@@ -9,7 +9,7 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:spruce_foliage_placer",
+      "type": "borealis:piney_foliage_placer",
       "offset": 0,
       "radius": 2,
       "trunk_height": 2
@@ -42,7 +42,7 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "borealis:frostfir_log",
+        "Name": "borealis:petrified_wood",
         "Properties": {
           "axis": "y"
         }

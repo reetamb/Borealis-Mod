@@ -78,7 +78,7 @@ public class ThrusherEntity extends Animal implements NeutralMob {
     }
 
     public static boolean checkSpawnRules(EntityType<? extends Animal> animal, LevelAccessor level, MobSpawnType reason, BlockPos pos, Random random) {
-        return level.getBlockState(pos.below()).getBlock() == BorealisBlocks.LIVING_SNOW_BLOCK.get();
+        return level.getBlockState(pos.below()).getBlock() == BorealisBlocks.FIRN.get();
     }
 
     public void addAdditionalSaveData(CompoundTag pCompound) {

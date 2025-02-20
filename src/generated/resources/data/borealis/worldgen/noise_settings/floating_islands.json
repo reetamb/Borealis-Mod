@@ -14,7 +14,7 @@
   "noise": {
     "height": 256,
     "min_y": 256,
-    "size_horizontal": 2,
+    "size_horizontal": 1,
     "size_vertical": 1
   },
   "noise_router": {
@@ -219,7 +219,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:living_snow_block"
+                        "Name": "borealis:firn"
                       }
                     }
                   },
@@ -235,7 +235,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:living_snow_block"
+                        "Name": "borealis:firn"
                       }
                     }
                   },
@@ -251,7 +251,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:living_snow_block"
+                        "Name": "borealis:firn"
                       }
                     }
                   },
@@ -267,7 +267,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:living_snow_block"
+                        "Name": "borealis:firn"
                       }
                     }
                   }
@@ -285,7 +285,7 @@
               "then_run": {
                 "type": "minecraft:block",
                 "result_state": {
-                  "Name": "borealis:living_snow_block"
+                  "Name": "borealis:firn"
                 }
               }
             }
@@ -334,7 +334,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:living_snow_block"
+                        "Name": "borealis:firn"
                       }
                     }
                   },
@@ -379,7 +379,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:scoria"
+                        "Name": "borealis:gypsum"
                       }
                     }
                   }
@@ -412,7 +412,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:living_snow_block"
+                        "Name": "borealis:firn"
                       }
                     }
                   },
@@ -457,7 +457,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:scoria"
+                        "Name": "borealis:gypsum"
                       }
                     }
                   }
@@ -490,7 +490,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:living_snow_block"
+                        "Name": "borealis:firn"
                       }
                     }
                   },
@@ -535,7 +535,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:scoria"
+                        "Name": "borealis:gypsum"
                       }
                     }
                   }
@@ -568,7 +568,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:living_snow_block"
+                        "Name": "borealis:firn"
                       }
                     }
                   },
@@ -583,7 +583,7 @@
                     "then_run": {
                       "type": "minecraft:block",
                       "result_state": {
-                        "Name": "borealis:scoria"
+                        "Name": "borealis:gypsum"
                       }
                     }
                   }

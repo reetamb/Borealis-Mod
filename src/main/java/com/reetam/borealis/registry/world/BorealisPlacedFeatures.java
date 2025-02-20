@@ -39,9 +39,7 @@ public class BorealisPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PLACED_COTTON_TREE = createKey("cotton_tree");
     public static final ResourceKey<PlacedFeature> PLACED_GLAZED_HELIX_TREE = createKey("glazed_helix_tree");
     public static final ResourceKey<PlacedFeature> PLACED_GLAZED_COTTON_TREE = createKey("glazed_cotton_tree");
-    public static final ResourceKey<PlacedFeature> PLACED_RUBBLE_PATCH = createKey("rubble_patch");
     public static final ResourceKey<PlacedFeature> PLACED_KYANITE_CRYSTAL = createKey("kyanite_crystal");
-    public static final ResourceKey<PlacedFeature> PLACED_PEAT_ORE = createKey("peat_ore");
 
     public static final ResourceKey<PlacedFeature> PLACED_HOLLY_PATCH = createKey("holly");
     public static final ResourceKey<PlacedFeature> PLACED_LICHEN_PATCH = createKey("lichen_patch");
@@ -104,14 +102,8 @@ public class BorealisPlacedFeatures {
 
         register(context, PLACED_LICHEN_PATCH, please.getOrThrow(BorealisConfiguredFeatures.LICHEN_PATCH),
                 CountOnEveryLayerPlacement.of(2), BiomeFilter.biome());
-        register(context, PLACED_RUBBLE_PATCH, please.getOrThrow(BorealisConfiguredFeatures.RUBBLE_PATCH),
-                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(64)),
-                InSquarePlacement.spread(), CountOnEveryLayerPlacement.of(2), RarityFilter.onAverageOnceEvery(2), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(60), VerticalAnchor.aboveBottom(120)));
         register(context, PLACED_KYANITE_CRYSTAL, please.getOrThrow(BorealisConfiguredFeatures.KYANITE_CRYSTAL),
                 InSquarePlacement.spread(), CountPlacement.of(1), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(60), VerticalAnchor.aboveBottom(120)));
-        register(context, PLACED_PEAT_ORE, please.getOrThrow(BorealisConfiguredFeatures.PEAT_ORE),
-                HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top()),
-                CountPlacement.of(16), InSquarePlacement.spread());
         register(context, PLACED_HOLLY_PATCH, please.getOrThrow(BorealisConfiguredFeatures.HOLLY_PATCH),
                 CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
 

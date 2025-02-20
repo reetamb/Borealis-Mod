@@ -59,30 +59,15 @@ public class BorealisLootTables extends LootTableProvider {
         protected void generate() {
             List<Block> entries = List.of(
                     dropWithFortune(BorealisBlocks.KYANITE_ORE, BorealisItems.KYANITE_CRYSTAL),
-                    drop(BorealisBlocks.BRUMAL_LEAVES.get(), createLeavesDrops(BorealisBlocks.BRUMAL_LEAVES.get(), BorealisBlocks.BRUMAL_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES)),
-                    dropPottedPlant(BorealisBlocks.POTTED_BRUMAL_SAPLING.get()),
                     dropOther(BorealisBlocks.BRUMAL_WALL_SIGN, () -> BorealisBlocks.BRUMAL_SIGN.get().asItem()),
                     drop(BorealisBlocks.BRUMAL_DOOR.get(), createDoorTable(BorealisBlocks.BRUMAL_DOOR.get())),
-                    drop(BorealisBlocks.FROSTFIR_LEAVES.get(), createLeavesDrops(BorealisBlocks.FROSTFIR_LEAVES.get(), BorealisBlocks.FROSTFIR_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES)),
-                    dropPottedPlant(BorealisBlocks.POTTED_FROSTFIR_SAPLING.get()),
                     dropOther(BorealisBlocks.FROSTFIR_WALL_SIGN, () -> BorealisBlocks.FROSTFIR_SIGN.get().asItem()),
                     drop(BorealisBlocks.FROSTFIR_DOOR.get(), createDoorTable(BorealisBlocks.FROSTFIR_DOOR.get())),
-                    drop(BorealisBlocks.SWEETWOOD_LEAVES.get(), createLeavesDrops(BorealisBlocks.SWEETWOOD_LEAVES.get(), BorealisBlocks.SWEETWOOD_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES)),
-                    dropPottedPlant(BorealisBlocks.POTTED_SWEETWOOD_SAPLING.get()),
                     dropOther(BorealisBlocks.SWEETWOOD_WALL_SIGN, () -> BorealisBlocks.SWEETWOOD_SIGN.get().asItem()),
                     drop(BorealisBlocks.SWEETWOOD_DOOR.get(), createDoorTable(BorealisBlocks.SWEETWOOD_DOOR.get())),
                     dropOther(BorealisBlocks.CARAMELIZED_WALL_SIGN, () -> BorealisBlocks.CARAMELIZED_SIGN.get().asItem()),
                     drop(BorealisBlocks.CARAMELIZED_DOOR.get(), createDoorTable(BorealisBlocks.CARAMELIZED_DOOR.get())),
-                    dropWithSilk(BorealisBlocks.LIVING_SNOW_BLOCK, () -> net.minecraft.world.level.block.Blocks.SNOW_BLOCK),
-                    drop(BorealisBlocks.PERMAFROST_RUBBLE.get(), new LootTable.Builder().withPool(new LootPool.Builder()
-                                            .add(chance(Items.FLINT, 0.2F))
-                                            .add(chance(Items.STICK, 0.5F))
-                                            .add(chance(Items.IRON_NUGGET, 0.3F))
-                                            .add(chance(Items.IRON_INGOT, 0.03F))
-                                            .add(chance(BorealisBlocks.PETRIFIED_WOOD.get(), 0.4F))
-                                            .add(chance(Items.FEATHER, 0.2F))
-                                            .add(chance(Items.STRING, 0.2F))
-                                            .add(chance(Items.CHARCOAL, 0.6F)))),
+                    dropWithSilk(BorealisBlocks.FIRN, () -> net.minecraft.world.level.block.Blocks.SNOW_BLOCK),
                     dropWithSilk(BorealisBlocks.CLOUD, BorealisBlocks.CLOUD),
                     drop(BorealisBlocks.SUGAR_SNOW.get(), new LootTable.Builder().withPool(new LootPool.Builder()
                                             .add(chance(Items.SUGAR, 1.0F))

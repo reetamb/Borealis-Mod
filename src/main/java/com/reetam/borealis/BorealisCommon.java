@@ -69,14 +69,6 @@ public class BorealisCommon {
         WoodType.register(BorealisBlocks.WOODSET_SWEETWOOD);
     }
 
-    public static void registerFlowerPots() {
-        FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
-
-        pot.addPlant(BorealisBlocks.BRUMAL_SAPLING.getId(), BorealisBlocks.POTTED_BRUMAL_SAPLING);
-        pot.addPlant(BorealisBlocks.FROSTFIR_SAPLING.getId(), BorealisBlocks.POTTED_FROSTFIR_SAPLING);
-        pot.addPlant(BorealisBlocks.SWEETWOOD_SAPLING.getId(), BorealisBlocks.POTTED_SWEETWOOD_SAPLING);
-    }
-
     public static void registerFluidInteractions() {
         // quicksilver turns into cinnabar
         FluidInteractionRegistry.addInteraction(

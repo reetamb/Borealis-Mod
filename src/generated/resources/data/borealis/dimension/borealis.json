@@ -23,33 +23,30 @@
             "continentalness": 0.0,
             "depth": 0.0,
             "erosion": 0.0,
-            "humidity": 0.0,
+            "humidity": [
+              -0.75,
+              -0.25
+            ],
             "offset": 0.0,
-            "temperature": -0.5,
+            "temperature": [
+              -1.0,
+              0.66
+            ],
             "weirdness": 0.0
           }
         },
         {
-          "biome": "borealis:giantwood",
+          "biome": "borealis:boreal_tundra",
           "parameters": {
             "continentalness": 0.0,
             "depth": 0.0,
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,
-            "temperature": -1.0,
-            "weirdness": 0.0
-          }
-        },
-        {
-          "biome": "borealis:ravaged_glacier",
-          "parameters": {
-            "continentalness": 0.0,
-            "depth": 0.0,
-            "erosion": 0.0,
-            "humidity": -1.0,
-            "offset": 0.0,
-            "temperature": -0.5,
+            "temperature": [
+              -1.0,
+              0.66
+            ],
             "weirdness": 0.0
           }
         },
@@ -59,9 +56,15 @@
             "continentalness": 0.0,
             "depth": 0.0,
             "erosion": 0.0,
-            "humidity": 0.0,
+            "humidity": [
+              0.5,
+              1.0
+            ],
             "offset": 0.0,
-            "temperature": 0.5,
+            "temperature": [
+              -1.0,
+              0.66
+            ],
             "weirdness": 0.0
           }
         },
@@ -71,9 +74,15 @@
             "continentalness": 0.0,
             "depth": 0.0,
             "erosion": 0.0,
-            "humidity": 0.0,
+            "humidity": [
+              -0.75,
+              -0.25
+            ],
             "offset": 0.0,
-            "temperature": 1.0,
+            "temperature": [
+              0.66,
+              1.0
+            ],
             "weirdness": 0.0
           }
         },
@@ -83,9 +92,15 @@
             "continentalness": 0.0,
             "depth": 0.0,
             "erosion": 0.0,
-            "humidity": 1.0,
+            "humidity": [
+              0.5,
+              1.0
+            ],
             "offset": 0.0,
-            "temperature": 0.0,
+            "temperature": [
+              0.66,
+              1.0
+            ],
             "weirdness": 0.0
           }
         }

@@ -46,7 +46,8 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.STARRY_SLATE_TILES);
         itemBlock(BorealisBlocks.PUMICE);
         itemBlock(BorealisBlocks.PUMICE_GEYSER);
-        itemBlock(BorealisBlocks.SCORIA);
+        itemBlock(BorealisBlocks.GYPSUM);
+        itemBlock(BorealisBlocks.KAOLIN);
         itemBlock(BorealisBlocks.PETRIFIED_WOOD);
         itemBlock(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
 
@@ -64,7 +65,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.BRUMAL_TRAPDOOR, "brumal_trapdoor_bottom");
         buttonInventory("brumal_button", texture("brumal_planks"));
         itemBlock(BorealisBlocks.BRUMAL_PRESSURE_PLATE);
-        itemBlockFlat(BorealisBlocks.BRUMAL_SAPLING);
         normalItem(BorealisItems.BRUMAL_SIGN);
         normalItem(BorealisItems.BRUMAL_HANGING_SIGN);
 
@@ -91,7 +91,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.FROSTFIR_TRAPDOOR, "frostfir_trapdoor_bottom");
         buttonInventory("frostfir_button", texture("frostfir_planks"));
         itemBlock(BorealisBlocks.FROSTFIR_PRESSURE_PLATE);
-        itemBlockFlat(BorealisBlocks.FROSTFIR_SAPLING);
         normalItem(BorealisItems.FROSTFIR_SIGN);
         normalItem(BorealisItems.FROSTFIR_HANGING_SIGN);
 
@@ -109,7 +108,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.SWEETWOOD_TRAPDOOR, "sweetwood_trapdoor_bottom");
         buttonInventory("sweetwood_button", texture("sweetwood_planks"));
         itemBlock(BorealisBlocks.SWEETWOOD_PRESSURE_PLATE);
-        itemBlockFlat(BorealisBlocks.SWEETWOOD_SAPLING);
         normalItem(BorealisItems.SWEETWOOD_SIGN);
         normalItem(BorealisItems.SWEETWOOD_HANGING_SIGN);
 
@@ -130,10 +128,8 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.CARAMELIZED_SIGN);
         normalItem(BorealisItems.CARAMELIZED_HANGING_SIGN);
 
-        itemBlock(BorealisBlocks.LIVING_SNOW_BLOCK);
+        itemBlock(BorealisBlocks.FIRN);
         itemBlock(BorealisBlocks.SUGAR_SNOW_BLOCK);
-        itemBlock(BorealisBlocks.PERMAFROST);
-        itemBlock(BorealisBlocks.PERMAFROST_RUBBLE);
         itemBlock(BorealisBlocks.CLOUD);
         itemBlock(BorealisBlocks.SUGAR_SNOW);
         itemBlock(BorealisBlocks.HAILSTONE);

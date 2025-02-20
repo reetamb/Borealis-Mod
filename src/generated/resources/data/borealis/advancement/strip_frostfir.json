@@ -1,0 +1,29 @@
+{
+  "parent": "borealis:enter_borealis",
+  "criteria": {
+    "strip_frostfir": {
+      "conditions": {
+        "block": "borealis:petrified_wood"
+      },
+      "trigger": "borealis:break_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.borealis.strip_frostfir.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "borealis:bone_dry_wood"
+    },
+    "title": {
+      "translate": "advancement.borealis.strip_frostfir"
+    }
+  },
+  "requirements": [
+    [
+      "strip_frostfir"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

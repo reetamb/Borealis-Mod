@@ -1,6 +1,5 @@
 package com.reetam.borealis.world.tree;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reetam.borealis.registry.world.BorealisFeatures;

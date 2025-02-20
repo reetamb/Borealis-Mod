@@ -77,6 +77,6 @@ public class TakaheEntity extends Animal {
     }
 
     public static boolean checkTakaheSpawnRules(EntityType<? extends Animal> animal, LevelAccessor level, MobSpawnType reason, BlockPos pos, Random random) {
-        return level.getBlockState(pos.below()).getBlock() == BorealisBlocks.LIVING_SNOW_BLOCK.get();
+        return level.getBlockState(pos.below()).getBlock() == BorealisBlocks.FIRN.get();
     }
 }

@@ -1,5 +1,6 @@
 package com.reetam.borealis.modify.events;
 
+import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.world.BorealisDimensions;
 import net.minecraft.tags.ItemTags;
@@ -39,7 +40,7 @@ public class PlayerEvents {
         Entity entity = event.getEntity();
         Level level = entity.level();
         if (source == level.damageSources().fellOutOfWorld() && level.dimension() == BorealisDimensions.BOREALIS) {
-            if (entity.getY() <= level.getMinBuildHeight()) {
+            if (entity.getY() <= BorealisMod.MIN_HEIGHT && !entity.fireImmune()) {
                 event.setCanceled(true);
                 entity.igniteForSeconds(2);
                 entity.hurt(level.damageSources().onFire(), event.getAmount());

@@ -1,9 +1,7 @@
 {
   "values": [
-    "borealis:living_snow_block",
+    "borealis:firn",
     "borealis:sugar_snow_block",
-    "borealis:permafrost",
-    "borealis:permafrost_rubble",
     "borealis:lichen_block"
   ]
 }

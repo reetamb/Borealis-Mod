@@ -57,5 +57,6 @@ public class BorealisLang extends BorealisLangProvider {
         addAdvancement("make_portal", "Warm Welcome Home", "Build a portal back home with Kyanite Cable");
         addAdvancement("get_kyanite", "Bottom of the Beryl", "Mine a fibrous crystal");
         addAdvancement("shear_plant", "Distant Relatives", "Gather a prehistoric plant");
+        addAdvancement("strip_frostfir", "Woodn't You Like To Know", "Try chopping a Frostfir tree to no avail");
     }
 }

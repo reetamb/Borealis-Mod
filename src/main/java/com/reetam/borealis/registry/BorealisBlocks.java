@@ -3,7 +3,6 @@ package com.reetam.borealis.registry;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
 import com.reetam.borealis.block.entity.*;
-import com.reetam.borealis.world.tree.Grower;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -66,19 +65,18 @@ public class BorealisBlocks {
 
     public static final DeferredHolder<Block, Block> PUMICE = registerBlock("pumice", () -> new PumiceBlock(Template.pumice()));
     public static final DeferredHolder<Block, Block> PUMICE_GEYSER = registerBlock("pumice_geyser", () -> new PumiceGeyserBlock(Template.pumice()));
-    public static final DeferredHolder<Block, Block> SCORIA = registerBlock("scoria", () -> new SolubleBlock(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_WHITE), null));
+    public static final DeferredHolder<Block, Block> KAOLIN = registerBlock("kaolin", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE_POWDER)));
+    public static final DeferredHolder<Block, Block> GYPSUM = registerBlock("gypsum", () -> new SolubleBlock(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_WHITE), BorealisBlocks.KAOLIN.get().defaultBlockState()));
 
-    public static final DeferredHolder<Block, Block> PETRIFIED_WOOD = registerBlock("petrified_wood", () -> new Block(Template.petrifiedWood()));
-    public static final DeferredHolder<Block, Block> PETRIFIED_WOOD_BRICKS = registerBlock("petrified_wood_bricks", () -> new Block(Template.petrifiedWood()));
-    public static final DeferredHolder<Block, Block> BONE_DRY_WOOD = registerBlock("bone_dry_wood", () -> new Block(Template.petrifiedWood().mapColor(MapColor.SAND)));
+    public static final DeferredHolder<Block, RotatedPillarBlock> BONE_DRY_WOOD = registerBlock("bone_dry_wood", () -> new RotatedPillarBlock(Template.petrifiedWood().mapColor(MapColor.SAND)));
     public static final DeferredHolder<Block, Block> BONE_DRY_WOOD_BRICKS = registerBlock("bone_dry_wood_bricks", () -> new Block(Template.petrifiedWood().mapColor(MapColor.SAND)));
+    public static final DeferredHolder<Block, PetrifiedBarkBlock> PETRIFIED_WOOD = registerBlock("petrified_wood", () -> new PetrifiedBarkBlock(BorealisBlocks.BONE_DRY_WOOD.get(), Template.petrifiedWood()));
+    public static final DeferredHolder<Block, Block> PETRIFIED_WOOD_BRICKS = registerBlock("petrified_wood_bricks", () -> new Block(Template.petrifiedWood()));
 
     public static final DeferredHolder<Block, StandingSignBlock> BRUMAL_SIGN = BLOCKS.register("brumal_sign", () -> new BorealisStandingSignBlock(Template.sign(MapColor.COLOR_LIGHT_BLUE), WOODSET_BRUMAL));
     public static final DeferredHolder<Block, WallSignBlock> BRUMAL_WALL_SIGN = BLOCKS.register("brumal_wall_sign", () -> new BorealisWallSignBlock(Template.sign(MapColor.COLOR_LIGHT_BLUE), WOODSET_BRUMAL));
     public static final DeferredHolder<Block, CeilingHangingSignBlock> BRUMAL_HANGING_SIGN = BLOCKS.register("brumal_hanging_sign", () -> new BorealisCeilingHangingSignBlock(Template.sign(MapColor.COLOR_LIGHT_BLUE), WOODSET_BRUMAL));
     public static final DeferredHolder<Block, WallHangingSignBlock> BRUMAL_WALL_HANGING_SIGN = BLOCKS.register("brumal_wall_hanging_sign", () -> new BorealisWallHangingSignBlock(Template.sign(MapColor.COLOR_LIGHT_BLUE), WOODSET_BRUMAL));
-    public static final DeferredHolder<Block, SaplingBlock> BRUMAL_SAPLING = registerBlock("brumal_sapling", () -> new SaplingBlock(Grower.of("brumal"), Template.plant()));
-    public static final DeferredHolder<Block, FlowerPotBlock> POTTED_BRUMAL_SAPLING = BLOCKS.register("potted_brumal_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BRUMAL_SAPLING, Template.pot()));
     public static final DeferredHolder<Block, Block> BRUMAL_PLANKS = registerBlock("brumal_planks", () -> new Block(Template.brumal()));
     public static final DeferredHolder<Block, RotatedPillarBlock> BRUMAL_LOG = registerBlock("brumal_log", () -> new RotatedPillarBlock(Template.log(MapColor.COLOR_LIGHT_BLUE, MapColor.STONE)));
     public static final DeferredHolder<Block, RotatedPillarBlock> BRUMAL_WOOD = registerBlock("brumal_wood", () -> new RotatedPillarBlock(Template.brumal().mapColor(MapColor.STONE)));
@@ -98,8 +96,6 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, WallSignBlock> FROSTFIR_WALL_SIGN = BLOCKS.register("frostfir_wall_sign", () -> new BorealisWallSignBlock(Template.sign(MapColor.TERRACOTTA_BLUE), WOODSET_FROSTFIR));
     public static final DeferredHolder<Block, CeilingHangingSignBlock> FROSTFIR_HANGING_SIGN = BLOCKS.register("frostfir_hanging_sign", () -> new BorealisCeilingHangingSignBlock(Template.sign(MapColor.TERRACOTTA_BLUE), WOODSET_FROSTFIR));
     public static final DeferredHolder<Block, WallHangingSignBlock> FROSTFIR_WALL_HANGING_SIGN = BLOCKS.register("frostfir_wall_hanging_sign", () -> new BorealisWallHangingSignBlock(Template.sign(MapColor.TERRACOTTA_BLUE), WOODSET_FROSTFIR));
-    public static final DeferredHolder<Block, SaplingBlock> FROSTFIR_SAPLING = registerBlock("frostfir_sapling", () -> new SaplingBlock(Grower.of("frostfir"), Template.plant()));
-    public static final DeferredHolder<Block, FlowerPotBlock> POTTED_FROSTFIR_SAPLING = BLOCKS.register("potted_frostfir_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FROSTFIR_SAPLING, Template.pot()));
     public static final DeferredHolder<Block, Block> FROSTFIR_PLANKS = registerBlock("frostfir_planks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredHolder<Block, RotatedPillarBlock> FROSTFIR_LOG = registerBlock("frostfir_log", () -> new RotatedPillarBlock(Template.log(MapColor.TERRACOTTA_BLUE, MapColor.COLOR_BLACK)));
     public static final DeferredHolder<Block, RotatedPillarBlock> FROSTFIR_WOOD = registerBlock("frostfir_wood", () -> new RotatedPillarBlock(Template.frostfir().mapColor(MapColor.COLOR_BLACK)));
@@ -119,8 +115,6 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, WallSignBlock> SWEETWOOD_WALL_SIGN = BLOCKS.register("sweetwood_wall_sign", () -> new BorealisWallSignBlock(Template.sign(MapColor.SAND), WOODSET_SWEETWOOD));
     public static final DeferredHolder<Block, CeilingHangingSignBlock> SWEETWOOD_HANGING_SIGN = BLOCKS.register("sweetwood_hanging_sign", () -> new BorealisCeilingHangingSignBlock(Template.sign(MapColor.SAND), WOODSET_SWEETWOOD));
     public static final DeferredHolder<Block, WallHangingSignBlock> SWEETWOOD_WALL_HANGING_SIGN = BLOCKS.register("sweetwood_wall_hanging_sign", () -> new BorealisWallHangingSignBlock(Template.sign(MapColor.SAND), WOODSET_SWEETWOOD));
-    public static final DeferredHolder<Block, SaplingBlock> SWEETWOOD_SAPLING = registerBlock("sweetwood_sapling", () -> new SaplingBlock(Grower.of("cotton"), Template.plant()));
-    public static final DeferredHolder<Block, FlowerPotBlock> POTTED_SWEETWOOD_SAPLING = BLOCKS.register("potted_sweetwood_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SWEETWOOD_SAPLING, Template.pot()));
     public static final DeferredHolder<Block, Block> SWEETWOOD_PLANKS = registerBlock("sweetwood_planks", () -> new Block(Template.sweetwood()));
     public static final DeferredHolder<Block, RotatedPillarBlock> SWEETWOOD_LOG = registerBlock("sweetwood_log", () -> new RotatedPillarBlock(Template.log(MapColor.SAND, MapColor.WOOL)));
     public static final DeferredHolder<Block, RotatedPillarBlock> SWEETWOOD = registerBlock("sweetwood", () -> new RotatedPillarBlock(Template.sweetwood().mapColor(MapColor.WOOL)));
@@ -160,9 +154,7 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, Block> TANZANITE_BLOCK = registerBlock("tanzanite_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.AMETHYST)));
     public static final DeferredHolder<Block, Block> HAILSTONE = registerBlock("hailstone_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CRYING_OBSIDIAN)));
 
-    public static final DeferredHolder<Block, Block> PERMAFROST = registerBlock("permafrost", () -> new PermafrostBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT).sound(SoundType.GRAVEL)));
-    public static final DeferredHolder<Block, Block> PERMAFROST_RUBBLE = registerBlock("permafrost_rubble", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COARSE_DIRT).requiresCorrectToolForDrops()));
-    public static final DeferredHolder<Block, Block> LIVING_SNOW_BLOCK = registerBlock("living_snow_block", () -> new LivingSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
+    public static final DeferredHolder<Block, Block> FIRN = registerBlock("firn", () -> new LivingSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
     public static final DeferredHolder<Block, Block> SUGAR_SNOW_BLOCK = registerBlock("sugar_snow_block", () -> new LivingSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
     public static final DeferredHolder<Block, Block> SUGAR_SNOW = registerBlock("sugar_snow", () -> new SugarSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW)));
     public static final DeferredHolder<Block, Block> CLOUD = registerBlock("cloud", () -> new CloudBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK).sound(SoundType.WOOL).destroyTime(0.2F).strength(0.4F).noCollission().requiresCorrectToolForDrops()));
@@ -262,7 +254,7 @@ public class BorealisBlocks {
         protected static BlockBehaviour.Properties sign(MapColor color) { return sign(color, true); }
 
         protected static BlockBehaviour.Properties leaves() {
-            return BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES);
+            return BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).noLootTable();
         }
 
         protected static BlockBehaviour.Properties plant() {

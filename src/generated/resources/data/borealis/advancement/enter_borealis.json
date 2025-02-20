@@ -14,7 +14,7 @@
     },
     "icon": {
       "count": 1,
-      "id": "borealis:living_snow_block"
+      "id": "borealis:firn"
     },
     "title": {
       "translate": "advancement.borealis.enter_borealis"

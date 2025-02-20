@@ -1,4 +1,4 @@
-// 1.21	2024-10-18T22:50:52.2126943	Borealis Item Tags
+// 1.21	2025-02-18T11:51:03.7351131	Borealis Item Tags
 5cd9b7cd7d41b33c4e1a3212a4728db86db89edc data/borealis/tags/item/brumal_logs.json
 c9ff60fe00f35ba952c2605091e2f6efd3a3223a data/borealis/tags/item/frostfir_logs.json
 faa0be93013a26dd7d151b7637315f616a3bcefd data/borealis/tags/item/prehistoric_plant.json
@@ -10,10 +10,9 @@ c65aac51f7c2215357dc45c1e83e7ed10e6342cc data/c/tags/item/fences/wooden.json
 cd041ccd2beebbe4ce9382b0a6a67087715cf2f3 data/minecraft/tags/item/boats.json
 fceefcefe923bd665fa10518b3d891811976df34 data/minecraft/tags/item/buttons.json
 ad85471a8a9ce6b91497c157d3c5858b9113a4b1 data/minecraft/tags/item/leaves.json
-a5d99a231469d53f48a343549a5213b7168a34be data/minecraft/tags/item/logs.json
-a5d99a231469d53f48a343549a5213b7168a34be data/minecraft/tags/item/logs_that_burn.json
+06522853e07b52a7d9d8a41c92424f08c616fb9b data/minecraft/tags/item/logs.json
+06522853e07b52a7d9d8a41c92424f08c616fb9b data/minecraft/tags/item/logs_that_burn.json
 691c2fd506ca1063eead2af057bc517b586d877a data/minecraft/tags/item/planks.json
-42ff89b3b85571f0fd378c0032ba74d8f8ad9b2f data/minecraft/tags/item/saplings.json
 399b77e1627d027c3228907af8596746b7f84ac3 data/minecraft/tags/item/signs.json
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/minecraft/tags/item/stone_crafting_materials.json
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/minecraft/tags/item/stone_tool_materials.json

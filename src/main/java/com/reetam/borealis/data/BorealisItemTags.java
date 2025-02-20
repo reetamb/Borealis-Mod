@@ -40,10 +40,6 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisBlocks.BRUMELIAD.get().asItem());
 
         //vanilla
-        tag(ItemTags.SAPLINGS)
-                .add(BorealisBlocks.BRUMAL_SAPLING.get().asItem())
-                .add(BorealisBlocks.FROSTFIR_SAPLING.get().asItem())
-                .add(BorealisBlocks.SWEETWOOD_SAPLING.get().asItem());
         tag(ItemTags.PLANKS)
                 .add(BorealisBlocks.BRUMAL_PLANKS.get().asItem())
                 .add(BorealisBlocks.FROSTFIR_PLANKS.get().asItem())
@@ -73,11 +69,13 @@ public class BorealisItemTags extends ItemTagsProvider {
         tag(ItemTags.LOGS_THAT_BURN)
                 .addTag(BorealisTags.Items.BRUMAL_LOGS)
                 .addTag(BorealisTags.Items.FROSTFIR_LOGS)
-                .addTag(BorealisTags.Items.SWEETWOOD_LOGS);
+                .addTag(BorealisTags.Items.SWEETWOOD_LOGS)
+                .add(BorealisBlocks.PETRIFIED_WOOD.get().asItem());
         tag(ItemTags.LOGS)
                 .addTag(BorealisTags.Items.BRUMAL_LOGS)
                 .addTag(BorealisTags.Items.FROSTFIR_LOGS)
-                .addTag(BorealisTags.Items.SWEETWOOD_LOGS);
+                .addTag(BorealisTags.Items.SWEETWOOD_LOGS)
+                .add(BorealisBlocks.PETRIFIED_WOOD.get().asItem());
         tag(ItemTags.WOODEN_PRESSURE_PLATES)
                 .add(BorealisBlocks.BRUMAL_PRESSURE_PLATE.get().asItem())
                 .add(BorealisBlocks.FROSTFIR_PRESSURE_PLATE.get().asItem())

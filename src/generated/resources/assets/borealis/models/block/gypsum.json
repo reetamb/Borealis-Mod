@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "borealis:block/gypsum_end",
+    "side": "borealis:block/gypsum_side"
+  }
+}

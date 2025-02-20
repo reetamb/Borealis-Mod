@@ -2,6 +2,8 @@ package com.reetam.borealis.item;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.TRandom;
+import com.reetam.borealis.data.trigger.BorealisTriggers;
+import com.reetam.borealis.data.trigger.BreakBlockTrigger;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisSounds;
@@ -12,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -37,6 +40,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
+import java.util.Optional;
 
 public class HailstoneItem extends Item {
 
@@ -98,8 +102,10 @@ public class HailstoneItem extends Item {
             } else if (level.dimension() == BorealisDimensions.BOREALIS && pPlayer.getY() <= BorealisMod.MIN_HEIGHT) {
                 DimensionTransition transition = WorldHeightTransition.toOverworld(serverLevel, pPlayer);
                 pPlayer.changeDimension(transition);
+                BorealisTriggers.USE_HAILSTONE.get().trigger((ServerPlayer) pPlayer, pPlayer.getItemInHand(pUsedHand), level.dimension());
                 return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
             }
+
         }
 
         particles(level, pos, pPlayer);

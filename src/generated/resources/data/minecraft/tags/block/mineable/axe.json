@@ -3,6 +3,8 @@
     "#borealis:blockset_brumal",
     "#borealis:blockset_frostfir",
     "#borealis:blockset_sweetwood",
-    "#borealis:blockset_caramelized"
+    "#borealis:blockset_caramelized",
+    "borealis:petrified_wood",
+    "borealis:petrified_wood_bricks"
   ]
 }

@@ -1,7 +1,6 @@
 package com.reetam.borealis.data;
 
 import com.reetam.borealis.block.*;
-import com.reetam.borealis.block.property.PermafrostCover;
 import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.Direction;
@@ -41,12 +40,12 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         log(BorealisBlocks.SLATE_PILLAR, "slate_pillar");
         block(BorealisBlocks.SLATE_TILES);
         block(BorealisBlocks.PUMICE);
-        block(BorealisBlocks.SCORIA);
+        simpleBlock(BorealisBlocks.GYPSUM.get(), this.models().cubeColumn("gypsum", texture("gypsum_side"), texture("gypsum_end")));
+        block(BorealisBlocks.KAOLIN);
         block(BorealisBlocks.PETRIFIED_WOOD);
         block(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
-        block(BorealisBlocks.LIVING_SNOW_BLOCK);
+        block(BorealisBlocks.FIRN);
         block(BorealisBlocks.SUGAR_SNOW_BLOCK);
-        block(BorealisBlocks.PERMAFROST_RUBBLE);
         buttonBlock(BorealisBlocks.SOAPSTONE_BUTTON.get(), texture("soapstone"));
         pressurePlateBlock(BorealisBlocks.SOAPSTONE_PRESSURE_PLATE.get(), texture("soapstone"));
         block(BorealisBlocks.TANZANITE_ORE);
@@ -57,17 +56,6 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.HAILSTONE);
         block(BorealisBlocks.BONE_DRY_WOOD);
         block(BorealisBlocks.BONE_DRY_WOOD_BRICKS);
-
-        getVariantBuilder(BorealisBlocks.PERMAFROST.get())
-                .partialState().with(PermafrostBlock.COVER, PermafrostCover.CLEAR).modelForState()
-                    .modelFile(this.models().cubeAll("permafrost", texture("permafrost"))).addModel()
-                .partialState().with(PermafrostBlock.COVER, PermafrostCover.ICY).modelForState()
-                        .modelFile(this.models().cubeBottomTop("icy_permafrost", texture("icy_permafrost_side"), texture("permafrost"), mcLoc("block/packed_ice"))).addModel()
-                .partialState().with(PermafrostBlock.COVER, PermafrostCover.SNOWY).modelForState()
-                    .modelFile(this.models().cubeBottomTop("snowy_permafrost", texture("snowy_permafrost_side"), texture("permafrost"), mcLoc("block/snow"))).addModel()
-                .partialState().with(PermafrostBlock.COVER, PermafrostCover.SUGARY).modelForState()
-                    .modelFile(this.models().cubeBottomTop("sugary_permafrost", texture("sugary_permafrost_side"), texture("permafrost"), texture("sugar_snow_block"))).addModel();
-
         simpleBlock(BorealisBlocks.PUMICE_GEYSER.get(), this.models().cubeTop("pumice_geyser", texture("pumice"), texture("pumice_geyser")));
         block(BorealisBlocks.PEAT);
 
@@ -144,7 +132,6 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         fenceGateBlock(BorealisBlocks.BRUMAL_FENCE_GATE.get(), texture("brumal_planks"));
         door(BorealisBlocks.BRUMAL_DOOR, "brumal");
         trapdoor(BorealisBlocks.BRUMAL_TRAPDOOR, "brumal");
-        crossBlock(BorealisBlocks.BRUMAL_SAPLING);
         buttonBlock(BorealisBlocks.BRUMAL_BUTTON.get(), texture("brumal_planks"));
         pressurePlateBlock(BorealisBlocks.BRUMAL_PRESSURE_PLATE.get(), texture("brumal_planks"));
         signBlock(BorealisBlocks.BRUMAL_SIGN.get(), BorealisBlocks.BRUMAL_WALL_SIGN.get(), texture("brumal_planks"));
@@ -164,7 +151,6 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         fenceGateBlock(BorealisBlocks.FROSTFIR_FENCE_GATE.get(), texture("frostfir_planks"));
         door(BorealisBlocks.FROSTFIR_DOOR, "frostfir");
         trapdoor(BorealisBlocks.FROSTFIR_TRAPDOOR, "frostfir");
-        crossBlock(BorealisBlocks.FROSTFIR_SAPLING);
         buttonBlock(BorealisBlocks.FROSTFIR_BUTTON.get(), texture("frostfir_planks"));
         pressurePlateBlock(BorealisBlocks.FROSTFIR_PRESSURE_PLATE.get(), texture("frostfir_planks"));
         signBlock(BorealisBlocks.FROSTFIR_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_SIGN.get(), texture("frostfir_planks"));
@@ -181,7 +167,6 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         fenceGateBlock(BorealisBlocks.SWEETWOOD_FENCE_GATE.get(), texture("sweetwood_planks"));
         door(BorealisBlocks.SWEETWOOD_DOOR, "sweetwood");
         trapdoor(BorealisBlocks.SWEETWOOD_TRAPDOOR, "sweetwood");
-        crossBlock(BorealisBlocks.SWEETWOOD_SAPLING);
         buttonBlock(BorealisBlocks.SWEETWOOD_BUTTON.get(), texture("sweetwood_planks"));
         pressurePlateBlock(BorealisBlocks.SWEETWOOD_PRESSURE_PLATE.get(), texture("sweetwood_planks"));
         signBlock(BorealisBlocks.SWEETWOOD_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_SIGN.get(), texture("sweetwood_planks"));
