@@ -21,17 +21,14 @@ public class BorealisItems {
     public static final DeferredHolder<Item, Item> KYANITE_CRYSTAL = ITEMS.register("kyanite_crystal", () -> new Item(new Item.Properties()));
 
     public static final DeferredHolder<Item, Item> BRUMAL_BOAT = ITEMS.register("brumal_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.BRUMAL, (new Item.Properties()).stacksTo(1)));
-    public static final DeferredHolder<Item, Item> FROSTFIR_BOAT = ITEMS.register("frostfir_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.FROSTFIR, (new Item.Properties()).stacksTo(1)));
     public static final DeferredHolder<Item, Item> SWEETWOOD_BOAT = ITEMS.register("sweetwood_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.SWEETWOOD, (new Item.Properties()).stacksTo(1)));
     public static final DeferredHolder<Item, Item> CARAMELIZED_BOAT = ITEMS.register("caramelized_boat", () -> new BorealisBoatItem(BorealisBoatEntity.Type.CARAMELIZED, (new Item.Properties()).stacksTo(1)));
 
     public static final DeferredHolder<Item, SignItem> BRUMAL_SIGN = ITEMS.register("brumal_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.BRUMAL_SIGN.get(), BorealisBlocks.BRUMAL_WALL_SIGN.get()));
-    public static final DeferredHolder<Item, SignItem> FROSTFIR_SIGN = ITEMS.register("frostfir_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.FROSTFIR_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_SIGN.get()));
     public static final DeferredHolder<Item, SignItem> SWEETWOOD_SIGN = ITEMS.register("sweetwood_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.SWEETWOOD_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_SIGN.get()));
     public static final DeferredHolder<Item, SignItem> CARAMELIZED_SIGN = ITEMS.register("caramelized_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), BorealisBlocks.CARAMELIZED_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_SIGN.get()));
 
     public static final DeferredHolder<Item, HangingSignItem> BRUMAL_HANGING_SIGN = ITEMS.register("brumal_hanging_sign", () -> new HangingSignItem(BorealisBlocks.BRUMAL_HANGING_SIGN.get(), BorealisBlocks.BRUMAL_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
-    public static final DeferredHolder<Item, HangingSignItem> FROSTFIR_HANGING_SIGN = ITEMS.register("frostfir_hanging_sign", () -> new HangingSignItem(BorealisBlocks.FROSTFIR_HANGING_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
     public static final DeferredHolder<Item, HangingSignItem> SWEETWOOD_HANGING_SIGN = ITEMS.register("sweetwood_hanging_sign", () -> new HangingSignItem(BorealisBlocks.SWEETWOOD_HANGING_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
     public static final DeferredHolder<Item, HangingSignItem> CARAMELIZED_HANGING_SIGN = ITEMS.register("caramelized_hanging_sign", () -> new HangingSignItem(BorealisBlocks.CARAMELIZED_HANGING_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 

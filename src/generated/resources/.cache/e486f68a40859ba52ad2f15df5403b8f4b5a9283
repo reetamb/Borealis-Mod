@@ -1,4 +1,4 @@
-// 1.21	2025-02-18T11:41:15.4448872	Borealis Item Models
+// 1.21	2025-02-20T13:16:18.1719758	Borealis Item Models
 5fd295104ee66c7b9091ab57fa73d2739d66df02 assets/borealis/models/item/alms.json
 37a211cdf9f551a56fbf6af22f3a70dbb05b0519 assets/borealis/models/item/alms_nut.json
 75aa80c42a220cf518df2584d1c3a390019b4c46 assets/borealis/models/item/blue_amber.json
@@ -40,21 +40,7 @@ e946e9305a9d26e91cb5db4ab4eae7211666a5d3 assets/borealis/models/item/caramelized
 45e960186f9e7489db9d7fd8a256f5d6d7eb8140 assets/borealis/models/item/firn.json
 a02e613fe799dd336241f8020821f307a4062c8c assets/borealis/models/item/fleece.json
 830d28f49e8e4f220f645d6f326e42c810d2ca56 assets/borealis/models/item/fluorite.json
-5896b09bb59f94b05cd945388e260d8dcf1666de assets/borealis/models/item/frostfir_boat.json
-31de44cf015ffa3752f34bf926411e05ae88390c assets/borealis/models/item/frostfir_button.json
-11f99d97c775d270c2132306ed24171b7b448a8a assets/borealis/models/item/frostfir_door.json
-d6d8f1268644e344ff8aa595851839ac7d209cc1 assets/borealis/models/item/frostfir_fence.json
-431b30473c901f4a421c2d534b89bbb87698b747 assets/borealis/models/item/frostfir_fence_gate.json
-02bafcbd005468ed37c1c201237981b0bca51651 assets/borealis/models/item/frostfir_hanging_sign.json
 09d9a39d55344135ec102f330fb9014a328108cc assets/borealis/models/item/frostfir_leaves.json
-3d5954fc7ac11441c3a0038bcba5cb93e3b682bb assets/borealis/models/item/frostfir_log.json
-68557bbf111497eca905e31cafb44c311e47e6bd assets/borealis/models/item/frostfir_planks.json
-3232b9a50e57c531e20ef697f614295a94e73145 assets/borealis/models/item/frostfir_pressure_plate.json
-7759f5bf3d61083e1c0cf8371dd9efa5d7f98b69 assets/borealis/models/item/frostfir_sign.json
-9fff76a9809b1404c5017070f88fca5402478903 assets/borealis/models/item/frostfir_slab.json
-20c5b3c77f4a35f7138375233cc944b137d74f62 assets/borealis/models/item/frostfir_stairs.json
-428c1fb4356b26681a79a7a824f4d511cb4c81bc assets/borealis/models/item/frostfir_trapdoor.json
-d92379c577fb774f0bbd869bf2241b015748a148 assets/borealis/models/item/frostfir_wood.json
 1ff89a7af7bd9fb15f483166c9be1b55cb7292d3 assets/borealis/models/item/glazed_leaves.json
 629a9afbcf88b70ea4a8a84ac9563e062b9b829a assets/borealis/models/item/gypsum.json
 b97326cfad763a174770760cf802644681b492fa assets/borealis/models/item/hailstone.json
@@ -105,8 +91,6 @@ b9a073464d24a565f4a8a8f56e40041d20b440b7 assets/borealis/models/item/stripped_br
 6b6d88623b27c1201f7e5f194455953014f95815 assets/borealis/models/item/stripped_brumal_wood.json
 7aad2f3130b81a9a402dfc4a89923e015f1bd90b assets/borealis/models/item/stripped_caramelized_log.json
 154da024f8a836581dbf6e857c15ca2e97e8e081 assets/borealis/models/item/stripped_caramelized_wood.json
-ab37330a7044b22e881bcfa9b1c78fdd80c70055 assets/borealis/models/item/stripped_frostfir_log.json
-8b1ba72e166f200cbbfc63316be44130af5c428c assets/borealis/models/item/stripped_frostfir_wood.json
 e089a2a0b754f4197c620c8c82fcab33e1a6f4cc assets/borealis/models/item/stripped_sweetwood.json
 f6315f955e09e4720b08c0e72cb4277dfd318ec3 assets/borealis/models/item/stripped_sweetwood_log.json
 04329dabe4cc96aba9fb795e685b98226a19519b assets/borealis/models/item/sugar_snow.json

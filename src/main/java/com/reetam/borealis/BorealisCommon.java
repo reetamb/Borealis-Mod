@@ -65,7 +65,7 @@ public class BorealisCommon {
 
     public static void registerWoodTypes() {
         WoodType.register(BorealisBlocks.WOODSET_BRUMAL);
-        WoodType.register(BorealisBlocks.WOODSET_FROSTFIR);
+        WoodType.register(BorealisBlocks.WOODSET_CARAMELIZED);
         WoodType.register(BorealisBlocks.WOODSET_SWEETWOOD);
     }
 
@@ -105,8 +105,6 @@ public class BorealisCommon {
         Map<Block, Block> STRIPPABLES = new HashMap<>();
         STRIPPABLES.put(BorealisBlocks.BRUMAL_LOG.get(), BorealisBlocks.STRIPPED_BRUMAL_LOG.get());
         STRIPPABLES.put(BorealisBlocks.BRUMAL_WOOD.get(), BorealisBlocks.STRIPPED_BRUMAL_WOOD.get());
-        STRIPPABLES.put(BorealisBlocks.FROSTFIR_LOG.get(), BorealisBlocks.STRIPPED_FROSTFIR_LOG.get());
-        STRIPPABLES.put(BorealisBlocks.FROSTFIR_WOOD.get(), BorealisBlocks.STRIPPED_FROSTFIR_WOOD.get());
         STRIPPABLES.put(BorealisBlocks.SWEETWOOD_LOG.get(), BorealisBlocks.STRIPPED_SWEETWOOD_LOG.get());
         STRIPPABLES.put(BorealisBlocks.SWEETWOOD.get(), BorealisBlocks.STRIPPED_SWEETWOOD.get());
         STRIPPABLES.put(BorealisBlocks.CARAMELIZED_LOG.get(), BorealisBlocks.STRIPPED_CARAMELIZED_LOG.get());

@@ -1,0 +1,29 @@
+{
+  "parent": "borealis:break_pumice",
+  "criteria": {
+    "walk_geyser": {
+      "conditions": {
+        "block": "borealis:pumice_geyser"
+      },
+      "trigger": "borealis:kaolin_step"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.borealis.walk_geyser.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "borealis:pumice_geyser"
+    },
+    "title": {
+      "translate": "advancement.borealis.walk_geyser"
+    }
+  },
+  "requirements": [
+    [
+      "walk_geyser"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

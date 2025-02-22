@@ -7,6 +7,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -45,17 +46,6 @@ public class BorealisBlockTags extends BlockTagsProvider {
                         BorealisBlocks.BRUMAL_SIGN.get(), BorealisBlocks.BRUMAL_WALL_SIGN.get(),
                         BorealisBlocks.BRUMAL_HANGING_SIGN.get(), BorealisBlocks.BRUMAL_WALL_HANGING_SIGN.get()
                     );
-        tag(BorealisTags.Blocks.BLOCKSET_FROSTFIR)
-                .add(
-                        BorealisBlocks.FROSTFIR_BUTTON.get(), BorealisBlocks.FROSTFIR_PRESSURE_PLATE.get(),
-                        BorealisBlocks.FROSTFIR_DOOR.get(), BorealisBlocks.FROSTFIR_TRAPDOOR.get(),
-                        BorealisBlocks.FROSTFIR_FENCE.get(), BorealisBlocks.FROSTFIR_FENCE_GATE.get(),
-                        BorealisBlocks.FROSTFIR_LOG.get(), BorealisBlocks.FROSTFIR_WOOD.get(), BorealisBlocks.STRIPPED_FROSTFIR_LOG.get(), BorealisBlocks.STRIPPED_FROSTFIR_WOOD.get(),
-                        BorealisBlocks.FROSTFIR_PLANKS.get(),
-                        BorealisBlocks.FROSTFIR_SLAB.get(), BorealisBlocks.FROSTFIR_STAIRS.get(),
-                        BorealisBlocks.FROSTFIR_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_SIGN.get(),
-                        BorealisBlocks.FROSTFIR_HANGING_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_HANGING_SIGN.get()
-                );
         tag(BorealisTags.Blocks.BLOCKSET_SWEETWOOD)
                 .add(
                         BorealisBlocks.SWEETWOOD_BUTTON.get(), BorealisBlocks.SWEETWOOD_PRESSURE_PLATE.get(),
@@ -96,11 +86,6 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.BRUMAL_WOOD.get())
                 .add(BorealisBlocks.STRIPPED_BRUMAL_LOG.get())
                 .add(BorealisBlocks.STRIPPED_BRUMAL_WOOD.get());
-        tag(BorealisTags.Blocks.FROSTFIR_LOGS)
-                .add(BorealisBlocks.FROSTFIR_LOG.get())
-                .add(BorealisBlocks.FROSTFIR_WOOD.get())
-                .add(BorealisBlocks.STRIPPED_FROSTFIR_LOG.get())
-                .add(BorealisBlocks.STRIPPED_FROSTFIR_WOOD.get());
         tag(BorealisTags.Blocks.SWEETWOOD_LOGS)
                 .add(BorealisBlocks.SWEETWOOD_LOG.get())
                 .add(BorealisBlocks.SWEETWOOD.get())
@@ -136,43 +121,35 @@ public class BorealisBlockTags extends BlockTagsProvider {
     private void minecraftTags() {
         tag(BlockTags.PLANKS)
                 .add(BorealisBlocks.BRUMAL_PLANKS.get())
-                .add(BorealisBlocks.FROSTFIR_PLANKS.get())
                 .add(BorealisBlocks.SWEETWOOD_PLANKS.get())
                 .add(BorealisBlocks.CARAMELIZED_PLANKS.get());
         tag(BlockTags.WOODEN_BUTTONS)
                 .add(BorealisBlocks.BRUMAL_BUTTON.get())
-                .add(BorealisBlocks.FROSTFIR_BUTTON.get())
                 .add(BorealisBlocks.SWEETWOOD_BUTTON.get())
                 .add(BorealisBlocks.CARAMELIZED_BUTTON.get());
         tag(BlockTags.WOODEN_DOORS)
                 .add(BorealisBlocks.BRUMAL_DOOR.get())
-                .add(BorealisBlocks.FROSTFIR_DOOR.get())
                 .add(BorealisBlocks.SWEETWOOD_DOOR.get())
                 .add(BorealisBlocks.CARAMELIZED_DOOR.get());
         tag(BlockTags.WOODEN_STAIRS)
                 .add(BorealisBlocks.BRUMAL_STAIRS.get())
-                .add(BorealisBlocks.FROSTFIR_STAIRS.get())
                 .add(BorealisBlocks.SWEETWOOD_STAIRS.get())
                 .add(BorealisBlocks.CARAMELIZED_STAIRS.get());
         tag(BlockTags.WOODEN_SLABS)
                 .add(BorealisBlocks.BRUMAL_SLAB.get())
-                .add(BorealisBlocks.FROSTFIR_SLAB.get())
                 .add(BorealisBlocks.SWEETWOOD_SLAB.get())
                 .add(BorealisBlocks.CARAMELIZED_SLAB.get());
         tag(BlockTags.WOODEN_FENCES)
                 .add(BorealisBlocks.BRUMAL_FENCE.get())
-                .add(BorealisBlocks.FROSTFIR_FENCE.get())
                 .add(BorealisBlocks.SWEETWOOD_FENCE.get())
                 .add(BorealisBlocks.CARAMELIZED_FENCE.get());
         tag(BlockTags.LOGS_THAT_BURN)
                 .addTag(BorealisTags.Blocks.BRUMAL_LOGS)
-                .addTag(BorealisTags.Blocks.FROSTFIR_LOGS)
                 .addTag(BorealisTags.Blocks.SWEETWOOD_LOGS)
                 .addTag(BorealisTags.Blocks.CARAMELIZED_LOGS)
                 .add(BorealisBlocks.PETRIFIED_WOOD.get());
         tag(BlockTags.LOGS)
                 .addTag(BorealisTags.Blocks.BRUMAL_LOGS)
-                .addTag(BorealisTags.Blocks.FROSTFIR_LOGS)
                 .addTag(BorealisTags.Blocks.SWEETWOOD_LOGS)
                 .addTag(BorealisTags.Blocks.CARAMELIZED_LOGS)
                 .add(BorealisBlocks.PETRIFIED_WOOD.get());
@@ -181,7 +158,6 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get());
         tag(BlockTags.WOODEN_PRESSURE_PLATES)
                 .add(BorealisBlocks.BRUMAL_PRESSURE_PLATE.get())
-                .add(BorealisBlocks.FROSTFIR_PRESSURE_PLATE.get())
                 .add(BorealisBlocks.SWEETWOOD_PRESSURE_PLATE.get())
                 .add(BorealisBlocks.CARAMELIZED_PRESSURE_PLATE.get());
         tag(BlockTags.STONE_PRESSURE_PLATES)
@@ -197,32 +173,26 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.GLAZED_LEAVES.get());
         tag(BlockTags.WOODEN_TRAPDOORS)
                 .add(BorealisBlocks.BRUMAL_TRAPDOOR.get())
-                .add(BorealisBlocks.FROSTFIR_TRAPDOOR.get())
                 .add(BorealisBlocks.SWEETWOOD_TRAPDOOR.get())
                 .add(BorealisBlocks.CARAMELIZED_TRAPDOOR.get());
         tag(BlockTags.FENCE_GATES)
                 .add(BorealisBlocks.BRUMAL_FENCE_GATE.get())
-                .add(BorealisBlocks.FROSTFIR_FENCE_GATE.get())
                 .add(BorealisBlocks.SWEETWOOD_FENCE_GATE.get())
                 .add(BorealisBlocks.CARAMELIZED_FENCE_GATE.get());
         tag(BlockTags.STANDING_SIGNS)
                 .add(BorealisBlocks.BRUMAL_SIGN.get())
-                .add(BorealisBlocks.FROSTFIR_SIGN.get())
                 .add(BorealisBlocks.SWEETWOOD_SIGN.get())
                 .add(BorealisBlocks.CARAMELIZED_SIGN.get());;
         tag(BlockTags.WALL_SIGNS)
                 .add(BorealisBlocks.BRUMAL_WALL_SIGN.get())
-                .add(BorealisBlocks.FROSTFIR_WALL_SIGN.get())
                 .add(BorealisBlocks.SWEETWOOD_WALL_SIGN.get())
                 .add(BorealisBlocks.CARAMELIZED_WALL_SIGN.get());
         tag(BlockTags.CEILING_HANGING_SIGNS)
                 .add(BorealisBlocks.BRUMAL_HANGING_SIGN.get())
-                .add(BorealisBlocks.FROSTFIR_HANGING_SIGN.get())
                 .add(BorealisBlocks.SWEETWOOD_HANGING_SIGN.get())
                 .add(BorealisBlocks.CARAMELIZED_HANGING_SIGN.get());
         tag(BlockTags.WALL_HANGING_SIGNS)
                 .add(BorealisBlocks.BRUMAL_WALL_HANGING_SIGN.get())
-                .add(BorealisBlocks.FROSTFIR_WALL_HANGING_SIGN.get())
                 .add(BorealisBlocks.SWEETWOOD_WALL_HANGING_SIGN.get())
                 .add(BorealisBlocks.CARAMELIZED_WALL_HANGING_SIGN.get());
         tag(BlockTags.SIGNS)
@@ -251,7 +221,6 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .addTag(BlockTags.FENCE_GATES);
         tag(Tags.Blocks.FENCES_WOODEN)
                 .add(BorealisBlocks.BRUMAL_FENCE.get())
-                .add(BorealisBlocks.FROSTFIR_FENCE.get())
                 .add(BorealisBlocks.SWEETWOOD_FENCE.get())
                 .add(BorealisBlocks.CARAMELIZED_FENCE.get());
         tag(Tags.Blocks.STONES)
@@ -262,7 +231,6 @@ public class BorealisBlockTags extends BlockTagsProvider {
     private void progressionTags() {
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .addTag(BorealisTags.Blocks.BLOCKSET_BRUMAL)
-                .addTag(BorealisTags.Blocks.BLOCKSET_FROSTFIR)
                 .addTag(BorealisTags.Blocks.BLOCKSET_SWEETWOOD)
                 .addTag(BorealisTags.Blocks.BLOCKSET_CARAMELIZED)
                 .add(BorealisBlocks.PETRIFIED_WOOD.get(), BorealisBlocks.PETRIFIED_WOOD_BRICKS.get());
@@ -271,7 +239,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.SLATE.get(), BorealisBlocks.SLATE_PILLAR.get(), BorealisBlocks.SLATE_TILES.get(), BorealisBlocks.STARRY_SLATE.get(), BorealisBlocks.STARRY_SLATE_TILES.get())
                 .add(BorealisBlocks.PUMICE.get(), BorealisBlocks.PUMICE_GEYSER.get(), BorealisBlocks.GYPSUM.get())
                 .add(BorealisBlocks.KYANITE_ORE.get(), BorealisBlocks.TANZANITE_BLOCK.get(), BorealisBlocks.TANZANITE_ORE.get(), BorealisBlocks.HAILSTONE.get(), BorealisBlocks.KYANITE_FLAGSTONE.get(), BorealisBlocks.KYANITE_CABLE.get(), BorealisBlocks.KYANITE_BULB.get())
-                .add(BorealisBlocks.BONE_DRY_WOOD.get(), BorealisBlocks.BONE_DRY_WOOD_BRICKS.get());
+                .add(BorealisBlocks.PETRIFIED_WOOD.get(), BorealisBlocks.PETRIFIED_WOOD_BRICKS.get(), BorealisBlocks.BONE_DRY_WOOD.get(), BorealisBlocks.BONE_DRY_WOOD_BRICKS.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(BorealisBlocks.SUGAR_SNOW_BLOCK.get(), BorealisBlocks.FIRN.get(), BorealisBlocks.SUGAR_SNOW.get())
                 .add(BorealisBlocks.KAOLIN.get())
@@ -279,7 +247,7 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(BorealisBlocks.CLOUD.get());
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(BorealisBlocks.CLOUD.get())
-                .add(BorealisBlocks.BRUMAL_LEAVES.get(), BorealisBlocks.FROSTFIR_LEAVES.get(), BorealisBlocks.SWEETWOOD_LEAVES.get());
+                .add(BorealisBlocks.BRUMAL_LEAVES.get(), BorealisBlocks.FROSTFIR_LEAVES.get(), BorealisBlocks.SWEETWOOD_LEAVES.get(), BorealisBlocks.GLAZED_LEAVES.get());
 
         tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(BorealisBlocks.KYANITE_ORE.get())

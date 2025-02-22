@@ -1,0 +1,29 @@
+{
+  "parent": "borealis:enter_borealis",
+  "criteria": {
+    "break_pumice": {
+      "conditions": {
+        "block": "borealis:pumice"
+      },
+      "trigger": "borealis:kaolin_step"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.borealis.break_pumice.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "borealis:pumice"
+    },
+    "title": {
+      "translate": "advancement.borealis.break_pumice"
+    }
+  },
+  "requirements": [
+    [
+      "break_pumice"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

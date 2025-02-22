@@ -11,4 +11,5 @@ public class BorealisTriggers {
 
     public static final DeferredHolder<CriterionTrigger<?>, BreakBlockTrigger> BREAK_BLOCK = TRIGGERS.register("break_block", BreakBlockTrigger::new);
     public static final DeferredHolder<CriterionTrigger<?>, HailstoneTrigger> USE_HAILSTONE = TRIGGERS.register("use_hailstone", HailstoneTrigger::new);
+    public static final DeferredHolder<CriterionTrigger<?>, HotSpringStepTrigger> HOT_SPRING_STEP = TRIGGERS.register("kaolin_step", HotSpringStepTrigger::new);
 }

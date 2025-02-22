@@ -46,6 +46,7 @@ public class BorealisMod {
         bus.addListener(BorealisEntities::registerEntityAttributes);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::loadKyaniteArrowEvent);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::burnInAtmosphereEvent);
+        NeoForge.EVENT_BUS.addListener(PlayerEvents::reducedFallDamageEvent);
         NeoForge.EVENT_BUS.addListener(BorealisCommon::toolInteractions);
 
         DeferredRegister<?>[] registers = {

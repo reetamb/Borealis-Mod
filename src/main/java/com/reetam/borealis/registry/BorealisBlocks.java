@@ -29,13 +29,11 @@ public class BorealisBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, BorealisMod.MODID);
 
     public static final BlockSetType SET_BRUMAL = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "brumal").toString());
-    public static final BlockSetType SET_FROSTFIR = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "frostfir").toString());
     public static final BlockSetType SET_SWEETWOOD = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "sweetwood").toString());
     public static final BlockSetType SET_CARAMELIZED = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "caramelized").toString());
     public static final BlockSetType SET_SOAPSTONE = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "soapstone").toString());
 
     public static final WoodType WOODSET_BRUMAL = WoodType.register(new WoodType(SET_BRUMAL.name(), SET_BRUMAL));
-    public static final WoodType WOODSET_FROSTFIR = WoodType.register(new WoodType(SET_FROSTFIR.name(), SET_FROSTFIR));
     public static final WoodType WOODSET_SWEETWOOD = WoodType.register(new WoodType(SET_SWEETWOOD.name(), SET_SWEETWOOD));
     public static final WoodType WOODSET_CARAMELIZED = WoodType.register(new WoodType(SET_CARAMELIZED.name(), SET_CARAMELIZED));
 
@@ -65,13 +63,14 @@ public class BorealisBlocks {
 
     public static final DeferredHolder<Block, Block> PUMICE = registerBlock("pumice", () -> new PumiceBlock(Template.pumice()));
     public static final DeferredHolder<Block, Block> PUMICE_GEYSER = registerBlock("pumice_geyser", () -> new PumiceGeyserBlock(Template.pumice()));
-    public static final DeferredHolder<Block, Block> KAOLIN = registerBlock("kaolin", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE_POWDER)));
+    public static final DeferredHolder<Block, Block> KAOLIN = registerBlock("kaolin", () -> new KaolinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE_POWDER).speedFactor(0.85F)));
     public static final DeferredHolder<Block, Block> GYPSUM = registerBlock("gypsum", () -> new SolubleBlock(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_WHITE), BorealisBlocks.KAOLIN.get().defaultBlockState()));
 
     public static final DeferredHolder<Block, RotatedPillarBlock> BONE_DRY_WOOD = registerBlock("bone_dry_wood", () -> new RotatedPillarBlock(Template.petrifiedWood().mapColor(MapColor.SAND)));
     public static final DeferredHolder<Block, Block> BONE_DRY_WOOD_BRICKS = registerBlock("bone_dry_wood_bricks", () -> new Block(Template.petrifiedWood().mapColor(MapColor.SAND)));
     public static final DeferredHolder<Block, PetrifiedBarkBlock> PETRIFIED_WOOD = registerBlock("petrified_wood", () -> new PetrifiedBarkBlock(BorealisBlocks.BONE_DRY_WOOD.get(), Template.petrifiedWood()));
     public static final DeferredHolder<Block, Block> PETRIFIED_WOOD_BRICKS = registerBlock("petrified_wood_bricks", () -> new Block(Template.petrifiedWood()));
+    public static final DeferredHolder<Block, Block> FROSTFIR_LEAVES = registerBlock("frostfir_leaves", () -> new LeavesBlock(Template.leaves().mapColor(MapColor.COLOR_CYAN)));
 
     public static final DeferredHolder<Block, StandingSignBlock> BRUMAL_SIGN = BLOCKS.register("brumal_sign", () -> new BorealisStandingSignBlock(Template.sign(MapColor.COLOR_LIGHT_BLUE), WOODSET_BRUMAL));
     public static final DeferredHolder<Block, WallSignBlock> BRUMAL_WALL_SIGN = BLOCKS.register("brumal_wall_sign", () -> new BorealisWallSignBlock(Template.sign(MapColor.COLOR_LIGHT_BLUE), WOODSET_BRUMAL));
@@ -91,25 +90,6 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, TrapDoorBlock> BRUMAL_TRAPDOOR = registerBlock("brumal_trapdoor", () -> new TrapDoorBlock(SET_BRUMAL, Template.brumal().noOcclusion()));
     public static final DeferredHolder<Block, ButtonBlock> BRUMAL_BUTTON = registerBlock("brumal_button", () -> new ButtonBlock(SET_BRUMAL, 30, Template.brumal().noOcclusion().noCollission()));
     public static final DeferredHolder<Block, PressurePlateBlock> BRUMAL_PRESSURE_PLATE = registerBlock("brumal_pressure_plate", () -> new PressurePlateBlock(SET_BRUMAL, Template.brumal().noOcclusion().noCollission()));
-
-    public static final DeferredHolder<Block, StandingSignBlock> FROSTFIR_SIGN = BLOCKS.register("frostfir_sign", () -> new BorealisStandingSignBlock(Template.sign(MapColor.TERRACOTTA_BLUE), WOODSET_FROSTFIR));
-    public static final DeferredHolder<Block, WallSignBlock> FROSTFIR_WALL_SIGN = BLOCKS.register("frostfir_wall_sign", () -> new BorealisWallSignBlock(Template.sign(MapColor.TERRACOTTA_BLUE), WOODSET_FROSTFIR));
-    public static final DeferredHolder<Block, CeilingHangingSignBlock> FROSTFIR_HANGING_SIGN = BLOCKS.register("frostfir_hanging_sign", () -> new BorealisCeilingHangingSignBlock(Template.sign(MapColor.TERRACOTTA_BLUE), WOODSET_FROSTFIR));
-    public static final DeferredHolder<Block, WallHangingSignBlock> FROSTFIR_WALL_HANGING_SIGN = BLOCKS.register("frostfir_wall_hanging_sign", () -> new BorealisWallHangingSignBlock(Template.sign(MapColor.TERRACOTTA_BLUE), WOODSET_FROSTFIR));
-    public static final DeferredHolder<Block, Block> FROSTFIR_PLANKS = registerBlock("frostfir_planks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-    public static final DeferredHolder<Block, RotatedPillarBlock> FROSTFIR_LOG = registerBlock("frostfir_log", () -> new RotatedPillarBlock(Template.log(MapColor.TERRACOTTA_BLUE, MapColor.COLOR_BLACK)));
-    public static final DeferredHolder<Block, RotatedPillarBlock> FROSTFIR_WOOD = registerBlock("frostfir_wood", () -> new RotatedPillarBlock(Template.frostfir().mapColor(MapColor.COLOR_BLACK)));
-    public static final DeferredHolder<Block, RotatedPillarBlock> STRIPPED_FROSTFIR_LOG = registerBlock("stripped_frostfir_log", () -> new RotatedPillarBlock(Template.frostfir()));
-    public static final DeferredHolder<Block, RotatedPillarBlock> STRIPPED_FROSTFIR_WOOD = registerBlock("stripped_frostfir_wood", () -> new RotatedPillarBlock(Template.frostfir()));
-    public static final DeferredHolder<Block, Block> FROSTFIR_LEAVES = registerBlock("frostfir_leaves", () -> new LeavesBlock(Template.leaves().mapColor(MapColor.TERRACOTTA_BLUE)));
-    public static final DeferredHolder<Block, StairBlock> FROSTFIR_STAIRS = registerBlock("frostfir_stairs", () -> new StairBlock( BorealisBlocks.FROSTFIR_PLANKS.get().defaultBlockState(),Template.frostfir().noOcclusion()));
-    public static final DeferredHolder<Block, SlabBlock> FROSTFIR_SLAB = registerBlock("frostfir_slab", () -> new SlabBlock(Template.frostfir().noOcclusion()));
-    public static final DeferredHolder<Block, FenceBlock> FROSTFIR_FENCE = registerBlock("frostfir_fence", () -> new FenceBlock(Template.frostfir().noOcclusion()));
-    public static final DeferredHolder<Block, FenceGateBlock> FROSTFIR_FENCE_GATE = registerBlock("frostfir_fence_gate", () -> new FenceGateBlock(WOODSET_FROSTFIR, Template.frostfir().noOcclusion()));
-    public static final DeferredHolder<Block, DoorBlock> FROSTFIR_DOOR = registerBlock("frostfir_door", () -> new DoorBlock(SET_FROSTFIR, Template.frostfir().noOcclusion()));
-    public static final DeferredHolder<Block, TrapDoorBlock> FROSTFIR_TRAPDOOR = registerBlock("frostfir_trapdoor", () -> new TrapDoorBlock(SET_FROSTFIR, Template.frostfir().noOcclusion()));
-    public static final DeferredHolder<Block, ButtonBlock> FROSTFIR_BUTTON = registerBlock("frostfir_button", () -> new ButtonBlock(SET_FROSTFIR, 30, Template.frostfir().noOcclusion().noCollission()));
-    public static final DeferredHolder<Block, PressurePlateBlock> FROSTFIR_PRESSURE_PLATE = registerBlock("frostfir_pressure_plate", () -> new PressurePlateBlock(SET_FROSTFIR, Template.frostfir().noOcclusion().noCollission()));
 
     public static final DeferredHolder<Block, StandingSignBlock> SWEETWOOD_SIGN = BLOCKS.register("sweetwood_sign", () -> new BorealisStandingSignBlock(Template.sign(MapColor.SAND), WOODSET_SWEETWOOD));
     public static final DeferredHolder<Block, WallSignBlock> SWEETWOOD_WALL_SIGN = BLOCKS.register("sweetwood_wall_sign", () -> new BorealisWallSignBlock(Template.sign(MapColor.SAND), WOODSET_SWEETWOOD));
@@ -223,10 +203,6 @@ public class BorealisBlocks {
             return BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
                     .mapColor(MapColor.COLOR_LIGHT_BLUE);
         }
-        protected static BlockBehaviour.Properties frostfir() {
-            return BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
-                    .mapColor(MapColor.TERRACOTTA_BLUE);
-        }
         protected static BlockBehaviour.Properties sweetwood() {
             return BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
                     .mapColor(MapColor.SAND);
@@ -254,7 +230,7 @@ public class BorealisBlocks {
         protected static BlockBehaviour.Properties sign(MapColor color) { return sign(color, true); }
 
         protected static BlockBehaviour.Properties leaves() {
-            return BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).noLootTable();
+            return BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES);
         }
 
         protected static BlockBehaviour.Properties plant() {

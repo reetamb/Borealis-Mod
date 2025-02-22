@@ -157,25 +157,6 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         );
         bulkWood(
                 consumer,
-                BorealisBlocks.FROSTFIR_LOG,
-                BorealisBlocks.FROSTFIR_PLANKS,
-                BorealisBlocks.FROSTFIR_WOOD,
-                BorealisBlocks.STRIPPED_FROSTFIR_LOG,
-                BorealisBlocks.STRIPPED_FROSTFIR_WOOD,
-                BorealisBlocks.FROSTFIR_STAIRS,
-                BorealisBlocks.FROSTFIR_SLAB,
-                BorealisBlocks.FROSTFIR_FENCE,
-                BorealisBlocks.FROSTFIR_FENCE_GATE,
-                BorealisBlocks.FROSTFIR_BUTTON,
-                BorealisBlocks.FROSTFIR_PRESSURE_PLATE,
-                BorealisBlocks.FROSTFIR_DOOR,
-                BorealisBlocks.FROSTFIR_TRAPDOOR,
-                BorealisItems.FROSTFIR_BOAT,
-                BorealisBlocks.FROSTFIR_SIGN,
-                BorealisBlocks.FROSTFIR_HANGING_SIGN
-        );
-        bulkWood(
-                consumer,
                 BorealisBlocks.SWEETWOOD_LOG,
                 BorealisBlocks.SWEETWOOD_PLANKS,
                 BorealisBlocks.SWEETWOOD,

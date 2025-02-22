@@ -1,0 +1,29 @@
+{
+  "parent": "borealis:break_pumice",
+  "criteria": {
+    "walk_kaolin": {
+      "conditions": {
+        "block": "borealis:kaolin"
+      },
+      "trigger": "borealis:kaolin_step"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.borealis.walk_kaolin.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "borealis:kaolin"
+    },
+    "title": {
+      "translate": "advancement.borealis.walk_kaolin"
+    }
+  },
+  "requirements": [
+    [
+      "walk_kaolin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -25,7 +25,6 @@ public class BorealisBiomes {
     public static final ResourceKey<Biome> BRUMAL_GROVE = createKey("brumal_grove");
     public static final ResourceKey<Biome> FROSTFIR_WOODS = createKey("frostfir_woods");
     public static final ResourceKey<Biome> HOT_SPRING_ISLANDS = createKey("hot_spring_islands");
-    public static final ResourceKey<Biome> GIANTWOOD = createKey("giantwood");
     public static final ResourceKey<Biome> RAVAGED_GLACIER = createKey("ravaged_glacier");
     public static final ResourceKey<Biome> SACCHARINE_HILLS = createKey("saccharine_hills");
 
@@ -40,7 +39,6 @@ public class BorealisBiomes {
         context.register(BRUMAL_GROVE, brumalGrove(placedFeatures, vanillaConfiguredCarvers));
         context.register(FROSTFIR_WOODS, frostfirWoods(placedFeatures, vanillaConfiguredCarvers));
         context.register(HOT_SPRING_ISLANDS, hotSprings(placedFeatures, vanillaConfiguredCarvers));
-        context.register(GIANTWOOD, giantwood(placedFeatures, vanillaConfiguredCarvers));
         context.register(RAVAGED_GLACIER, ravagedGlacier(placedFeatures, vanillaConfiguredCarvers));
         context.register(SACCHARINE_HILLS, saccharineHills(placedFeatures, vanillaConfiguredCarvers));
     }
@@ -88,19 +86,6 @@ public class BorealisBiomes {
                         .addFeature(GenerationStep.Decoration.RAW_GENERATION, BorealisPlacedFeatures.PLACED_GLACIAL_SPIKE),
                 new MobSpawnSettings.Builder(),
                 10136810);
-    }
-    public static Biome giantwood(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
-        return makeDefaultBiome(
-                new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_SLATE_BOULDER)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_FROSTFIR_TREE)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_GIANTWOOD_TREE)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_HOLLY_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_LARGE_FERN)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA),
-                new MobSpawnSettings.Builder(),
-                6193806);
     }
     public static Biome hotSprings(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
         return makeDefaultBiome(

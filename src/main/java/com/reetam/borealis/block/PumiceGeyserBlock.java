@@ -1,8 +1,11 @@
 package com.reetam.borealis.block;
 
+import com.reetam.borealis.data.trigger.BorealisTriggers;
+import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -31,8 +34,8 @@ public class PumiceGeyserBlock extends Block {
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if (entity instanceof LivingEntity) {
             entity.setDeltaMovement(new Vec3(entity.getDeltaMovement().x(), entity.getDeltaMovement().y() + level.random.nextInt(5), entity.getDeltaMovement().z()));
+            if (entity instanceof ServerPlayer player) BorealisTriggers.HOT_SPRING_STEP.get().trigger(player, BorealisBlocks.PUMICE_GEYSER.get().defaultBlockState());
         }
-
         super.stepOn(level, pos, state, entity);
     }
 

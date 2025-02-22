@@ -21,7 +21,7 @@ public class SolubleBlock extends Block {
 
     @Override
     protected void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (pRandom.nextInt(100) == 0) {
+        if (pRandom.nextInt(4) == 0) {
             FluidState state = pLevel.getFluidState(pPos.above());
             if (state.is(BorealisFluids.HOT_SPRING_WATER_FLOWING.get())) {
                 if (!state.getValue(FlowingFluid.FALLING)) {

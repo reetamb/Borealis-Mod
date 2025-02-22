@@ -10,6 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import net.neoforged.neoforge.event.entity.living.LivingGetProjectileEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
@@ -46,5 +47,10 @@ public class PlayerEvents {
                 entity.hurt(level.damageSources().onFire(), event.getAmount());
             }
         }
+    }
+
+    public static void reducedFallDamageEvent(LivingFallEvent event) {
+        if (event.getEntity().level().dimension() != BorealisDimensions.BOREALIS) return;
+        event.setDistance(event.getDistance() / 2);
     }
 }

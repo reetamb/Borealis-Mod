@@ -25,16 +25,10 @@ public class BorealisLang extends BorealisLangProvider {
 
         ArrayList<String> blockNames = new ArrayList<>();
         for (DeferredHolder<Block, ? extends Block> block : BorealisBlocks.BLOCKS.getEntries()) {
-            if (!(block.get() instanceof StandingSignBlock ||
-                    block.get() instanceof CeilingHangingSignBlock ||
-                    block.get() instanceof WallSignBlock ||
-                    block.get() instanceof WallHangingSignBlock ||
-                    block.get() == BorealisBlocks.WINTER_FIDDLE.get() ||
-                    block.get() instanceof WallPlantBlock)) {
+            if (!(blockNames.contains(block.get().getName().getString().substring(15)))) {
                 blockNames.add(assumeBlock(block));
             }
         }
-        blockNames.add(assumeBlock(BorealisBlocks.WINTER_FIDDLE));
         for (DeferredHolder<Item, ? extends Item> item : BorealisItems.ITEMS.getEntries()) {
             if (!blockNames.contains(item.get().toString())) {
                 assumeItem(item);
@@ -58,5 +52,9 @@ public class BorealisLang extends BorealisLangProvider {
         addAdvancement("get_kyanite", "Bottom of the Beryl", "Mine a fibrous crystal");
         addAdvancement("shear_plant", "Distant Relatives", "Gather a prehistoric plant");
         addAdvancement("strip_frostfir", "Woodn't You Like To Know", "Try chopping a Frostfir tree to no avail");
+        addAdvancement("break_pumice", "Splat", "Break your fall on some Pumice");
+        addAdvancement("walk_geyser", "Up, Up, and Away!", "Get launched up by a Geyser");
+        addAdvancement("walk_kaolin", "Soothing", "Let Hot Spring Water dissolve Gypsum into a softer form");
+
     }
 }

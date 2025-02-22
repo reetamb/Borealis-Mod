@@ -42,8 +42,6 @@ public class BorealisBoatEntity extends Boat {
             case BRUMAL:
             default:
                 return BorealisItems.BRUMAL_BOAT.get();
-            case FROSTFIR:
-                return BorealisItems.FROSTFIR_BOAT.get();
             case SWEETWOOD:
                 return BorealisItems.SWEETWOOD_BOAT.get();
             case CARAMELIZED:
@@ -74,7 +72,6 @@ public class BorealisBoatEntity extends Boat {
 
     public enum Type {
         BRUMAL(BorealisBlocks.BRUMAL_PLANKS.get(), "brumal"),
-        FROSTFIR(BorealisBlocks.FROSTFIR_PLANKS.get(), "frostfir"),
         SWEETWOOD(BorealisBlocks.SWEETWOOD_PLANKS.get(), "sweetwood"),
         CARAMELIZED(BorealisBlocks.CARAMELIZED_PLANKS.get(), "caramelized")
         ;

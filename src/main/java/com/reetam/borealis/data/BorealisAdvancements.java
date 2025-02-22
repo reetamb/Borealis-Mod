@@ -1,9 +1,9 @@
 package com.reetam.borealis.data;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.data.trigger.BorealisTriggers;
 import com.reetam.borealis.data.trigger.BreakBlockTrigger;
 import com.reetam.borealis.data.trigger.HailstoneTrigger;
+import com.reetam.borealis.data.trigger.HotSpringStepTrigger;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.world.BorealisDimensions;
@@ -120,6 +120,36 @@ public class BorealisAdvancements extends AdvancementProvider {
                     .addCriterion("strip_frostfir", BreakBlockTrigger.TriggerInstance.destroyedBlock(BorealisBlocks.PETRIFIED_WOOD.get()))
                     .parent(enterBorealis)
                     .save(consumer, loc("strip_frostfir"));
+
+            AdvancementHolder breakPumice = Advancement.Builder.advancement()
+                    .display(BorealisBlocks.PUMICE.get(),
+                            name("break_pumice"),
+                            desc("break_pumice"),
+                            null,
+                            AdvancementType.TASK, true, true, false)
+                    .addCriterion("break_pumice", HotSpringStepTrigger.TriggerInstance.step(BorealisBlocks.PUMICE.get()))
+                    .parent(enterBorealis)
+                    .save(consumer, loc("break_pumice"));
+
+            AdvancementHolder walkGeyser = Advancement.Builder.advancement()
+                    .display(BorealisBlocks.PUMICE_GEYSER.get(),
+                            name("walk_geyser"),
+                            desc("walk_geyser"),
+                            null,
+                            AdvancementType.TASK, true, true, false)
+                    .addCriterion("walk_geyser", HotSpringStepTrigger.TriggerInstance.step(BorealisBlocks.PUMICE_GEYSER.get()))
+                    .parent(breakPumice)
+                    .save(consumer, loc("walk_geyser"));
+
+            AdvancementHolder walkKaolin = Advancement.Builder.advancement()
+                    .display(BorealisBlocks.KAOLIN.get(),
+                            name("walk_kaolin"),
+                            desc("walk_kaolin"),
+                            null,
+                            AdvancementType.TASK, true, true, false)
+                    .addCriterion("walk_kaolin", HotSpringStepTrigger.TriggerInstance.step(BorealisBlocks.KAOLIN.get()))
+                    .parent(breakPumice)
+                    .save(consumer, loc("walk_kaolin"));
         }
 
         private Component name(String name) {

@@ -50,6 +50,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.KAOLIN);
         itemBlock(BorealisBlocks.PETRIFIED_WOOD);
         itemBlock(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
+        itemBlock(BorealisBlocks.FROSTFIR_LEAVES);
 
         itemBlock(BorealisBlocks.BRUMAL_PLANKS);
         itemBlock(BorealisBlocks.BRUMAL_LOG);
@@ -76,23 +77,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.ALMS_NUT);
         itemBlock(BorealisBlocks.ALMS);
         itemBlock(BorealisBlocks.CRACKED_ALMS);
-
-        itemBlock(BorealisBlocks.FROSTFIR_PLANKS);
-        itemBlock(BorealisBlocks.FROSTFIR_LOG);
-        itemBlock(BorealisBlocks.FROSTFIR_WOOD);
-        itemBlock(BorealisBlocks.STRIPPED_FROSTFIR_LOG);
-        itemBlock(BorealisBlocks.STRIPPED_FROSTFIR_WOOD);
-        itemBlock(BorealisBlocks.FROSTFIR_LEAVES);
-        itemBlock(BorealisBlocks.FROSTFIR_STAIRS);
-        itemBlock(BorealisBlocks.FROSTFIR_SLAB);
-        itemFence(BorealisBlocks.FROSTFIR_FENCE, "frostfir_planks");
-        itemBlock(BorealisBlocks.FROSTFIR_FENCE_GATE);
-        itemBlockFlat(BorealisBlocks.FROSTFIR_DOOR, "item/frostfir_door");
-        itemBlock(BorealisBlocks.FROSTFIR_TRAPDOOR, "frostfir_trapdoor_bottom");
-        buttonInventory("frostfir_button", texture("frostfir_planks"));
-        itemBlock(BorealisBlocks.FROSTFIR_PRESSURE_PLATE);
-        normalItem(BorealisItems.FROSTFIR_SIGN);
-        normalItem(BorealisItems.FROSTFIR_HANGING_SIGN);
 
         itemBlock(BorealisBlocks.SWEETWOOD_PLANKS);
         itemBlock(BorealisBlocks.SWEETWOOD_LOG);
@@ -158,7 +142,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.HAT);
         normalItem(BorealisItems.TANZANITE);
         normalItem(BorealisItems.BRUMAL_BOAT);
-        normalItem(BorealisItems.FROSTFIR_BOAT);
         normalItem(BorealisItems.SWEETWOOD_BOAT);
         normalItem(BorealisItems.CARAMELIZED_BOAT);
 

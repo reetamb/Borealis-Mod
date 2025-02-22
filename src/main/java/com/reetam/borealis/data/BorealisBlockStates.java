@@ -139,22 +139,8 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         crossBlock(BorealisBlocks.MISTERIA_HEAD);
         crossBlock(BorealisBlocks.WINTER_FIDDLE);
 
-        block(BorealisBlocks.FROSTFIR_PLANKS);
-        log(BorealisBlocks.FROSTFIR_LOG, "frostfir_log");
-        wood(BorealisBlocks.FROSTFIR_WOOD, BorealisBlocks.FROSTFIR_LOG);
-        log(BorealisBlocks.STRIPPED_FROSTFIR_LOG, "stripped_frostfir_log");
-        wood(BorealisBlocks.STRIPPED_FROSTFIR_WOOD, BorealisBlocks.STRIPPED_FROSTFIR_LOG);
         block(BorealisBlocks.FROSTFIR_LEAVES);
-        stairs(BorealisBlocks.FROSTFIR_STAIRS, BorealisBlocks.FROSTFIR_PLANKS);
-        slab(BorealisBlocks.FROSTFIR_SLAB, BorealisBlocks.FROSTFIR_PLANKS);
-        fenceBlock(BorealisBlocks.FROSTFIR_FENCE.get(), texture("frostfir_planks"));
-        fenceGateBlock(BorealisBlocks.FROSTFIR_FENCE_GATE.get(), texture("frostfir_planks"));
-        door(BorealisBlocks.FROSTFIR_DOOR, "frostfir");
-        trapdoor(BorealisBlocks.FROSTFIR_TRAPDOOR, "frostfir");
-        buttonBlock(BorealisBlocks.FROSTFIR_BUTTON.get(), texture("frostfir_planks"));
-        pressurePlateBlock(BorealisBlocks.FROSTFIR_PRESSURE_PLATE.get(), texture("frostfir_planks"));
-        signBlock(BorealisBlocks.FROSTFIR_SIGN.get(), BorealisBlocks.FROSTFIR_WALL_SIGN.get(), texture("frostfir_planks"));
-        
+
         block(BorealisBlocks.SWEETWOOD_PLANKS);
         log(BorealisBlocks.SWEETWOOD_LOG, "sweetwood_log");
         wood(BorealisBlocks.SWEETWOOD, BorealisBlocks.SWEETWOOD_LOG);

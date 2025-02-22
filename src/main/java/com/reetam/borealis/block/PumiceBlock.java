@@ -1,8 +1,10 @@
 package com.reetam.borealis.block;
 
+import com.reetam.borealis.data.trigger.BorealisTriggers;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -33,9 +35,10 @@ public class PumiceBlock extends Block {
         float breakChance = Math.min(1.0F, pFallDistance / 20.0F);
         if (pLevel.getRandom().nextFloat() <= breakChance && !pLevel.isClientSide()) {
             pLevel.destroyBlock(pPos, false);
-            pEntity.causeFallDamage(pFallDistance, 0.15F, pLevel.damageSources().fall());
+            pEntity.causeFallDamage(pFallDistance, 0.05F, pLevel.damageSources().fall());
         } else {
-            pEntity.causeFallDamage(pFallDistance, 0.4F, pLevel.damageSources().fall());
+            pEntity.causeFallDamage(pFallDistance, 0.20F, pLevel.damageSources().fall());
         }
+        if (pEntity instanceof ServerPlayer player) BorealisTriggers.HOT_SPRING_STEP.get().trigger(player, BorealisBlocks.PUMICE.get().defaultBlockState());
     }
 }

@@ -34,7 +34,6 @@ public class BorealisPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PLACED_BRUMAL_TREE_4 = createKey("brumal_tree_4");
 
     public static final ResourceKey<PlacedFeature> PLACED_FROSTFIR_TREE = createKey("frostfir_tree");
-    public static final ResourceKey<PlacedFeature> PLACED_GIANTWOOD_TREE = createKey("giantwood_tree");
     public static final ResourceKey<PlacedFeature> PLACED_HELIX_TREE = createKey("helix_tree");
     public static final ResourceKey<PlacedFeature> PLACED_COTTON_TREE = createKey("cotton_tree");
     public static final ResourceKey<PlacedFeature> PLACED_GLAZED_HELIX_TREE = createKey("glazed_helix_tree");
@@ -89,16 +88,14 @@ public class BorealisPlacedFeatures {
                 CountOnEveryLayerPlacement.of(8), BiomeFilter.biome(), PLANT);
 //        register(context, PLACED_GREAT_FROSTFIR_TREE, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_FROSTFIR_TREE),
 //                CountPlacement.of(4), BiomeFilter.biome());
-        register(context, PLACED_GIANTWOOD_TREE, please.getOrThrow(BorealisConfiguredFeatures.GIANTWOOD_TREE),
-                CountOnEveryLayerPlacement.of(4), BiomeFilter.biome(), PLANT);
         register(context, PLACED_HELIX_TREE, please.getOrThrow(BorealisConfiguredFeatures.HELIX_TREE),
-                CountOnEveryLayerPlacement.of(3), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(1), BiomeFilter.biome(), PLANT);
         register(context, PLACED_COTTON_TREE, please.getOrThrow(BorealisConfiguredFeatures.COTTON_TREE),
-                CountOnEveryLayerPlacement.of(5), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(1), BiomeFilter.biome(), PLANT);
         register(context, PLACED_GLAZED_HELIX_TREE, please.getOrThrow(BorealisConfiguredFeatures.GLAZED_HELIX_TREE),
-                CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(1), BiomeFilter.biome(), PLANT);
         register(context, PLACED_GLAZED_COTTON_TREE, please.getOrThrow(BorealisConfiguredFeatures.GLAZED_COTTON_TREE),
-                CountOnEveryLayerPlacement.of(3), BiomeFilter.biome(), PLANT);
+                CountOnEveryLayerPlacement.of(1), BiomeFilter.biome(), PLANT);
 
         register(context, PLACED_LICHEN_PATCH, please.getOrThrow(BorealisConfiguredFeatures.LICHEN_PATCH),
                 CountOnEveryLayerPlacement.of(2), BiomeFilter.biome());

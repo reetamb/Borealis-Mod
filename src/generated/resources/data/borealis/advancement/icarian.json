@@ -6,7 +6,7 @@
         "from": "borealis:borealis",
         "height": {
           "max": 256.0,
-          "min": 0.0
+          "min": -256.0
         },
         "item": {
           "items": "borealis:hailstone"

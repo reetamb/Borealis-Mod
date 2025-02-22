@@ -137,13 +137,6 @@ public class BorealisConfiguredFeatures {
                 new PineyFoliagePlacer(of(2), of(0), of(2)),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .ignoreVines().build());
-        register(context, GIANTWOOD_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                with(BorealisBlocks.FROSTFIR_LOG),
-                new GiantTrunkPlacer(12, 2, 16),
-                with(BorealisBlocks.FROSTFIR_LEAVES),
-                new MegaPineFoliagePlacer(of(0), of(0), from(12, 16)),
-                new TwoLayersFeatureSize(1, 1, 2))
-                .dirt(with(BorealisBlocks.FIRN)).ignoreVines().build());
         register(context, HELIX_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.SWEETWOOD_LOG),
                 new StraightTrunkPlacer(10, 2, 2),

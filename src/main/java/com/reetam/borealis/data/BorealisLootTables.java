@@ -5,11 +5,13 @@ import com.reetam.borealis.data.provider.BorealisLootTableProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisItems;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -28,6 +30,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
@@ -39,9 +42,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BorealisLootTables extends LootTableProvider {
-
-    private static final float[] DEFAULT_SAPLING_DROP_RATES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
-
     public BorealisLootTables(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
         super(output, Set.of(), List.of(
                 new SubProviderEntry(Blocks::new, LootContextParamSets.BLOCK),
@@ -61,8 +61,6 @@ public class BorealisLootTables extends LootTableProvider {
                     dropWithFortune(BorealisBlocks.KYANITE_ORE, BorealisItems.KYANITE_CRYSTAL),
                     dropOther(BorealisBlocks.BRUMAL_WALL_SIGN, () -> BorealisBlocks.BRUMAL_SIGN.get().asItem()),
                     drop(BorealisBlocks.BRUMAL_DOOR.get(), createDoorTable(BorealisBlocks.BRUMAL_DOOR.get())),
-                    dropOther(BorealisBlocks.FROSTFIR_WALL_SIGN, () -> BorealisBlocks.FROSTFIR_SIGN.get().asItem()),
-                    drop(BorealisBlocks.FROSTFIR_DOOR.get(), createDoorTable(BorealisBlocks.FROSTFIR_DOOR.get())),
                     dropOther(BorealisBlocks.SWEETWOOD_WALL_SIGN, () -> BorealisBlocks.SWEETWOOD_SIGN.get().asItem()),
                     drop(BorealisBlocks.SWEETWOOD_DOOR.get(), createDoorTable(BorealisBlocks.SWEETWOOD_DOOR.get())),
                     dropOther(BorealisBlocks.CARAMELIZED_WALL_SIGN, () -> BorealisBlocks.CARAMELIZED_SIGN.get().asItem()),
@@ -82,6 +80,12 @@ public class BorealisLootTables extends LootTableProvider {
                     drop(BorealisBlocks.WINTER_FIDDLE.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_FIDDLE.get())),
                     drop(BorealisBlocks.WALL_WINTER_FIDDLE.get(), createShearsOnlyDrop(BorealisBlocks.WALL_WINTER_FIDDLE.get())),
                     drop(BorealisBlocks.WINTER_CELLO.get(), createShearsOnlyDrop(BorealisBlocks.WINTER_CELLO.get())),
+                    drop(BorealisBlocks.BRUMAL_LEAVES.get(), createShearsOnlyDrop(BorealisBlocks.BRUMAL_LEAVES.get())),
+                    drop(BorealisBlocks.FROSTFIR_LEAVES.get(), createShearsOnlyDrop(BorealisBlocks.FROSTFIR_LEAVES.get())),
+                    drop(BorealisBlocks.SWEETWOOD_LEAVES.get(), createShearsOnlyDrop(BorealisBlocks.SWEETWOOD_LEAVES.get())),
+                    drop(BorealisBlocks.GLAZED_LEAVES.get(), createShearsOnlyDrop(BorealisBlocks.GLAZED_LEAVES.get())),
+                    drop(BorealisBlocks.PETRIFIED_WOOD.get(), createPickaxeOnlyDrop(BorealisBlocks.PETRIFIED_WOOD.get())),
+
 //                    drop(BorealisBlocks.CRACKED_ALMS.get(), dropWithBooleanState(
 //                            BorealisItems.ALMS_NUT.get(),
 //                            BorealisBlocks.CRACKED_ALMS.get(),
@@ -118,6 +122,13 @@ public class BorealisLootTables extends LootTableProvider {
 
         private LootPoolSingletonContainer.Builder<?> chance(ItemLike item, float probability) {
             return LootItem.lootTableItem(item).when(LootItemRandomChanceCondition.randomChance(probability));
+        }
+
+        protected static LootTable.Builder createPickaxeOnlyDrop(ItemLike pItem) {
+            return LootTable.lootTable()
+                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                            .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.PICKAXES)))
+                            .add(LootItem.lootTableItem(pItem)));
         }
     }
 
