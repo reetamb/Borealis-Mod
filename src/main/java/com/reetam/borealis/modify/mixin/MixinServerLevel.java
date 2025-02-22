@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ServerLevel.class)
 public class MixinServerLevel {
-    @Inject(at = @At(value = "HEAD"), method = "Lnet/minecraft/server/level/ServerLevel;tickChunk(Lnet/minecraft/world/level/chunk/LevelChunk;I)V")
+    @Inject(at = @At(value = "HEAD"), method = "tickChunk(Lnet/minecraft/world/level/chunk/LevelChunk;I)V")
     public void tickChunk(LevelChunk chunk, int randomTickSpeed, CallbackInfo ci) {
         ServerLevel level = (ServerLevel) (Object) this;
         ChunkPos chunkPos = chunk.getPos();

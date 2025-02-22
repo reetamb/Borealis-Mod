@@ -13,7 +13,7 @@ public class MixinLevelRenderer {
     @Shadow
     private ClientLevel level;
 
-    @ModifyVariable(at = @At(value = "HEAD"), method = "renderSky", ordinal = 0)
+    @ModifyVariable(at = @At(value = "HEAD"), method = "renderSky", ordinal = 0, argsOnly = true)
     private LevelRenderer borealisRenderSky(LevelRenderer value) {
         if (this.level.dimension() == BorealisWorld.BOREALIS_LEVEL) {
             return value;

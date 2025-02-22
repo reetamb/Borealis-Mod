@@ -86,50 +86,51 @@ public class BorealisWorld {
         );
     }
 
+    private static DensityFunction mountains(HolderGetter<NormalNoise.NoiseParameters> noise, float threshold) {
+        float factor = 1 / (1 - threshold);
+        return DensityFunctions.lerp(DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2, BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT, 1, 0),
+                -0.5,
+                // blend height to prevent going below -42
+                DensityFunctions.lerp(DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-12, -1, 1),
+                        -0.15,
+                        DensityFunctions.add(
+                                DensityFunctions.constant(-1 * (factor * threshold)),
+                                DensityFunctions.mul(
+                                        DensityFunctions.constant(factor),
+                                        DensityFunctions.max(
+                                                DensityFunctions.constant(threshold),
+                                                DensityFunctions.noise(get(noise, "continentalness_large"), 4, 1))))));
+    }
+
+    private static DensityFunction shifted(HolderGetter<DensityFunction> densityFunctions, HolderGetter<NormalNoise.NoiseParameters> noise, String name) {
+        return DensityFunctions.shiftedNoise2d(
+                getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_x"))),
+                getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_z"))),
+                1, noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace(name))));
+    }
+
+    private static DensityFunction yLerp(int fromY, int toY, int fromValue, int toValue, double min, DensityFunction argument) {
+        return DensityFunctions.lerp(
+                DensityFunctions.yClampedGradient(fromY, toY, fromValue, toValue),
+                min,
+                argument);
+    }
+
     private static NoiseRouter noiseRouter(HolderGetter<DensityFunction> densityFunctions, HolderGetter<NormalNoise.NoiseParameters> noise) {
         return new NoiseRouter(
+                DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero(),
+                shifted(densityFunctions, noise, "temperature"),
+                shifted(densityFunctions, noise, "vegetation"),
                 DensityFunctions.zero(),
-                DensityFunctions.zero(),
-                DensityFunctions.zero(),
-                DensityFunctions.zero(),
-                DensityFunctions.shiftedNoise2d(
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_x"))),
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_z"))),
-                        1, noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace("temperature")))),
-                DensityFunctions.shiftedNoise2d(
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_x"))),
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_z"))),
-                        1, noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace("vegetation")))),
-                DensityFunctions.zero(),
-                DensityFunctions.shiftedNoise2d(
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_x"))),
-                        getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("shift_z"))),
-                        1, noise.getOrThrow(ResourceKey.create(Registries.NOISE, ResourceLocation.withDefaultNamespace("erosion")))),
-                DensityFunctions.zero(),
-                DensityFunctions.zero(),
-                DensityFunctions.zero(),
+                shifted(densityFunctions, noise, "erosion"),
+                DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero(),
                 DensityFunctions.add(
                         // MOUNTAINS
-                        // blend height to prevent hitting 256|512 (gradient goes 384 to 512)
-                        DensityFunctions.lerp(DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2, BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT, 1, 0),
-                                -0.5,
-                                // blend height to prevent going below -42
-                                DensityFunctions.lerp(DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-12, -1, 1),
-                                        -0.15,
-                                        // take continentalness_large and set the min value to 0
-                                        DensityFunctions.max(
-                                                DensityFunctions.constant(0),
-                                                DensityFunctions.noise(get(noise, "continentalness_large"), 4, 1)))),
+                        mountains(noise, 1.0F/3.0F),
                         // BASE GENERATION
-                        // prevent bottom height from going below 16|272 (gradient goes 240 to 272)
-                        DensityFunctions.lerp(DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT-16, BorealisMod.MIN_HEIGHT+16, 0, 1),
-                                -0.5,
-                                // prevent top height from exceeding 128|384 (gradient goes 352 to 384)
-                                DensityFunctions.lerp(DensityFunctions.yClampedGradient((BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2), 1, 0),
-                                        -0.15,
-                                        // overall blend for... something IDK LOL (gradient goes -32|224 to 116|372)
-                                        DensityFunctions.lerp(DensityFunctions.yClampedGradient(BorealisMod.MIN_HEIGHT-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-12, -1, 1),
-                                                -0.15,
+                        yLerp(BorealisMod.MIN_HEIGHT-16, BorealisMod.MIN_HEIGHT+16, 0, 1, -0.5,
+                                yLerp((BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2), 1, 0, -0.15,
+                                        yLerp(BorealisMod.MIN_HEIGHT-32, (BorealisMod.MIN_HEIGHT+BorealisMod.HEIGHT/2)-12, -1, 1, -0.15,
                                                 DensityFunctions.add(
                                                         DensityFunctions.noise(get(noise, "gravel"), 4, 4),
                                                         DensityFunctions.noise(get(noise, "cave_entrance"), 1, 8)))))),
@@ -138,9 +139,6 @@ public class BorealisWorld {
                 DensityFunctions.zero());
     }
 
-    // increase max generation height
-    // need to clamp a maximum height of the gravel+cave_entrance to compensate
-
     private static DensityFunction getFunction(HolderGetter<DensityFunction> densityFunctions, ResourceKey<DensityFunction> key) {
         return new DensityFunctions.HolderHolder(densityFunctions.getOrThrow(key));
     }
@@ -148,6 +146,15 @@ public class BorealisWorld {
     @SafeVarargs
     private static SurfaceRules.RuleSource biomeBlock(BlockState block, ResourceKey<Biome>... biomes) {
         return SurfaceRules.ifTrue(SurfaceRules.isBiome(biomes), SurfaceRules.state(block));
+    }
+
+    private static SurfaceRules.RuleSource biomeGroundCover() {
+        return SurfaceRules.sequence(
+                biomeBlock(BorealisBlocks.FIRN.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE),
+                biomeBlock(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.SACCHARINE_HILLS),
+                biomeBlock(Blocks.PACKED_ICE.defaultBlockState(), BorealisBiomes.RAVAGED_GLACIER),
+                biomeBlock(BorealisBlocks.GYPSUM.get().defaultBlockState(), BorealisBiomes.HOT_SPRING_ISLANDS)
+        );
     }
     private static SurfaceRules.RuleSource surfaceRule(HolderGetter<NormalNoise.NoiseParameters> noise) {
         return SurfaceRules.sequence(
@@ -170,26 +177,11 @@ public class BorealisWorld {
                 // else
                 SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.belowTop(BorealisMod.HEIGHT/2), 1)), SurfaceRules.sequence(
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
-                            SurfaceRules.sequence(
-                                    biomeBlock(BorealisBlocks.FIRN.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE),
-                                    biomeBlock(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.SACCHARINE_HILLS),
-                                    biomeBlock(Blocks.PACKED_ICE.defaultBlockState(), BorealisBiomes.RAVAGED_GLACIER),
-                                    biomeBlock(BorealisBlocks.GYPSUM.get().defaultBlockState(), BorealisBiomes.HOT_SPRING_ISLANDS)
-                            )),
+                            biomeGroundCover()),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(1, false, 0, CaveSurface.FLOOR),
-                            SurfaceRules.sequence(
-                                    biomeBlock(BorealisBlocks.FIRN.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE),
-                                    biomeBlock(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.SACCHARINE_HILLS),
-                                    biomeBlock(Blocks.PACKED_ICE.defaultBlockState(), BorealisBiomes.RAVAGED_GLACIER),
-                                    biomeBlock(BorealisBlocks.GYPSUM.get().defaultBlockState(), BorealisBiomes.HOT_SPRING_ISLANDS)
-                            )),
+                            biomeGroundCover()),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(2, false, 0, CaveSurface.FLOOR),
-                            SurfaceRules.sequence(
-                                    biomeBlock(BorealisBlocks.FIRN.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE),
-                                    biomeBlock(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.SACCHARINE_HILLS),
-                                    biomeBlock(Blocks.PACKED_ICE.defaultBlockState(), BorealisBiomes.RAVAGED_GLACIER),
-                                    biomeBlock(BorealisBlocks.GYPSUM.get().defaultBlockState(), BorealisBiomes.HOT_SPRING_ISLANDS)
-                            )),
+                            biomeGroundCover()),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(3, true, 0, CaveSurface.FLOOR),
                             SurfaceRules.sequence(
                                     biomeBlock(BorealisBlocks.FIRN.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE),
