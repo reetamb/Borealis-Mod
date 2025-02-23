@@ -1,146 +1,85 @@
-[22Feb2025 14:58:10.678] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, 21.0.167, --assetIndex, asset-index, --assetsDir, C:\Users\reeta\.gradle\caches\minecraft\assets\1.21, --gameDir, ., --fml.neoForgeVersion, 21.0.167, --fml.fmlVersion, 4.0.23, --fml.mcVersion, 1.21, --fml.neoFormVersion, 20240613.152323]
-[22Feb2025 14:58:10.682] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.4+7-LTS
-[22Feb2025 14:58:10.685] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.4 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[22Feb2025 14:58:10.913] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
-[22Feb2025 14:58:11.071] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
-[22Feb2025 14:58:11.246] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
-[22Feb2025 14:58:11.429] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.6 Source=union:/C:/Users/reeta/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.14.0+mixin.0.8.6/c265173c84346e9e5d42a2384b2b02bd39a4a899/sponge-mixin-0.14.0+mixin.0.8.6.jar%23135!/ Service=ModLauncher Env=CLIENT
-[22Feb2025 14:58:11.664] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) Iris(R) Xe Graphics GL version 4.6.0 - Build 31.0.101.5186, Intel
-[22Feb2025 14:58:11.733] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: neoforge devenv provider ([C:\Users\reeta\Desktop\Borealis\Borealis-Mod\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.0.167\neoforge-21.0.167.jar])]
-[22Feb2025 14:58:11.758] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: neoforge devenv provider ([C:\Users\reeta\Desktop\Borealis\Borealis-Mod\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.0.167\neoforge-21.0.167.jar])]
-[22Feb2025 14:58:11.782] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "main" [locator: userdev mods and services, reader: mod manifest]
-[22Feb2025 14:58:11.807] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: userdev mods and services, reader: mod manifest]
-[22Feb2025 14:58:11.851] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.3.5.jar" [locator: userdev mods and services, reader: mod manifest]
-[22Feb2025 14:58:12.193] [main/WARN] [net.neoforged.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: mixinextras-neoforge-0.3.5.jar. Using Mod File: C:\Users\reeta\.gradle\caches\modules-2\files-2.1\io.github.llamalad7\mixinextras-neoforge\0.3.5\ef3ffcf309dae656517b2f120189b1c9b21737dd\mixinextras-neoforge-0.3.5.jar
-[22Feb2025 14:58:12.194] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[22Feb2025 14:58:12.494] [main/INFO] [net.neoforged.fml.loading.FMLServiceProvider/CORE]: Loading coremod script-engine for [neoforge]
-[22Feb2025 14:58:13.954] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, 21.0.167, --gameDir, ., --assetsDir, C:\Users\reeta\.gradle\caches\minecraft\assets\1.21, --assetIndex, asset-index]
-[22Feb2025 14:58:16.472] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 458 milliseconds
-[22Feb2025 14:58:16.776] [pool-7-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.5).
-[22Feb2025 14:58:26.351] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[22Feb2025 14:58:26.356] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
-[22Feb2025 14:58:26.369] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[22Feb2025 14:58:26.375] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[22Feb2025 14:58:26.381] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[22Feb2025 14:58:26.864] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/reeta/Desktop/Borealis/Borealis-Mod/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.0.167/neoforge-21.0.167.jar%23189!/assets/.mcassetsroot' uses unexpected schema
-[22Feb2025 14:58:26.865] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/reeta/Desktop/Borealis/Borealis-Mod/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.0.167/neoforge-21.0.167.jar%23189!/data/.mcassetsroot' uses unexpected schema
-[22Feb2025 14:58:26.958] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[22Feb2025 14:58:26.997] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[22Feb2025 14:58:27.277] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5
-[22Feb2025 14:58:27.901] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.0.167, for MC 1.21
-[22Feb2025 14:58:30.176] [Render thread/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: []
-[22Feb2025 14:58:30.749] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, mod/borealis, mod/neoforge
-[22Feb2025 14:58:30.996] [Worker-Main-4/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
-[22Feb2025 14:58:31.160] [Worker-Main-8/ERROR] [net.minecraft.Util/]: Invalid path in pack: borealis:textures/block/brumeliad draft.png, ignoring
-[22Feb2025 14:58:31.339] [Worker-Main-2/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
-[22Feb2025 14:58:31.822] [Worker-Main-2/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture borealis:item/hailstone with size 15x17 limits mip level from 4 to 0
-[22Feb2025 14:58:33.316] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=south,lit=false'
-[22Feb2025 14:58:33.317] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=west,lit=false'
-[22Feb2025 14:58:33.318] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=north,lit=true'
-[22Feb2025 14:58:33.319] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=north,lit=false'
-[22Feb2025 14:58:33.319] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=west,lit=true'
-[22Feb2025 14:58:33.320] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=east,lit=false'
-[22Feb2025 14:58:33.320] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=east,lit=true'
-[22Feb2025 14:58:33.320] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=south,lit=true'
-[22Feb2025 14:58:33.331] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'borealis:item/kiln' referenced from: borealis:item/kiln: java.io.FileNotFoundException: borealis:models/item/kiln.json
-[22Feb2025 14:58:34.945] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='Hailstone echoes', args=[]} for sound event: borealis:weather.hailstone_fall
-[22Feb2025 14:58:34.947] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[22Feb2025 14:58:34.948] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[22Feb2025 14:58:37.076] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Speaker (Realtek(R) Audio)
-[22Feb2025 14:58:37.077] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[22Feb2025 14:58:37.164] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[22Feb2025 14:58:37.246] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[22Feb2025 14:58:37.249] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[22Feb2025 14:58:37.256] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[22Feb2025 14:58:37.264] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[22Feb2025 14:58:37.311] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[22Feb2025 14:58:37.313] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[22Feb2025 14:58:37.315] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[22Feb2025 14:58:37.316] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[22Feb2025 14:58:37.373] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
-[22Feb2025 14:58:37.385] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
-[22Feb2025 14:58:37.389] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[22Feb2025 14:58:37.393] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
-[22Feb2025 14:58:37.396] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
-[22Feb2025 14:58:37.466] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[22Feb2025 14:59:21.741] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1381 recipes
-[22Feb2025 14:59:22.071] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1501 advancements
-[22Feb2025 14:59:22.596] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.21
-[22Feb2025 14:59:22.597] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[22Feb2025 14:59:23.993] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[22Feb2025 14:59:24.507] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[22Feb2025 14:59:24.531] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[22Feb2025 14:59:24.793] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 772 ms
-[22Feb2025 14:59:24.796] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
-[22Feb2025 14:59:25.000] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
-[22Feb2025 14:59:25.000] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
-[22Feb2025 14:59:26.157] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:9bea223b] logged in with entity id 114 at (-640.790858402945, 416.0, -622.0779852074569)
-[22Feb2025 14:59:26.243] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
-[22Feb2025 14:59:26.551] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 15 advancements
-[22Feb2025 14:59:27.145] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[22Feb2025 14:59:27.188] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[hss]'/minecraft:overworld
-[22Feb2025 14:59:27.227] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[hss]'/borealis:borealis
-[22Feb2025 14:59:27.244] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[hss]'/minecraft:the_nether
-[22Feb2025 14:59:27.256] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[hss]'/minecraft:the_end
-[22Feb2025 14:59:37.094] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Disconnected
-[22Feb2025 14:59:37.094] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
-[22Feb2025 14:59:37.125] [Server thread/INFO] [net.minecraft.server.network.ServerCommonPacketListenerImpl/]: Stopping singleplayer server as player logged out
-[22Feb2025 14:59:37.156] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[22Feb2025 14:59:37.156] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[22Feb2025 14:59:37.156] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
-[22Feb2025 14:59:38.938] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[hss]'/minecraft:overworld
-[22Feb2025 14:59:39.003] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[hss]'/borealis:borealis
-[22Feb2025 14:59:39.699] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[hss]'/minecraft:the_nether
-[22Feb2025 14:59:39.710] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[hss]'/minecraft:the_end
-[22Feb2025 14:59:39.744] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (hss): All chunks are saved
-[22Feb2025 14:59:39.744] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (borealis): All chunks are saved
-[22Feb2025 14:59:39.744] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[22Feb2025 14:59:39.744] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[22Feb2025 14:59:39.744] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
-[22Feb2025 15:00:06.854] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1381 recipes
-[22Feb2025 15:00:06.897] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1501 advancements
-[22Feb2025 15:00:13.339] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.21
-[22Feb2025 15:00:13.339] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[22Feb2025 15:00:16.654] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[22Feb2025 15:00:16.685] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
-[22Feb2025 15:00:17.452] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
-[22Feb2025 15:00:17.728] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
-[22Feb2025 15:00:18.185] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
-[22Feb2025 15:00:18.672] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
-[22Feb2025 15:00:19.166] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
-[22Feb2025 15:00:19.666] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 20%
-[22Feb2025 15:00:20.167] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 51%
-[22Feb2025 15:00:20.668] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 51%
-[22Feb2025 15:00:20.996] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
-[22Feb2025 15:00:20.997] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 4331 ms
-[22Feb2025 15:00:21.001] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
-[22Feb2025 15:00:21.002] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
-[22Feb2025 15:00:21.592] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:ff6c648a] logged in with entity id 136 at (3.5, 64.0, -2.5)
-[22Feb2025 15:00:21.619] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
-[22Feb2025 15:00:21.694] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 2 advancements
-[22Feb2025 15:00:22.056] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[22Feb2025 15:00:22.418] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:overworld
-[22Feb2025 15:00:22.433] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/borealis:borealis
-[22Feb2025 15:00:22.445] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:the_nether
-[22Feb2025 15:00:22.456] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:the_end
-[22Feb2025 15:00:36.011] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
-[22Feb2025 15:00:36.032] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Spectator Mode
-[22Feb2025 15:00:39.251] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev has made the advancement [Enter Borealis]
-[22Feb2025 15:00:39.254] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to 0.875000, 319.000000, -0.625000]
-[22Feb2025 15:00:39.714] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Dev has made the advancement [Enter Borealis]
-[22Feb2025 15:00:39.715] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported Dev to 0.875000, 319.000000, -0.625000
-[22Feb2025 15:00:40.692] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 12 advancements
-[22Feb2025 15:00:43.147] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[22Feb2025 15:00:43.164] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:overworld
-[22Feb2025 15:00:43.211] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/borealis:borealis
-[22Feb2025 15:00:43.219] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:the_nether
-[22Feb2025 15:00:43.225] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:the_end
-[22Feb2025 15:03:01.292] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
-[22Feb2025 15:03:01.300] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Creative Mode
-[22Feb2025 15:03:27.665] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set the time to 13000]
-[22Feb2025 15:03:27.666] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set the time to 13000
-[22Feb2025 15:04:01.797] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[22Feb2025 15:04:01.820] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:overworld
-[22Feb2025 15:04:01.841] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/borealis:borealis
-[22Feb2025 15:04:01.856] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:the_nether
-[22Feb2025 15:04:01.869] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:the_end
+[22Feb2025 19:18:16.649] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, 21.0.167, --assetIndex, asset-index, --assetsDir, C:\Users\reeta\.gradle\caches\minecraft\assets\1.21, --gameDir, ., --fml.neoForgeVersion, 21.0.167, --fml.fmlVersion, 4.0.23, --fml.mcVersion, 1.21, --fml.neoFormVersion, 20240613.152323]
+[22Feb2025 19:18:16.652] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.4+7-LTS
+[22Feb2025 19:18:16.657] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.4 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[22Feb2025 19:18:16.862] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[22Feb2025 19:18:16.997] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[22Feb2025 19:18:17.142] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[22Feb2025 19:18:17.354] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.6 Source=union:/C:/Users/reeta/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.14.0+mixin.0.8.6/c265173c84346e9e5d42a2384b2b02bd39a4a899/sponge-mixin-0.14.0+mixin.0.8.6.jar%23135!/ Service=ModLauncher Env=CLIENT
+[22Feb2025 19:18:17.492] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) Iris(R) Xe Graphics GL version 4.6.0 - Build 31.0.101.5186, Intel
+[22Feb2025 19:18:17.612] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: neoforge devenv provider ([C:\Users\reeta\Desktop\Borealis\Borealis-Mod\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.0.167\neoforge-21.0.167.jar])]
+[22Feb2025 19:18:17.649] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: neoforge devenv provider ([C:\Users\reeta\Desktop\Borealis\Borealis-Mod\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.0.167\neoforge-21.0.167.jar])]
+[22Feb2025 19:18:17.698] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "main" [locator: userdev mods and services, reader: mod manifest]
+[22Feb2025 19:18:17.718] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.0.167.jar" [locator: userdev mods and services, reader: mod manifest]
+[22Feb2025 19:18:17.754] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.3.5.jar" [locator: userdev mods and services, reader: mod manifest]
+[22Feb2025 19:18:18.077] [main/WARN] [net.neoforged.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: mixinextras-neoforge-0.3.5.jar. Using Mod File: C:\Users\reeta\.gradle\caches\modules-2\files-2.1\io.github.llamalad7\mixinextras-neoforge\0.3.5\ef3ffcf309dae656517b2f120189b1c9b21737dd\mixinextras-neoforge-0.3.5.jar
+[22Feb2025 19:18:18.077] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[22Feb2025 19:18:18.301] [main/INFO] [net.neoforged.fml.loading.FMLServiceProvider/CORE]: Loading coremod script-engine for [neoforge]
+[22Feb2025 19:18:19.578] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, 21.0.167, --gameDir, ., --assetsDir, C:\Users\reeta\.gradle\caches\minecraft\assets\1.21, --assetIndex, asset-index]
+[22Feb2025 19:18:21.419] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 349 milliseconds
+[22Feb2025 19:18:21.670] [pool-7-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.5).
+[22Feb2025 19:18:26.676] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[22Feb2025 19:18:26.677] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[22Feb2025 19:18:26.679] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[22Feb2025 19:18:26.680] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[22Feb2025 19:18:26.681] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[22Feb2025 19:18:26.817] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/reeta/Desktop/Borealis/Borealis-Mod/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.0.167/neoforge-21.0.167.jar%23189!/assets/.mcassetsroot' uses unexpected schema
+[22Feb2025 19:18:26.817] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/reeta/Desktop/Borealis/Borealis-Mod/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.0.167/neoforge-21.0.167.jar%23189!/data/.mcassetsroot' uses unexpected schema
+[22Feb2025 19:18:26.851] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[22Feb2025 19:18:26.865] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[22Feb2025 19:18:27.032] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5
+[22Feb2025 19:18:27.363] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.0.167, for MC 1.21
+[22Feb2025 19:18:28.346] [Render thread/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: []
+[22Feb2025 19:18:28.568] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, mod/borealis, mod/neoforge
+[22Feb2025 19:18:28.747] [Worker-Main-3/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
+[22Feb2025 19:18:28.750] [Worker-Main-9/ERROR] [net.minecraft.Util/]: Invalid path in pack: borealis:textures/block/brumeliad draft.png, ignoring
+[22Feb2025 19:18:28.979] [Worker-Main-7/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
+[22Feb2025 19:18:29.136] [Worker-Main-9/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture borealis:item/hailstone with size 15x17 limits mip level from 4 to 0
+[22Feb2025 19:18:29.920] [Worker-Main-11/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=south,lit=false'
+[22Feb2025 19:18:29.920] [Worker-Main-11/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=west,lit=false'
+[22Feb2025 19:18:29.920] [Worker-Main-11/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=north,lit=true'
+[22Feb2025 19:18:29.920] [Worker-Main-11/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=north,lit=false'
+[22Feb2025 19:18:29.921] [Worker-Main-11/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=west,lit=true'
+[22Feb2025 19:18:29.921] [Worker-Main-11/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=east,lit=false'
+[22Feb2025 19:18:29.921] [Worker-Main-11/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=east,lit=true'
+[22Feb2025 19:18:29.921] [Worker-Main-11/WARN] [net.minecraft.client.resources.model.BlockStateModelLoader/]: Exception loading blockstate definition: 'borealis:blockstates/kiln.json' missing model for variant: 'borealis:kiln#facing=south,lit=true'
+[22Feb2025 19:18:29.926] [Worker-Main-11/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'borealis:item/kiln' referenced from: borealis:item/kiln: java.io.FileNotFoundException: borealis:models/item/kiln.json
+[22Feb2025 19:18:30.646] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='Hailstone echoes', args=[]} for sound event: borealis:weather.hailstone_fall
+[22Feb2025 19:18:30.646] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[22Feb2025 19:18:30.646] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[22Feb2025 19:18:32.190] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Speaker (Realtek(R) Audio)
+[22Feb2025 19:18:32.191] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[22Feb2025 19:18:32.265] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[22Feb2025 19:18:32.324] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[22Feb2025 19:18:32.326] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[22Feb2025 19:18:32.328] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[22Feb2025 19:18:32.331] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[22Feb2025 19:18:32.370] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[22Feb2025 19:18:32.372] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[22Feb2025 19:18:32.374] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[22Feb2025 19:18:32.377] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[22Feb2025 19:18:32.445] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[22Feb2025 19:18:32.453] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[22Feb2025 19:18:32.456] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[22Feb2025 19:18:32.457] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[22Feb2025 19:18:32.459] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[22Feb2025 19:18:32.534] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[22Feb2025 19:20:55.405] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1381 recipes
+[22Feb2025 19:20:55.548] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1501 advancements
+[22Feb2025 19:20:55.907] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.21
+[22Feb2025 19:20:55.907] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[22Feb2025 19:20:57.090] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[22Feb2025 19:20:57.402] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[22Feb2025 19:20:57.489] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[22Feb2025 19:20:57.501] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 400 ms
+[22Feb2025 19:20:57.621] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
+[22Feb2025 19:20:57.622] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
+[22Feb2025 19:20:58.741] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:e0694e38] logged in with entity id 30 at (198.6307941544539, 421.47621379964437, -1229.8853161356108)
+[22Feb2025 19:20:58.842] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[22Feb2025 19:20:59.071] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 12 advancements
+[22Feb2025 19:21:00.698] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[22Feb2025 19:21:00.741] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:overworld
+[22Feb2025 19:21:00.774] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/borealis:borealis
+[22Feb2025 19:21:00.787] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:the_end
+[22Feb2025 19:21:00.800] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[less mountaisn 1]'/minecraft:the_nether
+[22Feb2025 19:21:08.580] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Survival Mode]
+[22Feb2025 19:21:08.651] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Survival Mode

@@ -16,11 +16,9 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
@@ -33,6 +31,8 @@ public class BorealisMod {
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final int MIN_HEIGHT = 256;
     public static final int HEIGHT = 256;
+    public static final float HUNGER_FACTOR = 1/2.0F;
+    public static final float FALL_FACTOR = 2/3.0F;
 
     public BorealisMod(IEventBus bus) {
 

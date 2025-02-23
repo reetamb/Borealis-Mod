@@ -213,7 +213,7 @@ public class FluoriteFrame {
             Optional<Vec3> optional1 = optional.map((p_259019_) -> {
                 return p_259019_.subtract(0.0, d0, 0.0);
             });
-            return (Vec3)optional1.orElse(pPos);
+            return optional1.orElse(pPos);
         } else {
             return pPos;
         }

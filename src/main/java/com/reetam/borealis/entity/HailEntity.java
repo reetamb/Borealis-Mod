@@ -44,7 +44,7 @@ public class HailEntity extends FallingBlockEntity {
 
     public static HailEntity fall(Level pLevel, BlockPos pPos) {
         BlockState pBlockState = BorealisBlocks.HAILSTONE.get().defaultBlockState();
-        HailEntity hail = new HailEntity(pLevel, (double)pPos.getX() + 0.5, (double)pPos.getY(), (double)pPos.getZ() + 0.5, pBlockState.hasProperty(BlockStateProperties.WATERLOGGED) ? (BlockState)pBlockState.setValue(BlockStateProperties.WATERLOGGED, false) : pBlockState);
+        HailEntity hail = new HailEntity(pLevel, (double)pPos.getX() + 0.5, pPos.getY(), (double)pPos.getZ() + 0.5, pBlockState.hasProperty(BlockStateProperties.WATERLOGGED) ? pBlockState.setValue(BlockStateProperties.WATERLOGGED, false) : pBlockState);
         pLevel.setBlock(pPos, pBlockState.getFluidState().createLegacyBlock(), 3);
         pLevel.addFreshEntity(hail);
         return hail;

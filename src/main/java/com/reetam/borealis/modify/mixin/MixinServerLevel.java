@@ -30,7 +30,6 @@ public class MixinServerLevel {
         BlockPos hailPos;
         if (level.isRaining() && level.isThundering() && biome.shouldSnow(level, pos) && level.random.nextInt(300000 / randomTickSpeed) == 0) {
             hailPos = new BlockPos(pos.getX(), level.getMaxBuildHeight(), pos.getZ());
-            BorealisMod.LOGGER.error("Hailstone fell at " + hailPos);
             HailEntity hail = HailEntity.fall(level, hailPos);
             hail.setStartPos(hailPos);
             level.addFreshEntity(hail);

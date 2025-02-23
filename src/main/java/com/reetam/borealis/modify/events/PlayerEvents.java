@@ -51,6 +51,6 @@ public class PlayerEvents {
 
     public static void reducedFallDamageEvent(LivingFallEvent event) {
         if (event.getEntity().level().dimension() != BorealisDimensions.BOREALIS) return;
-        event.setDistance(event.getDistance() / 2);
+        event.setDistance(event.getDistance() * BorealisMod.FALL_FACTOR);
     }
 }
