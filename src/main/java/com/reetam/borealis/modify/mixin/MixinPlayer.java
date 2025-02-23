@@ -2,7 +2,6 @@ package com.reetam.borealis.modify.mixin;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.world.BorealisDimensions;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;

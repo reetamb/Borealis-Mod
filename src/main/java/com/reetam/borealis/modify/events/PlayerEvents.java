@@ -3,7 +3,6 @@ package com.reetam.borealis.modify.events;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.world.BorealisDimensions;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
