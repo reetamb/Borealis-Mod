@@ -53,7 +53,6 @@ public class HummingbirdEntity extends Animal implements FlyingAnimal {
                 .add(Attributes.FLYING_SPEED, 0.6F)
                 .add(Attributes.MOVEMENT_SPEED, 0.3F)
                 .add(Attributes.FOLLOW_RANGE, 48.0D);
-
     }
 
     public static boolean checkHummingbirdSpawnRules(EntityType<? extends Animal> animal, LevelAccessor level, MobSpawnType reason, BlockPos pos, Random random) {

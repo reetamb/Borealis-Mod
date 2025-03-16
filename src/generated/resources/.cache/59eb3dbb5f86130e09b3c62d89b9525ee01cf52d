@@ -1,4 +1,4 @@
-// 1.21	2025-02-22T11:50:33.5543566	Loot Tables
+// 1.21	2025-03-15T20:27:13.9440236	Loot Tables
 86e2863b65e7ea5c62dc84dd96dbcecb36924fc3 data/borealis/loot_table/blocks/alms.json
 51ddf82787e7a3e73e5120b7114515d4170a0f9e data/borealis/loot_table/blocks/bone_dry_wood.json
 6a9e25663e1a6e1e7cab8c16966dbbae53113635 data/borealis/loot_table/blocks/bone_dry_wood_bricks.json
@@ -111,3 +111,4 @@ a2fd30582790c1e57a7ed5f7f64cd175e1a9aff0 data/borealis/loot_table/blocks/winter_
 5a1870d4732ac93163c8dac3620ec98b6eec5a2b data/borealis/loot_table/entities/hummingbird.json
 4d0dcbe3621197124e6be6ef3cdbce3e87f6d775 data/borealis/loot_table/entities/takahe.json
 d93b14778b750eec3debaeed738e03fc2a68ebe9 data/borealis/loot_table/entities/thrusher.json
+d00047d81f84b39387286a2f08175d886016b4c5 data/borealis/loot_table/entities/tuber.json

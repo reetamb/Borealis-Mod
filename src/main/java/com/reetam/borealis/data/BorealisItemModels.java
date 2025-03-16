@@ -139,6 +139,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         egg(BorealisItems.HUMMINGBIRD_SPAWN_EGG);
         egg(BorealisItems.TAKAHE_SPAWN_EGG);
         egg(BorealisItems.THRUSHER_SPAWN_EGG);
+        egg(BorealisItems.TUBER_SPAWN_EGG);
         normalItem(BorealisItems.HAT);
         normalItem(BorealisItems.TANZANITE);
         normalItem(BorealisItems.BRUMAL_BOAT);

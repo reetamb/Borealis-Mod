@@ -43,6 +43,11 @@ public class BorealisItems {
     public static final DeferredHolder<Item, SpawnEggItem> THRUSHER_SPAWN_EGG = ITEMS.register(
             "thrusher_spawn_egg", () -> new SpawnEggItem(BorealisEntities.THRUSHER.get(),
                     0xD8EBFF, 0x32749E, new Item.Properties()));
+    public static final DeferredHolder<Item, SpawnEggItem> TUBER_SPAWN_EGG = ITEMS.register(
+            "tuber_spawn_egg", () -> new SpawnEggItem(BorealisEntities.TUBER.get(),
+                    0x381D1D, 0x5A071D, new Item.Properties()));
+
+
 
     public static final DeferredHolder<Item, Item> HAT = ITEMS.register("hat", () -> new HatItem(new Item.Properties().stacksTo(1)));
 
