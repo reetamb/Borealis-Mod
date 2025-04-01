@@ -66,7 +66,7 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, Block> KAOLIN = registerBlock("kaolin", () -> new KaolinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE_POWDER).speedFactor(0.85F)));
     public static final DeferredHolder<Block, Block> GYPSUM = registerBlock("gypsum", () -> new SolubleBlock(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_WHITE), BorealisBlocks.KAOLIN.get().defaultBlockState()));
 
-    public static final DeferredHolder<Block, RotatedPillarBlock> BONE_DRY_WOOD = registerBlock("bone_dry_wood", () -> new RotatedPillarBlock(Template.petrifiedWood().mapColor(MapColor.SAND)));
+    public static final DeferredHolder<Block, BoneDryWood> BONE_DRY_WOOD = registerBlock("bone_dry_wood", () -> new BoneDryWood(Template.petrifiedWood().mapColor(MapColor.SAND)));
     public static final DeferredHolder<Block, Block> BONE_DRY_WOOD_BRICKS = registerBlock("bone_dry_wood_bricks", () -> new Block(Template.petrifiedWood().mapColor(MapColor.SAND)));
     public static final DeferredHolder<Block, PetrifiedBarkBlock> PETRIFIED_WOOD = registerBlock("petrified_wood", () -> new PetrifiedBarkBlock(BorealisBlocks.BONE_DRY_WOOD.get(), Template.petrifiedWood()));
     public static final DeferredHolder<Block, Block> PETRIFIED_WOOD_BRICKS = registerBlock("petrified_wood_bricks", () -> new Block(Template.petrifiedWood()));
@@ -158,6 +158,7 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, ShadedDoublePlantBlock> WINTER_CELLO = registerBlock("winter_cello", () -> new ShadedDoublePlantBlock(Template.plant(), BlockTags.DIRT));
     public static final DeferredHolder<Block, AlmsBlock> ALMS = registerBlock("alms", () -> new AlmsBlock(Template.petrifiedWood().mapColor(MapColor.DIRT)));
     public static final DeferredHolder<Block, AlmsCrackedBlock> CRACKED_ALMS = registerBlock("cracked_alms", () -> new AlmsCrackedBlock(Template.petrifiedWood().mapColor(MapColor.GOLD)));
+    public static final DeferredHolder<Block, MarrowBlock> MARROW = registerBlock("marrow", () -> new MarrowBlock(Template.plant().sound(SoundType.STONE).mapColor(MapColor.TERRACOTTA_RED)));
 
     public static final DeferredHolder<Block, Block> CINNABAR = registerBlock("cinnabar", () -> new Block(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_MAGENTA)));
 

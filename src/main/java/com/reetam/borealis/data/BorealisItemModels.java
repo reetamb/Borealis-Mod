@@ -77,6 +77,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.ALMS_NUT);
         itemBlock(BorealisBlocks.ALMS);
         itemBlock(BorealisBlocks.CRACKED_ALMS);
+        itemBlockFlat(BorealisBlocks.MARROW, "item/marrow");
 
         itemBlock(BorealisBlocks.SWEETWOOD_PLANKS);
         itemBlock(BorealisBlocks.SWEETWOOD_LOG);

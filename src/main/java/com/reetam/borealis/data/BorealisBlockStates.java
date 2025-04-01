@@ -112,6 +112,39 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
                 .partialState().with(AlmsCrackedBlock.EMPTY, false).modelForState().modelFile(this.models().cube("cracked_alms", texture("alms_top"), texture("cracked_alms_top"), texture("alms_end"), texture("alms_end"), texture("cracked_alms_side"), texture("cracked_alms_side")).texture("particle", texture("alms_side"))).addModel()
                 .partialState().with(AlmsCrackedBlock.EMPTY, true).modelForState().modelFile(this.models().cube("alms_shell", texture("alms_top"), texture("alms_shell_top"), texture("alms_end"), texture("alms_end"), texture("alms_shell_side"), texture("alms_shell_side")).texture("particle", texture("alms_side"))).addModel();
 
+        getVariantBuilder(BorealisBlocks.MARROW.get())
+                .forAllStates((state) -> {
+                    String shape = state.getValue(MarrowBlock.SHAPE).getSerializedName();
+                    if (state.getValue(MarrowBlock.TOP)) {
+                        return ConfiguredModel.builder()
+                                .modelFile(this.models()
+                                        .withExistingParent("marrow_" + shape + "_pool", modLoc("marrow_pool"))
+                                        .texture("vine", texture("marrow_" + (shape.equals("solo") ? "source" : shape.equals("end") ? "middle" : shape)))
+                                        .texture("pool", texture("marrow_end"))
+                                        .texture("particle", texture("marrow_solo")))
+                                .rotationY((int) state.getValue(MarrowBlock.FACING).toYRot())
+                                .build();
+                    }
+                    return ConfiguredModel.builder()
+                            .modelFile(this.models()
+                                    .withExistingParent("marrow_" + shape, "vine")
+                                    .texture("vine", texture("marrow_" + shape))
+                                    .texture("particle", texture("marrow_solo")))
+                            .rotationY((int) state.getValue(MarrowBlock.FACING).toYRot())
+                            .build();
+                });
+
+
+
+         /* .partialState().with(MarrowBlock.SHAPE, MarrowShape.SOLO).modelForState().modelFile(this.models().withExistingParent("marrow_solo", "vine").texture("vine", texture("marrow_solo"))).addModel()
+                .partialState().with(MarrowBlock.SHAPE, MarrowShape.END).modelForState().modelFile(this.models().withExistingParent("marrow_end", "vine").texture("vine", texture("marrow_end"))).addModel()
+                .partialState().with(MarrowBlock.SHAPE, MarrowShape.MIDDLE).modelForState().modelFile(this.models().withExistingParent("marrow_middle", "vine").texture("vine", texture("marrow_middle"))).addModel()
+                .partialState().with(MarrowBlock.SHAPE, MarrowShape.SOURCE).modelForState().modelFile(this.models().withExistingParent("marrow_source", "vine").texture("vine", texture("marrow_source"))).addModel()
+                .forAllStates((state) -> {
+
+                });*/
+        // THIS NEEDS TO ROTATE TOO
+
         block(BorealisBlocks.BOREALIS_PORTAL);
         logBlock(BorealisBlocks.KYANITE_FLAGSTONE.get());
         block(BorealisBlocks.LICHEN_BLOCK);

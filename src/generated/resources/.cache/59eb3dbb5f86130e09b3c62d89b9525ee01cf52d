@@ -1,4 +1,4 @@
-// 1.21	2025-03-15T20:27:13.9440236	Loot Tables
+// 1.21	2025-03-30T23:04:31.4678187	Loot Tables
 86e2863b65e7ea5c62dc84dd96dbcecb36924fc3 data/borealis/loot_table/blocks/alms.json
 51ddf82787e7a3e73e5120b7114515d4170a0f9e data/borealis/loot_table/blocks/bone_dry_wood.json
 6a9e25663e1a6e1e7cab8c16966dbbae53113635 data/borealis/loot_table/blocks/bone_dry_wood_bricks.json
@@ -51,6 +51,7 @@ b6a76f2efa931d036d2dedd2a03315ffad808e69 data/borealis/loot_table/blocks/kyanite
 a57261fdacef78d3fe20ae61208a9cbf7b451e23 data/borealis/loot_table/blocks/kyanite_flagstone.json
 d6bb0468b0e39a8244abb06648122e0a26b328d5 data/borealis/loot_table/blocks/kyanite_ore.json
 ee9e7b74c8088e806d7b29713b92c4168ea70290 data/borealis/loot_table/blocks/lichen_block.json
+38f7a4c93bb0946d80252f73da6461d67759f05e data/borealis/loot_table/blocks/marrow.json
 8679c5e9ebc4894244430042826687de446e1d41 data/borealis/loot_table/blocks/misteria.json
 09608877b0b790607addb2f4ae0523e2e920408c data/borealis/loot_table/blocks/misteria_plant.json
 d2547e90036c86646f8997a1fc8c3dfba4ce145a data/borealis/loot_table/blocks/peat.json

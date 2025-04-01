@@ -1,0 +1,8 @@
+{
+  "parent": "borealis:block/marrow_pool",
+  "textures": {
+    "particle": "borealis:block/marrow_solo",
+    "pool": "borealis:block/marrow_end",
+    "vine": "borealis:block/marrow_middle"
+  }
+}
