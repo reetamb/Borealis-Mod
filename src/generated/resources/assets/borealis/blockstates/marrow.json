@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "facing=east,shape=end,top=false": {
+      "model": "borealis:block/marrow_end",
+      "y": 270
+    },
+    "facing=east,shape=end,top=true": {
+      "model": "borealis:block/marrow_end_pool",
+      "y": 270
+    },
+    "facing=east,shape=middle,top=false": {
+      "model": "borealis:block/marrow_middle",
+      "y": 270
+    },
+    "facing=east,shape=middle,top=true": {
+      "model": "borealis:block/marrow_middle_pool",
+      "y": 270
+    },
+    "facing=east,shape=solo,top=false": {
+      "model": "borealis:block/marrow_solo",
+      "y": 270
+    },
+    "facing=east,shape=solo,top=true": {
+      "model": "borealis:block/marrow_solo_pool",
+      "y": 270
+    },
+    "facing=east,shape=source,top=false": {
+      "model": "borealis:block/marrow_source",
+      "y": 270
+    },
+    "facing=east,shape=source,top=true": {
+      "model": "borealis:block/marrow_source_pool",
+      "y": 270
+    },
+    "facing=north,shape=end,top=false": {
+      "model": "borealis:block/marrow_end",
+      "y": 180
+    },
+    "facing=north,shape=end,top=true": {
+      "model": "borealis:block/marrow_end_pool",
+      "y": 180
+    },
+    "facing=north,shape=middle,top=false": {
+      "model": "borealis:block/marrow_middle",
+      "y": 180
+    },
+    "facing=north,shape=middle,top=true": {
+      "model": "borealis:block/marrow_middle_pool",
+      "y": 180
+    },
+    "facing=north,shape=solo,top=false": {
+      "model": "borealis:block/marrow_solo",
+      "y": 180
+    },
+    "facing=north,shape=solo,top=true": {
+      "model": "borealis:block/marrow_solo_pool",
+      "y": 180
+    },
+    "facing=north,shape=source,top=false": {
+      "model": "borealis:block/marrow_source",
+      "y": 180
+    },
+    "facing=north,shape=source,top=true": {
+      "model": "borealis:block/marrow_source_pool",
+      "y": 180
+    },
+    "facing=south,shape=end,top=false": {
+      "model": "borealis:block/marrow_end"
+    },
+    "facing=south,shape=end,top=true": {
+      "model": "borealis:block/marrow_end_pool"
+    },
+    "facing=south,shape=middle,top=false": {
+      "model": "borealis:block/marrow_middle"
+    },
+    "facing=south,shape=middle,top=true": {
+      "model": "borealis:block/marrow_middle_pool"
+    },
+    "facing=south,shape=solo,top=false": {
+      "model": "borealis:block/marrow_solo"
+    },
+    "facing=south,shape=solo,top=true": {
+      "model": "borealis:block/marrow_solo_pool"
+    },
+    "facing=south,shape=source,top=false": {
+      "model": "borealis:block/marrow_source"
+    },
+    "facing=south,shape=source,top=true": {
+      "model": "borealis:block/marrow_source_pool"
+    },
+    "facing=west,shape=end,top=false": {
+      "model": "borealis:block/marrow_end",
+      "y": 90
+    },
+    "facing=west,shape=end,top=true": {
+      "model": "borealis:block/marrow_end_pool",
+      "y": 90
+    },
+    "facing=west,shape=middle,top=false": {
+      "model": "borealis:block/marrow_middle",
+      "y": 90
+    },
+    "facing=west,shape=middle,top=true": {
+      "model": "borealis:block/marrow_middle_pool",
+      "y": 90
+    },
+    "facing=west,shape=solo,top=false": {
+      "model": "borealis:block/marrow_solo",
+      "y": 90
+    },
+    "facing=west,shape=solo,top=true": {
+      "model": "borealis:block/marrow_solo_pool",
+      "y": 90
+    },
+    "facing=west,shape=source,top=false": {
+      "model": "borealis:block/marrow_source",
+      "y": 90
+    },
+    "facing=west,shape=source,top=true": {
+      "model": "borealis:block/marrow_source_pool",
+      "y": 90
+    }
+  }
+}

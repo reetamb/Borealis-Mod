@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/vine",
+  "textures": {
+    "particle": "borealis:block/marrow_solo",
+    "vine": "borealis:block/marrow_end"
+  }
+}
