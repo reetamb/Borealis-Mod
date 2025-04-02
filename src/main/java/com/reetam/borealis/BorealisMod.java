@@ -44,6 +44,7 @@ public class BorealisMod {
         bus.addListener(BorealisFluids::registerFluidClient);
         bus.addListener(BorealisClient::registerDimensionRenderers);
         bus.addListener(BorealisEntities::registerEntityAttributes);
+        bus.addListener(BorealisCommon::spawnRestrictions);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::loadKyaniteArrowEvent);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::burnInAtmosphereEvent);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::reducedFallDamageEvent);

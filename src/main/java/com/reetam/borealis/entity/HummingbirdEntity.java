@@ -1,7 +1,7 @@
 package com.reetam.borealis.entity;
 
+import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -20,13 +20,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
-import java.util.Random;
 
 public class HummingbirdEntity extends Animal implements FlyingAnimal {
 
@@ -55,8 +53,9 @@ public class HummingbirdEntity extends Animal implements FlyingAnimal {
                 .add(Attributes.FOLLOW_RANGE, 48.0D);
     }
 
-    public static boolean checkHummingbirdSpawnRules(EntityType<? extends Animal> animal, LevelAccessor level, MobSpawnType reason, BlockPos pos, Random random) {
-        return level.getBlockState(pos.below()).getBlock() == Blocks.AIR && (pos.getY() >= 100 && pos.getY() < 120);
+
+    public static boolean spawningRules(EntityType<? extends Entity> entity, ServerLevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random) {
+        return true;
     }
 
     protected PathNavigation createNavigation(Level level) {

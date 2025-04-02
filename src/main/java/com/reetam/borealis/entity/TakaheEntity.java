@@ -7,7 +7,9 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -18,9 +20,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class TakaheEntity extends Animal {
     private static final EntityDataAccessor<Boolean> HAT = SynchedEntityData.defineId(
@@ -51,6 +53,10 @@ public class TakaheEntity extends Animal {
                 .add(Attributes.MOVEMENT_SPEED, 0.2F);
     }
 
+    public static boolean spawningRules(EntityType<? extends Entity> entity, ServerLevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random) {
+        return level.getBlockState(pos.below()).getBlock() == BorealisBlocks.FIRN.get();
+    }
+
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
@@ -74,9 +80,5 @@ public class TakaheEntity extends Animal {
     @Override
     public boolean isFood(ItemStack pStack) {
         return false;
-    }
-
-    public static boolean checkTakaheSpawnRules(EntityType<? extends Animal> animal, LevelAccessor level, MobSpawnType reason, BlockPos pos, Random random) {
-        return level.getBlockState(pos.below()).getBlock() == BorealisBlocks.FIRN.get();
     }
 }

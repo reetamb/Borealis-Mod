@@ -1,6 +1,11 @@
 package com.reetam.borealis;
 
+import com.reetam.borealis.entity.HummingbirdEntity;
+import com.reetam.borealis.entity.TakaheEntity;
+import com.reetam.borealis.entity.ThrusherEntity;
+import com.reetam.borealis.entity.TuberEntity;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.core.BlockPos;
@@ -8,22 +13,32 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -117,5 +132,27 @@ public class BorealisCommon {
                 }
             }
         }
+    }
+
+    public static void spawnRestrictions(RegisterSpawnPlacementsEvent event) {
+        event.register(BorealisEntities.HUMMINGBIRD.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, HummingbirdEntity::spawningRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(BorealisEntities.TUBER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TuberEntity::spawningRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(BorealisEntities.THRUSHER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ThrusherEntity::spawningRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(BorealisEntities.TAKAHE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TakaheEntity::spawningRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+
+//        BorealisEntities.ENTITIES.getEntries().forEach((entityType) -> {
+//            if (entityType.get().getCategory() != MobCategory.MISC) {
+//                event.register(entityType.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+//                        (entity, level, reason, pos, random) -> {
+//                            try {
+//                                return (boolean) entityType.get().getBaseClass()
+//                                        .getMethod("spawningRules", EntityType.class, ServerLevelAccessor.class, MobSpawnType.class, BlockPos.class, RandomSource.class)
+//                                        .invoke(null, entity, level, reason, pos, random);
+//                            } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+//                                throw new RuntimeException(e);
+//                            }
+//                        }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+//            }
+//        });
     }
 }

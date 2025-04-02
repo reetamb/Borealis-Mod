@@ -16,6 +16,7 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -44,11 +45,6 @@ public class BorealisEntities {
                 () -> EntityType.Builder.of(of, MobCategory.CREATURE)
                         .sized(width, height).clientTrackingRange(10).build(name));
     }
-
-//    public static void registerSpawnPlacements() {
-//        SpawnPlacements.register(HUMMINGBIRD.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, HummingbirdEntity::checkHummingbirdSpawnRules);
-//        SpawnPlacements.register(TAKAHE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TakaheEntity::checkTakaheSpawnRules);
-//    }
 
     public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
         event.put(BorealisEntities.HUMMINGBIRD.get(), HummingbirdEntity.registerAttributes().build());

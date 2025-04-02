@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class QuicksilverFluid extends BaseFlowingFluid {
     public QuicksilverFluid(Properties properties) {
