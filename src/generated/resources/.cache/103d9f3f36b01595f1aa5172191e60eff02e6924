@@ -1,12 +1,12 @@
-// 1.21	2025-02-22T14:56:55.2573999	Registries
+// 1.21	2025-04-01T22:22:40.797617	Registries
 dd514248408ace548895189c512a3d8ba47d5915 data/borealis/dimension/borealis.json
 a9d2fb70e4744f85b3172f7ab3c4ac82fe5e402b data/borealis/dimension_type/borealis.json
-1dc587b1c1f0a919a21e58bef751d691b5386c31 data/borealis/worldgen/biome/boreal_tundra.json
-38dce6aff0b56ebe92cc4a68dc8eca0d1076bc1c data/borealis/worldgen/biome/brumal_grove.json
-fbccfad831e2652855ad78d590a99b5849f5753d data/borealis/worldgen/biome/frostfir_woods.json
+71589e6974ac1915ae7dea8b3ffaccf96cc6b73c data/borealis/worldgen/biome/boreal_tundra.json
+1ce2cf6aad2324841ff111a878010acaa63193a4 data/borealis/worldgen/biome/brumal_grove.json
+cbdf8cc9ced49890009b8cc2c07665f878d24d7e data/borealis/worldgen/biome/frostfir_woods.json
 893715eb2179f65a82cba07fe75b18cc190cd96b data/borealis/worldgen/biome/hot_spring_islands.json
 cd6e6b4a07a6f402c1e09f206a52a943986813bf data/borealis/worldgen/biome/ravaged_glacier.json
-7629cf1a492a023cf55de59e1fb542eb29149435 data/borealis/worldgen/biome/saccharine_hills.json
+585683b5053ec050fef7ec7d06fce6c2aba7c5df data/borealis/worldgen/biome/saccharine_hills.json
 99639b5015e08c48d5e4f27429bf9ed4e0ee1b88 data/borealis/worldgen/configured_feature/brumal_tree.json
 1ca281608cf9eb33138453209c386377332cbdf7 data/borealis/worldgen/configured_feature/brumal_tree_1.json
 05fc3d44432be6ce3cae78cc6788d6f1e78dea2c data/borealis/worldgen/configured_feature/brumal_tree_2.json

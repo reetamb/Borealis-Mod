@@ -42,7 +42,14 @@
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "borealis:takahe",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 100
+      }
+    ],
     "misc": [],
     "monster": [],
     "underground_water_creature": [],

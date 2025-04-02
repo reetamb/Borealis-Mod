@@ -50,7 +50,7 @@ public class BorealisBiomes {
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_TALL_GRASS)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL),
                 new MobSpawnSettings.Builder()
-                        .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(BorealisEntities.THRUSHER.get(), 8, 1, 3)),
+                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BorealisEntities.THRUSHER.get(), 8, 1, 3)),
                 10136810);
     }
     public static Biome brumalGrove(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
@@ -76,7 +76,8 @@ public class BorealisBiomes {
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_LARGE_FERN)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA),
-                new MobSpawnSettings.Builder(),
+                new MobSpawnSettings.Builder()
+                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BorealisEntities.TUBER.get(), 100, 2, 4)),
                 6193806);
     }
     public static Biome ravagedGlacier(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
@@ -140,7 +141,7 @@ public class BorealisBiomes {
                 .hasPrecipitation(precipitation)
                 .temperature(temperature)
                 .downfall(downfall)
-                .mobSpawnSettings(new MobSpawnSettings.Builder().build())
+                .mobSpawnSettings(spawning)
                 .specialEffects(effects)
                 .generationSettings(generationSettings)
                 .temperatureAdjustment(temperatureModifier)

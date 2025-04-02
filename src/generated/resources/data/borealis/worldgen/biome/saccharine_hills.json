@@ -40,7 +40,14 @@
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "borealis:hummingbird",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 100
+      }
+    ],
     "misc": [],
     "monster": [],
     "underground_water_creature": [],

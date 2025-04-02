@@ -77,7 +77,6 @@ public class BorealisMod {
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
-        BorealisEntities.registerSpawnPlacements();
         BorealisCommon.registerWoodTypes();
         BorealisCommon.registerDispenserBehaviors();
         BorealisCommon.registerFluidInteractions();
