@@ -2,6 +2,8 @@ package com.reetam.borealis.registry.world;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisFluids;
+import com.reetam.borealis.world.configuration.CoverTopLayerConfiguration;
 import com.reetam.borealis.world.tree.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -20,12 +22,9 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaPineFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 
@@ -40,7 +39,6 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_SPIKE_TRAIL = createKey("spike_trail");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_SPIRAL_CLOUD = createKey("spiral_cloud");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_CLOUD = createKey("cloud");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_SUGAR_SNOW = createKey("sugar_snow");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_SLATE_BOULDER = createKey("slate_boulder");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRUMAL_TREE = createKey("brumal_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRUMAL_TREE_1 = createKey("brumal_tree_1"); // root trunk, palm foliage, short
@@ -59,7 +57,7 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_TANZANITE_METEOR = createKey("tanzanite_meteor");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NATURAL_HAILSTONE = createKey("natural_hailstone");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUD_HAILSTONE = createKey("cloud_hailstone");
-
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ARCTIC_WILLOW = createKey("arctic_willow");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
@@ -72,7 +70,6 @@ public class BorealisConfiguredFeatures {
         register(context, CONFIGURED_SPIKE_TRAIL, BorealisFeatures.SPIKE_TRAIL.get(), FeatureConfiguration.NONE);
         register(context, CONFIGURED_SPIRAL_CLOUD, BorealisFeatures.SPIRAL_CLOUD.get(), FeatureConfiguration.NONE);
         register(context, CONFIGURED_CLOUD, BorealisFeatures.CLOUD.get(), FeatureConfiguration.NONE);
-        register(context, CONFIGURED_SUGAR_SNOW, BorealisFeatures.SUGAR_SNOW.get(), FeatureConfiguration.NONE);
         register(context, CONFIGURED_SLATE_BOULDER, Feature.FOREST_ROCK, new BlockStateConfiguration(BorealisBlocks.SLATE.get().defaultBlockState()));
         register(context, NATURAL_HAILSTONE, Feature.REPLACE_SINGLE_BLOCK, new ReplaceBlockConfiguration(Blocks.SNOW.getStateDefinition().any(), BorealisBlocks.HAILSTONE.get().defaultBlockState()));
         register(context, CLOUD_HAILSTONE, Feature.SCATTERED_ORE, new OreConfiguration(new BlockMatchTest(BorealisBlocks.CLOUD.get()), BorealisBlocks.HAILSTONE.get().defaultBlockState(), 1, 1.0F));
@@ -172,6 +169,7 @@ public class BorealisConfiguredFeatures {
                 BorealisBlocks.LICHEN_BLOCK.get().defaultBlockState(),
                 from(1, 2)
         ));
+        register(context, ARCTIC_WILLOW, BorealisFeatures.ARCTIC_WILLOW.get(), new CoverTopLayerConfiguration(with(BorealisBlocks.ARCTIC_WILLOW), context.lookup(Registries.BIOME).getOrThrow(BorealisBiomes.CRIMSON_TUNDRA)));
         register(context, KYANITE_CRYSTAL, BorealisFeatures.BERYL.get(), new BlockStateConfiguration(BorealisBlocks.KYANITE_ORE.get().defaultBlockState()));
         register(context, CONFIGURED_TANZANITE_METEOR, BorealisFeatures.TANZANITE_METEOR.get(), FeatureConfiguration.NONE);
     }

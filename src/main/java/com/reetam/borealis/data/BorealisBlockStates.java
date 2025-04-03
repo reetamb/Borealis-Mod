@@ -45,6 +45,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.PETRIFIED_WOOD);
         block(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
         block(BorealisBlocks.FIRN);
+        simpleBlock(BorealisBlocks.WILLOWY_FIRN.get(), this.models().cubeBottomTop("willowy_firn", texture("willowy_firn"), texture("firn"), texture("willowy_firn_top")));
         block(BorealisBlocks.SUGAR_SNOW_BLOCK);
         buttonBlock(BorealisBlocks.SOAPSTONE_BUTTON.get(), texture("soapstone"));
         pressurePlateBlock(BorealisBlocks.SOAPSTONE_PRESSURE_PLATE.get(), texture("soapstone"));
@@ -103,6 +104,9 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         ;
         paneBlockWithRenderType(BorealisBlocks.STATIC_FIELD.get(), texture("static_field"), texture("static_field"), "cutout");
         simpleBlock(BorealisBlocks.HOLLY.get(), models().getExistingFile(modLoc("holly")));
+        getMultipartBuilder(BorealisBlocks.ARCTIC_WILLOW.get())
+                .part().modelFile(models().crop("arctic_willow", texture("arctic_willow"))).addModel().end()
+                .part().modelFile(models().cross("arctic_willow_tall", texture("arctic_willow_tall"))).addModel().end();
         getVariantBuilder(BorealisBlocks.WINTER_CELLO.get())
                 .partialState().with(ShadedDoublePlantBlock.HALF, DoubleBlockHalf.UPPER).modelForState().modelFile(this.models().cross("winter_cello_top", texture("winter_cello_top"))).addModel()
                 .partialState().with(ShadedDoublePlantBlock.HALF, DoubleBlockHalf.LOWER).modelForState().modelFile(this.models().cross("winter_cello_bottom", texture("winter_cello_bottom"))).addModel();

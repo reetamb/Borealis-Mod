@@ -331,63 +331,87 @@
                   {
                     "type": "minecraft:condition",
                     "if_true": {
-                      "type": "minecraft:biome",
-                      "biome_is": [
-                        "borealis:boreal_tundra",
-                        "borealis:frostfir_woods",
-                        "borealis:brumal_grove"
-                      ]
+                      "type": "minecraft:not",
+                      "invert": {
+                        "type": "minecraft:biome",
+                        "biome_is": [
+                          "borealis:crimson_tundra"
+                        ]
+                      }
                     },
                     "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "borealis:firn"
-                      }
+                      "type": "minecraft:sequence",
+                      "sequence": [
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                              "borealis:boreal_tundra",
+                              "borealis:frostfir_woods",
+                              "borealis:brumal_grove",
+                              "borealis:crimson_tundra"
+                            ]
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "borealis:firn"
+                            }
+                          }
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                              "borealis:saccharine_hills"
+                            ]
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "borealis:sugar_snow_block"
+                            }
+                          }
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                              "borealis:ravaged_glacier"
+                            ]
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "minecraft:packed_ice"
+                            }
+                          }
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                              "borealis:hot_spring_islands"
+                            ]
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "borealis:gypsum"
+                            }
+                          }
+                        }
+                      ]
                     }
                   },
                   {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:biome",
-                      "biome_is": [
-                        "borealis:saccharine_hills"
-                      ]
-                    },
-                    "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "borealis:sugar_snow_block"
-                      }
-                    }
-                  },
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:biome",
-                      "biome_is": [
-                        "borealis:ravaged_glacier"
-                      ]
-                    },
-                    "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "minecraft:packed_ice"
-                      }
-                    }
-                  },
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:biome",
-                      "biome_is": [
-                        "borealis:hot_spring_islands"
-                      ]
-                    },
-                    "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "borealis:gypsum"
-                      }
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "borealis:willowy_firn"
                     }
                   }
                 ]
@@ -412,7 +436,8 @@
                       "biome_is": [
                         "borealis:boreal_tundra",
                         "borealis:frostfir_woods",
-                        "borealis:brumal_grove"
+                        "borealis:brumal_grove",
+                        "borealis:crimson_tundra"
                       ]
                     },
                     "then_run": {
@@ -489,7 +514,8 @@
                       "biome_is": [
                         "borealis:boreal_tundra",
                         "borealis:frostfir_woods",
-                        "borealis:brumal_grove"
+                        "borealis:brumal_grove",
+                        "borealis:crimson_tundra"
                       ]
                     },
                     "then_run": {

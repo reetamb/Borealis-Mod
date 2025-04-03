@@ -150,7 +150,7 @@ public class BorealisWorld {
 
     private static SurfaceRules.RuleSource biomeGroundCover() {
         return SurfaceRules.sequence(
-                biomeBlock(BorealisBlocks.FIRN.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE),
+                biomeBlock(BorealisBlocks.FIRN.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE, BorealisBiomes.CRIMSON_TUNDRA),
                 biomeBlock(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.SACCHARINE_HILLS),
                 biomeBlock(Blocks.PACKED_ICE.defaultBlockState(), BorealisBiomes.RAVAGED_GLACIER),
                 biomeBlock(BorealisBlocks.GYPSUM.get().defaultBlockState(), BorealisBiomes.HOT_SPRING_ISLANDS)
@@ -177,7 +177,10 @@ public class BorealisWorld {
                 // else
                 SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.belowTop(BorealisMod.HEIGHT/2), 1)), SurfaceRules.sequence(
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
-                            biomeGroundCover()),
+                            SurfaceRules.sequence(
+                                    SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.isBiome(BorealisBiomes.CRIMSON_TUNDRA)),
+                                            biomeGroundCover()),
+                                    SurfaceRules.state(BorealisBlocks.WILLOWY_FIRN.get().defaultBlockState()))),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(1, false, 0, CaveSurface.FLOOR),
                             biomeGroundCover()),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(2, false, 0, CaveSurface.FLOOR),

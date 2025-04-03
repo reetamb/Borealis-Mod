@@ -159,6 +159,8 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, AlmsBlock> ALMS = registerBlock("alms", () -> new AlmsBlock(Template.petrifiedWood().mapColor(MapColor.DIRT)));
     public static final DeferredHolder<Block, AlmsCrackedBlock> CRACKED_ALMS = registerBlock("cracked_alms", () -> new AlmsCrackedBlock(Template.petrifiedWood().mapColor(MapColor.GOLD)));
     public static final DeferredHolder<Block, MarrowBlock> MARROW = registerBlock("marrow", () -> new MarrowBlock(Template.plant().sound(SoundType.STONE).mapColor(MapColor.TERRACOTTA_RED)));
+    public static final DeferredHolder<Block, TallGrassBlock> ARCTIC_WILLOW = registerBlock("arctic_willow", () -> new TallGrassBlock(Template.plant().mapColor(MapColor.TERRACOTTA_RED).offsetType(BlockBehaviour.OffsetType.XZ)));
+    public static final DeferredHolder<Block, LivingSnowBlock> WILLOWY_FIRN = registerBlock("willowy_firn", () -> new LivingSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK).mapColor(MapColor.TERRACOTTA_RED)));
 
     public static final DeferredHolder<Block, Block> CINNABAR = registerBlock("cinnabar", () -> new Block(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_MAGENTA)));
 

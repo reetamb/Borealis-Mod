@@ -1,6 +1,7 @@
-// 1.21	2025-03-30T23:04:31.4581328	Borealis Item Models
+// 1.21	2025-04-02T17:11:06.0607719	Borealis Item Models
 5fd295104ee66c7b9091ab57fa73d2739d66df02 assets/borealis/models/item/alms.json
 37a211cdf9f551a56fbf6af22f3a70dbb05b0519 assets/borealis/models/item/alms_nut.json
+a01486912ce6bf77c8e5923a89f39398ae290f1a assets/borealis/models/item/arctic_willow.json
 75aa80c42a220cf518df2584d1c3a390019b4c46 assets/borealis/models/item/blue_amber.json
 1e9281e7978034fa3037635bd94f6bcde7c2b4dd assets/borealis/models/item/bone_dry_wood.json
 116c16c50cdc1f9d104082e6e3ee17585d65f205 assets/borealis/models/item/bone_dry_wood_bricks.json
@@ -117,6 +118,7 @@ fe43279294a4588861e019d66f47c3dad5281718 assets/borealis/models/item/tanzanite_b
 dcec19bafd2d5166c36041177f291e5e50661de0 assets/borealis/models/item/tanzanite_ore.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/thrusher_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/tuber_spawn_egg.json
+a3398d373b3655617be4bb3f8ef73593e236536d assets/borealis/models/item/willowy_firn.json
 a13d47d94a1313c23fdb17845de3ff76c7510840 assets/borealis/models/item/winter_cello.json
 2b8e7349f8d9adad9d7626dbb9b6cfe9d80ba636 assets/borealis/models/item/winter_fiddle.json
 bcb5687db67ec3cc0c5f9d0922423646cf7fe715 assets/borealis/models/item/winter_viola.json

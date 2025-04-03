@@ -1,12 +1,14 @@
 package com.reetam.borealis.registry.world;
 
 import com.reetam.borealis.BorealisMod;
+import com.reetam.borealis.world.configuration.CoverTopLayerConfiguration;
 import com.reetam.borealis.world.feature.*;
 import com.reetam.borealis.world.tree.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
@@ -23,8 +25,8 @@ public class BorealisFeatures {
             "glacial_spike", () -> new GlacialSpikeFeature(NoneFeatureConfiguration.CODEC));
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> HOT_SPRING = FEATURES.register(
             "hot_spring", () -> new HotSpringFeature(NoneFeatureConfiguration.CODEC));
-    public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SUGAR_SNOW = FEATURES.register(
-            "sprinkle_top_layer", () -> new SugarSnowFeature(NoneFeatureConfiguration.CODEC));
+    public static final DeferredHolder<Feature<?>, Feature<CoverTopLayerConfiguration>> ARCTIC_WILLOW = FEATURES.register(
+            "arctic_willow_top_layer", () -> new CoverTopLayerFeature(CoverTopLayerConfiguration.CODEC));
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SPIKE_TRAIL = FEATURES.register(
             "spike_trail", () -> new SpikeTrailFeature(NoneFeatureConfiguration.CODEC));
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SPIRAL_CLOUD = FEATURES.register(
@@ -56,6 +58,5 @@ public class BorealisFeatures {
         public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<LogDecorator>> LOG_DECORATOR = TREE_DECORATORS.register("log_decorator", () -> new TreeDecoratorType<>(LogDecorator.CODEC));
         public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<RootDecorator>> ROOT_DECORATOR = TREE_DECORATORS.register("root_decorator", () -> new TreeDecoratorType<>(RootDecorator.CODEC));
         public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<TreeNutDecorator>> TREE_NUT_DECORATOR = TREE_DECORATORS.register("tree_nut_decorator", () -> new TreeDecoratorType<>(TreeNutDecorator.CODEC));
-
     }
 }

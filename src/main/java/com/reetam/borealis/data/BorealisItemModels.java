@@ -2,6 +2,7 @@ package com.reetam.borealis.data;
 
 import com.reetam.borealis.data.provider.BorealisItemModelProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.data.DataGenerator;
@@ -114,6 +115,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.CARAMELIZED_HANGING_SIGN);
 
         itemBlock(BorealisBlocks.FIRN);
+        itemBlock(BorealisBlocks.WILLOWY_FIRN);
         itemBlock(BorealisBlocks.SUGAR_SNOW_BLOCK);
         itemBlock(BorealisBlocks.CLOUD);
         itemBlock(BorealisBlocks.SUGAR_SNOW);
@@ -137,10 +139,10 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisFluids.QUICKSILVER_BUCKET);
         normalItem(BorealisFluids.SLUSH_BUCKET);
         normalItem(BorealisFluids.PORTAL_FLUID_BUCKET);
-        egg(BorealisItems.HUMMINGBIRD_SPAWN_EGG);
-        egg(BorealisItems.TAKAHE_SPAWN_EGG);
-        egg(BorealisItems.THRUSHER_SPAWN_EGG);
-        egg(BorealisItems.TUBER_SPAWN_EGG);
+        egg(BorealisEntities.HUMMINGBIRD_SPAWN_EGG);
+        egg(BorealisEntities.TAKAHE_SPAWN_EGG);
+        egg(BorealisEntities.THRUSHER_SPAWN_EGG);
+        egg(BorealisEntities.TUBER_SPAWN_EGG);
         normalItem(BorealisItems.HAT);
         normalItem(BorealisItems.TANZANITE);
         normalItem(BorealisItems.BRUMAL_BOAT);
@@ -149,6 +151,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
 
         normalItem(BorealisItems.STARBURST);
         itemBlockFlat(BorealisBlocks.HOLLY);
+        itemBlockFlat(BorealisBlocks.ARCTIC_WILLOW);
         itemBlock(BorealisBlocks.LICHEN_BLOCK);
         normalItem(BorealisItems.BLUE_AMBER);
         normalItem(BorealisItems.HAILSTONE);

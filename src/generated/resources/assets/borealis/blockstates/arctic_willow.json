@@ -1,0 +1,14 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "borealis:block/arctic_willow"
+      }
+    },
+    {
+      "apply": {
+        "model": "borealis:block/arctic_willow_tall"
+      }
+    }
+  ]
+}

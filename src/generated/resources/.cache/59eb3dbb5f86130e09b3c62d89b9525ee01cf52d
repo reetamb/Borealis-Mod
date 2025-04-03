@@ -1,5 +1,6 @@
-// 1.21	2025-03-30T23:04:31.4678187	Loot Tables
+// 1.21	2025-04-02T17:11:06.0768275	Loot Tables
 86e2863b65e7ea5c62dc84dd96dbcecb36924fc3 data/borealis/loot_table/blocks/alms.json
+cac8f8786ab72c6d6882519625b0065b2596f4c8 data/borealis/loot_table/blocks/arctic_willow.json
 51ddf82787e7a3e73e5120b7114515d4170a0f9e data/borealis/loot_table/blocks/bone_dry_wood.json
 6a9e25663e1a6e1e7cab8c16966dbbae53113635 data/borealis/loot_table/blocks/bone_dry_wood_bricks.json
 62e83126878f933fb7d8961b9cb48b2e72267545 data/borealis/loot_table/blocks/brumal_button.json
@@ -106,6 +107,7 @@ d4392485113276b571268ec7f41723afccc7feec data/borealis/loot_table/blocks/sweetwo
 65d6b279c9f3f724d8fce3f19e947504fc8aef49 data/borealis/loot_table/blocks/tanzanite_block.json
 50552ae3f50dc30f3eb20ac2fa4cf26d4b26c8a7 data/borealis/loot_table/blocks/tanzanite_ore.json
 28a4080f4c5007cea3a65a1ec0eed7459d2aedeb data/borealis/loot_table/blocks/wall_winter_fiddle.json
+cb4904a69269ebf78517890c7fa8ae09f974a0e3 data/borealis/loot_table/blocks/willowy_firn.json
 a2fd30582790c1e57a7ed5f7f64cd175e1a9aff0 data/borealis/loot_table/blocks/winter_cello.json
 00ae4a92b9fc45742b30f723a78cc73ddd24dfbd data/borealis/loot_table/blocks/winter_fiddle.json
 0b283bb42273a734a77536db5ba95f996d7c6604 data/borealis/loot_table/blocks/winter_viola.json

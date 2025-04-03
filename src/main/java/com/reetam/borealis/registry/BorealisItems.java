@@ -32,23 +32,6 @@ public class BorealisItems {
     public static final DeferredHolder<Item, HangingSignItem> SWEETWOOD_HANGING_SIGN = ITEMS.register("sweetwood_hanging_sign", () -> new HangingSignItem(BorealisBlocks.SWEETWOOD_HANGING_SIGN.get(), BorealisBlocks.SWEETWOOD_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
     public static final DeferredHolder<Item, HangingSignItem> CARAMELIZED_HANGING_SIGN = ITEMS.register("caramelized_hanging_sign", () -> new HangingSignItem(BorealisBlocks.CARAMELIZED_HANGING_SIGN.get(), BorealisBlocks.CARAMELIZED_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
-    public static final DeferredHolder<Item, SpawnEggItem> HUMMINGBIRD_SPAWN_EGG = ITEMS.register(
-            "hummingbird_spawn_egg", () -> new SpawnEggItem(BorealisEntities.HUMMINGBIRD.get(),
-                    0x9CE542, 0xFF446D,
-                    new Item.Properties()));
-    public static final DeferredHolder<Item, SpawnEggItem> TAKAHE_SPAWN_EGG = ITEMS.register(
-            "takahe_spawn_egg", () -> new SpawnEggItem(BorealisEntities.TAKAHE.get(),
-                    0x2F329F, 0x518A65,
-                    new Item.Properties()));
-    public static final DeferredHolder<Item, SpawnEggItem> THRUSHER_SPAWN_EGG = ITEMS.register(
-            "thrusher_spawn_egg", () -> new SpawnEggItem(BorealisEntities.THRUSHER.get(),
-                    0xD8EBFF, 0x32749E, new Item.Properties()));
-    public static final DeferredHolder<Item, SpawnEggItem> TUBER_SPAWN_EGG = ITEMS.register(
-            "tuber_spawn_egg", () -> new SpawnEggItem(BorealisEntities.TUBER.get(),
-                    0x381D1D, 0x5A071D, new Item.Properties()));
-
-
-
     public static final DeferredHolder<Item, Item> HAT = ITEMS.register("hat", () -> new HatItem(new Item.Properties().stacksTo(1)));
 
     public static final DeferredHolder<Item, Item> TANZANITE = ITEMS.register("tanzanite", () -> new Item(new Item.Properties()));

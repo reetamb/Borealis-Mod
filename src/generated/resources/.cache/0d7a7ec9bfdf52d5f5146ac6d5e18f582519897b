@@ -1,5 +1,6 @@
-// 1.21	2025-03-31T17:17:08.4748342	Borealis Block States
+// 1.21	2025-04-02T17:11:06.0876161	Borealis Block States
 dd618f4c8676ae73535fb7c4de7e56573498ba1c assets/borealis/blockstates/alms.json
+591cd93680f14f5041d523453e799b86ad925a77 assets/borealis/blockstates/arctic_willow.json
 5f6a7fbff012b989b63cb4e7142d0f5241f497c8 assets/borealis/blockstates/bone_dry_wood.json
 bd0e6241d47c89916e07280bb51de9a14164d5d8 assets/borealis/blockstates/bone_dry_wood_bricks.json
 5c919565f7a77b21904d8fb0f19092f126466f8f assets/borealis/blockstates/borealis_portal.json
@@ -97,11 +98,14 @@ e4b956d1cae748dd48d6e33906471e613deb8a21 assets/borealis/blockstates/sweetwood_t
 5cd8666f05e7c574c5b454a7025220b4c94b6678 assets/borealis/blockstates/sweetwood_wall_sign.json
 a0bf58e06b6be662a7bcde29c98f63663b905230 assets/borealis/blockstates/tanzanite_block.json
 f06bb3307e098e5527f07031ad5151411e7b44d1 assets/borealis/blockstates/tanzanite_ore.json
+59fc7bd03eb2b917b2bb10782c1f67ce7e3fa884 assets/borealis/blockstates/willowy_firn.json
 581afd94a3a37006dcb702a6f7c0df13f4833c59 assets/borealis/blockstates/winter_cello.json
 11892d7cbbcc67d02b010bde33a02716e30912d2 assets/borealis/blockstates/winter_fiddle.json
 14fcd10893a504dbc3692b2c2d75641dd1d2bc9c assets/borealis/models/block/alms.json
 5c0271cae7845ad1222718065d59d816a5e9d291 assets/borealis/models/block/alms_shell.json
 eb943bbc3ce44352de9fb99a538df8450f1f719d assets/borealis/models/block/amaranthine_fluorite.json
+bceebcc726b4826dcaeeab091e706d28ef2d6eb1 assets/borealis/models/block/arctic_willow.json
+56893d0bf92d29dd1aaf91102c646934ff128ad5 assets/borealis/models/block/arctic_willow_tall.json
 f28a1f165aafaeba75ce29fab32e6a0e2ab9cb23 assets/borealis/models/block/bone_dry_wood.json
 aaccb30b8b9f0a316ced85b7a85e0897d06f735f assets/borealis/models/block/bone_dry_wood_bricks.json
 04822f63b2bfe5a25efd0db6e5914f482746fecd assets/borealis/models/block/borealis_portal.json
@@ -298,6 +302,7 @@ dbe5f7a402adb3b15b84725036d72e95e7d24703 assets/borealis/models/block/sweetwood_
 d9b5103ef1035cc73e5a26529d65ecc403d09d3a assets/borealis/models/block/ultraviolet_fluorite.json
 c9143e110502f570017d6c751342bc85de4e06f9 assets/borealis/models/block/up_kyanite_arrow.json
 c9143e110502f570017d6c751342bc85de4e06f9 assets/borealis/models/block/west_kyanite_arrow.json
+030ab6214a05591615f28509034e48299a2784f0 assets/borealis/models/block/willowy_firn.json
 843c63fc6464346a181c05ad282178368619c422 assets/borealis/models/block/winter_cello_bottom.json
 79f0db2ef6d1df40a5f52338ce5bb3682e6fb88a assets/borealis/models/block/winter_cello_top.json
 0e759e01e17d00dfb4c48713ffd4dafb91a79a81 assets/borealis/models/block/winter_fiddle.json

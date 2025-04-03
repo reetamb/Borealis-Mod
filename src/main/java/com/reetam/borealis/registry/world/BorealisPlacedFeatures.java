@@ -25,7 +25,6 @@ public class BorealisPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PLACED_SPIKE_TRAIL = createKey("spike_trail");
     public static final ResourceKey<PlacedFeature> PLACED_SPIRAL_CLOUD = createKey("spiral_cloud");
     public static final ResourceKey<PlacedFeature> PLACED_CLOUD = createKey("cloud");
-    public static final ResourceKey<PlacedFeature> PLACED_SUGAR_SNOW = createKey("sugar_snow");
     public static final ResourceKey<PlacedFeature> PLACED_SLATE_BOULDER = createKey("slate_boulder");
 
     public static final ResourceKey<PlacedFeature> PLACED_BRUMAL_TREE_1 = createKey("brumal_tree_1");
@@ -42,6 +41,7 @@ public class BorealisPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> PLACED_HOLLY_PATCH = createKey("holly");
     public static final ResourceKey<PlacedFeature> PLACED_LICHEN_PATCH = createKey("lichen_patch");
+    public static final ResourceKey<PlacedFeature> PLACED_ARCTIC_WILLOW_PATCH = createKey("arctic_willow");
 
     public static final ResourceKey<PlacedFeature> PLACED_NATURAL_HAILSTONE = createKey("natural_hailstone");
     public static final ResourceKey<PlacedFeature> PLACED_CLOUD_HAILSTONE = createKey("cloud_hailstone");
@@ -70,8 +70,6 @@ public class BorealisPlacedFeatures {
         register(context, PLACED_CLOUD, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_CLOUD),
                 HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(32)),
                 RarityFilter.onAverageOnceEvery(8));
-        register(context, PLACED_SUGAR_SNOW, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_SUGAR_SNOW),
-                BiomeFilter.biome());
         register(context, PLACED_SLATE_BOULDER, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_SLATE_BOULDER),
                 CountOnEveryLayerPlacement.of(1), RarityFilter.onAverageOnceEvery(3), BiomeFilter.biome());
 
@@ -103,6 +101,8 @@ public class BorealisPlacedFeatures {
                 InSquarePlacement.spread(), CountPlacement.of(1), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(60), VerticalAnchor.aboveBottom(120)));
         register(context, PLACED_HOLLY_PATCH, please.getOrThrow(BorealisConfiguredFeatures.HOLLY_PATCH),
                 CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
+        register(context, PLACED_ARCTIC_WILLOW_PATCH, please.getOrThrow(BorealisConfiguredFeatures.ARCTIC_WILLOW),
+                BiomeFilter.biome());
 
         register(context, PLACED_NATURAL_HAILSTONE, please.getOrThrow(BorealisConfiguredFeatures.NATURAL_HAILSTONE),
                 RarityFilter.onAverageOnceEvery(128), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING));

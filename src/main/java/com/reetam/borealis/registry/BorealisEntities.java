@@ -13,6 +13,8 @@ import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
@@ -39,6 +41,21 @@ public class BorealisEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<KyaniteArrowEntity>> KYANITE_ARROW = ENTITIES.register("kyanite_arrow",
             () -> EntityType.Builder.of(KyaniteArrowEntity::new, MobCategory.MISC)
                     .sized(1.0F, 1.0F).clientTrackingRange(10).build("kyanite_arrow"));
+
+    public static final DeferredHolder<Item, SpawnEggItem> HUMMINGBIRD_SPAWN_EGG = BorealisItems.ITEMS.register(
+            "hummingbird_spawn_egg", () -> new SpawnEggItem(BorealisEntities.HUMMINGBIRD.get(),
+                    0x9CE542, 0xFF446D,
+                    new Item.Properties()));
+    public static final DeferredHolder<Item, SpawnEggItem> TAKAHE_SPAWN_EGG = BorealisItems.ITEMS.register(
+            "takahe_spawn_egg", () -> new SpawnEggItem(BorealisEntities.TAKAHE.get(),
+                    0x2F329F, 0x518A65,
+                    new Item.Properties()));
+    public static final DeferredHolder<Item, SpawnEggItem> THRUSHER_SPAWN_EGG = BorealisItems.ITEMS.register(
+            "thrusher_spawn_egg", () -> new SpawnEggItem(BorealisEntities.THRUSHER.get(),
+                    0xD8EBFF, 0x32749E, new Item.Properties()));
+    public static final DeferredHolder<Item, SpawnEggItem> TUBER_SPAWN_EGG = BorealisItems.ITEMS.register(
+            "tuber_spawn_egg", () -> new SpawnEggItem(BorealisEntities.TUBER.get(),
+                    0x381D1D, 0x5A071D, new Item.Properties()));
 
     public static <T extends LivingEntity> DeferredHolder<EntityType<?>, EntityType<T>> creature(String name, EntityType.EntityFactory<T> of, float width, float height) {
         return ENTITIES.register(name,

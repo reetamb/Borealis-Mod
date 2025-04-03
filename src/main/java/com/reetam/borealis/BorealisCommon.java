@@ -70,8 +70,10 @@ public class BorealisCommon {
             }
         };
 
-        DispenserBlock.registerBehavior(BorealisItems.HUMMINGBIRD_SPAWN_EGG.get(), eggBehavior);
-        DispenserBlock.registerBehavior(BorealisItems.TAKAHE_SPAWN_EGG.get(), eggBehavior);
+        DispenserBlock.registerBehavior(BorealisEntities.HUMMINGBIRD_SPAWN_EGG.get(), eggBehavior);
+        DispenserBlock.registerBehavior(BorealisEntities.TAKAHE_SPAWN_EGG.get(), eggBehavior);
+        DispenserBlock.registerBehavior(BorealisEntities.THRUSHER_SPAWN_EGG.get(), eggBehavior);
+        DispenserBlock.registerBehavior(BorealisEntities.TUBER_SPAWN_EGG.get(), eggBehavior);
 
         DispenserBlock.registerBehavior(BorealisFluids.HOT_SPRING_WATER_BUCKET.get(), bucketBehavior);
         DispenserBlock.registerBehavior(BorealisFluids.QUICKSILVER_BUCKET.get(), bucketBehavior);
