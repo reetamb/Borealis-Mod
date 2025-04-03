@@ -63,7 +63,7 @@ public class BorealisPlacedFeatures {
                 InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(3), BiomeFilter.biome());
         register(context, PLACED_SPIKE_TRAIL, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_SPIKE_TRAIL),
                 HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(32), VerticalAnchor.aboveBottom(128)),
-                RarityFilter.onAverageOnceEvery(2));
+                RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread());
         register(context, PLACED_SPIRAL_CLOUD, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_SPIRAL_CLOUD),
                 HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(32), VerticalAnchor.aboveBottom(128)),
                 InSquarePlacement.spread(), RarityFilter.onAverageOnceEvery(4));
