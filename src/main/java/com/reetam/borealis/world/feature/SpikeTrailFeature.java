@@ -40,7 +40,9 @@ public class SpikeTrailFeature extends Feature<NoneFeatureConfiguration> {
 
                     double threshold = (((double) -height / radius) * Math.sqrt(x * x + z * z) - y);
 
-                    if (-height < threshold - 2 && radius > 1 && y > -2) {
+                    if (y == -2 && x*x + z*z < radius*radius) {
+                        level.setBlock(pos.offset(x, y, z), BorealisBlocks.PUMICE.get().defaultBlockState(), 3);
+                    } else if (-height < threshold - 2 && radius > 1) {
                         level.setBlock(pos.offset(x, y, z), BorealisFluids.HOT_SPRING_WATER_BLOCK.get().defaultBlockState(), 3);
                     } else if (-height <= threshold) {
                         level.setBlock(pos.offset(x, y, z), placeState, 3);

@@ -1,0 +1,194 @@
+{
+  "parent": "minecraft:item/handheld",
+  "overrides": [
+    {
+      "model": "borealis:item/silver_sword",
+      "predicate": {
+        "minecraft:custom_model_data": 1.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_hatchet",
+      "predicate": {
+        "minecraft:custom_model_data": 2.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_saw",
+      "predicate": {
+        "minecraft:custom_model_data": 3.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_hammer",
+      "predicate": {
+        "minecraft:custom_model_data": 4.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_spear",
+      "predicate": {
+        "minecraft:custom_model_data": 5.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_chisel",
+      "predicate": {
+        "minecraft:custom_model_data": 6.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_poleaxe",
+      "predicate": {
+        "minecraft:custom_model_data": 7.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_shovel",
+      "predicate": {
+        "minecraft:custom_model_data": 8.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_spade",
+      "predicate": {
+        "minecraft:custom_model_data": 9.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_plow",
+      "predicate": {
+        "minecraft:custom_model_data": 10.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_battleaxe",
+      "predicate": {
+        "minecraft:custom_model_data": 11.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_drill",
+      "predicate": {
+        "minecraft:custom_model_data": 12.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_lever",
+      "predicate": {
+        "minecraft:custom_model_data": 13.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_paxel",
+      "predicate": {
+        "minecraft:custom_model_data": 14.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_warhammer",
+      "predicate": {
+        "minecraft:custom_model_data": 15.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_hoe",
+      "predicate": {
+        "minecraft:custom_model_data": 16.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_rake",
+      "predicate": {
+        "minecraft:custom_model_data": 17.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_sickle",
+      "predicate": {
+        "minecraft:custom_model_data": 18.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_machete",
+      "predicate": {
+        "minecraft:custom_model_data": 19.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_pickaxe",
+      "predicate": {
+        "minecraft:custom_model_data": 20.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_scythe",
+      "predicate": {
+        "minecraft:custom_model_data": 21.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_adze",
+      "predicate": {
+        "minecraft:custom_model_data": 22.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_pike",
+      "predicate": {
+        "minecraft:custom_model_data": 23.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_trowel",
+      "predicate": {
+        "minecraft:custom_model_data": 24.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_pitchfork",
+      "predicate": {
+        "minecraft:custom_model_data": 25.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_axe",
+      "predicate": {
+        "minecraft:custom_model_data": 26.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_cleaver",
+      "predicate": {
+        "minecraft:custom_model_data": 27.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_claws",
+      "predicate": {
+        "minecraft:custom_model_data": 28.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_crowbar",
+      "predicate": {
+        "minecraft:custom_model_data": 29.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_mattock",
+      "predicate": {
+        "minecraft:custom_model_data": 30.0
+      }
+    },
+    {
+      "model": "borealis:item/silver_halberd",
+      "predicate": {
+        "minecraft:custom_model_data": 31.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "borealis:item/silver/silver_blade"
+  }
+}

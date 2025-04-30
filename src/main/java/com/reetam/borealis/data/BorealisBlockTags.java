@@ -116,6 +116,9 @@ public class BorealisBlockTags extends BlockTagsProvider {
                 .add(Blocks.BLUE_ICE);
         tag(BorealisTags.Blocks.SOAPSTONE_ORE_REPLACEABLES)
                 .add(BorealisBlocks.SOAPSTONE.get());
+        tag(BorealisTags.Blocks.MINEABLE_WITH_SWORD)
+                .addTag(BlockTags.SWORD_EFFICIENT)
+                .add(Blocks.COBWEB, Blocks.BAMBOO, Blocks.BAMBOO_SAPLING);
     }
     
     private void minecraftTags() {

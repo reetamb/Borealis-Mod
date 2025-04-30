@@ -27,7 +27,7 @@ public abstract class BorealisItemModelProvider extends ItemModelProvider {
     private ResourceLocation key(Item item) {
         return BuiltInRegistries.ITEM.getKey(item);
     }
-    private String name(Supplier<? extends Item> item) {
+    protected String name(Supplier<? extends Item> item) {
         return this.key(item.get()).getPath();
     }
     

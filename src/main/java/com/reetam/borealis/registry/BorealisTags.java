@@ -13,7 +13,6 @@ public class BorealisTags {
     public static class Items {
 
         public static final TagKey<Item> BRUMAL_LOGS = tag("brumal_logs");
-        public static final TagKey<Item> FROSTFIR_LOGS = tag("frostfir_logs");
         public static final TagKey<Item> SWEETWOOD_LOGS = tag("sweetwood_logs");
         public static final TagKey<Item> CARAMELIZED_LOGS = tag("caramelized_logs");
 
@@ -27,7 +26,6 @@ public class BorealisTags {
     public static class Blocks {
 
         public static final TagKey<Block> BRUMAL_LOGS = tag("brumal_logs");
-        public static final TagKey<Block> FROSTFIR_LOGS = tag("frostfir_logs");
         public static final TagKey<Block> SWEETWOOD_LOGS = tag("sweetwood_logs");
         public static final TagKey<Block> CARAMELIZED_LOGS = tag("caramelized_logs");
         public static final TagKey<Block> BASE_STONE_BOREALIS = tag("base_stone_borealis");
@@ -36,12 +34,11 @@ public class BorealisTags {
         public static final TagKey<Block> SNOWY_BLOCKS = tag("snowy_blocks");
         public static final TagKey<Block> SUGARY_BLOCKS = tag("sugary_blocks");
         public static final TagKey<Block> ICY_BLOCKS = tag("icy_blocks");
+        public static final TagKey<Block> MINEABLE_WITH_SWORD = tag("mineable_with_sword");
 
         public static final TagKey<Block> SOAPSTONE_ORE_REPLACEABLES = tag("soapstone_ore_replaceables");
-        public static final TagKey<Block> PEAT_REPLACEABLES = tag("peat_replaceables");
 
         public static final TagKey<Block> BLOCKSET_BRUMAL = tag("blockset_brumal");
-        public static final TagKey<Block> BLOCKSET_FROSTFIR = tag("blockset_frostfir");
         public static final TagKey<Block> BLOCKSET_SWEETWOOD = tag("blockset_sweetwood");
         public static final TagKey<Block> BLOCKSET_SOAPSTONE = tag("blockset_soapstone");
         public static final TagKey<Block> BLOCKSET_CARAMELIZED = tag("blockset_caramelized");

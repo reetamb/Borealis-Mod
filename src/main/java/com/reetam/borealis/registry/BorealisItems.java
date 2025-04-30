@@ -6,9 +6,13 @@ import com.reetam.borealis.item.*;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -36,6 +40,7 @@ public class BorealisItems {
 
     public static final DeferredHolder<Item, Item> TANZANITE = ITEMS.register("tanzanite", () -> new Item(new Item.Properties()));
     public static final DeferredHolder<Item, Item> HAILSTONE = ITEMS.register("hailstone", HailstoneItem::new);
+    public static final DeferredHolder<Item, SilverToolItem> SILVER_BLADE = ITEMS.register("silver_blade", () -> new SilverToolItem(new Item.Properties()));
 
     public static final DeferredHolder<Item, Item> STARBURST = ITEMS.register("starburst", () -> new Item(new Item.Properties().food(
             new FoodProperties.Builder()
@@ -68,5 +73,55 @@ public class BorealisItems {
                         output.accept(item.get());
                     }
                 }).build());
+    }
+
+    public enum Tiers implements Tier {
+        SILVER(250, 6.0F, 3.0F, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(Items.IRON_INGOT), 8);
+
+        private final int durability;
+        private final float speed;
+        private final float damage;
+        private final TagKey<Block> incorrect;
+        private final Supplier<Ingredient> repairItem;
+        private final int enchantability;
+
+        Tiers(int durability, float speed, float damage, TagKey<Block> incorrect, Supplier<Ingredient> repairItem, int enchantability) {
+            this.durability = durability;
+            this.speed = speed;
+            this.damage = damage;
+            this.incorrect = incorrect;
+            this.repairItem = repairItem;
+            this.enchantability = enchantability;
+        }
+
+        @Override
+        public int getUses() {
+            return durability;
+        }
+
+        @Override
+        public float getSpeed() {
+            return speed;
+        }
+
+        @Override
+        public float getAttackDamageBonus() {
+            return damage;
+        }
+
+        @Override
+        public TagKey<Block> getIncorrectBlocksForDrops() {
+            return incorrect;
+        }
+
+        @Override
+        public int getEnchantmentValue() {
+            return enchantability;
+        }
+
+        @Override
+        public Ingredient getRepairIngredient() {
+            return repairItem.get();
+        }
     }
 }

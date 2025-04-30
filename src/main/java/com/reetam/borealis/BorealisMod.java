@@ -3,6 +3,7 @@ package com.reetam.borealis;
 import com.mojang.logging.LogUtils;
 import com.reetam.borealis.data.*;
 import com.reetam.borealis.data.trigger.BorealisTriggers;
+import com.reetam.borealis.item.SilverTools;
 import com.reetam.borealis.modify.events.PlayerEvents;
 import com.reetam.borealis.registry.*;
 import com.reetam.borealis.registry.world.BorealisDimensions;
@@ -81,6 +82,7 @@ public class BorealisMod {
         BorealisCommon.registerWoodTypes();
         BorealisCommon.registerDispenserBehaviors();
         BorealisCommon.registerFluidInteractions();
+        SilverTools.initialize();
     }
 
     public void gatherData(GatherDataEvent event) {

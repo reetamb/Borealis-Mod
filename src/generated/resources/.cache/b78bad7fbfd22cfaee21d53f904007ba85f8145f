@@ -1,4 +1,4 @@
-// 1.21	2025-04-02T17:11:06.083592	Borealis Block Tags
+// 1.21	2025-04-28T14:45:41.8111799	Borealis Block Tags
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/borealis/tags/block/base_stone_borealis.json
 49452c49126eea1b6d7c14b37b099b5507f125dc data/borealis/tags/block/blockset_brumal.json
 36d77432c8dfde361671fa2c373a8705a8893306 data/borealis/tags/block/blockset_caramelized.json
@@ -7,6 +7,7 @@
 5cd9b7cd7d41b33c4e1a3212a4728db86db89edc data/borealis/tags/block/brumal_logs.json
 6f38a3f95b08ee9de30aaef256f714d369d05a70 data/borealis/tags/block/caramelized_logs.json
 52413a870520da3227b0d97b44e5455211b16e49 data/borealis/tags/block/icy_blocks.json
+207d2138aed239d253263179b78ad216b6a029f2 data/borealis/tags/block/mineable_with_sword.json
 a9d13e97b34a304d3ce507b7ea88c800f9ed3a8f data/borealis/tags/block/portal_center_blocks.json
 ae00a6d0a8f6d904b73b117c4c58c26bd4b8d459 data/borealis/tags/block/portal_frame_blocks.json
 d60e1a77455919bf9cdd599b56d72111db28a745 data/borealis/tags/block/snowy_blocks.json

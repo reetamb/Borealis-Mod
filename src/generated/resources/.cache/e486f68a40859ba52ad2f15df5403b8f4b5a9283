@@ -1,4 +1,4 @@
-// 1.21	2025-04-02T17:11:06.0607719	Borealis Item Models
+// 1.21	2025-04-29T17:41:53.3551255	Borealis Item Models
 5fd295104ee66c7b9091ab57fa73d2739d66df02 assets/borealis/models/item/alms.json
 37a211cdf9f551a56fbf6af22f3a70dbb05b0519 assets/borealis/models/item/alms_nut.json
 a01486912ce6bf77c8e5923a89f39398ae290f1a assets/borealis/models/item/arctic_willow.json
@@ -67,6 +67,38 @@ fd17ed0d8ce1c2e949c309625c7457cbfb66a25f assets/borealis/models/item/portal_flui
 d6f67c7fcb1199631349dd0765c89eee1f049861 assets/borealis/models/item/pumice.json
 46c4b7339242326bf8c081e47d0b7748a415c7f2 assets/borealis/models/item/pumice_geyser.json
 c54ba278d95644a9b260e91638c090be82098c0f assets/borealis/models/item/quicksilver_bucket.json
+eb5d2873fe6f623ab9ba7dce4244c24828b24583 assets/borealis/models/item/silver_adze.json
+58e752cceafa5dc6700eaa028d6b3f905e0d8559 assets/borealis/models/item/silver_axe.json
+c5cdef886a296c7c66fc2d077819b119bb00a018 assets/borealis/models/item/silver_battleaxe.json
+037b8fe3451e1ff081448d2e319abeca648a01ee assets/borealis/models/item/silver_blade.json
+75202933120327ac4d69c13c14d5a7284a24a41a assets/borealis/models/item/silver_chisel.json
+5aeaa5cb241588b01fca79f97810261eced50b58 assets/borealis/models/item/silver_claws.json
+e6b1e7d679b64c7d38c199506c22e272bf929ce3 assets/borealis/models/item/silver_cleaver.json
+d1390511a00975fdb48957e5d2a8def63c109994 assets/borealis/models/item/silver_crowbar.json
+256498176276411f7e6fe2cdc5ddc0ddd22e8b6a assets/borealis/models/item/silver_drill.json
+d45f65f4e03643257047e48970e7a20cdbe321c7 assets/borealis/models/item/silver_halberd.json
+e46ebafcaf057bd90332d8600b995bb0ccdb65d7 assets/borealis/models/item/silver_hammer.json
+d55f2f89c0d8c05967aa6d348711986f5bbc1f14 assets/borealis/models/item/silver_hatchet.json
+d1851f8e33a55becf97bd1b22c5a284195e693e5 assets/borealis/models/item/silver_hoe.json
+2d1d4b1b1efe3f081c007533f93f9c8b335a9280 assets/borealis/models/item/silver_lever.json
+b8cc686a8e05452d6d15767fa20ec074db8a3003 assets/borealis/models/item/silver_machete.json
+5da004d5c72ad31d9c5391c4ce07e61fd455737d assets/borealis/models/item/silver_mattock.json
+ed678a2b5e2917249bc130cd77b80f3618f87652 assets/borealis/models/item/silver_paxel.json
+3e5302bcda21d0840a4345c2e2192fbef8571b3f assets/borealis/models/item/silver_pickaxe.json
+844ef86ee66565edb09a478018bd16119f7e3b4b assets/borealis/models/item/silver_pike.json
+5d812dbc9f4a043bbf1580a832d7f99c17583487 assets/borealis/models/item/silver_pitchfork.json
+086ef4b24654c1ed3e658b17e4f14764f45ea2c7 assets/borealis/models/item/silver_plow.json
+d3a0ae2f4e0a71ce5d25266c649392be3b759f3e assets/borealis/models/item/silver_poleaxe.json
+8d4b0a07375ccc10720eaf6f7d13870581cc8cc2 assets/borealis/models/item/silver_rake.json
+73a147d55bb59cc14612a69f165a4fe93d69dcdb assets/borealis/models/item/silver_saw.json
+8d3181540062638a1dfe74689cd9ddb6cd308592 assets/borealis/models/item/silver_scythe.json
+72e4c3ca08f1b3bc9ed95af59714432bf9381812 assets/borealis/models/item/silver_shovel.json
+5bad080fc785310fcd7cf23a21a4c329a3dce5ad assets/borealis/models/item/silver_sickle.json
+b5d6e9a3145d768524ef05fc6ea4dedbca412574 assets/borealis/models/item/silver_spade.json
+53993d9bf17ed5211c9eeeda75576440434fbe02 assets/borealis/models/item/silver_spear.json
+0d7c68f19acc450c692b486a0671d88c121dbf58 assets/borealis/models/item/silver_sword.json
+b083c311797b286e91cf37a97bf2f4072fea8be0 assets/borealis/models/item/silver_trowel.json
+d43b9fcc8099105bc4f1f9e005347c1aa7f941de assets/borealis/models/item/silver_warhammer.json
 dce3e90121aa1c7d3745686ed744c1a923d117f3 assets/borealis/models/item/slate.json
 4668e5268278f99da7a4a30997196ff7e0e5021f assets/borealis/models/item/slate_pillar.json
 463fdca9882d4dd3d53adee2ed37a9a7e0e4db54 assets/borealis/models/item/slate_tiles.json

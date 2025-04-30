@@ -1,11 +1,21 @@
 package com.reetam.borealis.data;
 
 import com.reetam.borealis.data.provider.BorealisItemModelProvider;
+import com.reetam.borealis.item.SilverTools;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
 import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisItems;
+import net.minecraft.advancements.critereon.ItemCustomDataPredicate;
+import net.minecraft.advancements.critereon.ItemSubPredicate;
+import net.minecraft.advancements.critereon.NbtPredicate;
+import net.minecraft.core.component.DataComponentPredicate;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.component.CustomModelData;
+import net.minecraft.world.level.storage.loot.predicates.AnyOfCondition;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class BorealisItemModels extends BorealisItemModelProvider {
@@ -156,5 +166,17 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.BLUE_AMBER);
         normalItem(BorealisItems.HAILSTONE);
         normalItem(BorealisItems.KYANITE_ARROW);
+
+        ItemModelBuilder SILVER_BLADE = withExistingParent(name(BorealisItems.SILVER_BLADE), mcLoc("item/handheld"))
+                .texture("layer0", modLoc("item/silver/silver_blade"))
+        ;
+        SilverTools.initialize();
+        for (int i = 0; i < 32; i++) {
+            String toolName = SilverTools.IDS.get(i).name();
+            SILVER_BLADE.override()
+                    .model(withExistingParent(modLoc("silver_" + toolName).toString(), mcLoc("item/handheld")).texture("layer0", modLoc("item/silver/silver_" + toolName)))
+                    .predicate(mcLoc("custom_model_data"), i)
+                    .end();
+        }
     }
 }
