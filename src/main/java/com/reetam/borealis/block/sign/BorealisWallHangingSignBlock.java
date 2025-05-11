@@ -1,14 +1,14 @@
-package com.reetam.borealis.block.entity;
+package com.reetam.borealis.block.sign;
 
 import com.reetam.borealis.registry.BorealisBlockEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.CeilingHangingSignBlock;
+import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
-public class BorealisCeilingHangingSignBlock extends CeilingHangingSignBlock {
-    public BorealisCeilingHangingSignBlock(Properties pProperties, WoodType pType) {
+public class BorealisWallHangingSignBlock extends WallHangingSignBlock {
+    public BorealisWallHangingSignBlock(Properties pProperties, WoodType pType) {
         super(pType, pProperties);
     }
 

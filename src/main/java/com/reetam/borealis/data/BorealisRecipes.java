@@ -102,6 +102,8 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         smeltingResultFromBase(consumer, BorealisBlocks.CRACKED_ALMS.get(), BorealisBlocks.ALMS.get());
 
         bulkStonecutting(consumer, BorealisBlocks.SLATE, slate_stonecuts);
+
+
     }
 
     public void bulkWood(RecipeOutput consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn, Supplier<? extends Item> boatIn, Supplier<? extends SignBlock> signIn, Supplier<? extends CeilingHangingSignBlock> hangingSignIn) {

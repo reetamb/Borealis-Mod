@@ -1,7 +1,8 @@
-package com.reetam.borealis.block.entity;
+package com.reetam.borealis.block.kiln;
 
 import com.reetam.borealis.registry.BorealisBlockEntities;
 import com.reetam.borealis.registry.BorealisBlocks;
+import com.reetam.borealis.registry.BorealisMenus;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.block.Blocks;
@@ -16,6 +17,6 @@ public class KilnRecipe extends AbstractCookingRecipe {
     }
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return BorealisMenus.KILN_SERIALIZER.get();
     }
 }

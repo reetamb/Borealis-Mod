@@ -2,7 +2,8 @@ package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
-import com.reetam.borealis.block.entity.*;
+import com.reetam.borealis.block.sign.*;
+import com.reetam.borealis.block.kiln.KilnBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;

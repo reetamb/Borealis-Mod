@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/world/inventory/RecipeBookType",
+      "name": "BOREALIS_KILN",
+      "constructor": "()V",
+      "parameters": [ ]
+    }
+  ]
+}

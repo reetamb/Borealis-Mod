@@ -1,4 +1,4 @@
-package com.reetam.borealis.block.entity;
+package com.reetam.borealis.block.kiln;
 
 import com.mojang.serialization.MapCodec;
 import com.reetam.borealis.registry.BorealisBlockEntities;
@@ -37,11 +37,12 @@ public class KilnBlock extends AbstractFurnaceBlock {
     }
 
     protected void openContainer(Level pLevel, BlockPos pPos, Player pPlayer) {
-        BlockEntity $$3 = pLevel.getBlockEntity(pPos);
-        if ($$3 instanceof KilnBlockEntity) {
-            pPlayer.openMenu((MenuProvider)$$3);
+        if (!pLevel.isClientSide()) {
+            BlockEntity $$3 = pLevel.getBlockEntity(pPos);
+            if ($$3 instanceof KilnBlockEntity) {
+                pPlayer.openMenu((MenuProvider)$$3);
+            }
         }
-
     }
 
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {

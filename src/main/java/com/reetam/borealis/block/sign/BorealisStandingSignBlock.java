@@ -1,4 +1,4 @@
-package com.reetam.borealis.block.entity;
+package com.reetam.borealis.block.sign;
 
 import com.reetam.borealis.registry.BorealisBlockEntities;
 import net.minecraft.core.BlockPos;

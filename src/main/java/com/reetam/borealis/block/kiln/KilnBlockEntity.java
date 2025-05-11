@@ -1,4 +1,4 @@
-package com.reetam.borealis.block.entity;
+package com.reetam.borealis.block.kiln;
 
 import com.reetam.borealis.registry.BorealisBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -16,11 +16,11 @@ public class KilnBlockEntity extends AbstractFurnaceBlockEntity {
 
     @Override
     protected Component getDefaultName() {
-        return null;
+        return Component.literal("Kiln");
     }
 
     @Override
     protected AbstractContainerMenu createMenu(int i, Inventory inventory) {
-        return null;
+        return new KilnMenu(i, inventory, this, this.dataAccess);
     }
 }

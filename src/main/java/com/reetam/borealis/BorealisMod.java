@@ -1,5 +1,6 @@
 package com.reetam.borealis;
 
+import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import com.reetam.borealis.data.*;
 import com.reetam.borealis.data.trigger.BorealisTriggers;
@@ -46,6 +47,7 @@ public class BorealisMod {
         bus.addListener(BorealisClient::registerDimensionRenderers);
         bus.addListener(BorealisEntities::registerEntityAttributes);
         bus.addListener(BorealisCommon::spawnRestrictions);
+        bus.addListener(BorealisMenus::registerMenuScreens);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::loadKyaniteArrowEvent);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::burnInAtmosphereEvent);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::reducedFallDamageEvent);
@@ -66,7 +68,10 @@ public class BorealisMod {
                 BorealisSounds.SOUND_EVENTS,
                 BorealisEffects.EFFECTS,
                 BorealisDimensions.POIS,
-                BorealisTriggers.TRIGGERS
+                BorealisTriggers.TRIGGERS,
+                BorealisMenus.MENU_TYPES,
+                BorealisMenus.RECIPE_SERIALIZERS,
+                BorealisMenus.RECIPE_TYPES
         };
 
         for (DeferredRegister<?> register : registers) {
@@ -79,6 +84,7 @@ public class BorealisMod {
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
+        Reflection.initialize(BorealisMenus.class);
         BorealisCommon.registerWoodTypes();
         BorealisCommon.registerDispenserBehaviors();
         BorealisCommon.registerFluidInteractions();

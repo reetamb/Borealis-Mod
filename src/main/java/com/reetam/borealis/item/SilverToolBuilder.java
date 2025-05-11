@@ -85,8 +85,7 @@ public class SilverToolBuilder {
             if (tag == BlockTags.MINEABLE_WITH_HOE) damage += 0;
         }
 
-        String bits = Integer.toString(this.value(), 2);
-        return damage / ((bits.length() - bits.replace("1", "").length()));
+        return damage / canMine.size();
     }
 
     public Tool tool() {

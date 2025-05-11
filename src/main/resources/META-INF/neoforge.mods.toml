@@ -11,6 +11,7 @@ authors="reetamb" #optional
 description='''
 Be the first to discover and leave your mark on this new world.
 '''
+enumExtensions = "META-INF/enumextensions.json"
 
 [[mixins]]
 config="borealis.mixins.json"

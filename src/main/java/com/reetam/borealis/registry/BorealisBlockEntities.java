@@ -1,10 +1,10 @@
 package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.block.entity.BorealisHangingSignBlockEntity;
-import com.reetam.borealis.block.entity.BorealisSignBlockEntity;
-import com.reetam.borealis.block.entity.KilnBlockEntity;
-import com.reetam.borealis.block.entity.KilnRecipe;
+import com.reetam.borealis.block.sign.BorealisHangingSignBlockEntity;
+import com.reetam.borealis.block.sign.BorealisSignBlockEntity;
+import com.reetam.borealis.block.kiln.KilnBlockEntity;
+import com.reetam.borealis.block.kiln.KilnRecipe;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
