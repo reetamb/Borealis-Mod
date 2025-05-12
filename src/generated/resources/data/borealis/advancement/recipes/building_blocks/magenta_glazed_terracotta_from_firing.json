@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_:magenta_terracotta": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:magenta_terracotta"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borealis:magenta_glazed_terracotta_from_firing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_:magenta_terracotta"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borealis:magenta_glazed_terracotta_from_firing"
+    ]
+  }
+}

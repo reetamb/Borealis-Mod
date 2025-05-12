@@ -1,13 +1,21 @@
 package com.reetam.borealis.data.provider;
 
 import com.reetam.borealis.BorealisMod;
+import com.reetam.borealis.block.kiln.KilnRecipe;
+import com.reetam.borealis.block.kiln.KilnRecipeBuilder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
@@ -141,6 +149,36 @@ public abstract class BorealisRecipeProvider extends RecipeProvider {
                 .define('#', planksIn.get())
                 .define('/', Items.CHAIN)
                 .unlockedBy(has(planksIn), has(planksIn.get()));
+    }
+
+    public KilnRecipeBuilder firing(ItemLike input, ItemLike output) {
+        return KilnRecipeBuilder.generic(Ingredient.of(input), output, RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, 0.1F, 100, KilnRecipe::new)
+                .unlockedBy("has_" + name(() -> input), has(input))
+                .group(getSmeltingRecipeName(input));
+    }
+
+    public KilnRecipeBuilder firing(TagKey<Item> input, ItemLike output) {
+        return KilnRecipeBuilder.generic(Ingredient.of(input), output, RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, 0.1F, 100, KilnRecipe::new)
+                .unlockedBy("has_" + input, has(input));
+    }
+
+    public void fireAllColors(RecipeOutput consumer) {
+        firing(Blocks.BLACK_TERRACOTTA, Blocks.BLACK_GLAZED_TERRACOTTA).save(consumer, name("black_glazed_terracotta_from_firing"));
+        firing(Blocks.GRAY_TERRACOTTA, Blocks.GRAY_GLAZED_TERRACOTTA).save(consumer, name("gray_glazed_terracotta_from_firing"));
+        firing(Blocks.LIGHT_GRAY_TERRACOTTA, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA).save(consumer, name("light_gray_glazed_terracotta_from_firing"));
+        firing(Blocks.WHITE_TERRACOTTA, Blocks.WHITE_GLAZED_TERRACOTTA).save(consumer, name("white_glazed_terracotta_from_firing"));
+        firing(Blocks.PINK_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA).save(consumer, name("pink_glazed_terracotta_from_firing"));
+        firing(Blocks.MAGENTA_TERRACOTTA, Blocks.MAGENTA_GLAZED_TERRACOTTA).save(consumer, name("magenta_glazed_terracotta_from_firing"));
+        firing(Blocks.PURPLE_TERRACOTTA, Blocks.PURPLE_GLAZED_TERRACOTTA).save(consumer, name("purple_glazed_terracotta_from_firing"));
+        firing(Blocks.BLUE_TERRACOTTA, Blocks.BLUE_GLAZED_TERRACOTTA).save(consumer, name("blue_glazed_terracotta_from_firing"));
+        firing(Blocks.CYAN_TERRACOTTA, Blocks.CYAN_GLAZED_TERRACOTTA).save(consumer, name("cyan_glazed_terracotta_from_firing"));
+        firing(Blocks.LIGHT_BLUE_TERRACOTTA, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA).save(consumer, name("light_blue_glazed_terracotta_from_firing"));
+        firing(Blocks.GREEN_TERRACOTTA, Blocks.GREEN_GLAZED_TERRACOTTA).save(consumer, name("green_glazed_terracotta_from_firing"));
+        firing(Blocks.LIME_TERRACOTTA, Blocks.LIME_GLAZED_TERRACOTTA).save(consumer, name("lime_glazed_terracotta_from_firing"));
+        firing(Blocks.YELLOW_TERRACOTTA, Blocks.YELLOW_GLAZED_TERRACOTTA).save(consumer, name("yellow_glazed_terracotta_from_firing"));
+        firing(Blocks.ORANGE_TERRACOTTA, Blocks.ORANGE_GLAZED_TERRACOTTA).save(consumer, name("orange_glazed_terracotta_from_firing"));
+        firing(Blocks.RED_TERRACOTTA, Blocks.RED_GLAZED_TERRACOTTA).save(consumer, name("red_glazed_terracotta_from_firing"));
+        firing(Blocks.BROWN_TERRACOTTA, Blocks.BROWN_GLAZED_TERRACOTTA).save(consumer, name("brown_glazed_terracotta_from_firing"));
     }
 
     protected ResourceLocation name(String name) {

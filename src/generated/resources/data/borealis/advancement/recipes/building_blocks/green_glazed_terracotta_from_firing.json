@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_:green_terracotta": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:green_terracotta"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borealis:green_glazed_terracotta_from_firing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_:green_terracotta"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borealis:green_glazed_terracotta_from_firing"
+    ]
+  }
+}

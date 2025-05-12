@@ -9,7 +9,9 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
@@ -103,7 +105,21 @@ public class BorealisRecipes extends BorealisRecipeProvider {
 
         bulkStonecutting(consumer, BorealisBlocks.SLATE, slate_stonecuts);
 
+        firing(Blocks.COBBLESTONE, Blocks.STONE).save(consumer, name("stone_from_firing"));
+        firing(Blocks.STONE, Blocks.SMOOTH_STONE).save(consumer, name("smooth_stone_from_firing"));
+        firing(Blocks.COBBLED_DEEPSLATE, Blocks.DEEPSLATE).save(consumer, name("deepslate_from_firing"));
+        firing(Blocks.SANDSTONE, Blocks.SMOOTH_SANDSTONE).save(consumer, name("smooth_sandstone_from_firing"));
+        firing(Blocks.RED_SANDSTONE, Blocks.SMOOTH_RED_SANDSTONE).save(consumer, name("smooth_red_sandstone_from_firing"));
+        firing(Blocks.BASALT, Blocks.SMOOTH_BASALT).save(consumer, name("smooth_basalt_from_firing"));
+        firing(Blocks.QUARTZ_BLOCK, Blocks.SMOOTH_QUARTZ).save(consumer, name("smooth_quartz_from_firing"));
+        firing(Blocks.CLAY, Blocks.TERRACOTTA).save(consumer, name("terracotta_from_firing"));
+        firing(Blocks.SAND, Blocks.GLASS).save(consumer, name("glass_from_firing"));
+        firing(BorealisBlocks.SUGAR_SNOW.get(), Blocks.GLASS).save(consumer, name("sugar_snow_glass_from_firing"));
+        firing(Blocks.NETHERRACK, Items.NETHER_BRICK).save(consumer, name("nether_brick_from_firing"));
+        firing(ItemTags.LOGS_THAT_BURN, Items.CHARCOAL).save(consumer, name("charcoal_from_firing"));
+        firing(Items.CLAY_BALL, Items.BRICK).save(consumer, name("brick_from_firing"));
 
+        fireAllColors(consumer);
     }
 
     public void bulkWood(RecipeOutput consumer, Supplier<? extends Block> logIn, Supplier<? extends Block> plankIn, Supplier<? extends Block> woodIn, Supplier<? extends Block> stripLogIn, Supplier<? extends Block> stripWoodIn, Supplier<? extends Block> stairsIn, Supplier<? extends Block> slabIn, Supplier<? extends Block> fenceIn, Supplier<? extends Block> gateIn, Supplier<? extends Block> buttonIn, Supplier<? extends Block> plateIn, Supplier<? extends Block> doorIn, Supplier<? extends Block> trapdoorIn, Supplier<? extends Item> boatIn, Supplier<? extends SignBlock> signIn, Supplier<? extends CeilingHangingSignBlock> hangingSignIn) {

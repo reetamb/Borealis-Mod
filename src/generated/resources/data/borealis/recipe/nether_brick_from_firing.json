@@ -1,0 +1,14 @@
+{
+  "type": "borealis:kiln",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "netherrack_from_smelting",
+  "ingredient": {
+    "item": "minecraft:netherrack"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:nether_brick"
+  }
+}

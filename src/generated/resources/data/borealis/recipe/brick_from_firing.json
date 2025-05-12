@@ -1,0 +1,14 @@
+{
+  "type": "borealis:kiln",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "clay_ball_from_smelting",
+  "ingredient": {
+    "item": "minecraft:clay_ball"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:brick"
+  }
+}

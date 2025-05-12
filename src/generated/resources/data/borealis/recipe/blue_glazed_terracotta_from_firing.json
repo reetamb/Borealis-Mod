@@ -1,0 +1,14 @@
+{
+  "type": "borealis:kiln",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "blue_terracotta_from_smelting",
+  "ingredient": {
+    "item": "minecraft:blue_terracotta"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:blue_glazed_terracotta"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_:pink_terracotta": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:pink_terracotta"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borealis:pink_glazed_terracotta_from_firing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_:pink_terracotta"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borealis:pink_glazed_terracotta_from_firing"
+    ]
+  }
+}

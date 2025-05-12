@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_:red_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:red_sandstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borealis:smooth_red_sandstone_from_firing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_:red_sandstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borealis:smooth_red_sandstone_from_firing"
+    ]
+  }
+}

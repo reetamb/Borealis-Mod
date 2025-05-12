@@ -2,6 +2,12 @@
   "parent": "minecraft:item/handheld",
   "overrides": [
     {
+      "model": "borealis:item/silver_blade",
+      "predicate": {
+        "minecraft:custom_model_data": 0.0
+      }
+    },
+    {
       "model": "borealis:item/silver_sword",
       "predicate": {
         "minecraft:custom_model_data": 1.0
