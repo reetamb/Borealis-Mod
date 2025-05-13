@@ -47,10 +47,10 @@ public class KilnBlock extends AbstractFurnaceBlock {
 
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pState.getValue(LIT)) {
-            double $$4 = (double)pPos.getX() + 0.5;
-            double $$5 = pPos.getY();
-            double $$6 = (double)pPos.getZ() + 0.5;
-            pLevel.addParticle(ParticleTypes.SMOKE, $$4, $$5 + 1.1, $$6, 0.0, 0.0, 0.0);
+            double x = (double)pPos.getX() + 0.5;
+            double Y = pPos.getY();
+            double Z = (double)pPos.getZ() + 0.5;
+            pLevel.addParticle(ParticleTypes.FLAME, x, Y + 1.1, Z, 0.0, 0.0, 0.0);
         }
     }
 }

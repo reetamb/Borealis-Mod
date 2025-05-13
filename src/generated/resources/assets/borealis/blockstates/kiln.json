@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "borealis:block/kiln"
+    },
+    "lit=true": {
+      "model": "borealis:block/kiln_lit"
+    }
+  }
+}

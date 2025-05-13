@@ -5,6 +5,7 @@ import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -138,16 +139,9 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
                             .build();
                 });
 
-
-
-         /* .partialState().with(MarrowBlock.SHAPE, MarrowShape.SOLO).modelForState().modelFile(this.models().withExistingParent("marrow_solo", "vine").texture("vine", texture("marrow_solo"))).addModel()
-                .partialState().with(MarrowBlock.SHAPE, MarrowShape.END).modelForState().modelFile(this.models().withExistingParent("marrow_end", "vine").texture("vine", texture("marrow_end"))).addModel()
-                .partialState().with(MarrowBlock.SHAPE, MarrowShape.MIDDLE).modelForState().modelFile(this.models().withExistingParent("marrow_middle", "vine").texture("vine", texture("marrow_middle"))).addModel()
-                .partialState().with(MarrowBlock.SHAPE, MarrowShape.SOURCE).modelForState().modelFile(this.models().withExistingParent("marrow_source", "vine").texture("vine", texture("marrow_source"))).addModel()
-                .forAllStates((state) -> {
-
-                });*/
-        // THIS NEEDS TO ROTATE TOO
+        getVariantBuilder(BorealisBlocks.KILN.get())
+                .partialState().with(AbstractFurnaceBlock.LIT, true).modelForState().modelFile(this.models().cubeBottomTop("kiln_lit", texture("kiln_side"), texture("kiln_bottom"), texture("kiln_top_on"))).addModel()
+                .partialState().with(AbstractFurnaceBlock.LIT, false).modelForState().modelFile(this.models().cubeBottomTop("kiln", texture("kiln_side"), texture("kiln_bottom"), texture("kiln_top"))).addModel();
 
         block(BorealisBlocks.BOREALIS_PORTAL);
         logBlock(BorealisBlocks.KYANITE_FLAGSTONE.get());

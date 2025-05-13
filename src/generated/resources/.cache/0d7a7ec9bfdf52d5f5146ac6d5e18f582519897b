@@ -1,4 +1,4 @@
-// 1.21	2025-04-02T17:11:06.0876161	Borealis Block States
+// 1.21	2025-05-13T10:07:41.3078375	Borealis Block States
 dd618f4c8676ae73535fb7c4de7e56573498ba1c assets/borealis/blockstates/alms.json
 591cd93680f14f5041d523453e799b86ad925a77 assets/borealis/blockstates/arctic_willow.json
 5f6a7fbff012b989b63cb4e7142d0f5241f497c8 assets/borealis/blockstates/bone_dry_wood.json
@@ -43,6 +43,7 @@ c42e284b2abdc3a32877568036836ba14a643ccc assets/borealis/blockstates/gypsum.json
 f3d2c4601b9677ba2fc51a191b8e37f2bffeb709 assets/borealis/blockstates/hailstone_block.json
 284c3585ec79b3988343c7cb8d15ebd8b739e66d assets/borealis/blockstates/holly.json
 7a0c98bca4691e52f763ad65f471f5ea5b75d453 assets/borealis/blockstates/kaolin.json
+5fb1dd362194a57b166065e45548f69e9257ad25 assets/borealis/blockstates/kiln.json
 8ea79beba20887fbe7a2fb38c412856162f180bb assets/borealis/blockstates/kyanite_bulb.json
 d71d4ffa62fbd03cae81698419471c1c077e70dc assets/borealis/blockstates/kyanite_cable.json
 b042a111801fa3d7c58e6ec8670747c448a8b552 assets/borealis/blockstates/kyanite_flagstone.json
@@ -185,6 +186,8 @@ b6b8d5949cb8478f9535dd5b1b740874583f705e assets/borealis/models/block/gypsum.jso
 66af388a2e66e4ccdca043fd01efe95c2170c38f assets/borealis/models/block/hailstone_block.json
 bc392a5d52dbad9309e5fbe25d8ec5abe92c9c86 assets/borealis/models/block/infrared_fluorite.json
 20e492cfcc9c9568f9c1107740897bc0b61b8a72 assets/borealis/models/block/kaolin.json
+859f2100b971b66e7f35d083422a2b6bbbdd607d assets/borealis/models/block/kiln.json
+9f489abedaef2f98493782e2a12288e4bba51f63 assets/borealis/models/block/kiln_lit.json
 c6cefde28b3411bacfb583edcbe5c4c6e34bb531 assets/borealis/models/block/kyanite_bulb.json
 2f7024343a7adffb5951cc4df7e922f8ddcd8e0c assets/borealis/models/block/kyanite_cable.json
 ab25fc9527c049b5a5bc68f25644e6d9fcbb2074 assets/borealis/models/block/kyanite_cable_horizontal.json

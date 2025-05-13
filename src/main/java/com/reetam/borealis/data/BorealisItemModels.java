@@ -167,6 +167,8 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.HAILSTONE);
         normalItem(BorealisItems.KYANITE_ARROW);
 
+        itemBlock(BorealisBlocks.KILN);
+
         ItemModelBuilder SILVER_BLADE = withExistingParent(name(BorealisItems.SILVER_BLADE), mcLoc("item/handheld"))
                 .texture("layer0", modLoc("item/silver/silver_blade"))
         ;

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "borealis:block/kiln_bottom",
+    "side": "borealis:block/kiln_side",
+    "top": "borealis:block/kiln_top"
+  }
+}
