@@ -1,4 +1,4 @@
-// 1.21	2025-05-13T10:07:41.2957781	Borealis Item Models
+// 1.21	2025-05-19T18:11:43.2181847	Borealis Item Models
 5fd295104ee66c7b9091ab57fa73d2739d66df02 assets/borealis/models/item/alms.json
 37a211cdf9f551a56fbf6af22f3a70dbb05b0519 assets/borealis/models/item/alms_nut.json
 a01486912ce6bf77c8e5923a89f39398ae290f1a assets/borealis/models/item/arctic_willow.json
@@ -71,17 +71,17 @@ c54ba278d95644a9b260e91638c090be82098c0f assets/borealis/models/item/quicksilver
 eb5d2873fe6f623ab9ba7dce4244c24828b24583 assets/borealis/models/item/silver_adze.json
 58e752cceafa5dc6700eaa028d6b3f905e0d8559 assets/borealis/models/item/silver_axe.json
 c5cdef886a296c7c66fc2d077819b119bb00a018 assets/borealis/models/item/silver_battleaxe.json
-6fc8521cbe3455d6905f426a7a943b6200c3de2b assets/borealis/models/item/silver_blade.json
+e5b5d3ccc8f82364a62d28c0faaa58545fa518a8 assets/borealis/models/item/silver_blade.json
 75202933120327ac4d69c13c14d5a7284a24a41a assets/borealis/models/item/silver_chisel.json
 5aeaa5cb241588b01fca79f97810261eced50b58 assets/borealis/models/item/silver_claws.json
 e6b1e7d679b64c7d38c199506c22e272bf929ce3 assets/borealis/models/item/silver_cleaver.json
 d1390511a00975fdb48957e5d2a8def63c109994 assets/borealis/models/item/silver_crowbar.json
 256498176276411f7e6fe2cdc5ddc0ddd22e8b6a assets/borealis/models/item/silver_drill.json
+9a1ca073d2f1895c40f48aebe2e99475bc3900c3 assets/borealis/models/item/silver_gouge.json
 d45f65f4e03643257047e48970e7a20cdbe321c7 assets/borealis/models/item/silver_halberd.json
 e46ebafcaf057bd90332d8600b995bb0ccdb65d7 assets/borealis/models/item/silver_hammer.json
 d55f2f89c0d8c05967aa6d348711986f5bbc1f14 assets/borealis/models/item/silver_hatchet.json
 d1851f8e33a55becf97bd1b22c5a284195e693e5 assets/borealis/models/item/silver_hoe.json
-2d1d4b1b1efe3f081c007533f93f9c8b335a9280 assets/borealis/models/item/silver_lever.json
 b8cc686a8e05452d6d15767fa20ec074db8a3003 assets/borealis/models/item/silver_machete.json
 5da004d5c72ad31d9c5391c4ce07e61fd455737d assets/borealis/models/item/silver_mattock.json
 ed678a2b5e2917249bc130cd77b80f3618f87652 assets/borealis/models/item/silver_paxel.json

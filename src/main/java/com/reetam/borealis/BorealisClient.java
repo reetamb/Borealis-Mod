@@ -47,6 +47,7 @@ public class BorealisClient {
         ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_SOURCE.get(), translucent);
         render(BorealisBlocks.BOREALIS_PORTAL, translucent);
         render(BorealisBlocks.CLOUD, translucent);
+        render(BorealisBlocks.CANDY_GLASS, translucent);
 
         render(BorealisBlocks.STATIC_FIELD, cutout);
     }

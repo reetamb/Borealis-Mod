@@ -1,4 +1,4 @@
-package com.reetam.borealis.block;
+package com.reetam.borealis.block.plant;
 
 import com.mojang.serialization.MapCodec;
 import com.reetam.borealis.registry.BorealisBlocks;
@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.Tags;
 
 public class MisteriaBody extends GrowingPlantBodyBlock {
     public static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 16.0, 15.0);

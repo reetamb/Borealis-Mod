@@ -8,6 +8,8 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -38,6 +40,20 @@ public class BorealisItemTags extends ItemTagsProvider {
                 .add(BorealisBlocks.WINTER_CELLO.get().asItem())
                 .add(BorealisBlocks.WINTER_VIOLA.get().asItem())
                 .add(BorealisBlocks.BRUMELIAD.get().asItem());
+
+        tag(BorealisTags.Items.MEAT)
+                .add(Items.COOKED_MUTTON, Items.COOKED_PORKCHOP, Items.COOKED_SALMON, Items.COOKED_BEEF)
+                .add(Items.COOKED_CHICKEN, Items.COOKED_COD, Items.COOKED_RABBIT)
+                .add(Items.BEEF, Items.CHICKEN, Items.MUTTON, Items.PORKCHOP, Items.RABBIT)
+                .add(Items.PUFFERFISH, Items.COD, Items.SALMON, Items.ROTTEN_FLESH, Items.SPIDER_EYE, Items.TROPICAL_FISH);
+
+        tag(BorealisTags.Items.PRODUCE)
+                .add(Items.BAKED_POTATO, Items.BEETROOT, Items.BREAD, Items.CARROT)
+                .add(Items.APPLE, Items.DRIED_KELP, Items.MELON_SLICE, Items.POTATO, Items.PUMPKIN_PIE, Items.SWEET_BERRIES)
+                .add(Items.CAKE, Items.COOKIE, Items.GLOW_BERRIES);
+
+        tag(BorealisTags.Items.STEW)
+                .add(Items.RABBIT_STEW, Items.MUSHROOM_STEW, Items.SUSPICIOUS_STEW, Items.BEETROOT_SOUP);
 
         //vanilla
         tag(ItemTags.PLANKS)

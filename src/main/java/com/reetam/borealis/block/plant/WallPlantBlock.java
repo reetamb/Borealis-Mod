@@ -1,4 +1,4 @@
-package com.reetam.borealis.block;
+package com.reetam.borealis.block.plant;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;

@@ -24,7 +24,7 @@ public class SilverTools {
         add(named("cleaver").sword().axe().shovel().hoe()); // ✓
         add(named("machete").sword().axe().hoe()); // ✓
         add(named("spear").sword().pickaxe()); // ✓
-        add(named("lever").sword().pickaxe().shovel()); // ✓
+        add(named("gouge").sword().pickaxe().shovel()); // ✓
         add(named("crowbar").sword().pickaxe().shovel().hoe()); // ✓
         add(named("scythe").sword().pickaxe().hoe()); // ✓
         add(named("spade").sword().shovel()); // ✓

@@ -80,7 +80,7 @@
       }
     },
     {
-      "model": "borealis:item/silver_lever",
+      "model": "borealis:item/silver_gouge",
       "predicate": {
         "minecraft:custom_model_data": 13.0
       }

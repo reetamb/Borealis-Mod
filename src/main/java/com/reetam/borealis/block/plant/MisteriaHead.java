@@ -1,4 +1,4 @@
-package com.reetam.borealis.block;
+package com.reetam.borealis.block.plant;
 
 import com.mojang.serialization.MapCodec;
 import com.reetam.borealis.registry.BorealisBlocks;

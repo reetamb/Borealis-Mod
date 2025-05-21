@@ -1,6 +1,5 @@
 package com.reetam.borealis.data;
 
-import com.reetam.borealis.block.WallPlantBlock;
 import com.reetam.borealis.data.provider.BorealisLangProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;

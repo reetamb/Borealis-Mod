@@ -1,30 +1,42 @@
-package com.reetam.borealis.block;
+package com.reetam.borealis.block.plant;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class ShadedDoublePlantBlock extends DoublePlantBlock {
+public class ShadedBushBlock extends BushBlock {
     private final List<TagKey<Block>> substrate;
-    public ShadedDoublePlantBlock(Properties pProperties, TagKey<Block> substrates) {
+    public ShadedBushBlock(Properties pProperties, TagKey<Block> substrate) {
         super(pProperties.randomTicks());
-        this.substrate = List.of(substrates);
+        this.substrate = List.of(substrate);
     }
 
+    public ShadedBushBlock(Properties properties, List<TagKey<Block>> substrates) {
+        super(properties.randomTicks());
+        this.substrate = substrates;
+    }
+
+    @Override
+    protected MapCodec<? extends BushBlock> codec() {
+        return simpleCodec((properties) -> new ShadedBushBlock(properties, substrate));
+    }
+
+    @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         AtomicBoolean flag = new AtomicBoolean(false);
         this.substrate.stream().forEach((type) -> {
-            if (pLevel.getBlockState(pPos.below()).is(type) || pLevel.getBlockState(pPos.below()).is(this)) flag.set(true);
+            if (pLevel.getBlockState(pPos.below()).is(type)) flag.set(true);
         });
-        return flag.get() && !pLevel.canSeeSky(pPos) && super.canSurvive(pState, pLevel, pPos);
+        return flag.get() && !pLevel.canSeeSky(pPos);
     }
 
     @Override

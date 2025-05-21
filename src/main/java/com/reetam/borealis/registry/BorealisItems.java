@@ -57,6 +57,12 @@ public class BorealisItems {
 
     public static final DeferredHolder<Item, StandingAndWallBlockItem> WINTER_FIDDLE = ITEMS.register("winter_fiddle", () -> new StandingAndWallBlockItem(BorealisBlocks.WINTER_FIDDLE.get(), BorealisBlocks.WALL_WINTER_FIDDLE.get(), new Item.Properties(), Direction.DOWN));
     public static final DeferredHolder<Item, Item> ALMS_NUT = ITEMS.register("alms_nut", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).saturationModifier(1.25F).build())));
+
+    public static final DeferredHolder<Item, Item> FROZEN_MEAT = ITEMS.register("frozen_meat", () -> new Item(new Item.Properties()));
+    public static final DeferredHolder<Item, Item> FROZEN_PRODUCE = ITEMS.register("frozen_produce", () -> new Item(new Item.Properties()));
+    public static final DeferredHolder<Item, Item> FROZEN_STEW = ITEMS.register("frozen_stew", () -> new Item(new Item.Properties().stacksTo(1)));
+
+
     public static class Tabs {
 
         public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BorealisMod.MODID);

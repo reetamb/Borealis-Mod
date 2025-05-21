@@ -1,4 +1,4 @@
-package com.reetam.borealis.block;
+package com.reetam.borealis.block.plant;
 
 import com.reetam.borealis.data.trigger.BorealisTriggers;
 import net.minecraft.core.BlockPos;

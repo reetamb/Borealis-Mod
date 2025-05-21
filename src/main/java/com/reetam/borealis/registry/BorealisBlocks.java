@@ -2,6 +2,7 @@ package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
+import com.reetam.borealis.block.plant.*;
 import com.reetam.borealis.block.sign.*;
 import com.reetam.borealis.block.kiln.KilnBlock;
 import net.minecraft.core.Direction;
@@ -29,18 +30,17 @@ public class BorealisBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, BorealisMod.MODID);
 
-    public static final BlockSetType SET_BRUMAL = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "brumal").toString());
-    public static final BlockSetType SET_SWEETWOOD = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "sweetwood").toString());
-    public static final BlockSetType SET_CARAMELIZED = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "caramelized").toString());
-    public static final BlockSetType SET_SOAPSTONE = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "soapstone").toString());
-
-    public static final WoodType WOODSET_BRUMAL = WoodType.register(new WoodType(SET_BRUMAL.name(), SET_BRUMAL));
-    public static final WoodType WOODSET_SWEETWOOD = WoodType.register(new WoodType(SET_SWEETWOOD.name(), SET_SWEETWOOD));
-    public static final WoodType WOODSET_CARAMELIZED = WoodType.register(new WoodType(SET_CARAMELIZED.name(), SET_CARAMELIZED));
-
+    // Portal Content Area
     public static final DeferredHolder<Block, Block> BOREALIS_PORTAL = BLOCKS.register("borealis_portal", BorealisPortalBlock::new);
     public static final DeferredHolder<Block, RotatedPillarBlock> KYANITE_FLAGSTONE = registerBlock("kyanite_flagstone", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).sound(SoundType.AMETHYST).destroyTime(40.0F)));
+    public static final DeferredHolder<Block, Block> HAILSTONE = registerBlock("hailstone_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CRYING_OBSIDIAN)));
+    public static final DeferredHolder<Block, Block> CLOUD = registerBlock("cloud", () -> new CloudBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK).sound(SoundType.WOOL).destroyTime(0.2F).strength(0.4F).noCollission().requiresCorrectToolForDrops()));
 
+    // Basic Blocks
+    public static final DeferredHolder<Block, Block> FIRN = registerBlock("firn", () -> new LivingSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
+    public static final DeferredHolder<Block, Block> PEAT = registerBlock("peat", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAVEL).sound(SoundType.BASALT).requiresCorrectToolForDrops().destroyTime(1.0F)));
+    public static final DeferredHolder<Block, Block> LICHEN_BLOCK = registerBlock("lichen_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_BLOCK)));
+    public static final BlockSetType SET_SOAPSTONE = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "soapstone").toString());
     public static final DeferredHolder<Block, Block> SOAPSTONE = registerBlock("soapstone", () -> new Block(Template.soapstone()));
     public static final DeferredHolder<Block, Block> SOAPSTONE_BRICKS = registerBlock("soapstone_bricks", () -> new Block(Template.soapstone()));
     public static final DeferredHolder<Block, Block> SOAPSTONE_TILES = registerBlock("soapstone_tiles", () -> new Block(Template.soapstone()));
@@ -55,24 +55,52 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, WallBlock> SOAPSTONE_TILE_WALL = registerBlock("soapstone_tile_wall", () -> new WallBlock(Template.soapstone().noOcclusion()));
     public static final DeferredHolder<Block, ButtonBlock> SOAPSTONE_BUTTON = registerBlock("soapstone_button", () -> new ButtonBlock(SET_SOAPSTONE, 20, Template.soapstone().noOcclusion().noCollission()));
     public static final DeferredHolder<Block, PressurePlateBlock> SOAPSTONE_PRESSURE_PLATE = registerBlock("soapstone_pressure_plate", () -> new PressurePlateBlock(SET_SOAPSTONE, Template.soapstone().noOcclusion().noCollission()));
+    public static final DeferredHolder<Block, Block> MALACHITE = registerBlock("malachite", () -> new Block(Template.soapstone().mapColor(MapColor.COLOR_CYAN).strength(3.0F, 3.0F)));
 
+    // Meteorite Content Area - Space Invasion
     public static final DeferredHolder<Block, Block> SLATE = registerBlock("slate", () -> new Block(Template.slate()));
     public static final DeferredHolder<Block, RotatedPillarBlock> SLATE_PILLAR = registerBlock("slate_pillar", () -> new RotatedPillarBlock(Template.slate()));
     public static final DeferredHolder<Block, Block> SLATE_TILES = registerBlock("slate_tiles", () -> new Block(Template.slate()));
     public static final DeferredHolder<Block, Block> STARRY_SLATE = registerBlock("starry_slate", () -> new Block(Template.slate().mapColor(MapColor.WARPED_HYPHAE)));
     public static final DeferredHolder<Block, Block> STARRY_SLATE_TILES = registerBlock("starry_slate_tiles", () -> new Block(Template.slate().mapColor(MapColor.WARPED_HYPHAE)));
+    public static final DeferredHolder<Block, Block> TANZANITE_ORE = registerBlock("tanzanite_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)));
+    public static final DeferredHolder<Block, Block> TANZANITE_BLOCK = registerBlock("tanzanite_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.AMETHYST)));
 
+    // Hot Springs Content Area - Geological Preservation
     public static final DeferredHolder<Block, Block> PUMICE = registerBlock("pumice", () -> new PumiceBlock(Template.pumice()));
     public static final DeferredHolder<Block, Block> PUMICE_GEYSER = registerBlock("pumice_geyser", () -> new PumiceGeyserBlock(Template.pumice()));
     public static final DeferredHolder<Block, Block> KAOLIN = registerBlock("kaolin", () -> new KaolinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE_POWDER).speedFactor(0.85F)));
     public static final DeferredHolder<Block, Block> GYPSUM = registerBlock("gypsum", () -> new SolubleBlock(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_WHITE), BorealisBlocks.KAOLIN.get().defaultBlockState()));
+    public static final DeferredHolder<Block, KilnBlock> KILN = registerBlock("kiln", () -> new KilnBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOKER)));
+    // porcelain plate
+    // red biofilm
+    // orange biofilm
+    // yellow biofilm
+    // Kaowool
+    // fleece
+    // agave thingy
 
+    // Frostfir Content Area - Animal Balance
     public static final DeferredHolder<Block, BoneDryWood> BONE_DRY_WOOD = registerBlock("bone_dry_wood", () -> new BoneDryWood(Template.petrifiedWood().mapColor(MapColor.SAND)));
     public static final DeferredHolder<Block, Block> BONE_DRY_WOOD_BRICKS = registerBlock("bone_dry_wood_bricks", () -> new Block(Template.petrifiedWood().mapColor(MapColor.SAND)));
     public static final DeferredHolder<Block, PetrifiedBarkBlock> PETRIFIED_WOOD = registerBlock("petrified_wood", () -> new PetrifiedBarkBlock(BorealisBlocks.BONE_DRY_WOOD.get(), Template.petrifiedWood()));
     public static final DeferredHolder<Block, Block> PETRIFIED_WOOD_BRICKS = registerBlock("petrified_wood_bricks", () -> new Block(Template.petrifiedWood()));
     public static final DeferredHolder<Block, Block> FROSTFIR_LEAVES = registerBlock("frostfir_leaves", () -> new LeavesBlock(Template.leaves().mapColor(MapColor.COLOR_CYAN)));
+    public static final DeferredHolder<Block, MarrowBlock> MARROW = registerBlock("marrow", () -> new MarrowBlock(Template.plant().sound(SoundType.STONE).mapColor(MapColor.TERRACOTTA_RED)));
+    public static final DeferredHolder<Block, TallGrassBlock> HOLLY = registerBlock("holly", () -> new TallGrassBlock(Template.plant()));
+    // tuber briquette
+    // Cyan Biofilm
+    // Knotted Wood
+    // Hyacinth
+    // Ghost Elk Carcass
+    // Ghost Elk Skull
+    // tree tapper
+    // fir cone
+    public static final DeferredHolder<Block, RotatedPillarBlock> GIRDLED_LOG = registerBlock("girdled_log", () -> new RotatedPillarBlock(Template.petrifiedWood()));
 
+    // Brumal Grove Content Area - Plant Preservation
+    public static final BlockSetType SET_BRUMAL = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "brumal").toString());
+    public static final WoodType WOODSET_BRUMAL = WoodType.register(new WoodType(SET_BRUMAL.name(), SET_BRUMAL));
     public static final DeferredHolder<Block, StandingSignBlock> BRUMAL_SIGN = BLOCKS.register("brumal_sign", () -> new BorealisStandingSignBlock(Template.sign(MapColor.COLOR_LIGHT_BLUE), WOODSET_BRUMAL));
     public static final DeferredHolder<Block, WallSignBlock> BRUMAL_WALL_SIGN = BLOCKS.register("brumal_wall_sign", () -> new BorealisWallSignBlock(Template.sign(MapColor.COLOR_LIGHT_BLUE), WOODSET_BRUMAL));
     public static final DeferredHolder<Block, CeilingHangingSignBlock> BRUMAL_HANGING_SIGN = BLOCKS.register("brumal_hanging_sign", () -> new BorealisCeilingHangingSignBlock(Template.sign(MapColor.COLOR_LIGHT_BLUE), WOODSET_BRUMAL));
@@ -91,7 +119,21 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, TrapDoorBlock> BRUMAL_TRAPDOOR = registerBlock("brumal_trapdoor", () -> new TrapDoorBlock(SET_BRUMAL, Template.brumal().noOcclusion()));
     public static final DeferredHolder<Block, ButtonBlock> BRUMAL_BUTTON = registerBlock("brumal_button", () -> new ButtonBlock(SET_BRUMAL, 30, Template.brumal().noOcclusion().noCollission()));
     public static final DeferredHolder<Block, PressurePlateBlock> BRUMAL_PRESSURE_PLATE = registerBlock("brumal_pressure_plate", () -> new PressurePlateBlock(SET_BRUMAL, Template.brumal().noOcclusion().noCollission()));
+    public static final DeferredHolder<Block, MisteriaBody> MISTERIA_BODY = BLOCKS.register("misteria_plant", () -> new MisteriaBody(Template.plant()));
+    public static final DeferredHolder<Block, MisteriaHead> MISTERIA_HEAD = registerBlock("misteria", () -> new MisteriaHead(Template.plant()));
+    public static final DeferredHolder<Block, ShadedBushBlock> BRUMELIAD = registerBlock("brumeliad", () -> new ShadedBushBlock(Template.plant(), BlockTags.DIRT));
+    public static final DeferredHolder<Block, ShadedBushBlock> WINTER_VIOLA = registerBlock("winter_viola", () -> new ShadedBushBlock(Template.plant(), List.of(BlockTags.LOGS, BlockTags.DIRT)));
+    public static final DeferredHolder<Block, ShadedBushBlock> WINTER_FIDDLE = BLOCKS.register("winter_fiddle", () -> new ShadedBushBlock(Template.plant().offsetType(BlockBehaviour.OffsetType.XZ), BlockTags.LOGS));
+    public static final DeferredHolder<Block, WallPlantBlock> WALL_WINTER_FIDDLE = BLOCKS.register("wall_winter_fiddle", () -> new WallPlantBlock(BlockTags.LOGS, Template.plant()));
+    public static final DeferredHolder<Block, ShadedDoublePlantBlock> WINTER_CELLO = registerBlock("winter_cello", () -> new ShadedDoublePlantBlock(Template.plant(), BlockTags.DIRT));
+    public static final DeferredHolder<Block, AlmsBlock> ALMS = registerBlock("alms", () -> new AlmsBlock(Template.petrifiedWood().mapColor(MapColor.DIRT)));
+    public static final DeferredHolder<Block, AlmsCrackedBlock> CRACKED_ALMS = registerBlock("cracked_alms", () -> new AlmsCrackedBlock(Template.petrifiedWood().mapColor(MapColor.GOLD)));
+    // Takahe Egg
+    // Tapestry
 
+    // Sweetwood Content Area - Overconsumption
+    public static final BlockSetType SET_SWEETWOOD = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "sweetwood").toString());
+    public static final WoodType WOODSET_SWEETWOOD = WoodType.register(new WoodType(SET_SWEETWOOD.name(), SET_SWEETWOOD));
     public static final DeferredHolder<Block, StandingSignBlock> SWEETWOOD_SIGN = BLOCKS.register("sweetwood_sign", () -> new BorealisStandingSignBlock(Template.sign(MapColor.SAND), WOODSET_SWEETWOOD));
     public static final DeferredHolder<Block, WallSignBlock> SWEETWOOD_WALL_SIGN = BLOCKS.register("sweetwood_wall_sign", () -> new BorealisWallSignBlock(Template.sign(MapColor.SAND), WOODSET_SWEETWOOD));
     public static final DeferredHolder<Block, CeilingHangingSignBlock> SWEETWOOD_HANGING_SIGN = BLOCKS.register("sweetwood_hanging_sign", () -> new BorealisCeilingHangingSignBlock(Template.sign(MapColor.SAND), WOODSET_SWEETWOOD));
@@ -110,7 +152,8 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, TrapDoorBlock> SWEETWOOD_TRAPDOOR = registerBlock("sweetwood_trapdoor", () -> new TrapDoorBlock(SET_SWEETWOOD, Template.sweetwood().noOcclusion()));
     public static final DeferredHolder<Block, ButtonBlock> SWEETWOOD_BUTTON = registerBlock("sweetwood_button", () -> new ButtonBlock(SET_SWEETWOOD, 30, Template.sweetwood().noOcclusion().noCollission()));
     public static final DeferredHolder<Block, PressurePlateBlock> SWEETWOOD_PRESSURE_PLATE = registerBlock("sweetwood_pressure_plate", () -> new PressurePlateBlock(SET_SWEETWOOD, Template.sweetwood().noOcclusion().noCollission()));
-
+    public static final BlockSetType SET_CARAMELIZED = new BlockSetType(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "caramelized").toString());
+    public static final WoodType WOODSET_CARAMELIZED = WoodType.register(new WoodType(SET_CARAMELIZED.name(), SET_CARAMELIZED));
     public static final DeferredHolder<Block, StandingSignBlock> CARAMELIZED_SIGN = BLOCKS.register("caramelized_sign", () -> new BorealisStandingSignBlock(Template.sign(MapColor.TERRACOTTA_ORANGE, false), WOODSET_CARAMELIZED));
     public static final DeferredHolder<Block, WallSignBlock> CARAMELIZED_WALL_SIGN = BLOCKS.register("caramelized_wall_sign", () -> new BorealisWallSignBlock(Template.sign(MapColor.TERRACOTTA_ORANGE, false), WOODSET_CARAMELIZED));
     public static final DeferredHolder<Block, CeilingHangingSignBlock> CARAMELIZED_HANGING_SIGN = BLOCKS.register("caramelized_hanging_sign", () -> new BorealisCeilingHangingSignBlock(Template.sign(MapColor.TERRACOTTA_ORANGE, false), WOODSET_CARAMELIZED));
@@ -129,43 +172,39 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, TrapDoorBlock> CARAMELIZED_TRAPDOOR = registerBlock("caramelized_trapdoor", () -> new TrapDoorBlock(SET_CARAMELIZED, Template.caramel().noOcclusion()));
     public static final DeferredHolder<Block, ButtonBlock> CARAMELIZED_BUTTON = registerBlock("caramelized_button", () -> new ButtonBlock(SET_CARAMELIZED, 30, Template.caramel().noOcclusion().noCollission()));
     public static final DeferredHolder<Block, PressurePlateBlock> CARAMELIZED_PRESSURE_PLATE = registerBlock("caramelized_pressure_plate", () -> new PressurePlateBlock(SET_CARAMELIZED, Template.caramel().noOcclusion().noCollission()));
-
-    public static final DeferredHolder<Block, RotatedPillarBlock> KYANITE_ORE = registerBlock("kyanite_ore", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_ORE).lightLevel((blockstate) -> 8)));
-    public static final DeferredHolder<Block, Block> TANZANITE_ORE = registerBlock("tanzanite_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)));
-    public static final DeferredHolder<Block, Block> TANZANITE_BLOCK = registerBlock("tanzanite_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.AMETHYST)));
-    public static final DeferredHolder<Block, Block> HAILSTONE = registerBlock("hailstone_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CRYING_OBSIDIAN)));
-
-    public static final DeferredHolder<Block, Block> FIRN = registerBlock("firn", () -> new LivingSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
-    public static final DeferredHolder<Block, Block> SUGAR_SNOW_BLOCK = registerBlock("sugar_snow_block", () -> new LivingSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
     public static final DeferredHolder<Block, Block> SUGAR_SNOW = registerBlock("sugar_snow", () -> new SugarSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW)));
-    public static final DeferredHolder<Block, Block> CLOUD = registerBlock("cloud", () -> new CloudBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK).sound(SoundType.WOOL).destroyTime(0.2F).strength(0.4F).noCollission().requiresCorrectToolForDrops()));
-    public static final DeferredHolder<Block, Block> PEAT = registerBlock("peat", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAVEL).sound(SoundType.BASALT).requiresCorrectToolForDrops().destroyTime(1.0F)));
+    public static final DeferredHolder<Block, Block> SUGAR_SNOW_BLOCK = registerBlock("sugar_snow_block", () -> new LivingSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
+    // Starburst
+    // Sundew
+    public static final DeferredHolder<Block, Block> CANDY_GLASS = registerBlock("candy_glass", () -> new TransparentBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).requiresCorrectToolForDrops()));
 
-    public static final DeferredHolder<Block, KyaniteArrowBlock> EMBEDDED_KYANITE_ARROW = BLOCKS.register("embedded_kyanite_arrow", () -> new KyaniteArrowBlock(BlockBehaviour.Properties.of().noCollission().lightLevel((blockstate) -> 15)));
-    public static final DeferredHolder<Block, RotatedPillarBlock> KYANITE_CABLE = registerBlock("kyanite_cable", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of()));
-    public static final DeferredHolder<Block, Block> KYANITE_BULB = registerBlock("kyanite_bulb", () -> new Block(BlockBehaviour.Properties.of()));
-
-    public static final DeferredHolder<Block, FluoriteBlock> FLUORITE = registerBlock("fluorite", () -> new FluoriteBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BLOCK)));
-    public static final DeferredHolder<Block, StaticFieldBlock> STATIC_FIELD = registerBlock("static_field", () -> new StaticFieldBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS_PANE)));
-
-    public static final DeferredHolder<Block, TallGrassBlock> HOLLY = registerBlock("holly", () -> new TallGrassBlock(Template.plant()));
-    public static final DeferredHolder<Block, Block> LICHEN_BLOCK = registerBlock("lichen_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_BLOCK)));
-    public static final DeferredHolder<Block, MisteriaBody> MISTERIA_BODY = BLOCKS.register("misteria_plant", () -> new MisteriaBody(Template.plant()));
-    public static final DeferredHolder<Block, MisteriaHead> MISTERIA_HEAD = registerBlock("misteria", () -> new MisteriaHead(Template.plant()));
-    public static final DeferredHolder<Block, ShadedBushBlock> BRUMELIAD = registerBlock("brumeliad", () -> new ShadedBushBlock(Template.plant(), BlockTags.DIRT));
-    public static final DeferredHolder<Block, ShadedBushBlock> WINTER_VIOLA = registerBlock("winter_viola", () -> new ShadedBushBlock(Template.plant(), List.of(BlockTags.LOGS, BlockTags.DIRT)));
-    public static final DeferredHolder<Block, ShadedBushBlock> WINTER_FIDDLE = BLOCKS.register("winter_fiddle", () -> new ShadedBushBlock(Template.plant().offsetType(BlockBehaviour.OffsetType.XZ), BlockTags.LOGS));
-    public static final DeferredHolder<Block, WallPlantBlock> WALL_WINTER_FIDDLE = BLOCKS.register("wall_winter_fiddle", () -> new WallPlantBlock(BlockTags.LOGS, Template.plant()));
-    public static final DeferredHolder<Block, ShadedDoublePlantBlock> WINTER_CELLO = registerBlock("winter_cello", () -> new ShadedDoublePlantBlock(Template.plant(), BlockTags.DIRT));
-    public static final DeferredHolder<Block, AlmsBlock> ALMS = registerBlock("alms", () -> new AlmsBlock(Template.petrifiedWood().mapColor(MapColor.DIRT)));
-    public static final DeferredHolder<Block, AlmsCrackedBlock> CRACKED_ALMS = registerBlock("cracked_alms", () -> new AlmsCrackedBlock(Template.petrifiedWood().mapColor(MapColor.GOLD)));
-    public static final DeferredHolder<Block, MarrowBlock> MARROW = registerBlock("marrow", () -> new MarrowBlock(Template.plant().sound(SoundType.STONE).mapColor(MapColor.TERRACOTTA_RED)));
     public static final DeferredHolder<Block, TallGrassBlock> ARCTIC_WILLOW = registerBlock("arctic_willow", () -> new TallGrassBlock(Template.plant().mapColor(MapColor.TERRACOTTA_RED).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final DeferredHolder<Block, LivingSnowBlock> WILLOWY_FIRN = registerBlock("willowy_firn", () -> new LivingSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK).mapColor(MapColor.TERRACOTTA_RED)));
 
-    public static final DeferredHolder<Block, Block> CINNABAR = registerBlock("cinnabar", () -> new Block(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_MAGENTA)));
+    // Kyanite/Ice Content Area - Light Pollution
+    public static final DeferredHolder<Block, RotatedPillarBlock> KYANITE_ORE = registerBlock("kyanite_ore", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_ORE).lightLevel((blockstate) -> 8)));
+    public static final DeferredHolder<Block, KyaniteArrowBlock> EMBEDDED_KYANITE_ARROW = BLOCKS.register("embedded_kyanite_arrow", () -> new KyaniteArrowBlock(BlockBehaviour.Properties.of().noCollission().lightLevel((blockstate) -> 15)));
+    public static final DeferredHolder<Block, RotatedPillarBlock> KYANITE_CABLE = registerBlock("kyanite_cable", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of()));
+    public static final DeferredHolder<Block, Block> KYANITE_BULB = registerBlock("kyanite_bulb", () -> new Block(BlockBehaviour.Properties.of()));
+    // see if I can figure out a way to do the selenite thing (ask Ludo how to mess with rendering?)
+    // Fiberglass
+    // Ice Tank
+    // Thermal Tank
 
-    public static final DeferredHolder<Block, KilnBlock> KILN = registerBlock("kiln", () -> new KilnBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOKER)));
+    // Lightning Storm Content Area
+    public static final DeferredHolder<Block, FluoriteBlock> FLUORITE = registerBlock("fluorite", () -> new FluoriteBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BLOCK)));
+    public static final DeferredHolder<Block, StaticFieldBlock> STATIC_FIELD = registerBlock("static_field", () -> new StaticFieldBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS_PANE)));
+    // Ozone
+
+    // Quicksilver Content Area - Reckless Mining
+    public static final DeferredHolder<Block, Block> CINNABAR = registerBlock("cinnabar", () -> new Block(Template.soapstone().sound(SoundType.BASALT).mapColor(MapColor.TERRACOTTA_MAGENTA)));
+    // Contaminated Soapstone
+    // Contaminated Snow
+    // Contaminated Organics
+    // Mercury Vapor
+    // Barometer (shows elevation) and Thermometer (shows biome params?)
+    // dirty snow
+    public static final DeferredHolder<Block, RotatedPillarBlock> MODERN_DEBRIS = registerBlock("modern_debris", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANCIENT_DEBRIS).mapColor(MapColor.COLOR_CYAN)));
 
     private static <T extends Block> DeferredHolder<Block, T> baseRegister(String name, Supplier<? extends T> block, Function<DeferredHolder<Block, T>, Supplier<? extends Item>> item) {
         DeferredHolder<Block, T> register = BLOCKS.register(name, block);

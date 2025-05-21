@@ -1,4 +1,4 @@
-package com.reetam.borealis.block;
+package com.reetam.borealis.block.plant;
 
 import com.reetam.borealis.block.property.MarrowShape;
 import com.reetam.borealis.registry.BorealisBlocks;

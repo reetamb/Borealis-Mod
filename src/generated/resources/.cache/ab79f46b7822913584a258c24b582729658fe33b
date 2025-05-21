@@ -1,7 +1,10 @@
-// 1.21	2025-02-20T13:16:18.1880783	Borealis Item Tags
+// 1.21	2025-05-19T18:11:43.2302624	Borealis Item Tags
 5cd9b7cd7d41b33c4e1a3212a4728db86db89edc data/borealis/tags/item/brumal_logs.json
 6f38a3f95b08ee9de30aaef256f714d369d05a70 data/borealis/tags/item/caramelized_logs.json
+5517616a8f4bb7d90a5d62513df7e55d1e2c13d4 data/borealis/tags/item/meat.json
 faa0be93013a26dd7d151b7637315f616a3bcefd data/borealis/tags/item/prehistoric_plant.json
+61a93446b3dde14273b390cb7d1cc63c2647c2db data/borealis/tags/item/produce.json
+6dbfcc675656a324f8b7a8680ed83709ef1e6da1 data/borealis/tags/item/stew.json
 ee9cf42dbaca78a9b34e634ea26be08488bb7e78 data/borealis/tags/item/sweetwood_logs.json
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/c/tags/item/cobblestones.json
 fd9ba3dbd5d3c00b16932ddaf048674fb53584e0 data/c/tags/item/fences/wooden.json

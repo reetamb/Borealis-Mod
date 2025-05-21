@@ -1,6 +1,9 @@
 package com.reetam.borealis.data;
 
 import com.reetam.borealis.block.*;
+import com.reetam.borealis.block.plant.AlmsCrackedBlock;
+import com.reetam.borealis.block.plant.MarrowBlock;
+import com.reetam.borealis.block.plant.ShadedDoublePlantBlock;
 import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.Direction;
@@ -147,6 +150,12 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         logBlock(BorealisBlocks.KYANITE_FLAGSTONE.get());
         block(BorealisBlocks.LICHEN_BLOCK);
         block(BorealisBlocks.CINNABAR);
+
+        logBlock(BorealisBlocks.MODERN_DEBRIS.get());
+        block(BorealisBlocks.CANDY_GLASS);
+        block(BorealisBlocks.MALACHITE);
+        log(BorealisBlocks.GIRDLED_LOG, "girdled_log");
+
         wood();
     }
 

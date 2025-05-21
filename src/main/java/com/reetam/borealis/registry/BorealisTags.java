@@ -17,6 +17,9 @@ public class BorealisTags {
         public static final TagKey<Item> CARAMELIZED_LOGS = tag("caramelized_logs");
 
         public static final TagKey<Item> PREHISTORIC_PLANT = tag("prehistoric_plant");
+        public static final TagKey<Item> MEAT = tag("meat"); // any food is considered meat the moment it contains any meat at all
+        public static final TagKey<Item> PRODUCE = tag("produce"); // all plant-based food, even if processed (incl. cake, cookies, bread)
+        public static final TagKey<Item> STEW = tag("stew"); // food that goes in a bowl
 
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
