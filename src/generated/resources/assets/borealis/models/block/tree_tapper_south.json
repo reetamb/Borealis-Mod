@@ -1,0 +1,6 @@
+{
+  "parent": "borealis:block/tree_tapper",
+  "textures": {
+    "0": "borealis:block/tree_tapper"
+  }
+}

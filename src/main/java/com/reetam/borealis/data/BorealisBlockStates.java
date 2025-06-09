@@ -153,7 +153,7 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.LICHEN_BLOCK);
         block(BorealisBlocks.CINNABAR);
 
-        // this.simpleBlock(BorealisBlocks.MODERN_DEBRIS.get(), this.models().cubeColumn("modern_debris", modLoc("modern_debris_side"), modLoc("modern_debris_end")));
+        this.simpleBlock(BorealisBlocks.MODERN_DEBRIS.get(), this.models().cubeColumn("modern_debris", texture("modern_debris_side"), texture("modern_debris_end")));
         block(BorealisBlocks.CANDY_GLASS);
         block(BorealisBlocks.MALACHITE);
         block(BorealisBlocks.GIRDLED_LOG);
@@ -169,12 +169,11 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
 
         getVariantBuilder(BorealisBlocks.INSULATED_TANK.get()).forAllStates((state) -> ConfiguredModel.builder()
                 .modelFile(this.models().cubeBottomTop(
-                        "insulated_tank_" + state.getValue(TankBlock.TYPE).getSerializedName(),
-                        state.getValue(TankBlock.LEVEL) >= 4 ? modLoc("tank/" + state.getValue(TankBlock.TYPE) + "_tank") : modLoc("tank/empty_tank"),
-                        modLoc("tank/tank_bottom"),
-                        modLoc("tank/tank_top"))
+                        "insulated_tank_" + (state.getValue(TankBlock.LEVEL) >= 4 ? state.getValue(TankBlock.TYPE).getSerializedName() : "empty"),
+                                state.getValue(TankBlock.LEVEL) >= 4 ? texture("tank/" + state.getValue(TankBlock.TYPE) + "_tank") : texture("tank/empty_tank"),
+                                texture("tank/tank_bottom"),
+                                texture("tank/tank_top"))
                         ).build());
-
         wood();
     }
 

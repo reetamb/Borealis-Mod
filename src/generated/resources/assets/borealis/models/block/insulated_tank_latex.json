@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "borealis:block/tank/tank_bottom",
+    "side": "borealis:block/tank/latex_tank",
+    "top": "borealis:block/tank/tank_top"
+  }
+}

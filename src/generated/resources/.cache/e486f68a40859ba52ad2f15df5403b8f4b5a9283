@@ -1,4 +1,4 @@
-// 1.21	2025-05-19T18:11:43.2181847	Borealis Item Models
+// 1.21	2025-06-08T22:59:37.7594656	Borealis Item Models
 5fd295104ee66c7b9091ab57fa73d2739d66df02 assets/borealis/models/item/alms.json
 37a211cdf9f551a56fbf6af22f3a70dbb05b0519 assets/borealis/models/item/alms_nut.json
 a01486912ce6bf77c8e5923a89f39398ae290f1a assets/borealis/models/item/arctic_willow.json
@@ -21,6 +21,7 @@ c4ae924254107bfed3ffcd0c95031dbc1bd9fb30 assets/borealis/models/item/brumal_stai
 94eadc00fc2b880e750259d461c60920ecbd1835 assets/borealis/models/item/brumal_trapdoor.json
 3d9ba6a314f602bc76cc673936b93b3cce556982 assets/borealis/models/item/brumal_wood.json
 edfb7a1b13ba760b5e7a84e630cbd938dae2e52d assets/borealis/models/item/brumeliad.json
+f8cd6cfbfd6b42ca832063dd658a8abf01c9e1bf assets/borealis/models/item/candy_glass.json
 4c5b1628d8b008d64014d10ecf7462b5c74b115f assets/borealis/models/item/caramelized_boat.json
 dd6a3b2d2fed8bfdccc97a3b8a41403ef2df38cb assets/borealis/models/item/caramelized_button.json
 5ba2b86cf0032531f0aeb15899b87505ee1eee21 assets/borealis/models/item/caramelized_door.json
@@ -42,6 +43,7 @@ e946e9305a9d26e91cb5db4ab4eae7211666a5d3 assets/borealis/models/item/caramelized
 a02e613fe799dd336241f8020821f307a4062c8c assets/borealis/models/item/fleece.json
 830d28f49e8e4f220f645d6f326e42c810d2ca56 assets/borealis/models/item/fluorite.json
 09d9a39d55344135ec102f330fb9014a328108cc assets/borealis/models/item/frostfir_leaves.json
+bfa7820baba944b9ff3b5761536795b7a77dfd3d assets/borealis/models/item/girdled_log.json
 1ff89a7af7bd9fb15f483166c9be1b55cb7292d3 assets/borealis/models/item/glazed_leaves.json
 629a9afbcf88b70ea4a8a84ac9563e062b9b829a assets/borealis/models/item/gypsum.json
 b97326cfad763a174770760cf802644681b492fa assets/borealis/models/item/hailstone.json
@@ -50,6 +52,7 @@ b97326cfad763a174770760cf802644681b492fa assets/borealis/models/item/hailstone.j
 9c692ad4ef91d5ea5819ae38d3dcb611354dfece assets/borealis/models/item/holly.json
 3c022d226b8a5b26530757513b649053e70cd052 assets/borealis/models/item/hot_spring_water_bucket.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/hummingbird_spawn_egg.json
+d6ae71be506db28f6eedf5cfcc3d8617a070b5bb assets/borealis/models/item/insulated_tank.json
 8c657bc7fd739d33131d6272a3ee96bcb07e10e9 assets/borealis/models/item/kaolin.json
 45ea8791ced72346ceb2a806ee4175c5eabfe00f assets/borealis/models/item/kiln.json
 dfd9d25d54083c0169d2db344a282b3d2c400eb4 assets/borealis/models/item/kyanite_arrow.json
@@ -59,8 +62,10 @@ ba2d04b062d5662ee14dbc968050247b3061c817 assets/borealis/models/item/kyanite_cry
 cb6eb0dd2aa4ff7f3277431af16ab4ff8c0b02df assets/borealis/models/item/kyanite_flagstone.json
 0fbb788738ef4fd87db5e07aace44e5605f21e9f assets/borealis/models/item/kyanite_ore.json
 c50d27f200349d9ec4e3a2a166b2dcf00d7a7a8a assets/borealis/models/item/lichen_block.json
+00224f3e34f15c435e21a02bae5edbd1b77a01c2 assets/borealis/models/item/malachite.json
 57c94c98bf54a2d9dab2deae764486fbf54d2d85 assets/borealis/models/item/marrow.json
 8115978b2d99be5c89ab7bc46ffc77502fa8b41d assets/borealis/models/item/misteria.json
+2c213e98f78af35992034aaf9946a75b108f331c assets/borealis/models/item/modern_debris.json
 391ef7014753ada379a39395d6f72cee041373d1 assets/borealis/models/item/peat.json
 b2b161cc742e7b2ef8eb51aa3be7f93b44103500 assets/borealis/models/item/petrified_wood.json
 9b8fe5aefae0ead25374a8b03c5dda1bca10b39b assets/borealis/models/item/petrified_wood_bricks.json
@@ -150,6 +155,7 @@ c9ea058f28c8b6cfb272a7f83cd58604afdba875 assets/borealis/models/item/sweetwood_t
 fe43279294a4588861e019d66f47c3dad5281718 assets/borealis/models/item/tanzanite_block.json
 dcec19bafd2d5166c36041177f291e5e50661de0 assets/borealis/models/item/tanzanite_ore.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/thrusher_spawn_egg.json
+ab0732c4c4e00c96369322dd3a62af7468f89494 assets/borealis/models/item/tree_tapper.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/tuber_spawn_egg.json
 a3398d373b3655617be4bb3f8ef73593e236536d assets/borealis/models/item/willowy_firn.json
 a13d47d94a1313c23fdb17845de3ff76c7510840 assets/borealis/models/item/winter_cello.json

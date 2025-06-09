@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "borealis:block/tree_tapper_east",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "borealis:block/tree_tapper_north",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "borealis:block/tree_tapper_south"
+    },
+    "facing=west": {
+      "model": "borealis:block/tree_tapper_west",
+      "y": 90
+    }
+  }
+}

@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 public class TankBlock extends Block {
 
     public static final EnumProperty<TankType> TYPE = EnumProperty.create("fluid", TankType.class);
-    public static final IntegerProperty LEVEL = BeehiveBlock.HONEY_LEVEL;
+    public static final IntegerProperty LEVEL = IntegerProperty.create("level", 0, 4);
 
     public TankBlock(Properties properties) {
         super(properties);

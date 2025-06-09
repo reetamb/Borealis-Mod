@@ -1,4 +1,4 @@
-// 1.21	2025-04-02T17:11:06.0768275	Loot Tables
+// 1.21	2025-06-08T22:59:37.7739979	Loot Tables
 86e2863b65e7ea5c62dc84dd96dbcecb36924fc3 data/borealis/loot_table/blocks/alms.json
 cac8f8786ab72c6d6882519625b0065b2596f4c8 data/borealis/loot_table/blocks/arctic_willow.json
 51ddf82787e7a3e73e5120b7114515d4170a0f9e data/borealis/loot_table/blocks/bone_dry_wood.json
@@ -20,6 +20,7 @@ d7a94cf393201c3c7473045057edd747b0b131ad data/borealis/loot_table/blocks/brumal_
 76950f5cb927dc8e28857bc070366ec96484507f data/borealis/loot_table/blocks/brumal_wall_sign.json
 3fb739647b6cc3ce71966e14d868486851009e2f data/borealis/loot_table/blocks/brumal_wood.json
 0372d823033115d21fc63c4e24ba9369bec557ce data/borealis/loot_table/blocks/brumeliad.json
+a3d60b2b31088e900360ef9fe27a7c7b034dcc5d data/borealis/loot_table/blocks/candy_glass.json
 9d360917f83254c7cdccc67b7e859da17cb5763d data/borealis/loot_table/blocks/caramelized_button.json
 b9fea31955424542915dbb9e2596542a95241e63 data/borealis/loot_table/blocks/caramelized_door.json
 a26f1f5214dd0f5d8aad41e53a15ddd1e6dd2204 data/borealis/loot_table/blocks/caramelized_fence.json
@@ -41,10 +42,12 @@ d585bd1e50109590cd88967324fa8c4f901e872e data/borealis/loot_table/blocks/cinnaba
 af1d8b921b93e4024c11cdf973cabc2067be17d9 data/borealis/loot_table/blocks/firn.json
 a8a90c9e450aa062b5baa1a9a3c0f98a9d07a0c7 data/borealis/loot_table/blocks/fluorite.json
 a32658469305b224a6c66c5b1acfd223a269b88e data/borealis/loot_table/blocks/frostfir_leaves.json
+9f442636c84a8505d7a10589ac3e571eb6abd85f data/borealis/loot_table/blocks/girdled_log.json
 f2f2e92c81940b7b352b01bf0ed5544df4f2e3c4 data/borealis/loot_table/blocks/glazed_leaves.json
 545a588e357a61227dafaa821a6c9883e8ff3ea4 data/borealis/loot_table/blocks/gypsum.json
 77226e41c6a23fbfa53d879db8501eb454d8debc data/borealis/loot_table/blocks/hailstone_block.json
 16fd700b72cdfb6bdb9b0f993901d3b1b0a02362 data/borealis/loot_table/blocks/holly.json
+cf4a96a130eda78d570334d1bbbd6358bc174d02 data/borealis/loot_table/blocks/insulated_tank.json
 98753890efb40135a71d16da2f0a049942476ada data/borealis/loot_table/blocks/kaolin.json
 34a1982ed7ef3d39c05217da09161fd5790af99c data/borealis/loot_table/blocks/kiln.json
 9d5a3bf01e3a307f9ca08de2611ae76163934c82 data/borealis/loot_table/blocks/kyanite_bulb.json
@@ -52,9 +55,11 @@ b6a76f2efa931d036d2dedd2a03315ffad808e69 data/borealis/loot_table/blocks/kyanite
 a57261fdacef78d3fe20ae61208a9cbf7b451e23 data/borealis/loot_table/blocks/kyanite_flagstone.json
 d6bb0468b0e39a8244abb06648122e0a26b328d5 data/borealis/loot_table/blocks/kyanite_ore.json
 ee9e7b74c8088e806d7b29713b92c4168ea70290 data/borealis/loot_table/blocks/lichen_block.json
+f27938300bd53f03000d1ad72aec162e220241f0 data/borealis/loot_table/blocks/malachite.json
 38f7a4c93bb0946d80252f73da6461d67759f05e data/borealis/loot_table/blocks/marrow.json
 8679c5e9ebc4894244430042826687de446e1d41 data/borealis/loot_table/blocks/misteria.json
 09608877b0b790607addb2f4ae0523e2e920408c data/borealis/loot_table/blocks/misteria_plant.json
+0a98aa12a4850bf9ee0ee0ffc8eee5d338fa9f91 data/borealis/loot_table/blocks/modern_debris.json
 d2547e90036c86646f8997a1fc8c3dfba4ce145a data/borealis/loot_table/blocks/peat.json
 5f09e20797dcc54f6b7c1ce5da0982ced4f26f4c data/borealis/loot_table/blocks/petrified_wood.json
 b199e6268ba9fbc4c63d7b6ae8eb57d7fbb07d4f data/borealis/loot_table/blocks/petrified_wood_bricks.json
@@ -106,6 +111,7 @@ d4392485113276b571268ec7f41723afccc7feec data/borealis/loot_table/blocks/sweetwo
 0304535f90d6750c4574c7f8a74c4277744654cb data/borealis/loot_table/blocks/sweetwood_wall_sign.json
 65d6b279c9f3f724d8fce3f19e947504fc8aef49 data/borealis/loot_table/blocks/tanzanite_block.json
 50552ae3f50dc30f3eb20ac2fa4cf26d4b26c8a7 data/borealis/loot_table/blocks/tanzanite_ore.json
+a6a95d5a1cae83cb5e9be4d19b112324f759b7c5 data/borealis/loot_table/blocks/tree_tapper.json
 28a4080f4c5007cea3a65a1ec0eed7459d2aedeb data/borealis/loot_table/blocks/wall_winter_fiddle.json
 cb4904a69269ebf78517890c7fa8ae09f974a0e3 data/borealis/loot_table/blocks/willowy_firn.json
 a2fd30582790c1e57a7ed5f7f64cd175e1a9aff0 data/borealis/loot_table/blocks/winter_cello.json

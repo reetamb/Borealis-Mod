@@ -97,7 +97,7 @@ public class BorealisBlocks {
     // Hyacinth
     // Ghost Elk Carcass
     // Ghost Elk Skull
-    public static final DeferredHolder<Block, TapperBlock> TAPPER = registerBlock("tree_tapper", () -> new TapperBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WEATHERED_COPPER)));
+    public static final DeferredHolder<Block, TapperBlock> TAPPER = registerBlock("tree_tapper", () -> new TapperBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WEATHERED_COPPER).noOcclusion()));
     // fir cone
     public static final DeferredHolder<Block, RotatedPillarBlock> GIRDLED_LOG = registerBlock("girdled_log", () -> new RotatedPillarBlock(Template.petrifiedWood()));
 

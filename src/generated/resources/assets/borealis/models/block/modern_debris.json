@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "borealis:block/modern_debris_end",
+    "side": "borealis:block/modern_debris_side"
+  }
+}
