@@ -2,6 +2,8 @@ package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
+import com.reetam.borealis.block.fluid.TankBlock;
+import com.reetam.borealis.block.fluid.TapperBlock;
 import com.reetam.borealis.block.plant.*;
 import com.reetam.borealis.block.sign.*;
 import com.reetam.borealis.block.kiln.KilnBlock;
@@ -10,6 +12,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -94,7 +97,7 @@ public class BorealisBlocks {
     // Hyacinth
     // Ghost Elk Carcass
     // Ghost Elk Skull
-    // tree tapper
+    public static final DeferredHolder<Block, TapperBlock> TAPPER = registerBlock("tree_tapper", () -> new TapperBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WEATHERED_COPPER)));
     // fir cone
     public static final DeferredHolder<Block, RotatedPillarBlock> GIRDLED_LOG = registerBlock("girdled_log", () -> new RotatedPillarBlock(Template.petrifiedWood()));
 
@@ -188,8 +191,7 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, Block> KYANITE_BULB = registerBlock("kyanite_bulb", () -> new Block(BlockBehaviour.Properties.of()));
     // see if I can figure out a way to do the selenite thing (ask Ludo how to mess with rendering?)
     // Fiberglass
-    // Ice Tank
-    // Thermal Tank
+    public static final DeferredHolder<Block, TankBlock> INSULATED_TANK = registerBlock("insulated_tank", () -> new TankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).mapColor(DyeColor.GRAY)));
 
     // Lightning Storm Content Area
     public static final DeferredHolder<Block, FluoriteBlock> FLUORITE = registerBlock("fluorite", () -> new FluoriteBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BLOCK)));
@@ -204,7 +206,7 @@ public class BorealisBlocks {
     // Mercury Vapor
     // Barometer (shows elevation) and Thermometer (shows biome params?)
     // dirty snow
-    public static final DeferredHolder<Block, RotatedPillarBlock> MODERN_DEBRIS = registerBlock("modern_debris", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANCIENT_DEBRIS).mapColor(MapColor.COLOR_CYAN)));
+    public static final DeferredHolder<Block, Block> MODERN_DEBRIS = registerBlock("modern_debris", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANCIENT_DEBRIS).mapColor(MapColor.COLOR_CYAN)));
 
     private static <T extends Block> DeferredHolder<Block, T> baseRegister(String name, Supplier<? extends T> block, Function<DeferredHolder<Block, T>, Supplier<? extends Item>> item) {
         DeferredHolder<Block, T> register = BLOCKS.register(name, block);

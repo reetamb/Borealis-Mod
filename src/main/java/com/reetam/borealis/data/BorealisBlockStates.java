@@ -1,6 +1,8 @@
 package com.reetam.borealis.data;
 
 import com.reetam.borealis.block.*;
+import com.reetam.borealis.block.fluid.TankBlock;
+import com.reetam.borealis.block.fluid.TapperBlock;
 import com.reetam.borealis.block.plant.AlmsCrackedBlock;
 import com.reetam.borealis.block.plant.MarrowBlock;
 import com.reetam.borealis.block.plant.ShadedDoublePlantBlock;
@@ -151,10 +153,27 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.LICHEN_BLOCK);
         block(BorealisBlocks.CINNABAR);
 
-        logBlock(BorealisBlocks.MODERN_DEBRIS.get());
+        this.simpleBlock(BorealisBlocks.MODERN_DEBRIS.get(), this.models().cubeColumn("modern_debris", modLoc("modern_debris_side"), modLoc("modern_debris_end")));
         block(BorealisBlocks.CANDY_GLASS);
         block(BorealisBlocks.MALACHITE);
         log(BorealisBlocks.GIRDLED_LOG, "girdled_log");
+
+        getVariantBuilder(BorealisBlocks.TAPPER.get()).forAllStates((state) -> ConfiguredModel.builder()
+                .modelFile(this.models()
+                        .withExistingParent(
+                                "tree_tapper_" + state.getValue(TapperBlock.FACING).getSerializedName(),
+                                modLoc("tree_tapper"))
+                        .texture("0", texture("tree_tapper")))
+                .rotationY((int) state.getValue(TapperBlock.FACING).toYRot())
+                .build());
+
+        getVariantBuilder(BorealisBlocks.INSULATED_TANK.get()).forAllStates((state) -> ConfiguredModel.builder()
+                .modelFile(this.models().cubeBottomTop(
+                        "insulated_tank_" + state.getValue(TankBlock.TYPE).getSerializedName(),
+                        state.getValue(TankBlock.LEVEL) >= 4 ? modLoc("tank/" + state.getValue(TankBlock.TYPE) + "_tank") : modLoc("tank/empty_tank"),
+                        modLoc("tank/tank_bottom"),
+                        modLoc("tank/tank_top"))
+                        ).build());
 
         wood();
     }

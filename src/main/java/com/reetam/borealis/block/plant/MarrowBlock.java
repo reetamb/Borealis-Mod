@@ -49,8 +49,6 @@ public class MarrowBlock extends Block {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
-        BlockPos thisPos = pos.relative(context.getHorizontalDirection());
-
 
         return calculateState(level, pos, super.getStateForPlacement(context), context.getHorizontalDirection());
     }
