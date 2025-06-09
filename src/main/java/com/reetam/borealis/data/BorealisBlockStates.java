@@ -153,10 +153,10 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.LICHEN_BLOCK);
         block(BorealisBlocks.CINNABAR);
 
-        this.simpleBlock(BorealisBlocks.MODERN_DEBRIS.get(), this.models().cubeColumn("modern_debris", modLoc("modern_debris_side"), modLoc("modern_debris_end")));
+        // this.simpleBlock(BorealisBlocks.MODERN_DEBRIS.get(), this.models().cubeColumn("modern_debris", modLoc("modern_debris_side"), modLoc("modern_debris_end")));
         block(BorealisBlocks.CANDY_GLASS);
         block(BorealisBlocks.MALACHITE);
-        log(BorealisBlocks.GIRDLED_LOG, "girdled_log");
+        block(BorealisBlocks.GIRDLED_LOG);
 
         getVariantBuilder(BorealisBlocks.TAPPER.get()).forAllStates((state) -> ConfiguredModel.builder()
                 .modelFile(this.models()
