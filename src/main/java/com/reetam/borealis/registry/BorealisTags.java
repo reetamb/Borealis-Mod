@@ -46,6 +46,8 @@ public class BorealisTags {
         public static final TagKey<Block> BLOCKSET_SOAPSTONE = tag("blockset_soapstone");
         public static final TagKey<Block> BLOCKSET_CARAMELIZED = tag("blockset_caramelized");
 
+        public static final TagKey<Block> TAPPABLE = tag("tappable");
+
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
         }

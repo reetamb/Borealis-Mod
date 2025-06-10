@@ -1,4 +1,4 @@
-// 1.21	2025-04-28T14:45:41.8111799	Borealis Block Tags
+// 1.21	2025-06-09T19:15:09.3562944	Borealis Block Tags
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/borealis/tags/block/base_stone_borealis.json
 49452c49126eea1b6d7c14b37b099b5507f125dc data/borealis/tags/block/blockset_brumal.json
 36d77432c8dfde361671fa2c373a8705a8893306 data/borealis/tags/block/blockset_caramelized.json
@@ -14,6 +14,7 @@ d60e1a77455919bf9cdd599b56d72111db28a745 data/borealis/tags/block/snowy_blocks.j
 54ca7667be428c825d888ae05a10991d705e4ddd data/borealis/tags/block/soapstone_ore_replaceables.json
 9705e28690ebc34ebb9f8d0d5e761879d5a3c3cb data/borealis/tags/block/sugary_blocks.json
 ee9cf42dbaca78a9b34e634ea26be08488bb7e78 data/borealis/tags/block/sweetwood_logs.json
+98c9c5dfb5b5acf1de062152b8b07ca33598fb9b data/borealis/tags/block/tappable.json
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/c/tags/block/cobblestones.json
 e639dc82a9f4a437fbc8b153206b2751840912fa data/c/tags/block/fences/wooden.json
 96c9cbfdf01e0868f405b9ffb5aac3fa6e8b2b38 data/c/tags/block/fence_gates/wooden.json

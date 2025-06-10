@@ -119,6 +119,18 @@ public class BorealisBlockTags extends BlockTagsProvider {
         tag(BorealisTags.Blocks.MINEABLE_WITH_SWORD)
                 .addTag(BlockTags.SWORD_EFFICIENT)
                 .add(Blocks.COBWEB, Blocks.BAMBOO, Blocks.BAMBOO_SAPLING);
+        tag(BorealisTags.Blocks.TAPPABLE)
+                .add(BorealisBlocks.BRUMAL_LOG.get())
+                .add(BorealisBlocks.BRUMAL_WOOD.get())
+                .add(BorealisBlocks.SWEETWOOD_LOG.get())
+                .add(BorealisBlocks.SWEETWOOD.get())
+                .add(BorealisBlocks.STRIPPED_SWEETWOOD_LOG.get())
+                .add(BorealisBlocks.STRIPPED_SWEETWOOD.get())
+                .add(BorealisBlocks.PETRIFIED_WOOD.get())
+                .add(BorealisBlocks.BONE_DRY_WOOD.get())
+                .add(BorealisBlocks.PUMICE_GEYSER.get())
+                .add(BorealisBlocks.ALMS.get())
+                .add(BorealisBlocks.CRACKED_ALMS.get());
     }
     
     private void minecraftTags() {
