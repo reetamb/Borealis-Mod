@@ -173,8 +173,8 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.MODERN_DEBRIS);
         itemBlock(BorealisBlocks.GIRDLED_LOG);
 
-        itemBlock(BorealisBlocks.TAPPER);
-        itemBlock(BorealisBlocks.INSULATED_TANK, "insulated_tank_empty");
+        normalItem(() -> BorealisBlocks.TAPPER.get().asItem());
+        itemBlock(BorealisBlocks.INSULATED_TANK, "insulated_tank_handheld");
 
         ItemModelBuilder SILVER_BLADE = withExistingParent(name(BorealisItems.SILVER_BLADE), mcLoc("item/handheld"))
                 .texture("layer0", modLoc("item/silver/silver_blade"))

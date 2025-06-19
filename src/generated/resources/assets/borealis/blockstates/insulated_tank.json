@@ -1,16 +1,16 @@
 {
   "variants": {
     "fluid=alm_oil,level=0": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_alm_oil"
     },
     "fluid=alm_oil,level=1": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_alm_oil"
     },
     "fluid=alm_oil,level=2": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_alm_oil"
     },
     "fluid=alm_oil,level=3": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_alm_oil"
     },
     "fluid=alm_oil,level=4": {
       "model": "borealis:block/insulated_tank_alm_oil"
@@ -31,91 +31,91 @@
       "model": "borealis:block/insulated_tank_empty"
     },
     "fluid=hot_spring_water,level=0": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_hot_spring_water"
     },
     "fluid=hot_spring_water,level=1": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_hot_spring_water"
     },
     "fluid=hot_spring_water,level=2": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_hot_spring_water"
     },
     "fluid=hot_spring_water,level=3": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_hot_spring_water"
     },
     "fluid=hot_spring_water,level=4": {
       "model": "borealis:block/insulated_tank_hot_spring_water"
     },
     "fluid=latex,level=0": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_latex"
     },
     "fluid=latex,level=1": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_latex"
     },
     "fluid=latex,level=2": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_latex"
     },
     "fluid=latex,level=3": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_latex"
     },
     "fluid=latex,level=4": {
       "model": "borealis:block/insulated_tank_latex"
     },
     "fluid=marrow,level=0": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_marrow"
     },
     "fluid=marrow,level=1": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_marrow"
     },
     "fluid=marrow,level=2": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_marrow"
     },
     "fluid=marrow,level=3": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_marrow"
     },
     "fluid=marrow,level=4": {
       "model": "borealis:block/insulated_tank_marrow"
     },
     "fluid=petrol,level=0": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_petrol"
     },
     "fluid=petrol,level=1": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_petrol"
     },
     "fluid=petrol,level=2": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_petrol"
     },
     "fluid=petrol,level=3": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_petrol"
     },
     "fluid=petrol,level=4": {
       "model": "borealis:block/insulated_tank_petrol"
     },
     "fluid=quicksilver,level=0": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_quicksilver"
     },
     "fluid=quicksilver,level=1": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_quicksilver"
     },
     "fluid=quicksilver,level=2": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_quicksilver"
     },
     "fluid=quicksilver,level=3": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_quicksilver"
     },
     "fluid=quicksilver,level=4": {
       "model": "borealis:block/insulated_tank_quicksilver"
     },
     "fluid=syrup,level=0": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_syrup"
     },
     "fluid=syrup,level=1": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_syrup"
     },
     "fluid=syrup,level=2": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_syrup"
     },
     "fluid=syrup,level=3": {
-      "model": "borealis:block/insulated_tank_empty"
+      "model": "borealis:block/insulated_tank_syrup"
     },
     "fluid=syrup,level=4": {
       "model": "borealis:block/insulated_tank_syrup"

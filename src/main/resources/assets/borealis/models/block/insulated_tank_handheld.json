@@ -1,9 +1,7 @@
 {
-  "parent": "borealis:block/insulated_tank",
+  "parent": "borealis:block/cube_bottom_top",
   "textures": {
     "bottom": "borealis:block/tank/tank_bottom",
-    "fluid": "borealis:block/tank/latex",
-    "missing": "borealis:block/tank/empty",
     "side": "borealis:block/tank/empty_tank",
     "top": "borealis:block/tank/tank_top"
   }

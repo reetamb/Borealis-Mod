@@ -1,3 +1,6 @@
 {
-  "parent": "borealis:block/tree_tapper"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "borealis:item/tree_tapper"
+  }
 }

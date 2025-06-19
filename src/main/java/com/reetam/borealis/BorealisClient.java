@@ -41,6 +41,8 @@ public class BorealisClient {
         render(BorealisBlocks.WINTER_CELLO, cutout);
         render(BorealisBlocks.MARROW, cutout);
         render(BorealisBlocks.ARCTIC_WILLOW, cutout);
+        render(BorealisBlocks.INSULATED_TANK, cutout);
+        render(BorealisBlocks.TAPPER, cutout);
 
         render(BorealisFluids.HOT_SPRING_WATER_BLOCK, translucent);
         ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_FLOWING.get(), translucent);

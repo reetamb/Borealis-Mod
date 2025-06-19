@@ -1,8 +1,10 @@
 {
-  "parent": "minecraft:block/cube_bottom_top",
+  "parent": "borealis:block/insulated_tank",
   "textures": {
     "bottom": "borealis:block/tank/tank_bottom",
-    "side": "borealis:block/tank/petrol_tank",
+    "fluid": "borealis:block/tank/petrol",
+    "missing": "borealis:block/tank/empty",
+    "side": "borealis:block/tank/empty_tank",
     "top": "borealis:block/tank/tank_top"
   }
 }

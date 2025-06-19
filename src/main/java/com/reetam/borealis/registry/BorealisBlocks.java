@@ -191,7 +191,7 @@ public class BorealisBlocks {
     public static final DeferredHolder<Block, Block> KYANITE_BULB = registerBlock("kyanite_bulb", () -> new Block(BlockBehaviour.Properties.of()));
     // see if I can figure out a way to do the selenite thing (ask Ludo how to mess with rendering?)
     // Fiberglass
-    public static final DeferredHolder<Block, TankBlock> INSULATED_TANK = registerBlock("insulated_tank", () -> new TankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).mapColor(DyeColor.GRAY)));
+    public static final DeferredHolder<Block, TankBlock> INSULATED_TANK = registerBlock("insulated_tank", () -> new TankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).mapColor(DyeColor.GRAY).noOcclusion()));
 
     // Lightning Storm Content Area
     public static final DeferredHolder<Block, FluoriteBlock> FLUORITE = registerBlock("fluorite", () -> new FluoriteBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BLOCK)));

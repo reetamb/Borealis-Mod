@@ -2,6 +2,7 @@ package com.reetam.borealis.data;
 
 import com.reetam.borealis.block.*;
 import com.reetam.borealis.block.fluid.TankBlock;
+import com.reetam.borealis.block.fluid.TankRecipe;
 import com.reetam.borealis.block.fluid.TapperBlock;
 import com.reetam.borealis.block.plant.AlmsCrackedBlock;
 import com.reetam.borealis.block.plant.MarrowBlock;
@@ -167,13 +168,17 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
                 .rotationY((int) state.getValue(TapperBlock.FACING).toYRot())
                 .build());
 
-        getVariantBuilder(BorealisBlocks.INSULATED_TANK.get()).forAllStates((state) -> ConfiguredModel.builder()
-                .modelFile(this.models().cubeBottomTop(
-                        "insulated_tank_" + (state.getValue(TankBlock.LEVEL) >= 4 ? state.getValue(TankBlock.TYPE).getSerializedName() : "empty"),
-                                state.getValue(TankBlock.LEVEL) >= 4 ? texture("tank/" + state.getValue(TankBlock.TYPE) + "_tank") : texture("tank/empty_tank"),
-                                texture("tank/tank_bottom"),
-                                texture("tank/tank_top"))
-                        ).build());
+        getVariantBuilder(BorealisBlocks.INSULATED_TANK.get()).forAllStates((state) -> {
+                    TankRecipe.TankType type = state.getValue(TankBlock.TYPE);
+            return ConfiguredModel.builder()
+                .modelFile(this.models().withExistingParent("insulated_tank_" + type, modLoc("insulated_tank"))
+                        .texture("side", texture("tank/empty_tank"))
+                        .texture("top", texture("tank/tank_top"))
+                        .texture("bottom", texture("tank/tank_bottom"))
+                        .texture("missing", texture("tank/empty"))
+                        .texture("fluid", texture("tank/" + type))).build();
+        });
+
         wood();
     }
 
