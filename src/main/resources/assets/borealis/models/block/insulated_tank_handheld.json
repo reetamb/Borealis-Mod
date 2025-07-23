@@ -1,5 +1,5 @@
 {
-  "parent": "borealis:block/cube_bottom_top",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
     "bottom": "borealis:block/tank/tank_bottom",
     "side": "borealis:block/tank/empty_tank",

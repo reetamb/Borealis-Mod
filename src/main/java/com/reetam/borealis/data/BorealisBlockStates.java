@@ -3,6 +3,7 @@ package com.reetam.borealis.data;
 import com.reetam.borealis.block.*;
 import com.reetam.borealis.block.fluid.TankBlock;
 import com.reetam.borealis.block.fluid.TankRecipe;
+import com.reetam.borealis.block.fluid.TankWindowBlock;
 import com.reetam.borealis.block.fluid.TapperBlock;
 import com.reetam.borealis.block.plant.AlmsCrackedBlock;
 import com.reetam.borealis.block.plant.MarrowBlock;
@@ -52,7 +53,6 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         block(BorealisBlocks.PETRIFIED_WOOD);
         block(BorealisBlocks.PETRIFIED_WOOD_BRICKS);
         block(BorealisBlocks.FIRN);
-        simpleBlock(BorealisBlocks.WILLOWY_FIRN.get(), this.models().cubeBottomTop("willowy_firn", texture("willowy_firn"), texture("firn"), texture("willowy_firn_top")));
         block(BorealisBlocks.SUGAR_SNOW_BLOCK);
         buttonBlock(BorealisBlocks.SOAPSTONE_BUTTON.get(), texture("soapstone"));
         pressurePlateBlock(BorealisBlocks.SOAPSTONE_PRESSURE_PLATE.get(), texture("soapstone"));
@@ -111,9 +111,6 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
         ;
         paneBlockWithRenderType(BorealisBlocks.STATIC_FIELD.get(), texture("static_field"), texture("static_field"), "cutout");
         simpleBlock(BorealisBlocks.HOLLY.get(), models().getExistingFile(modLoc("holly")));
-        getMultipartBuilder(BorealisBlocks.ARCTIC_WILLOW.get())
-                .part().modelFile(models().crop("arctic_willow", texture("arctic_willow"))).addModel().end()
-                .part().modelFile(models().cross("arctic_willow_tall", texture("arctic_willow_tall"))).addModel().end();
         getVariantBuilder(BorealisBlocks.WINTER_CELLO.get())
                 .partialState().with(ShadedDoublePlantBlock.HALF, DoubleBlockHalf.UPPER).modelForState().modelFile(this.models().cross("winter_cello_top", texture("winter_cello_top"))).addModel()
                 .partialState().with(ShadedDoublePlantBlock.HALF, DoubleBlockHalf.LOWER).modelForState().modelFile(this.models().cross("winter_cello_bottom", texture("winter_cello_bottom"))).addModel();
@@ -168,11 +165,27 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
                 .rotationY((int) state.getValue(TapperBlock.FACING).toYRot())
                 .build());
 
+        getVariantBuilder(BorealisBlocks.TANK_WINDOW.get()).forAllStates((state) -> ConfiguredModel.builder()
+                .modelFile(this.models()
+                        .withExistingParent(
+                                "tank_window_" + state.getValue(TapperBlock.FACING).getSerializedName(),
+                                modLoc("tank_window"))
+                        .texture("0", texture("tank/tank_window")))
+                .rotationY((int) state.getValue(TankWindowBlock.FACING).toYRot())
+                .build());
+
         getVariantBuilder(BorealisBlocks.INSULATED_TANK.get()).forAllStates((state) -> {
-                    TankRecipe.TankType type = state.getValue(TankBlock.TYPE);
+            TankRecipe.TankType type = state.getValue(TankBlock.TYPE);
+            String north = state.getValue(TankBlock.WINDOW_NORTH) ? "_north" : "";
+            String east = state.getValue(TankBlock.WINDOW_EAST) ? "_east" : "";
+            String south = state.getValue(TankBlock.WINDOW_SOUTH) ? "_south" : "";
+            String west = state.getValue(TankBlock.WINDOW_WEST) ? "_west" : "";
             return ConfiguredModel.builder()
-                .modelFile(this.models().withExistingParent("insulated_tank_" + type, modLoc("insulated_tank"))
-                        .texture("side", texture("tank/empty_tank"))
+                .modelFile(this.models().withExistingParent("block/insulated_tank/" + type + north + east + south + west, modLoc("insulated_tank"))
+                        .texture("north", state.getValue(TankBlock.WINDOW_NORTH) ? texture("tank/tank_open") : texture("tank/empty_tank"))
+                        .texture("east", state.getValue(TankBlock.WINDOW_EAST) ? texture("tank/tank_open") : texture("tank/empty_tank"))
+                        .texture("south", state.getValue(TankBlock.WINDOW_SOUTH) ? texture("tank/tank_open") : texture("tank/empty_tank"))
+                        .texture("west", state.getValue(TankBlock.WINDOW_WEST) ? texture("tank/tank_open") : texture("tank/empty_tank"))
                         .texture("top", texture("tank/tank_top"))
                         .texture("bottom", texture("tank/tank_bottom"))
                         .texture("missing", texture("tank/empty"))

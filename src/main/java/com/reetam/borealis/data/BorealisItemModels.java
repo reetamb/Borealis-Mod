@@ -125,7 +125,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.CARAMELIZED_HANGING_SIGN);
 
         itemBlock(BorealisBlocks.FIRN);
-        itemBlock(BorealisBlocks.WILLOWY_FIRN);
         itemBlock(BorealisBlocks.SUGAR_SNOW_BLOCK);
         itemBlock(BorealisBlocks.CLOUD);
         itemBlock(BorealisBlocks.SUGAR_SNOW);
@@ -161,7 +160,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
 
         normalItem(BorealisItems.STARBURST);
         itemBlockFlat(BorealisBlocks.HOLLY);
-        itemBlockFlat(BorealisBlocks.ARCTIC_WILLOW);
         itemBlock(BorealisBlocks.LICHEN_BLOCK);
         normalItem(BorealisItems.BLUE_AMBER);
         normalItem(BorealisItems.HAILSTONE);
@@ -174,6 +172,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlock(BorealisBlocks.GIRDLED_LOG);
 
         normalItem(() -> BorealisBlocks.TAPPER.get().asItem());
+        normalItem(() -> BorealisBlocks.TANK_WINDOW.get().asItem());
         itemBlock(BorealisBlocks.INSULATED_TANK, "insulated_tank_handheld");
 
         ItemModelBuilder SILVER_BLADE = withExistingParent(name(BorealisItems.SILVER_BLADE), mcLoc("item/handheld"))

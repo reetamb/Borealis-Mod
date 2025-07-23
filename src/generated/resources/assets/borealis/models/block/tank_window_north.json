@@ -1,0 +1,6 @@
+{
+  "parent": "borealis:block/tank_window",
+  "textures": {
+    "0": "borealis:block/tank/tank_window"
+  }
+}

@@ -30,17 +30,19 @@ public class BorealisEntities {
             () -> EntityType.Builder.<BorealisBoatEntity>of(BorealisBoatEntity::new, MobCategory.MISC)
                     .sized(1.375F, 0.5625F).clientTrackingRange(10).build("boat"));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<HailEntity>> HAIL = ENTITIES.register("hail",
+            () -> EntityType.Builder.of(HailEntity::new, MobCategory.MISC)
+                    .sized(1.0F, 1.0F).clientTrackingRange(10).build("hail"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<KyaniteArrowEntity>> KYANITE_ARROW = ENTITIES.register("kyanite_arrow",
+            () -> EntityType.Builder.of(KyaniteArrowEntity::new, MobCategory.MISC)
+                    .sized(1.0F, 1.0F).clientTrackingRange(10).build("kyanite_arrow"));
+
     public static final DeferredHolder<EntityType<?>, EntityType<HummingbirdEntity>> HUMMINGBIRD = creature("hummingbird", HummingbirdEntity::new, 0.9F, 0.9F);
     public static final DeferredHolder<EntityType<?>, EntityType<TakaheEntity>> TAKAHE = creature("takahe", TakaheEntity::new, 0.8F, 0.8F);
     public static final DeferredHolder<EntityType<?>, EntityType<ThrusherEntity>> THRUSHER = creature("thrusher", ThrusherEntity::new, 1.4F, 1.4F);
     public static final DeferredHolder<EntityType<?>, EntityType<TuberEntity>> TUBER = creature("tuber", TuberEntity::new, 0.5F, 0.5F);
 
-    public static final DeferredHolder<EntityType<?>, EntityType<HailEntity>> HAIL = ENTITIES.register("hail",
-            () -> EntityType.Builder.of(HailEntity::new, MobCategory.MISC)
-                    .sized(1.0F, 1.0F).clientTrackingRange(10).build("hail"));
-    public static final DeferredHolder<EntityType<?>, EntityType<KyaniteArrowEntity>> KYANITE_ARROW = ENTITIES.register("kyanite_arrow",
-            () -> EntityType.Builder.of(KyaniteArrowEntity::new, MobCategory.MISC)
-                    .sized(1.0F, 1.0F).clientTrackingRange(10).build("kyanite_arrow"));
 
     public static final DeferredHolder<Item, SpawnEggItem> HUMMINGBIRD_SPAWN_EGG = BorealisItems.ITEMS.register(
             "hummingbird_spawn_egg", () -> new SpawnEggItem(BorealisEntities.HUMMINGBIRD.get(),
@@ -74,10 +76,10 @@ public class BorealisEntities {
         event.registerEntityRenderer(BorealisEntities.TUBER.get(), TuberRenderer::new);
         event.registerEntityRenderer(BorealisEntities.TAKAHE.get(), TakaheRenderer::new);
         event.registerEntityRenderer(BorealisEntities.THRUSHER.get(), ThrusherRenderer::new);
+
         event.registerEntityRenderer(BorealisEntities.BOAT.get(), BorealisBoatRenderer::new);
         event.registerEntityRenderer(BorealisEntities.HAIL.get(), HailRenderer::new);
         event.registerEntityRenderer(BorealisEntities.KYANITE_ARROW.get(), KyaniteArrowRenderer::new);
-
         event.registerBlockEntityRenderer(BorealisBlockEntities.BOREALIS_SIGN.get(), SignRenderer::new);
         event.registerBlockEntityRenderer(BorealisBlockEntities.BOREALIS_HANGING_SIGN.get(), HangingSignRenderer::new);
     }

@@ -22,7 +22,6 @@ import java.util.List;
 public class BorealisBiomes {
 
     public static final ResourceKey<Biome> BOREAL_TUNDRA = createKey("boreal_tundra");
-    public static final ResourceKey<Biome> CRIMSON_TUNDRA = createKey("crimson_tundra");
     public static final ResourceKey<Biome> BRUMAL_GROVE = createKey("brumal_grove");
     public static final ResourceKey<Biome> FROSTFIR_WOODS = createKey("frostfir_woods");
     public static final ResourceKey<Biome> HOT_SPRING_ISLANDS = createKey("hot_spring_islands");
@@ -37,7 +36,6 @@ public class BorealisBiomes {
         HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         HolderGetter<ConfiguredWorldCarver<?>> vanillaConfiguredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
         context.register(BOREAL_TUNDRA, borealTundra(placedFeatures, vanillaConfiguredCarvers));
-        context.register(CRIMSON_TUNDRA, crimsonTundra(placedFeatures, vanillaConfiguredCarvers));
         context.register(BRUMAL_GROVE, brumalGrove(placedFeatures, vanillaConfiguredCarvers));
         context.register(FROSTFIR_WOODS, frostfirWoods(placedFeatures, vanillaConfiguredCarvers));
         context.register(HOT_SPRING_ISLANDS, hotSprings(placedFeatures, vanillaConfiguredCarvers));
@@ -51,18 +49,6 @@ public class BorealisBiomes {
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_TALL_GRASS)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL),
-                new MobSpawnSettings.Builder()
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BorealisEntities.THRUSHER.get(), 8, 1, 3)),
-                10136810);
-    }
-
-    public static Biome crimsonTundra(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
-        return makeDefaultBiome(
-                new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BorealisPlacedFeatures.PLACED_LICHEN_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_TALL_GRASS)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_ARCTIC_WILLOW_PATCH),
                 new MobSpawnSettings.Builder()
                         .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BorealisEntities.THRUSHER.get(), 8, 1, 3)),
                 10136810);
@@ -173,8 +159,6 @@ public class BorealisBiomes {
         return MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(List.of(
                 Pair.of(new Climate.ParameterPoint(zero, zero, zero, zero, zero, zero, 0),
                         biomes.getOrThrow(BOREAL_TUNDRA)),
-                Pair.of(new Climate.ParameterPoint(warm, zero, zero, zero, zero, zero, 0),
-                        biomes.getOrThrow(CRIMSON_TUNDRA)),
 
                 Pair.of(new Climate.ParameterPoint(cold, dry, zero, zero, zero, zero, 0),
                         biomes.getOrThrow(FROSTFIR_WOODS)),

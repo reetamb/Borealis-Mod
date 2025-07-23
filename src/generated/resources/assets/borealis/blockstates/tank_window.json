@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "borealis:block/tank_window_east",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "borealis:block/tank_window_north",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "borealis:block/tank_window_south"
+    },
+    "facing=west": {
+      "model": "borealis:block/tank_window_west",
+      "y": 90
+    }
+  }
+}

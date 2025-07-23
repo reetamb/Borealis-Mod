@@ -3,6 +3,7 @@ package com.reetam.borealis.registry;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.*;
 import com.reetam.borealis.block.fluid.TankBlock;
+import com.reetam.borealis.block.fluid.TankWindowBlock;
 import com.reetam.borealis.block.fluid.TapperBlock;
 import com.reetam.borealis.block.plant.*;
 import com.reetam.borealis.block.sign.*;
@@ -181,9 +182,6 @@ public class BorealisBlocks {
     // Sundew
     public static final DeferredHolder<Block, Block> CANDY_GLASS = registerBlock("candy_glass", () -> new TransparentBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).requiresCorrectToolForDrops()));
 
-    public static final DeferredHolder<Block, TallGrassBlock> ARCTIC_WILLOW = registerBlock("arctic_willow", () -> new TallGrassBlock(Template.plant().mapColor(MapColor.TERRACOTTA_RED).offsetType(BlockBehaviour.OffsetType.XZ)));
-    public static final DeferredHolder<Block, LivingSnowBlock> WILLOWY_FIRN = registerBlock("willowy_firn", () -> new LivingSnowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK).mapColor(MapColor.TERRACOTTA_RED)));
-
     // Kyanite/Ice Content Area - Light Pollution
     public static final DeferredHolder<Block, RotatedPillarBlock> KYANITE_ORE = registerBlock("kyanite_ore", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_ORE).lightLevel((blockstate) -> 8)));
     public static final DeferredHolder<Block, KyaniteArrowBlock> EMBEDDED_KYANITE_ARROW = BLOCKS.register("embedded_kyanite_arrow", () -> new KyaniteArrowBlock(BlockBehaviour.Properties.of().noCollission().lightLevel((blockstate) -> 15)));
@@ -192,6 +190,7 @@ public class BorealisBlocks {
     // see if I can figure out a way to do the selenite thing (ask Ludo how to mess with rendering?)
     // Fiberglass
     public static final DeferredHolder<Block, TankBlock> INSULATED_TANK = registerBlock("insulated_tank", () -> new TankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).mapColor(DyeColor.GRAY).noOcclusion()));
+    public static final DeferredHolder<Block, TankWindowBlock> TANK_WINDOW = registerBlock("tank_window", () -> new TankWindowBlock(BlockBehaviour.Properties.ofFullCopy(BorealisBlocks.INSULATED_TANK.get())));
 
     // Lightning Storm Content Area
     public static final DeferredHolder<Block, FluoriteBlock> FLUORITE = registerBlock("fluorite", () -> new FluoriteBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BLOCK)));

@@ -57,7 +57,7 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_TANZANITE_METEOR = createKey("tanzanite_meteor");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NATURAL_HAILSTONE = createKey("natural_hailstone");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUD_HAILSTONE = createKey("cloud_hailstone");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ARCTIC_WILLOW = createKey("arctic_willow");
+
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
@@ -169,7 +169,6 @@ public class BorealisConfiguredFeatures {
                 BorealisBlocks.LICHEN_BLOCK.get().defaultBlockState(),
                 from(1, 2)
         ));
-        register(context, ARCTIC_WILLOW, BorealisFeatures.ARCTIC_WILLOW.get(), new CoverTopLayerConfiguration(with(BorealisBlocks.ARCTIC_WILLOW), context.lookup(Registries.BIOME).getOrThrow(BorealisBiomes.CRIMSON_TUNDRA)));
         register(context, KYANITE_CRYSTAL, BorealisFeatures.BERYL.get(), new BlockStateConfiguration(BorealisBlocks.KYANITE_ORE.get().defaultBlockState()));
         register(context, CONFIGURED_TANZANITE_METEOR, BorealisFeatures.TANZANITE_METEOR.get(), FeatureConfiguration.NONE);
     }

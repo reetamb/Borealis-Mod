@@ -1,4 +1,4 @@
-// 1.21	2025-06-19T15:06:32.2627696	Borealis Item Models
+// 1.21	2025-06-20T13:48:30.3717504	Borealis Item Models
 5fd295104ee66c7b9091ab57fa73d2739d66df02 assets/borealis/models/item/alms.json
 37a211cdf9f551a56fbf6af22f3a70dbb05b0519 assets/borealis/models/item/alms_nut.json
 a01486912ce6bf77c8e5923a89f39398ae290f1a assets/borealis/models/item/arctic_willow.json
@@ -151,6 +151,7 @@ d004a868266a96b48a70c1a0c49fe77df9bad0b5 assets/borealis/models/item/sweetwood_s
 eb735b2e166aabe66465fcd05fd2baf70ccc6373 assets/borealis/models/item/sweetwood_stairs.json
 c9ea058f28c8b6cfb272a7f83cd58604afdba875 assets/borealis/models/item/sweetwood_trapdoor.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/takahe_spawn_egg.json
+dd97eb00386e0cd9fb375b77b2cc72807369a9d5 assets/borealis/models/item/tank_window.json
 7f026568277bf6078308b1d204e0408364a774ea assets/borealis/models/item/tanzanite.json
 fe43279294a4588861e019d66f47c3dad5281718 assets/borealis/models/item/tanzanite_block.json
 dcec19bafd2d5166c36041177f291e5e50661de0 assets/borealis/models/item/tanzanite_ore.json

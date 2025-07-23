@@ -1,0 +1,13 @@
+{
+  "parent": "borealis:block/insulated_tank",
+  "textures": {
+    "bottom": "borealis:block/tank/tank_bottom",
+    "east": "borealis:block/tank/empty_tank",
+    "fluid": "borealis:block/tank/syrup",
+    "missing": "borealis:block/tank/empty",
+    "north": "borealis:block/tank/tank_open",
+    "south": "borealis:block/tank/empty_tank",
+    "top": "borealis:block/tank/tank_top",
+    "west": "borealis:block/tank/empty_tank"
+  }
+}

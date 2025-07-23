@@ -1,4 +1,4 @@
-// 1.21	2025-06-08T22:59:37.7739979	Loot Tables
+// 1.21	2025-06-20T13:48:30.3812812	Loot Tables
 86e2863b65e7ea5c62dc84dd96dbcecb36924fc3 data/borealis/loot_table/blocks/alms.json
 cac8f8786ab72c6d6882519625b0065b2596f4c8 data/borealis/loot_table/blocks/arctic_willow.json
 51ddf82787e7a3e73e5120b7114515d4170a0f9e data/borealis/loot_table/blocks/bone_dry_wood.json
@@ -109,6 +109,7 @@ ac60c37ad139f902f488e87cfd77c3d72e44d72f data/borealis/loot_table/blocks/sweetwo
 70107083e4b366ba4cc2f7fe253bf5f38e36eb69 data/borealis/loot_table/blocks/sweetwood_trapdoor.json
 d4392485113276b571268ec7f41723afccc7feec data/borealis/loot_table/blocks/sweetwood_wall_hanging_sign.json
 0304535f90d6750c4574c7f8a74c4277744654cb data/borealis/loot_table/blocks/sweetwood_wall_sign.json
+994e61d1bdd3ccb80eb85b6755c0e26f78774418 data/borealis/loot_table/blocks/tank_window.json
 65d6b279c9f3f724d8fce3f19e947504fc8aef49 data/borealis/loot_table/blocks/tanzanite_block.json
 50552ae3f50dc30f3eb20ac2fa4cf26d4b26c8a7 data/borealis/loot_table/blocks/tanzanite_ore.json
 a6a95d5a1cae83cb5e9be4d19b112324f759b7c5 data/borealis/loot_table/blocks/tree_tapper.json

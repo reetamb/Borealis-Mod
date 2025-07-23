@@ -1,124 +1,1924 @@
 {
   "variants": {
-    "fluid=alm_oil,level=0": {
-      "model": "borealis:block/insulated_tank_alm_oil"
+    "fluid=alm_oil,level=0,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil"
     },
-    "fluid=alm_oil,level=1": {
-      "model": "borealis:block/insulated_tank_alm_oil"
+    "fluid=alm_oil,level=0,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_west"
     },
-    "fluid=alm_oil,level=2": {
-      "model": "borealis:block/insulated_tank_alm_oil"
+    "fluid=alm_oil,level=0,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_south"
     },
-    "fluid=alm_oil,level=3": {
-      "model": "borealis:block/insulated_tank_alm_oil"
+    "fluid=alm_oil,level=0,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_south_west"
     },
-    "fluid=alm_oil,level=4": {
-      "model": "borealis:block/insulated_tank_alm_oil"
+    "fluid=alm_oil,level=0,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north"
     },
-    "fluid=empty,level=0": {
-      "model": "borealis:block/insulated_tank_empty"
+    "fluid=alm_oil,level=0,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_west"
     },
-    "fluid=empty,level=1": {
-      "model": "borealis:block/insulated_tank_empty"
+    "fluid=alm_oil,level=0,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_south"
     },
-    "fluid=empty,level=2": {
-      "model": "borealis:block/insulated_tank_empty"
+    "fluid=alm_oil,level=0,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_south_west"
     },
-    "fluid=empty,level=3": {
-      "model": "borealis:block/insulated_tank_empty"
+    "fluid=alm_oil,level=0,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_east"
     },
-    "fluid=empty,level=4": {
-      "model": "borealis:block/insulated_tank_empty"
+    "fluid=alm_oil,level=0,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_west"
     },
-    "fluid=hot_spring_water,level=0": {
-      "model": "borealis:block/insulated_tank_hot_spring_water"
+    "fluid=alm_oil,level=0,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_south"
     },
-    "fluid=hot_spring_water,level=1": {
-      "model": "borealis:block/insulated_tank_hot_spring_water"
+    "fluid=alm_oil,level=0,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_south_west"
     },
-    "fluid=hot_spring_water,level=2": {
-      "model": "borealis:block/insulated_tank_hot_spring_water"
+    "fluid=alm_oil,level=0,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east"
     },
-    "fluid=hot_spring_water,level=3": {
-      "model": "borealis:block/insulated_tank_hot_spring_water"
+    "fluid=alm_oil,level=0,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_west"
     },
-    "fluid=hot_spring_water,level=4": {
-      "model": "borealis:block/insulated_tank_hot_spring_water"
+    "fluid=alm_oil,level=0,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_south"
     },
-    "fluid=latex,level=0": {
-      "model": "borealis:block/insulated_tank_latex"
+    "fluid=alm_oil,level=0,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_south_west"
     },
-    "fluid=latex,level=1": {
-      "model": "borealis:block/insulated_tank_latex"
+    "fluid=alm_oil,level=1,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil"
     },
-    "fluid=latex,level=2": {
-      "model": "borealis:block/insulated_tank_latex"
+    "fluid=alm_oil,level=1,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_west"
     },
-    "fluid=latex,level=3": {
-      "model": "borealis:block/insulated_tank_latex"
+    "fluid=alm_oil,level=1,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_south"
     },
-    "fluid=latex,level=4": {
-      "model": "borealis:block/insulated_tank_latex"
+    "fluid=alm_oil,level=1,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_south_west"
     },
-    "fluid=marrow,level=0": {
-      "model": "borealis:block/insulated_tank_marrow"
+    "fluid=alm_oil,level=1,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north"
     },
-    "fluid=marrow,level=1": {
-      "model": "borealis:block/insulated_tank_marrow"
+    "fluid=alm_oil,level=1,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_west"
     },
-    "fluid=marrow,level=2": {
-      "model": "borealis:block/insulated_tank_marrow"
+    "fluid=alm_oil,level=1,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_south"
     },
-    "fluid=marrow,level=3": {
-      "model": "borealis:block/insulated_tank_marrow"
+    "fluid=alm_oil,level=1,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_south_west"
     },
-    "fluid=marrow,level=4": {
-      "model": "borealis:block/insulated_tank_marrow"
+    "fluid=alm_oil,level=1,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_east"
     },
-    "fluid=petrol,level=0": {
-      "model": "borealis:block/insulated_tank_petrol"
+    "fluid=alm_oil,level=1,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_west"
     },
-    "fluid=petrol,level=1": {
-      "model": "borealis:block/insulated_tank_petrol"
+    "fluid=alm_oil,level=1,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_south"
     },
-    "fluid=petrol,level=2": {
-      "model": "borealis:block/insulated_tank_petrol"
+    "fluid=alm_oil,level=1,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_south_west"
     },
-    "fluid=petrol,level=3": {
-      "model": "borealis:block/insulated_tank_petrol"
+    "fluid=alm_oil,level=1,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east"
     },
-    "fluid=petrol,level=4": {
-      "model": "borealis:block/insulated_tank_petrol"
+    "fluid=alm_oil,level=1,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_west"
     },
-    "fluid=quicksilver,level=0": {
-      "model": "borealis:block/insulated_tank_quicksilver"
+    "fluid=alm_oil,level=1,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_south"
     },
-    "fluid=quicksilver,level=1": {
-      "model": "borealis:block/insulated_tank_quicksilver"
+    "fluid=alm_oil,level=1,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_south_west"
     },
-    "fluid=quicksilver,level=2": {
-      "model": "borealis:block/insulated_tank_quicksilver"
+    "fluid=alm_oil,level=2,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil"
     },
-    "fluid=quicksilver,level=3": {
-      "model": "borealis:block/insulated_tank_quicksilver"
+    "fluid=alm_oil,level=2,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_west"
     },
-    "fluid=quicksilver,level=4": {
-      "model": "borealis:block/insulated_tank_quicksilver"
+    "fluid=alm_oil,level=2,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_south"
     },
-    "fluid=syrup,level=0": {
-      "model": "borealis:block/insulated_tank_syrup"
+    "fluid=alm_oil,level=2,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_south_west"
     },
-    "fluid=syrup,level=1": {
-      "model": "borealis:block/insulated_tank_syrup"
+    "fluid=alm_oil,level=2,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north"
     },
-    "fluid=syrup,level=2": {
-      "model": "borealis:block/insulated_tank_syrup"
+    "fluid=alm_oil,level=2,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_west"
     },
-    "fluid=syrup,level=3": {
-      "model": "borealis:block/insulated_tank_syrup"
+    "fluid=alm_oil,level=2,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_south"
     },
-    "fluid=syrup,level=4": {
-      "model": "borealis:block/insulated_tank_syrup"
+    "fluid=alm_oil,level=2,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_south_west"
+    },
+    "fluid=alm_oil,level=2,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_east"
+    },
+    "fluid=alm_oil,level=2,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_west"
+    },
+    "fluid=alm_oil,level=2,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_south"
+    },
+    "fluid=alm_oil,level=2,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_south_west"
+    },
+    "fluid=alm_oil,level=2,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east"
+    },
+    "fluid=alm_oil,level=2,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_west"
+    },
+    "fluid=alm_oil,level=2,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_south"
+    },
+    "fluid=alm_oil,level=2,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_south_west"
+    },
+    "fluid=alm_oil,level=3,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil"
+    },
+    "fluid=alm_oil,level=3,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_west"
+    },
+    "fluid=alm_oil,level=3,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_south"
+    },
+    "fluid=alm_oil,level=3,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_south_west"
+    },
+    "fluid=alm_oil,level=3,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north"
+    },
+    "fluid=alm_oil,level=3,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_west"
+    },
+    "fluid=alm_oil,level=3,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_south"
+    },
+    "fluid=alm_oil,level=3,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_south_west"
+    },
+    "fluid=alm_oil,level=3,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_east"
+    },
+    "fluid=alm_oil,level=3,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_west"
+    },
+    "fluid=alm_oil,level=3,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_south"
+    },
+    "fluid=alm_oil,level=3,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_south_west"
+    },
+    "fluid=alm_oil,level=3,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east"
+    },
+    "fluid=alm_oil,level=3,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_west"
+    },
+    "fluid=alm_oil,level=3,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_south"
+    },
+    "fluid=alm_oil,level=3,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_south_west"
+    },
+    "fluid=alm_oil,level=4,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil"
+    },
+    "fluid=alm_oil,level=4,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_west"
+    },
+    "fluid=alm_oil,level=4,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_south"
+    },
+    "fluid=alm_oil,level=4,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_south_west"
+    },
+    "fluid=alm_oil,level=4,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north"
+    },
+    "fluid=alm_oil,level=4,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_west"
+    },
+    "fluid=alm_oil,level=4,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_south"
+    },
+    "fluid=alm_oil,level=4,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_south_west"
+    },
+    "fluid=alm_oil,level=4,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_east"
+    },
+    "fluid=alm_oil,level=4,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_west"
+    },
+    "fluid=alm_oil,level=4,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_south"
+    },
+    "fluid=alm_oil,level=4,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_east_south_west"
+    },
+    "fluid=alm_oil,level=4,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east"
+    },
+    "fluid=alm_oil,level=4,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_west"
+    },
+    "fluid=alm_oil,level=4,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_south"
+    },
+    "fluid=alm_oil,level=4,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/alm_oil_north_east_south_west"
+    },
+    "fluid=empty,level=0,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty"
+    },
+    "fluid=empty,level=0,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_west"
+    },
+    "fluid=empty,level=0,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_south"
+    },
+    "fluid=empty,level=0,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_south_west"
+    },
+    "fluid=empty,level=0,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north"
+    },
+    "fluid=empty,level=0,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_west"
+    },
+    "fluid=empty,level=0,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_south"
+    },
+    "fluid=empty,level=0,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_south_west"
+    },
+    "fluid=empty,level=0,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_east"
+    },
+    "fluid=empty,level=0,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_east_west"
+    },
+    "fluid=empty,level=0,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_east_south"
+    },
+    "fluid=empty,level=0,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_east_south_west"
+    },
+    "fluid=empty,level=0,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_east"
+    },
+    "fluid=empty,level=0,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_east_west"
+    },
+    "fluid=empty,level=0,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_east_south"
+    },
+    "fluid=empty,level=0,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_east_south_west"
+    },
+    "fluid=empty,level=1,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty"
+    },
+    "fluid=empty,level=1,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_west"
+    },
+    "fluid=empty,level=1,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_south"
+    },
+    "fluid=empty,level=1,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_south_west"
+    },
+    "fluid=empty,level=1,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north"
+    },
+    "fluid=empty,level=1,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_west"
+    },
+    "fluid=empty,level=1,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_south"
+    },
+    "fluid=empty,level=1,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_south_west"
+    },
+    "fluid=empty,level=1,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_east"
+    },
+    "fluid=empty,level=1,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_east_west"
+    },
+    "fluid=empty,level=1,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_east_south"
+    },
+    "fluid=empty,level=1,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_east_south_west"
+    },
+    "fluid=empty,level=1,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_east"
+    },
+    "fluid=empty,level=1,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_east_west"
+    },
+    "fluid=empty,level=1,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_east_south"
+    },
+    "fluid=empty,level=1,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_east_south_west"
+    },
+    "fluid=empty,level=2,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty"
+    },
+    "fluid=empty,level=2,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_west"
+    },
+    "fluid=empty,level=2,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_south"
+    },
+    "fluid=empty,level=2,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_south_west"
+    },
+    "fluid=empty,level=2,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north"
+    },
+    "fluid=empty,level=2,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_west"
+    },
+    "fluid=empty,level=2,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_south"
+    },
+    "fluid=empty,level=2,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_south_west"
+    },
+    "fluid=empty,level=2,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_east"
+    },
+    "fluid=empty,level=2,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_east_west"
+    },
+    "fluid=empty,level=2,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_east_south"
+    },
+    "fluid=empty,level=2,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_east_south_west"
+    },
+    "fluid=empty,level=2,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_east"
+    },
+    "fluid=empty,level=2,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_east_west"
+    },
+    "fluid=empty,level=2,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_east_south"
+    },
+    "fluid=empty,level=2,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_east_south_west"
+    },
+    "fluid=empty,level=3,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty"
+    },
+    "fluid=empty,level=3,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_west"
+    },
+    "fluid=empty,level=3,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_south"
+    },
+    "fluid=empty,level=3,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_south_west"
+    },
+    "fluid=empty,level=3,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north"
+    },
+    "fluid=empty,level=3,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_west"
+    },
+    "fluid=empty,level=3,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_south"
+    },
+    "fluid=empty,level=3,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_south_west"
+    },
+    "fluid=empty,level=3,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_east"
+    },
+    "fluid=empty,level=3,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_east_west"
+    },
+    "fluid=empty,level=3,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_east_south"
+    },
+    "fluid=empty,level=3,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_east_south_west"
+    },
+    "fluid=empty,level=3,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_east"
+    },
+    "fluid=empty,level=3,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_east_west"
+    },
+    "fluid=empty,level=3,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_east_south"
+    },
+    "fluid=empty,level=3,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_east_south_west"
+    },
+    "fluid=empty,level=4,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty"
+    },
+    "fluid=empty,level=4,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_west"
+    },
+    "fluid=empty,level=4,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_south"
+    },
+    "fluid=empty,level=4,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_south_west"
+    },
+    "fluid=empty,level=4,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north"
+    },
+    "fluid=empty,level=4,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_west"
+    },
+    "fluid=empty,level=4,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_south"
+    },
+    "fluid=empty,level=4,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_south_west"
+    },
+    "fluid=empty,level=4,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_east"
+    },
+    "fluid=empty,level=4,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_east_west"
+    },
+    "fluid=empty,level=4,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_east_south"
+    },
+    "fluid=empty,level=4,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_east_south_west"
+    },
+    "fluid=empty,level=4,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_east"
+    },
+    "fluid=empty,level=4,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_east_west"
+    },
+    "fluid=empty,level=4,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/empty_north_east_south"
+    },
+    "fluid=empty,level=4,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/empty_north_east_south_west"
+    },
+    "fluid=hot_spring_water,level=0,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water"
+    },
+    "fluid=hot_spring_water,level=0,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_west"
+    },
+    "fluid=hot_spring_water,level=0,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_south"
+    },
+    "fluid=hot_spring_water,level=0,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_south_west"
+    },
+    "fluid=hot_spring_water,level=0,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north"
+    },
+    "fluid=hot_spring_water,level=0,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_west"
+    },
+    "fluid=hot_spring_water,level=0,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_south"
+    },
+    "fluid=hot_spring_water,level=0,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_south_west"
+    },
+    "fluid=hot_spring_water,level=0,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east"
+    },
+    "fluid=hot_spring_water,level=0,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_west"
+    },
+    "fluid=hot_spring_water,level=0,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_south"
+    },
+    "fluid=hot_spring_water,level=0,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_south_west"
+    },
+    "fluid=hot_spring_water,level=0,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east"
+    },
+    "fluid=hot_spring_water,level=0,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_west"
+    },
+    "fluid=hot_spring_water,level=0,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_south"
+    },
+    "fluid=hot_spring_water,level=0,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_south_west"
+    },
+    "fluid=hot_spring_water,level=1,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water"
+    },
+    "fluid=hot_spring_water,level=1,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_west"
+    },
+    "fluid=hot_spring_water,level=1,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_south"
+    },
+    "fluid=hot_spring_water,level=1,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_south_west"
+    },
+    "fluid=hot_spring_water,level=1,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north"
+    },
+    "fluid=hot_spring_water,level=1,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_west"
+    },
+    "fluid=hot_spring_water,level=1,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_south"
+    },
+    "fluid=hot_spring_water,level=1,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_south_west"
+    },
+    "fluid=hot_spring_water,level=1,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east"
+    },
+    "fluid=hot_spring_water,level=1,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_west"
+    },
+    "fluid=hot_spring_water,level=1,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_south"
+    },
+    "fluid=hot_spring_water,level=1,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_south_west"
+    },
+    "fluid=hot_spring_water,level=1,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east"
+    },
+    "fluid=hot_spring_water,level=1,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_west"
+    },
+    "fluid=hot_spring_water,level=1,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_south"
+    },
+    "fluid=hot_spring_water,level=1,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_south_west"
+    },
+    "fluid=hot_spring_water,level=2,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water"
+    },
+    "fluid=hot_spring_water,level=2,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_west"
+    },
+    "fluid=hot_spring_water,level=2,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_south"
+    },
+    "fluid=hot_spring_water,level=2,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_south_west"
+    },
+    "fluid=hot_spring_water,level=2,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north"
+    },
+    "fluid=hot_spring_water,level=2,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_west"
+    },
+    "fluid=hot_spring_water,level=2,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_south"
+    },
+    "fluid=hot_spring_water,level=2,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_south_west"
+    },
+    "fluid=hot_spring_water,level=2,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east"
+    },
+    "fluid=hot_spring_water,level=2,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_west"
+    },
+    "fluid=hot_spring_water,level=2,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_south"
+    },
+    "fluid=hot_spring_water,level=2,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_south_west"
+    },
+    "fluid=hot_spring_water,level=2,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east"
+    },
+    "fluid=hot_spring_water,level=2,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_west"
+    },
+    "fluid=hot_spring_water,level=2,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_south"
+    },
+    "fluid=hot_spring_water,level=2,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_south_west"
+    },
+    "fluid=hot_spring_water,level=3,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water"
+    },
+    "fluid=hot_spring_water,level=3,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_west"
+    },
+    "fluid=hot_spring_water,level=3,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_south"
+    },
+    "fluid=hot_spring_water,level=3,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_south_west"
+    },
+    "fluid=hot_spring_water,level=3,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north"
+    },
+    "fluid=hot_spring_water,level=3,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_west"
+    },
+    "fluid=hot_spring_water,level=3,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_south"
+    },
+    "fluid=hot_spring_water,level=3,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_south_west"
+    },
+    "fluid=hot_spring_water,level=3,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east"
+    },
+    "fluid=hot_spring_water,level=3,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_west"
+    },
+    "fluid=hot_spring_water,level=3,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_south"
+    },
+    "fluid=hot_spring_water,level=3,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_south_west"
+    },
+    "fluid=hot_spring_water,level=3,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east"
+    },
+    "fluid=hot_spring_water,level=3,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_west"
+    },
+    "fluid=hot_spring_water,level=3,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_south"
+    },
+    "fluid=hot_spring_water,level=3,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_south_west"
+    },
+    "fluid=hot_spring_water,level=4,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water"
+    },
+    "fluid=hot_spring_water,level=4,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_west"
+    },
+    "fluid=hot_spring_water,level=4,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_south"
+    },
+    "fluid=hot_spring_water,level=4,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_south_west"
+    },
+    "fluid=hot_spring_water,level=4,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north"
+    },
+    "fluid=hot_spring_water,level=4,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_west"
+    },
+    "fluid=hot_spring_water,level=4,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_south"
+    },
+    "fluid=hot_spring_water,level=4,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_south_west"
+    },
+    "fluid=hot_spring_water,level=4,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east"
+    },
+    "fluid=hot_spring_water,level=4,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_west"
+    },
+    "fluid=hot_spring_water,level=4,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_south"
+    },
+    "fluid=hot_spring_water,level=4,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_east_south_west"
+    },
+    "fluid=hot_spring_water,level=4,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east"
+    },
+    "fluid=hot_spring_water,level=4,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_west"
+    },
+    "fluid=hot_spring_water,level=4,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_south"
+    },
+    "fluid=hot_spring_water,level=4,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/hot_spring_water_north_east_south_west"
+    },
+    "fluid=latex,level=0,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex"
+    },
+    "fluid=latex,level=0,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_west"
+    },
+    "fluid=latex,level=0,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_south"
+    },
+    "fluid=latex,level=0,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_south_west"
+    },
+    "fluid=latex,level=0,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north"
+    },
+    "fluid=latex,level=0,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_west"
+    },
+    "fluid=latex,level=0,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_south"
+    },
+    "fluid=latex,level=0,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_south_west"
+    },
+    "fluid=latex,level=0,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_east"
+    },
+    "fluid=latex,level=0,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_east_west"
+    },
+    "fluid=latex,level=0,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_east_south"
+    },
+    "fluid=latex,level=0,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_east_south_west"
+    },
+    "fluid=latex,level=0,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_east"
+    },
+    "fluid=latex,level=0,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_east_west"
+    },
+    "fluid=latex,level=0,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_east_south"
+    },
+    "fluid=latex,level=0,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_east_south_west"
+    },
+    "fluid=latex,level=1,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex"
+    },
+    "fluid=latex,level=1,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_west"
+    },
+    "fluid=latex,level=1,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_south"
+    },
+    "fluid=latex,level=1,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_south_west"
+    },
+    "fluid=latex,level=1,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north"
+    },
+    "fluid=latex,level=1,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_west"
+    },
+    "fluid=latex,level=1,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_south"
+    },
+    "fluid=latex,level=1,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_south_west"
+    },
+    "fluid=latex,level=1,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_east"
+    },
+    "fluid=latex,level=1,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_east_west"
+    },
+    "fluid=latex,level=1,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_east_south"
+    },
+    "fluid=latex,level=1,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_east_south_west"
+    },
+    "fluid=latex,level=1,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_east"
+    },
+    "fluid=latex,level=1,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_east_west"
+    },
+    "fluid=latex,level=1,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_east_south"
+    },
+    "fluid=latex,level=1,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_east_south_west"
+    },
+    "fluid=latex,level=2,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex"
+    },
+    "fluid=latex,level=2,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_west"
+    },
+    "fluid=latex,level=2,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_south"
+    },
+    "fluid=latex,level=2,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_south_west"
+    },
+    "fluid=latex,level=2,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north"
+    },
+    "fluid=latex,level=2,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_west"
+    },
+    "fluid=latex,level=2,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_south"
+    },
+    "fluid=latex,level=2,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_south_west"
+    },
+    "fluid=latex,level=2,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_east"
+    },
+    "fluid=latex,level=2,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_east_west"
+    },
+    "fluid=latex,level=2,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_east_south"
+    },
+    "fluid=latex,level=2,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_east_south_west"
+    },
+    "fluid=latex,level=2,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_east"
+    },
+    "fluid=latex,level=2,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_east_west"
+    },
+    "fluid=latex,level=2,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_east_south"
+    },
+    "fluid=latex,level=2,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_east_south_west"
+    },
+    "fluid=latex,level=3,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex"
+    },
+    "fluid=latex,level=3,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_west"
+    },
+    "fluid=latex,level=3,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_south"
+    },
+    "fluid=latex,level=3,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_south_west"
+    },
+    "fluid=latex,level=3,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north"
+    },
+    "fluid=latex,level=3,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_west"
+    },
+    "fluid=latex,level=3,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_south"
+    },
+    "fluid=latex,level=3,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_south_west"
+    },
+    "fluid=latex,level=3,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_east"
+    },
+    "fluid=latex,level=3,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_east_west"
+    },
+    "fluid=latex,level=3,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_east_south"
+    },
+    "fluid=latex,level=3,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_east_south_west"
+    },
+    "fluid=latex,level=3,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_east"
+    },
+    "fluid=latex,level=3,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_east_west"
+    },
+    "fluid=latex,level=3,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_east_south"
+    },
+    "fluid=latex,level=3,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_east_south_west"
+    },
+    "fluid=latex,level=4,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex"
+    },
+    "fluid=latex,level=4,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_west"
+    },
+    "fluid=latex,level=4,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_south"
+    },
+    "fluid=latex,level=4,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_south_west"
+    },
+    "fluid=latex,level=4,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north"
+    },
+    "fluid=latex,level=4,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_west"
+    },
+    "fluid=latex,level=4,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_south"
+    },
+    "fluid=latex,level=4,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_south_west"
+    },
+    "fluid=latex,level=4,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_east"
+    },
+    "fluid=latex,level=4,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_east_west"
+    },
+    "fluid=latex,level=4,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_east_south"
+    },
+    "fluid=latex,level=4,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_east_south_west"
+    },
+    "fluid=latex,level=4,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_east"
+    },
+    "fluid=latex,level=4,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_east_west"
+    },
+    "fluid=latex,level=4,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/latex_north_east_south"
+    },
+    "fluid=latex,level=4,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/latex_north_east_south_west"
+    },
+    "fluid=marrow,level=0,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow"
+    },
+    "fluid=marrow,level=0,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_west"
+    },
+    "fluid=marrow,level=0,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_south"
+    },
+    "fluid=marrow,level=0,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_south_west"
+    },
+    "fluid=marrow,level=0,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north"
+    },
+    "fluid=marrow,level=0,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_west"
+    },
+    "fluid=marrow,level=0,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_south"
+    },
+    "fluid=marrow,level=0,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_south_west"
+    },
+    "fluid=marrow,level=0,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_east"
+    },
+    "fluid=marrow,level=0,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_east_west"
+    },
+    "fluid=marrow,level=0,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_east_south"
+    },
+    "fluid=marrow,level=0,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_east_south_west"
+    },
+    "fluid=marrow,level=0,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_east"
+    },
+    "fluid=marrow,level=0,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_west"
+    },
+    "fluid=marrow,level=0,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_south"
+    },
+    "fluid=marrow,level=0,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_south_west"
+    },
+    "fluid=marrow,level=1,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow"
+    },
+    "fluid=marrow,level=1,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_west"
+    },
+    "fluid=marrow,level=1,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_south"
+    },
+    "fluid=marrow,level=1,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_south_west"
+    },
+    "fluid=marrow,level=1,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north"
+    },
+    "fluid=marrow,level=1,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_west"
+    },
+    "fluid=marrow,level=1,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_south"
+    },
+    "fluid=marrow,level=1,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_south_west"
+    },
+    "fluid=marrow,level=1,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_east"
+    },
+    "fluid=marrow,level=1,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_east_west"
+    },
+    "fluid=marrow,level=1,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_east_south"
+    },
+    "fluid=marrow,level=1,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_east_south_west"
+    },
+    "fluid=marrow,level=1,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_east"
+    },
+    "fluid=marrow,level=1,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_west"
+    },
+    "fluid=marrow,level=1,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_south"
+    },
+    "fluid=marrow,level=1,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_south_west"
+    },
+    "fluid=marrow,level=2,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow"
+    },
+    "fluid=marrow,level=2,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_west"
+    },
+    "fluid=marrow,level=2,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_south"
+    },
+    "fluid=marrow,level=2,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_south_west"
+    },
+    "fluid=marrow,level=2,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north"
+    },
+    "fluid=marrow,level=2,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_west"
+    },
+    "fluid=marrow,level=2,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_south"
+    },
+    "fluid=marrow,level=2,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_south_west"
+    },
+    "fluid=marrow,level=2,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_east"
+    },
+    "fluid=marrow,level=2,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_east_west"
+    },
+    "fluid=marrow,level=2,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_east_south"
+    },
+    "fluid=marrow,level=2,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_east_south_west"
+    },
+    "fluid=marrow,level=2,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_east"
+    },
+    "fluid=marrow,level=2,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_west"
+    },
+    "fluid=marrow,level=2,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_south"
+    },
+    "fluid=marrow,level=2,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_south_west"
+    },
+    "fluid=marrow,level=3,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow"
+    },
+    "fluid=marrow,level=3,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_west"
+    },
+    "fluid=marrow,level=3,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_south"
+    },
+    "fluid=marrow,level=3,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_south_west"
+    },
+    "fluid=marrow,level=3,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north"
+    },
+    "fluid=marrow,level=3,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_west"
+    },
+    "fluid=marrow,level=3,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_south"
+    },
+    "fluid=marrow,level=3,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_south_west"
+    },
+    "fluid=marrow,level=3,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_east"
+    },
+    "fluid=marrow,level=3,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_east_west"
+    },
+    "fluid=marrow,level=3,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_east_south"
+    },
+    "fluid=marrow,level=3,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_east_south_west"
+    },
+    "fluid=marrow,level=3,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_east"
+    },
+    "fluid=marrow,level=3,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_west"
+    },
+    "fluid=marrow,level=3,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_south"
+    },
+    "fluid=marrow,level=3,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_south_west"
+    },
+    "fluid=marrow,level=4,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow"
+    },
+    "fluid=marrow,level=4,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_west"
+    },
+    "fluid=marrow,level=4,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_south"
+    },
+    "fluid=marrow,level=4,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_south_west"
+    },
+    "fluid=marrow,level=4,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north"
+    },
+    "fluid=marrow,level=4,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_west"
+    },
+    "fluid=marrow,level=4,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_south"
+    },
+    "fluid=marrow,level=4,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_south_west"
+    },
+    "fluid=marrow,level=4,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_east"
+    },
+    "fluid=marrow,level=4,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_east_west"
+    },
+    "fluid=marrow,level=4,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_east_south"
+    },
+    "fluid=marrow,level=4,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_east_south_west"
+    },
+    "fluid=marrow,level=4,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_east"
+    },
+    "fluid=marrow,level=4,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_west"
+    },
+    "fluid=marrow,level=4,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_south"
+    },
+    "fluid=marrow,level=4,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/marrow_north_east_south_west"
+    },
+    "fluid=petrol,level=0,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol"
+    },
+    "fluid=petrol,level=0,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_west"
+    },
+    "fluid=petrol,level=0,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_south"
+    },
+    "fluid=petrol,level=0,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_south_west"
+    },
+    "fluid=petrol,level=0,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north"
+    },
+    "fluid=petrol,level=0,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_west"
+    },
+    "fluid=petrol,level=0,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_south"
+    },
+    "fluid=petrol,level=0,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_south_west"
+    },
+    "fluid=petrol,level=0,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_east"
+    },
+    "fluid=petrol,level=0,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_east_west"
+    },
+    "fluid=petrol,level=0,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_east_south"
+    },
+    "fluid=petrol,level=0,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_east_south_west"
+    },
+    "fluid=petrol,level=0,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_east"
+    },
+    "fluid=petrol,level=0,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_west"
+    },
+    "fluid=petrol,level=0,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_south"
+    },
+    "fluid=petrol,level=0,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_south_west"
+    },
+    "fluid=petrol,level=1,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol"
+    },
+    "fluid=petrol,level=1,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_west"
+    },
+    "fluid=petrol,level=1,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_south"
+    },
+    "fluid=petrol,level=1,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_south_west"
+    },
+    "fluid=petrol,level=1,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north"
+    },
+    "fluid=petrol,level=1,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_west"
+    },
+    "fluid=petrol,level=1,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_south"
+    },
+    "fluid=petrol,level=1,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_south_west"
+    },
+    "fluid=petrol,level=1,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_east"
+    },
+    "fluid=petrol,level=1,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_east_west"
+    },
+    "fluid=petrol,level=1,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_east_south"
+    },
+    "fluid=petrol,level=1,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_east_south_west"
+    },
+    "fluid=petrol,level=1,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_east"
+    },
+    "fluid=petrol,level=1,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_west"
+    },
+    "fluid=petrol,level=1,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_south"
+    },
+    "fluid=petrol,level=1,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_south_west"
+    },
+    "fluid=petrol,level=2,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol"
+    },
+    "fluid=petrol,level=2,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_west"
+    },
+    "fluid=petrol,level=2,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_south"
+    },
+    "fluid=petrol,level=2,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_south_west"
+    },
+    "fluid=petrol,level=2,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north"
+    },
+    "fluid=petrol,level=2,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_west"
+    },
+    "fluid=petrol,level=2,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_south"
+    },
+    "fluid=petrol,level=2,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_south_west"
+    },
+    "fluid=petrol,level=2,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_east"
+    },
+    "fluid=petrol,level=2,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_east_west"
+    },
+    "fluid=petrol,level=2,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_east_south"
+    },
+    "fluid=petrol,level=2,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_east_south_west"
+    },
+    "fluid=petrol,level=2,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_east"
+    },
+    "fluid=petrol,level=2,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_west"
+    },
+    "fluid=petrol,level=2,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_south"
+    },
+    "fluid=petrol,level=2,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_south_west"
+    },
+    "fluid=petrol,level=3,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol"
+    },
+    "fluid=petrol,level=3,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_west"
+    },
+    "fluid=petrol,level=3,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_south"
+    },
+    "fluid=petrol,level=3,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_south_west"
+    },
+    "fluid=petrol,level=3,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north"
+    },
+    "fluid=petrol,level=3,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_west"
+    },
+    "fluid=petrol,level=3,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_south"
+    },
+    "fluid=petrol,level=3,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_south_west"
+    },
+    "fluid=petrol,level=3,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_east"
+    },
+    "fluid=petrol,level=3,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_east_west"
+    },
+    "fluid=petrol,level=3,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_east_south"
+    },
+    "fluid=petrol,level=3,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_east_south_west"
+    },
+    "fluid=petrol,level=3,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_east"
+    },
+    "fluid=petrol,level=3,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_west"
+    },
+    "fluid=petrol,level=3,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_south"
+    },
+    "fluid=petrol,level=3,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_south_west"
+    },
+    "fluid=petrol,level=4,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol"
+    },
+    "fluid=petrol,level=4,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_west"
+    },
+    "fluid=petrol,level=4,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_south"
+    },
+    "fluid=petrol,level=4,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_south_west"
+    },
+    "fluid=petrol,level=4,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north"
+    },
+    "fluid=petrol,level=4,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_west"
+    },
+    "fluid=petrol,level=4,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_south"
+    },
+    "fluid=petrol,level=4,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_south_west"
+    },
+    "fluid=petrol,level=4,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_east"
+    },
+    "fluid=petrol,level=4,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_east_west"
+    },
+    "fluid=petrol,level=4,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_east_south"
+    },
+    "fluid=petrol,level=4,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_east_south_west"
+    },
+    "fluid=petrol,level=4,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_east"
+    },
+    "fluid=petrol,level=4,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_west"
+    },
+    "fluid=petrol,level=4,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_south"
+    },
+    "fluid=petrol,level=4,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/petrol_north_east_south_west"
+    },
+    "fluid=quicksilver,level=0,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver"
+    },
+    "fluid=quicksilver,level=0,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_west"
+    },
+    "fluid=quicksilver,level=0,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_south"
+    },
+    "fluid=quicksilver,level=0,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_south_west"
+    },
+    "fluid=quicksilver,level=0,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north"
+    },
+    "fluid=quicksilver,level=0,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_west"
+    },
+    "fluid=quicksilver,level=0,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_south"
+    },
+    "fluid=quicksilver,level=0,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_south_west"
+    },
+    "fluid=quicksilver,level=0,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_east"
+    },
+    "fluid=quicksilver,level=0,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_west"
+    },
+    "fluid=quicksilver,level=0,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_south"
+    },
+    "fluid=quicksilver,level=0,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_south_west"
+    },
+    "fluid=quicksilver,level=0,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east"
+    },
+    "fluid=quicksilver,level=0,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_west"
+    },
+    "fluid=quicksilver,level=0,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_south"
+    },
+    "fluid=quicksilver,level=0,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_south_west"
+    },
+    "fluid=quicksilver,level=1,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver"
+    },
+    "fluid=quicksilver,level=1,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_west"
+    },
+    "fluid=quicksilver,level=1,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_south"
+    },
+    "fluid=quicksilver,level=1,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_south_west"
+    },
+    "fluid=quicksilver,level=1,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north"
+    },
+    "fluid=quicksilver,level=1,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_west"
+    },
+    "fluid=quicksilver,level=1,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_south"
+    },
+    "fluid=quicksilver,level=1,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_south_west"
+    },
+    "fluid=quicksilver,level=1,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_east"
+    },
+    "fluid=quicksilver,level=1,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_west"
+    },
+    "fluid=quicksilver,level=1,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_south"
+    },
+    "fluid=quicksilver,level=1,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_south_west"
+    },
+    "fluid=quicksilver,level=1,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east"
+    },
+    "fluid=quicksilver,level=1,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_west"
+    },
+    "fluid=quicksilver,level=1,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_south"
+    },
+    "fluid=quicksilver,level=1,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_south_west"
+    },
+    "fluid=quicksilver,level=2,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver"
+    },
+    "fluid=quicksilver,level=2,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_west"
+    },
+    "fluid=quicksilver,level=2,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_south"
+    },
+    "fluid=quicksilver,level=2,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_south_west"
+    },
+    "fluid=quicksilver,level=2,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north"
+    },
+    "fluid=quicksilver,level=2,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_west"
+    },
+    "fluid=quicksilver,level=2,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_south"
+    },
+    "fluid=quicksilver,level=2,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_south_west"
+    },
+    "fluid=quicksilver,level=2,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_east"
+    },
+    "fluid=quicksilver,level=2,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_west"
+    },
+    "fluid=quicksilver,level=2,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_south"
+    },
+    "fluid=quicksilver,level=2,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_south_west"
+    },
+    "fluid=quicksilver,level=2,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east"
+    },
+    "fluid=quicksilver,level=2,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_west"
+    },
+    "fluid=quicksilver,level=2,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_south"
+    },
+    "fluid=quicksilver,level=2,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_south_west"
+    },
+    "fluid=quicksilver,level=3,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver"
+    },
+    "fluid=quicksilver,level=3,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_west"
+    },
+    "fluid=quicksilver,level=3,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_south"
+    },
+    "fluid=quicksilver,level=3,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_south_west"
+    },
+    "fluid=quicksilver,level=3,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north"
+    },
+    "fluid=quicksilver,level=3,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_west"
+    },
+    "fluid=quicksilver,level=3,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_south"
+    },
+    "fluid=quicksilver,level=3,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_south_west"
+    },
+    "fluid=quicksilver,level=3,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_east"
+    },
+    "fluid=quicksilver,level=3,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_west"
+    },
+    "fluid=quicksilver,level=3,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_south"
+    },
+    "fluid=quicksilver,level=3,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_south_west"
+    },
+    "fluid=quicksilver,level=3,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east"
+    },
+    "fluid=quicksilver,level=3,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_west"
+    },
+    "fluid=quicksilver,level=3,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_south"
+    },
+    "fluid=quicksilver,level=3,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_south_west"
+    },
+    "fluid=quicksilver,level=4,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver"
+    },
+    "fluid=quicksilver,level=4,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_west"
+    },
+    "fluid=quicksilver,level=4,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_south"
+    },
+    "fluid=quicksilver,level=4,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_south_west"
+    },
+    "fluid=quicksilver,level=4,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north"
+    },
+    "fluid=quicksilver,level=4,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_west"
+    },
+    "fluid=quicksilver,level=4,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_south"
+    },
+    "fluid=quicksilver,level=4,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_south_west"
+    },
+    "fluid=quicksilver,level=4,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_east"
+    },
+    "fluid=quicksilver,level=4,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_west"
+    },
+    "fluid=quicksilver,level=4,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_south"
+    },
+    "fluid=quicksilver,level=4,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_east_south_west"
+    },
+    "fluid=quicksilver,level=4,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east"
+    },
+    "fluid=quicksilver,level=4,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_west"
+    },
+    "fluid=quicksilver,level=4,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_south"
+    },
+    "fluid=quicksilver,level=4,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/quicksilver_north_east_south_west"
+    },
+    "fluid=syrup,level=0,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup"
+    },
+    "fluid=syrup,level=0,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_west"
+    },
+    "fluid=syrup,level=0,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_south"
+    },
+    "fluid=syrup,level=0,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_south_west"
+    },
+    "fluid=syrup,level=0,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north"
+    },
+    "fluid=syrup,level=0,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_west"
+    },
+    "fluid=syrup,level=0,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_south"
+    },
+    "fluid=syrup,level=0,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_south_west"
+    },
+    "fluid=syrup,level=0,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_east"
+    },
+    "fluid=syrup,level=0,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_east_west"
+    },
+    "fluid=syrup,level=0,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_east_south"
+    },
+    "fluid=syrup,level=0,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_east_south_west"
+    },
+    "fluid=syrup,level=0,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_east"
+    },
+    "fluid=syrup,level=0,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_west"
+    },
+    "fluid=syrup,level=0,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_south"
+    },
+    "fluid=syrup,level=0,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_south_west"
+    },
+    "fluid=syrup,level=1,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup"
+    },
+    "fluid=syrup,level=1,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_west"
+    },
+    "fluid=syrup,level=1,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_south"
+    },
+    "fluid=syrup,level=1,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_south_west"
+    },
+    "fluid=syrup,level=1,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north"
+    },
+    "fluid=syrup,level=1,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_west"
+    },
+    "fluid=syrup,level=1,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_south"
+    },
+    "fluid=syrup,level=1,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_south_west"
+    },
+    "fluid=syrup,level=1,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_east"
+    },
+    "fluid=syrup,level=1,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_east_west"
+    },
+    "fluid=syrup,level=1,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_east_south"
+    },
+    "fluid=syrup,level=1,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_east_south_west"
+    },
+    "fluid=syrup,level=1,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_east"
+    },
+    "fluid=syrup,level=1,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_west"
+    },
+    "fluid=syrup,level=1,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_south"
+    },
+    "fluid=syrup,level=1,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_south_west"
+    },
+    "fluid=syrup,level=2,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup"
+    },
+    "fluid=syrup,level=2,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_west"
+    },
+    "fluid=syrup,level=2,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_south"
+    },
+    "fluid=syrup,level=2,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_south_west"
+    },
+    "fluid=syrup,level=2,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north"
+    },
+    "fluid=syrup,level=2,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_west"
+    },
+    "fluid=syrup,level=2,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_south"
+    },
+    "fluid=syrup,level=2,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_south_west"
+    },
+    "fluid=syrup,level=2,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_east"
+    },
+    "fluid=syrup,level=2,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_east_west"
+    },
+    "fluid=syrup,level=2,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_east_south"
+    },
+    "fluid=syrup,level=2,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_east_south_west"
+    },
+    "fluid=syrup,level=2,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_east"
+    },
+    "fluid=syrup,level=2,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_west"
+    },
+    "fluid=syrup,level=2,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_south"
+    },
+    "fluid=syrup,level=2,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_south_west"
+    },
+    "fluid=syrup,level=3,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup"
+    },
+    "fluid=syrup,level=3,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_west"
+    },
+    "fluid=syrup,level=3,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_south"
+    },
+    "fluid=syrup,level=3,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_south_west"
+    },
+    "fluid=syrup,level=3,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north"
+    },
+    "fluid=syrup,level=3,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_west"
+    },
+    "fluid=syrup,level=3,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_south"
+    },
+    "fluid=syrup,level=3,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_south_west"
+    },
+    "fluid=syrup,level=3,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_east"
+    },
+    "fluid=syrup,level=3,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_east_west"
+    },
+    "fluid=syrup,level=3,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_east_south"
+    },
+    "fluid=syrup,level=3,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_east_south_west"
+    },
+    "fluid=syrup,level=3,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_east"
+    },
+    "fluid=syrup,level=3,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_west"
+    },
+    "fluid=syrup,level=3,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_south"
+    },
+    "fluid=syrup,level=3,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_south_west"
+    },
+    "fluid=syrup,level=4,window_east=false,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup"
+    },
+    "fluid=syrup,level=4,window_east=false,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_west"
+    },
+    "fluid=syrup,level=4,window_east=false,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_south"
+    },
+    "fluid=syrup,level=4,window_east=false,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_south_west"
+    },
+    "fluid=syrup,level=4,window_east=false,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north"
+    },
+    "fluid=syrup,level=4,window_east=false,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_west"
+    },
+    "fluid=syrup,level=4,window_east=false,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_south"
+    },
+    "fluid=syrup,level=4,window_east=false,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_south_west"
+    },
+    "fluid=syrup,level=4,window_east=true,window_north=false,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_east"
+    },
+    "fluid=syrup,level=4,window_east=true,window_north=false,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_east_west"
+    },
+    "fluid=syrup,level=4,window_east=true,window_north=false,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_east_south"
+    },
+    "fluid=syrup,level=4,window_east=true,window_north=false,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_east_south_west"
+    },
+    "fluid=syrup,level=4,window_east=true,window_north=true,window_south=false,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_east"
+    },
+    "fluid=syrup,level=4,window_east=true,window_north=true,window_south=false,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_west"
+    },
+    "fluid=syrup,level=4,window_east=true,window_north=true,window_south=true,window_west=false": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_south"
+    },
+    "fluid=syrup,level=4,window_east=true,window_north=true,window_south=true,window_west=true": {
+      "model": "borealis:block/insulated_tank/syrup_north_east_south_west"
     }
   }
 }

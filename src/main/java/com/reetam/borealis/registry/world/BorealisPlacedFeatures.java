@@ -41,7 +41,6 @@ public class BorealisPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> PLACED_HOLLY_PATCH = createKey("holly");
     public static final ResourceKey<PlacedFeature> PLACED_LICHEN_PATCH = createKey("lichen_patch");
-    public static final ResourceKey<PlacedFeature> PLACED_ARCTIC_WILLOW_PATCH = createKey("arctic_willow");
 
     public static final ResourceKey<PlacedFeature> PLACED_NATURAL_HAILSTONE = createKey("natural_hailstone");
     public static final ResourceKey<PlacedFeature> PLACED_CLOUD_HAILSTONE = createKey("cloud_hailstone");
@@ -101,8 +100,6 @@ public class BorealisPlacedFeatures {
                 InSquarePlacement.spread(), CountPlacement.of(1), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(60), VerticalAnchor.aboveBottom(120)));
         register(context, PLACED_HOLLY_PATCH, please.getOrThrow(BorealisConfiguredFeatures.HOLLY_PATCH),
                 CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
-        register(context, PLACED_ARCTIC_WILLOW_PATCH, please.getOrThrow(BorealisConfiguredFeatures.ARCTIC_WILLOW),
-                BiomeFilter.biome());
 
         register(context, PLACED_NATURAL_HAILSTONE, please.getOrThrow(BorealisConfiguredFeatures.NATURAL_HAILSTONE),
                 RarityFilter.onAverageOnceEvery(128), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING));
