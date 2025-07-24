@@ -121,9 +121,10 @@ public class BorealisWorld {
                 DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero(),
                 shifted(densityFunctions, noise, "temperature"),
                 shifted(densityFunctions, noise, "vegetation"),
-                DensityFunctions.zero(),
+                DensityFunctions.max(DensityFunctions.constant(1F/3F), DensityFunctions.noise(get(noise, "continentalness_large"), 4, 1)),
                 shifted(densityFunctions, noise, "erosion"),
-                DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero(),
+                DensityFunctions.mul(DensityFunctions.constant(0.00390625), DensityFunctions.add(DensityFunctions.constant(-256), getFunction(densityFunctions, ResourceKey.create(Registries.DENSITY_FUNCTION, ResourceLocation.withDefaultNamespace("y"))))),
+                DensityFunctions.zero(), DensityFunctions.zero(),
                 DensityFunctions.add(
                         // MOUNTAINS
                         mountains(noise, 1.0F/3.0F),
@@ -148,7 +149,15 @@ public class BorealisWorld {
         return SurfaceRules.ifTrue(SurfaceRules.isBiome(biomes), SurfaceRules.state(block));
     }
 
-    private static SurfaceRules.RuleSource biomeGroundCover() {
+    private static SurfaceRules.RuleSource biomeGroundCover(int height) {
+        if (height == 0) {
+            return SurfaceRules.sequence(
+                    biomeBlock(BorealisBlocks.FIRN.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE),
+                    biomeBlock(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.SACCHARINE_HILLS),
+                    biomeBlock(Blocks.PACKED_ICE.defaultBlockState(), BorealisBiomes.RAVAGED_GLACIER),
+                    biomeBlock(BorealisBlocks.PUMICE.get().defaultBlockState(), BorealisBiomes.HOT_SPRING_ISLANDS)
+            );
+        }
         return SurfaceRules.sequence(
                 biomeBlock(BorealisBlocks.FIRN.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE),
                 biomeBlock(BorealisBlocks.SUGAR_SNOW_BLOCK.get().defaultBlockState(), BorealisBiomes.SACCHARINE_HILLS),
@@ -182,11 +191,11 @@ public class BorealisWorld {
                 // else
                 SurfaceRules.ifTrue(SurfaceRules.not(onMountain(1)), SurfaceRules.sequence(
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
-                            biomeGroundCover()),
+                            biomeGroundCover(0)),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(1, false, 0, CaveSurface.FLOOR),
-                            biomeGroundCover()),
+                            biomeGroundCover(1)),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(2, false, 0, CaveSurface.FLOOR),
-                            biomeGroundCover()),
+                            biomeGroundCover(2)),
                     SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(3, true, 0, CaveSurface.FLOOR),
                             SurfaceRules.sequence(
                                     biomeBlock(BorealisBlocks.FIRN.get().defaultBlockState(), BorealisBiomes.BOREAL_TUNDRA, BorealisBiomes.FROSTFIR_WOODS, BorealisBiomes.BRUMAL_GROVE),

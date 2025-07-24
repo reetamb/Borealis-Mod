@@ -2,6 +2,7 @@ package com.reetam.borealis.registry.world;
 
 import com.mojang.datafixers.util.Pair;
 import com.reetam.borealis.BorealisMod;
+import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.particles.ParticleTypes;
@@ -93,8 +94,7 @@ public class BorealisBiomes {
         return makeDefaultBiome(
                 new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers)
                         .addFeature(GenerationStep.Decoration.RAW_GENERATION, BorealisPlacedFeatures.PLACED_HOT_SPRING)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_SPIKE_TRAIL)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BorealisPlacedFeatures.PLACED_SPIRAL_CLOUD),
+                        .addFeature(GenerationStep.Decoration.RAW_GENERATION, BorealisPlacedFeatures.PLACED_DELTA_HOT_SPRINGS),
                 new MobSpawnSettings.Builder(),
                 10136810);
     }
@@ -158,6 +158,10 @@ public class BorealisBiomes {
 
         return MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(List.of(
                 Pair.of(new Climate.ParameterPoint(zero, zero, zero, zero, zero, zero, 0),
+                        biomes.getOrThrow(BOREAL_TUNDRA)),
+                Pair.of(new Climate.ParameterPoint(zero, dry, zero, zero, zero, zero, 0),
+                        biomes.getOrThrow(BOREAL_TUNDRA)),
+                Pair.of(new Climate.ParameterPoint(zero, wet, zero, zero, zero, zero, 0),
                         biomes.getOrThrow(BOREAL_TUNDRA)),
 
                 Pair.of(new Climate.ParameterPoint(cold, dry, zero, zero, zero, zero, 0),

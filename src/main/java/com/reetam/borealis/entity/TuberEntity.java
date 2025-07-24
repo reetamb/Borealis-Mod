@@ -1,6 +1,5 @@
 package com.reetam.borealis.entity;
 
-import com.reetam.borealis.entity.template.IBorealisMob;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -20,7 +19,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.Nullable;
 
-public class TuberEntity extends Animal implements IBorealisMob {
+public class TuberEntity extends Animal {
     public TuberEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
     }

@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -46,7 +47,6 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRUMAL_TREE_3 = createKey("brumal_tree_3"); // straight trunk, palm foliage, tall
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRUMAL_TREE_4 = createKey("brumal_tree_4"); // straight trunk, acacia foliage, tall
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTFIR_TREE = createKey("frostfir_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GIANTWOOD_TREE = createKey("giantwood_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HELIX_TREE = createKey("helix_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> COTTON_TREE = createKey("cotton_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLAZED_HELIX_TREE = createKey("glazed_helix_tree");
@@ -57,7 +57,7 @@ public class BorealisConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_TANZANITE_METEOR = createKey("tanzanite_meteor");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NATURAL_HAILSTONE = createKey("natural_hailstone");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUD_HAILSTONE = createKey("cloud_hailstone");
-
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DELTA_HOT_SPRINGS = createKey("delta_hot_springs");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
@@ -74,6 +74,12 @@ public class BorealisConfiguredFeatures {
         register(context, NATURAL_HAILSTONE, Feature.REPLACE_SINGLE_BLOCK, new ReplaceBlockConfiguration(Blocks.SNOW.getStateDefinition().any(), BorealisBlocks.HAILSTONE.get().defaultBlockState()));
         register(context, CLOUD_HAILSTONE, Feature.SCATTERED_ORE, new OreConfiguration(new BlockMatchTest(BorealisBlocks.CLOUD.get()), BorealisBlocks.HAILSTONE.get().defaultBlockState(), 1, 1.0F));
 
+        register(context, DELTA_HOT_SPRINGS, Feature.DELTA_FEATURE, new DeltaFeatureConfiguration(
+                BorealisFluids.HOT_SPRING_WATER_BLOCK.get().defaultBlockState(),
+                BorealisBlocks.GYPSUM.get().defaultBlockState(),
+                UniformInt.of(3, 7),
+                UniformInt.of(1, 2)
+        ));
 
         register(context, BRUMAL_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 with(BorealisBlocks.BRUMAL_LOG), new RootedTrunkPlacer(6, 2, 2),

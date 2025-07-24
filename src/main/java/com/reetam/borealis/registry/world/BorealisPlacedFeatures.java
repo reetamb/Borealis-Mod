@@ -45,6 +45,7 @@ public class BorealisPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PLACED_NATURAL_HAILSTONE = createKey("natural_hailstone");
     public static final ResourceKey<PlacedFeature> PLACED_CLOUD_HAILSTONE = createKey("cloud_hailstone");
 
+    public static final ResourceKey<PlacedFeature> PLACED_DELTA_HOT_SPRINGS = createKey("delta_hot_springs");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, name));
@@ -71,6 +72,8 @@ public class BorealisPlacedFeatures {
                 RarityFilter.onAverageOnceEvery(8));
         register(context, PLACED_SLATE_BOULDER, please.getOrThrow(BorealisConfiguredFeatures.CONFIGURED_SLATE_BOULDER),
                 CountOnEveryLayerPlacement.of(1), RarityFilter.onAverageOnceEvery(3), BiomeFilter.biome());
+        register(context, PLACED_DELTA_HOT_SPRINGS, please.getOrThrow(BorealisConfiguredFeatures.DELTA_HOT_SPRINGS),
+                CountOnEveryLayerPlacement.of(60), BiomeFilter.biome());
 
         register(context, PLACED_BRUMAL_TREE_1, please.getOrThrow(BorealisConfiguredFeatures.BRUMAL_TREE_1),
                 CountOnEveryLayerPlacement.of(4), BiomeFilter.biome(), PLANT);

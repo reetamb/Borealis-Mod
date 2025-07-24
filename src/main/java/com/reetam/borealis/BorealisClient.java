@@ -26,39 +26,34 @@ public class BorealisClient {
         RenderType cutout = RenderType.cutout();
         RenderType translucent = RenderType.translucent();
 
-        for (DeferredHolder<Block, ? extends Block> block : BorealisBlocks.BLOCKS.getEntries()) {
-            render(block, translucent);
-        }
+        render(BorealisBlocks.BRUMAL_DOOR, cutout);
+        render(BorealisBlocks.BRUMAL_TRAPDOOR, cutout);
+        render(BorealisBlocks.SWEETWOOD_DOOR, cutout);
+        render(BorealisBlocks.SWEETWOOD_TRAPDOOR, cutout);
+        render(BorealisBlocks.CARAMELIZED_DOOR, cutout);
+        render(BorealisBlocks.CARAMELIZED_TRAPDOOR, cutout);
+        render(BorealisBlocks.EMBEDDED_KYANITE_ARROW, cutout);
+        render(BorealisBlocks.HOLLY, cutout);
+        render(BorealisBlocks.MISTERIA_HEAD, cutout);
+        render(BorealisBlocks.MISTERIA_BODY, cutout);
+        render(BorealisBlocks.BRUMELIAD, cutout);
+        render(BorealisBlocks.WINTER_VIOLA, cutout);
+        render(BorealisBlocks.WINTER_FIDDLE, cutout);
+        render(BorealisBlocks.WALL_WINTER_FIDDLE, cutout);
+        render(BorealisBlocks.WINTER_CELLO, cutout);
+        render(BorealisBlocks.MARROW, cutout);
+        render(BorealisBlocks.INSULATED_TANK, cutout);
+        render(BorealisBlocks.TAPPER, cutout);
+        render(BorealisBlocks.TANK_WINDOW, cutout);
 
-//        render(BorealisBlocks.BRUMAL_DOOR, cutout);
-//        render(BorealisBlocks.BRUMAL_TRAPDOOR, cutout);
-//        render(BorealisBlocks.SWEETWOOD_DOOR, cutout);
-//        render(BorealisBlocks.SWEETWOOD_TRAPDOOR, cutout);
-//        render(BorealisBlocks.CARAMELIZED_DOOR, cutout);
-//        render(BorealisBlocks.CARAMELIZED_TRAPDOOR, cutout);
-//        render(BorealisBlocks.EMBEDDED_KYANITE_ARROW, cutout);
-//        render(BorealisBlocks.HOLLY, cutout);
-//        render(BorealisBlocks.MISTERIA_HEAD, cutout);
-//        render(BorealisBlocks.MISTERIA_BODY, cutout);
-//        render(BorealisBlocks.BRUMELIAD, cutout);
-//        render(BorealisBlocks.WINTER_VIOLA, cutout);
-//        render(BorealisBlocks.WINTER_FIDDLE, cutout);
-//        render(BorealisBlocks.WALL_WINTER_FIDDLE, cutout);
-//        render(BorealisBlocks.WINTER_CELLO, cutout);
-//        render(BorealisBlocks.MARROW, cutout);
-//        render(BorealisBlocks.ARCTIC_WILLOW, cutout);
-//        render(BorealisBlocks.INSULATED_TANK, cutout);
-//        render(BorealisBlocks.TAPPER, cutout);
-//        render(BorealisBlocks.TANK_WINDOW, cutout);
-//
-//        render(BorealisFluids.HOT_SPRING_WATER_BLOCK, translucent);
-//        ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_FLOWING.get(), translucent);
-//        ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_SOURCE.get(), translucent);
-//        render(BorealisBlocks.BOREALIS_PORTAL, translucent);
-//        render(BorealisBlocks.CLOUD, translucent);
-//        render(BorealisBlocks.CANDY_GLASS, translucent);
-//
-//        render(BorealisBlocks.STATIC_FIELD, cutout);
+        render(BorealisFluids.HOT_SPRING_WATER_BLOCK, translucent);
+        ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_FLOWING.get(), translucent);
+        ItemBlockRenderTypes.setRenderLayer(BorealisFluids.HOT_SPRING_WATER_SOURCE.get(), translucent);
+        render(BorealisBlocks.BOREALIS_PORTAL, translucent);
+        render(BorealisBlocks.CLOUD, translucent);
+        render(BorealisBlocks.CANDY_GLASS, translucent);
+
+        render(BorealisBlocks.STATIC_FIELD, cutout);
     }
 
     @OnlyIn(Dist.CLIENT)

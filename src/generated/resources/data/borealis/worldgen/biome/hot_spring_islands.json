@@ -17,7 +17,8 @@
   },
   "features": [
     [
-      "borealis:hot_spring"
+      "borealis:hot_spring",
+      "borealis:delta_hot_springs"
     ],
     [],
     [],
@@ -27,13 +28,6 @@
     [
       "borealis:kyanite_crystal",
       "borealis:cloud_hailstone"
-    ],
-    [],
-    [],
-    [],
-    [
-      "borealis:spike_trail",
-      "borealis:spiral_cloud"
     ]
   ],
   "has_precipitation": true,

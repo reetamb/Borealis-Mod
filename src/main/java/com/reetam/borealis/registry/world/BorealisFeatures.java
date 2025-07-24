@@ -25,8 +25,6 @@ public class BorealisFeatures {
             "glacial_spike", () -> new GlacialSpikeFeature(NoneFeatureConfiguration.CODEC));
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> HOT_SPRING = FEATURES.register(
             "hot_spring", () -> new HotSpringFeature(NoneFeatureConfiguration.CODEC));
-    public static final DeferredHolder<Feature<?>, Feature<CoverTopLayerConfiguration>> ARCTIC_WILLOW = FEATURES.register(
-            "arctic_willow_top_layer", () -> new CoverTopLayerFeature(CoverTopLayerConfiguration.CODEC));
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SPIKE_TRAIL = FEATURES.register(
             "spike_trail", () -> new SpikeTrailFeature(NoneFeatureConfiguration.CODEC));
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SPIRAL_CLOUD = FEATURES.register(

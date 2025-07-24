@@ -1,4 +1,4 @@
-// 1.21	2025-06-09T19:15:09.3562944	Borealis Block Tags
+// 1.21	2025-07-23T14:12:19.0272006	Borealis Block Tags
 2ae1b35de46eb2c1ac6a382678f1b49fb95eeaea data/borealis/tags/block/base_stone_borealis.json
 49452c49126eea1b6d7c14b37b099b5507f125dc data/borealis/tags/block/blockset_brumal.json
 36d77432c8dfde361671fa2c373a8705a8893306 data/borealis/tags/block/blockset_caramelized.json
@@ -22,8 +22,8 @@ e639dc82a9f4a437fbc8b153206b2751840912fa data/c/tags/block/fences/wooden.json
 db27381b88d5d5f6202262fe27fc953ee9dbbbf6 data/minecraft/tags/block/all_hanging_signs.json
 f2781d222394106d76216963d0b258f4ccec616f data/minecraft/tags/block/ceiling_hanging_signs.json
 9028b10a26b3c12e6b524b9c6d39487e276e894a data/minecraft/tags/block/climbable.json
-78db12c834005fb1d3dc1288993536ed164e778e data/minecraft/tags/block/dirt.json
-4d0d7508a8fb1c5a415c2d3b6730e7c5b577f74b data/minecraft/tags/block/enderman_holdable.json
+813cd6e33f5fe070cb425c1ec1662566d7a3603e data/minecraft/tags/block/dirt.json
+4c497c3126fe9c0aaabcd86d0fc93e08d6ce24c6 data/minecraft/tags/block/enderman_holdable.json
 dfb131802782a803a3f524f4311d707c9e30937d data/minecraft/tags/block/fence_gates.json
 ae5557abcbe02cdd645fc58ba62c793558d19e25 data/minecraft/tags/block/flowers.json
 86aaa520f8d4f6c8ae92c17f458956f80ded3575 data/minecraft/tags/block/leaves.json
@@ -32,7 +32,7 @@ ae5557abcbe02cdd645fc58ba62c793558d19e25 data/minecraft/tags/block/flowers.json
 7b2e09260ea154c828ac53606fb1542e02d9c368 data/minecraft/tags/block/mineable/axe.json
 83c9f1c693b911aa74ef218088d24aa62dde632d data/minecraft/tags/block/mineable/hoe.json
 6e135d54b7ed9fa16c7d1f65404c01409da9fcb1 data/minecraft/tags/block/mineable/pickaxe.json
-aa23ecd530447bde11065e822511037ed69da9aa data/minecraft/tags/block/mineable/shovel.json
+f067ed78421306c89a6fdc6070c9e2443b029de7 data/minecraft/tags/block/mineable/shovel.json
 0ebc2880907bdbbea2d4d444382715b68eda7b60 data/minecraft/tags/block/needs_diamond_tool.json
 543b19b89d386e95a90d2d224aca974104499ee6 data/minecraft/tags/block/needs_iron_tool.json
 6fed8d61bcdbbd470d827ba44fa7ef79f2553f07 data/minecraft/tags/block/needs_stone_tool.json
