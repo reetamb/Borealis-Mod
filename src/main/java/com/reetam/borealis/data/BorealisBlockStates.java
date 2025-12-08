@@ -8,6 +8,7 @@ import com.reetam.borealis.block.fluid.TapperBlock;
 import com.reetam.borealis.block.plant.AlmsCrackedBlock;
 import com.reetam.borealis.block.plant.MarrowBlock;
 import com.reetam.borealis.block.plant.ShadedDoublePlantBlock;
+import com.reetam.borealis.block.property.AlmsContents;
 import com.reetam.borealis.data.provider.BorealisBlockStateProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import net.minecraft.core.Direction;
@@ -116,9 +117,12 @@ public class BorealisBlockStates extends BorealisBlockStateProvider {
                 .partialState().with(ShadedDoublePlantBlock.HALF, DoubleBlockHalf.LOWER).modelForState().modelFile(this.models().cross("winter_cello_bottom", texture("winter_cello_bottom"))).addModel();
         getVariantBuilder(BorealisBlocks.ALMS.get())
                 .forAllStates((test) -> ConfiguredModel.builder().modelFile(this.models().cube("alms", texture("alms_top"), texture("alms_top"), texture("alms_end"), texture("alms_end"), texture("alms_side"), texture("alms_side")).texture("particle", texture("alms_side"))).build());
+//        getVariantBuilder(BorealisBlocks.CRACKED_ALMS.get())
+//                .partialState().with(AlmsCrackedBlock.CONTENTS, AlmsContents.EMPTY).modelForState().modelFile(this.models().cube("cracked_alms", texture("alms_top"), texture("cracked_alms_top"), texture("alms_end"), texture("alms_end"), texture("cracked_alms_side"), texture("cracked_alms_side")).texture("particle", texture("alms_side"))).addModel()
+//                .partialState().with(AlmsCrackedBlock.CONTENTS, true).modelForState().modelFile(this.models().cube("alms_shell", texture("alms_top"), texture("alms_shell_top"), texture("alms_end"), texture("alms_end"), texture("alms_shell_side"), texture("alms_shell_side")).texture("particle", texture("alms_side"))).addModel();
         getVariantBuilder(BorealisBlocks.CRACKED_ALMS.get())
-                .partialState().with(AlmsCrackedBlock.EMPTY, false).modelForState().modelFile(this.models().cube("cracked_alms", texture("alms_top"), texture("cracked_alms_top"), texture("alms_end"), texture("alms_end"), texture("cracked_alms_side"), texture("cracked_alms_side")).texture("particle", texture("alms_side"))).addModel()
-                .partialState().with(AlmsCrackedBlock.EMPTY, true).modelForState().modelFile(this.models().cube("alms_shell", texture("alms_top"), texture("alms_shell_top"), texture("alms_end"), texture("alms_end"), texture("alms_shell_side"), texture("alms_shell_side")).texture("particle", texture("alms_side"))).addModel();
+                .forAllStates((test) -> ConfiguredModel.builder().modelFile(this.models().cube("alms", texture("alms_top"), texture("alms_top"), texture("alms_end"), texture("alms_end"), texture("alms_side"), texture("alms_side")).texture("particle", texture("alms_side"))).build());
+
 
         getVariantBuilder(BorealisBlocks.MARROW.get())
                 .forAllStates((state) -> {

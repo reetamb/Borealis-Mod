@@ -1,6 +1,6 @@
 package com.reetam.borealis.item;
 
-import com.reetam.borealis.entity.KyaniteArrowEntity;
+import com.reetam.borealis.entity.nonliving.KyaniteArrowEntity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ArrowItem;

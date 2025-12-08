@@ -1,4 +1,4 @@
-// 1.21	2025-07-23T14:12:19.0030613	Borealis Item Models
+// 1.21	2025-12-08T09:06:32.0480897	Borealis Item Models
 5fd295104ee66c7b9091ab57fa73d2739d66df02 assets/borealis/models/item/alms.json
 37a211cdf9f551a56fbf6af22f3a70dbb05b0519 assets/borealis/models/item/alms_nut.json
 75aa80c42a220cf518df2584d1c3a390019b4c46 assets/borealis/models/item/blue_amber.json
@@ -20,6 +20,7 @@ c4ae924254107bfed3ffcd0c95031dbc1bd9fb30 assets/borealis/models/item/brumal_stai
 94eadc00fc2b880e750259d461c60920ecbd1835 assets/borealis/models/item/brumal_trapdoor.json
 3d9ba6a314f602bc76cc673936b93b3cce556982 assets/borealis/models/item/brumal_wood.json
 edfb7a1b13ba760b5e7a84e630cbd938dae2e52d assets/borealis/models/item/brumeliad.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/borealis/models/item/butterbird_spawn_egg.json
 f8cd6cfbfd6b42ca832063dd658a8abf01c9e1bf assets/borealis/models/item/candy_glass.json
 4c5b1628d8b008d64014d10ecf7462b5c74b115f assets/borealis/models/item/caramelized_boat.json
 dd6a3b2d2fed8bfdccc97a3b8a41403ef2df38cb assets/borealis/models/item/caramelized_button.json
@@ -37,7 +38,7 @@ e946e9305a9d26e91cb5db4ab4eae7211666a5d3 assets/borealis/models/item/caramelized
 72f178fab5689d321dc84bda82cb03b3bf38b0d5 assets/borealis/models/item/caramelized_wood.json
 83a70a8e37d5742a5933222224efbde8ad07e170 assets/borealis/models/item/cinnabar.json
 361608f2d88c42445f7354ca56320d63d17aa7d9 assets/borealis/models/item/cloud.json
-5b20bb71a44b510352d07d60bed0ff41cc7ea192 assets/borealis/models/item/cracked_alms.json
+57c94c98bf54a2d9dab2deae764486fbf54d2d85 assets/borealis/models/item/cracked_alms.json
 45e960186f9e7489db9d7fd8a256f5d6d7eb8140 assets/borealis/models/item/firn.json
 a02e613fe799dd336241f8020821f307a4062c8c assets/borealis/models/item/fleece.json
 830d28f49e8e4f220f645d6f326e42c810d2ca56 assets/borealis/models/item/fluorite.json

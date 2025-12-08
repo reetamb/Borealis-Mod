@@ -1,6 +1,6 @@
 package com.reetam.borealis.item;
 
-import com.reetam.borealis.entity.TakaheEntity;
+import com.reetam.borealis.entity.takahe.TakaheEntity;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;

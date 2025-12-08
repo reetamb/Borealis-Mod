@@ -46,11 +46,12 @@ public class BorealisMod {
         bus.addListener(BorealisFluids::registerFluidClient);
         bus.addListener(BorealisClient::registerDimensionRenderers);
         bus.addListener(BorealisEntities::registerEntityAttributes);
-        bus.addListener(BorealisCommon::spawnRestrictions);
+        bus.addListener(BorealisEntities::spawnRestrictions);
         bus.addListener(BorealisMenus::registerMenuScreens);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::loadKyaniteArrowEvent);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::burnInAtmosphereEvent);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::reducedFallDamageEvent);
+        NeoForge.EVENT_BUS.addListener(PlayerEvents::onDeathEvent);
         NeoForge.EVENT_BUS.addListener(BorealisCommon::toolInteractions);
 
         DeferredRegister<?>[] registers = {

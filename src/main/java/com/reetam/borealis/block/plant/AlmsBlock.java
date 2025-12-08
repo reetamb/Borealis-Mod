@@ -1,5 +1,6 @@
 package com.reetam.borealis.block.plant;
 
+import com.reetam.borealis.block.property.AlmsContents;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisFluids;
 import net.minecraft.core.BlockPos;
@@ -21,7 +22,7 @@ public class AlmsBlock extends Block {
     @Override
     public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pNeighborBlock, BlockPos pNeighborPos, boolean pMovedByPiston) {
         if (pNeighborBlock == BorealisFluids.HOT_SPRING_WATER_BLOCK.get()) {
-            pLevel.setBlock(pPos, BorealisBlocks.CRACKED_ALMS.get().defaultBlockState().setValue(AlmsCrackedBlock.EMPTY, false), 3);
+            pLevel.setBlock(pPos, BorealisBlocks.CRACKED_ALMS.get().defaultBlockState().setValue(AlmsCrackedBlock.CONTENTS, AlmsContents.NUT), 3);
         } else if (pNeighborBlock.defaultBlockState().is(BlockTags.LEAVES) && pNeighborPos == pPos.above()) {
             FallingBlockEntity falling = FallingBlockEntity.fall(pLevel, pPos, pState);
             falling.setHurtsEntities(1.5F, 6);

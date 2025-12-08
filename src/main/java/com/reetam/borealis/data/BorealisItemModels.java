@@ -87,7 +87,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         itemBlockFlat(BorealisBlocks.WINTER_CELLO, "block/winter_cello_bottom");
         normalItem(BorealisItems.ALMS_NUT);
         itemBlock(BorealisBlocks.ALMS);
-        itemBlock(BorealisBlocks.CRACKED_ALMS);
+        itemBlockFlat(BorealisBlocks.CRACKED_ALMS, "item/marrow");
         itemBlockFlat(BorealisBlocks.MARROW, "item/marrow");
 
         itemBlock(BorealisBlocks.SWEETWOOD_PLANKS);
@@ -150,6 +150,7 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisFluids.PORTAL_FLUID_BUCKET);
         egg(BorealisEntities.HUMMINGBIRD_SPAWN_EGG);
         egg(BorealisEntities.TAKAHE_SPAWN_EGG);
+        egg(BorealisEntities.BUTTERBIRD_SPAWN_EGG);
         egg(BorealisEntities.THRUSHER_SPAWN_EGG);
         egg(BorealisEntities.TUBER_SPAWN_EGG);
         normalItem(BorealisItems.HAT);

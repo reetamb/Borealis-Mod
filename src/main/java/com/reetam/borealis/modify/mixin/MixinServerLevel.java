@@ -1,6 +1,6 @@
 package com.reetam.borealis.modify.mixin;
 
-import com.reetam.borealis.entity.HailEntity;
+import com.reetam.borealis.entity.nonliving.HailEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.ChunkPos;

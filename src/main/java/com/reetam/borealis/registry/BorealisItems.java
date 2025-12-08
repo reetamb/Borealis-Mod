@@ -1,7 +1,7 @@
 package com.reetam.borealis.registry;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.entity.BorealisBoatEntity;
+import com.reetam.borealis.entity.nonliving.BorealisBoatEntity;
 import com.reetam.borealis.item.*;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;

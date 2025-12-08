@@ -1,10 +1,13 @@
 {
   "variants": {
-    "empty=false": {
-      "model": "borealis:block/cracked_alms"
+    "contents=egg": {
+      "model": "borealis:block/alms"
     },
-    "empty=true": {
-      "model": "borealis:block/alms_shell"
+    "contents=empty": {
+      "model": "borealis:block/alms"
+    },
+    "contents=nut": {
+      "model": "borealis:block/alms"
     }
   }
 }

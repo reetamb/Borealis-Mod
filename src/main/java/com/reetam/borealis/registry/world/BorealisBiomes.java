@@ -12,6 +12,7 @@ import net.minecraft.data.worldgen.Carvers;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -66,7 +67,7 @@ public class BorealisBiomes {
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL),
 
                 new MobSpawnSettings.Builder()
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BorealisEntities.TAKAHE.get(), 100, 2, 4)),
+                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BorealisEntities.BUTTERBIRD.get(), 100, 2, 4)),
                 10926829);
     }
     public static Biome frostfirWoods(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
@@ -117,7 +118,11 @@ public class BorealisBiomes {
         return fullDefinition(true,
                 0.0F,
                 0.0F,
-                spawning.build(),
+                spawning
+                        .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE, 45, 1, 4))
+                        .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SKELETON, 45, 1, 4))
+                        .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE_VILLAGER, 10, 1, 4))
+                        .build(),
                 new BiomeSpecialEffects.Builder()
                         .fogColor(fogColor)
                         .skyColor(10136810)
@@ -151,10 +156,15 @@ public class BorealisBiomes {
 
     public static BiomeSource biomeSource(HolderGetter<Biome> biomes) {
         Climate.Parameter zero = Climate.Parameter.point(0.0F);
+
         Climate.Parameter warm = Climate.Parameter.span(0.66F, 1.0F);
         Climate.Parameter cold = Climate.Parameter.span(-1.0F, 0.66F);
+
         Climate.Parameter wet = Climate.Parameter.span(0.5F, 1.0F);
         Climate.Parameter dry = Climate.Parameter.span(-0.75F, -0.25F);
+
+        Climate.Parameter lowland = Climate.Parameter.span(-1.0F, 0.33F);
+        Climate.Parameter mountain = Climate.Parameter.span(0.33F, 1.0F);
 
         return MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(List.of(
                 Pair.of(new Climate.ParameterPoint(zero, zero, zero, zero, zero, zero, 0),

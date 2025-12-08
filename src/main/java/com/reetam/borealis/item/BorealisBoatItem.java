@@ -1,6 +1,6 @@
 package com.reetam.borealis.item;
 
-import com.reetam.borealis.entity.BorealisBoatEntity;
+import com.reetam.borealis.entity.nonliving.BorealisBoatEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;

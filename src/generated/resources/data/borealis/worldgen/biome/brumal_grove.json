@@ -44,14 +44,33 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "borealis:takahe",
+        "type": "borealis:butterbird",
         "maxCount": 4,
         "minCount": 2,
         "weight": 100
       }
     ],
     "misc": [],
-    "monster": [],
+    "monster": [
+      {
+        "type": "minecraft:zombie",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 45
+      },
+      {
+        "type": "minecraft:skeleton",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 45
+      },
+      {
+        "type": "minecraft:zombie_villager",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 10
+      }
+    ],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []

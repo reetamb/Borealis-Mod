@@ -157,6 +157,18 @@ public class BorealisLootTables extends LootTableProvider {
                                     .add(LootItem.lootTableItem(Items.CHICKEN)
                                         .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))
                             ));
+
+            this.add(
+                    BorealisEntities.BUTTERBIRD.get(),
+                    LootTable.lootTable().withPool
+                            (LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                                    .add(LootItem.lootTableItem(Items.FEATHER)
+                                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))
+                                            .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))
+                                    .add(LootItem.lootTableItem(Items.CHICKEN)
+                                            .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))
+                            ));
+
             this.add(
                     BorealisEntities.THRUSHER.get(),
                     LootTable.lootTable().withPool
