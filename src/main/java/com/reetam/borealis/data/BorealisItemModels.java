@@ -162,7 +162,6 @@ public class BorealisItemModels extends BorealisItemModelProvider {
         normalItem(BorealisItems.STARBURST);
         itemBlockFlat(BorealisBlocks.HOLLY);
         itemBlock(BorealisBlocks.LICHEN_BLOCK);
-        normalItem(BorealisItems.BLUE_AMBER);
         normalItem(BorealisItems.HAILSTONE);
         normalItem(BorealisItems.KYANITE_ARROW);
         itemBlock(BorealisBlocks.KILN);

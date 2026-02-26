@@ -61,6 +61,7 @@ public class BorealisMod {
                 BorealisFluids.TYPES,
                 BorealisItems.ITEMS,
                 BorealisItems.Tabs.TABS,
+                BorealisItems.Components.COMPONENTS,
                 BorealisEntities.ENTITIES,
                 BorealisFeatures.FEATURES,
                 BorealisFeatures.TreePlacers.FOLIAGE_PLACERS,

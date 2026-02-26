@@ -3,15 +3,20 @@ package com.reetam.borealis.registry;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.entity.nonliving.BorealisBoatEntity;
 import com.reetam.borealis.item.*;
+import com.reetam.borealis.item.components.FrozenFoodType;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.ExtraCodecs;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -49,19 +54,12 @@ public class BorealisItems {
                     .saturationModifier(2.0F)
                     .effect(() -> new MobEffectInstance(BorealisEffects.MANIA, 200), 1).build())));
 
-    public static final DeferredHolder<Item, Item> BLUE_AMBER = ITEMS.register("blue_amber", () -> new Item(new Item.Properties()));
-
     public static final DeferredHolder<Item, Item> KYANITE_ARROW = ITEMS.register("kyanite_arrow", () -> new KyaniteArrowItem(new Item.Properties()));
 
     public static final DeferredHolder<Item, FleeceItem> FLEECE = ITEMS.register("fleece", () -> new FleeceItem(new Item.Properties()));
 
     public static final DeferredHolder<Item, StandingAndWallBlockItem> WINTER_FIDDLE = ITEMS.register("winter_fiddle", () -> new StandingAndWallBlockItem(BorealisBlocks.WINTER_FIDDLE.get(), BorealisBlocks.WALL_WINTER_FIDDLE.get(), new Item.Properties(), Direction.DOWN));
     public static final DeferredHolder<Item, Item> ALMS_NUT = ITEMS.register("alms_nut", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).saturationModifier(1.25F).build())));
-
-    public static final DeferredHolder<Item, Item> FROZEN_MEAT = ITEMS.register("frozen_meat", () -> new Item(new Item.Properties()));
-    public static final DeferredHolder<Item, Item> FROZEN_PRODUCE = ITEMS.register("frozen_produce", () -> new Item(new Item.Properties()));
-    public static final DeferredHolder<Item, Item> FROZEN_STEW = ITEMS.register("frozen_stew", () -> new Item(new Item.Properties().stacksTo(1)));
-
 
     public static class Tabs {
 
@@ -79,6 +77,14 @@ public class BorealisItems {
                         output.accept(item.get());
                     }
                 }).build());
+    }
+
+    public static class Components {
+
+        public static final DeferredRegister<DataComponentType<?>> COMPONENTS = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, BorealisMod.MODID);
+
+        public static final DeferredHolder<DataComponentType<?>, DataComponentType<FrozenFoodType>> FROZEN = COMPONENTS.register("frozen_food",
+                () -> new DataComponentType.Builder<FrozenFoodType>().persistent(FrozenFoodType.CODEC).networkSynchronized(FrozenFoodType.STREAM_CODEC).build());
     }
 
     public enum Tiers implements Tier {

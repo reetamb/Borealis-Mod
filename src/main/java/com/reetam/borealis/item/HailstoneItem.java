@@ -13,6 +13,7 @@ import com.reetam.borealis.world.teleporter.WorldHeightTransition;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -94,9 +95,12 @@ public class HailstoneItem extends Item {
         Vec3 pos = pPlayer.position().add(0, 1, 0);
 
         if (level instanceof ServerLevel serverLevel) {
+            pPlayer.sendSystemMessage(Component.literal("HEEEEEEEEEEELP HELP ME"));
+
             if (level.dimension() == Level.OVERWORLD && pPlayer.getY() >= level.getMaxBuildHeight() + 2) {
                 DimensionTransition transition = WorldHeightTransition.toBorealis(serverLevel, pPlayer);
                 pPlayer.changeDimension(transition);
+                pPlayer.sendSystemMessage(Component.literal("YOU'RE SUPPOSED TO BE IN BOREALIS"));
                 return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
 
             } else if (level.dimension() == BorealisDimensions.BOREALIS && pPlayer.getY() <= BorealisMod.MIN_HEIGHT) {
@@ -105,7 +109,6 @@ public class HailstoneItem extends Item {
                 BorealisTriggers.USE_HAILSTONE.get().trigger((ServerPlayer) pPlayer, pPlayer.getItemInHand(pUsedHand), level.dimension());
                 return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
             }
-
         }
 
         particles(level, pos, pPlayer);

@@ -1,11 +1,13 @@
 package com.reetam.borealis.world.teleporter;
 
+import com.reetam.borealis.item.components.FrozenFoodType;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.BorealisTags;
 import com.reetam.borealis.registry.world.BorealisDimensions;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -51,24 +53,18 @@ public class WorldHeightTransition {
         if (entity instanceof Player player) {
             for (int i = 0; i <= player.getInventory().getContainerSize(); i++) {
                 ItemStack item = player.getInventory().getItem(i);
-                ItemStack frozen = item;
-                boolean flag = false;
                 if (item.is(BorealisTags.Items.MEAT)) {
-                    frozen = item.transmuteCopy(BorealisItems.FROZEN_STEW.get());
-                    flag = true;
-                }
-                else if (item.is(BorealisTags.Items.PRODUCE)) {
-                    frozen = item.transmuteCopy(BorealisItems.FROZEN_STEW.get());
-                    flag = true;
-                }
-                else if (item.is(BorealisTags.Items.STEW)) {
-                    frozen = item.transmuteCopy(BorealisItems.FROZEN_STEW.get());
-                    flag = true;
-                }
-
-                if (flag) {
-                    frozen.applyComponents(item.getComponents());
-                    player.getInventory().setItem(i, frozen);
+                    item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.MEAT);
+                    item.set(DataComponents.CUSTOM_NAME, Component.literal("FROZEN MEAT"));
+                } else if (item.is(BorealisTags.Items.PRODUCE)) {
+                    item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.PRODUCE);
+                    item.set(DataComponents.CUSTOM_NAME, Component.literal("FROZEN PRODUCE"));
+                } else if (item.is(BorealisTags.Items.STEW)) {
+                    item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.STEW);
+                    item.set(DataComponents.CUSTOM_NAME, Component.literal("FROZEN STEW"));
+                } else if (item.has(DataComponents.FOOD)) {
+                    item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.MUSH);
+                    item.set(DataComponents.CUSTOM_NAME, Component.literal("FROZEN MUSH"));
                 }
             }
         }
