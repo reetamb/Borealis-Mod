@@ -5,6 +5,7 @@ import com.mojang.logging.LogUtils;
 import com.reetam.borealis.data.*;
 import com.reetam.borealis.data.trigger.BorealisTriggers;
 import com.reetam.borealis.item.SilverTools;
+import com.reetam.borealis.modify.events.LoadingEvents;
 import com.reetam.borealis.modify.events.PlayerEvents;
 import com.reetam.borealis.registry.*;
 import com.reetam.borealis.registry.world.BorealisDimensions;
@@ -41,6 +42,7 @@ public class BorealisMod {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         bus.addListener(this::gatherData);
+
         bus.addListener(BorealisEntities::registerEntityRenderers);
         bus.addListener(BorealisEntities::registerEntityLayerDefinitions);
         bus.addListener(BorealisFluids::registerFluidClient);
@@ -48,10 +50,13 @@ public class BorealisMod {
         bus.addListener(BorealisEntities::registerEntityAttributes);
         bus.addListener(BorealisEntities::spawnRestrictions);
         bus.addListener(BorealisMenus::registerMenuScreens);
+        bus.addListener(LoadingEvents::onModelBake);
+        bus.addListener(LoadingEvents::onModelRegister);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::loadKyaniteArrowEvent);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::burnInAtmosphereEvent);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::reducedFallDamageEvent);
         NeoForge.EVENT_BUS.addListener(PlayerEvents::onDeathEvent);
+        NeoForge.EVENT_BUS.addListener(PlayerEvents::useItemEvent);
         NeoForge.EVENT_BUS.addListener(BorealisCommon::toolInteractions);
 
         DeferredRegister<?>[] registers = {

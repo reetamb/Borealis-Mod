@@ -48,7 +48,8 @@ public class BorealisLang extends BorealisLangProvider {
         addAdvancement("get_hailstone", "Hail-o There", "Find a hailstone in a snowy thunderstorm");
         addAdvancement("icarian", "Icarian", "Save yourself from burning up in the stratosphere");
         addAdvancement("make_portal", "Warm Welcome Home", "Build a portal back home with Kyanite Cable");
-        addAdvancement("get_kyanite", "Bottom of the Beryl", "Mine a fibrous crystal");
+        addAdvancement("try_frozen_food", "Brain Freeze!", "Bite into ice-cold food");
+        addAdvancement("get_kyanite", "Bottom of the Beryl", "Mine a glowing, fibrous crystal");
         addAdvancement("shear_plant", "Distant Relatives", "Gather a prehistoric plant");
         addAdvancement("strip_frostfir", "Woodn't You Like To Know", "Try chopping a Frostfir tree to no avail");
         addAdvancement("break_pumice", "Splat", "Break your fall on some Pumice");

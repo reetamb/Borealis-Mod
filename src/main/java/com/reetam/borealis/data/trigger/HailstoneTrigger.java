@@ -47,5 +47,4 @@ public class HailstoneTrigger extends SimpleCriterionTrigger<HailstoneTrigger.Tr
             return this.height().matches(pPlayerPos.y()) && this.item().get().test(pHeldItem) && this.from().get().equals(pDimensionIn);
         }
     }
-
 }

@@ -1,9 +1,7 @@
 package com.reetam.borealis.data;
 
 import com.reetam.borealis.BorealisMod;
-import com.reetam.borealis.data.trigger.BreakBlockTrigger;
-import com.reetam.borealis.data.trigger.HailstoneTrigger;
-import com.reetam.borealis.data.trigger.HotSpringStepTrigger;
+import com.reetam.borealis.data.trigger.*;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.world.BorealisDimensions;
@@ -11,6 +9,7 @@ import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentPatch;
+import net.minecraft.core.component.DataComponentPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -67,6 +66,16 @@ public class BorealisAdvancements extends AdvancementProvider {
                     .parent(getHailstone)
                     .save(consumer, loc("enter_borealis"));
 
+            AdvancementHolder tryFrozenFood = Advancement.Builder.advancement()
+                    .display(Items.ROTTEN_FLESH,
+                        name("try_frozen_food"),
+                        desc("try_frozen_food"),
+                        ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "items/frozen_stew"),
+                        AdvancementType.TASK, true, true, false)
+                    .addCriterion("try_frozen_food", TryFrozenFoodTrigger.TriggerInstance.triedFrozenFood(ItemPredicate.Builder.item()))
+                    .parent(enterBorealis)
+                    .save(consumer, loc("try_frozen_food"));
+
             AdvancementHolder kyanite = Advancement.Builder.advancement()
                     .display(BorealisItems.KYANITE_CRYSTAL.get(),
                             name("get_kyanite"),
@@ -76,6 +85,7 @@ public class BorealisAdvancements extends AdvancementProvider {
                     .addCriterion("get_kyanite", InventoryChangeTrigger.TriggerInstance.hasItems(BorealisItems.KYANITE_CRYSTAL.get()))
                     .parent(enterBorealis)
                     .save(consumer, loc("get_kyanite"));
+
 
             AdvancementHolder portal = Advancement.Builder.advancement()
                     .display(BorealisBlocks.KYANITE_FLAGSTONE.get(),

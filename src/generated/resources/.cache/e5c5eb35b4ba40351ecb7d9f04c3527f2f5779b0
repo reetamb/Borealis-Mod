@@ -1,4 +1,4 @@
-// 1.21	2025-02-20T14:13:18.723026	Advancements
+// 1.21	2026-02-26T21:37:04.7547885	Advancements
 faa07d0b73c3cb976f147fef004b1be1137a3c99 data/borealis/advancement/borealis_root.json
 9e3fd5cea6da3b68bc9deac0ae58830644a57044 data/borealis/advancement/break_pumice.json
 0910c4a228752160ab8eda0d6d03c741e3efb454 data/borealis/advancement/enter_borealis.json
@@ -8,5 +8,6 @@ f34a5a276c4fcd73792f324d93f3d0f0ff1632a5 data/borealis/advancement/get_hailstone
 510a7a71c6dee549501271d84975a35802178f5d data/borealis/advancement/make_portal.json
 0603524ab993ec0afe12c6e105f3e80136cce351 data/borealis/advancement/shear_plant.json
 17cf274490ae77e2e5841ac8d1026bc3111ee58e data/borealis/advancement/strip_frostfir.json
+dbdc2cf28888d7620992e4dabbe54318b9f9e444 data/borealis/advancement/try_frozen_food.json
 5effe5717ac78420a54eb804fcc534da798a8411 data/borealis/advancement/walk_geyser.json
 229956e49ff58f66eb363633a7cb4107ac10ce21 data/borealis/advancement/walk_kaolin.json

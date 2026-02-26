@@ -3,7 +3,6 @@ package com.reetam.borealis.item;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.TRandom;
 import com.reetam.borealis.data.trigger.BorealisTriggers;
-import com.reetam.borealis.data.trigger.BreakBlockTrigger;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisFluids;
 import com.reetam.borealis.registry.BorealisSounds;
@@ -13,7 +12,6 @@ import com.reetam.borealis.world.teleporter.WorldHeightTransition;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -32,7 +30,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -41,7 +38,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
-import java.util.Optional;
 
 public class HailstoneItem extends Item {
 
@@ -95,12 +91,9 @@ public class HailstoneItem extends Item {
         Vec3 pos = pPlayer.position().add(0, 1, 0);
 
         if (level instanceof ServerLevel serverLevel) {
-            pPlayer.sendSystemMessage(Component.literal("HEEEEEEEEEEELP HELP ME"));
-
             if (level.dimension() == Level.OVERWORLD && pPlayer.getY() >= level.getMaxBuildHeight() + 2) {
                 DimensionTransition transition = WorldHeightTransition.toBorealis(serverLevel, pPlayer);
                 pPlayer.changeDimension(transition);
-                pPlayer.sendSystemMessage(Component.literal("YOU'RE SUPPOSED TO BE IN BOREALIS"));
                 return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
 
             } else if (level.dimension() == BorealisDimensions.BOREALIS && pPlayer.getY() <= BorealisMod.MIN_HEIGHT) {

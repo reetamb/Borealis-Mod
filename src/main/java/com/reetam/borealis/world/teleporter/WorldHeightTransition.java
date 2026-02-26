@@ -38,7 +38,7 @@ public class WorldHeightTransition {
 
     public static DimensionTransition toOverworld(ServerLevel level, Entity entity) {
         ServerLevel destination = level.getServer().getLevel(Level.OVERWORLD);
-
+        thawFood(entity);
         return new DimensionTransition(
                 destination,
                 entity.adjustSpawnLocation(destination, entity.blockPosition()).getCenter(),
@@ -53,18 +53,27 @@ public class WorldHeightTransition {
         if (entity instanceof Player player) {
             for (int i = 0; i <= player.getInventory().getContainerSize(); i++) {
                 ItemStack item = player.getInventory().getItem(i);
-                if (item.is(BorealisTags.Items.MEAT)) {
-                    item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.MEAT);
-                    item.set(DataComponents.CUSTOM_NAME, Component.literal("FROZEN MEAT"));
-                } else if (item.is(BorealisTags.Items.PRODUCE)) {
-                    item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.PRODUCE);
-                    item.set(DataComponents.CUSTOM_NAME, Component.literal("FROZEN PRODUCE"));
-                } else if (item.is(BorealisTags.Items.STEW)) {
-                    item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.STEW);
-                    item.set(DataComponents.CUSTOM_NAME, Component.literal("FROZEN STEW"));
-                } else if (item.has(DataComponents.FOOD)) {
-                    item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.MUSH);
-                    item.set(DataComponents.CUSTOM_NAME, Component.literal("FROZEN MUSH"));
+                if (item.has(DataComponents.FOOD)) {
+                    if (item.is(BorealisTags.Items.MEAT)) {
+                        item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.MEAT);
+                    } else if (item.is(BorealisTags.Items.PRODUCE)) {
+                        item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.PRODUCE);
+                    } else if (item.is(BorealisTags.Items.STEW)) {
+                        item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.STEW);
+                    } else {
+                        item.set(BorealisItems.Components.FROZEN.get(), FrozenFoodType.MUSH);
+                    }
+                }
+            }
+        }
+    }
+
+    private static void thawFood(Entity entity) {
+        if (entity instanceof Player player) {
+            for (int i = 0; i <= player.getInventory().getContainerSize(); i++) {
+                ItemStack item = player.getInventory().getItem(i);
+                if (item.has(BorealisItems.Components.FROZEN.get())) {
+                    item.remove(BorealisItems.Components.FROZEN);
                 }
             }
         }

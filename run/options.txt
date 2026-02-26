@@ -19,7 +19,7 @@ guiScale:0
 maxFps:260
 mipmapLevels:4
 narrator:0
-particles:1
+particles:2
 reducedDebugInfo:false
 renderClouds:"true"
 renderDistance:16
@@ -48,7 +48,7 @@ mouseSensitivity:0.5
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
-resourcePacks:["vanilla","mod_resources"]
+resourcePacks:[]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us
