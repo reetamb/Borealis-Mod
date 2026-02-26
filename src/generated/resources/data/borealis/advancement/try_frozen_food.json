@@ -1,0 +1,30 @@
+{
+  "parent": "borealis:enter_borealis",
+  "criteria": {
+    "try_frozen_food": {
+      "conditions": {
+        "item": {}
+      },
+      "trigger": "borealis:try_frozen_food"
+    }
+  },
+  "display": {
+    "background": "borealis:items/frozen_stew",
+    "description": {
+      "translate": "advancement.borealis.try_frozen_food.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:rotten_flesh"
+    },
+    "title": {
+      "translate": "advancement.borealis.try_frozen_food"
+    }
+  },
+  "requirements": [
+    [
+      "try_frozen_food"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
