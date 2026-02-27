@@ -2,15 +2,20 @@ package com.reetam.borealis.item.components;
 
 import com.reetam.borealis.BorealisMod;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipProvider;
 
+import java.util.function.Consumer;
 import java.util.function.IntFunction;
 
-public enum FrozenFoodType implements StringRepresentable {
+public enum FrozenFoodType implements StringRepresentable, TooltipProvider {
     MEAT("meat", 0),
     PRODUCE("produce", 1),
     STEW("stew", 2),
@@ -43,5 +48,10 @@ public enum FrozenFoodType implements StringRepresentable {
 
     public int id() {
         return id;
+    }
+
+    @Override
+    public void addToTooltip(Item.TooltipContext tooltipContext, Consumer<Component> consumer, TooltipFlag tooltipFlag) {
+        consumer.accept(Component.translatable("item.borealis.frozen_food_tooltip"));
     }
 }

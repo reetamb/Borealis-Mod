@@ -1,5 +1,6 @@
 package com.reetam.borealis.data;
 
+import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.data.provider.BorealisLangProvider;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisEntities;
@@ -33,6 +34,10 @@ public class BorealisLang extends BorealisLangProvider {
                 assumeItem(item);
             }
         }
+
+        add("item." + BorealisMod.MODID + ".frozen_food_prefix", "Frozen ");
+        add("item." + BorealisMod.MODID + ".frozen_food_suffix", "");
+        add("item." + BorealisMod.MODID + ".frozen_food_tooltip", "This item is frozen! Smelt it in a furnace to thaw it again.");
 
         add(BorealisEffects.MANIA.get(), "Mania");
         add(BorealisEffects.STATIC.get(), "Static");

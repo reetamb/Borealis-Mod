@@ -1,15 +1,21 @@
 package com.reetam.borealis.registry;
 
+import com.mojang.serialization.MapCodec;
 import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.block.kiln.KilnMenu;
 import com.reetam.borealis.block.kiln.KilnRecipe;
 import com.reetam.borealis.block.kiln.KilnScreen;
+import com.reetam.borealis.modify.recipe.ThawSmeltingRecipe;
+import com.reetam.borealis.modify.recipe.ThawSmeltingSerializer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.RecipeBookType;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SimpleCookingSerializer;
@@ -26,8 +32,11 @@ public class BorealisMenus {
     public static final DeferredHolder<MenuType<?>, MenuType<KilnMenu>> KILN_MENU = MENU_TYPES.register("kiln", () -> new MenuType<>(KilnMenu::new, FeatureFlags.VANILLA_SET));
     public static final DeferredHolder<RecipeType<?>, RecipeType<KilnRecipe>> KILN_RECIPE = RECIPE_TYPES.register("kiln", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "kiln")));
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<KilnRecipe>> KILN_SERIALIZER = RECIPE_SERIALIZERS.register("kiln", () -> new SimpleCookingSerializer<>(KilnRecipe::new, 100));
-
     public static final RecipeBookType KILN = RecipeBookType.valueOf("BOREALIS_KILN");
+
+    public static DeferredHolder<RecipeType<?>, RecipeType<ThawSmeltingRecipe>> THAW_SMELTING_RECIPE = RECIPE_TYPES.register("thaw_smelting", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(BorealisMod.MODID, "thaw_smelting")));
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ThawSmeltingRecipe>> THAW_SMELTING_SERIALIZER = RECIPE_SERIALIZERS.register("thaw_smelting", () -> new ThawSmeltingSerializer<>(ThawSmeltingRecipe::new));
+
     public static void registerMenuScreens(RegisterMenuScreensEvent event) {
         event.register(BorealisMenus.KILN_MENU.get(), KilnScreen::new);
     }

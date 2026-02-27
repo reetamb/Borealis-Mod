@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_16",
   "refmap": "borealis.refmap.json",
   "mixins": [
+    "MixinAbstractFurnaceBlockEntity",
+    "MixinItemStack",
     "MixinPlayer",
     "MixinServerLevel"
   ],

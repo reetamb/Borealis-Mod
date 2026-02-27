@@ -1,0 +1,6 @@
+{
+  "type": "borealis:thaw_smelting",
+  "component": "borealis:frozen_food",
+  "cookingtime": 200,
+  "experience": 0.1
+}

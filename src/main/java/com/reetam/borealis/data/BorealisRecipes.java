@@ -1,6 +1,8 @@
 package com.reetam.borealis.data;
 
 import com.reetam.borealis.data.provider.BorealisRecipeProvider;
+import com.reetam.borealis.modify.recipe.ThawSmeltingRecipe;
+import com.reetam.borealis.modify.recipe.ThawSmeltingRecipeBuilder;
 import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
 import net.minecraft.core.HolderLookup;
@@ -118,6 +120,8 @@ public class BorealisRecipes extends BorealisRecipeProvider {
         firing(Blocks.NETHERRACK, Items.NETHER_BRICK).save(consumer, name("nether_brick_from_firing"));
         firing(ItemTags.LOGS_THAT_BURN, Items.CHARCOAL).save(consumer, name("charcoal_from_firing"));
         firing(Items.CLAY_BALL, Items.BRICK).save(consumer, name("brick_from_firing"));
+
+        ThawSmeltingRecipeBuilder.generic(BorealisItems.Components.FROZEN.get(), 0.1F, 200, ThawSmeltingRecipe::new).save(consumer, name("thawing"));
 
         fireAllColors(consumer);
     }

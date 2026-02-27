@@ -15,6 +15,7 @@ public class KilnRecipe extends AbstractCookingRecipe {
     public ItemStack getToastSymbol() {
         return new ItemStack(BorealisBlocks.KILN.get());
     }
+
     @Override
     public RecipeSerializer<?> getSerializer() {
         return BorealisMenus.KILN_SERIALIZER.get();
