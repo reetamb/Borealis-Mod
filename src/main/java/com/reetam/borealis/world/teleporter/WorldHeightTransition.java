@@ -1,24 +1,20 @@
 package com.reetam.borealis.world.teleporter;
 
+import com.reetam.borealis.BorealisMod;
 import com.reetam.borealis.item.components.FrozenFoodType;
+import com.reetam.borealis.registry.BorealisBlocks;
 import com.reetam.borealis.registry.BorealisItems;
 import com.reetam.borealis.registry.BorealisTags;
 import com.reetam.borealis.registry.world.BorealisDimensions;
-import net.minecraft.core.component.DataComponentMap;
-import net.minecraft.core.component.DataComponentPatch;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class WorldHeightTransition {
 
@@ -28,12 +24,25 @@ public class WorldHeightTransition {
         freezeFood(entity);
         return new DimensionTransition(
                 destination,
-                pos.y() >= 32 ? pos : pos.add(0, 120 - pos.y(), 0),
+                pos.y() >= BorealisMod.MIN_HEIGHT + 32 ? pos : new Vec3(pos.x(), BorealisMod.MIN_HEIGHT+(0.375*BorealisMod.HEIGHT), pos.z()),
                 entity.getDeltaMovement(),
                 entity.getYRot(),
                 entity.getXRot(),
-                DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET)
+                DimensionTransition.PLAY_PORTAL_SOUND.then(WorldHeightTransition::placeCloud)
         );
+    }
+
+    private static DimensionTransition.PostDimensionTransition placeCloud(Entity entity) {
+        entity.placePortalTicket(BlockPos.containing(entity.position()));
+        int r = 2;
+        for (int i = -r; i <= r; i++) {
+            for (int j = -r; j <= r; j++) {
+                if (!(i*i+j*j <= r*r)) continue;
+                entity.level().setBlock(entity.getBlockPosBelowThatAffectsMyMovement().offset(i,0,j), BorealisBlocks.CLOUD.get().defaultBlockState(), 3);
+            }
+        }
+        entity.level().setBlock(entity.getBlockPosBelowThatAffectsMyMovement(), BorealisBlocks.CLOUD.get().defaultBlockState(), 3);
+        return DimensionTransition.PLACE_PORTAL_TICKET;
     }
 
     public static DimensionTransition toOverworld(ServerLevel level, Entity entity) {
