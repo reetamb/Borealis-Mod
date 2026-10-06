@@ -40,6 +40,7 @@ public class BorealisTags {
         public static final TagKey<Block> MINEABLE_WITH_SWORD = tag("mineable_with_sword");
 
         public static final TagKey<Block> SOAPSTONE_ORE_REPLACEABLES = tag("soapstone_ore_replaceables");
+        public static final TagKey<Block> CAVE_REPLACEABLES = tag("cave_replaceables");
 
         public static final TagKey<Block> BLOCKSET_BRUMAL = tag("blockset_brumal");
         public static final TagKey<Block> BLOCKSET_SWEETWOOD = tag("blockset_sweetwood");

@@ -1,5 +1,7 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": "borealis:general_caves"
+  },
   "downfall": 0.0,
   "effects": {
     "fog_color": 14134238,

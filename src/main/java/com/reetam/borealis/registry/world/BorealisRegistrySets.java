@@ -14,6 +14,7 @@ public class BorealisRegistrySets extends DatapackBuiltinEntriesProvider {
 
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.CONFIGURED_FEATURE, BorealisConfiguredFeatures::bootstrap)
+            .add(Registries.CONFIGURED_CARVER, BorealisCarvers::bootstrap)
             .add(Registries.PLACED_FEATURE, BorealisPlacedFeatures::bootstrap)
             .add(Registries.BIOME, BorealisBiomes::bootstrap)
             .add(Registries.NOISE_SETTINGS, BorealisWorld::bootstrapNoise)
