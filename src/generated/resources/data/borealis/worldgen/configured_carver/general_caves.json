@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:cave",
+  "config": {
+    "floor_level": {
+      "type": "minecraft:uniform",
+      "max_exclusive": 1.0,
+      "min_inclusive": 0.0
+    },
+    "horizontal_radius_multiplier": 1.5,
+    "lava_level": {
+      "above_bottom": 0
+    },
+    "probability": 0.15,
+    "replaceable": "#borealis:cave_replaceables",
+    "vertical_radius_multiplier": 2.0,
+    "y": {
+      "type": "minecraft:uniform",
+      "max_inclusive": {
+        "below_top": 0
+      },
+      "min_inclusive": {
+        "above_bottom": 0
+      }
+    },
+    "yScale": 1.25
+  }
+}
